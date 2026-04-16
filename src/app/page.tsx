@@ -323,9 +323,9 @@ export default function Home() {
                         <h2 style={{ fontSize: '3.6rem' }}>Customer Cases</h2>
                     </div>
                     <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {[1, 2, 3].map(i => (
+                        {[1, 2, 3, 4, 5, 6].map(i => (
                             <div key={i} className="case-card" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '300px' }}>
-                                <img src={`/cases/0${i}/case0${i}.png`} alt="Case" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <img src={`/cases/0${(i % 3) || 3}/case0${(i % 3) || 3}.png`} alt="Case" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 <div className="case-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', display: 'flex', alignItems: 'flex-end', padding: '30px' }}>
                                     <h3 style={{ color: '#fff', fontSize: '2rem' }}>Case Heading {i}</h3>
                                 </div>
@@ -336,15 +336,85 @@ export default function Home() {
             </section>
 
             {/* SCREEN 5: ABOUT US */}
-            <section className="aboutus-band" style={{ background: 'var(--primary)', color: '#fff', padding: '100px 0' }}>
-                <div className="container">
-                    <div style={{ maxWidth: '800px' }}>
+            <section className="aboutus-band" style={{ 
+                backgroundImage: 'url(/index/about_bg.jpg)', 
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative',
+                color: '#fff', 
+                height: '600px',
+                display: 'flex',
+                alignItems: 'center'
+            }}>
+                {/* Overlay for better text readability */}
+                <div style={{ 
+                    position: 'absolute', 
+                    inset: 0, 
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4), rgba(0,0,0,0.7))' 
+                }}></div>
+                
+                <div className="container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                    <div style={{ maxWidth: '900px' }}>
                         <h2 style={{ fontSize: '4.8rem', fontWeight: 900, marginBottom: '30px', color: '#fff' }}>ABOUT US</h2>
                         <p style={{ fontSize: '2rem', lineHeight: 1.6, marginBottom: '40px', opacity: 0.9 }}>N-TET is a technology-driven enterprise focused on low-altitude security systems, intelligent defense equipment, and integrated mission solutions. We combine R&D, engineering, and delivery to provide reliable deployment capabilities for critical infrastructure, major events, and emergency scenarios worldwide.</p>
-                        <div style={{ display: 'flex', gap: '20px' }}>
+                        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                             <a href="#" className="btn btn-orange">Product Center</a>
-                            <a href="#" className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)' }}>Learn More</a>
+                            <a href="#" className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>Learn More</a>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* SCREEN 6: NEWS */}
+            <section className="section-news" style={{ padding: '60px 0 100px', background: '#fff' }}>
+                <div className="container">
+                    <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
+                        <h2 style={{ fontSize: '3.6rem', fontWeight: 600, color: '#333', letterSpacing: '2px', textTransform: 'uppercase' }}>News</h2>
+                    </div>
+                    <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+                        {[
+                            { 
+                                title: "Unlocking the Full Value of Limestone! Industrial processing breakthroughs.", 
+                                date: "2026/04/15", 
+                                img: "/index/news_drone.png" 
+                            },
+                            { 
+                                title: "N-TET Heavy Industry sincerely invites you to Mining World Russia 2026.", 
+                                date: "2026/04/15", 
+                                img: "/index/news_drone.png" 
+                            },
+                            { 
+                                title: "N-TET sincerely invites you to Chihuahua International Convention of Mining.", 
+                                date: "2026/04/14", 
+                                img: "/index/news_drone.png" 
+                            }
+                        ].map((item, i) => (
+                            <div key={i} className="news-card" style={{ 
+                                background: '#f8f8f8', 
+                                border: '1px solid #eee',
+                                overflow: 'hidden', 
+                                transition: 'all 0.3s ease',
+                                cursor: 'pointer'
+                            }}>
+                                <div style={{ height: '220px', overflow: 'hidden' }}>
+                                    <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                                </div>
+                                <div style={{ padding: '25px' }}>
+                                    <h3 style={{ 
+                                        fontSize: '1.8rem', 
+                                        color: '#333', 
+                                        marginBottom: '15px', 
+                                        lineHeight: 1.4, 
+                                        fontWeight: 500, 
+                                        display: '-webkit-box', 
+                                        WebkitLineClamp: 2, 
+                                        WebkitBoxOrient: 'vertical', 
+                                        overflow: 'hidden' 
+                                    }}>{item.title}</h3>
+                                    <p style={{ color: '#999', fontSize: '1.4rem' }}>{item.date}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
