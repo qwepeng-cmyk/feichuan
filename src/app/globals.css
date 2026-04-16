@@ -165,12 +165,12 @@ header.scrolled .nav-item:hover { color: var(--accent); }
 .hero-subtitle { font-size: 20px; font-weight: 300; margin-bottom: 40px; max-width: 700px; color: #ffffff !important; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
 
 /* SECTION HEADERS */
-.section-header { text-align: center; margin-bottom: 60px; position: relative; padding-top: 40px; }
+.section-header { text-align: center; margin-bottom: 60px; position: relative; padding-top: 0; }
 .header-watermark { position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 120px; font-weight: 900; color: rgba(0, 0, 0, 0.03); text-transform: uppercase; line-height: 1; pointer-events: none; z-index: 0; white-space: nowrap; }
 .header-line { width: 80px; height: 4px; background: var(--accent); margin: 0 auto 20px; position: relative; }
 
 /* SOLUTIONS */
-.section-solutions { background: #ffffff; margin: 7.8rem auto; padding: 0; position: relative; }
+.section-solutions { background: #ffffff; margin: 4rem auto; padding: 0; position: relative; }
 .solutions-heading { text-align: center; font-size: 4.8rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2.4rem; }
 .solutions-track { display: flex; flex-wrap: nowrap; gap: 2rem; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; }
 .solution-card { position: relative; flex: 0 0 calc((100% - 6rem) / 4); aspect-ratio: 386 / 706; overflow: hidden; background: #c8d4e4; }

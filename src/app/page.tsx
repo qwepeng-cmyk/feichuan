@@ -257,7 +257,7 @@ export default function Home() {
             </section>
 
             {/* SCREEN 3: PRODUCT CENTER 2 */}
-            <section className="product-center-2" id="product-center-2" style={{ padding: '100px 0 40px', background: '#f2f6ff' }}>
+            <section className="product-center-2" id="product-center-2" style={{ padding: '50px 0 40px', background: '#f2f6ff' }}>
                 <div className="container">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '3.6rem', color: 'var(--primary)' }}>Product Center</h2>

@@ -5,3 +5,4 @@ node_modules/
 *.zip
 *.ps1
 extracted_contents.txt
+.env*
