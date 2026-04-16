@@ -1,0 +1,7 @@
+node_modules/
+.next/
+.DS_Store
+*.pptx
+*.zip
+*.ps1
+extracted_contents.txt
