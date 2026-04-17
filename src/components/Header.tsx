@@ -4,8 +4,11 @@ import React, { useEffect, useState } from 'react';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
+    const [isProductPage, setIsProductPage] = useState(false);
 
     useEffect(() => {
+        setIsProductPage(window.location.pathname.includes('/products/'));
+
         const handleScroll = () => {
             setScrolled(window.scrollY > 80);
         };
@@ -14,8 +17,11 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // If on product page and NOT scrolled, we still want a "dark" look (white bg, black text)
+    const headerClass = `site-header ${scrolled ? 'scrolled' : ''} ${isProductPage && !scrolled ? 'force-dark' : ''}`;
+
     return (
-        <header id="site-header" className={scrolled ? 'scrolled' : ''}>
+        <header id="site-header" className={headerClass}>
             <div className="container nav-container">
                 <a href="/" className="logo">
                     <img src="/logo.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    {template "meta.html"}
+</head>
+
+<body>
+    {template "header.html"}
+
+    <div class="inside_banner pic_m">
+        <div class="img">
+            {loop $banner $v}
+            <img class="hidden-sm" src="{dr_get_file($v[1])}" alt="">
+            <img class="visible-sm" src="{dr_get_file($v[2])}" alt="">
+            {/loop}
+        </div>
+        <div class="info commonweb">
+            <div class="stitle wow fadeInDown">{$cat.name}</div>
+            <div class="btitle wow fadeInUp">{$title}</div>
+        </div>
+    </div>
+    <div class="inside_subnav commonweb">
+        <div class="box flex">
+            {module module=cases catid=$catid order=displayorder_desc num=4}
+            <a href="{$t.url}" {if $t.id == $id}class="cur"{/if}>{$t.title}</a>
+            {/module}
+        </div>
+    </div>
+    {if $content_1}
+    <div class="solution_A flex commonweb">
+        {loop $content_1 $v}
+        <div class="left">
+            <div class="index_title">
+                <div class="btitle comtitle">{$v[1]}</div>
+            </div>
+            <div class="desc f18 wow fadeInUp">
+                {$v[2]}
+            </div>
+        </div>
+        <div class="right">
+            <div class="img"><img src="{dr_get_file($v[3])}" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        {/loop}
+    </div>
+    {/if}
+    {if $content_2 && $content_3}
+    <div class="solution_B commonweb">
+        <div class="hd flex">
+            <div class="index_title">
+                <div class="btitle comtitle">{$content_2}</div>
+            </div>
+            <div class="swiper-btn2">
+                <div class="swiper-button-prev btn">PREV</div>
+                <div class="swiper-button-next btn">NEXT</div>
+            </div>
+        </div>
+        <div class="bd wow fadeInUp">
+            <div class="mySwiper">
+                <div class="swiper-wrapper">
+                    {loop $content_3 $v}
+                    <div class="swiper-slide">
+                        <div class="box">
+                            <div class="name">{$v[1]}</div>
+                            <div class="text">
+                                {$v[2]}
+                            </div>
+                        </div>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+    </div>{/if}
+    {if $content_4}
+    <div class="solution_C commonweb">
+        <div class="index_title">
+            <div class="btitle comtitle">应用场景</div>
+        </div>
+        <div class="list ">
+            {loop $content_4 $key $v}
+            <dl class="flex wow fadeInUp">
+                <dt>
+                    <div class="num">0{$key}.</div>
+                </dt>
+                <dd>
+                    <div class="name">{$v[1]}</div>
+                    <div class="img"><img src="{dr_get_file($v[2])}" alt="" loading="lazy" decoding="async"></div>
+                </dd>
+            </dl>
+            {/loop}
+        </div>
+    </div>{/if}
+
+    {if $content_7}
+
+    <div class="solution_D commonweb">
+        <div class="index_title">
+            <div class="btitle comtitle">产品推荐</div>
+        </div>
+        <div class="bd wow fadeInUp">
+            <div class="mySwiper">
+                <div class="swiper-wrapper">
+                    {module module=product IN_id=$content_7 order=id_instr num=99}
+                    <div class="swiper-slide">
+                        <a href="{$t.url}">
+                            <div class="img"><img src="{dr_thumb($t.thumb)}" alt="" loading="lazy" decoding="async"></div>
+                            <div class="title">{$t.title}</div>
+                            <div class="more">详情<span class="iconfont icon-right15"></span></div>
+                        </a>
+                    </div>
+                    {/module}
+                    
+                </div>
+            </div>
+            <div class="swiper-page2"></div>
+        </div>
+    </div>
+    {/if}
+    {template "footer.html"}

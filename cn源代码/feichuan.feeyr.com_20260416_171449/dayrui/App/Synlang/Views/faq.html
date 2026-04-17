@@ -1,0 +1,355 @@
+{template "header.html"}
+<?php
+    $is_show = false;
+    if(is_file(APPPATH.'Config/Version.php')){
+        $config = require APPPATH.'Config/Version.php';
+        $downtime = new DateTime($config['downtime']);
+        $oneMonthLater = (clone $downtime)->modify('+1 month');
+        $now = new DateTime();
+        if (isset($config['downtime']) && $config['downtime'] && $now > $oneMonthLater) {
+            $is_show = true;
+        }
+    }
+?>
+
+
+<div class="note note-danger" style="display:none">
+    <p><a href="javascript:dr_update_cache();">{dr_lang('更改数据之后需要更新缓存之后才能生效')}</a></p>
+</div>
+
+
+<div class="note note-warning">
+    【译文分表】 旧版本的插件进行翻译内容分表存储，新安装插件不需要操作 <a href="{dr_url('synlang/split/index')}" class="btn btn-xs red">分表操作</a>
+
+</div>
+
+<form action="" class="form-horizontal" method="post" name="myform" id="myform">
+    {$form}
+
+
+    <div class="portlet bordered light ">
+        <div class="portlet-body">
+
+{code}
+    <div class="form-body row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:230px; background: #03a193;">标签名</th>
+                    <th style="width:300px; background: #03a193;">说明</th>
+                    <th style="background: #03a193;">使用方法</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 配置说明 -->
+                <tr>
+                    <td>配置说明</td>
+                    <td>初始化操作</td>
+                    <td>
+                        <ol>
+                            <li>插件配置 - api 接口 - 填写好接口密钥 - 测试翻译 <span>* 注意前后不要存在空格</span></li>
+                            <li>插件配置 - 语言设置 <span>* 勾选需要的语言</span></li>
+                            <li>语言分站 - 创建子站 - 填写信息 - 保存</li>
+                            <li>选择子站语言 - 保存</li>
+                            <li>生成站点目录</li>
+                            <li>语言分站 - 配置伪静态 - 伪静态规则 - 检测伪静态
+                                <br/>
+                                伪静态【仅参考，规则使用上一面路径获取】 <span>* 主站配置方法 <a href="https://www.xunruicms.com/book/5/38.html" target="_blank">https://www.xunruicms.com/book/5/38.html</a></span></li>
+                        </ol>
+                    </td>
+                </tr>
+                <!-- 路径设置 -->
+                <tr>
+                    <td>路径设置</td>
+                    <td>
+                        保证多语言环境下的路径正确性<br>
+                        <span>* 必须</span>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>系统 - 系统参数 - 地址设置 - 资源路径 - <a href="?c=system&m=index&page=3#tab_3"><span>绝对路径</span></a></li>
+                            <li>系统 - 系统参数 - 地址设置 - URL 路径 - <a href="?c=system&m=index&page=3#tab_3"><span>绝对路径</span></a></li>
+                        </ol>
+                    </td>
+                </tr>
+
+                <!-- 兼容替换 -->
+                <tr>
+                    <td>{SYN_URL}</td>
+                    <td>当前站点首页<br>
+                        <span>* 必须</span>
+                    </td>
+                    <td>
+                        在模板中，将所有的 {SITE_URL} 替换为{CLIENT_URL} 或者 {SYN_URL} 【<span>哪个解析对就用哪个</span>，理论上都对】                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>搜索页修改 search.html</td>
+                    <td>让子站支持内容搜索<span>【仅标题】</span><br>
+                        <span>* 必须</span>
+                    </td>
+                    <td>
+配合修改搜索框 <span>form</span> 的 <span>action="/index.php"</span> 也改成 <span>action="{CLIENT_URL}"</span>  或者 <span>action="{SYN_URL}"</span>
+<br/>
+<br/>
+<span>search.html</span> 模板直接给search标签增加红色部分参数
+<pre>
+{search module=MOD_DIR <span>app=synlang</span> id=$searchid order=$params.order catid=$catid page=1 pagesize=2 urlrule=$urlrule}
+    {$t.url}{$t.id}-{$t.title}
+{/search}
+</pre>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+关于搜索 由于需要重新标记 所以需要 <span>访问一遍内页</span> 才能搜索到结果；可以执行左边 <span>预翻译处理</span>；
+                    </td>
+                </tr>
+                <!-- 当前站点参数 -->
+            </tbody>
+        </table>
+
+<div class="note note-warning">
+上面是配置流程和必须操作，下面是一些常见使用问题
+</div>
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width:230px;">标签名</th>
+                    <th style="width:300px;">说明</th>
+                    <th>使用方法</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+
+
+                <tr>
+                    <td>
+                        插件内置标签
+                    </td>
+                    <td>
+                        当前站点<br/>
+                        名称、国旗、网址、目录、语言标识和域名部分</td>
+                    <td>
+                        如 {SYN_NAME} 显示站点名称<br>
+
+
+                        名称：{SYN_NAME}<br>
+                        国旗：{SYN_GUOQI}<br>
+                        首页：{SYN_URL}<br>
+                        目录：{SYN_DIR}<br>
+                        语言标识：{SYN_LANG}<br>
+                        域名部分：{SYN_DOMAIN}
+
+                    </td>
+                </tr>
+                <!-- 所有站点 -->
+                <tr>
+                    <td>{$synloop}</td>
+                    <td>
+                        循环显示<br/>
+                        站点的相关信息，包括站点 SEO 标题、名称、国旗、网址等</td>
+                    <td>
+                        <pre>
+{notrans}
+    {loop $synloop $t}
+        &lt;p>站点SEO标题：{$t.title}&lt;/p>
+        &lt;p>站点名称：{$t.name}&lt;/p>
+        &lt;p>站点国旗：{$t.guoqi}&lt;/p>
+        &lt;p>站点网址：{$t.url}&lt;/p>
+        &lt;p>站点目录：{$t.dir}&lt;/p>
+        &lt;p>站点语言标识：{$t.lang}&lt;/p>
+        &lt;p>站点域名部分：{$t.domain}&lt;/p>
+        &lt;p>当前页面对应其他语言地址：{dr_rp(dr_now_url(),SYN_DOMAIN,$t.domain)}&lt;/p>
+    {/loop}
+{/notrans}
+                        </pre>
+                    </td>
+                </tr>
+                <!-- 不翻译标签 -->
+                <tr>
+                    <td>{notrans}</td>
+                    <td>标签内的文字不会被翻译，但在句子中使用可能出现零碎单词的切割问题</td>
+                    <td>使用示例：{notrans}你不想被翻译的内容{/notrans}</td>
+                </tr>
+                <!-- 翻译函数 -->
+                <tr>
+                    <td>{dr_synlang($html, 'jp')}</td>
+                    <td>主要用于 JS 代码内某些字符翻译，不建议在页面中调用，会出现重复翻译</td>
+                    <td>
+                        <pre>
+{dr_synlang($html, $to, $from='auto')}
+{dr_synlang(翻译内容, 要翻译的语言编码, 源语言编码)}
+源语言编码 $from 默认为自动识别
+示例：{dr_synlang($html, 'jp')} 或 {dr_synlang($html, {SYN_LANG})}
+                        </pre>
+                    </td>
+                </tr>
+                <!-- 分页标签 -->
+                <tr>
+                    <td>{dr_synlang_pages($pages)}</td>
+                    <td>在目录模式下<br>
+                        <span>* 当分页出现异常时使用该替换</span></td>
+                    <td>
+                        在模板中，将 {$pages} 替换为 {dr_synlang_pages($pages)}<br>
+                        * 最新版本CMS：开启<span>绝对路径</span>之后不再需要替换；
+                    </td>
+                </tr>
+                <!-- 栏目外链修正 -->
+                <tr>
+                    <td>{dr_to_url($t.url)}</td>
+                    <td>在目录模式下，当存在栏目外链跳转时需要进行的修正操作</td>
+                    <td>在模板中，将 {$t.url} 替换为 {dr_to_url($t.url)}</td>
+                </tr>
+                <tr>
+                    <td>{dr_url_full($t.url)}</td>
+                    <td>用于地址补全的函数</td>
+                    <td>使用方法：{dr_url_full($url)}，例如将 /index.php?s=news 补全为 http://www.xxx.com/index.php?s=news</td>
+                </tr>
+                <!-- 详情页内容图片显示破图 -->
+                <tr>
+                    <td>{dr_text_full($content)}</td>
+                    <td>当详情页内容图片显示破图时，用于修正图片路径</td>
+                    <td>在模板中，将 {$content} 标签替换为 {dr_text_full($content)}</td>
+                </tr>
+                <!-- Form 表单提示语翻译 -->
+                <tr>
+                    <td>form 表单JS提示翻译</td>
+                    <td>表单提示语的翻译，提高表单在多语言环境下的用户体验<br>
+                        <span>网站没使用表单可以不操作</span></td>
+                    <td>
+                        <pre>
+    <!-- 系统懒人版js(所有自建模板引用) -->
+    &lt;script type="text/javascript">var is_mobile_cms = '{IS_MOBILE}';var web_dir = '{WEB_DIR}';&lt;/script>
+    &lt;script src="{LANG_PATH}lang.js" type="text/javascript">&lt;/script>
+    &lt;script src="{THEME_PATH}assets/global/plugins/jquery.min.js" type="text/javascript">&lt;/script>
+<span>
+    &lt;script type="text/javascript">
+    &lt;?php
+        $Texts = [
+            "没有引用jquery库",
+            "确定",
+            "取消",
+            "提示",
+            "查看",
+            "系统崩溃，请检查错误日志",
+            "用户注册协议",
+            "这是一个自定义函数",
+            "表单id属性已重复定义",
+            "表单id属性不存在",
+            "有必填字段未填写，确认提交吗？",
+            "最多输入500个字数",
+            "当前图片地址异常&lt;br>是否继续查看下一张？",
+            "下一张",
+            "不看了",
+            "退出成功"
+        ];
+        foreach ($Texts as $v) {
+            echo 'lang["'.$v.'"] = "'.dr_synlang($v, SYN_LANG).'";';
+        }
+    ?>
+    &lt;/script>
+</span>
+    &lt;script src="{THEME_PATH}assets/js/cms.js" type="text/javascript">&lt;/script>
+<span>
+    &lt;script type="text/javascript">
+        function dr_cmf_tips(code, msg, time) {
+            $.ajax({
+                url: '/index.php?s=synlang&c=lang&m=tips&lang={SYN_LANG}',
+                type: 'POST',
+                data: { data: msg },
+                async: false,
+                success: function(json) {
+                    if (json.data) {
+                        dr_tips(code, dr_lang(json.data), time);
+                        return;
+                    }else{
+                        dr_tips(code, dr_lang(msg), time);
+                    }
+                }
+            });
+        }
+    &lt;/script>
+</span>
+    <!-- 系统懒人版js结束 -->
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{/code}</div></div>
+</form>
+
+<style type="text/css">
+    form .portlet.light .portlet-body{
+        padding: 20px;
+    }
+    table.table-bordered {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table.table-bordered th,
+    table.table-bordered td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left!important;
+        padding: 10px 20px!important;
+        white-space:normal;
+        text-overflow:inherit;
+    }
+
+    table.table-bordered th {
+        background-color: #fcfcfc;
+        color: #2890ff;
+    }
+    table.table-bordered td span,
+    table.table-bordered th span {
+        color: #f00;
+    }
+    table.table-bordered td pre {
+        margin: 0;
+    }
+
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            cursor: pointer;
+        }
+       /* 单行（奇数行）样式 */
+        table.table-bordered tr:nth-child(odd) td {
+            background-color: #f2f2f2;
+        }
+
+        /* 双行（偶数行）样式 */
+        table.table-bordered tr:nth-child(even) td {
+            background-color: #fff;
+        }
+
+        /* 鼠标悬浮时的样式 */
+        table.table-bordered tr:hover td {
+            background-color: #e6f7ff; /* 悬浮时的背景颜色 */
+            transition: background-color 0.3s ease; /* 添加过渡效果使颜色变化更平滑 */
+        }
+
+        /* 保持表头的样式不变 */
+        table.table-bordered th {
+            background-color: #4a90e2;
+            color: white;
+        }
+</style>
+
+{template "footer.html"}

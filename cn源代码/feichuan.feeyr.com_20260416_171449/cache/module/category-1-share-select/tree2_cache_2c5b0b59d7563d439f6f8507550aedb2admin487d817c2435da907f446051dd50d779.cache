@@ -1,0 +1,25 @@
+<select class="bs-select form-control" name="catid">
+<option value='0'>顶级栏目</option>
+<option _selected_1_ value='1'>产品中心</option>
+<option _selected_6_ value='6'>&nbsp;&nbsp;├&nbsp;无人机</option>
+<option _selected_17_ value='17'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├&nbsp;多旋翼无人机</option>
+<option _selected_18_ value='18'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└&nbsp;复合翼无人机</option>
+<option _selected_7_ value='7'>&nbsp;&nbsp;├&nbsp;反无设备</option>
+<option _selected_8_ value='8'>&nbsp;&nbsp;├&nbsp;智慧警务</option>
+<option _selected_9_ value='9'>&nbsp;&nbsp;├&nbsp;工程补给</option>
+<option _selected_10_ value='10'>&nbsp;&nbsp;├&nbsp;野战医院</option>
+<option _selected_11_ value='11'>&nbsp;&nbsp;└&nbsp;要地防护</option>
+<option _selected_2_ value='2'>解决方案</option>
+<option _selected_3_ value='3'>新闻资讯</option>
+<option _selected_12_ value='12'>&nbsp;&nbsp;├&nbsp;企业动态</option>
+<option _selected_13_ value='13'>&nbsp;&nbsp;├&nbsp;行业资讯</option>
+<option _selected_14_ value='14'>&nbsp;&nbsp;└&nbsp;视频中心</option>
+<option _selected_4_ value='4'>关于我们</option>
+<option _selected_5_ value='5'>联系我们</option>
+<option _selected_15_ value='15'>&nbsp;&nbsp;├&nbsp;联系信息</option>
+<option _selected_16_ value='16'>&nbsp;&nbsp;└&nbsp;加入我们</option>
+</select>
+<script type="text/javascript"> var bs_selectAllText = '全选';var bs_deselectAllText = '全删';var bs_noneSelectedText = '没有选择'; var bs_noneResultsText = '没有找到 {0}';</script>
+<link href="/static/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+<script src="/static/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+<script type="text/javascript"> jQuery(document).ready(function() { $('.bs-select').selectpicker();  }); </script>

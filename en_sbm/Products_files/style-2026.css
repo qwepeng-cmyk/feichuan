@@ -1,0 +1,5606 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+  font-family: "Roboto Regular";
+  src: url(fonts/Roboto/Roboto-Regular.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto Black";
+  src: url(fonts/Roboto/Roboto-Black.ttf);
+  font-display: swap;
+}
+* {
+  border: none;
+  color: #525a66;
+  font-family: Roboto, "Roboto Regular", "Roboto Medium", "Roboto Black";
+  font-size: 1.8rem;
+  line-height: 1.5em;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+h2, h2 a, h1 {
+  font-size: 4.8rem;
+}
+h2, h2 a {
+  line-height: 1em;
+  text-transform: capitalize;
+}
+h2, h2 a {
+  line-height: 1.1;
+}
+h3, h3 a {
+  font-size: 3.2rem;
+}
+h4, h4 a, h4 span, .list_conveyors p, .product_key li, .epco_bottom_about li, .list_news_menu li a, .anout_middle .swiper-slide p strong, .clo_top_left p, .aboutus-info p, .news-nav li a, .news-nav li, .tab_menu_nk li a {
+  font-size: 2.4rem;
+}
+h4, h4 a, h4 span, .powders-banner h1 {
+  font-weight: 400;
+}
+h1, h2, h3, h2 a, h3 a, h4, h4 a, h5, .list_solution h2 a, .case_top_middle li strong {
+  color: #000f24;
+}
+p {
+  font-family: "Roboto Regular";
+}
+.box_width_index {
+  max-width: 1642px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.box_width {
+  max-width: 1240px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.pull_left, .nav li, .banner_mining_text li, .list_materials li, .list_mining_bottom .tab-menu li, .list_mining_offer li, .list_mining_cases li, .list_powder_about li, .list_product_top li, .list_product li, .related_cases li, .list_case_ul li, .epco_bottom li, .lot_middle ul > li, .life_cycle_middle li, .localized_middle li, .filterBlog-box > li, .materials-nav li, .news-nav li, .language_list > li, .tab_nav_product li {
+  float: left;
+}
+.pull_right, .p_advantages_bottom li:nth-child(2n), .related_cases li:nth-child(2n), .epco_bottom li:nth-child(2n), .anout_middle .swiper-slide p span {
+  float: right;
+}
+.clear, .trunel_related_cases li:nth-child(2n+1) {
+  clear: both;
+}
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+/**************************************************************/
+.header_top {
+  background: #515151;
+}
+.header_top_left li a, .header_top_right li a, .nav_language > a, .header_top_left li span {
+  color: #b5b5b5;
+  font-size: 1.4rem;
+  line-height: 3.6rem;
+}
+.header_top_right, .header_top_left, .solution_middle_bottom, .aggregate_top_materials, .banner_mining_text ul, .list_materials ul, .list_mining_bottom .tab-menu, .list_mining_offer ul, .list_mining_cases ul, .list_powder_about ul, .list_product_top2 ul, .list_beneficiation_top, .list_beneficiation_bottom, .subnav_series, .product_ico, .product_configurations ul, .list_case_bottom_top, .list_case_ul ul, .epco_top ul, .lot_middle ul, .lot_list ul, .life_cycle_bottom .box_width, .list_parts .tab-pane ul, .contact_top .box_width, .list_news_menu ul, .list_news ul, .about_top ul, .blog_box, .list_blog li, .col_top .box_width_index, .cases ul, .materials-list_top, .aboutus-info_right, .cooperators .text, .news-list, .localized_middle ul, .smp_list ul, .smp_list_product ul, .materials_top .box_width, .case_top .box, .p_advantages_bottom, .p_advantages2 .p_advantages_box, .language_list > ul, .list_ebook ul, .ebook_top .box_width, .smp_top ul, .product_service_list ul, .product_Applications ul, .mill_bottom ul, .mill_top .tab-wrapper, .mill_banner ul, .mill_banner .text .box_width, .material_ore_middle .tab-wrapper, .material_ore_top ul, .material_ore_bottom ul, .trunel_service_list ul, .tunnel_Applications ul, .Models_advantages_list,.material_ore_list ul {
+  display: flex;
+}
+.list_materials ul, .list_mining_offer ul, .list_case_ul ul, .epco_top ul, .lot_middle ul, .lot_list ul, .life_cycle_bottom .box_width, .list_parts .tab-pane ul, .contact_top .box_width, .about_top ul, .blog_box, .list_blog li, .col_top .box_width_index, .cases ul, .materials-list_top, .aboutus-info_right, .cooperators .text, .localized_middle ul, .smp_list ul, .smp_list_product ul, .list_news ul, .materials_top .box_width, .materials_top_swiper .swiper-wrapper, .case_top .box, .p_advantages_bottom, .p_advantages2 .p_advantages_box, .language_list > ul, .list_ebook ul, .ebook_top .box_width, .smp_top ul, .product_service_list ul, .product_Applications ul, .mill_bottom ul, .mill_banner ul, .mill_banner .text .box_width, .g_mining_midlle ul, .material_ore_middle .tab-wrapper, .material_ore_bottom ul, .Models_advantages_list ,.material_ore_list ul{
+  flex-wrap: wrap;
+}
+.header_top_left > li, .header_top_right li {
+  display: block;
+  padding-right: 2rem;
+  margin-right: 2rem;
+}
+.header_top_left li, .header_top_right li, body, .header_top .box_width, .material_ore_bottom h4 {
+  position: relative;
+}
+.header_top_left > li:nth-child(1):after, .header_top_right li:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background-color: #797979;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.header_top_left li span {
+  background: url(../images/nav/sub_menu.png) no-repeat right center;
+  padding-right: 2rem;
+  background-size: 1.9rem auto;
+}
+.header_top_left ol {
+  position: absolute;
+  display: none;
+  background: #fff;
+  top: 3.6rem;
+  left: -2rem;
+  width: 22rem;
+  z-index: 1000;
+  box-shadow: 0 5px 8px rgba(102, 102, 102, .35);
+  padding: 1.6rem 2rem;
+}
+.header_top_left li ol a {
+  color: #525a66;
+}
+.ul_box {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 8rem;
+  z-index: 11;
+  width: 100%;
+}
+.ul_box {
+  background-color: #fff;
+  position: absolute;
+  z-index: 1000;
+  top: 3.6rem;
+  right: 0;
+  left: auto;
+  width: 30rem;
+  padding: 2rem 3.6rem;
+  box-shadow: 0 .5rem 0.8rem rgba(102, 102, 102, .35);
+}
+.ul_box li {
+  padding-left: 2.4rem;
+  background: url(../images/nav/languagebg.webp) center left no-repeat;
+}
+.ul_box li a {
+  color: #274899;
+  line-height: 3.2rem;
+}
+#header .box_width {
+  overflow: visible;
+}
+.affix {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;
+}
+.affix .dropdown_box, .affix .nav_search_bg {
+  top: 6rem;
+}
+#pull, .menu_ul, .solution_swiper, .list_solution_bottom .swiper-pagination, .bottom_more_btn, .online_cta, .tab-content .tab-pane, .tab_menu_left p, .tab_menu_left .more, /*.list_product_top .hide_img, .list_product_top li:hover img,*/ .checkbox_left i, .service_swiper .swiper-pagination, .related_cases .text, .product_part .bottom_more_btn, .list_case_middle .swiper-pagination, .tab_menu_left_img, .tab_nav_hide, .lot_middle_2 h4, .news-list_right .more, .smp_middle img, .mk_middle .tab-pane, .mk_bottom p, .life_cycle_bottom .tab-pane, .case_advantages p, .case_top_middle .ul_img img, .banner_product.banner_2 .banner_swiper, #LRfloater0, .tab-menu_smp p, .smp_configuration .tab-menu_smp img, .tab_nav_product .hide_img, .tab_nav_product li:hover img, .product_page_series, .tunnel_series {
+  display: none;
+}
+.logo {
+  width: 8rem;
+}
+.logo img, .nav .whatsapp:hover span, .nav_search_bg.show, .dropdown img, .banner img, .list_solution_top img, .list_solution_middle img, .list_solution_bottom img, .tab-content .active, .tab_menu_left li.active p, .tab_menu_left .active .more, .list_mining_cases img, .list_powder_top .active .more, .list_powder_middle .more, .list_powder_about_bottom img, .topswiper img, .topswiper2 img, /* .list_product_top img, .list_product_top li:hover .hide_img,*/ .list_product img, .list_beneficiation .img_box:hover span, .product_middle img, .service_list img, .service_list span, .product_part img, .product_key img, .related_cases img, .related_cases li:hover .text, .related_cases_smp .swiper-slide:hover .text, .product_top img, .product_configurations img, .list_case_ul img, .list_case_middle img, .list_case_right img, .epco_bottom img, .epco_bottom_about img, .epco_blog img, .lot_middle_2 img, .lot_bottom img, .lot_list img, .life_cycle_top img, .life_cycle_bottom img, .list_news_top_box img, .about_top big, .anout_middle img, .about_bottom img, .list_blog_left img, .list_blog_middle img, .list_blog img, .products img, .col_top img, .cases .tab-pane li img, .col_bottom img, .news-list_left img, video, .news-list_right .swiper-slide:hover .more, .smp_list_product img, .smp_middle .active img, .mk_middle .active .tab-pane, .mk_bottom .active p, .nk_case img, .nk_parameterse, .nk_bottom img, .list_news_top .more, .list_news img, .life_cycle_bottom .active .tab-pane, .case_top .img_box img, .case_advantages .active p, .case_top_middle .ul_img .active img, .ore_banner span, .p_advantages2 img, .smp_configuration img, .tab-menu_smp .active p, .product_Applications img, .mill_middle img, .mill_banner img, .tab_nav_product li.active:hover img, .tab_nav_product li:hover .hide_img, .mill_top img, .material_ore_middle img {
+  display: block;
+}
+.nav_ul > li > a, .list_case_top li a {
+  display: block;
+  line-height: 6rem;
+  font-size: 2rem;
+  padding: 0 2.4rem;
+}
+.nav_ul .active > a, .nav_ul > li:hover > a {
+  color: #fff;
+  background: #003f98;
+}
+.nav .whatsapp {
+  width: 3.2rem;
+  margin: 1.6rem 2rem 0;
+  position: relative;
+}
+.nav .whatsapp span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 4rem;
+  display: none;
+  z-index: 9999;
+  background: #25d366;
+  line-height: 4rem;
+  border-radius: 2rem;
+  padding: 0 2rem;
+  color: #fff;
+  white-space: nowrap;
+}
+.nav_search img {
+  width: 3.2rem;
+  margin: 1.6rem 2.2rem 0;
+}
+.search_img.active:before {
+  content: "";
+  position: absolute;
+  left: -0.2rem;
+  top: -0.2rem;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  background: #f2f6ff;
+  border-radius: 50%;
+  margin: 1.6rem 2.2rem 0;
+  z-index: -1;
+}
+.nav_search_btn .submit {
+  display: block;
+  height: 6rem;
+  width: 3.2rem;
+  background: url(../images/nav/search.png) no-repeat center;
+  background-size: 100% auto;
+  margin: 0 1.6rem;
+}
+.nav_search_box {
+  background: #fff;
+  padding: 4rem 0;
+}
+.nav_search_btn {
+  width: 60rem;
+  margin: 0 auto;
+  border: 1px solid #848a92;
+  border-radius: 0.4rem;
+  display: flex;
+}
+.nav_search_btn input.text {
+  background: #fff;
+  width: calc(100% - 6.4rem);
+  line-height: 5.8rem;
+  padding: 0 2rem;
+  border-radius: 0.4rem;
+  font-size: 2.4rem;
+}
+.nav_search_btn .submit {
+  width: 3.2rem;
+  height: 6rem;
+  background: url(../images/nav/search.png) no-repeat center;
+  background-size: 100% auto;
+}
+.dropdown_box, .nav_search_bg {
+  display: none;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 9.6rem;
+  z-index: 999;
+}
+.dropdown {
+  background: #f2f6ff;
+  padding: 3rem 0 4rem;
+} /*.dropdown_box_product{
+	display: block !important;
+}*/
+.dropdown h4 {
+  margin-bottom: 1.4rem;
+}
+.dropdown ul, .tab_nav, .list_solution ul, .f_middle, .g_mining_midlle ul {
+  display: flex;
+}
+.dropdown li {
+  float: none;
+}
+.menu_ul_a li, .list_materials li, .list_mining_top .text, .list_mining_offer li, .list_mining_cases li, .list_powder_middle_left, .list_powder_about_top li, .product_configurations li, .list_case_ul li, .epco_top li, .epco_bottom_about .text, .lot_middle ul > li, .lot_middle_2 .text, .lot_list li, .life_cycle_middle .text, .life_cycle_left, .anout_middle .text, .list_blog li > a, .cases .tab-pane li, .smp_list li, .language_list > ul > li, .list_ebook li, .smp_top li, .list_product_bottom li, .product_Applications li, .mill_bottom li, .mill_banner li, .material_ore_middle .mill_top_left, .material_ore_bottom li {
+  width: 32.26%;
+  margin-right: 1.61%;
+}
+/*.menu_ul_b li {
+	width: 18.70%;
+	margin-right: 1.625%;
+}*/
+.menu_ul_c li, .tab_nav_beneficiation2 li, .list_parts .tab-pane li, .filterBlog-box > li, .clo_top_left, .tab_nav_tunnel li {
+  width: 23.87%;
+  margin-right: 1.5%;
+}
+.tab_nav_beneficiation3 li {
+  width: 15.0%;
+}
+.tab_nav_beneficiation3 li:nth-child(5) {
+  width: 34%;
+}
+.tab_nav_tunnel li:last-child, .tab_nav_xuankuang li:nth-child(2) {
+  width: 30%;
+}
+.tab_nav_xuankuang li:nth-child(1){
+	width: 28%;	
+}
+.menu_ul_a li:nth-child(3), .menu_ul_c li:nth-child(4), /* .menu_ul_b li:nth-child(5),*/ .tab_nav_solution li:nth-child(3), .list_solution_top .li_d, .solution_top_bottom li:nth-child(4), .list_solution_middle li:nth-child(4), .aggregate_top_materials li:nth-child(3), .list_aggregate_bottom .tab-menu li:nth-child(4), .banner_mining_text li:nth-child(6), .list_materials li:nth-child(3n), .list_mining_bottom .tab-menu li:nth-child(4), .list_mining_offer li:nth-child(3n), .list_mining_cases li:nth-child(3n), .list_powder_about_top li:nth-child(3n), .list_powder_about_bottom li:nth-child(6), .list_product_top li:nth-child(4n), .tab_nav_beneficiation2 li:nth-child(4n), .tab_nav_bulk li:nth-child(6), .subnav_series li:last-child, .product_configurations li:nth-child(3), .list_case_ul li:nth-child(3n), .epco_top li:nth-child(3n), .lot_middle ul > li:nth-child(3), .lot_list li:nth-child(3), .life_cycle_middle li:nth-child(2n), .localized_middle li:nth-child(2n), .list_parts .tab-pane li:nth-child(4n), .list_materials_bottom li:last-child, .about_top li:last-child, .cases .tab-pane li:nth-child(3n), .smp_list li:nth-child(3n), .smp_list_product li:nth-child(4), .tab_nav_beneficiation3 li:nth-child(5), .language_list > ul > li:nth-child(3n), .list_ebook li:nth-child(3n), .smp_top li:nth-child(3n), .list_product_bottom li:nth-child(3n), .product_Applications li:nth-child(3n), .mill_bottom li:nth-child(3n), .mill_banner li:nth-child(3n), .material_ore_top li:last-child, .material_ore_bottom li:nth-child(3n), .trunel_service_list li:nth-child(4), .tunnel_Applications li:nth-child(3), .tab_nav_tunnel li:last-child {
+  margin-right: 0;
+}
+.tab_nav_beneficiation3 li:nth-child(4) {
+  margin-right: 1.5%;
+}
+.dropdown li h4 a {
+  padding-right: 3.5rem
+}
+.dropdown li:hover h4 a {
+  color: #3671cf;
+  background: url(../images/nav/more_ico_pc.png) no-repeat right center;
+  background-size: 2.4rem auto;
+}
+/*********menu_ul_b***********/
+.menu_ul_b {
+  border-top: 1px solid #DEECF9;
+  border-bottom: 1px solid #DEECF9;
+  background: #fff;
+}
+.menu_ul_b ol li a {
+  color: #525A66;
+  display: block;
+  font-size: 1.6rem;
+  transition: all ease-out 0.3s;
+}
+.menu_ul_b ol li:hover a ,.websitemap a:hover{
+  color: #2A82E4;
+  text-decoration: underline;
+}
+.menu_ul_b h4 {
+  font-size: 2rem;
+  color: #3671CF;
+  border-bottom: 1px solid #3671CF;
+  padding-bottom: 0.8rem;
+}
+.menu_ul_b_left {
+  width: 42.34%;
+  margin-right: 9.64%;
+}
+.menu_ul_b_midlle,.menu_ul_b_middle  {
+  width: 20.32%;
+}
+.menu_ul_b_right {
+  width: 18.06%;
+}
+.menu_ul_b_left ul {
+  display: inline;
+}
+.menu_ul_b_left ul > li {
+  width: 46%;
+  float: left;
+}
+.menu_ul_b_left ul > li:nth-child(1) {
+  margin-right: 8%;
+}
+.menu_ul_b h5 {
+  margin-bottom: 0.4rem;
+}
+.menu_ul_b_left ul > li:nth-child(3), .menu_ul_b_right2 {
+  margin-top: 2rem;
+}
+.menu_ul_b_middle .more {
+  color: #3671CF;
+}
+/*********menu_ul_b  end***********/
+.subnav {
+  background: #f2f6ff;
+  padding: 0.6rem 0;
+}
+.subnav p a {
+  color: #3671cf;
+}
+/*-------header_end------------- */
+.banner {
+  position: relative;
+  overflow: hidden;
+}
+.banner img, .smp_list_product img {
+  display: block;
+  margin: 0 auto;
+}
+.banner img {
+  width: 100%;
+}
+.banner_b_text, .banner_mining_text, .list_mining_top, .list_mining_cases, .list_powder_bottom2 {
+  background: #f2f6ff;
+  padding: 3.6rem 0;
+}
+.banner_b_text p, .list_aggregate_bottom p, .list_powder_top p, .list_powder_bottom2 p, .form_box p, .lot_middle p, .lot_list .box_width > p, .life_cycle_top p, .about_top p, .about_bottom p, .mk_top p {
+  width: 82%;
+  margin: 0 auto;
+  line-height: 3rem;
+  text-align: center;
+}
+.tab_menu_box, .tab_menu_box2, .epco_top li:nth-child(n+2), .list_news_menu {
+  background: #deecf9;
+  text-align: center;
+}
+.tab_nav_solution {
+  width: 70.170%;
+  margin: 0 auto;
+}
+.tab_nav_solution li {
+  width: 31.73%;
+  margin-right: 2.42%;
+}
+.tab_nav_solution li a, .list_news_menu li a, .language_nav li a {
+  color: #3671cf;
+  font-size: 2.4rem;
+  display: block;
+  line-height: 6rem;
+}
+.tab_nav li.active a, .tab-menu_lot li.active, .list_parts .tab-menu li.active, .anout_middle .more:hover, .tab_nav_hide .active a, .tab_nav_hide_parts li.active, .mk_middle li.active > h4, .mk_bottom .active h4, .materials-nav li:hover a, .language_nav li.active, .list_ebook li:hover,.tab_nav_material li.active:hover a {
+  color: #fff;
+  background: #3671cf;
+}
+p:first-letter, .list_solution h2 a, .list_product h2, .list_product h2 a, .product_bottom_parts h2, .anout_middle h2, .about_bottom h2  {
+  text-transform: uppercase;
+}
+.list_solution, .list_materials, .list_mining_bottom, .list_powder_middle, .list_powder_bottom, .list_product, .list_conveyors li, .p_advantages, .service_list, .product_part, .product_key, .product_middle, .list_case, .epco_top, .epco_bottom, .epco_bottom_about, .epco_blog, .lot_middle, .lot_bottom, .lot_list, .life_cycle_middle, .life_cycle_bottom, .localized_middle, .localized_bottom, .list_parts, .contact_middle, .anout_middle, .list_blog_top, .list_blog_bottom, .col_top, .cases, .materials, .news, .smp_top, .smp_table, .smp_list_product, .mk_top, .mk_bottom, .nk_top, .nk_middle, .nk_bottom, .nk_case, .nk_parameterse, .nk-youshi, .content_wrap, .materials_cases, .case_advantages, .websitemap, .legal_notice, .language_box, .smp_configuration, .trunel_service_list, .tunnel_Applications ,.partners_cases{
+  margin: 7.8rem auto;
+}
+.list_solution .solution_top_ul, .list_case_ul2, .Advantages_swiper {
+  margin-top: 4rem;
+}
+.solution_top_ul li {
+  width: 15.32%;
+  min-height: 34.2rem;
+  margin-right: 1.68%;
+  position: relative;
+  padding: 1.2rem 2.1rem;
+  transition: all 0.3s ease-out 0.1s;
+}
+.solution_top_ul li.active, .tunnel_Applications li.active {
+  width: 49%;
+}
+.list_solution_top .li_a {
+  background: url(../images/business/quarry_aggregates.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_solution_top .li_b {
+  background: url(../images/business/manufactured_sand.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_solution_top .li_c {
+  background: url(../images/business/river_stone.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_solution_top .li_d {
+  background: url(../images/business/construction_waste.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_powder_top .li_a {
+  background: url(../images/powder_making/1_bentonite.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_powder_top .li_b {
+  background: url(../images/powder_making/2_barite.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_powder_top .li_c {
+  background: url(../images/powder_making/3_gypsum.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_powder_top .li_d {
+  background: url(../images/powder_making/4_petroleum_coke.jpg) no-repeat center;
+  background-size: cover;
+}
+.list_solution_top a, .solution_top_bottom big, .solution_top_bottom h3, .list_solution_middle a, .solution_middle_bottom h3, .list_solution_bottom a, .footer a, .footer li, .footer strong, .f_bottom span, .f_bottom, .list_aggregate_top h4 a, .aggregate_top_materials a, .tab_menu_left .more, .list_mining_offer h2, .list_powder_middle_left li.active small, .list_powder_middle h4, .list_product h4 a, .product_bottom_parts a, .product_bottom_parts h2, .product_bottom_parts span, .list_conveyors .more, .list_conveyors li:hover p, .list_conveyors li:hover h2, .list_conveyors li:hover h3, .list_conveyors li:hover sup, .product_top h1, .product_top a, .product_top p, .product_top h3, .p_advantages li:hover p, .p_advantages li:hover h4, .p_advantages2 li:hover span, .product_middle .swiper-slide a, .product_middle .swiper-slide h4, .service_list .swiper-slide:hover p, .service_list .swiper-slide:hover h4, .service_list .swiper-slide:hover span, .product_key h2, .product_key li, .product_key strong,.product_key sup, .product_key a, .product_configurations a, .product_configurations p, .product_part .bottom_more_btn, .list_case_top h2, .list_case_top p, .list_case_top a, .list_case_left p, .list_case_left h2, .list_case .bottom_more_btn, .list_case_middle .bottom_more_btn, .epco_bottom .more, .epco_bottom li:hover a, .epco_blog .swiper-slide:hover h4 a, .lot_middle ul > li:hover h3, .lot_middle ul > li:hover li, .lot_middle .more, .lot_middle_2 .more, .lot_bottom a, .lot_list li p, .lot_list h4, .life_cycle_middle h4, .life_cycle_bottom .text h3, .life_cycle_bottom .tab-pane p, .life_cycle_bottom a, .localized_middle a, .localized_bottom .more, .list_news_menu li.active a, .list_news li:hover a, .list_news li:hover span, .anout_middle .swiper-slide p, .anout_middle .swiper-slide span, .anout_middle .swiper-slide p strong, .list_blog_left h4 a, .list_blog_top span, .col_top h3 a, .cases .tab-pane li a, .materials-list_top a, .aboutus-info_right span, .localized_top .swiper-slide:hover h4, .localized_top .swiper-slide:hover li, .localized_top .more, .tab_menu_nk li a, .list_news_top .more, .materials_top .more, .ore_banner p, .ore_banner h1, .ore_banner a, .white, .white b, .list_beneficiation_top .more_btn, .language_nav li.active a, .list_ebook li:hover a, .list_ebook li:hover span, .smp_list_parts h2, .smp_list_parts p, .product_key_smp p, .product_key_smp h4, .tab-menu_smp .active p, .tab-menu_smp .active h4, .product_Applications h4 a, .mill_middle h4 a, .mill_banner a, .product_top_nk h3  sup,.banner_add_text .online-chat{
+  color: #fff;
+}
+.solution_top_bottom {
+  background: #003f98;
+  padding: 3.2rem 2rem;
+  margin-top: 2rem;
+}
+.solution_top_bottom h4 a, .list_case h4 a, .list_case h4 span, .list_case_middle h4 span, .lot_list h4, .list_materials_bottom li:last-child h4 a, .list_news_top h4 a, .list_news h4 a, .list_blog h4 a, .tab_menu_left li h4, .nk-youshi .swiper-slide h4 {
+  font-weight: bold;
+}
+.solution_top_bottom .more {
+  line-height: 3.2rem;
+  width: 17rem;
+  border: 1px solid #f90;
+  background: #f90;
+  border-radius: 1.6rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.solution_top_bottom .more:hover, .solution_middle_top li:nth-child(4):hover .more, .solution_middle_bottom .text .more:hover, .f_online_chat:hover, .aggregate_top_materials .more:hover, .tab_menu_left .more:hover, .product_bottom_parts .more:hover, .list_conveyors .more:hover, .product_key .more:hover, .related_cases .more:hover, .list_case_left .more:hover, .life_cycle_bottom .more:hover, .ore_banner a:hover {
+  background: none;
+  border-color: #fff;
+}
+.solution_top_bottom li {
+  width: 23.83%;
+  margin-right: 1.56%;
+  background: #3671cf;
+}
+.solution_top_bottom ul, .solution_middle_bottom .text .more, .f_middle, .aggregate_top_materials, .list_materials li, .list_materials ul, .list_powder_top p, .list_powder_top .more, .list_product li, .list_product ul, .list_beneficiation_bottom, .list_conveyors .more, .p_advantages_left, .service_list p, .list_case_top p, .list_case_top ul, .list_case_top li, .list_case_ul li, .list_case_middle p, .list_case_middle .case_online_cat, .list_case_bottom .more, .list_case_left p, .epco_top li, .epco_top li p, .epco_blog p, .lot_middle_2 p, .lot_middle_2 .text, .lot_bottom li:nth-child(2), .lot_list .box_width > p, .lot_list ul, .life_cycle_middle li:nth-child(n+3), .localized_middle li:nth-child(n+3), .list_parts .tab-pane li, .about_top p, .about_bottom p, .anout_middle .about_swiper2, .list_blog_top p, .list_blog li, .list_blog p, .clo_top_left p, .cases .tab-pane li, .cases .tab-pane, .materials-list_bottom, .aboutus-info_right li:nth-child(n+3), .aboutus-info p, .cooSwiper, .smp_right p, .smp_list_product h4, .mk_top_text p, .mk_top p, .mk_top .mk_swiper, .nk_top p, .nk_middle p, .swiper-zucheng-list, .aboutus-info .text li, .materials_top p, .case_advantages li, .case_advantages p, .materials_top_ore .top_text p, .ore_banner .p, .ore_banner .more, .clo_top_left li, .language_box .text_top p, .smp_top li, .product_service_list .list_li, .product_service_list .service_ul_box, .product_Applications li, .product_Applications_top, .mill_bottom li, .mill_bottom ul, .mill_banner li, .g_mining_midlle ul, .g_mining_midlle li, .material_ore_bottom ul {
+  margin-top: 2rem;
+}
+.solution_top_bottom big {
+  font-size: 6rem;
+}
+.solution_top_bottom li h3 {
+  padding: 0 2rem;
+  font-weight: 400;
+  line-height: 8.2rem;
+}
+.title_box:after, .f_top:after, .filterBlog-box:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.solution_middle_top li, .list_product_top li, .smp_list_product li, .trunel_service_list ul > li {
+  width: 23.71%;
+  margin-right: 1.72%;
+  position: relative;
+}
+.list_product_top2 li, .tunnel_Applications li {
+  width: 23.9%;
+  margin-right: 1.6%;
+  position: relative;
+}
+.list_product_top2 li:nth-child(3) {
+  width: 49%;
+  margin-right: 0;
+}
+.solution_middle_top, .solution_powder_swiper, .banner_mining_text ul, .list_mining_top .more, .list_mining_cases ul, .powder_swiper, .powder_bottom_swiper, .list_powder_bottom2 p, .product_middle_swiper, .list_product_top2 ul, .form_box p, .related_cases ul, .product_configurations ul, .case_swiper, .product_ben_swiper, .epco_bottom ul, .list_case_ul2 li, .lot_swiper, .list_parts .tab-content, .about_swiper3, .list_blog ul, .filterBlog-box, .cooperators, .smp_table table, .smp_list_product ul, .smp_middle ul, .mk_bottom ul, .swiper-zucheng, .materials_top .more, .case_top .box, .case_advantages ul, .case_top_middle .text ul, .smp_case_swiper, .smp_swiper, .smp_configuration .tab-wrapper, .smp_top ul, .mill_swiper, .tunnel_Applications ul, .Models_advantages_list, .tunnel_swiper2 {
+  margin-top: 4rem;
+}
+.solution_middle_top li .text, .list_solution_bottom h4, .aggregate_top_materials h4, .list_materials li h4, .product_middle .swiper-slide h4, .product_configurations .text, .lot_list li > h4, .list_aggregate_top .tab-pane h4, .list_powder_bottom h4, .list_product h4, .lot_bottom li h4, .life_cycle_middle h4, .localized_middle h4, .materials-list_bottom h4, .product_Applications h4, .product_Applications_bottom h4, .mill_middle h4, .mill_banner h4 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.solution_middle_top li .text {
+  top: 24%;
+}
+.lot_list li > h4 {
+  top: 1rem;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.solution_middle_top li:nth-child(4) .text, .list_solution_bottom h4, .aggregate_top_materials h4, .list_materials li h4, .product_middle .swiper-slide h4, .product_configurations .text, .materials-list_bottom h4, .product_Applications_bottom h4 {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.solution_middle_top .more, .tab_menu_left .more, .list_powder_top .more {
+  display: block;
+  line-height: 3.2rem;
+  width: 8rem;
+  border-radius: 1.6rem;
+  border: 1px solid #fff;
+  text-align: center;
+}
+.solution_middle_top .more {
+  margin: 0.8rem auto;
+}
+.solution_middle_top li:hover .more, .solution_middle_top li:nth-child(4) .more, .tab_menu_left .more, .list_powder_top .more:hover, .product_configurations .more:hover {
+  background: #f90;
+  border-color: #f90;
+}
+.solution_middle_top li:nth-child(4) .more, .banner_mining_text img {
+  width: 16rem;
+  margin: 0 auto;
+}
+.list_solution_middle li:hover img, .list_solution_bottom .swiper-slide:hover img, .list_aggregate_top .swiper-slide:hover img, .aggregate_top_materials li:hover img {
+  border-radius: 0.8rem;
+}
+.solution_middle_bottom {
+  background: #003f98;
+  padding: 2rem;
+  margin-top: 2rem;
+  background: url(../images/business/mining_bg.jpg) no-repeat center;
+  background-size: 100% 100%;
+}
+.solution_middle_bottom .text {
+  width: 31%;
+  margin-right: 0.67%;
+}
+.solution_ming_swiper, .list_case_left p {
+  width: 68.33%;
+}
+.solution_middle_bottom .text .more, .f_online_chat, .list_conveyors .more, .product_online_cat, .product_key .more, .lot_middle .more, .localized_middle .more, .localized_bottom .more, .materials_top .more, .ore_banner .more, .list_beneficiation_top .more_btn, .product_page_right .online-chat, .material_ore_middle .online-chat ,.banner_add_text .online-chat {
+  display: block;
+  line-height: 6rem;
+  width: 24rem;
+  border-radius: 0.4rem;
+  font-size: 2.4rem;
+  background: #f90;
+  border: 1px solid #f90;
+  text-align: center;
+}
+.product_online_cat:hover, .product_page_right .online-chat:hover, .material_ore_middle .online-chat:hover,.mill_top_left .get_price:hover ,.banner_add_text .online-chat:hover {
+  background: #ff7e00;
+}
+.f_online_chat, .list_beneficiation_top .more_btn {
+  width: 21rem;
+}
+.lot_middle .more {
+  width: 42rem;
+  border-radius: 3rem;
+}
+.solution_middle_bottom h4, .list_mining_cases h4, .related_cases h4, .list_beneficiation_top .more_btn {
+  text-align: center;
+  margin-top: 1rem;
+}
+.list_solution_bottom .swiper-slide, .list_aggregate_top .swiper-slide, .aggregate_top_materials li, .list_materials li, .list_powder_middle .swiper-slide, .list_product .swiper-slide, .list_beneficiation .img_box, .list_conveyors li, .product_middle .swiper-slide, .service_list .swiper-slide, .product_key .box_width, .related_cases li, .case_img_box, .product_configurations li, .lot_bottom li, .lot_list li, .life_cycle_middle li, .life_cycle_bottom .tab-pane, .life_cycle_left, .localized_middle li, .anout_middle .swiper-slide, .list_blog_left, .filterBlog-item, .col_top li, .products .pro-item, .cases .tab-pane li, .materials .swiper-slide, .aboutus-info_right li, .smp_middle ul, .nk-youshi .box_width, .nk_bottom .box_width, .nk-youshi .swiper-slide, .body_index .nav_language > a, .life_cycle_bottom .box_width, .case_top .text, .case_top_middle .ul_img, .list_product li > a:after, /*.list_product_middle  a,*/ .search_img, .about_top .swiper-slide, .cases .tab-pane li, .list_powder_bottom .swiper-slide, .related_cases .swiper-slide, .list_product li, .product_service_list .list_li, .product_Applications li, .mill_middle .swiper-slide, .mill_banner li, .g_mining_midlle .case_img_box {
+  position: relative;
+}
+.list_solution_bottom .more {
+  display: block;
+  line-height: 3.2rem;
+  border-radius: 1.6rem;
+  width: 17rem;
+  margin: 3.2rem auto 0;
+  border: 1px solid #3671cf;
+  color: #3671cf;
+  text-align: center;
+}
+.list_solution_bottom .more:hover {
+  background: #3671cf;
+  color: #fff;
+}
+.list_solution .bottom_more_btn, .product_part .bottom_more_btn, .list_case .bottom_more_btn, .list_case_middle .bottom_more_btn, .localized_top .more {
+  width: 100%;
+  line-height: 8rem;
+  background: #3671cf;
+  border-radius: 4rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+.list_case_middle .bottom_more_btn {
+  width: calc(100% - 6rem);
+  margin: 2rem auto 0;
+}
+.list_aggregate_top .tab-menu li {
+  font-size: 2rem;
+  width: 29.4rem;
+  line-height: 4.8rem;
+  text-align: center;
+  background: #f2f6ff;
+  border-radius: 0.4rem;
+  margin: 0 1rem;
+}
+.list_aggregate_top .tab-menu li.active, .list_aggregate_bottom .tab-menu li.active, .epco_blog .swiper-slide:hover, .list_news_menu li.active, .localized_top .swiper-slide:hover, .smp_list li:hover, .list_aggregate_top .tab-menu li:hover, .list_aggregate_bottom .tab-menu li:hover {
+  background: #3671cf;
+  color: #fff;
+}
+.list_aggregate_top .tab-menu {
+  width: 62.8rem;
+  margin: 4rem auto;
+}
+.list_aggregate_top .tab-pane h4, .list_powder_bottom h4, .list_product h4, .lot_bottom li h4, .life_cycle_middle h4, .localized_middle h4, .product_Applications_top h4, .mill_middle h4 {
+  bottom: 2rem;
+}
+.list_product li h4, .mill_banner h4 {
+  bottom: 1rem;
+}
+.list_aggregate_top img, .list_materials ul li img, .mining_top_right img, .list_powder_bottom2 img, .list_beneficiation_top img, .p_advantages img, .lot_middle img, .life_cycle_middle img, .localized_middle img, .localized_bottom img, .materials img, .ul_img .active img {
+  display: block;
+  border-radius: 0.4rem;
+}
+.aggregate_top_materials {
+  background: url(../images/aggregate/16_materials_bg.jpg) no-repeat center;
+  background-size: 100% 100%;
+  padding: 2.4rem 2rem;
+}
+.aggregate_top_materials .text {
+  width: 42.09%;
+}
+.aggregate_top_materials ul {
+  width: 57.91%;
+  margin: 1.6rem 0;
+}
+.aggregate_top_materials li {
+  width: 31.36%;
+  margin-right: 2.96%;
+}
+.aggregate_top_materials .more, .product_bottom_parts .more, .product_configurations .more, .epco_bottom .more, .epco_blog .more, .lot_middle_2 .more, .life_cycle_bottom .more, .list_news_top .more {
+  display: block;
+  margin-top: 1rem;
+  line-height: 4rem;
+  width: 16rem;
+  border-radius: 2rem;
+  border: 1px solid #f90;
+  background: #f90;
+  text-align: center;
+}
+.lot_middle_2 .more {
+  width: 24rem;
+  margin-top: 2rem;
+}
+.product_configurations .more, .epco_blog .more {
+  border-color: #fff;
+  margin: 1rem auto 0;
+
+  background: none;
+}
+.epco_bottom .more {
+  margin: 1rem auto 0;
+}
+.list_aggregate_middle, .related_cases, .list_case_middle, .epco_bottom_about, .lot_top, .lot_middle_2, .life_cycle_top, .localized_top, .about_top, .list_blog_middle, .material_ore_top, .tunnel_Advantages {
+  padding: 4rem 0;
+  background: #f2f6ff;
+}
+.list_aggregate_middle h2, .list_powder_middle h2, .product_middle h2, .service_list h2, .product_part h2, .epco_blog p, .life_cycle_top p, .localized_middle p, .localized_bottom p, .about_top ul, .mill_top h2 {
+  margin-bottom: 4rem;
+}
+.tab_menu_left, .list_news_top_box .text, .mill_banner .text h2 {
+  width: 33.870%;
+}
+.topswiper, .list_mining_top .mining_top_right, .epco_swiper, .lot_middle_2 .img_box, .life_cycle_middle ul, .life_cycle_bottom .pull_right, .list_materials_bottom li:last-child, .anout_middle .video_box, .list_blog .text, .news-list_left, .topswiper2, .list_news_top_box > a, .mill_banner .text p {
+  width: 66.13%;
+}
+.tab_menu_left li.active {
+  padding: 1.2rem 2rem;
+  background: #deecf9;
+  height: 22.6rem;
+}
+.tab_menu_left li.active p {
+  margin: 1rem 0;
+  line-height: 1.2;
+  min-height: 11.2rem;
+}
+.tab_menu_left li, .product_configurations .text {
+  padding: 0 2rem;
+}
+.tab_menu_left li h4 {
+  display: inline-block;
+  background: url(../images/aggregate/ico_r_small.png) no-repeat center right;
+  background-size: 2.4rem auto;
+  padding-right: 4rem;
+}
+.tab_menu_left li.active h4 {
+  color: #3671cf;
+  background: url(../images/aggregate/ico_down.png) no-repeat center right;
+  background-size: 2.4rem auto;
+}
+.tab_menu_left .more, .list_powder_top .more {
+  display: none;
+}
+.tab_menu_left li, .product_part img, .about_top big {
+  margin-bottom: 1rem;
+}
+.tab_menu_left li.active {
+  height: auto;
+}
+.list_aggregate_bottom p, .list_mining_top2, .list_product_top, .lot_middle p, .tab-menu_lot, .col_bottom, .ebook_top, .product_advantages, .Models_advantages {
+  margin: 4rem auto;
+}
+.list_aggregate_bottom .tab-menu {
+  width: 79.76%;
+  margin-bottom: 4rem;
+}
+.list_aggregate_bottom .tab-menu li, .list_mining_bottom .tab-menu li, .clo_top_left {
+  width: 23.5%;
+  margin-right: 2%;
+}
+.list_aggregate_bottom .tab-menu li, .list_aggregate_bottom .more, .list_mining_bottom .tab-menu li {
+  line-height: 4.8rem;
+  text-align: center;
+  font-size: 2rem;
+  background: #f2f6ff;
+}
+.list_aggregate_bottom .swiper-slide, .tab_menu_product, .epco_blog .swiper-slide {
+  background: #f2f6ff;
+  text-align: center;
+}
+.list_aggregate_bottom .swiper-slide:hover {
+  background: #deecf9;
+}
+.list_aggregate_bottom .swiper-slide h5 {
+  margin: 1rem 2rem;
+}
+.list_aggregate_bottom .swiper-slide h5 span, .list_mining_cases h4 span, .list_case h4 span, .list_case_middle h4 span, .tab-menu_lot li, .list_parts .tab-menu li, .news-list_right .swiper-slide:hover .more, .nk-youshi .swiper-slide h4 {
+  color: #3671cf;
+}
+.list_aggregate_bottom .more {
+  background: #f90;
+  color: #fff;
+  width: 18.70%;
+}
+.list_aggregate_bottom .more img {
+  vertical-align: middle;
+  margin-right: 1rem;
+  width: 2.3rem;
+}
+.banner_mining_text li, .tab_nav_bulk li /*, .about_top li*/ , .material_ore_top li {
+  width: 15.32%;
+  margin-right: 1.6160%;
+  text-align: center;
+}
+.list_materials p {
+  width: 79%;
+  margin: 4rem auto 0;
+}
+.list_materials h4, .materials-list_bottom h4, .product_Applications_bottom h4 {
+  padding: 0 2.6rem;
+}
+.list_materials h4 a, .materials-list_bottom h4 a, .product_Applications_bottom h4 a {
+  display: block;
+  text-align: right;
+  color: #fff;
+  padding-right: 4.4rem;
+  background: url(../images/mining/ico_more.png) no-repeat right center;
+  background-size: 1.6rem auto;
+}
+.list_materials .more, .list_mining_top .more, .list_mining_offer .more, .list_case_middle .case_online_cat, .list_case_bottom .more, .showMorehandle {
+  display: block;
+  width: 30rem;
+  line-height: 5.8rem;
+  border-radius: 0.4rem;
+  background: #f90;
+  border: 1px solid #f90;
+  color: #fff;
+  font-size: 2.4rem;
+  text-align: center;
+}
+.list_case_middle .case_online_cat {
+  width: 32rem;
+}
+.list_materials .more, .list_mining_offer .more, .lot_middle .more, .nk_case img, .showMorehandle, .materials_top_ore {
+  margin: 4rem auto 0;
+}
+.showMorehandle {
+  border-color: #3671cf;
+  border-radius: 3rem;
+}
+.list_materials .more:hover, .list_mining_top .more:hover, .list_mining_offer .more:hover, .list_powder_middle .more:hover, .showMore, .showLess, .list_case_middle .case_online_cat:hover, .lot_middle .more:hover, .localized_middle .more:hover, .localized_bottom .more:hover, .list_news_top .more:hover {
+  color: #f90;
+  background: none;
+}
+.list_mining_top h2, .life_cycle_top h2, .life_cycle_middle h2, .anout_middle h2, .list_blog_middle h2 {
+  line-height: 1.2;
+  margin-bottom: 2.8rem;
+}
+.list_mining_top p {
+  line-height: 3rem;
+}
+.list_mining_bottom .tab-menu, .list_powder_bottom img, .list_product_middle img, .list_product_bottom img, .list_case_middle img, .epco_bottom_about img, .localized_bottom img, .materials img, .aboutus-info_right img, .nk_top img, .nk_middle img, .nk_parameterse img, .nk_case img, .nk-youshi img, .list_news_top_box img, .list_powder_bottom2 img, .related_cases img, .swiper-slide img, .case_top img, .materials_cases img, .list_materials ul li img, .list_case_ul img, .list_news img, .list_news_top img, .list_blog img, .list_product li img, .product_Applications_bottom img {
+  width: 100%;
+}
+.list_mining_bottom .tab-menu li {
+  margin-left: 0;
+}
+.list_mining_offer {
+  background: #002a66 url(../images/mining/bg_epco.jpg) no-repeat center bottom;
+  background-size: 100% auto;
+  padding: 4rem 0 12rem;
+}
+.list_mining_offer li {
+  font-size: 2rem;
+  color: #fff;
+  padding-left: 11.6rem;
+  padding-right: 2rem;
+  position: relative;
+  margin-top: 4rem;
+  line-height: 1.2;
+}
+.list_mining_offer img {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  width: 8rem;
+}
+.list_mining_top2 {
+  background: none;
+}
+.list_powder_middle_left li, .list_powder_middle .more {
+  line-height: 6rem;
+  text-align: center;
+  border-radius: 0.4rem;
+  font-size: 2.4rem;
+  background: #deecf9;
+  color: #3671cf;
+  margin-bottom: 1rem;
+}
+.list_powder_middle_left li small {
+  color: #3671cf;
+}
+.list_powder_middle_left li.active, .p_advantages li:hover, .epco_bottom li:hover, .list_news li:hover, .showMorehandle, .p_advantages2 li:hover {
+  background: #3671cf;
+  color: #fff;
+}
+.list_powder_middle h4, .life_cycle_bottom .text, .anout_middle .swiper-slide p, .cases .tab-pane li .text, .materials-list_top .text, .aboutus-info_right span {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  right: 2rem;
+}
+.list_powder_middle h4 {
+  z-index: 1;
+}
+.list_powder_middle .more {
+  background: #f90;
+  color: #fff;
+}
+.list_powder_middle .more:hover {
+  border: 1px solid #f90;
+  line-height: 5.8rem;
+}
+.list_powder_about {
+  background: url(../images/powder_making/10_bg_powder.jpg) no-repeat center top;
+  padding: 4rem 0 7rem;
+  text-align: center;
+}
+.list_powder_about_top big {
+  display: block;
+  color: #ffd300;
+  text-transform: uppercase;
+}
+.list_powder_about_top big span {
+  font-size: 8.8rem;
+  color: #ffd300;
+  font-weight: bold;
+  line-height: 1;
+}
+.list_powder_about_top strong {
+  font-weight: bold;
+  font-size: 2.4rem;
+  color: #fff;
+}
+.list_powder_about_bottom {
+  margin-top: 6rem;
+}
+.list_powder_about_bottom li {
+  background: #3671cf;
+  width: 15.480%;
+  margin-right: 1.424%;
+}
+.list_powder_about_bottom h4 {
+  padding: 0.1rem 1rem;
+  color: #fff;
+}
+.tab_nav_product ul {
+  display: flex;
+}
+.tab_nav_product a {
+  display: block;
+  /*font-size: 2rem;*/
+  padding: 0 2.5rem 1rem;
+  white-space: nowrap;
+}
+.tab_nav_product .active, .tab_nav_product li:hover {
+  background: #fff;
+}
+.tab_nav_product .active a, .tab_nav_product li:hover a {
+  color: #3671CF;
+}
+.tab_nav_product img {
+  display: block;
+  margin: 0 auto;
+  width: 12rem;
+}
+.tab_nav_product li:nth-child(5) img {
+  width: 16rem;
+}
+.tab_nav_material a {
+  padding: 2rem 4.8rem;
+}
+/*.list_product  li>a:after,.list_product_middle .swiper-slide>a:after,*/ .about_top .swiper-slide:hover:before, .about_top .swiper-slide:hover:after, .cases .tab-pane li:after /*,.list_powder_bottom .swiper-slide:after*/ {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3)
+}
+.cases .tab-pane li:after {
+  background: rgba(0, 0, 0, 0.2)
+}
+.about_top .swiper-slide:hover:after {
+  background: url(../images/about/big_ico.png) no-repeat center;
+}
+.list_product li {
+  border: 0.2rem solid #fff;
+}
+.list_product li:hover {
+  border-radius: 1.6rem;
+  overflow: hidden;
+  border: 0.2rem solid #3671CF;
+}
+/*.list_product_middle .box_width, .list_product_middle .swiper-container {
+	overflow: visible;
+}
+.list_product_middle {
+	overflow: hidden;
+}*/
+.product_bottom_parts {
+  background: url(../images/products/Spare_Parts_pc.jpg) no-repeat center;
+  background-size: 100% 100%;
+  text-align: center;
+  padding: 7.8rem 0;
+}
+.product_bottom_parts p {
+  margin: 3rem auto 2rem;
+}
+.product_bottom_parts .more, .anout_middle img {
+  margin: 0 auto;
+}
+.tab_nav_beneficiation, .list_case_middle h4, .tab-menu_lot, .lot_bottom, .list_parts, .materials_top_ore .top_text {
+  text-align: center;
+}
+.tab_nav_beneficiation {
+  width: 61rem;
+  margin: 0 auto;
+  background: #deecf9
+}
+.tab_nav_beneficiation li, .list_beneficiation .img_box, .list_beneficiation .text, .list_news_menu li {
+  width: 50%;
+}
+.tab_nav_beneficiation a, .tab_nav_beneficiation2 li a, .tab_nav_tunnel li a {
+  display: block;
+  line-height: 8rem;
+  font-size: 2rem;
+}
+.tab_nav_bulk li a {
+  display: block;
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+.list_beneficiation .text {
+  padding-right: 2rem;
+}
+.list_beneficiation, .contact_top, .case_top, .mill_bottom, .mill_top, .mill_middle, .material_ore_middle {
+  margin: 4rem auto 7.8rem;
+}
+.list_beneficiation_top p {
+  margin-top: 3.4rem;
+  line-height: 3rem;
+}
+#Spiral,#FX,#Central{
+	margin-top: 7.8rem;	
+}
+#Spiral{
+	margin-bottom: 0;
+}
+.list_beneficiation .img_box span {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  border: 1px solid #fff;
+  border-radius: 1.6rem;
+  color: #fff;
+  line-height: 3.2rem;
+  width: 12.6rem;
+  text-align: center;
+  z-index: 2;
+  display: none;
+}
+.list_beneficiation .img_box:hover:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 20%, #000f24);
+  border-radius: 0.4rem;
+}
+.list_beneficiation_bottom h3 {
+  width: 15.32%;
+  margin-right: 1.620%;
+  padding: 1.6rem 2rem;
+  color: #fff;
+  background: url(../images/beneficiation/Spiral_Classifier_bg.jpg) no-repeat center;
+  background-size: 100% 100%;
+  min-height: 27rem;
+}
+.list_beneficiation_bottom h3:after {
+  content: '';
+  display: block;
+  background: #ffc400;
+  width: 8rem;
+  height: 0.4rem;
+  border-radius: 0.2rem;
+  margin-top: 0.4rem;
+}
+.list_beneficiation_bottom h4 {
+  position: relative;
+  padding-left: 5rem;
+  min-height: 4rem;
+}
+.list_beneficiation_bottom h4:before {
+  content: "";
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url(../images/beneficiation/icon_1.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 12.6rem auto;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(2) h4:before {
+  background-position: -4.6rem top;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(3) h4:before {
+  background-position: right top;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(4) h4:before {
+  background-position: left -4.4rem;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(5) h4:before {
+  background-position: right -4.4rem;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(6) h4:before {
+  background-position: left -8.6rem;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(7) h4:before {
+
+  background-position: -4.6rem -8.9rem;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(8) h4:before {
+  background-position: right -8.9rem;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(9) h4:before {
+  background-position: left bottom;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(10) h4:before {
+  background-position: -4.4rem bottom;
+}
+.list_beneficiation_bottom .swiper-slide:nth-child(11) h4:before {
+  background-position: right bottom;
+}
+.beneficiation_swiper {
+  width: 83.060%;
+}
+.beneficiation_swiper .swiper-slide {
+  background: #f2f6ff;
+  padding: 2rem 1.2rem 4rem;
+  position: relative;
+  z-index: 0;
+  min-height: 27rem;
+}
+.beneficiation_swiper span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 0.72;
+  color: #e6ebf8;
+  font-size: 10rem;
+  font-weight: bold;
+  z-index: -1;
+}
+.beneficiation_swiper h4, .contact_middle h2, .about_top big, .about_top span {
+  color: #003f98;
+  line-height: 1.2;
+  font-weight: bold;
+}
+.beneficiation_swiper p {
+  line-height: 1.2;
+  margin-top: 2rem;
+}
+.list_conveyors .text {
+  position: absolute;
+  top: 2rem;
+  left: 19%;
+  z-index: 1;
+}
+.list_conveyors h2, .life_cycle_bottom h2 {
+  line-height: 1.2;
+}
+.list_conveyors .img_box {
+  width: 82.3%;
+  margin: 0 0 0 auto;
+  position: relative;
+  min-height: 39rem;
+}
+.list_conveyors_left .img_box {
+  margin: 0 auto 0 0;
+}
+.list_conveyors img {
+  display: block;
+}
+.list_conveyors_left .text {
+  left: 50%;
+}
+.list_conveyors p, .list_news_top p, .list_blog_top h3 {
+  margin: 1.4rem 0;
+}
+.list_conveyors li:hover .img_box:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, #3671cf 20%, transparent);
+}
+.list_conveyors li:nth-child(2n):hover .img_box:after {
+  background: linear-gradient(to right, transparent 20%, #3671cf);
+}
+.list_conveyors li:nth-child(6) .text {
+  left: 48%;
+}
+.list_conveyors h3 {
+  letter-spacing: -1px;
+}
+.product_top {
+  background: url(../images/product/0_product_bg.jpg) no-repeat center;
+  padding-bottom: 2rem;
+}
+.product_top_right {
+  width: 42.30%;
+}
+.product_top_left {
+  width: 52.42%;
+  padding: 3.6rem 0 0;
+}
+.product_top_right .swiper-slide {
+  padding: 0 5.4rem;
+}
+.subnav_series li {
+  width: 30.58%;
+  margin-right: 4.13%;
+  line-height: 4rem;
+  border-radius: 0.4rem;
+  border: 1px solid #fff;
+  font-weight: bold;
+  text-align: center;
+}
+.subnav_series li.active {
+  background: #ffc300;
+  border-color: #ffc300;
+}
+.subnav_series li.active a {
+  color: #000f24;
+}
+.product_top_left h1 {
+  line-height: 1.2;
+  margin: 2rem 0 1.5rem;
+}
+.product_ico, .localized_middle p, .localized_bottom p, .about_top ul {
+  margin-top: 2.5rem;
+}
+.product_ico li {
+  margin-right: 1rem;
+  width: 5.3rem;
+}
+.product_top_text {
+  padding: 3rem 0;
+  background: #f2f6ff;
+}
+.product_top_text p {
+  width: 74.660%;
+}
+.product_online_cat, .product_key .more {
+  color: #fff;
+  margin-top: 1rem;
+}
+.product_online_cat img {
+  vertical-align: middle;
+  width: 2.9rem;
+  margin-right: 2rem;
+}
+.p_advantages_left, .p_advantages_right, .p_advantages_bottom li, .related_cases li, .list_case_top p, .epco_bottom li, .localized_bottom .text, .localized_bottom .img_box, .localized_middle li, .list_blog_left, .list_blog_right, .aboutus-info_right li, .mk_middle_left, .mk_middle_right, .nk_top .text, .nk_top .box_img, .list_news li, .materials_top .text, .materials_top_swiper, .case_top .img_box, .case_top .text, .case_top_middle ul.ul_img, .ebook_left, .ebook_right, .list_product_middle li, .product_service_list .list_li, .mill_top_left, .mill_top .tab-content, .g_mining_midlle li, .Models_advantages_list > div {
+  width: 49.20%;
+}
+.localized_middle li, .list_blog_left, .aboutus-info_right li:nth-child(2n+1), .list_news li:nth-child(2n+1), .materials_top .text, .case_top .img_box, .p_advantages_bottom li:nth-child(2n+1), .ebook_left, .list_product_middle li:nth-child(2n+1), .product_service_list .list_li:nth-child(2n+1), .mill_top_left, .g_mining_midlle li:nth-child(2n+1), .Models_advantages_list > div:nth-child(1) {
+  margin-right: 1.6%;
+}
+.p_advantages li > span {
+  width: 33.75%;
+}
+.p_advantages li .text, .nk_bottom .img, .material_ore_middle .tab-content {
+  width: 65.5%;
+}
+.p_advantages_right li .text, .p_advantages_bottom li .text, .related_cases p, .list_case_bottom h4 a, .materials_cases h4 a {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+.related_cases p {
+  -webkit-line-clamp: 3;
+}
+.list_case_bottom h4 a, .materials_cases h4 a {
+  -webkit-line-clamp: 2;
+}
+.p_advantages h4, .service_list h4, .product_configurations h4 a, .localized_top h4 {
+  font-weight: bold;
+}
+.p_advantages li {
+  background: #f2f6ff;
+  padding: 1.4rem 1.4rem 1.5rem 2rem;
+  margin-top: 2rem;
+}
+.p_advantages p {
+  line-height: 1.2;
+  margin-top: 1rem;
+}
+.add_height {
+  line-height: 1.2;
+}
+.p_advantages h2, .materials_top_ore, .p_advantages2 h2 {
+  margin-bottom: 2rem;
+}
+.service_list .text, .product_service_list .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /*bottom: 0;*/
+  padding: 2rem 2rem;
+}
+.service_list .swiper-slide:hover .text, .product_service_list .list_li:hover .text {
+  background: linear-gradient(#3671cf, transparent 50%);
+}
+.service_list span {
+  font-size: 1.8rem;
+}
+.product_part h5 {
+  font-weight: 400;
+  text-align: center;
+}
+.product_key .text {
+  position: absolute;
+  top: 2.2rem;
+  left: 4.8rem;
+}
+.product_key h2 {
+  line-height: 1.5em;
+}
+.product_key strong, .epco_bottom_about h2, .about_top big, .about_top li span {
+  font-size: 3.6rem;
+}
+.related_cases .text, .life_cycle_bottom .img_box:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.65));
+}
+.life_cycle_bottom .img_box:after {
+  content: '';
+}
+.related_cases .more {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  line-height: 3.8rem;
+  width: 16rem;
+  border-radius: 2rem;
+  border: 1px solid #f90;
+  background: #f90;
+  color: #fff;
+  text-align: center;
+}
+.related_cases p {
+  position: absolute;
+  bottom: .5rem;
+  color: #fff;
+  padding: 0 2rem;
+}
+.product_configurations p {
+  margin: 1rem auto;
+}
+.list_case_top {
+  background: url(../images/cases/aggregate_bg.jpg) no-repeat center;
+  background-size: 100% auto;
+  padding: 3rem 2rem;
+}
+.list_case_top ul {
+  width: 34rem;
+}
+.list_case_top li {
+  border: 1px solid #fff;
+  border-radius: 0.4rem;
+  background: url(../images/cases/3_ico.png) no-repeat 96% center;
+  background-size: 2.6rem auto;
+}
+.list_case_top li:hover {
+  background: #f90 url(../images/cases/3_ico.png) no-repeat 96% center;
+  border-color: #f90;
+}
+.list_case_ul1 h4, .list_case_right h4 {
+  padding: 1rem 1.8rem;
+  background: #f2f6ff;
+}
+.list_case_middle h4, .localized_top h4, .list_blog_middle h4 {
+  padding: 1rem;
+}
+.list_case_middle .swiper-slide-active h4, .epco_blog .more, .list_blog_middle .swiper-slide {
+  background: #fff;
+}
+.list_case_middle .text {
+  width: calc(100% - 35rem)
+}
+.list_case_right {
+  width: 32.26%;
+  background: #f2f6ff;
+}
+.list_case_left {
+  width: 66.13%;
+  margin-right: 1.61%;
+  background: url(../images/cases/grinding_bg.jpg) no-repeat;
+  background-size: cover;
+  padding: 3rem 2rem;
+}
+.list_case_ul2 h4 {
+  padding: 1.4rem 0;
+}
+.list_case_ul2 li {
+  border-bottom: 0.4rem solid #f3f3f3;
+}
+.list_case_ul2 li:hover {
+  border-color: #f90;
+}
+.list_case_ul2 li:hover h4 a, .list_blog_right li:hover a, .smp_right strong, .ore_banner span {
+  color: #f90;
+}
+.epco_top li:nth-child(n+2) {
+  padding: 2rem 1rem 4rem;
+  border-radius: 0.4rem;
+  border: 1px solid #deecf9;
+}
+.epco_top li:nth-child(n+2):hover, .lot_top .swiper-slide:hover {
+  background: none;
+  border-color: #3671cf;
+}
+.epco_top img, .smp_top img {
+  width: 4rem;
+}
+.epco_bottom li {
+  border: 1px solid #c4dcf4
+}
+.epco_bottom li .text, .epco_blog .text, .lot_list .text {
+  padding: 2rem;
+  text-align: center;
+}
+.epco_bottom_about {
+  padding: 6rem 0;
+}
+.epco_bottom_about li {
+  background: url(../images/EPCO/ico_14.png) no-repeat left center;
+  background-size: 1.6rem auto;
+  padding-left: 4rem;
+  line-height: 1;
+  margin-top: 2rem;
+}
+.lot_top .swiper-slide {
+  background: #fff;
+  border-radius: 0.4rem;
+  position: relative;
+  padding: 3rem 0 3rem 8rem;
+  border: 1px solid #fff;
+ /* margin-right: 2rem !important;*/
+}
+.lot_swiper img {
+  position: absolute;
+  width: 6rem;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lot_top .swiper-slide span {
+  line-height: 4.5em;
+}
+.lot_middle ul > li {
+  background: #f2f6ff;
+  padding-bottom: 2rem;
+  position: relative;
+  border-radius: 0.4rem;
+}
+.lot_middle li li {
+  background: url(../images/IoT/ico_1.png) no-repeat left center;
+  background-size: 1.8rem;
+  font-size: 2.4rem;
+  padding-left: 3rem;
+}
+.lot_middle ol, .lot_middle h3 {
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+.lot_middle ul > li:hover:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: linear-gradient(transparent 20%, #3671cf 40%);
+  border-radius: 0.4rem;
+}
+.tab-menu_lot li, .list_parts .tab-menu li {
+  display: inline-block;
+  padding: 0 2rem;
+  line-height: 6rem;
+  background: #deecf9;
+  margin: 0 1rem;
+  border-radius: 3rem;
+  font-size: 2.4rem;
+}
+.list_parts .tab-menu li {
+  border-radius: 0.4rem;
+}
+.lot_bottom h3 {
+  line-height: 11.2rem;
+  background: #3671cf;
+}
+.lot_bottom_left, .smp_right {
+  width: 57.58%;
+}
+.lot_bottom ul, .smp_left {
+  width: 40.64%;
+}
+.lot_list li {
+  background-image: linear-gradient(#2a5298 0%, #1f3c73 100%);
+}
+.lot_list li:nth-child(2) {
+  background-image: linear-gradient(#e5bc7d 0%, #d29b4a 100%);
+}
+.lot_list li:nth-child(3) {
+  background-image: linear-gradient(#8b0609 0%, #6b0407 100%);
+}
+.life_cycle_middle li {
+  width: 48.78%;
+  margin-right: 2.44%;
+}
+.life_cycle_bottom li h4 {
+  background: #f2f6ff url(../images/life_cycle_service/ico_1.png) no-repeat 94% center;
+  background-size: 3.3rem auto;
+  line-height: 8rem;
+  margin-top: 2rem;
+  font-size: 2.4rem;
+  color: #3671cf;
+  padding-left: 8rem;
+}
+.life_cycle_bottom li.active h4 {
+  color: #fff;
+  background: #3671cf url(../images/life_cycle_service/ico_2.png) no-repeat 94% center;
+  background-size: 3.3rem auto;
+}
+.list_blog_left h4 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.localized_top .swiper-slide {
+  padding: 2rem 1rem;
+  background: #fff;
+}
+.localized_top li {
+  position: relative;
+  padding-left: 4rem;
+  line-height: 2em;
+}
+.localized_top li:nth-child(1) {
+  background: url(../images/localization_service/ico_phone.png) no-repeat center left;
+  background-size: 3rem auto;
+}
+.localized_top li:nth-child(2) {
+  background: url(../images/localization_service/ico_email.png) no-repeat center left;
+  background-size: 3rem auto;
+}
+.localized_top li:nth-child(3) {
+  background: url(../images/localization_service/ico_web.png) no-repeat center left;
+  background-size: 3rem auto;
+}
+.localized_top .swiper-slide:hover li:nth-child(1) {
+  background: url(../images/localization_service/ico_phone_1.png) no-repeat center left;
+  background-size: 3rem auto;
+}
+.localized_top .swiper-slide:hover li:nth-child(2) {
+  background: url(../images/localization_service/ico_email_1.png) no-repeat center left;
+  background-size: 3rem auto;
+}
+.localized_top .swiper-slide:hover li:nth-child(3) {
+  background: url(../images/localization_service/ico_web_1.png) no-repeat center left;
+  background-size: 3rem auto;
+}
+.localized_top .swiper-slide > img {
+  width: 6rem;
+  margin-left: 1rem;
+  display: block;
+}
+.contact_middle .box_width {
+  background: #f2f6ff;
+  padding-top: 4rem;
+}
+.contact_middle h2:after, .contact_middle h2:before {
+  content: '';
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-block;
+  background: url(../images/contact/ico.png) no-repeat center;
+
+  background-size: 100% auto;
+}
+.contact_middle h2:before, .language_box h1:before {
+  margin-right: 2.4rem;
+}
+.contact_middle h2:after, .language_box h1:after {
+  margin-left: 2.4rem;
+}
+.list_news_menu ul {
+  width: 48rem;
+  margin: 0 auto;
+}
+.list_news_menu li {
+  background: #f2f6ff;
+  color: #3671cf;
+  border-radius: 0.4rem;
+}
+.list_news {
+  margin-bottom: 7.8rem;
+}
+.list_news li, .list_ebook li {
+  background: #f2f6ff;
+  margin-top: 2rem;
+}
+.list_news .text {
+  padding: 1.2rem 2rem;
+}
+.list_news .text h4 {
+  height: 3em;
+  overflow: hidden;
+  margin-top: 0.6rem;
+}
+.list_news_top {
+  margin: 7.8rem auto 2rem;
+}
+.list_news_top_box {
+  display: flex;
+  margin-top: 3.6rem;
+  background: #f2f6ff;
+}
+.list_news_top_box .text {
+  padding: 3rem 3.6rem;
+}
+.list_news_top_box h3 a {
+  line-height: 1.2;
+  display: block;
+}
+.list_news_top_box h3 {
+  margin-bottom: 2rem;
+}
+/*.about_top li:nth-child(1) {
+	width: 12.32%;
+}
+.about_top li:nth-child(4) {
+	margin-right: 0
+}*/
+.about_top li {
+  width: 23.87%;
+  margin-right: 1.5%;
+  text-align: center;
+}
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.large-image {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+.anout_middle .more {
+  display: block;
+  width: 30rem;
+  line-height: 6rem;
+  background: #f2f6ff;
+  color: #3671cf;
+  text-align: center;
+  margin-top: 4rem;
+}
+.list_blog_left h4 {
+  padding: 2rem 2rem 2rem 7rem;
+  background: rgba(0, 0, 0, 0.5)
+}
+.list_blog_right li {
+  padding: 1rem 0 0 5rem;
+  border-bottom: 1px solid #ecf0f9;
+  position: relative;
+  height: 20%;
+}
+.list_blog_top span {
+  font-size: 2.4rem;
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  background: #f90;
+  width: 3rem;
+  line-height: 3rem;
+  text-align: center;
+}
+.list_blog_left span {
+  left: 2rem;
+  top: 2.4rem;
+}
+.list_blog li, .list_case_ul1 li {
+  background: #f2f6ff;
+}
+.list_blog .text {
+  padding: 2rem;
+}
+.list_blog span {
+  color: #999;
+  display: block;
+  margin-top: 1rem;
+}
+.filterBlog-item span {
+  display: block;
+  width: 100%;
+  border: solid 1px #666;
+  font-size: 2rem;
+  line-height: 5rem;
+  padding-left: 2rem;
+  position: relative;
+  margin-top: 1.4rem;
+}
+.filterBlog-item span::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  border: 1rem solid;
+  border-color: #f90 transparent transparent;
+}
+.filterBlog-item ul {
+  position: absolute;
+  z-index: 999;
+  width: inherit;
+  top: 6rem;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: solid 1px #666;
+  display: none;
+}
+.filterBlog-item ul li {
+  display: block;
+  width: 100%;
+  line-height: 2em;
+  color: #666;
+  cursor: pointer;
+  padding-left: 2rem;
+}
+.filterBlog-item ul li:hover {
+  color: #fff;
+  background: #5ea4eb;
+}
+.materials_service, .materials_top, .ebook_bottom {
+  padding: 7.8rem 0;
+  background: #f2f6ff;
+}
+.life_cycle_bottom li h4 {
+  background-color: #deecf9;
+  position: absolute;
+  left: 0;
+  width: 32.26%;
+}
+.life_cycle_bottom li:last-child h4 {
+  bottom: 0;
+}
+.life_cycle_bottom li:nth-last-child(2) h4 {
+  bottom: 10rem;
+}
+.life_cycle_bottom li:nth-last-child(3) h4 {
+  bottom: 20rem;
+}
+.materials_cases {
+  background: none;
+  padding: 0;
+}
+.materials_top_swiper {
+  height: 61rem;
+}
+.materials_top_swiper .swiper-slide {
+  overflow: hidden;
+}
+.materials_top_ore .case_advantages {
+  margin: 0;
+}
+.materials_top_ore .case_advantages h4 {
+  padding: 0;
+}
+.materials_top_ore .case_advantages img {
+  display: block;
+  margin: 0 auto;
+}
+.materials_top_ore + .list_powder_bottom {
+  margin-top: 0;
+}
+.ore_banner .box_width {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%)
+}
+.ore_banner h1, .ore_banner h1 span {
+  font-size: 6rem;
+  line-height: 1.2;
+}
+/**************************************************************/
+.solution_top_bottom li span, .list_materials li a, .mining_top_right, .list_mining_cases li > a, .list_powder_bottom2 .swiper-slide, .list_powder_about_bottom li span, .list_aggregate_top .swiper-slide, .list_product .swiper-slide, .list_product_top2 li > a, .list_beneficiation .img_box, .list_case_ul li > a, .list_case_right a, .list_case_middle .swiper-slide > a, .lot_bottom li a, .lot_bottom_left > a, .lot_list li span, .life_cycle_middle li, .life_cycle_bottom .img_box, .localized_bottom .img_box, .localized_middle li, .list_blog li > a, .list_blog_middle a, .list_blog_left, .materials-list_top .swiper-slide > a, .aboutus-info li, .news-list .swiper-slide > a, .cases li > a, .list_news_top_box > a, .list_news li > a, .Tunnel_bottom li > a {
+  display: block;
+  overflow: hidden;
+}
+.solution_top_bottom li img, .list_materials li img, .mining_top_right img, .list_mining_cases img, .list_powder_bottom2 img, .topswiper img, .topswiper2 img, .list_powder_about_bottom img, .list_aggregate_top .swiper-slide img, .list_product .swiper-slide img, .list_product_top2 img, .list_beneficiation img, .list_case_ul img, .list_case_right img, .list_case_middle .swiper-slide, .lot_bottom img, .lot_list li img, .life_cycle_middle img, .life_cycle_bottom img, .localized_bottom img, .localized_middle img, .list_blog img, .list_blog_middle img, .list_blog_left img, .materials-list_top .swiper-slide img, .aboutus-info img, .news-list .swiper-slide img, .cases li img, .list_news_top_box img, .list_news img, .materials img, .list_solution_middle img, .Tunnel_bottom img,.list_product li {
+  transition: all ease-out 0.3s;
+}
+.solution_top_bottom li:hover img, .list_materials li:hover img, .mining_top_right:hover img, .list_mining_cases li:hover img, .list_powder_bottom2 .swiper-slide:hover img, .topswiper .swiper-slide:hover img, .topswiper2 .swiper-slide:hover img, .list_powder_about_bottom li:hover img, .list_aggregate_top .swiper-slide:hover img, .list_product .swiper-slide:hover img, .list_product_top2 li:hover img, .list_beneficiation .img_box img:hover, .list_case_ul li:hover img, .list_case_right:hover img, .list_case_middle .swiper-slide:hover img, .lot_bottom li:hover img, .lot_bottom_left:hover img, .lot_list li:hover img, .life_cycle_middle li:hover img, .life_cycle_bottom .tab-pane:hover img, .localized_bottom .img_box:hover img, .localized_middle li:hover img, .list_blog li:hover img, .list_blog_middle .swiper-slide:hover img, .list_blog_left:hover img, .materials-list_top .swiper-slide:hover img, .aboutus-info li:hover img, .news-list .swiper-slide:hover img, .cases li:hover img, .list_news_top_box > a:hover img, .list_news li:hover img, .Tunnel_bottom li:hover img {
+  transform: scale(1.1);
+}
+/************footer**************************************************/
+.footer {
+  background: #000f24;
+  padding: 4rem 0;
+}
+.f_top .f_logo {
+  width: 12.6rem;
+}
+.f_online_chat img {
+  width: 2.4rem;
+  vertical-align: middle;
+  margin-right: 1.6rem;
+}
+.f_middle {
+  margin-top: 2.4rem;
+}
+.f_middle li, .nk-youshi .swiper-slide p {
+  margin-top: 1rem;
+}
+.f_col_1 {
+  width: 27%;
+}
+.f_col_2, .f_col_3 {
+  width: 19%;
+}
+.f_col_4 {
+  width: 17%;
+}
+.f_col_1, .f_col_2, .f_col_3 {
+  margin-right: 6%;
+}
+.f_col_4 strong {
+  display: block;
+}
+.f_col_4 li, .anout_middle .swiper-slide p {
+  line-height: 3.6rem;
+}
+.f_bottom a, .product_bottom_parts span {
+  margin: 0 1rem;
+}
+.f_bottom, .f_bottom span, .f_bottom a {
+  font-size: 1.6rem;
+}
+.f_bottom a {
+  font-weight: bold;
+}
+.f_bottom {
+  border-top: 1px solid #525a66;
+  margin-top: 4rem;
+  padding-top: 2rem;
+}
+/*******form***********/
+.form_box {
+  background: #f2f6ff url(../images/form_bg.jpg) no-repeat center bottom;
+  padding: 4rem 0 17rem;
+  background-size: 100% auto;
+}
+.form_box form {
+  width: 66.214%;
+  margin: 3.2rem auto 0;
+}
+.form-item {
+  margin-top: 2rem;
+  position: relative;
+}
+.form_box input {
+  line-height: 5.8rem;
+  background: #fff;
+  width: 100%;
+  padding: 0 2rem 0 2.4rem;
+  border: 1px solid #e3e7f2;
+  border-radius: 0.3rem;
+}
+.form_box :focus {
+  background: #e8eefc;
+}
+.form_box select:focus {
+  background: #e8eefc url(../images/s.png) no-repeat 95% 2rem;
+}
+.form-item_1 input {
+  width: 48.970%;
+}
+.form_box span {
+  position: absolute;
+  left: 1.25rem;
+  line-height: 6rem;
+  color: #e94609;
+}
+.form_box span.required2 {
+  left: 54.50%;
+}
+.imtypeBox span {
+  color: #3671cf;
+  left: 2.3rem;
+}
+.imtypeBox {
+  width: 23.350%;
+  position: relative;
+}
+.imvalueBox {
+  width: 74.780%;
+}
+.form_box select {
+  height: 6rem;
+  width: 100%;
+  padding: 0 1rem 0 2.4rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.3rem;
+  background: #fff url(../images/s.png) no-repeat 95% 2rem;
+  background-size: 1.6rem auto;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  /*color: #fff;*/
+  position: relative;
+  z-index: 1;
+}
+.imvalueBox-1 {
+  position: relative;
+}
+.imvalueBox-1 input {
+  float: left;
+  width: 48.620%;
+  padding: 0 0 0 2.8rem;
+}
+.imvalueBox-1 input.pn {
+  float: right;
+}
+.imvalueBox-2 {
+  display: none;
+}
+.imtypeBox font {
+  left: 2.5rem;
+}
+.textBox textarea {
+  width: 100%;
+  height: 16rem;
+  border-radius: 0.4rem;
+  padding: 1.6rem 2.4rem;
+  border: 1px solid #e3e7f2;
+}
+.btn-submit {
+  width: 100%;
+  background: #3671cf;
+  line-height: 6rem;
+  margin-top: 3rem;
+  font-size: 2.4rem;
+  color: #fff;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+}
+.contact_form {
+  background: none;
+  padding: 0;
+  width: 66.130%;
+}
+.contact_top .form_box form, .contact_top .form_box p {
+  width: 100%;
+}
+.contact_form p, .contact_form h2, .case_top_middle li, .case_top_middle h2 {
+  text-align: left;
+}
+.contact_form h2 {
+  line-height: 1.2
+}
+.contact_top_right {
+  width: 32.26%;
+  border-radius: 0.4rem;
+  margin-left: 1.520%;
+  padding: 2rem;
+  background: #f4f8ff url(../images/contact/bg.jpg) no-repeat center bottom;
+  background-size: 100% auto;
+}
+.contact_top li {
+  position: relative;
+  padding: 1.8rem 0 0 7rem;
+  font-size: 2.4rem;
+  margin-top: 1rem;
+}
+.contact_top li img {
+  position: absolute;
+  left: 0;
+  top: 2.2rem;
+  width: 4rem;
+}
+.contact_top li strong {
+  display: block;
+  font-size: 2.4rem;
+}
+.contact_top .form_box p {
+  margin-top: 1rem;
+}
+.contact_middle h2 {
+  position: relative;
+  color: #004298;
+}
+.contact_middle h2:after, .contact_middle h2:before, .language_box h1:before, .language_box h1:after {
+  content: '';
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-block;
+  background: url(../images/contact/ico.png) no-repeat center;
+  background-size: 100% auto;
+}
+/********footer***************/
+/****************js***************************/
+.swiper-container, .swiper-wrapper {
+  position: relative;
+}
+.swiper-container, .related_cases_smp {
+  overflow: hidden;
+}
+.swiper-container-multirow > .swiper-wrapper {
+  flex-wrap: wrap;
+}
+.swiper-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.swiper-slide {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+}
+.list_aggregate_top .swiper-grid-column > .swiper-wrapper {
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.list_aggregate_top .swiper-button-next, .list_aggregate_top .swiper-button-prev, .list_aggregate_middle .swiper-button-next, .list_aggregate_middle .swiper-button-prev, .list_powder_middle .swiper-button-prev, .list_powder_middle .swiper-button-next, .list_product_middle .swiper-button-prev, .list_product_middle .swiper-button-next, .product_middle .swiper-button-prev, .product_middle .swiper-button-next, .epco_bottom_about .swiper-button-prev, .epco_bottom_about .swiper-button-next, .anout_middle .swiper-button-prev, .anout_middle .swiper-button-next, .about_bottom .swiper-button-prev, .about_bottom .swiper-button-next, .mk_top .swiper-button-prev, .mk_top .swiper-button-next, .nk_middle .swiper-button-prev, .nk_middle .swiper-button-next, .mill_1127 .swiper-button-prev, .mill_1127 .swiper-button-next {
+  width: 4.4rem;
+  height: 8.8rem;
+  position: absolute;
+
+
+
+
+  top: 50%;
+  transform: translateY(-50%);
+}
+.product_middle .swiper-button-prev, .product_middle .swiper-button-next, .product_part .swiper-button-prev, .product_part .swiper-button-next, .epco_bottom_about .swiper-button-prev, .epco_bottom_about .swiper-button-next, .anout_middle .swiper-button-prev, .anout_middle .swiper-button-next, .about_bottom .swiper-button-prev, .about_bottom .swiper-button-next {
+  width: 2.4rem;
+  height: 4.5rem;
+}
+.product_top_right .swiper-button-prev, .product_top_right .swiper-button-next {
+  width: 2.4rem;
+  height: 4.5rem;
+  position: absolute;
+  bottom: 2rem;
+}
+.product_part .swiper-button-prev, .product_part .swiper-button-next {
+  position: absolute;
+  top: 6rem;
+}
+.list_aggregate_top .swiper-button-next, .list_aggregate_middle .swiper-button-next, .list_powder_middle .swiper-button-next, .list_product_middle .swiper-button-next, .product_middle .swiper-button-next, .product_part .swiper-button-next, .product_top_right .swiper-button-next, .epco_bottom_about .swiper-button-next, .anout_middle .swiper-button-next, .about_bottom .swiper-button-next, .mill_1127 .swiper-button-next {
+  right: 1.4rem;
+  background: url(../images/aggregate/ico_r.png) no-repeat center;
+  background-size: 100% auto;
+}
+.list_aggregate_top .swiper-button-prev, .list_aggregate_middle .swiper-button-prev, .list_powder_middle .swiper-button-prev, .list_product_middle .swiper-button-prev, .product_middle .swiper-button-prev, .product_part .swiper-button-prev, .product_top_right .swiper-button-prev, .epco_bottom_about .swiper-button-prev, .anout_middle .swiper-button-prev, .about_bottom .swiper-button-prev, .mill_1127 .swiper-button-prev {
+  left: 1.4rem;
+  background: url(../images/aggregate/ico_l.png) no-repeat center;
+  background-size: 100% auto;
+}
+.list_product_middle .swiper-button-prev, .about_bottom .swiper-button-prev {
+  left: 9%;
+}
+.list_product_middle .swiper-button-next, .about_bottom .swiper-button-next {
+  right: 9%;
+}
+.product_middle .swiper-button-prev {
+  left: 0.8rem;
+}
+.product_middle .swiper-button-next {
+  right: 0.8rem;
+}
+.about_bottom .swiper-button-prev {
+  left: 19%;
+}
+.about_bottom .swiper-button-next {
+  right: 19%;
+}
+.list_aggregate_bottom .swiper-button-next, .list_aggregate_bottom .swiper-button-prev, .localized_top .swiper-button-next, .localized_top .swiper-button-prev {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+.list_aggregate_bottom .swiper-button-next, .localized_top .swiper-button-next {
+  float: right;
+  background: #deebff url(../images/aggregate/ico_r_small.png) no-repeat center;
+  background-size: 2.4rem auto;
+}
+.list_aggregate_bottom .swiper-button-prev, .localized_top .swiper-button-prev {
+  float: left;
+  background: #deebff url(../images/aggregate/ico_l_small.png) no-repeat center;
+  background-size: 2.4rem auto;
+}
+.lot_top .swiper-button-next, .lot_top .swiper-button-prev {
+  width: 3.2rem;
+  height: 2rem;
+  margin-top: 2rem;
+}
+.lot_top .swiper-button-next {
+  float: right;
+  background: url(../images/IoT/ico_r.png) no-repeat center;
+  background-size: 2.4rem auto;
+}
+.lot_top .swiper-button-prev {
+  float: left;
+  background: url(../images/IoT/ico_l.png) no-repeat center;
+  background-size: 2.4rem auto;
+}
+.news-list_right .swiper-button-next {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background: #fff url(../images/home/next_ico.webp) no-repeat center;
+  border: 1px solid #eee;
+  background-size: 2.4rem auto;
+}
+.mk_top .swiper-button-prev, .nk_middle .swiper-button-prev {
+  left: 0;
+  background: url(../images/inner/arrow_left.png) no-repeat center;
+  background-size: 4.4rem auto;
+}
+.nk_middle .swiper-button-prev {
+  left: 1rem;
+}
+.mk_top .swiper-button-next, .nk_middle .swiper-button-next {
+  right: 0;
+  background: url(../images/inner/arrow_right.png) no-repeat center;
+  background-size: 4.4rem auto;
+}
+.materials_top .swiper-button-prev {
+  width: 8.3rem;
+  height: 4.2rem;
+  position: absolute;
+
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: url(../images/material/ico_d.png) no-repeat center;
+  background-size: 100% auto;
+}
+.nk_middle .swiper-button-next {
+  right: 1rem;
+}
+.news-list_right .swiper-scrollbar {
+  border-radius: var(--swiper-scrollbar-border-radius, 10px);
+  touch-action: none;
+  position: absolute;
+  width: 1rem;
+  height: 100%;
+  background: #0000000f;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.news-list_right .swiper-scrollbar-drag {
+  height: 100%;
+  width: 100%;
+  background: var(--swiper-scrollbar-drag-bg-color, rgba(0, 0, 0, .5));
+  border-radius: var(--swiper-scrollbar-border-radius, 10px);
+  background: #3671cf;
+}
+.swiper-pagination2 {
+  display: none;
+}
+.solution_swiper .swiper-pagination, .service_list .swiper-pagination, .list_blog_middle .swiper-pagination, .swiper-gongyi .swiper-pagination, .mill_1127 .swiper-pagination {
+  margin: 2rem auto 0;
+  text-align: center;
+}
+.swiper-pagination-bullet {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-block;
+  margin: 0 1rem;
+  border-radius: 0.8rem;
+  background: #f90;
+}
+.swiper-gongyi .swiper-pagination-bullet {
+  background: #f0f0f4;
+  height: 0.4rem;
+  width: 19%;
+  margin: 0 0.5%;
+}
+.swiper-pagination-bullet-active {
+  width: 4.8rem;
+}
+.swiper-gongyi .swiper-pagination-bullet-active {
+  background: #f90;
+}
+.solution_swiper .swiper-slide-active {
+  transform: scale(1.15);
+  z-index: 1;
+}
+.swiper-pagination-progressbar {
+  background: #f2f6ff;
+  height: 0.8rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  position: relative;
+}
+.about_swiper .swiper-pagination-progressbar, .localized_top .swiper-pagination-progressbar {
+  background: #f0f0f4;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  width: 100%;
+  background: #f90;
+  border-radius: 0.4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transform: scale(0);
+  transform-origin: left top;
+}
+.swiper_btn_box {
+  width: 59%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.list_aggregate_bottom .swiper-pagination-progressbar, .localized_top .swiper-pagination-progressbar {
+  height: 0.4rem;
+}
+.list_aggregate_bottom .swiper-pagination-progressbar .swiper-pagination-progressbar-fill, .localized_top .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #3671cf;
+}
+.swiper_btn_box .swiper-pagination-progressbar {
+  width: calc(100% - 10rem);
+  margin: 4rem auto 0;
+  overflow: hidden;
+}
+/*************index********/
+.body_index #header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 6666;
+}
+.body_index .nav select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  color: #fff;
+}
+.header .nav_ul > li > a, .header .affix .nav_ul .active > a, .header .affix .nav_ul > li:hover > a {
+  color: #fff;
+}
+.header .affix ul a, .header .affix .nav_language > a {
+  color: #000f24;
+}
+.header .dropdown_box, .body_index .ul_box {
+  top: 6rem;
+}
+.body_index .banner {
+  background: url(../images/home/1p_sbmchina.webp) no-repeat center;
+  background-size: 100% auto;
+}
+.body_index .nav_language > a {
+  display: block;
+  line-height: 6rem;
+  font-size: 2rem;
+  padding: 0 2.4rem;
+  color: #fff;
+}
+.body_index .nav_language > a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: 2.4rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 1rem;
+  border-color: #fff transparent transparent transparent;
+  background-color: transparent;
+}
+.body_index .affix .nav_language > a::after {
+  border-color: #000f24 transparent transparent transparent;
+}
+.body_index .ul_box li {
+  float: none;
+}
+.body_index .logo2, .body_index .affix .logo {
+  display: none;
+}
+
+.body_index .affix .logo2 {
+  display: block;
+  margin-top: 0;
+}
+/******** ***************/
+.form_box .checkbox span {
+  position: static;
+  vertical-align: baseline;
+}
+.checkbox_left {
+  width: 12%;
+}
+.checkbox_right {
+  width: 88%;
+}
+.checkbox {
+  float: left;
+}
+.checkbox:nth-child(1) {
+  width: 19.750%;
+}
+.checkbox:nth-child(2) {
+  width: 44.25%;
+}
+.checkbox:nth-child(3) {}
+.checkbox:nth-child(4) {
+  width: 64%;
+}
+.checkbox:nth-child(5), .checkbox:nth-child(3) {
+  width: 36%;
+}
+.checkbox:nth-child(5), .checkbox:nth-child(4) {
+  margin-top: 0.5rem;
+}
+.checkbox_btn {
+  border: 1px solid #ff9900;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  border-radius: 0.4rem;
+}
+input[type=checkbox] {
+  display: none;
+}
+.checkbox_btn:before {
+  content: '';
+  width: 1.6rem;
+  height: 1.6rem;
+  background: #ff9900;
+  margin: 0 auto;
+  border-radius: 0.4rem;
+}
+input[type=checkbox]:checked + .checkbox_btn:before {
+  display: block;
+}
+.contact_top_right h3 {
+  font-size: 3.6rem;
+  color: #3671cf;
+  line-height: 1.1;
+}
+/************************************/
+.case_top .more {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.case_top_middle .ul_img span {
+  position: absolute;
+  bottom: 1.6rem;
+  z-index: 1;
+  border: 1px solid #fff;
+  color: #fff;
+  line-height: 4rem;
+  width: 13.6rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: 2.4rem;
+  text-align: center;
+}
+.case_top_middle .ul_img .active span {
+  background: rgba(255, 255, 255, 0.5);
+}
+.case_top_middle .ul_img li:nth-child(1) span {
+  left: 5rem;
+}
+.case_top_middle .ul_img li:nth-child(2) span {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.case_top_middle .ul_img li:nth-child(3) span {
+  right: 5rem;
+}
+.ul_img li:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.1));
+  border-radius: 0.4rem;
+}
+.case_advantages li h4 {
+  background: url(../images/cases/+.png) no-repeat right center;
+  background-size: 3.2rem auto;
+  position: relative;
+  padding: 1.2rem 6rem;
+  color: #003f98;
+  font-weight: bold;
+}
+.case_advantages h4 img {
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  width: 6rem;
+}
+.case_advantages li {
+  background: #f2f6ff;
+  padding: 2rem;
+}
+.case_advantages li.active {
+  background: url(../images/cases/bg_adv.jpg) no-repeat center bottom;
+  background-size: 100% auto;
+}
+.case_advantages li.active h4 {
+  background: url(../images/cases/-.png) no-repeat right center;
+  background-size: 3.2rem auto;
+}
+.smp_list, .smp_middle {
+  border-bottom: 1rem solid #f6f6f6;
+  border-top: 1rem solid #f6f6f6;
+  padding: 6rem 0;
+}
+.smp_middle {
+  border-top: none;
+}
+.smp_list li {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.smp_list img {
+  display: block;
+  margin: 0 auto 2rem;
+}
+.smp_table table {
+  border-collapse: collapse;
+}
+.smp_table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 0.4rem 0;
+}
+.smp_table tr:nth-child(1), .smp_table tr:nth-child(2) {
+  background: #ccc;
+}
+.smp_table table td span i {
+  display: inline-block;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  background-color: #020202;
+}
+.smp_table table tbody tr:nth-of-type(7) td span i:last-child, .smp_table table tbody tr:nth-of-type(9) td span i:last-child {
+  background-color: transparent;
+  border: 1px solid #020202;
+}
+.smp_middle img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 54%;
+}
+.smp_middle p {
+  width: 46%;
+  margin: 0 0 0 auto;
+  padding: 3.2rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+.smp_middle .active p:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #f1f1f3;
+}
+.smp_middle .active p, .mk_bottom .text {
+  width: 50%;
+}
+
+.smp_list_product li, .mk_top .swiper-slide, .mk_middle, .nk_middle {
+  text-align: center;
+}
+/******2520-9-18***********/
+.product_top_smp .product_top_left {
+  padding-top: 2rem;
+}
+.product_top_smp .product_ico {
+  margin-top: 5rem;
+}
+.related_cases_smp .box_width, .smp_case_swiper {
+  overflow: visible;
+}
+.smp_list_parts {
+  background: url("../images/product/smp/bg.jpg") no-repeat;
+  background-size: 100% 100%;
+  padding: 7rem 2.4rem 5rem;
+  text-align: center;
+}
+.product_key_smp h4 {
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 1.6rem 0;
+}
+.product_key_smp .more {
+  width: 18rem;
+}
+.tab-menu_smp {
+  background: #f2f6ff;
+}
+.tab-menu_smp {
+  display: flex;
+}
+.tab-menu_smp li {
+  padding: 2rem 2rem;
+  width: 27%;
+  position: relative;
+}
+.tab-menu_smp li.active {
+  width: 46%;
+}
+.tab-menu_smp li:nth-child(1) h4 {
+  line-height: 1;
+}
+.tab-menu_smp li:nth-child(1).active h4 {
+  line-height: 1.5em;
+}
+.tab-menu_smp .active .text {
+  position: absolute;
+  bottom: 0;
+  background: #3671cf;
+  left: 0;
+  right: 0;
+  padding: 2rem 2rem;
+}
+.tab-menu_smp li:nth-child(n+2).active .text {
+  padding: 3rem 2rem;
+}
+.tab-menu_smp li:nth-child(n+2).active h4 {
+  line-height: 2em;
+}
+.smp_top li {
+  background: #f2f6ff;
+  text-align: center;
+  padding: 2rem 1rem 4rem;
+  border-radius: 0.4rem;
+  border: 1px solid #deecf9;
+}
+.smp_top li:hover {
+  background: none;
+  border-color: #3671cf;
+}
+.smp_top p {
+  margin-top: 1rem;
+}
+/********************************/
+.mk_top_text {
+  padding: 4rem 0;
+  background: #eaf6fd;
+}
+.mk_top .swiper-slide h5 {
+  font-weight: 400;
+}
+.mk_top .swiper-slide-active h5, .nk_middle .swiper-slide-active {
+  font-weight: bold;
+  color: #000f24;
+}
+.mk_top .swiper-slide img {
+  transform: scale(0.5)
+}
+.mk_top .swiper-slide-active img {
+  transform: scale(1)
+}
+.mk_middle, .nk_middle {
+  padding: 7.8rem 0;
+  background: #eaf6fd;
+}
+.mk_middle ul {
+  position: relative;
+  padding-top: 10rem;
+  margin-top: 4rem;
+}
+.mk_middle li > h4 {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  border: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+.mk_middle li:nth-child(1) > h4 {
+  left: 0;
+}
+.mk_middle li:nth-child(2) > h4 {
+  right: 0;
+}
+.mk_bottom {
+  background: url(../images/inner/advantage_bg.jpg) no-repeat left center;
+  background-size: 95.2rem auto;
+}
+.mk_bottom .text {
+  margin: 0 0 0 auto;
+}
+.mk_bottom h4 {
+  background: #eaf6fd;
+  padding: 1.6rem 2rem;
+  border-bottom: 1px solid #fff;
+}
+.mk_bottom p {
+  background: #fff;
+  padding: 2rem;
+  height: 14rem;
+}
+.mk_bottom h4 i {
+  margin-left: 30px;
+  background-image: url(../images/inner/ico_more_default.png);
+  background-size: 100% 100%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.mk_bottom li:hover h4 i, .mk_bottom .active h4 i {
+  background-image: url(../images/inner/ico_more.png);
+}
+.nk_middle .more, .nk_bottom .more {
+  display: block;
+  width: 24rem;
+  line-height: 6rem;
+  font-size: 2.4rem;
+  margin: 2rem auto 0;
+  color: #ffffff;
+  font-family: Roboto-Regular, Helvetica, Arial;
+  background-image: linear-gradient(0deg, #ff9900 0%, #ffd300 100%);
+  border-radius: 0.8rem;
+  text-align: center;
+}
+.nk_bottom .text .more {
+  margin: 11rem 0 0;
+}
+.nk_bottom .swiper-slide {
+  background: #fff;
+}
+.nk_bottom .text, .nk-youshi h2 {
+  position: absolute;
+  top: 12%;
+  left: 0;
+  z-index: 1;
+  line-height: 1.2;
+  width: 34%;
+}
+.nk_bottom .text {
+  top: 22%;
+}
+.nk-youshi .swiper-slide .text, .nk_bottom h4 {
+  position: absolute;
+  left: 0;
+  top: 37%;
+  width: 32%;
+}
+.nk-youshi h2, .nk-youshi .swiper-slide .text {
+  left: 3rem;
+}
+.tab_menu_nk, .tunnel_swiper .swiper-slide {
+  position: relative;
+}
+.tab_menu_nk .box_width, .tab_menu_nk:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -8rem;
+}
+.tab_menu_nk .box_width {
+  z-index: 1;
+}
+.tab_menu_nk:after {
+  content: "";
+  height: 8rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+.tab_menu_nk li {
+  width: 16.67%;
+}
+.tab_menu_nk li.active a {
+  color: #003f98;
+  background: #eaf6fd;
+}
+/***********blog*******************/
+.content_wrap h1 {
+  margin-bottom: 1rem;
+
+  line-height: 1.2;
+}
+.content_wrap hr {
+  height: 1px;
+  background: #e4e4e4;
+  margin: 5rem 0;
+}
+.border-bottom {
+  border-bottom: 1px solid #d3d6da;
+}
+.pb15 {
+  padding-bottom: 1.5rem;
+}
+.mb20, .news_text p {
+  margin-bottom: 2rem;
+}
+.col-md-7, .col-sm-7 {
+  width: 58.33333333%;
+}
+.col-md-6, .col-xs-6, .col-xs-12.col-sm-6, .col-sm-6 {
+  width: 50%;
+}
+.col-md-5 {
+  width: 41.66666667%;
+}
+.col-md-4 {
+  width: 33.33333333%;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-md-8 {
+  width: 66.66666667%;
+}
+.col-md-3 {
+  width: 25%;
+}
+.col-md-offset-2 {
+  margin-left: 16.66666667%;
+}
+.col-md-offset-3 {
+  margin-left: 25%;
+}
+.col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-xs-12, .col-xs-6, .col-md-3 {
+  float: left;
+  padding: 0 1.5rem;
+}
+.row {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+.clearfix:after, .row:after, .page-bar ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.article-text h2, .content_wrap h2 {
+  font-size: 2.6rem;
+  padding-left: 2rem;
+  margin: 3rem 0 3rem;
+  border-left: 0.4rem solid #f90;
+  line-height: 1.2;
+}
+.article-text h3, .content_wrap h3 {
+  font-size: 2.4rem;
+  margin: 2rem 0 1rem;
+}
+.article-text img {
+  width: 100%;
+}
+.seo-content-btn {
+  float: right;
+  margin-right: 4rem;
+  margin-top: 6.5rem;
+}
+.seo-content-btn .seo-btn1, .seo-content-btn .seo-btn2 {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  display: inline-block;
+  width: 13.4rem;
+  height: 3.8rem;
+  text-align: center;
+  line-height: 3.8rem;
+  color: #f90;
+  font-size: 1.6rem;
+  border: 1px solid #f90;
+}
+.seo-btn1:hover, .seo-content-btn .seo-btn2 {
+  background-color: #f90;
+  color: #fff;
+}
+.seo-content-btn .seo-btn2 {
+  margin-left: 2rem;
+}
+.seo-hot-sale {
+  margin-top: 2rem;
+}
+.seo-hot-sale h2 {
+  display: inline-block;
+  position: relative;
+  font-size: 3.6rem;
+  margin: 0;
+}
+.seo-hot-sale .baojia {
+  color: #f90;
+  border: 1px solid #f90;
+  padding: 0.6rem 2rem;
+  border-radius: 2rem;
+  margin-left: 2rem;
+  cursor: pointer;
+  vertical-align: super;
+}
+.seo-hot-sale .more {
+  margin-top: 1.6rem;
+}
+.seo-hot-sale .more img {
+  margin-left: 1rem;
+  vertical-align: middle;
+}
+.seo-hot-sale .swiper-container {
+  text-align: center;
+}
+.seo-hot-sale .swiper-pagination {
+  margin-top: 2rem;
+}
+.main-cnt a {
+  color: #3670cf;
+}
+.article-text img {
+  display: block;
+  margin: 0 auto;
+  max-width: 750px;
+  max-height: 100%;
+  height: auto;
+}
+.article-text .entry-intro {
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
+  border-left: 0.5rem solid #f90;
+  margin: 0 0 4rem;
+}
+.article-text .entry-intro h2 {
+  border: none;
+}
+.con-table {
+  cursor: pointer;
+  color: #3f51b5;
+  width: 100%;
+}
+.con-table .tr-title {
+  background: #3f51b5;
+  color: #fff;
+  font-weight: 600;
+}
+.con-table tr td {
+  padding: 15px;
+  border: 1px solid #bbcef0;
+}
+.list_mining_bottom .list_product_top2 {
+  margin: 0;
+}
+.product_top_nk {
+  position: relative;
+  padding: 0;
+}
+.product_top_nk .box_width {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2.3rem;
+}
+.product_top_nk img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.product_top_smp .box_width {
+  top: 5%;
+}
+.list_blog_bottom {
+  overflow: visible;
+}
+.page-bar {
+  margin: 3rem 0
+}
+.page-bar li:first-child > a {
+  margin-left: 0
+}
+.page-bar a, .page-bar > b {
+  border: 1px solid #ddd;
+  text-decoration: none;
+  position: relative;
+  float: left;
+  padding: 0.6rem 0.8rem;
+  margin-left: -1px;
+  color: #337ab7;
+  cursor: pointer
+}
+.page-bar a:hover {
+  background-color: #eee
+}
+.page-bar a.banclick {
+  cursor: not-totalpageowed
+}
+.page-bar .active a {
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7
+}
+.page-bar i {
+  color: #d44950;
+  margin: 0 0.4rem;
+  font-size: 1.2rem
+}
+.no-cnt {
+  border: #f90 2px solid;
+  width: 60%;
+  margin: 4rem auto;
+}
+.no-cnt p {
+  padding: 1rem 0;
+  border: #f90 1px solid;
+  margin: 2rem;
+}
+.p_advantages2 li {
+  background: #f2f6ff;
+  padding: 1rem 1.6rem 1rem 4rem;
+  line-height: 1.2em;
+  position: relative
+}
+.p_advantages2 li:nth-child(1) {
+  padding-top: 2rem
+}
+.p_advantages2 .p_advantages_right {
+  margin-left: 1.6%;
+  background: #f2f6ff;
+  margin-top: 2rem;
+}
+.p_advantages2 li span {
+  font-size: 2.4rem;
+  font-weight: 700;
+  position: absolute;
+  left: 1.4rem;
+  line-height: 1
+}
+.websitemap h2 a, .mill_1127 h2,.website_border_bottom h2 {
+  font-size: 3rem;
+}
+.websitemap h3 a,.websitemap h3 {
+  font-size: 2.2rem;
+}
+.website_border_bottom h4{
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+.websitemap h3, .mill_1127 h2 {
+  font-weight: 400;
+}
+.websitemap .col-sm-3 {
+  width: 25%;
+}
+.websitemap .col-sm-4 {
+  width: 33.3333333%;
+}
+.websitemap .col-sm-2 {
+  width: 16.666666667%;
+}
+.website_border_bottom {
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 3.2rem;
+  margin-bottom: 2rem;
+}
+.websitemap h2 {
+  margin-bottom: 1.3rem;
+}
+.websitemap_banner {
+  background: url(../images/website.jpg) top center no-repeat;
+  height: 20rem;
+}
+.websitemap_banner h1 {
+  color: #fff;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 20rem;
+}
+.website_border_bottom .mt20{
+	margin-top: 2rem;
+}
+.website_border_bottom2 h3{
+	margin-bottom: 1rem;
+	font-size: 2.2rem;
+}
+.legal_notice {
+  margin-top: 0;
+}
+.law_info .cRed {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.law_info h4 {
+  margin: 2rem 0 1rem;
+  font-weight: bold;
+}
+.mill_1127 .table-bordered h2 {
+  margin: 2.4rem 0 1rem;
+}
+.mill_1127 .full-width, .mill_1127 .center-block {
+  width: 100%;
+}
+.mill_1127 .container_box {
+  margin: 5rem auto;
+}
+.mill_1127 h2, .mill_1127 .container_box3 p {
+  margin-bottom: 4rem;
+}
+.mill_1127 .powders-banner {
+  background: url(../images/u4404.jpg) no-repeat;
+  padding: 22rem 0 7rem;
+  margin-bottom: 0;
+  height: 50rem;
+}
+.mill_1127 .powders-banner2 {
+  padding-top: 18rem;
+}
+.mill_1127 .powders-banner .text {
+  background-color: rgba(54, 113, 207, .9);
+  padding: 3.4rem 3.4rem 3rem;
+}
+.mill_1127 .powders-banner2 .text {
+  padding: 2.4rem 3.4rem 2rem;
+}
+.powders-banner h1 {
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+.mill_1127 .tec-table td {
+  padding: 0.8rem;
+  border: 1px solid #797979;
+}
+.mill_1127 .tec-table table  {
+  width: 100%;
+  border-collapse: collapse;
+}
+.mill_1127 .table-sm td {
+  padding: 0.3rem;
+}
+.border-right {
+  border-right: 1px solid #e4e4e4;
+}
+.border-left {
+  border-left: 1px solid #e4e4e4;
+}
+.mill_1127 .comment h3 {
+  color: #f90;
+  font-weight: 400;
+}
+.mill_1127 .comment p, .mill_1127 .coal_powders_r dl, .mill_1127 .tab-container .nav-tabs {
+  margin-bottom: 2rem;
+}
+.mill_1127 .center-block2 {
+  display: block;
+  margin: 0 auto;
+}
+.mill_1127 .tab-container .nav-tabs li {
+  display: inline-block;
+  padding: 1.8rem 2.2rem;
+  margin-right: 2rem;
+}
+.mill_1127 .tab-container .nav-tabs li.active {
+  color: #fff;
+  background: #3671CF;
+}
+.language_banner {
+  background: #f2f6ff;
+  border-top: 1px solid #fff;
+}
+.language_banner .box_width {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10%;
+}
+.language_banner .text {
+  width: 47%;
+}
+.language_banner h2 {
+  line-height: 1.25;
+  color: #003f98;
+  margin-bottom: 1.5rem;
+}
+.language_banner p {
+  font-size: 2.4rem;
+}
+.language_nav {
+  text-align: center;
+  margin-top: 4rem;
+}
+.language_nav li {
+  display: inline-block;
+  background: #f2f6ff;
+  width: 29.5rem;
+  margin: 0 1.5rem;
+}
+.language_list {
+  margin-top: 6rem;
+}
+.language_list h2 {
+  font-size: 3.6rem;
+  text-transform: uppercase;
+}
+.language_list h2:after {
+  content: '';
+  float: right;
+  width: calc(100% - 17.4rem);
+  height: 1rem;
+  background: #f2f6ff;
+  margin-top: 1rem;
+}
+.language_list > ul > li {
+  margin-top: 3rem;
+}
+.language_list li li img, .language_list strong, .product_page_left img {
+  display: block;
+}
+.language_list li li:nth-child(2) {
+  background: url("../images/language/icon_1.png") no-repeat left 0.6rem;
+  margin-top: 1.4rem;
+}
+.language_list li li:nth-child(3) {
+  background: url("../images/language/icon_2.png") no-repeat left 0.6rem;
+}
+.language_list li li:nth-child(n+2) {
+  padding-left: 4rem;
+  background-size: 2.7rem 2.7rem;
+}
+.language_list li a, .language_list li strong, .language_list li li {
+  font-size: 2.2rem;
+}
+.language_list img {
+  border: 1px solid #ededed;
+  width: 12rem;
+}
+/*************product start**********************/
+.tab_menu_product li:nth-child(1){
+	width: 16%;
+}
+.tab_menu_product li:nth-child(2){
+	width: 13.79%;
+}
+.tab_menu_product li:nth-child(4){
+	width: 13.79%;
+}
+.tab_menu_product li:nth-child(3){
+	width: 18.46%;
+}
+.tab_menu_product li:nth-child(5){
+	width: 18.54%;
+}
+.tab_menu_product li:nth-child(6){
+	width: 19.42%;
+}
+.subnav_product {
+  padding: 0;
+}
+.subnav_product p {
+  line-height: 4rem;
+}
+.subnav_product ul, .product_page_left, .product_page_right ul {
+  display: flex;
+}
+.subnav_product li {
+  padding: 0 1rem 0 4rem;
+  line-height: 4rem;
+}
+.subnav_product .active, .subnav_product li:hover {
+  background: #3671CF url("../images/product/icon_1.png") no-repeat 1rem center;
+  background-size: 1.9rem auto;
+  border-radius: 2rem;
+}
+.subnav_product .active a, .subnav_product li:hover a {
+  color: #fff;
+}
+.product_page_top {
+  padding: 4rem 0;
+}
+.product_page_left {
+  width: 64.51%;
+  position: relative;
+  overflow: hidden;
+  height: 40rem;
+}
+.product_page_right {
+  width: 32.26%;
+}
+.gallery_right {
+  width: 76.25%;
+}
+.gallery_left {
+  width: 21.25%;
+  margin-right: 2.5%;
+  position: relative;
+  /*padding: 4rem 0;*/
+}
+.product_page_left .gallery-thumbs {
+  height: calc(100% - 8rem);
+  /*height: 100%;*/
+  margin: 4rem 0;
+  /* padding-top: 4rem;*/
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.swiper-container-vertical .swiper-wrapper, .swiper-vertical > .swiper-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column
+}
+.product_page_right h1 {
+  line-height: 5.6rem;
+}
+.product_page_right li img {
+  width: 4rem;
+  display: block;
+}
+.product_page_right ul {
+  margin: 1rem 0;
+}
+.product_page_right li {
+  margin-right: 0.8rem;
+}
+.product_page_right h4, .product_advantages h4, .mill_bottom h4, .g_mining_midlle h4 a {
+  font-weight: bold;
+}
+.product_advantages h4 {
+  font-size: 2.3rem;
+}
+.product_page_right .online-chat {
+  line-height: 5.8rem;
+  color: #fff;
+  border-radius: 0.8rem;
+  width: 73%;
+  margin-top: 2rem;
+}
+.product_page_right .online-chat img {
+  vertical-align: middle;
+  width: 2.4rem;
+  height: auto;
+  margin-right: 1rem;
+}
+.gallery_left .swiper-button-next2, .gallery_left .swiper-button-prev2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2rem;
+  display: block;
+  z-index: 6;
+}
+.gallery_left .swiper-button-prev2 {
+  top: 0;
+  background: #DEECF9 url(../images/product/ico_06.webp) no-repeat center;
+  background-size: 4rem auto;
+}
+.gallery_left .swiper-button-next2 {
+  bottom: 0;
+  background: #DEECF9 url(../images/product/ico_07.webp) no-repeat center bottom;
+  background-size: 4rem auto;
+}
+.gallery_left .swiper-slide-thumb-active {
+  border: 0.4rem solid #F29202;
+  overflow: hidden;
+}
+.gallery_left .swiper-slide {
+  display: flex;
+  align-items: center;
+}
+.gallery-top .swiper-button-prev2, .gallery-top .swiper-button-next2 {
+  background: #f00;
+  position: absolute;
+  width: 10rem;
+  height: 4rem;
+  display: block;
+  z-index: 6;
+  top: 50%;
+}
+.gallery-top .swiper-button-prev2 {
+  left: 0;
+  width: 10rem;
+}
+.gallery-top .swiper-button-next2 {
+  right: 0;
+  background: #f0f;
+}
+.product_page_text, .tunnel_swiper, .tunnel_text p {
+  margin-top: 2.4rem;
+}
+.product_advantages .swiper-slide {
+  background: #f2f6ff;
+  padding: 2rem 1.8rem;
+  border-radius: 2rem;
+	max-width: 40rem;
+}
+.product_advantages img {
+  margin: 1.4rem 0;
+  width: 100%;
+  border-radius: 0.4rem;
+}
+.product_advantages .swiper-pagination, .tunnel_page_top .swiper-pagination, .tunnel_Advantages .swiper-pagination,.mill_middle  .swiper-pagination{
+  width: 32%;
+  display: inline-block;
+}
+.tunnel_page_top .swiper-pagination-progressbar, .tunnel_Advantages .swiper-pagination-progressbar {
+  height: 0.4rem;
+}
+.product_advantages .swiper-button-prev, .product_advantages .swiper-button-next, .tunnel_page_top .swiper-button-prev, .tunnel_page_top .swiper-button-next, .tunnel_Advantages .swiper-button-prev, .tunnel_Advantages .swiper-button-next ,.mill_middle .swiper-button-next,.mill_middle .swiper-button-prev{
+  background: #f00;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  float: right;
+  margin-top: 1.8rem;
+}
+.product_advantages .swiper-button-prev, .tunnel_page_top .swiper-button-prev, .tunnel_Advantages .swiper-button-prev,.mill_middle .swiper-button-prev {
+  background: #f90 url("../images/product/ico_09.webp") no-repeat center;
+  background-size: 0.6rem auto;
+  margin-right: 1rem;
+}
+.product_advantages .swiper-button-next, .tunnel_page_top .swiper-button-next, .tunnel_Advantages .swiper-button-next,.mill_middle .swiper-button-next {
+  background: #f90 url("../images/product/ico_08.webp") no-repeat center;
+  background-size: 0.6rem auto;
+}
+.product_related_cases, .g_related_cases, .trunel_related_cases {
+  background: none;
+}
+.product_service_list {
+  margin-bottom: 7.8rem;
+  text-align: center;
+}
+.product_service_list p, .product_service_list h4 {
+  color: #fff;
+}
+.product_service_list h4, .Models_advantages_list h4 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.product_service_list img, .g_mining_midlle img {
+  display: block;
+}
+.product_service_list .more {
+  display: block;
+  color: #fff;
+  width: 12rem;
+  line-height: 4rem;
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  margin: 2rem auto 0;
+}
+.product_service_list .more:hover{
+	background: #f90;
+}
+.product_service_list .tab-pane h4 {
+  opacity: 0;
+  margin-bottom: 2rem;
+}
+.product_service_list .tab-menu {
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  z-index: 1;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+.product_service_list .tab-menu li {
+  line-height: 4rem;
+  width: 31%;
+  color: #fff;
+}
+.product_service_list .tab-menu li:nth-child(2) {
+  width: 38%;
+}
+.product_service_list .tab-menu li.active {
+  background: #DEECF9;
+  color: #3671CF;
+  border-radius: 2rem;
+}
+.product_Applications li img, .mill_middle .swiper-slide-active img, .mill_middle .swiper-slide img, .mill_banner li img, .mill_bottom li, .g_mining_midlle p {
+  transition: all ease-out 0.3s;
+}
+.product_Applications li:hover img, .mill_middle .swiper-slide-active img, .mill_middle .swiper-slide:hover img, .mill_banner li:hover img {
+  border-radius: 2rem;
+}
+.mill_middle h4 a{
+	font-size: 2.2rem;
+}
+.mill_bottom li {
+  background: #f2f6ff;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.4rem;
+  border: 1px solid #deecf9;
+}
+.mill_bottom li:hover {
+  border-color: #3671cf;
+}
+.mill_bottom p, .g_mining_midlle h4, .material_ore_bottom li p {
+  margin-top: 1rem;
+}
+.mill_bottom img {
+  width: 6rem;
+}
+.mill_top li p, .material_ore_middle li ul {
+  display: none;
+}
+.mill_top li, .material_ore_middle .tab-wrapper li {
+  margin-bottom: 0.4rem;
+  background: #F2F6FF;
+}
+.mill_top h4 {
+  background: #DEECF9 url("../images/product/+.webp") no-repeat 97% center;
+  line-height: 6rem;
+  padding: 0 2rem;
+}
+.mill_top li.active h4 {
+  background: #DEECF9 url("../images/product/-.webp") no-repeat 97% center;
+}
+.mill_top li.active p, .material_ore_middle .active p {
+  display: block;
+  padding: 1rem 2rem;
+  line-height: 1.35em;
+}
+.mill_top li.active p {
+  line-height: 1.2em;
+}
+.mill_top_left .get_price {
+  display: block;
+  width: 24rem;
+  line-height: 6rem;
+  border-radius: 3rem;
+  background: #f90;
+  color: #fff;
+  text-align: center;
+  margin-top: 1.6rem;
+
+  font-size: 2.4rem;
+}
+.material_ore_middle h4 {
+  background: #DEECF9 url("../images/product/+.webp") no-repeat 98% center;
+  background-size: 2.4rem 2.4rem;
+  font-size: 2.3rem;
+  line-height: 3.6rem;
+  padding: 1.2rem 2rem;
+}
+.material_ore_middle li.active h4 {
+  background: #3671CF url("../images/material/ore/-.webp") no-repeat 98% center;
+  color: #fff;
+  background-size: 2.4rem 0.4rem;
+}
+.material_ore_middle .active ul {
+  display: block;
+  padding: 1rem 2rem;
+  line-height: 1.29em;
+}
+.material_ore_middle .tab-menu {
+  height: 100%;
+}
+.material_ore_middle li.active {
+  height: calc(100% - 19.2rem)
+}
+.material_ore_middle .mill_top_left_5 li.active {
+  height: calc(100% - 25.2rem)
+}
+.material_ore_middle .mill_top_left_3 li.active {
+  height: calc(100% - 12.4rem)
+}
+.material_ore_middle li:last-child {
+  margin-bottom: 0;
+}
+.material_ore_middle .online-chat {
+  color: #fff;
+  margin: 1rem auto 0;
+  width: 58%;
+}
+.material_ore_middle .tab-wrapper li li {
+  list-style-type: disclosure-closed;
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+.material_ore_middle_gold .tab-wrapper  li li{
+	list-style: none;
+	margin-left: 0;
+	line-height: 1.1em;
+}
+.material_ore_middle .active.active_ore ul,.mill_top .active.active_ore p{
+	display: none;
+}
+.material_ore_middle .active.active_ore,.material_ore_middle .mill_top_left_3 li.active.active_ore{
+	height: auto;
+}
+.material_ore_middle .active.active_ore h4{
+	background: #DEECF9 url("../images/product/+.webp") no-repeat 98% center;
+	color: #000f24;
+}
+.mill_top .active.active_ore h4{
+	background: #DEECF9 url("../images/product/+.webp") no-repeat 97% center;
+}
+.gole_plant li{
+	display: inline-block;	
+	margin: 0rem 1.4rem;
+}
+.gole_plant{
+	text-align: center;
+}
+.gole_plant li a{
+	display: block;
+	border: 1px solid #4570c8;
+	padding: 0.5rem 2.4rem;
+	font-size: 2.2rem;
+	border-radius: 1rem;
+}
+.gole_plant li:hover a{
+	background: #4570c8 url("../images/material/ore/more.png") no-repeat 97% center;
+	background-size: 2.7rem auto;
+	color: #fff;
+	padding: 0.5rem 4rem 0.5rem 0.8rem;
+}
+.material_ore_list{
+	margin-top: -3.8rem;
+	margin-bottom: 7.8rem;
+}
+.material_ore_list li{
+	width: 48.40%;
+	background: #f3f6fe;
+}
+ 
+.material_ore_list li:nth-child(1){
+	margin-right: 3.2%;
+}
+.material_ore_list li .text{
+	padding: 2rem 1rem;
+}
+.material_ore_list li:hover h4{
+	background: url("../images/material/ore/more2.png") no-repeat right center;
+	background-size: 2.7rem auto;
+	display: inline-block;
+	padding-right: 4rem;
+}
+.mill_banner {
+  background: #f2f6ff;
+	padding-bottom: 6rem;
+}
+.mill_banner .text{
+	 background: #f2f6ff url("../images/product/mill_bg.webp") no-repeat top center;
+	  background-size: cover;
+	  padding: 4rem 0 3rem;
+}
+.mill_banner h2 {
+  font-size: 6rem;
+  line-height: 10rem;
+}
+.mill_banner .last_li h4, .list_product .last_li h4 {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.g_mining_banner {
+  background: #f2f6ff;
+  padding: 2rem 0 4rem;
+}
+.g_mining_midlle p {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  right: 2rem;
+  opacity: 0;
+}
+.g_mining_midlle li:hover p {
+  opacity: 1;
+}
+.g_mining_midlle p a {
+  display: inline-block;
+  border: 1px solid #fff;
+  border-radius: 1.3rem;
+  ;
+  margin-right: 1rem;
+  padding: 0 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+.g_related_cases {
+  margin-bottom: 4rem;
+}
+.material_ore_middle h2 + p, .material_ore_top p {
+  width: 83%;
+  margin: 2rem auto 4rem;
+}
+.material_ore_middle .tab-wrapper {
+  margin-top: 4rem;
+}
+.material_ore_bottom {
+  background: url("../images/material/ore/bg.webp") no-repeat center;
+  background-size: 100% auto;
+  padding: 4rem 0 7.8rem;
+}
+.material_ore_bottom li {
+  background: rgba(255, 255, 255, 0.5);
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid transparent;
+}
+.material_ore_bottom li:hover {
+  border-color: #3A77D6;
+}
+.material_ore_bottom img {
+  width: 9.6rem;
+  display: block;
+}
+.material_ore_bottom span {
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 10rem;
+  transform: translateY(-50%);
+}
+.material_ore_top .ul_li5 {
+  display: block;
+  text-align: center;
+}
+.material_ore_top img {
+  display: block;
+  margin: 0 auto 1rem;
+}
+.material_ore_top .ul_li5 li {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -3px;
+}
+.trunel_related_cases li:nth-child(n+3), .trunel_service_list ul {
+  margin-top: 3rem;
+}
+.trunel_related_cases {
+  padding: 0;
+  margin: 7.8rem auto;
+}
+.trunel_service_list ul > li {
+  padding: 1rem 2rem 3rem;
+}
+.trunel_service_list ul > li:nth-child(2n+1) {
+  background: #f2f6ff;
+}
+.trunel_service_list img {
+  display: block;
+  width: 9.3rem;
+}
+.trunel_service_list h4 {
+  margin: 1rem 0;
+  font-weight: bold;
+}
+.trunel_service_list ol li, .tunnel_Advantages li {
+  list-style-type: decimal;
+  margin-left: 2.4rem;
+}
+.tunnel_Applications p, .tunnel_Applications h4 {
+  color: #fff;
+}
+.tunnel_Applications li {
+  height: 46rem;
+  padding: 1.2rem 2.1rem;
+  transition: all 0.3s ease-out 0.1s;
+}
+.tunnel_Applications li:nth-child(1) {
+  background: url(../images/product/tunnel_boring_machine/application_1.webp) no-repeat center;
+  background-size: cover;
+}
+.tunnel_Applications li:nth-child(2) {
+  background: url(../images/product/tunnel_boring_machine/application_2.webp) no-repeat center;
+  background-size: cover;
+}
+.tunnel_Applications li:nth-child(3) {
+  background: url(../images/product/tunnel_boring_machine/application_3.webp) no-repeat center;
+  background-size: cover;
+}
+.tunnel_Applications .text {
+  position: absolute;
+  bottom: 1rem;
+}
+.tunnel_Applications .active p, .tunnel_Advantages img {
+  display: block;
+  margin-bottom: 1rem;
+}
+.tunnel_Applications li p {
+  display: none;
+}
+.tunnel_Advantages h4 {
+  height: 3em;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.tunnel_Advantages .swiper-slide {
+  padding: 2rem;
+  border: 1px solid #f2f6ff;
+  border-radius: 2rem;
+}
+.tunnel_Advantages .swiper-slide-active {
+  border: 1px solid #2A82E4;
+}
+.Models_advantages_list table {
+  border: 1px solid #3671CF;
+  background: #f2f6ff;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 3rem;
+}
+.Models_advantages_list th {
+  background: #DEECF9;
+  line-height: 4.8rem;
+  padding-left: 2rem;
+}
+.Models_advantages_list td, .Models_advantages_list th {
+  border-right: 1px solid #3671CF
+}
+.Models_advantages_list td {
+  padding-left: 2rem;
+  line-height: 4.8rem;
+  vertical-align: top;
+}
+.Models_advantages_list_2 td {
+  padding: 0;
+  text-align: center;
+  line-height: 4rem
+}
+.Models_advantages_list_2 th {
+  padding: 1rem 0;
+  line-height: 1.5em;
+  text-align: center;
+}
+.Models_advantages_list_3 td {
+  border: 1px solid #3671CF
+}
+.Models_advantages_list_4 td {
+  line-height: 1.5em;
+  padding: 0.5rem 0 0.5rem 2rem;
+}
+.Models_advantages_list li {
+  list-style-type: disclosure-closed;
+  margin: 0.5rem 5rem 0 2rem;
+}
+.Models_advantages_list li::marker, .material_ore_middle li li::marker {
+  color: #f90;
+}
+.tunnel_swiper h4 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  color: #fff;
+  text-align: center;
+}
+.tunnel_swiper img, .Models_advantages img {
+  display: block;
+}
+.tunnel_page_type ul {
+  width: 60rem;
+  display: flex;
+  margin: 2rem auto 5rem;
+}
+.tunnel_page_type li {
+  width: 48%;
+  text-align: center;
+}
+.tunnel_page_type li:nth-child(1) {
+  margin-right: 4%;
+}
+.tunnel_page_type li a {
+  line-height: 7rem;
+  font-size: 2.4rem;
+  display: block;
+  background: #f2f6ff;
+  border-radius: 0.8rem;
+  color: #3671cf;
+}
+.tunnel_page_type .active a {
+  background: #3671cf;
+  color: #fff;
+}
+.Models_advantages .swiper-button-prev, .Models_advantages .swiper-button-next {
+  position: absolute;
+  width: 4rem;
+  height: 10rem;
+  display: block;
+  z-index: 6;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.Models_advantages .swiper-button-prev {
+  left: 2rem;
+  background: url("../images/product/tunnel_boring_machine/l.png") no-repeat;
+  background-size: 100% auto;
+}
+.Models_advantages .swiper-button-next {
+  right: 2rem;
+  background: url("../images/product/tunnel_boring_machine/r.png") no-repeat;
+  background-size: 100% auto;
+}
+.Models_advantages .swiper-pagination {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
+  padding: 0 1.4rem;
+  color: #fff;
+}
+.Models_advantages .swiper-pagination span {
+  color: #fff;
+}
+.Tunnel_middle td ,.partners_cases td,.partners_cases th{
+  padding: 1.2rem 2rem;
+  border: 1px solid #797979;
+}
+.Tunnel_middle tr:nth-child(odd),.partners_cases tr:nth-child(odd) {
+  background: #DEECF9;
+}
+.Tunnel_middle table,.partners_cases table {
+  border-collapse: collapse;
+  background: #f2f6ff;
+  margin-top: 3rem;
+}
+.Tunnel_middle td:nth-child(2n+1),.partners_cases th {
+  font-weight: bold;
+  color: #222;
+}
+.Tunnel_bottom {
+  padding-bottom: 0;
+}
+.banner_add .box_width{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.banner_add_text{
+	width: 32%;
+}
+.banner_add_text h1{
+	font-size: 6rem;
+	color: #fff;
+	line-height: 1.2;
+	margin-bottom: 1.6rem;
+}
+.banner_add_text img{
+	width: 2.8rem;
+	vertical-align: middle;
+	margin-right: 2rem;
+	display: inline-block;
+}
+/*************product end**********************/
+@media all and (max-width:1920px) {
+  .product_top {
+    background-size: 100% 100%;
+  }
+ /* .mill_banner {
+    background-size: 192rem;
+  }*/
+  .material_ore_bottom {
+    background-size: 192rem 100%;
+  }
+}
+@media all and (max-width:1920px) and (min-width:1261px) {
+  .product_top_left h1 {
+    margin: 0;
+  }
+  .tunnel_Advantages h4 {
+    font-size: 1.8rem;
+  }
+}
+@media all and (max-width:1680px) {
+  .related_cases_smp .box_width {
+    width: 78%;
+  }
+  .product_top_left h3 {
+    font-size: 2.4rem;
+  }
+  .tunnel_Advantages .swiper-slide {
+    padding: 2rem 1rem;
+  }
+}
+@media all and (max-width:1500px) {
+  .list_conveyors p {
+    margin: 1rem 0 0.5rem;
+  }
+  .list_conveyors .more {
+    margin-top: 1rem;
+  }
+  .list_conveyors_left .img_box {
+    width: 93%;
+  }
+  .list_conveyors li:nth-child(6) .text, .list_conveyors_left .text {
+    left: 52%;
+  }
+  .product_top_smp .product_top_left h1 {
+    font-size: 4rem;
+  }
+  .product_top_smp .box_width {
+    width: 96%;
+  }	
+}
+@media all and (max-width:1440px) and (min-width:751px) {
+  .product_service_list .tab-menu li {
+    font-size: 1.6rem;
+  }
+	.product_key .text{
+		left: 9.8rem;
+	}
+	.product_advantages .swiper-slide{
+		max-width: 50rem;
+	}
+	.banner_add_text{
+		width: 36%;
+	}
+	.life_cycle_bottom li h4{
+		left: 7rem;
+		width: 28.5%;
+	}
+	.life_cycle_left  h2{
+		font-size: 4.5rem;
+	}
+	.contact_middle .box_width{
+		width: calc(100% - 14rem);
+	}
+}
+@media all and (max-width:1440px) and (min-width:1255px) {
+	.list_product h4 a,.product_advantages h4{
+		font-size: 2.1rem;
+	}
+	.product_page_right h1{
+		font-size: 4.4rem;
+		line-height: 4.8rem;
+	}
+	.product_page_left{
+		height: 36.4rem;
+	}
+	.product_page_right .online-chat{
+		margin-top: 1.4rem;
+	}
+	.material_ore_middle_gold .tab-content  img{
+		height: 100%;
+		object-fit: cover;
+	}
+}
+@media all and (max-width:1440px) {
+  html {
+    font-size: 0.69vw;
+  }
+  .box_width {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+  .product_top_smp .box_width {
+    width: 100%;
+  }
+  .contact_form .box_width {
+    padding: 0;
+  }
+  .lot_swiper img {
+    width: 5rem;
+  }
+  .lot_top .swiper-slide {
+    padding-left: 7rem;
+  }
+  .nk_bottom .text {
+    left: 2.4rem;
+  }
+  .nk-youshi h2 {
+    left: 5.4rem;
+  }
+  .product_top_left h1 {
+    margin: 0;
+  }
+  .product_top_smp .product_top_left {
+    padding-top: 1rem;
+  }
+  .tab_nav_product a {
+    padding: 0 1.4rem 1rem;
+  }
+	.tab_nav_material a {
+  padding: 2rem 4.8rem;
+}
+}
+@media all and (max-width:1266px) {
+	.tab_nav_product a {
+    padding: 0 2.9rem 1rem;
+  }
+	.tab_nav_material a {
+  padding: 2rem 4.8rem;
+}
+}
+@media screen and (min-width: 750px) and (max-width: 1280px) {
+  .material_ore_top p,
+  .material_ore_top ul li,
+  .material_ore_middle p,
+  .material_ore_middle ul.tab-menu li,
+  .material_ore_middle ul.tab-menu li h6,
+  .material_ore_list p,
+  .material_ore_bottom p,
+  .mill_bottom p,
+  .form_box p,
+  .product_page_top .product_page_right p,
+  .product_page_top .product_page_text p,
+  .product_advantages p,
+  .product_service_list p,
+  .case_top p,
+  .case_top_middle li,
+  .case_advantages p,
+  .epco_top p,
+  .banner_b_text p,
+  .footer ul li a
+  {font-size: 14px;}
+	.material_ore_middle .tab-content  img{
+		height: calc(100% - 8rem);
+		object-fit: cover;
+	}
+	.material_ore_middle_gold .tab-content  img{
+		height: 100%;
+		object-fit: cover;
+	}
+}
+@media all and (max-width:750px) {
+  html {
+    font-size: 1.335vw
+  }
+  body {
+    padding-bottom: 12.7rem;
+  }
+  *, .tab_nav li a, h4, h4 a, h4 span, .f_bottom a, .f_bottom span, .f_online_chat, .list_materials .more, .list_mining_offer li, .list_mining_top2 .more, .list_mining_bottom .tab-menu li, .list_powder_middle .more, .list_powder_middle_left li, .list_powder_about_top strong, .list_aggregate_top .tab-menu li, .list_aggregate_bottom .tab-menu li, .list_aggregate_bottom .more, .product_key li, .product_key li strong, .product_part .bottom_more_btn, .list_case_top li a, .list_case .bottom_more_btn, .list_case_middle .bottom_more_btn, .epco_bottom_about li, .contact_top li, .contact_top li strong, .btn-submit, .list_news_menu li a, .list_blog_top span, .filterBlog-item span, .menu_ul_b ol li a, .list_parts .tab-menu li, .clo_top_left p, .life_cycle_bottom li h4, .p_advantages_right li span, .websitemap h3 a,.websitemap h3,.website_border_bottom h4,.website_border_bottom h4, .mill_1127 .table-bordered h2, .powders-banner h1, .product_advantages h4 ,.mill_middle h4 a{
+    font-size: 3.2rem;
+  }
+  h1, h2, h2 a, .epco_bottom_about h2, .seo-hot-sale h2, .product_top_smp .product_top_left h1 {
+    font-size: 4.8rem;
+  }
+  h2, h2 a {
+    line-height: 1.2;
+  }
+  .f_middle h4 a, .service_list h4, .lot_middle_2 h4, .article-text h2, .article-text h3, .menu_ul_b h4 {
+    font-size: 3.6rem;
+    font-weight: bold;
+  }
+  .f_bottom, .powders-banner p, .powders-banner b {
+    font-size: 2.4rem;
+  }
+  .list_solution, .list_materials, .list_mining_bottom, .list_powder_middle, .list_powder_bottom, .list_product, .list_beneficiation, .list_conveyors li, .p_advantages, .service_list, .product_part, .product_key, .product_middle, .list_case, .epco_top, .epco_bottom, .epco_bottom_about, .epco_blog, .lot_middle, .lot_bottom, .lot_list, .life_cycle_middle, .life_cycle_bottom, .list_parts, .anout_middle, .list_blog_top, .list_blog_bottom, .col_top, .cases, .materials, .news, .smp_top, .smp_table, .smp_list_product, .mk_top, .mk_bottom, .nk_top, .nk_middle, .nk_bottom, .nk_case, .nk_parameterse, .nk-youshi, .content_wrap, .materials_cases, .case_top, .case_advantages, .localized_middle, .websitemap, .legal_notice, .language_box, .smp_configuration, .mill_bottom, .mill_top, .mill_middle, .product_related_cases, .trunel_service_list, .tunnel_Applications, .trunel_related_cases ,.partners_cases{
+    margin: 4rem auto;
+  }
+  .box_width, .list_mining_bottom .tab-content, .list_mining_bottom .tab-menu, .list_powder_bottom2, .list_aggregate_bottom .tab-menu, .list_aggregate_bottom .tab-content, .list_aggregate_bottom p, .list_conveyors, .product_top_left h1, .about_bottom, .about_top, #Blog.epco_blog, .banner_product .container.box_width, .tunnel_page_top .tunnel_text.box_width, /*.tunnel_page_top*/ .product_page_right, .tunnel_Advantages, .product_page_text p {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .nav .box_width, .tab_menu_box .box_width, .tab_menu_box2 .box_width, .list_mining_offer .box_width, .list_mining_top, .list_mining_bottom .box_width, .list_powder_about, .list_powder_bottom2 .box_width, .list_aggregate_bottom .box_width, .product_top .box_width, .product_top_right .swiper-slide, .product_top_left, .related_cases, .service_list .box_width, .list_case_middle, .epco_bottom_about, .contact_top .box_width, .contact_middle .box_width, .about_bottom .box_width, .about_top .box_width, .list_blog_middle, .list_aggregate_middle, .lot_middle_2 {
+    padding: 0;
+  }
+  .dropdown ul, .list_solution ul, .solution_middle_bottom, .f_middle, .banner_mining_text ul, .list_mining_cases ul, .list_powder_about_bottom, .list_product_top2 ul, .list_beneficiation_top, .list_beneficiation_bottom, .list_beneficiation_bottom, .aggregate_top_materials, .product_configurations ul, .list_case_bottom_top, .list_news_top_box, .tab-menu_smp, .mill_top .tab-wrapper, .trunel_service_list ul, .tunnel_Applications ul {
+    flex-wrap: wrap;
+  }
+  .logo {
+    margin-left: 3rem;
+    width: 9rem;
+  }
+  .logo img {
+    width: 100%;
+  }
+  .affix {
+    position: static;
+  }
+  .header_top, .nav_search img, .list_solution_top .solution_top_ul, .solution_middle_bottom .text .more, .subnav, .list_mining_top .more, .list_mining_offer .more, .list_aggregate_top .swiper-button-prev, .list_aggregate_top .swiper-button-next, .list_product_middle .swiper-button-prev, .list_product_middle .swiper-button-next, .list_beneficiation_top br, .banner_b_text2 br, .swiper_btn_box, .list_aggregate_bottom .more img, .list_conveyors h2 br, .product_top_left p, .product_top_left h3, .product_ico, .product_online_cat, .p_advantages li > span, .product_top_right .swiper-button-prev, .product_top_right .swiper-button-next, .product_middle .swiper-button-prev, .product_middle .swiper-button-next, .product_part .swiper-button-prev, .product_top_right .swiper-button-prev, .related_cases .more, .service_swiper .swiper-notification, .list_case_bottom .more, .list_case_middle .case_online_cat, .epco_bottom_about .swiper-button-prev, .epco_bottom_about .swiper-button-next, .epco_blog .more, .lot_middle_2 .more, .lot_top .swiper-button-next, .lot_top .swiper-button-prev, .life_cycle_top br, .life_cycle_bottom .img_box:after, .about_bottom .swiper-button-prev, .about_bottom .swiper-button-next, .filterBlog-box p, .filterBlog-item span::after, .tab_menu_left .active .more, .list_aggregate_middle .swiper-button-prev, .list_aggregate_middle .swiper-button-next, .list_aggregate_middle .topswiper img, .list_powder_middle .swiper-button-prev, .list_powder_middle .swiper-button-next, .list_powder_middle_left ul, .topswiper2 img, .tab_nav_product, .tab_nav_beneficiation2, .tab_nav_beneficiation2 br, .tab_nav_bulk, .tab_nav_bulk br, .tab-menu_lot, .lot_middle_2 .box, .localized_middle li:nth-child(n+3), .localized_middle .more, .mk_top .swiper-button-prev, .mk_top .swiper-button-next, .nk_middle .swiper-button-prev, .nk_middle .swiper-button-next, .nk_bottom .text .more, .fixBar, .materials_top .more, .ore_banner .more, .banner_product p, .banner_product.banner_2 > img, .product_key_smp h2, .product_key_smp h4, .product_key_smp p, .product_key_smp .more, .smp_configuration .tab-content, /*.product_page_right, .product_page_text,*/ .gallery_left, .product_advantages .swiper-button-prev, .product_advantages .swiper-button-next, .product_advantages .swiper-pagination, .product_service_list .tab-menu, .tunnel_page_top .swiper-pagination, .tunnel_page_top .swiper-button-prev, .tunnel_page_top .swiper-button-next, .tunnel_Advantages .swiper-pagination, .tunnel_Advantages .swiper-button-prev, .tunnel_Advantages .swiper-button-next, .tab_nav_tunnel ,.mill_middle .swiper-button-next, .mill_middle .swiper-button-prev,.banner_add .box_width{
+    display: none;
+  }
+  .menu_ul, .list_solution_bottom .swiper-pagination, .bottom_more_btn, .f_bottom span, .list_mining_top2 .more, .swiper-pagination2, .product_part .bottom_more_btn, .service_swiper .swiper-pagination, .list_case_middle .swiper-pagination, .tab_menu_left li.active .tab_menu_left_img, .topswiper2 .swiper-slide-active img, .topswiper2 .active img, .lot_middle_2 .tab-pane, .lot_middle_2 h4, .lot_middle_2 .active .box, .smp_middle img, .mk_bottom p, .mk_middle .tab-pane, .banner_product.banner_2 .banner_swiper, .smp_configuration .tab-pane, .smp_configuration .tab-menu_smp img, .tunnel_Applications li p /*,.tunnel_page_top .product_page_right */ {
+    display: block;
+  }
+  #pull {
+    display: block;
+    float: right;
+    width: 4rem;
+    line-height: 8rem;
+    background: url(../images/home/menu_ico.png) no-repeat center;
+
+    background-size: 100% auto;
+    text-indent: -999999px;
+    z-index: 10;
+    position: relative;
+    margin-right: 3rem;
+  }
+  .nav_ul_box {
+    z-index: 999;
+    top: 8rem;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+  }
+  .nav_ul_box, .solution_top_bottom li:nth-child(2n), .list_powder_about_bottom li:nth-child(2n) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  .nav_ul {
+    border-top: 1px solid #deecf9;
+    border-bottom: 1px solid #deecf9;
+  }
+  .nav_ul li {
+    width: 100%;
+    margin-right: 0;
+  }
+  .nav_ul > li > a {
+    font-size: 3.6rem;
+    line-height: 10.4rem;
+    font-weight: bold;
+    padding: 0 3rem;
+    background: url(../images/nav/r_more_m.png) no-repeat right center;
+    background-size: 6rem auto;
+  }
+  .nav_ul .active > a {
+    background: #deecf9 url(../images/nav/r_more_m.png) no-repeat right center;
+    background-size: 6rem auto;
+    color: #000f24;
+  }
+  .nav .whatsapp {
+    width: calc(100% - 6rem);
+    margin: 2rem 3rem;
+  }
+  .whatsapp img {
+    width: 3.2rem;
+    vertical-align: middle;
+  }
+  .nav .whatsapp span {
+    display: block;
+    position: static;
+    color: #525a66;
+    background: none;
+    float: right;
+    transform: translateX(0);
+  }
+  .nav .whatsapp:after {
+    content: " WhatsApp";
+  }
+  .nav_search_bg {
+    display: block;
+    position: static;
+    width: calc(100% - 6rem);
+    margin: 0 auto;
+  }
+  .nav_search_box, .mk_middle ul, .case_advantages li h4 {
+    padding-top: 0;
+  }
+  .nav_search_btn {
+    width: 100%;
+  }
+  .dropdown_box ol, .dropdown_box ul > li > a {
+    display: none;
+  }
+  .dropdown h4, .dropdown h5 {
+    padding: 0 3rem;
+    display: block;
+    background: url(../images/nav/t_more_m.png) no-repeat center right;
+    background-size: 6rem auto;
+    line-height: 8rem;
+  }
+  .dropdown h4 a {
+    display: block;
+    line-height: 8rem;
+  }
+  .dropdown_box, .affix .dropdown_box {
+    position: relative;
+    top: auto;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+  }
+  .dropdown {
+    padding: 2rem 0;
+    background: #fff;
+  }
+  .menu_ul_b, .case_advantages li.active {
+    background: #f2f6ff;
+  }
+  .click_a {
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .nav_ul > .drop_btn:hover > a {
+    border-top: 1px solid #ddd;
+    background: #fff;
+    color: #000f24;
+  }
+  .menu_ul_b h4 + ol {
+    padding: 0 3rem;
+  }
+  .menu_ul_b_left, .menu_ul_b_middle, .menu_ul_b_right, .menu_ul_b_left ul > li {
+    width: 100%;
+  }
+  .menu_ul_b ol li a {
+    line-height: 6rem;
+  }
+  .dropdown .menu_ul_b_activer, .menu_ul_b h5 {
+    background: url(../images/nav/d_more_m.png) no-repeat center right;
+    background-size: 6rem auto;
+  }
+  .menu_ul_b h4, .menu_ul_b h5 {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .menu_ul_b_left ul > li:nth-child(3), .menu_ul_b_right2 {
+    margin-top: 0;
+  }
+  .menu_ul_b_left ul {
+    display: none;
+  }
+  .menu_ul_b_left ul ol {
+    display: block;
+    padding: 0 3rem;
+  }
+  .menu_ul, .subnav_series {
+    width: 100%;
+    background: #deecf9;
+  }
+  .menu_ul li {
+    width: 24%;
+    text-align: center;
+    margin: 0 1.3333% 0 0;
+  }
+  .menu_ul li:nth-child(4), .menu_ul_b_left ul > li:nth-child(1) {
+    margin-right: 0;
+  }
+  .menu_ul li a {
+    line-height: 8rem;
+    padding: 0;
+  }
+  .menu_ul li.active {
+    background: #003f98;
+  }
+  .menu_ul li.active a, .menu_ul li:hover a {
+    border: none;
+    color: #fff;
+  }
+  .banner_b_text p {
+    width: 100%;
+    line-height: 4.8rem;
+  }
+  .tab_nav_solution, .solution_top_bottom img, .solution_middle_top img {
+    width: 100%;
+  }
+  .tab_nav li a, .tab_nav_product li a, .mill_top .get_price, .mill_top h4 {
+    line-height: 10.8rem;
+  }
+  .tab_nav_solution li {
+    width: 30.1333%;
+  }
+  .solution_top_bottom li, .solution_middle_top, .solution_powder_swiper, .solution_middle_top li, .f_middle li, .f_online_chat, .f_col_1, .banner_mining_text li, .list_materials p, .list_mining_cases li, .list_powder_about_bottom li, .list_powder_bottom2 p, .list_product_top2 li:nth-child(3), .list_product_top2 ul, .powder_swiper, .form_box p, .form-item_1 input.pull_right, .product_configurations li, .product_configurations ul, .related_cases li, .list_case_right, .list_case .bottom_more_btn, .list_case_middle .bottom_more_btn, .case_swiper, .epco_bottom li, .epco_swiper, .lot_middle ul > li, .lot_middle_2 .img_box, .lot_bottom li, .lot_list li, .lot_top .swiper-slide, .life_cycle_middle li, .list_parts .tab-content, .contact_top_right, /*.about_top li:nth-child(n+4),*/ .anout_middle .video_box, .localized_bottom .text, .localized_bottom p, .smp_list_product li, .smp_middle li, .nk_top .box_img, .case_top .box, .case_top .text, .case_top_middle .text ul, .mill_top .tab-content, .mill_swiper, .product_service_list .tab-pane:nth-child(n+2), .Advantages_swiper, .material_ore_top li:nth-child(n+3), .tunnel_Applications li:nth-child(n+2), .tunnel_Applications ul, .product_page_right, .material_ore_middle .tab-content {
+    margin-top: 2rem;
+  }
+  .solution_top_bottom ul, .f_col_4 li, .banner_mining_text ul, .list_powder_about_bottom, .list_product ul, .p_advantages_left, .related_cases ul, .service_list p, .epco_bottom ul, .epco_top li:nth-child(1), .epco_top li:nth-child(1) p:nth-child(3), .contact_top li, .list_blog_top, .list_parts, .smp_list_product ul, .legal_notice, .mill_bottom ul, .product_Applications_top, .product_service_list .service_ul_box {
+    margin-top: 0;
+  }
+  .solution_top_bottom li, .list_materials li, .language_list > ul > li, .list_ebook li, .list_product_bottom li, .product_Applications_bottom li,.gole_plant li  {
+    width: 48.6%;
+    margin-right: 2.8%;
+  }
+  .list_materials_bottom li:last-child, .list_product_middle li {
+    width: 48.6%;
+  }
+  .solution_middle_top li, .list_product_top li, .list_product_top2 li, .lot_bottom li, .list_parts .tab-pane li, .smp_list_product li, .material_ore_top li {
+    width: 48.70%;
+    margin-right: 2.6%;
+  }
+  .banner_mining_text li, .list_powder_about_bottom li /*, .about_top li:nth-child(1), .about_top li:nth-child(2), .about_top li */ {
+    width: 31.450%;
+    margin-right: 2.825%;
+  }
+  .list_materials li:nth-child(3n), .language_list > ul > li:nth-child(3n), .list_ebook li:nth-child(3n), .list_product_bottom li:nth-child(3n), .list_product_middle li:nth-child(2n+1), .product_Applications_bottom li:nth-child(3n) {
+    margin-right: 2.8%;
+  }
+  .solution_top_bottom li:nth-child(2n), .solution_middle_top li:nth-child(2n), .solution_middle_bottom .text, .f_col_1, .f_col_2, .f_col_3, .banner_mining_text li:nth-child(3n), .list_materials li:nth-child(2n), .list_mining_top .text, .list_mining_offer li, .list_mining_cases li, .list_powder_middle_left, .list_powder_about_bottom li:nth-child(3n), .list_product_top li:nth-child(2n), .list_product_top2 li:nth-child(2n), .product_configurations li, .list_case_ul li, .list_case_left, .epco_top li, .lot_middle ul > li, .lot_bottom li:nth-child(2), .lot_list li, .life_cycle_middle li, .life_cycle_left, .list_parts .tab-pane li:nth-child(2n), /* .about_top li:nth-child(3n),*/ .list_blog_left, .list_blog li > a, .filterBlog-box > li, .smp_list li, .smp_list_product li:nth-child(2n), .list_news li:nth-child(2n+1), .materials_top .text, .case_top .img_box, .p_advantages_bottom li:nth-child(2n+1), .mill_1127 .tab-container .nav-tabs li, .language_list > ul > li:nth-child(2n), .list_ebook li:nth-child(2n), .smp_top li, .list_product_bottom li:nth-child(2n), .list_product_middle2 li, .mill_banner li, .mill_top_left, .mill_bottom li, .product_Applications_top li, .product_Applications_bottom li:nth-child(2n), .product_service_list .list_li, .product_service_list .list_li:nth-child(2n+1), .g_mining_midlle li:nth-child(2n+1), .material_ore_top li:nth-child(2n), .material_ore_middle .mill_top_left, .material_ore_bottom li, .Models_advantages_list > div:nth-child(1), .trunel_service_list ul > li,.gole_plant li:nth-child(2n),.material_ore_list li:nth-child(1)  {
+    margin-right: 0;
+  }
+  .solution_top_bottom li:nth-child(2n) h3, .solution_top_bottom li:nth-child(2n) > span, .solution_middle_bottom .text, .solution_ming_swiper, .f_col_1, .f_col_2, .f_col_3, .f_col_4, .f_top .f_logo, .f_online_chat, .list_materials p, .list_mining_top .text, .list_mining_top .mining_top_right, .list_mining_offer li, .list_mining_cases li, .list_mining_cases li img, .list_powder_top p, .list_powder_middle_left, .topswiper, .list_powder_bottom2 p, .list_product_top2 li:nth-child(3), .list_beneficiation .text, .list_beneficiation .img_box, .list_beneficiation .img_box img, .list_beneficiation_bottom h3, .beneficiation_swiper, .form_box p, .form_box form, .form-item_1 input, .checkbox_left, .checkbox_right, .aggregate_top_materials .text, .aggregate_top_materials ul, .list_aggregate_top .tab-menu, .tab_menu_left, .list_aggregate_bottom .tab-menu, .list_aggregate_bottom p, .list_conveyors .img_box, .list_conveyors .text, .product_top_right, .product_top img, .product_top_left, .product_top_text p, .p_advantages_left, .p_advantages_right, .p_advantages_bottom li, .related_cases li, .p_advantages li .text, .product_configurations li, .service_list img, .list_case_top p, .list_case_top ul, .list_case_ul li, .list_case_ul li img, .list_case_left, .list_case_right, .list_case_left p, .list_case_right img, .list_case_middle .text, .epco_top li, .epco_bottom li, .epco_bottom_about .text, .epco_swiper, .lot_middle p, .lot_list .box_width > p, .lot_middle ul > li, .lot_middle_2 .text, .lot_middle_2 .img_box, .lot_bottom_left, .lot_bottom ul, .lot_bottom img, .lot_list li, .life_cycle_top p, .life_cycle_middle .text, .life_cycle_left, .life_cycle_middle ul, .life_cycle_bottom .pull_right, .life_cycle_bottom li h4, .life_cycle_middle li, .contact_form, .contact_top_right, .list_news li, .list_news_top_box > a, .list_news_top_box .text, .list_news_menu ul, .about_top p, .anout_middle .text, .anout_middle .video_box, .about_bottom p, .about_swiper2 img, .list_blog_left, .list_blog_right, .list_blog li > a, .list_blog .text, .filterBlog-box > li, .topswiper2, .tab_nav_beneficiation, .localized_middle li, .localized_bottom .text, .localized_bottom .img_box, .localized_bottom .more, .smp_left, .smp_right, .smp_left img, .smp_list li, .smp_list_product li img, .smp_middle p, .smp_middle img, .smp_middle .active p, .mk_top p, .mk_bottom .text, .mk_middle li > h4, .mk_middle_left, .mk_middle_right, .nk_top .text, .nk_top .box_img, .nk_bottom .text, .nk_bottom h4, .nk_bottom .img, .nk-youshi h2, .materials_top .text, .materials_top_swiper, .materials_top .swiper-slide, .materials_top .swiper-slide img, .case_top .img_box, .case_top .text, .case_top_middle ul.ul_img, .ul_img img, .case_top img, .no-cnt, .col-md-3, .localized_middle img, .smp_top li, .related_cases_smp .box_width, .tab-menu_smp li, .tab-menu_smp li:nth-child(1), .list_product_middle2 li, .mill_banner li, .mill_banner .text h2, .mill_banner .text p, .mill_top_left, .mill_top .tab-content, .mill_top img, .mill_top_left .get_price, .mill_bottom li, .product_Applications_top li, .product_service_list .list_li, .product_page_left, .product_service_list img, .gallery_right, .g_mining_midlle li, .material_ore_middle h2 + p, .material_ore_top p, .material_ore_middle .mill_top_left, .material_ore_bottom li, .Models_advantages_list > div, .trunel_service_list ul > li, .tunnel_Applications li, .tunnel_Applications li.active, .product_page_right, .material_ore_middle .tab-content, .tunnel_page_type ul,.material_ore_list li {
+    width: 100%;
+  }
+  .solution_top_bottom, .aggregate_top_materials {
+    position: relative;
+    padding-bottom: 14rem;
+  }
+  .solution_top_bottom .more, .aggregate_top_materials .more, .list_aggregate_bottom .more {
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+    width: 30rem;
+    line-height: 6rem;
+    border-radius: 3rem;
+    float: none;
+    margin: 0 auto;
+  }
+  .aggregate_top_materials .more {
+    bottom: 4rem;
+  }
+  .list_aggregate_bottom .more {
+    bottom: 0;
+    width: calc(100% - 6rem)
+  }
+  .solution_middle_top .more {
+    font-size: 2.8rem;
+    width: 12rem;
+    line-height: 4rem;
+    border-radius: 2rem;
+  }
+  .solution_middle_top li:nth-child(4) .more, .aggregate_top_materials .more {
+    width: 24rem;
+  }
+  .solution_swiper {
+    padding-top: 4rem;
+    display: block;
+  }
+  .solution_swiper img {
+    border-radius: 0.8rem;
+    box-shadow: 0 0 10px #ccc;
+  }
+  .solution_swiper .swiper-slide, .list_mining_top2, .list_powder_middle, .list_aggregate_bottom, .related_cases p, .life_cycle_bottom .box_width, .anout_middle {
+    position: relative;
+  }
+  .list_aggregate_bottom, .anout_middle2 {
+    padding-bottom: 10rem;
+  }
+  .solution_swiper .swiper-slide h4 {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .localized_middle .solution_swiper .swiper-slide h4 {
+    top: auto;
+    bottom: 2rem;
+  }
+  .solution_ming_swiper img {
+    border-radius: 0.8rem;
+  }
+  .solution_middle_bottom h3, .list_mining_top .text, .product_middle h2, .service_list h2, .epco_blog p, .life_cycle_middle h2, .localized_bottom p, .localized_middle p, .nk-youshi h2, .nk_bottom .text, .nk_bottom h4, .materials_top .text, .mill_top h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .list_solution_bottom .more:after {
+    content: " Powder Making";
+  }
+  .list_solution_bottom .more, .f_online_chat, .list_materials .more, .list_mining_top2 .more, .list_powder_middle .more, .list_case_top li, .anout_middle .more {
+    width: 100%;
+    line-height: 7.8rem;
+    border-radius: 4rem;
+  }
+  .list_solution_bottom .more, .list_materials .more, .list_mining_top2 .more, .list_aggregate_bottom .more, .epco_bottom li, .anout_middle .more, .mk_middle li:nth-child(2) > h4 {
+    background: #3671cf;
+    border-color: #3671cf;
+    color: #fff;
+  }
+  .f_top .f_logo, .list_beneficiation_top, .aggregate_top_materials, .product_top_text, .list_case_top li, .list_case_ul li, .list_case_bottom_top, .list_case_middle, .epco_top, .epco_bottom_about h2, .lot_middle_2 .text, .life_cycle_middle .text, .life_cycle_left h2, .contact_top h2, .contact_top p, .about_top ul, .anout_middle, .list_blog_top .text, .list_blog_middle, .list_blog_top h3, .localized_bottom, .localized_middle, .nk_top, .mill_middle {
+    text-align: center;
+  }
+  .f_logo img {
+    width: 12.6rem;
+  }
+  .f_online_chat img {
+    width: 3rem;
+  }
+  .f_col_2, .f_col_3, .f_col_4, .list_beneficiation_top .img_box, .list_news_top,#Spiral,#FX ,#Central{
+    margin-top: 4rem;
+  }
+  .f_col_4 li, .f_col_4 strong {
+    line-height: 7.2rem;
+  }
+  .f_bottom a {
+    font-weight: 400;
+  }
+  .f_bottom, .list_materials ul, .list_mining_cases ul, .list_case_ul2 li, .lot_bottom h4, .btn-submit, .material_ore_list {
+    margin-top: 1rem;
+  }
+  .online_cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 750px;
+    margin: 0 auto;
+    background: #deecf9;
+    z-index: 9999;
+    display: block;
+    padding: 2.4rem 3rem;
+  }
+  .online_cta a {
+    width: 48.55%;
+    line-height: 8rem;
+    text-align: center;
+    color: #fff;
+    background: #3671cf;
+    border-radius: .4rem;
+  }
+  .online_cta .online_cta_right {
+    background: #f90;
+  }
+  .online_cta img {
+    width: 3.8rem;
+    vertical-align: middle;
+    margin-right: 2rem;
+  }
+  .banner_b_text p, .list_mining_top .text p, .list_powder_top p, .list_powder_bottom2 p, .list_beneficiation_top p, .form_box p, .list_aggregate_bottom p, .lot_middle p, .lot_list .box_width > p, .life_cycle_top p, .about_top p, .about_bottom p, .mk_top p ,.material_ore_middle_gold .tab-wrapper  li li{
+    line-height: 1.5em;
+  }
+  .list_mining_top, .list_mining_cases, .list_powder_about, .list_powder_bottom2, .product_top, .related_cases, .list_case_top li, .list_case_ul li h4, .list_case_ul h4, .list_case_right h4, .list_case_right, .list_case_middle, .epco_bottom_about, .list_blog_middle, .list_aggregate_middle, .lot_middle_2, .mk_bottom, .materials_service {
+    background: none;
+  }
+  .product_top {
+    padding-bottom: 0;
+  }
+  .list_mining_offer {
+    margin: 0 3rem;
+    border-radius: 0.4rem;
+    padding: 3rem 1.2rem 10rem;
+  }
+  .list_mining_offer li {
+    min-height: 8rem;
+  }
+  .list_mining_top2 .more, .list_powder_middle .more, .anout_middle .more {
+    position: absolute;
+    left: 3rem;
+    right: 3rem;
+    bottom: 0;
+    width: calc(100% - 6rem);
+  }
+  .list_mining_top2, .list_powder_middle {
+    padding-bottom: 12rem;
+  }
+  .list_mining_cases {
+    padding-top: 0;
+  }
+  .list_mining_bottom .tab-menu li, .list_aggregate_bottom .tab-menu li {
+    line-height: 6rem;
+    border-radius: 3rem;
+    padding: 0 2rem;
+    width: auto;
+    color: #3671cf;
+  }
+  .list_mining_bottom .tab-menu, .list_aggregate_bottom .tab-menu {
+    overflow-x: auto;
+    scrollbar-color: #fff #fff;
+    padding-bottom: 4px;
+  }
+  .list_aggregate_bottom .tab-menu {
+    flex-wrap: nowrap
+  }
+  .list_aggregate_bottom .tab-menu li {
+    white-space: nowrap;
+    padding: 0 3rem;
+  }
+  .list_powder_about_top big span {
+    display: block;
+    font-size: 8rem;
+    line-height: 0.76;
+  }
+  .list_powder_about_top {
+    background: url(../images/powder_making/10_bg_powder.jpg) no-repeat center top;
+    background-size: 100% 100%;
+    padding: 2rem;
+  }
+  .list_powder_about_bottom h4, .list_powder_middle_left li small, .product_bottom_parts p, .product_bottom_parts a, .product_bottom_parts span, .imvalueBox input, .textBox textarea, .service_list span, .about_top li,.Models_advantages_list th,.Models_advantages_list td  {
+    font-size: 2.8rem;
+  }
+  .list_powder_middle_left li, .form_box input, .imtypeBox span, .form_box span {
+    line-height: 8rem;
+  }
+  .list_powder_about_top strong, .list_powder_about_top li {
+    line-height: 1;
+  }
+  .product_bottom_parts {
+    background: url(../images/products/Spare_Parts_m.jpg) no-repeat center;
+    background-size: 100% 100%;
+    padding: 3rem 0 4rem;
+  }
+  .product_bottom_parts .more {
+    width: 18rem;
+    line-height: 6rem;
+    border-radius: 3rem;
+  }
+  .list_beneficiation .text {
+    padding-right: 0;
+  }
+  .list_beneficiation_bottom h3 {
+    min-height: auto;
+
+    margin: 2rem 0;
+  }
+  .beneficiation_swiper .swiper-slide {
+    min-height: auto;
+    padding: 2rem 2rem 3rem;
+  }
+  .list_beneficiation_bottom h3:after {
+    display: inline-block;
+    vertical-align: middle;
+    height: 0.8rem;
+    border-radius: 0.4rem;
+    margin-left: 1.4rem;
+  }
+  .form_box select {
+    height: 8.2rem;
+  }
+  .imtypeBox {
+    width: 31.45%;
+  }
+  .imvalueBox {
+    width: 65.79%;
+  }
+  .checkbox_left i, .service_list span {
+    display: inline-block;
+  }
+  .checkbox {
+    position: relative;
+    margin-top: 2rem !important;
+    padding: 1.2rem 1rem;
+    width: auto !important;
+    z-index: 1;
+    color: #3671cf;
+  }
+  .form_box select, .form_box select:focus {
+    background-position: 95% 3.2rem;
+    background-size: 1.4rem;
+  }
+  .checkbox:nth-child(1), .checkbox:nth-child(3) {
+    margin-right: 1.6rem
+  }
+  .form_box .checkbox span {
+    position: absolute
+  }
+  .form_box .checkbox_btn {
+    position: absolute;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: #deecf9;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    border-radius: .8rem;
+  }
+  .checkbox_btn:before {
+    width: 100%;
+    height: 100%;
+    border-radius: .8rem;
+    background: #3671cf;
+  }
+  input[type=checkbox]:checked + .checkbox_btn:before {
+    display: block
+  }
+  .checkbox:has(>input[type=checkbox]:checked), .service_list p, .service_list h4, .service_list span, .subnav_series li.active a, .epco_bottom li a {
+    color: #fff;
+  }
+  .checkbox_right, .lot_bottom ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .checkbox:nth-child(1) {
+    order: 1;
+  }
+  .checkbox:nth-child(2) {
+    order: 2;
+  }
+  .checkbox:nth-child(3) {
+    order: 3;
+  }
+  .checkbox:nth-child(4) {
+    order: 5;
+  }
+  .checkbox:nth-child(5) {
+    order: 4;
+  }
+  .textBox textarea {
+    height: 24rem;
+  }
+  .form_box {
+    padding: 3rem 0 8rem;
+  }
+  .list_aggregate_top .tab-menu2 li {
+    width: 30rem;
+    border-radius: 3rem;
+    line-height: 6rem;
+    margin: 0;
+  }
+  .list_aggregate_top .tab-menu2 li:nth-child(1) {
+    width: 36rem;
+    margin-right: 2.4rem;
+  }
+  .list_conveyors .text {
+    position: static;
+    text-align: center;
+    padding: 4rem 0;
+  }
+  .list_conveyors .box_width, .product_top_left, .life_cycle_bottom .text, .list_blog_middle .swiper-slide {
+    background: #f2f6ff
+  }
+  .list_conveyors .more, .localized_bottom .more {
+    border-radius: 3rem;
+    margin: 3rem auto 0;
+    font-size: 3.2rem;
+  }
+  .product_top_left h1 {
+    color: #000f24;
+    text-align: center;
+    margin: 3rem auto 0;
+  }
+  .product_top_text {
+    padding-top: 2rem;
+  }
+  .product_configurations .more, .epco_bottom .more, .life_cycle_bottom .more {
+    width: 24rem;
+    border-color: #f90;
+    background: #f90;
+    line-height: 6rem;
+    border-radius: 3rem;
+  }
+  .related_cases .text {
+    background: #f2f6ff;
+    text-align: center;
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+    display: block;
+    position: static;
+  }
+  .related_cases p, .subnav_series li a, .lot_bottom h4 a, .life_cycle_bottom .text p, .life_cycle_bottom .text h3 {
+    color: #000f24;
+  }
+  .related_cases h4 {
+    position: absolute;
+    top: 46rem;
+    left: 2rem;
+    right: 2rem;
+    background: 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+  /*.trunel_related_cases h4 {
+    top: 64rem;
+  }*/
+  .related_cases h4 a ,.material_ore_list h4 a{
+    font-weight: bold;
+  }
+  .product_key .more {
+    width: 30rem;
+    border-radius: 3rem;
+    font-size: 2.8rem;
+  }
+  .service_list .swiper-slide {
+    transform: scale(0.9);
+  }
+  .service_list .swiper-slide-active {
+    transform: scale(1);
+  }
+  .service_list img, .list_case_ul li img, .list_case_right img, .list_case_left, .epco_bottom_about img, .list_news li, .list_news_top, .list_news_top img, .list_news img {
+    border-radius: 0.4rem;
+  }
+  .service_list .swiper-slide .text {
+
+    background: linear-gradient(#3671cf, transparent 50%);
+    border-radius: 0.4rem;
+  }
+  .subnav_series li {
+    border: none;
+    width: 33.3333%;
+    margin-right: 0;
+    border-radius: 0;
+    line-height: 8rem;
+    font-weight: 400;
+  }
+  .subnav_series li.active {
+    border: none;
+    background: #3671cf;
+  }
+  .list_case_top {
+    background: url(../images/cases/bg_aggregate.jpg) no-repeat center;
+    border-radius: 0.4rem;
+  }
+  .list_case_ul2 h4 {
+    border: none;
+  }
+  .epco_bottom_about ul {
+    background: #f2f6ff;
+    padding: 1rem 1.4rem 2rem;
+    margin-top: 2rem;
+  }
+  .lot_bottom h3 {
+    line-height: 6rem;
+  }
+  .lot_bottom li h4, .life_cycle_bottom .text, .topswiper2 h4, .smp_middle img, .mk_middle li > h4, .nk_bottom .text, .nk_bottom h4, .nk-youshi h2, .life_cycle_bottom li h4, .product_top_nk .box_width {
+    position: static;
+  }
+  .life_cycle_bottom .text, .list_news_top .text {
+    padding: 2rem;
+  }
+  .life_cycle_bottom li h4 {
+    padding-left: 4rem;
+    font-size: 3.2rem;
+  }
+  .life_cycle_bottom li h4 {
+    background-image: url(../images/IoT/ico_more.png);
+  }
+  .life_cycle_bottom li.active h4 {
+    background-image: url(../images/IoT/ico_down.png);
+  }
+  .life_cycle_top .img_box img {
+    max-width: none;
+  }
+  .life_cycle_top .img_box {
+    overflow-x: auto;
+    scrollbar-color: #f90 #f90;
+    padding-bottom: 3rem;
+  }
+  .contact_top_right, .list_blog_top .text {
+    margin-left: 0;
+    background: #f2f6ff;
+    padding: 3rem;
+  }
+  .contact_top .form_box {
+    padding: 0 3rem;
+  }
+  .contact_middle {
+    margin: 0;
+  }
+  .contact_top, .list_news_top h3 {
+    margin-bottom: 0;
+  }
+  .list_materials_bottom li:last-child h4 {
+    padding: 0;
+  }
+  .list_materials_bottom li:last-child a {
+    background: none;
+
+    padding: 0;
+    text-align: center;
+    line-height: 1;
+  }
+  .list_news_top .more {
+    width: 28rem;
+    line-height: 6rem;
+    border-radius: 3rem;
+  }
+  .list_news, .material_ore_middle, .material_ore_list {
+    margin-bottom: 4rem;
+  }
+  .list_news_menu li {
+    width: 50%;
+    margin: 0;
+    border-radius: 0;
+  }
+  .list_blog_top span {
+    width: 3.6rem;
+    line-height: 3.6rem;
+    border-radius: 0.4rem;
+    left: 2rem;
+    top: 3rem;
+  }
+  .list_blog_right li {
+    height: auto;
+    background: #f2f6ff;
+    padding: 2rem 2rem 2rem 7rem;
+    margin-top: 2rem;
+  }
+  .list_blog_left h4 {
+    background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.5));
+  }
+  .filterBlog-item span {
+    line-height: 8rem;
+    background: #deecf9 url(../images/localization_service/ico_r_small.png) no-repeat 96% center;
+    border: none;
+  }
+  .filterBlog-item ul {
+    top: 9rem;
+  }
+  .tab_menu_left li h4 {
+    display: block;
+    background: #deecf9 url(../images/aggregate/ico_r_small.png) no-repeat 96% center;
+    background-size: 2.4rem auto;
+    padding: 1.3rem 2rem;
+    font-size: 3.6rem;
+  }
+  .tab_menu_left li, .tab_menu_left li.active, .materials_service {
+    padding: 0;
+  }
+  .tab_menu_left li.active h4 {
+    background: #3671cf url(../images/aggregate/ico_d_more.png) no-repeat 96% center;
+    background-size: 2.4rem auto;
+    color: #fff;
+  }
+  .tab_menu_left p, .tab_menu_left li.active .tab_menu_left_img {
+    padding: 1rem 2rem;
+
+  }
+  .topswiper2 h4 a, .lot_middle_2 h4, .list_powder_middle h4 {
+    font-size: 3.2rem;
+    background: #deecf9;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+    line-height: 8rem;
+    color: #3671cf;
+    display: block;
+    text-align: center;
+  }
+  .topswiper2 .swiper-slide:hover img, .mk_top .swiper-slide img {
+    transform: scale(1)
+  }
+  .topswiper2 .swiper-slide-active h4 a, .topswiper2 .active h4 a, .list_powder_middle .swiper-slide-active h4, .list_powder_middle .active h4 {
+    background: #3671cf;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .tab_nav_hide .tab_nav_hide_pull {
+    background: url(../images/products/list_ico.png) no-repeat center;
+    background-size: 6rem auto;
+    width: 8rem;
+    line-height: 8rem;
+    text-indent: -9999px;
+    margin-right: 0;
+  }
+  .tab_nav_hide {
+    background: #deecf9;
+    display: flex;
+    padding-right: 2rem;
+  }
+  .tab_nav_hide a, .tab_nav_hide_parts li {
+    display: block;
+    line-height: 8rem;
+  }
+  .tab_nav_hide_p li:nth-child(1) {
+    width: 50%;
+  }
+  .tab_nav_hide_p li:nth-child(2) {
+    width: calc(50% - 8rem);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .tab_nav_hide_b li:nth-child(1) {
+    width: 40%;
+  }
+  .tab_nav_hide_b li:nth-child(2) {
+    width: calc(56% - 8rem);
+  }
+  .tab_nav_hide_b li a {
+    line-height: 1.2;
+    padding: 1rem 0;
+  }
+  .tab_nav_hide_b li {
+    margin-right: 2%;
+  }
+  .tab_nav_hide_c li {
+    width: calc(33.33% - 2.6rem)
+  }
+  .tab_nav_hide_parts li:nth-child(1) {
+    width: 72.4%;
+  }
+  .tab_nav_hide_parts li:nth-child(2) {
+    width: calc(27% - 8rem);
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 2rem;
+  }
+  .tab-menu_parts {
+    display: none;
+  }
+  .tab_nav_box {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: 0;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+  .tab_nav_box li, .tab_nav_bulk li:nth-child(6) {
+    background: #fff;
+    width: 81%;
+    margin: 0 auto;
+    z-index: 4;
+    position: relative;
+  }
+	.tab_menu_product .tab_nav_box li{
+		width: 81%!important;
+		text-align: left;
+	}
+  .tab_nav_box:after {
+    content: '';
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: -50%;
+    bottom: -50%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .list_parts .tab-menu li {
+    border-radius: 0;
+    line-height: 8rem;
+  }
+  .lot_middle_2 h4 {
+    margin-top: 2rem;
+    background: #deecf9 url(../images/IoT/ico_more.png) no-repeat 96% center;
+    text-align: left;
+    padding: 0 2rem;
+    font-weight: 400;
+  }
+  .lot_middle_2 .active h4 {
+    background: #3671cf url(../images/IoT/ico_down.png) no-repeat 96% center;
+    color: #fff;
+  }
+  .localized_top .swiper-slide > img, .localized_top h4 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .localized_top li {
+    padding-left: 9rem;
+  }
+  .localized_top li:nth-child(1), .localized_top li:nth-child(2), .localized_top li:nth-child(3), .localized_top .swiper-slide:hover li:nth-child(1), .localized_top .swiper-slide:hover li:nth-child(2), .localized_top .swiper-slide:hover li:nth-child(3) {
+    background-position: 2.2rem 1.2rem;
+    background-size: 4rem auto;
+  }
+  .localized_bottom {
+    margin: 0;
+  }
+  .smp_middle p {
+    background: #f1f1f3;
+  }
+  .table_box {
+    overflow-x: auto;
+  }
+  .smp_table tr:nth-child(1) td, .smp_table tr:nth-child(2) td {
+    line-height: 1;
+  }
+  .mk_bottom p {
+    height: auto;
+  }
+  .mk_middle_left, .mk_middle_right {
+    float: none;
+  }
+  .mk_middle, .materials_top {
+    padding: 4rem 0;
+  }
+  .nk-youshi .swiper-slide .text {
+    top: 5%;
+    width: 45%;
+    left: 1rem;
+  }
+  .nk-youshi .swiper-slide p, .nk_middle .swiper-slide {
+    font-size: 1.6rem;
+  }
+  .nk-youshi .swiper-slide h4, .nk_bottom h4 {
+    font-size: 2.4rem;
+  }
+  .content_wrap hr {
+    margin: 2rem 0;
+  }
+  .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-xs-12, .col-md-8, .mill_1127 .table-bordered img, .mill_1127 .col-sm-7, .mill_1127 .img-2 {
+    width: 100%;
+  }
+  .seo-content-btn {
+    margin-right: 2rem;
+  }
+  .col-sm-6.function .col-xs-6 {
+    margin-top: 0 !important;
+  }
+  .ore_banner .box_width {
+    top: 3rem;
+    transform: translateY(0);
+  }
+  .banner_product h1 {
+    max-width: 100%;
+    color: #001024;
+    text-transform: capitalize;
+    margin-top: 2rem;
+  }
+  .banner_product h3 {
+    color: #001024;
+  }
+  .product_top_text2 {
+    background: none;
+    padding: 0;
+    text-align: left;
+  }
+  .p_advantages2 .p_advantages_right,.gole_plant li {
+    margin-left: 0;
+  }
+  .p_advantages2 li {
+    padding-left: 4.6rem
+  }
+  .operatorfont {
+    font-size: 16px;
+  }
+  .websitemap .col-xs-6, .container_box1 .col-md-4:nth-child(n+2), .tunnel_series li {
+    width: 50%;
+  }
+  .websitemap .col-xs-12, .mill_1127 .center-block2, .mill_1127 .tab-container .nav-tabs li, .language_banner .text {
+    width: 100%;
+  }
+  .websitemap h2 a,.website_border_bottom h2 {
+    font-size: 4.2rem;
+  }
+  .websitemap .row_set p {
+    padding-left: 2rem;
+  }
+  .law_info .cRed {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: none;
+  }
+  .mill_1127 .container_box {
+    margin: 3rem auto;
+  }
+  .mill_1127 h2, .mill_1127 .container_box3 p {
+    margin-bottom: 2rem;
+  }
+  .mill_1127 h2, .mill_1127 .table-bordered h2 {
+    font-size: 3.6rem;
+  }
+  .container_box .col-md-4:nth-child(1) {
+    border: none !important;
+  }
+  .mill_1127 .tec-table_mill {
+    overflow: auto;
+    margin-top: 2rem;
+    border-right: 1px solid #797979;
+  }
+  .border-left {
+    border: none;
+  }
+  .container2 .mt20, .mill_1127 .center-block2, .language_list > ul > li {
+    margin-top: 2rem;
+  }
+  .mill_1127 .tab-container .nav-tabs li {
+    background: #f2f6ff;
+    margin-top: 0.6rem;
+  }
+  .list_beneficiation_top .more_btn {
+    margin: 1rem auto 0;
+  }
+  .language_nav li {
+    width: 32%;
+    margin: 0;
+  }
+  .language_list li a, .language_list li strong, .language_list li li {
+    font-size: 2rem;
+  }
+  .language_list li li:nth-child(n+2) {
+    padding-left: 3.2rem;
+    background-size: 2.2rem 2.2rem;
+  }
+  .language_list {
+    margin-top: 3rem;
+  }
+  .language_banner .box_width {
+    top: 2rem;
+    text-align: center;
+  }
+  .language_banner h2 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .related_cases_smp .smp_case_swiper {
+    overflow: hidden;
+  }
+  .smp_case_swiper, .smp_top ul, .smp_swiper, .tunnel_swiper .swiper-slide, .material_ore_middle .tab-wrapper,.material_ore_list li:nth-child(2) {
+    margin-top: 2rem;
+  }
+  /*.tunnel_swiper .swiper-slide{
+		margin-top: 4rem;
+	}*/
+  .smp_list_parts {
+    padding: 3rem;
+  }
+  .tab-menu_smp .active .text {
+    position: relative;
+  }
+  .tab-menu_smp li {
+    padding: 0;
+    background: #3671cf
+  }
+  .tab-menu_smp .text {
+    padding: 2rem 2rem;
+  }
+  .tab-menu_smp .text p, .tab-menu_smp .text h4 {
+    color: #fff;
+    display: block;
+  }
+  .tab_nav_product li {
+    float: none;
+  }
+  .tab_nav_product li img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .mill_banner {
+    padding-bottom:  4rem;
+  }
+	.mill_banner .text{
+		 background: url("../images/product/mill_bg2.webp") no-repeat center top;
+		background-size: 100% auto;
+		padding: 0;
+	}
+  .mill_banner .text h2 {
+    line-height: 24rem;
+	  color: #fff;
+  }
+  .mill_banner .text p {
+    color: #525A66;
+    margin-top: 2rem;
+  }
+  .mill_top .get_price {
+    border-radius: 5.4rem;
+    font-size: 3.6rem;
+  }
+  .mill_top h4, .material_ore_middle h4 {
+    font-size: 3.6rem;
+    font-weight: bold;
+    background-size: 3rem auto;
+  }
+  .product_service_list .more {
+    width: 24rem;
+    line-height: 6rem;
+    background: #f90;
+    border: none;
+    border-radius: 3rem;
+  }
+  .product_service_list .tab-pane {
+    display: block;
+    position: relative;
+  }
+  .product_service_list .tab-pane h4 {
+    opacity: 1;
+    margin-bottom: 1rem;
+  }
+  .product_page_series, .tunnel_series, .material_ore_top .ul_li5 {
+    display: flex;
+  }
+  .product_page_top, .product_page_top .box_width {
+    padding: 0;
+  }
+  .product_page_left {
+    height: auto;
+  }
+  .product_advantages .swiper-wrapper, .material_ore_top ul, .tunnel_swiper .swiper-wrapper, .tunnel_swiper2 .swiper-wrapper {
+    flex-wrap: wrap;
+  }
+  .g_mining_banner {
+    background: none;
+    padding-bottom: 0;
+  }
+  .g_related_cases .text {
+    display: none;
+  }
+  .g_related_cases h4 {
+    position: static;
+    white-space: initial;
+  }
+  .g_related_cases {
+    padding: 4rem 0;
+  }
+  .material_ore_middle h2 + p, .material_ore_top p {
+    margin: 1rem 0 2rem;
+  }
+  .material_ore_bottom {
+    background: url("../images/material/ore/bg_m.webp") no-repeat;
+    padding: 4rem 0;
+  }
+  .Models_advantages_list li {
+    margin: 0.5rem 0 0 3rem;
+  }
+  .product_page_right li img {
+    width: 6rem;
+  }
+  .tunnel_page_top {
+    padding-bottom: 4rem;
+  }
+  .tunnel_page_type ul {
+    margin: 4rem auto 0;
+  }
+  .tunnel_Advantages .swiper-slide {
+    border-color: #2A82E4;
+    padding: 2rem;
+  }
+  .tunnel_Advantages h4 {
+    height: auto;
+  }
+  .Models_advantages_list th {
+    line-height: 6rem;
+  }
+  .Models_advantages_list td {
+    padding: 1rem 2rem;
+	line-height: 1.5em;
+  }
+ .Models_advantages_list_3 th,.Models_advantages_list_3 td {
+    font-size: 2.2rem;
+	padding: 1rem 0;
+	line-height: 1.5em;
+  }
+  .material_ore_middle .tab-menu, .material_ore_middle li.active, .material_ore_middle .mill_top_left_5 li.active, .material_ore_middle .mill_top_left_3 li.active {
+    height: auto;
+  }
+  .material_ore_middle h4 {
+    line-height: 5.8rem;
+    padding: 2.5rem 2rem;
+  }
+  .Tunnel_middle tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .Tunnel_middle td {
+    display: inline-block;
+    padding: 1rem 0 1rem 1rem;
+    font-size: 2.6rem;
+  }
+  .Tunnel_middle td:nth-child(2n+1) {
+    width: 43%;
+  }
+  .Tunnel_middle td:nth-child(2n) {
+    width: 57%;
+  }
+  .Tunnel_bottom h4 {
+    position: static;
+  }
+  .material_ore_middle .online-chat, .product_page_right .online-chat {
+    width: 100%;
+    font-size: 3.6rem;
+  }
+ /* .material_ore_middle_2 .online-chat {
+    margin-top: 0.4rem;
+  }*/
+  .product_page_right .online-chat {
+    line-height: 7rem;
+  }
+  .product_page_right .online-chat img {
+    width: 3.2rem;
+  }
+  .tunnel_page_top {
+    background: #f2f6ff;
+  }
+  .material_ore_middle .tab-wrapper  li li {
+    margin-left: 3rem;
+  } 
+  .gole_plant{
+		overflow: hidden;
+	}
+  .gole_plant li{
+		float: left;
+		margin-bottom: 2rem;
+	}
+	.gole_plant li a{
+		font-size: 3.1rem;
+		padding: 1rem 0;
+	}
+	.product_advantages .swiper-slide{
+		max-width: 100%;
+	}
+	.partners_cases td, .partners_cases th{
+
+		padding: 1rem 0;
+		font-size: 2.2rem;
+		text-align: center;
+	}
+	.partners_cases th{
+		padding: 2rem 0;
+	}
+}
+.fixBar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  width: 40px;
+  background-color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .2);
+  z-index: 900
+}
+.fixBar ul {
+  margin-top: -187px;
+  position: absolute;
+  width: 40px;
+  top: 50%
+}
+.fixBar li {
+  position: relative;
+  width: 40px;
+  height: 52px;
+  padding: 4px 0 2px;
+  text-align: center;
+  cursor: pointer
+}
+.fixBar li:not(:last-child) {
+  border-bottom: 1px solid #d8d5d5
+}
+.fixBar li > a, .fixBar li > span {
+  display: inline-block;
+  width: 40px;
+  height: 52px;
+  text-align: center;
+  text-decoration: none;
+  outline: 0;
+  line-height: 999;
+  vertical-align: middle;
+  font-size: 12px;
+  padding-top: 4px
+}
+.fixBar li:hover {
+  background-color: #3671cf
+}
+.f-icon {
+  background-image: url(../images/inner/fixsprite-02.png);
+  background-repeat: no-repeat
+}
+.fixBar .f-chat {
+  background-position: -224px -36px;
+  height: 70px
+}
+.fixBar .f-feedback {
+  background-position: -177px -108px
+}
+.fixBar .f-feedback:hover {
+  background-position: -224px -108px
+}
+.fixBar .over-mask {
+  position: absolute;
+  right: 62px;
+  top: 50%;
+  margin-top: -17px;
+  /*	opacity:0;
+*/ display: none;
+  width: 112px;
+  height: 35px;
+}
+.fixBar .over-mask img {
+  display: none
+}
+.fixBar .feedback-mask-icon {
+  background-position: -38px -119px
+}
+.fixBar .facebook {
+  background-position: -177px -161px
+}
+.fixBar .facebook:hover {
+  background-position: -224px -161px
+}
+.fixBar .facebook-mask-icon {
+  background-position: -38px -170px
+}
+.fixBar .linkedin {
+  background-position: -177px -214px
+}
+.fixBar .linkedin:hover {
+  background-position: -224px -214px
+}
+.fixBar .linkedin-mask-icon {
+  background-position: -38px -223px
+}
+.fixBar .youtube {
+  background-position: -177px -267px
+}
+.fixBar .youtube:hover {
+  background-position: -224px -267px
+}
+.fixBar .youtube-mask-icon {
+  background-position: -38px -276px
+}
+.fixBar .twitter {
+  background-position: -177px -320px
+}
+.fixBar .twitter:hover {
+  background-position: -224px -320px
+}
+.fixBar .twitter-mask-icon {
+  background-position: -38px -329px
+}
+.fixBar .instagram {
+  background-position: -177px -320px
+}
+.fixBar .instagram:hover {
+  background-position: -224px -320px
+}
+.fixBar .instagram-mask-icon {
+  background-position: -38px -329px
+}
+.fixBar .tiktok {
+  background-position: -177px -373px
+}
+.fixBar .tiktok:hover {
+  background-position: -224px -373px
+}
+.fixBar .tiktok-mask-icon {
+  background-position: -38px -382px
+}
+.fixBar li:hover a {
+  transition: none
+}
+.fixBar .f-top {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 50px;
+  background-position: -24px -75px;
+  overflow: hidden
+}
+.fixBar .f-top:hover {
+  border: 1px solid #3671cf;
+  background: #3671cf
+}
+.fixBar .f-top a {
+  display: none;
+  text-align: center;
+  text-decoration: none;
+  outline: 0;
+  vertical-align: middle;
+  font-size: 12px;
+  padding-top: 0;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  margin-top: 4px;
+  line-height: 15px
+}
+.fixBar .f-top:hover a {
+  display: block
+}
+.fixBar .f-close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 5px;
+  right: 0;
+  background-position: -68px -75px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .5s ease-in-out
+}
+.fixBar .f-close:hover {
+  background-position: -108px -75px
+}
+.fixbar-expand {
+  position: fixed;
+  bottom: 0;
+  right: -100px;
+  margin: 0;
+  z-index: 999;
+  text-indent: -9999px;
+  /*display: none*/
+}
+@keyframes mmove {
+  0%, 100% {
+    transform: translateX(0)
+  }
+  50% {
+    transform: translateX(-19px)
+  }
+}
+@-webkit-keyframes mmove {
+  0%, 100% {
+    -webkit-transform: translateX(0)
+  }
+  50% {
+    -webkit-transform: translateX(-19px)
+  }
+}
+.fixbar-expand .fixbar-toggle {
+  background-position: -40px -23px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer
+}
+.fixbar-expand .fixbar-toggle:hover {
+  animation: 2s ease-in-out .5s mmove;
+  -webkit-animation: 2s ease-in-out .5s mmove;
+  -ms-animation: mmove 2s ease-in-out .5s 1;
+  -moz-animation: 2s ease-in-out .5s mmove
+}
+.fbar-tabs {
+  z-index: 99999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none
+}
+a:hover, .pro-pagination:hover .item span, .cases-nav li:hover, .tab-menu li:hover, .tab_menu_left li:hover, .list_powder_middle_left li:hover, .about_swiper .swiper-slide:hover, .life_cycle_bottom h4:hover, .showMorehandle:hover, .header_top_left span:hover, .case_top_middle ul.ul_img span:hover {
+  cursor: pointer;
+}
+.cases a, .news-list_left a, .news-list_right a, .list_powder_middle h4 a, .aggregate_top_materials a, .solution_top_ul li a, .list_product h4 a, .localized_middle a {
+  display: block;
+}
+.cases .tab-pane li .text, .cases .tab-pane li:after, .col_top_right .swiper-slide::after, .materials-list_top .text, .solution_middle_top li .text, .list_solution_bottom h4, .list_aggregate_top .tab-pane h4, .about_top .swiper-slide:hover:before, .about_top .swiper-slide:hover:after, .list_powder_bottom .swiper-slide:after, .col_top_right .swiper-slide h3 {
+  pointer-events: none;
+}
+.f_middle li a:hover {
+  text-decoration: underline;
+}
+.solution_top_ul h4, .solution_top_ul li a {
+  height: 100%;
+}
+.cases .tab-pane li .text, .list_powder_bottom .swiper-slide h4 {
+  z-index: 1;
+}
+@keyframes rotate2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.anout_middle .rotate2 {
+  animation: 2s ease-in-out .5s rotate2;
+}
+#LRMINIWIN0 {
+  padding-right: 10px;
+}
+#LRMINIWIN0 span img {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.life_cycle_left h2{
+	text-transform: inherit;
+}
+.epco_blog .swiper-slide h4{
+	text-transform: capitalize;
+}
+.epco_blog .swiper-slide{
+	max-width: 48rem;
+}

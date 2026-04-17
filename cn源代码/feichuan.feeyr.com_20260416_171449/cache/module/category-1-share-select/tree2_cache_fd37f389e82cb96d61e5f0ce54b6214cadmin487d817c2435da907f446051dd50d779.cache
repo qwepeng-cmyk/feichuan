@@ -1,0 +1,5 @@
+<select class="bs-select form-control" name="catid">
+<option value='0'>全部</option>
+<option _selected_5_ value='5'>联系我们</option>
+<option _selected_16_ value='16'>&nbsp;&nbsp;└&nbsp;加入我们</option>
+</select>

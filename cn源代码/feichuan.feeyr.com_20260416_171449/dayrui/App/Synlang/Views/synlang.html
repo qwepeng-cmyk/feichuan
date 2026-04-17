@@ -1,0 +1,52 @@
+{template "header.html"}
+
+<form class="form-horizontal" method="post" role="form" id="myform">
+    {dr_form_hidden()}
+    <div class="form-body">
+
+        {loop $list $sid $t}
+        <div class="form-group note {if $sid==SITE_ID}note-info{else}note-warning{/if}" style="padding:0;">
+            <label class="col-md-12 control-label ajax_name" style="margin-bottom: 10px;text-align: left;">
+                站点{$sid}：{$t.name}
+                {if $sid==SITE_ID}<label class="label label-danger">当前站点</label>{/if}
+            </label>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>复制到栏目：</label>
+                <label>{$t.select}</label>
+                <label style="margin-left: 10px;">翻译成：</label>
+                <label>
+                    <select name="data[{$sid}][code]" class="bs-select form-control">
+                        <option value="">--</option>
+
+                {loop $showlang $zmk $zm}
+                <optgroup label="{$zmk}">
+                    {loop $zm $k $c}
+                    <option value="{$c}">{$k} / {$c}</option>
+                    {/loop}
+                </optgroup>
+                {/loop}
+
+                    </select> 
+                </label> 
+            </div> 
+            <div class="col-md-12">
+                <label>翻译的字段：</label>
+                {php
+                    $field_type = XR_C()->get_cache('module-'.SITE_ID.'-'.$mid,'field');
+                }
+                <label>
+                    <select class="bs-select form-control" name="data[{$sid}][field][]" multiple="multiple" data-actions-box="true">
+                        {loop $field_type $i $f}
+                        <option value="{$f.fieldname}" {if dr_in_array($f.fieldname, $data['field'][$mid])}selected{/if}>
+                        {$f.name}（{$f.fieldname}）
+                        </option> 
+                        {/loop} 
+                    </select> 
+                </label> 
+            </div>
+        </div> {/loop}
+    </div>
+</form>
+{template "footer.html" }

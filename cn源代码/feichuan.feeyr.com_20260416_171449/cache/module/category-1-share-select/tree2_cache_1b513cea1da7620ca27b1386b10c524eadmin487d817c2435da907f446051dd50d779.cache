@@ -1,0 +1,3 @@
+<select class="bs-select form-control" id='dr_catid' name='catid' onChange="show_category_field(this.value)">
+<option _selected_2_ value='2'>解决方案</option>
+</select>

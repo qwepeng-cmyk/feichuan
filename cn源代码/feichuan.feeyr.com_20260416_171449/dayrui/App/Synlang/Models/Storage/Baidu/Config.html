@@ -1,0 +1,56 @@
+<div class="form-group r r1">
+    <label class="control-label col-md-2"></label>
+    <div class="col-md-10">
+        <div class="note note-warning input-xlarge">
+            <p>点“注册百度api” - 管理控制台 - 总览 - 我的服务“高级版/尊享版”</p>
+        </div>
+        <div class="note note-success input-xlarge">
+            <p>百度企业认证【尊享版】免费200万字符/月【官方为准】</p>
+        </div>
+    </div>
+</div>
+<div class="form-group r r1">
+    <label class="col-md-2 control-label">AppId</label>
+    <div class="col-md-7">
+        <input name="data[baidu][appid]" value="{$data['baidu']['appid']}" class="form-control input-xlarge" type="text" />
+    </div>
+</div>
+<div class="form-group r r1">
+    <label class="col-md-2 control-label">AppSecret</label>
+    <div class="col-md-7">
+        <label class="password-input-wrapper">
+            <input name="data[baidu][appsecret]" value="{$data['baidu']['appsecret']}" class="form-control input-xlarge" type="password" />
+            <i class="fa fa-eye-slash"></i>
+        </label>
+    </div>
+</div>
+
+
+<div class="form-group r r1">
+    <label class="col-md-2 control-label">翻译服务</label>
+    <div class="col-md-9">
+        <label>
+            <select name="data[baidu][apiurl]" class="form-control">
+                <option value="1"{if !$data['baidu']['apiurl'] || $data['baidu']['apiurl']==1} selected{/if}>通用文本翻译</option>
+                <option value="2"{if $data['baidu']['apiurl']==2} selected{/if}>大模型文本翻译</option>
+            </select>
+        </label>
+        <label><span class="help-block">大模型文本翻译：QPS 10</span></label>
+    </div>
+</div>
+
+
+<div class="form-group r r1">
+    <label class="col-md-2 control-label">Api请求量/秒</label>
+    <div class="col-md-9">
+        <label>
+            <select name="data[baidu][apiquery]" class="form-control tooltips" data-original-title="QPS（每秒请求量）">
+                <option value="1"{if !$data['baidu']['apiquery'] || $data['baidu']['apiquery']==1} selected{/if}>标准版 QPS：1</option>
+                <option value="10"{if $data['baidu']['apiquery']==10} selected{/if}>高级版 QPS：10</option>
+                <option value="100"{if $data['baidu']['apiquery']==100} selected{/if}>尊享版 QPS：100</option>
+
+            </select>
+        </label>
+        <label><span class="help-block">QPS（每秒请求量），版本选错无法翻译</span></label>
+    </div>
+</div>

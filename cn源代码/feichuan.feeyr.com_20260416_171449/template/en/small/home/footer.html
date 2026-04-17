@@ -1,0 +1,123 @@
+    <div class="onlinebox formbox ">
+        <div class="content">
+            <p class="pclose"><span class="iconfont icon-close"></span></p>
+            <p class="name">在线留言</p>
+
+            <div class="form">
+                {php extract(dr_get_form_post_value('message'))}
+                <form action="/index.php?s=form&c=message&m=post" enctype="multipart/form-data" method="post" name="myform_message_foot" id="myform_message_foot">
+                {$form}
+                    <ul>
+                        <li class="wow fadeInUp">
+                            <input type="text" name="data[name]" title="" autocomplete="off" placeholder="请填写您的姓名"
+                                class="input_text" />
+                        </li>
+                        <li class="wow fadeInUp">
+                            <input type="text" name="data[company]" title="" autocomplete="off" placeholder="请填写您的公司名称"
+                                class="input_text" />
+                        </li>
+                        <li class=" wow fadeInUp">
+                            <input type="text" name="data[tel]" title="" autocomplete="off" placeholder="请填写您的电话"
+                                class="input_text" />
+                        </li>
+                        <li class=" wow fadeInUp">
+                            <input type="text" name="data[email]" title="" autocomplete="off" placeholder="请填写您的邮箱"
+                                class="input_text" />
+                        </li>
+                        <li class="last wow fadeInUp">
+                            <textarea name="data[message]" title="" autocomplete="off" placeholder="请详细描述您的需求"
+                                class="input_text"></textarea>
+                        </li>
+                    </ul>
+
+                    <button type="button" onclick="dr_ajax_submit('/index.php?s=form&c=message&m=post', 'myform_message_foot', '2000', '{$rt_url}')" class="btn abtn  wow fadeInUp" id="submitButton">
+                        确认提交<span class="iconfont icon-daohang2"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer_wrap  ">
+        <div class="hd commonweb flex">
+            <div class="left">
+                <a href="/" class="flogo wow fadeInUp">
+                    <img src="{SITE_LOGO}" alt="" loading="lazy" decoding="async">
+                </a>
+                <div class="finfo">
+                    <p class="wow fadeInUp"><span class="iconfont icon-dizhi2"></span> {dr_site_value('address')}</p>
+                    <p class="wow fadeInUp"><span class="iconfont icon-tel9"></span> {dr_site_value('tel')}</p>
+                    <p class="wow fadeInUp"><span class="iconfont icon-email4"></span> {dr_site_value('email')}</p>
+                </div>
+                <div class="ficonflex wow fadeInUp">
+                    <a href="javascript:;" class="ficons">
+                        <span class="iconfont icon-weixin"></span>
+                        <div class="fewm">
+                            <img src="{dr_get_file(dr_site_value('ewm'))}" alt="" loading="lazy" decoding="async">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="footer_nav">
+                    <ul>
+                        <li class="wow fadeInUp">
+                            <a href="/">网站首页</a>
+                        </li>
+                        {category module=share pid=0}
+                        <li class="wow fadeInUp">
+                            <a href="{$t.url}">{$t.name}</a>
+                        </li>
+                        {/category}
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title wow fadeInUp">获取技术方案</div>
+                <div class="text wow fadeInUp">提交联系信息，我们将尽快与您联系</div>
+                <div class="footer_form wow fadeInUp">
+                    {php extract(dr_get_form_post_value('dingyue'))}
+                    <form action="/index.php?s=form&c=dingyue&m=post" enctype="multipart/form-data" method="post" name="myform_dingyue_foot" id="myform_dingyue_foot">
+                    {$form}
+                        <input type="text" name="data[title]" id="" placeholder="姓名*" class="input_text">
+                        <input type="text" name="data[tel]" id="" placeholder="电话*" class="input_text">
+                        <input type="text" name="data[email]" id="" placeholder="邮箱*" class="input_text">
+                        <button type="button" onclick="dr_ajax_submit('/index.php?s=form&c=dingyue&m=post', 'myform_dingyue_foot', '2000', '{$rt_url}')" class="btn abtn" id="submitButton">
+                            提交 <span class="iconfont icon-xiejiantou"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright commonweb ">
+            <div class="left flex">
+                {dr_site_value('right')} <br />
+                <a href="javascript:;" target="_blank">&emsp;{SITE_ICP}</a>
+            </div>
+            <div class="right">
+                <a href="https://www.feiyu.net.cn/" target="_blank">DESIGN BY: FEIYU</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- js插件激活 -->
+
+<script type="text/javascript" src="/js/ckplayer.js" defer></script>
+<script type="text/javascript" src="/js/gsap.js" defer></script>
+<script type="text/javascript" src="/js/SplitText.min.js" defer></script>
+<script type="text/javascript" src="/js/ScrollTrigger.min.js" defer></script>
+<script type="text/javascript" src="/js/jquery.countup.min.js" defer></script>
+<script type="text/javascript" src="/js/waypoints.min.js" defer></script>
+<script src="/js/wow.min.js" defer></script>
+<script src="/js/swiper-bundle.min.js" defer></script>
+<script src="/js/default.js"></script>
+
+<!-- 系统懒人版js(所有自建模板引用) -->
+<script type="text/javascript">var is_mobile_cms = '{IS_MOBILE}';var web_dir = '{WEB_DIR}';</script>
+<script src="{LANG_PATH}lang.js" type="text/javascript"></script>
+<!-- <script src="{THEME_PATH}assets/global/plugins/jquery.min.js" type="text/javascript"></script> -->
+<script src="{THEME_PATH}assets/js/cms.js" type="text/javascript"></script>
+<!-- 系统懒人版js结束 -->
+
+</html>

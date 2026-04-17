@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    {template "meta.html"}
+</head>
+
+<body>
+    {template "header.html"}
+    <div class="inside_banner pic_m">
+        <div class="img">
+            {php $tid = $cat.topid;}
+            {php $banner = dr_share_cat_value($tid, 'banner');}
+            {loop $banner $v}
+            <img class="hidden-sm" src="{dr_get_file($v[1])}" alt="">
+            <img class="visible-sm" src="{dr_get_file($v[2])}" alt="">
+            {/loop}
+        </div>
+        <div class="info commonweb">
+            <div class="stitle wow fadeInDown">{if dr_share_cat_value($tid,'banner_title')}{dr_share_cat_value($tid,'banner_title')}{else}{dr_share_cat_value($tid,'name')}{/if}</div>
+            <div class="btitle wow fadeInUp">{dr_code2html(dr_share_cat_value($tid,'banner_desc'))}</div>
+        </div>
+    </div>
+
+    <div class="news commonweb">
+        <div class="cfilter">
+            {category module=MOD_DIR pid=$cat.topid return=c}
+            <a href="{$c.url}" class="{if $c.id==$catid}cur{/if} wow fadeInUp">{$c.name}</a>
+            {/category}
+        </div>
+        <div class="list">
+            <ul>
+                {module module=news catid=$catid order=displayorder_desc,id_desc page=1}
+                <li class="wow fadeInUp">
+                    <a href="{$t.url}" class="box ">
+                        <figure>
+                            <img src="{dr_thumb($t.thumb)}" alt="" loading="lazy" decoding="async">
+                        </figure>
+                        <figcaption>
+                            <div class="date">{dr_date($t._updatetime,'Y-m-d')}</div>
+                            <div class="title">
+                                {$t.title}
+                            </div>
+                            <div class="more">查看详情<span class="iconfont icon-right12"></span></div>
+                        </figcaption>
+                    </a>
+                </li>
+                {/module}
+            </ul>
+        </div>
+        {$pages}
+    </div>
+    {template "footer.html"}

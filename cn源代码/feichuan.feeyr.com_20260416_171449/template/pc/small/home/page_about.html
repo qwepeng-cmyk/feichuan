@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    {template "meta.html"}
+</head>
+
+<body>
+    
+    {template "header.html"}
+    <div class="inside_banner pic_m">
+        <div class="img">
+            {php $tid = $cat.id;}
+            {php $banner = dr_share_cat_value($tid, 'banner');}
+            {loop $banner $v}
+            <img class="hidden-sm" src="{dr_get_file($v[1])}" alt="">
+            <img class="visible-sm" src="{dr_get_file($v[2])}" alt="">
+            {/loop}
+        </div>
+        <div class="info commonweb">
+            <div class="stitle wow fadeInDown">{if dr_share_cat_value($tid,'banner_title')}{dr_share_cat_value($tid,'banner_title')}{else}{dr_share_cat_value($tid,'name')}{/if}</div>
+            <div class="btitle wow fadeInUp">{dr_code2html(dr_share_cat_value($tid,'banner_desc'))}</div>
+        </div>
+    </div>
+
+    <div class="about_A flex commonweb" id="about1">
+        <div class="left">
+            <div class="index_title">
+                <div class="btitle comtitle">{dr_code2html(dr_site_value('about_1_title'))}</div>
+            </div>
+        </div>
+        <div class="right">
+            {dr_site_value('about_1')}
+        </div>
+    </div>
+
+    <div class="about_B commonweb" id="about2">
+        {php $menu7_10_title = dr_site_value('menu7_10_title');}
+        {loop $menu7_10_title $v}
+        <div class="content">
+            <div class="index_title">
+                <div class="stitle wow fadeInDown">{$v[1]}</div>
+                <div class="btitle comtitle2">{$v[2]}</div>
+            </div>
+        </div>
+        <div class="desc wow fadeInUp">
+            {$v[3]}
+        </div>
+        {/loop}
+    </div>
+
+    <div class="about_C commonweb" id="about3">
+        <div class="hd flex">
+            {php $about_1_video = dr_site_value('about_1_video');}
+            {loop $about_1_video $v}
+            <div class="index_title">
+                <div class="btitle comtitle">{$v[1]}</div>
+            </div>
+            <div class="desc wow fadeInUp">
+                {$v[2]}
+            </div>
+            {/loop}
+        </div>
+        <div class="md">
+            <div class="bgimg">
+                {loop $about_1_video $v}
+                <div class="img"><img src="{dr_get_file($v[3])}" alt="" loading="lazy" decoding="async"></div>
+                {/loop}
+                <div class="dotcont">
+                    <div class="item" style="left: calc((1120/1454)*100%);top: calc((326/803)*100%);">
+                        <div class="icon"><img src="images/logoac.png" alt=""></div>
+                    </div>
+                    <div class="item" style="left: calc((254/1454)*100%);top: calc((285/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((300/1454)*100%);top: calc((230/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((416/1454)*100%);top: calc((320/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((430/1454)*100%);top: calc((455/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((695/1454)*100%);top: calc((266/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((835/1454)*100%);top: calc((270/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((808/1454)*100%);top: calc((370/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((863/1454)*100%);top: calc((408/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((976/1454)*100%);top: calc((390/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((1100/1454)*100%);top: calc((428/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((1084/1454)*100%);top: calc((520/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((1240/1454)*100%);top: calc((340/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="item" style="left: calc((1272/1454)*100%);top: calc((593/803)*100%);">
+                        <div class="dot">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bd">
+            {php $menu6_7 = dr_site_value('menu6_7');}
+            {loop $menu6_7 $v}
+            <div class="nums">
+                <span class="cnums">{$v[2]}</span>{$v[3]}
+            </div>
+            <div class="text f18 wow fadeInUp">{$v[1]}</div>
+            {/loop}
+        </div>
+    </div>
+
+    <div class="about_D commonweb" id="about4">
+        <div class="index_title">
+            <div class="btitle comtitle">{dr_site_value('menu6_8')}</div>
+        </div>
+        <div class="bd">
+            <div class="left  tscroll no-smooth-scroll">
+                <ul>
+                    {php $about_3 = dr_site_value('about_3');}
+                    {loop $about_3 $v}
+                    <li>
+                        <div class="name">
+                            {$v.description}
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="right">
+                {loop $about_3 $v}
+                <div class="img"><img src="{$v.url}" alt="" loading="lazy" decoding="async"></div>
+                {/loop}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="about_E commonweb" id="about5">
+        <div class="form">
+            {php extract(dr_get_form_post_value('jyfk'))}
+            <form action="/index.php?s=form&c=jyfk&m=post" enctype="multipart/form-data" method="post" name="myform_jyfk" id="myform_jyfk">
+            {$form}
+                <div class="hd flex">
+                    <div>
+                        <div class="index_title">
+                            <div class="btitle comtitle">保持联系</div>
+                        </div>
+                        <div class="desc wow fadeInUp">
+                            请留下您的需求和联系方式，我们会第一时间与您沟通
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="dr_ajax_submit('/index.php?s=form&c=jyfk&m=post', 'myform_jyfk', '2000', '{$rt_url}')" class="btn abtn  wow fadeInUp" id="submitButton">
+                        提交信息<span class="iconfont icon-daohang2"></span>
+                    </button>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <li class="wow fadeInUp">
+                            <input type="text" name="data[name]" title="" autocomplete="off" placeholder="姓名*"
+                                class="input_text" />
+                        </li>
+                        <li class="wow fadeInUp">
+                            <input type="text" name="data[tel]" title="" autocomplete="off" placeholder="电话*"
+                                class="input_text" />
+                        </li>
+                        <li class=" wow fadeInUp">
+                            <input type="text" name="data[country]" title="" autocomplete="off" placeholder="国家*"
+                                class="input_text" />
+                        </li>
+                        <li class=" wow fadeInUp">
+                            <input type="text" name="data[company]" title="" autocomplete="off" placeholder="公司*"
+                                class="input_text" />
+                        </li>
+                        <li class=" wow fadeInUp">
+                            <input type="text" name="data[postcode]" title="" autocomplete="off" placeholder="微信"
+                                class="input_text" />
+                        </li>
+                        <li class=" wow fadeInUp">
+                            <input type="text" name="data[email]" title="" autocomplete="off" placeholder="邮箱"
+                                class="input_text" />
+                        </li>
+                        <li class="last wow fadeInUp">
+                            <textarea name="data[message]" title="" autocomplete="off" placeholder="请详细描述您的需求"
+                                class="input_text"></textarea>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+    {template "footer.html"}
+    

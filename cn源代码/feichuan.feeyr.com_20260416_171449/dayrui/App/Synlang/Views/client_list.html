@@ -1,0 +1,138 @@
+{template "header.html"}
+
+{if $is_time_where}
+{template "api_list_date_search.html", "admin"}
+{/if}
+
+{if $is_search}
+<div class="note note-danger" {if !isset($get.submit) && !$is_show_search_bar}style="display: none"{/if} id="table-search-tool">
+    <div class="row table-search-tool">
+        <form action="{SELF}" method="get">
+            {dr_form_search_hidden($extend_param)}
+            {if $extend_search}
+            {$extend_search}
+            {/if}
+            <div class="col-md-12 col-sm-12">
+                <label>
+                    <select name="field" class="form-control">
+                        <option value="id"> Id </option>
+                        {loop $field $t}
+                        <option value="{$t.fieldname}" {if $param.field==$t.fieldname}selected{/if}>{$t.name}</option>
+                        {/loop}
+                    </select>
+                </label>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <label><input type="text" class="form-control" placeholder="" value="{$param['keyword']}" name="keyword" /></label>
+            </div>
+            {if $is_time_where}
+            <div class="col-md-12 col-sm-12">
+                <label>
+                    <div class="input-group input-medium date-picker input-daterange" data-date="" data-date-format="yyyy-mm-dd">
+                        <input type="text" class="form-control" value="{$param.date_form}" name="date_form">
+                        <span class="input-group-addon"> {dr_lang('到')} </span>
+                        <input type="text" class="form-control" value="{$param.date_to}" name="date_to">
+                    </div>
+                </label>
+            </div>
+            {/if}
+            <div class="col-md-12 col-sm-12">
+                <label><button id="table-search-tool-submit" type="button" class="btn blue btn-sm " name="submit" > <i class="fa fa-search"></i> {dr_lang('搜索')}</button></label>
+                <label><button id="table-search-tool-reset" type="reset" class="btn red btn-sm " name="reset" > <i class="fa fa-refresh"></i> {dr_lang('重置')}</button></label>
+            </div>
+            {if $extend_end}
+            {$extend_end}
+            {/if}
+        </form>
+    </div>
+</div>
+{/if}
+
+<div class="right-card-box">
+    <div id="toolbar" class="toolbar">
+        {$mytable.foot_tpl}
+    </div>
+    {template "mytable.html", "admin"}
+</div>
+
+{template "footer.html"}
+<script type="text/javascript">
+function dr_client_cache() {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "{dr_url('synlang/client/cache_index')}",
+        success: function (json) {
+            if (json.code == 1) {
+                my_update_site_config(0);
+            } else {
+                dr_tips(0, json.msg);
+            }
+        },
+        error: function (HttpRequest, ajax, thrownError) {
+            dr_ajax_alert_error(HttpRequest, ajax, thrownError);
+        }
+    });
+    dr_update_cache_all();
+}
+function my_update_site_config(page) {
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "{SELF}?s=synlang&c=client&m=update_file_index&page=" + page,
+        success: function (json) {
+            dr_tips(json.code, json.msg);
+            if (json.code == 0) {
+                $('#dr_client_cache').html('<font color="red">'+json.msg+'</font>');
+            } else {
+                if (json.data == 0) {
+                    $('#dr_client_cache').html('<font color="green">'+json.msg+'</font>');
+                } else {
+                    my_update_site_config(json.data);
+                    $('#dr_client_cache').html('<font color="blue">'+json.msg+'</font>');
+                }
+            }
+        },
+        error: function (HttpRequest, ajax, thrownError) {
+            dr_ajax_alert_error(HttpRequest, ajax, thrownError);
+        }
+    });
+}
+</script>
+
+
+
+<script type="text/javascript">
+    function dr_rewrite_test(obj, name, domain) {
+        $(obj).html('在检测中');
+        $(obj).removeClass('green').removeClass('blue').addClass('red');
+    
+        $.ajax({
+            url: domain+"/rewrite-test.html",
+            type: 'GET',
+            timeout: 1000,
+            dataType: "jsonp",
+            jsonp: "callback",
+            jsonpCallback: "callback"
+        }).done(function(data) {
+            //$(obj).html('环境检测');
+            if (data.code) {
+                $(obj).html('支持伪静态');
+                $(obj).removeClass('red').addClass('green');
+                //dr_tips(1, data.msg);
+            } else {
+                $(obj).html('不支持伪静态');
+                $(obj).removeClass('red').addClass('white');
+                //alert('域名【'+name+'】不支持伪静态，首先需要确定服务器支持rewrite模块并开启了，其次需要正确配置上面的方法');
+            }
+        }) .fail(function() {
+            $(obj).html('不支持伪静态');
+            $(obj).removeClass('red').addClass('grey');
+            dr_tips(1, '不支持伪静态，请配置好对应伪静态规则');
+            //alert('域名【'+name+'】不支持伪静态，首先需要确定服务器支持rewrite模块并开启了，其次需要正确配置上面的方法');
+        });
+
+    }
+
+</script>

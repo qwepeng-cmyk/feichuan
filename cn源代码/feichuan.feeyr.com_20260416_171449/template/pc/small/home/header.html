@@ -1,0 +1,95 @@
+<div class="header_wrap">
+        <div class="header_box commonweb">
+
+            <a class="logo" href="/">
+                <img class="wh" src="{SITE_LOGO}" alt="" />
+                <img class="ac" src="{dr_get_file(dr_site_value('flogo'))}" alt="">
+            </a>
+            <div class="header_nav ">
+                <ul class="flex ">
+                    <!-- 给当前页面添加类名cur -->
+                    <li {if $indexc}class="cur"{/if}>
+                        <h4>
+                            <a href="/">首页</a>
+                        </h4>
+                    </li>
+                {category module=share pid=0}
+                    <li {if $catid && dr_in_array($catid, $t.catids)}class="cur"{/if}>
+                        <h4>
+                            {if $t.id ==2}
+                            <a href="{get_url($t.id)}">
+                                {$t.name}
+                            </a>
+                            {else}
+                            <a href="{$t.url}">
+                                {$t.name}
+                            </a>
+                            {/if}
+                            <span class="subnavbtn iconfont"></span>
+                        </h4>
+                        {if $t.id ==2}
+                        <div class="header_subnav">
+                            <div class="aws">
+                                {module module=cases catid=$t.id order=displayorder_desc return=t2}
+                                <a href="{$t2.url}">{$t2.title}</a>
+                                {/module}
+                            </div>
+                        </div>
+                        {elseif $t.id ==2}
+                        <div class="header_subnav">
+                            <div class="aws">
+                                <a href="javascript:;">公司简介</a>
+                                <a href="javascript:;">企业文化</a>
+                                <a href="javascript:;">全球服务</a>
+                                <a href="javascript:;">知识产权</a>
+                            </div>
+                        </div>
+                        {else}
+                        <div class="header_subnav">
+                            <div class="aws">
+                                {category module=share pid=$t.id return=t2}
+                                <a href="{$t2.url}">{$t2.name}</a>
+                                {/category}
+                            </div>
+                        </div>
+                        {/if}
+                    </li>
+                {/category}
+                    
+                </ul>
+
+
+                <div class="header_right">
+                    <div class="search_icon"><span class="iconfont icon-search6"></span></div>
+                    <div class="language">
+                        <div class="cur">CN<span class="iconfont icon-sanjiao"></span>
+                        </div>
+                        <div class="drop">
+                            <a href="/en">EN</a>
+                            <a href="/">CN</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search_form">
+                    <form action="/index.php"  method="get">
+                        <input type="hidden" name="s" value="api">
+                                            <input type="hidden" name="c" value="api">
+                                            <input type="hidden" name="m" value="search">
+                                            <input type="hidden" name="dir" value="news" >
+                        <div class="formboxh">
+                            <input type="text" name="keyword" autocomplete="off" class="input_text" placeholder="搜索" />
+                            <input type="submit" class="input_btn" value="" />
+                        </div>
+                        <p class="pclose"><span class="iconfont icon-close"></span></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mNavBtn ">
+                <div class="icon">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </div>
