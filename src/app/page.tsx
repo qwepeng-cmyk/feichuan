@@ -177,7 +177,7 @@ export default function Home() {
             <section className="hero">
                 <video src="/index_banner_bg_1.mp4" autoPlay loop muted playsInline></video>
                 <div className="hero-overlay"></div>
-                <div className="container hero-content">
+                <div className="container-wide hero-content">
                     <h1 className="hero-title">Global unmanned security field<br />Defense experts</h1>
                     <p className="hero-subtitle">Connecting technology and applications, providing top-tier integrated security services to global clients.</p>
                     <a href="#" className="btn btn-orange">Discover Solutions ↗</a>
@@ -186,7 +186,7 @@ export default function Home() {
 
             {/* SCREEN 2: SOLUTIONS */}
             <section className="section-solutions" id="solutions">
-                <div className="container">
+                <div className="container-wide">
                     <h2 className="solutions-heading" style={{ textAlign: 'center' }}>Solutions</h2>
                     <div className="solutions-track" id="solutions-track" ref={solutionTrackRef}>
                         {solutions.map((sol) => (
@@ -203,7 +203,7 @@ export default function Home() {
 
             {/* SCREEN 3: PRODUCT CENTER 2 */}
             <section className="product-center-2" id="product-center-2" style={{ padding: '50px 0 40px', background: '#f2f6ff' }}>
-                <div className="container">
+                <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '3.6rem', color: 'var(--primary)' }}>Product Center</h2>
                         <div style={{ width: '60px', height: '4px', background: 'var(--accent)', margin: '20px auto' }}></div>
@@ -263,7 +263,7 @@ export default function Home() {
 
             {/* SCREEN 4: CUSTOMER CASES */}
             <section className="section-cases" style={{ padding: '40px 0 100px', background: '#fff' }}>
-                <div className="container">
+                <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '3.6rem' }}>Customer Cases</h2>
                     </div>
@@ -298,7 +298,7 @@ export default function Home() {
                     background: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4), rgba(0,0,0,0.7))' 
                 }}></div>
                 
-                <div className="container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                <div className="container-wide" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <div style={{ maxWidth: '900px' }}>
                         <h2 style={{ fontSize: '4.8rem', fontWeight: 900, marginBottom: '30px', color: '#fff' }}>ABOUT US</h2>
                         <p style={{ fontSize: '2rem', lineHeight: 1.6, marginBottom: '40px', opacity: 0.9 }}>N-TET is a technology-driven enterprise focused on low-altitude security systems, intelligent defense equipment, and integrated mission solutions. We combine R&D, engineering, and delivery to provide reliable deployment capabilities for critical infrastructure, major events, and emergency scenarios worldwide.</p>
@@ -312,7 +312,7 @@ export default function Home() {
 
             {/* SCREEN 6: NEWS */}
             <section className="section-news" style={{ padding: '60px 0 100px', background: '#fff' }}>
-                <div className="container">
+                <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h2 style={{ fontSize: '3.6rem', fontWeight: 600, color: '#333', letterSpacing: '2px', textTransform: 'uppercase' }}>News</h2>
                     </div>
