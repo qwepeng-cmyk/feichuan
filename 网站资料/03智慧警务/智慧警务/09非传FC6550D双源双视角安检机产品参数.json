@@ -1,0 +1,43 @@
+{
+  "product_name": "FC6550D双源双视角安检机",
+  "product_name_en": "Dual-View X-Ray Baggage Scanner FC6550D",
+  "summary": "FC6550D 安检机是一款采用双视角检查系统的高端安检设备。它利用双能量两组射线源探测器及数字图像处理系统，从垂直和水平两个方向同步对物品进行检测，无需考虑被检物品的摆放摆放位置即可获得极其清晰鲜明的图像。相比传统 X 射线设备，它在检查效率、空间利用率及减少误报漏报方面具有显著优势。设备支持物质识别功能，能精准分辨有机物、无机物和混合物，并具备辅助自动识别爆炸物与毒品的功能，为机场、海关及重要交通枢纽提供全方位的安全保障。",
+  "summary_en": "The FC6550D X-ray scanner features a high-end dual-view inspection system, utilizing dual-energy X-ray sources and digital image processing to scan items from both vertical and horizontal directions simultaneously. This allows for exceptionally clear and vivid imaging regardless of how items are placed on the conveyor. Compared to traditional single-view equipment, the FC6550D offers significant advantages in throughput efficiency, station space utilization, and the reduction of false alarms or missed detections. With advanced material discrimination capabilities to distinguish between organic, inorganic, and metallic substances, and assisted identification for explosives and narcotics, it provides comprehensive security for airports, customs, and critical transportation hubs.",
+  "key_application": "应用领域：FC6550D双源双视角安检机；双视角同步检测，无需考虑摆放位置。高清图像穿透力强，具备爆炸物/毒品辅助检查与AI智能判图功能。",
+  "key_application_en": "Dual-view vertical/horizontal scanning for zero blind spots; high-throughput 270kg load capacity; assisted AI detection for explosives and narcotics; advanced material identification (organic/inorganic/mixed).",
+  "key_parameter_1": "通道尺寸: 650mm(宽）*500mm（高）",
+  "key_parameter_1_en": "Tunnel Size: 650mm(W) x 500mm(H)",
+  "key_parameter_2": "穿透力: 底照视角/侧照视角 46mm 钢板",
+  "key_parameter_2_en": "Penetration: 46mm steel plate (Both views)",
+  "parameters": {
+    "外形尺寸": "1690mm(L) x 1348mm(W) x 1331mm(H) (不含接物架)",
+    "通道尺寸": "650mm(W) x 500mm(H)",
+    "传送带额定负荷": "270 kg",
+    "穿透力": "46mm 钢板 (底照/侧照双视角相同)",
+    "分辨率": "线分辨力 Φ0.0787mm，空间分辨力 Φ0.8mm",
+    "技术特点": "多能量 X 射线检查、物质识别 (有机/无机/混合)、AI 智能判图",
+    "显示系统": "双高清液晶显示屏，24位真彩色，1-64倍无极放大",
+    "报警功能": "爆炸物/毒品自动探测标记、可疑物品声光报警",
+    "辐射安全": "泄露射线剂量率 0.03μGy/h (优于健康安全标准)",
+    "结构设计": "国标 304 不锈钢机架，防夹手保护装置，节能感应运行"
+  },
+  "parameters_en": {
+    "External Dimensions": "1690mm(L) x 1348mm(W) x 1331mm(H)",
+    "Tunnel Size": "650mm(W) x 500mm(H)",
+    "Max Conveyor Load": "270 kg",
+    "Penetration": "46mm steel plate (Dual-View)",
+    "Resolution": "Wire: Φ0.0787mm; Spatial: Φ0.8mm",
+    "Technical Features": "Dual-energy scanning; Material ID; AI-assisted analysis",
+    "Display System": "Dual HD monitors; 24-bit color; 1-64x zoom",
+    "Alarm Functions": "Auto detection for explosives/narcotics; Audio-visual alerts",
+    "Radiation Safety": "Leakage < 0.03μGy/h (Superior to safety standards)",
+    "Structure and Build": "304 stainless steel frame; anti-pinch protection; smart-energy mode"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>双视角全维扫描：通过水平与垂直双源互补成像，彻底解决重叠物品遮挡导致的视觉盲区问题。</li><li>物质精分技术：根据原子序数精确渲染颜色（有机物橙色、无机物蓝色、混合物绿色），识别精准。</li><li>AI智能辅助决策：实时自动圈选并分类标注刀具、枪支、烟花爆竹等违禁品，大幅降低判图员工作强度。</li><li>高性能并行传输：图像数据传输速率提升10-20倍，确保高清画面实时反馈，无卡顿干扰。</li><li>极致环保节能：具备行李自动感应技术，无物时电机静止，配合含保护膜铅帘，防止铅粉泄露。</li><li>坚固工业设计：选用304不锈钢及冷轧板机架，通过严苛的高低温与震动试验，确保1万小时无故障运行。</li><li>Figure 1 Dual-View X-Ray Scanner</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>360° Inspection Synergy: dual X-ray sources provide orthogonal views (top and side), allowing operators to see under and behind complex items.</li><li>Material Intelligence: utilizes dual-energy imaging to color-code materials by atomic composition—Organic (Orange), Inorganic (Blue), and Mixed (Green).</li><li>AI-Powered Analytics: autonomously detects and highlights prohibited items like bladed weapons and firearms with on-screen bounding boxes.</li><li>Lightning-Fast Throughput: utilizes parallel data transmission for HD imagery, capable of handling 270kg loads at 0.2m/s for non-stop checkpoint flow.</li><li>Sustainability & Safety: features smart-sense conveyor activation and lead-sealed curtains with protective coating for maximum user safety.</li><li>Mission Reliability: built on a 304 stainless steel chassis, engineered and tested to exceed 10,000 hours of continuous operation in extreme climates.</li></ul>",
+  "main_image": "/products/security/FC6550D-Dual-View-X-Ray-Scanner.png",
+  "handle": "fc6550d-dual-view-baggage-scanner",
+  "category_primary": "Security Screening & Policing (安检 with 智慧警务装备)",
+  "category_secondary": "X-Ray Baggage & Parcel Scanners (X光行李/物品安检机 - 含双视角/小型机)",
+  "category_tertiary": "Dual-View Scanners (双视角安检机)"
+}

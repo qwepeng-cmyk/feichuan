@@ -1,0 +1,40 @@
+{
+  "product_name": "FC-DMS10系列智能电子哨兵",
+  "product_name_en": "Smart Electronic Sentinel FC-DMS10 Series",
+  "summary": "FC-DMS10 系列智能电子哨兵是一款集多种高灵敏度传感器、精密控制模块、指向性警示装置及尖端 AI 智能算法于一体的轻型、多功能智能化探测设备。该系统专门设计用于野外及要地周边环境，可实现 24/7 全天候侦察监视、实时态势感知与安全预警。其探警一体化的设计融合了星光级超低照度成像与主动警示功能（包括高音喇叭与爆闪灯），配合轻便、高强度的准球形抗风结构，是战术部署、要地防御与移动哨位监控的理想选择。",
+  "summary_en": "The FC-DMS10 Series Smart Electronic Sentinel is a lightweight, multi-functional, and intelligent detection system that integrates a variety of high-sensitivity sensors, precision control modules, directional warning devices, and advanced AI algorithms. Specifically designed for field and perimetry environments, this system enables 24/7 all-weather reconnaissance, real-time situational awareness, and early security warnings. Its 'detect-and-alert' integrated architecture combines starlight ultra-low-light imaging with active deterrent features (including high-decibel speakers and strobe lights). Coupled with a portable, high-strength quasi-spherical wind-resistant structure, it serves as an ideal solution for tactical deployment, critical infrastructure defense, and mobile sentry monitoring.",
+  "key_application": "应用领域：FC-DMS10 系列智能电子哨兵；探警一体化设计，集成探测与主动驱离模块；适用于边境、营区及临时哨位的全天候快速监控部署。",
+  "key_application_en": "Integrated detection and deterrent warning system; all-weather surveillance with starlight ultra-low-light imaging; ultra-stable quasi-spherical design for high-wind environments; portable tactical deployment (≤10kg).",
+  "key_parameter_1": "传感器: 背照式超低照度星光级 CMOS",
+  "key_parameter_1_en": "Sensor: Back-illuminated Starlight-grade CMOS",
+  "key_parameter_2": "旋转范围: 水平 360° 连续旋转；俯仰 -90° ～ +90°",
+  "key_parameter_2_en": "Rotation: 360° Continuous Pan; -90° to +90° Tilt",
+  "parameters": {
+    "可见光成像": "1920×1080 分辨率，47倍光学变倍，星光级最低照度 (0.0001Lux)",
+    "警示功能": "集成高音喇叭 + 爆闪灯，支持自定义音频报警及激光眩目警示",
+    "激光模块": "高清泛光匀化光源，照射距离 1000 米，照明角度 1°～20°",
+    "云台性能": "水平/俯仰速度可达 100°/s，支持 3000 个预置位，准球形防抖机身",
+    "通信/网络": "1路 RJ45 以太网口（可选配 4G/5G 模块），供电 DC12V-36V",
+    "物理规格": "重量 ≤10kg (含载荷)，尺寸 312mm×200mm×298mm",
+    "环境能力": "工作温度 -40℃～60℃，具备 IP67 高级别防护能力",
+    "智能算法": "支持热点告警、目标自动寻找与锁定跟踪、PHM 健康管理",
+    "定制化": "支持自定义功能开发与 OEM 深度定制"
+  },
+  "parameters_en": {
+    "Optical Sensor": "1080P Starlight CMOS; 47x Optical Zoom + 16x Digital Zoom; Min Illumination 0.0001 Lux",
+    "Deterrent Modules": "Integrated high-decibel speaker and strobe sirens; supports custom voice recordings",
+    "Laser Illuminator": "HD homogenized floodlight source; 1000m range; 1° to 20° beam angle",
+    "PTZ Dynamics": "Pan: 360° continuous; Tilt: -90° to +90°; Precise tracking speed 0.01° to 100°/s",
+    "Connectivity": "RJ45 Ethernet with optional 4G/5G wireless; supports DC12V-36V power input",
+    "Dimensions/Weight": "312x200x298 mm; Weight ≤10kg (Tactical portability)",
+    "AI Intelligence": "Target detection & tracking; Hot-spot warning; PHM health management system",
+    "Durability": "IP67 rated; Operating temperature: -40°C to 60°C; Humidity ≤95%",
+    "Expansion": "Supports customized software modules and specialized forensic tools"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>多光谱环境适应力：结合超低照度可见光与激光夜视，不仅能在暗光下高清成像，还能通过补光穿透暗视障。</li><li>探驱联动响应：在侦测到非法入侵后，系统可立即触发声光强力干扰，将“发现即驱离”落到实处。</li><li>卓越的机动部署性：整机重量控制在 10kg 以内，单兵可快速安装在三脚架或楼顶边缘，极简布线。</li><li>全方位动态视角：采用准球形外壳，有效降低高空风载导致的画面抖动，确保超长焦下的图像稳定。</li><li>智能化哨位管理：具备设备自主巡航、多目标接续跟踪及运行状态 PHM 自动诊查，降低后勤压力。</li><li>野外恶劣工况保障：IP67 级别浸泡式防水与超宽温设计，满足从极寒戈壁到高热海岛的实战需求。</li><li>Figure 1 Smart Electronic Sentinel</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Multi-Spectral Resilience: pairs starlight-grade sensors with laser illumination to maintain HD clarity in zero-lux conditions and light foliage.</li><li>Detect & Deter Synergy: once an intruder is identified, the system instantly engages sirens and strobes, enabling immediate passive defense on the front line.</li><li>Tactical Mobility: weighing under 10kg, the unit can be rapidly deployed by a single technician on tripods or temporary structures with minimal cabling.</li><li>Vibration-Free Vigilance: the quasi-spherical shell geometry minimizes wind drag/buffeting, ensuring stable imagery even at maximum telephoto zoom.</li><li>Autonomous Surveillance: features smart cruising, sequential multi-target tracking, and onboard PHM diagnostics to minimize human oversight requirements.</li><li>Rugged Sentry Performance: IP67-rated immersion-proofing and an extreme temperature range ensure operational reliability from the tundra to tropical coastlines.</li></ul>",
+  "main_image": "/products/surveillance/FC-DMS10-Series-Smart-Electronic-Sentinel.png",
+  "handle": "fc-dms10-smart-electronic-sentinel",
+  "category_primary": "Perimeter & Area Surveillance (要地周边防护与监控)",
+  "category_secondary": "Smart Electronic Sentinels (智能电子哨兵)"
+}

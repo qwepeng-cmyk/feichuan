@@ -1,0 +1,41 @@
+{
+  "product_name": "FC-DTVC系列双波段热成像高速球",
+  "product_name_en": "Dual-Band Thermal High-Speed Dome Camera FC-DTVC Series",
+  "summary": "FC-DTVC 系列双波段热成像高速球是专为关键要地及特种监控场景设计的高端光学产品。产品采用高速球形一体化设计，结构紧凑且启停平稳，具备极高的定位精度。系统集成了高清可见光、红外热成像、激光照明及其动力传动装置，配合先进的数字解码器与图像处理模块，实现了全天候 24 小时的高清图像采集。内置 GPU 智能芯片，支持多种行为分析算法与三维智能定位，是实现要地防御全维感知的核心设备。",
+  "summary_en": "The FC-DTVC Series Dual-Band Thermal High-Speed Dome is a premium optical surveillance system designed specifically for critical infrastructure and specialized security scenarios. Featuring a high-speed integrated dome architecture, it offers a compact, reliable structure with smooth motion control and exceptional positioning accuracy. The system integrates high-definition visible light sensors, infrared thermal imaging, and laser illumination modules with precision transmission mechanisms and advanced digital decoders. This enables comprehensive, high-definition 24/7 all-weather image acquisition. Equipped with an internal GPU AI chip, it supports various behavioral analytics and 3D intelligent positioning, serving as a core component for multi-dimensional perception in perimeter defense.",
+  "key_application": "应用领域：FC-DTVC 系列双波段热成像高速球；全天候 24 小时高精度安防监控；集成红外热成像与高清可见光的多维感知；关键区域的自动化智能行为分析。",
+  "key_application_en": "Dual-band thermal/visible 24/7 surveillance; high-speed precision PTZ (up to 200°/s); built-in GPU for real-time AI security analytics; integrated modular design for rapid deployment; IP66 weatherproof.",
+  "key_parameter_1": "探测距离: 对火源 2000m (@2×2m)",
+  "key_parameter_1_en": "Detection Range: Fire source 2000m (@2x2m)",
+  "key_parameter_2": "旋转速度: 0.1°/s ～ 200°/s (支持焦距自适应)",
+  "key_parameter_2_en": "Rotation Speed: 0.1°/s to 200°/s (Zoom-adaptive)",
+  "parameters": {
+    "热成像模组": "第六代非制冷焦平面 VOx 探测器，384×288 分辨率，SDE 图像增强",
+    "可见光模组": "背照式星光级 CMOS，30倍光学变倍，最低照度 0.0001Lux",
+    "监测距离": "热像仪对车 4200m，对人 1640m；激光对车 1200m，对人 500m",
+    "PTZ 动态": "水平 360° 连续旋转，俯仰 -90°～+5°，支持 255 个预置位",
+    "智能分析": "内置 GPU，支持入侵、越界、进入/离开区域、人员聚集及物品遗留检测",
+    "操作功能": "支持三维智能定位、点击跟踪放大、视频编码集成",
+    "防护设计": "IP66 等级，内置 4000V 防雷浪涌保护，接口电路优化",
+    "安装/环境": "工作温度 -40℃～+60℃，支持壁装/吊装，高度集成的模块化设计",
+    "尺寸/重量": "Φ230mm × 325mm，约 5kg"
+  },
+  "parameters_en": {
+    "Thermal Sensor": "6th gen uncooled VOx; 384x288 resolution; SDE digital detail enhancement (255 levels)",
+    "Daylight Sensor": "Back-illuminated Starlight CMOS (1080P); 4.7mm-141mm (30x Optical Zoom)",
+    "Detection Performance": "Thermal: Vehicle 4200m / Human 1640m; Fire: 2000m (@2x2m)",
+    "Laser Performance": "Laser coverage: Vehicle 1200m / Human 500m",
+    "Dynamics": "Pan: 360° continuous; Tilt: -90° to +5°; Max speed 200°/s with auto-zoom throttling",
+    "GPU Edge AI": "Intrusion, crossing, loitering, gathering, and item taken/abandoned alerts",
+    "Intelligence": "3D Intelligent Positioning with one-click click-to-track zoom",
+    "Industrial Grade": "IP66 Weatherproof; 4000V Surge & Lightning protection",
+    "Power/Weight": "DC24V input; Weight approx. 5kg; Dimensions Φ230x325 mm"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>双光协同工作流：集成热成像测温/火灾预警与可见光高清识别，完美平衡远距离搜索与近距离取证需求。</li><li>极致机械操控：采用工业级步进电机驱动，启停无抖动，定位偏差毫秒级响应，确保在 30 倍长焦下画面稳定。</li><li>全方位边缘算力：内置专门的 GPU 神经网络算法，无需服务器即可在前端完成复杂的反跨越、非法聚集等逻辑判断。</li><li>智能三维锁定：支持画框式 3D 缩放，安检员只需在屏幕框选目标，云台即可自动居中并变倍放大，大幅提升查验效率。</li><li>全天候野外设计：IP66 级防尘防水外壳，配合零下 40 度的宽温运行能力，使其在北方严寒或南方潮湿场景均能稳定长期服役。</li><li>Figure 1 Dual-Band Thermal High-Speed Dome</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Dual-Spectral Workflow: unifies thermal fire/early warning with HD visible identification, balancing far-field scanning and near-field forensic verification.</li><li>Precision PTZ Control: utilizes industrial stepper motor drives for jitter-free starts and stops, ensuring a stable image even at 30x optical telephoto extension.</li><li>Edge AI Intelligence: fully integrated GPU neural network enables front-end analysis of trespassing and loitering without external server requirements.</li><li>Smart 3D Target Selection: supports 'draw-to-zoom' 3D positioning; operators simply frame a target on screen for automated centering and zooming.</li><li>Rugged Outdoor Integrity: features an IP66 chassis with extreme -40°C temperature resilience, ideal for long-term service in harsh northern winters or humid coastal zones.</li></ul>",
+  "main_image": "/products/surveillance/FC-DTVC-Series-Dual-Band-Thermal-PTZ-Camera.png",
+  "handle": "fc-dtvc-dual-band-thermal-ptz",
+  "category_primary": "Perimeter & Area Surveillance (要地周边防护与监控)",
+  "category_secondary": "Dual-Band Thermal High-Speed Domes (双波段热成像高速球)",
+  "category_tertiary": "High-Speed Thermal Dome (高速热成像球机)"
+}

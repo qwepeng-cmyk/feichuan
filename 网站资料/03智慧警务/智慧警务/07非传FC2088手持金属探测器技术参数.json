@@ -1,0 +1,39 @@
+{
+  "product_name": "FC2088手持金属探测器",
+  "product_name_en": "Handheld Metal Detector FC2088",
+  "summary": "FC2088 是一款新款高灵敏度手持金属探测器，可广泛应用于各类安全检查领域。该设备具有灵敏度可调功能，探测精度优于同类产品。采用耐摔、耐用的高品质外壳设计，即使在 9V 电池电量降至 7V 时，探测距离依然保持稳定。设备极其省电，可连续工作 40 小时以上，并具备自动低压声光报警、开关机提示、声光/振动切换等人性化功能，适用于机场、车站、海关、保卫部门及考场防作弊等多种场景。",
+  "summary_en": "The FC2088 is a newly designed high-sensitivity handheld metal detector suitable for a wide range of security screening applications. It features adjustable sensitivity, offering detection precision that outperforms similar products in its class. Built with a durable, impact-resistant casing, it maintains a consistent detection range even when the 9V battery voltage drops to 7V. The device is exceptionally energy-efficient, supporting over 40 hours of continuous operation. It includes user-friendly features such as automatic low-battery alerts, power-on/off sound prompts, and selectable audio-visual or vibration alarm modes, making it ideal for airports, stations, customs, security departments, and preventing cheating in examination halls.",
+  "key_application": "应用领域：FC2088手持金属探测器；新款高灵敏度手持，可以应用任何领域；具有灵敏度可调功能，与其它手持探测器相比，灵敏度较高。",
+  "key_application_en": "High-sensitivity metal detection for airports, stations, and exam halls; identifies coins, keys, and weapons; adjustable sensitivity for custom security levels; long-endurance (40h+) with vibration/audio alerts.",
+  "key_parameter_1": "探测距离: 大头针 1-3cm；38口径手枪 10-15cm",
+  "key_parameter_1_en": "Detection Range: Pin (1-3cm); .38 Caliber Pistol (10-15cm)",
+  "key_parameter_2": "连续工作时间: ≥40小时",
+  "key_parameter_2_en": "Operating Time: ≥40 hours continuous",
+  "parameters": {
+    "灵敏度": "高灵敏度，支持手动旋钮调节",
+    "警报模式": "声光报警、振动报警可切换",
+    "探测能力": "大头针 (1-3cm)、剃须刀片 (2-10cm)、手枪 (10-15cm)、手机电池 (15-25cm)",
+    "电池": "标准 9V 层叠电池，支持外接充电",
+    "低电压提示": "电池用完时自动连续告警，电压低至7V探测距离不变",
+    "功耗": "极低功耗，单次充电/更换电池可工作 40h+",
+    "防护设计": "耐摔耐用外壳，带开/关机声音提示",
+    "用途": "机场/车站安检、公检法边防检查、贵金属检测、考场防作弊"
+  },
+  "parameters_en": {
+    "Sensitivity": "High; adjustable via onboard potentiometer",
+    "Alarm Mode": "Selectable Sound/Light or Vibration",
+    "Detection Targets": "Pins (1-3cm), Razors (2-10cm), Pistols (10-15cm), Mobile batteries (15-25cm)",
+    "Battery": "Standard 9V battery with external charging port",
+    "Power Management": "Stable detection range down to 7V; automatic continuous low-battery alert",
+    "Endurance": "≥40 hours of continuous use",
+    "Durability": "Impact-resistant ruggedized housing",
+    "Applications": "Airports, customs, drug/food quality checks, precious metal detection"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>卓越灵敏度：行业领先的金属感应精度，支持手动微调以适应对小至回形针的大物探测。</li><li>稳恒性能：采用先进电压稳压技术，电池电压下降不影响探测距离。</li><li>三位一体警报：具备声音告警、LED闪烁及高静音振动三种模式，适应复杂环境。</li><li>极致省电：超低功耗电路设计，满足长时间、高强度不间断安检任务需求。</li><li>人性化交互：带开机语音自检、低电压自动灯光提示及符合人体工学的防滑手柄。</li><li>安全无害：通过职业卫生标准，对起搏器佩戴者及磁性介质无干扰。</li><li>Figure 1 Handheld Metal Detector</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Precision Sensitivity: adjustable gain control allows for the detection of targets as small as a paperclip while minimizing false positives from background clutter.</li><li>Voltage Stability: high-performance power management ensures the detection sensitivity remains constant even as battery levels decline.</li><li>Dual-Alert Modes: features a toggle switch for high-pitch acoustic alarms or tactical vibration, ideal for noise-sensitive exam halls or loud airports.</li><li>Superior Endurance: designed for extended duty cycles, offering 40+ hours of operation on a single standard 9V battery.</li><li>Rugged Reliability: the shock-resistant ABS housing is built to withstand the rigors of high-traffic security checkpoints.</li><li>Safe Interaction: fully compliant with electronic safety standards; harmless to pregnant women, medical implants, and electronic cards.</li></ul>",
+  "main_image": "/products/security/FC2088-Handheld-Metal-Detector.png",
+  "handle": "fc2088-handheld-metal-detector",
+  "category_primary": "Security Screening & Policing (安检与智慧警务装备)",
+  "category_secondary": "Safety Inspection Gates (安检门/探测门)",
+  "category_tertiary": "Handheld Metal Detectors (手持金属探测器)"
+}

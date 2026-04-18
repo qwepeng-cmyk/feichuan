@@ -1,0 +1,43 @@
+{
+  "product_name": "FC-C (液晶型) 12区通过式金属探测门",
+  "product_name_en": "Walk-Through Metal Detector FC-C (LCD, 12-Zone)",
+  "summary": "FC-C 金属探测门是一款集成电磁兼容设计与高强度抗震性能的安全检查设备。该设备具备极高的探测灵敏度和抗干扰能力，能够精准定位各类管制刀具、枪支等危险金属物品。配备直观的液晶操作界面与智能客流量计数系统，广泛应用于监狱、法院、学校、电子企业、港口枢纽及大型演唱会等需要严密安保的高人流量公共场所。",
+  "summary_en": "The FC-C metal detection gate is a high-security inspection device that integrates advanced electromagnetic compatibility design with robust vibration-resistant performance. Offering exceptional sensitivity and anti-interference capabilities, it precisely identifies and locates dangerous metallic items such as controlled knives and firearms. Featuring an intuitive LCD interface and an intelligent passenger counting system, it is widely utilized for professional security screening in high-traffic environments including prisons, courts, schools, electronics manufacturing, transportation hubs, and large-scale concerts.",
+  "key_application": "应用领域：FC-C (液晶型) 通过式金属探测门；具备高灵敏度与抗干扰能力，适用于管制刀具和枪支等危险物品的安全检查，广泛应用于各类高人流量公共场所。",
+  "key_application_en": "Advanced LCD interface with 12 overlapping detection zones; high-speed digital scanning for zero blind spots; networked capability for up to 20 gates; waterproof and fireproof PVC construction.",
+  "key_parameter_1": "探测区域: 12个相互重叠的探测区域",
+  "key_parameter_1_en": "Detection Zones: 12 overlapping zones",
+  "key_parameter_2": "产品材质: 特种工艺制造 PVC 合成材料",
+  "key_parameter_2_en": "Material: Specialized PVC composite",
+  "parameters": {
+    "探测防区": "12个互相重叠的防区，支持多区位同时报警与精确定位",
+    "灵敏度调节": "0-1000 级灵敏度，可排除皮带扣、钥匙等干扰，最高可探至一枚大头针",
+    "抗干扰能力": "采用 2000 级 DSP 数字过滤技术，具有极佳的磁电兼容性与抗震能力",
+    "网络接口": "预留网络接口，支持最多20台门设备并网由电脑统一集中管理",
+    "材质性能": "PVC 合成材质，具有卓越的防水、防火及抗撞击物理特性",
+    "报警计数": "智能化客流量与报警计数器，实时统计进出人次与报警频率",
+    "连动接口": "可选配串行通讯接口，与闸机、安防监控系统实现自动化联动",
+    "外接电源": "AC 90V - 250V (50/60Hz)，功率 <35W",
+    "整体重量": "约 45kg",
+    "通道尺寸": "(mm) 2010(高) x 700(宽) x 500(深)"
+  },
+  "parameters_en": {
+    "Detection Zones": "12 overlapping zones with multi-target simultaneous alarm capability",
+    "Sensitivity": "0-1000 levels; can filter personal items; maximum detection of a safety pin",
+    "Signal Processing": "2000-level DSP digital filtering for extreme E-M interference resistance",
+    "Connectivity": "Built-in network interface for centralized management of up to 20 gates",
+    "Construction": "High-durability PVC composite; waterproof, fireproof, and shock-resistant",
+    "Traffic Statistics": "Smart bi-directional traffic counter and alarm statistics logger",
+    "External Interface": "Optional serial interface for gate and surveillance integration",
+    "Power Supply": "AC 90V - 250V (50/60Hz), power <35W",
+    "Weight": "Approx. 45kg",
+    "Channel Dimensions": "2010(H) x 700(W) x 500(D) mm"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>12重叠探测区域：采用网状探测技术，消除感知死角，可精准指示人体不同高度区域藏匿的违禁品。</li><li>工业级真彩液晶屏：配备人性化操作后台，支持图形化参数配置，使报警统计与状态监控一目了然。</li><li>先进脉冲平衡技术：采用高速数字扫描算法，不仅能识别稀有金属，还能有效识别微型集成电路部件。</li><li>极致抗环境干扰：结合DSP 2000级数字滤波与磁电兼容方案，在强振动、多电磁干扰环境下依然能保持极低误报率。</li><li>多机位联动：专为大型安检口设计，通过网口可将多台安检门状态同步上传至调度中心。</li><li>全面健康防护：使用低能、弱磁场发射技术，严格遵循国际辐射安全标准，对乘客完全无害。</li><li>Figure 1 LCD Walk-Through Metal Detector</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>12 Overlapping Detection Zones: utilizes intelligent localized sensing to pinpoint metallic threats at various heights without detection gaps.</li><li>Dynamic LCD Interface: provides a professional graphical operating platform for real-time monitoring of traffic flow, alarm rates, and sensitive zone adjustments.</li><li>Advanced Digital Balancing: incorporates high-speed pulsing and balanced sensing to reliably detect precious metals and even small integrated circuits.</li><li>Superior Clutter Rejection: featuring 2000-level DSP filtering to ensure stability and accuracy in noisy electromagnetic or vibrating environments.</li><li>Integrated Fleet Management: allows unified networking of up to 20 units via a single command computer for streamlined checkpoint control.</li><li>Certified Health Safety: utilizes non-ionizing weak magnetic fields, fully compliant with WHO and industry safety norms for all travelers.</li></ul>",
+  "main_image": "/products/security/FC-C-(LCD)-Walk-Through-Metal-Detector.png",
+  "handle": "fc-c-lcd-walk-through-metal-detector",
+  "category_primary": "Security Screening & Policing (安检与智慧警务装备)",
+  "category_secondary": "Safety Inspection Gates (安检门/探测门)",
+  "category_tertiary": "Walk-Through Metal Detectors (通过式金属探测门)"
+}

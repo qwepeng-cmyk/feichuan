@@ -1,0 +1,43 @@
+{
+  "product_name": "FC-RC系列高清激光摄像机",
+  "product_name_en": "HD Laser Camera FC-RC Series",
+  "summary": "FC-RC系列高清激光摄像机采用超匀化激光作照明源，使用低照度长焦摄像机，集成高清可见光成像技术与超匀化激光照明技术，具有部署灵活、智能化程度高、环境适应性强等特点，可应用于各种领域的远距离昼夜连续监控。 图1FC-RC系列高清激光摄像机",
+  "summary_en": "The FC-RC series high-definition laser camera utilizes an ultra-homogenized laser source and low-light telephoto sensors. It integrates HD visible imaging with advanced laser illumination, featuring flexible deployment, high intelligence, and strong environmental adaptability for long-range 24/7 surveillance in various industries.",
+  "key_application": "应用领域：数字化步进随动变角激光照明技术；超匀化高清激光照明技术，高精度光轴自锁对准；独立光敏控制，摄像机的彩转黑与激光开关精确同步",
+  "key_application_en": "Digital step-follow zoom laser technology; ultra-homogenized HD laser illumination with precision axis self-locking; independent photosensitive control with synchronized IR-cut and laser switching.",
+  "key_parameter_1": "照射距离: 1000m～3000m",
+  "key_parameter_1_en": "Laser Range: 1-3km",
+  "key_parameter_2": "分辨率: 2688×1520 (4MP)",
+  "key_parameter_2_en": "Resolution: 4MP (2688x1520)",
+  "parameters": {
+    "传感器": "背照式超低照度星光级CMOS",
+    "分辨率": "2688×1520",
+    "彩色照度": "0.0005Lux",
+    "镜头焦距": "11mm～1000mm (支持电动变倍/自动聚焦)",
+    "激光补光": "808nm (10W-20W可选)",
+    "照射距离": "1000m～3000m",
+    "旋转范围": "水平360°连续，俯仰-45°～+45°",
+    "智能分析": "区域入侵、越界、徘徊、移动侦测等",
+    "防护等级": "IP66",
+    "工作温度": "-25℃～60℃",
+    "设备重量": "≤50kg"
+  },
+  "parameters_en": {
+    "Sensor": "Back-illuminated ultra-low-light starlight CMOS",
+    "Resolution": "2688 x 1520 (4MP)",
+    "Color Sensitivity": "0.0005 Lux",
+    "Lens Focal Length": "11mm–1000mm (Motorized zoom/autofocus support)",
+    "Laser Illumination": "808nm (10W-20W options)",
+    "Laser Range": "1000m–3000m",
+    "Rotation Range": "360° continuous pan; -45° to +45° tilt",
+    "AI Analytics": "Area intrusion, tripwire, loitering, and motion detection",
+    "IP Rating": "IP66",
+    "Operating Temp": "-25°C to 60°C",
+    "Weight": "≤50kg"
+  },
+  "detail_html": "<ul><li>产品简介</li><li>FC-RC系列高清激光摄像机采用超匀化激光作照明源，使用低照度长焦摄像机，集成高清可见光成像技术与超匀化激光照明技术，具有部署灵活、智能化程度高、环境适应性强等特点，可应用于各种领域的远距离昼夜连续监控。</li><li>图1FC-RC系列高清激光摄像机</li></ul><h4>功能特点</h4><ul><li>数字化步进随动变角激光照明技术</li><li>超匀化高清激光照明技术，高精度光轴自锁对准</li><li>独立光敏控制，摄像机的彩转黑与激光开关精确同步</li><li>支持越界/入侵检测、联动报警等智能化功能</li></ul><div class=\"product-images\"><img src=\"/products/media/06_FC-RC系列高清激光摄像机_1.jpeg\" alt=\"FC-RC系列高清激光摄像机\" style=\"max-width:100%; margin-bottom:10px; display:block;\" /></div>",
+  "main_image": "/products/surveillance/FC-RC-Series-HD-Laser-Camera.png",
+  "handle": "fc-rc-series-hd-laser-camera",
+  "category_primary": "Perimeter & Area Surveillance (要地周边防护与监控)",
+  "category_secondary": "HD Laser Cameras (高清激光摄像机)"
+}

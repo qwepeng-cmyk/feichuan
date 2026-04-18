@@ -1,0 +1,43 @@
+{
+  "product_name": "FC1500B台式液体安全检验仪",
+  "product_name_en": "Desktop Liquid Security Inspector FC1500B",
+  "summary": "FC1500B 台式液体安全检验仪是一款环保高效的安检设备。采用超宽带脉冲微波反射法及热导法，不含任何辐射，对人体及被检物品均无害，检测方法环保、安全。该设备可广泛应用于轨道交通、大型赛事、重要场馆等区域，实现对易燃、易爆、易腐蚀危险液体的快速精准检测。独创瓶底检测技术，在容器无需留存大量液体的情况下即可完成精确分析。",
+  "summary_en": "The FC1500B Desktop Liquid Security Inspector is an eco-friendly and high-efficiency security screening device. It utilizes ultra-wideband pulsed microwave reflection and thermal conductivity methods, containing zero radiation and ensuring no harm to human health or inspected items. This detection method is both environmentally friendly and highly secure. The equipment is widely used in rail transit, large-scale events, and critical venues for rapid and accurate detection of flammable, explosive, and corrosive hazardous liquids. Its unique 'bottom-of-container' detection technology allows for precise analysis even when minimal liquid remains in the vessel.",
+  "key_application": "应用领域：FC1500B台式液体安全检验仪；设计绿色环保：采用超宽带脉冲微波反射法及热导法，无辐射设置对人体及被检物品均无害，检测方法环保、安全。",
+  "key_application_en": "Non-radiative and eco-friendly microwave detection; identifies over 30 hazardous liquids including gasoline and concentrated acids; world-leading 0.5s detection speed for non-metal containers; unique bottom-of-container analysis technology.",
+  "key_parameter_1": "外形尺寸: 460mm（宽）X367mm（深）X260 mm（高）",
+  "key_parameter_1_en": "Dimensions: 460mm(W) x 367mm(D) x 260mm(H)",
+  "key_parameter_2": "可检测容积尺寸: 陶瓷罐、玻璃瓶、PET塑料瓶30mm≤直径≤200mm；",
+  "key_parameter_2_en": "Detectable Vessel Size: Diameter 30mm-200mm (Glass, Plastic, Ceramic)",
+  "parameters": {
+    "检测技术": "超宽带脉冲微波反射法及热导法",
+    "检测类型": "32种以上易燃、易爆、易腐蚀危险液体 (包含稀强酸)",
+    "检测速度": "非金属容器平均 0.5s，金属容器平均 7.5s",
+    "容器材质": "铁、铝、塑料、玻璃、陶瓷等",
+    "检测方式": "独创瓶底检测 (无需大量残液)",
+    "存储容量": "不少于 100,000 次检测记录，支持 USB 导出",
+    "报警自校验": "声光/图文显示，自校验时间 1.8s",
+    "重量": "≤9Kg",
+    "功耗": "10W (极低功耗设计)",
+    "电源": "AC 180-240V (50/60Hz)"
+  },
+  "parameters_en": {
+    "Technology": "UWB Pulse Microwave Reflection & Thermal Conductivity",
+    "Hazardous Categories": "32+ types of flammable, explosive, and corrosive liquids (inc. dilute acids)",
+    "Detection Speed": "Non-metal: 0.5s (avg); Metal: 7.5s (avg)",
+    "Container Support": "Iron, Aluminum, Plastic, Glass, Ceramic, etc.",
+    "Detection Method": "Exclusive bottom-of-vessel scanning",
+    "Storage": "≥100,000 records; CSV/Analysis export via USB",
+    "Alarm Modes": "Red/Green LEDs, high-decibel buzzer, LCD messages",
+    "Power Consumption": "10W (Ultra-low consumption)",
+    "Weight": "≤9kg",
+    "Dimensions": "460mm x 367mm x 260mm"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>绿色环保设计：零辐射技术路径，对操作员、孕妇及被检食品药物完全无害。</li><li>超广谱检测范围：覆盖汽油、煤油、强酸及易燃有机溶剂等32种以上危险品，包含稀硫酸检测。</li><li>行业领先极速分析：非金属容器检测不到1秒，大幅提升高峰期安检通行效率。</li><li>全球独创瓶底检测：唯一通过容器底部进行分析的仪器，即使瓶中仅剩极少量残液也能精准识别。</li><li>海量数据云管理：支持10万条数据循环存储，具备账号身份验证与USB一键导出分析功能。</li><li>双源复合报警：LED指示灯与高分贝音频报警同步，液晶屏实时显示液体详细分类。</li><li>Figure 1 Desktop Liquid Security Inspector</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Eco-Friendly Security: non-radiative design utilizing ultra-wideband pulse microwave and thermal conductivity, ensuring safety for personnel and sensitive medications.</li><li>Comprehensive Threat Library: detects over 32 hazardous categories including standard fuels, industrial acids, and corrosive organic solvents.</li><li>Rapid Throughput: world-class detection speed (under 1 second for non-metal vessels) optimized for high-traffic transit hubs.</li><li>Exclusive Bottom-Scan Tech: patented technology for analyzing liquids through the bottom of the container, requiring minimal volume to yield accurate results.</li><li>Enterprise Data Management: stores over 100,000 detection logs with user authentication and USB export for forensic analysis.</li><li>Intelligent Feedback: dual-mode audio-visual alarms paired with high-resolution LCD graphics for immediate operator decision-making.</li></ul>",
+  "main_image": "/products/security/FC1500B-Desktop-Liquid-Security-Inspector.png",
+  "handle": "fc1500b-desktop-liquid-security-inspector",
+  "category_primary": "Security Screening & Policing (安检与智慧警务装备)",
+  "category_secondary": "Hazardous Liquid Inspectors (危险液体检验仪 - 含台式/手持式)",
+  "category_tertiary": "Desktop Liquid Inspectors (台式液体检验仪)"
+}

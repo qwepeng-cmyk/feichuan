@@ -1,0 +1,39 @@
+{
+  "product_name": "无人机远程识别信息监测设备",
+  "product_name_en": "UAV Remote ID Monitoring System",
+  "summary": "设备可独立监测识别无人机的远程识别广播信号(RemoteID,简称RID)，实时提取并显示无人机的序列号(SN)、型号、位置、速度、高度、起飞点以及飞手位置等多维信息。 可广泛应用于机场、高铁、电力园区、交通枢纽、重要活动安防、全域低空管控等场景下的目标无人机监管等重要场景，实现对无人机及飞手的探测识别监管。该设备可作为新型基础设施，满足城市空域管理建设需求，助力低空经济蓬勃发展。",
+  "summary_en": "This equipment independently monitors and identifies drone Remote ID (RID) broadcast signals, extracting real-time multi-dimensional data such as serial number (SN), model, position, speed, altitude, takeoff point, and pilot location. It is widely applicable for airport security, high-speed rail, power industrial parks, transportation hubs, major event security, and regional low-altitude management. As a new type of infrastructure, it supports urban airspace management and contributes to the growth of the low-altitude economy.",
+  "key_application": "应用领域：可广泛应用于机场、高铁、电力园区、交通枢纽、重要活动安防、全域低空管控等场景下的目标无人机监管等重要场景，实现对无人机及飞手的探测识别监管。该设备可作为新型基础设施，满足城市空域管理建设需求，助力低空经济蓬勃发展。；目标解析定位；支持接收Remote ID报文，解析无人机ID、位置，飞手位置信息。",
+  "key_application_en": "Real-time Remote ID (RID) monitoring for airports and industrial parks; extracts precise drone SN and pilot location; supports 4G/5G data transmission and multi-system networking; meets global safety standards (GB, ASTM, ASD-STAN).",
+  "key_parameter_1": "设备重量: 4.2kg",
+  "key_parameter_1_en": "Weight: 4.2kg",
+  "key_parameter_2": "工作模式: Remote ID（标准）、ADS-B（拓展）",
+  "key_parameter_2_en": "Operation Modes: Remote ID (Standard), ADS-B (Extended)",
+  "parameters": {
+    "工作模式": "Remote ID（标准）、ADS-B（拓展）",
+    "监测半径": "1~2km(全向)",
+    "刷新率": "2~3S/次",
+    "多目标监测": "无人机及飞手数量≥12架次(同时)",
+    "设备尺寸": "L*W*H： 321mm*231mm*126mm（不带天线）",
+    "设备重量": "4.2kg",
+    "防护等级": "IP65",
+    "工作温度": "-40℃ ~ +70℃"
+  },
+  "parameters_en": {
+    "Operation Modes": "Remote ID (Standard), ADS-B (Extended)",
+    "Monitoring Radius": "1-2km (Omni-directional)",
+    "Refresh Rate": "2-3 seconds per scan",
+    "Multi-target Monitoring": "≥12 targets simultaneously",
+    "Dimensions": "321mm * 231mm * 126mm",
+    "Weight": "4.2kg",
+    "IP Rating": "IP65",
+    "Operating Temperature": "-40℃ to +70℃"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>独立监测无线电广播RID信号，实时提取无人机序列号、型号、经纬度、起飞点及飞手位置信息。</li><li>支持与频谱、雷达等设备深度组网，作为新型基础设施推动城市全域低空经济建设。</li><li>超远距离ADS-B拓展：具备对民航及无人机ADS-B报文的解析库，提供空域冲突预警。</li><li>多标准支持：符合中国GB42590-2023、美国ASTM及欧盟ASD-STAN安全标准。</li><li>全天候设计：工业级密封结构，通过IP65防护测试，适应全地形严酷环境。</li><li>Figure 1 UAV Remote ID Monitoring System</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Independent RID monitoring: extracts serial numbers, locations, takeoff points, and pilot coordinates from Remote ID broadcasts.</li><li>Next-gen infrastructure: serves as a core node for urban airspace management and low-altitude economy growth.</li><li>ADS-B integration: expands situational awareness by decoding civil aviation and UAV ADS-B signals to prevent collisions.</li><li>Global compliance: meets mandatory safety requirements including GB42590-2023, ASTM F3411, and ASD-STAN.</li><li>Robust connectivity: supports wired network and 4G/5G data transmission for remote monitoring.</li></ul>",
+  "main_image": "/products/uav-systems/UAV-Remote-ID-Monitoring-System.png",
+  "handle": "uav-remote-id-monitoring-system",
+  "category_primary": "Anti-Drone / C-UAS Systems (反无人机系统)",
+  "category_secondary": "Detection & Tracking (探测与跟踪)",
+  "category_tertiary": "RF Detection Systems [Stationary & Portable] (无线电侦测设备 - 固定式/手持手提式)"
+}

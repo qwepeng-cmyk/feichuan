@@ -1,0 +1,42 @@
+{
+  "product_name": "FC-TTVC 系列智能多波段摄像机",
+  "product_name_en": "Intelligent Multi-Band Camera FC-TTVC Series",
+  "summary": "FC-TTVC 系列智能多波段摄像机是一款专为远程、24 小时全天候监控领域设计的高性能成像系统。该产品集成了第六代高清可见光成像与先进的红外热成像技术，并内置智能热点及烟火检测算法。它能够自动捕捉并识别远距离的火焰、车辆及人员等热源目标，特别适用于森林防火、高寒草场、煤矿安防及大型粮仓等防火监控预警场景。系统搭载重载数控云台，支持 360° 连续旋转与厘米级定位精度，为要地防护提供全光谱、全场景的智慧监测方案。",
+  "summary_en": "The FC-TTVC Series Intelligent Multi-Band Camera is a high-performance imaging system specifically engineered for long-range, 24/7 all-weather surveillance. This product integrates 6th-generation high-definition visible light imaging with advanced infrared thermal technology and features built-in intelligent hotspot and smoke/fire detection algorithms. It is capable of automatically capturing and identifying distant heat sources such as flames, vehicles, and personnel, making it exceptionally suited for fire prevention and early warning in environments like forest reserves, arctic pastures, coal mines, and large-scale granaries. Equipped with a heavy-duty digital control turret, it supports 360° continuous rotation and centimeter-level positioning accuracy, providing a multi-spectral, intelligent monitoring solution for critical infrastructure protection.",
+  "key_application": "应用领域：FC-TTVC 系列智能多波段摄像机；森林防火与工业设施防火自动化监控预警；远程昼夜全天候目标快速搜索与识别；重点区域的全维度光电安全监测。",
+  "key_application_en": "Long-range multi-spectral surveillance for forest fire prevention and industrial security; autonomous hotspot and smoke/fire detection; heavy-duty digital PTZ with 360° continuous rotation; intelligent classification of humans, vehicles, and animals; IP66 industrial grade.",
+  "key_parameter_1": "探测技术: 第六代非制冷焦平面 VOx 热成像 + 星光级可见光",
+  "key_parameter_1_en": "Sensing: 6th Gen Uncooled VOx Thermal + Starlight Visible",
+  "key_parameter_2": "激光补光距离: 1000m - 3000m (可选)",
+  "key_parameter_2_en": "Laser Illumination: 1000m - 3000m (Optional)",
+  "parameters": {
+    "红外热像仪": "640×512 分辨率，NETD ≤ 40mK，支持电动变倍与自动聚焦",
+    "可见光成像": "背照式星光级 CMOS，最低照度 0.0001Lux，支持最高 1000mm 长焦镜头",
+    "激光模块": "GHT-III 高清泛光超匀化激光 (810nm)，支持多级变角及 DSS 步进控制技术",
+    "云台参数": "水平 360° 连续旋转，俯仰 -45°～+45°，定位精度 ±0.1°",
+    "智能分析": "内置热点告警、烟火报警、温度异常检测及人/车/船/动物分类识别",
+    "追踪能力": "支持单场景/多场景/全景跟踪及报警联动自动锁定跟踪",
+    "环境能力": "工作温度 -40℃～60℃，具备 IP66 防护、自诊断自恢复、强光自保护特性",
+    "扩展性": "支持外接激光测距、北斗/GPS 模块及 RS485 报警输入",
+    "功耗/接口": "最高功耗 ≤180W；1路 RJ45, 10/100 Base-T 自适应；AC/DC 24V 供电",
+    "物理规格": "约 45kg (含重载云台)"
+  },
+  "parameters_en": {
+    "Infrared Imaging": "640x512 resolution; NETD ≤ 40mK; Motorized zoom and autofocus",
+    "Visible Light Sensor": "Back-illuminated starlight CMOS; Min 0.0001Lux; Focal length up to 1000mm",
+    "Laser Module": "GHT-III HD homogenized laser (810nm); Multi-angle zoom; DSS digital control",
+    "PTZ Parameters": "360° continuous rotation; Tilt -45° to +45°; Accuracy ±0.1°",
+    "AI Analytics": "Embedded hotspot & smoke/fire algorithms; human/vehicle/animal classification",
+    "Tracking Mode": "Single/multi-scene/panorama tracking with automated alarm coupling",
+    "Durability": "IP66 rated; -40°C to 60°C; Active self-diagnostic and self-recovery",
+    "System Expansion": "Supports laser rangefinder, Beidou/GPS, and RS485 alarm integrations",
+    "Power & Interface": "Max ≤180W; RJ45 10/100M Ethernet; AC/DC 24V Power",
+    "Physical Spec": "Approx. 45kg (including heavy-duty turret)"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>全时段光学优势互补：通过红外热源锁定目标，可见光进行高清取证，解决远距离宽幅搜索中“看得清”与“找得到”的同步难题。</li><li>专业级防火算法：针对森林及大型仓库特点，优化了细微烟雾识别与异常升温预判模型，将火情漏报率降至极低。</li><li>数控重载云台架构：采用高力矩涡轮蜗杆驱动，确保在 1000mm 级超长焦成像时画面稳如泰山，有效抵抗高空阵风晃动。</li><li>全场景态势感知：支持多台摄像机组网联动，可将目标经纬度、温度、移动速度等结构化数据实时同步至应急中心。</li><li>高可靠性野外设计：支持防太阳灼伤功能，防止在低俯仰角扫描时强光直射损坏探测器，显著延长野外服役周期。</li><li>Figure 1 Intelligent Multi-Band Camera</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Thermal-Visible Synergy: utilizes infrared heat mapping for initial detection and HD visible visuals for verification, solving the challenge of finding distance targets in vast landscapes.</li><li>Mission-Specific Fire Logic: incorporates models optimized for subtle smoke plumes and abnormal temperature spikes, significantly reducing false negatives in forestry and silo monitoring.</li><li>Heavy-Duty Servo Precision: engineered with high-torque gear drives to maintain rock-solid imagery even at extreme 1000mm telephoto ranges, regardless of wind buffeting.</li><li>Structured Data Intelligence: capable of networking with centralized controllers to relay target coordinates, exact temperature readings, and velocity vectors.</li><li>Protective Industrial Hardening: includes active solar burn protection (to prevent sensor damage during low-angle scans) and an auto-recovery system for high-availability field service.</li></ul>",
+  "main_image": "/products/surveillance/FC-TTVC-Series-Smart-Multi-Band-Camera.png",
+  "handle": "fc-ttvc-intelligent-multi-band-camera",
+  "category_primary": "Perimeter & Area Surveillance (要地周边防护与监控)",
+  "category_secondary": "Multi-Band EO/IR PTZ Cameras (多波段光电转台 / 智能多波段摄像机)"
+}

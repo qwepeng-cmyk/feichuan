@@ -1,0 +1,40 @@
+{
+  "product_name": "FC-DMA型多波段光电转台",
+  "product_name_en": "Multi-Band Electro-Optical PTZ System FC-DMA",
+  "summary": "FC-DMA 型多波段光学转台是一款集成化远距离光学探测系统，专为民用中小型无人机（旋翼/固定翼）的探测、跟踪、识别与预警而设计。该系统融合了高性能红外热成像、超低照度可见光及激光技术，可对重点区域实现全天候、全时段、全维度的立体安全防范。系统具备卓越的载荷能力与定位精度，支持多目标捕获与智能化异常行为检测，是边境巡防、要地防护及低空安防的核心探测力量。",
+  "summary_en": "The FC-DMA Multi-Band Optical Turntable is an integrated long-range optical detection system specifically designed for the detection, tracking, identification, and early warning of civilian small-to-medium UAVs, including both multi-rotor and fixed-wing platforms. By fusing high-performance infrared thermal imaging, ultra-low-light visible sensors, and laser technologies, the system provides 24/7, all-weather, and multi-dimensional 3D security for key areas. It features exceptional load capacity and positioning precision, supporting multi-target capture and intelligent behavior analysis, making it a cornerstone technology for border surveillance, critical facility protection, and low-altitude security.",
+  "key_application": "应用领域：FC-DMA 型多波段光学转台；长距离无人机探测识别与预警；要地精细化三维立体安防监控；全天候复杂环境下的目标追踪。",
+  "key_application_en": "Ultra-long-range UAV detection and tracking; all-weather 3D safety monitoring for key facilities; multi-band sensor fusion (Thermal/Visible/Laser); high-load capacity with 0.02° positioning accuracy; IP66 ruggedized design.",
+  "key_parameter_1": "水平旋转范围: N × 360° 连续旋转",
+  "key_parameter_1_en": "Pan Range: N x 360° Continuous",
+  "key_parameter_2": "载荷重量: ≤ 65kg (不含光学载荷)",
+  "key_parameter_2_en": "Load Capacity: ≤ 65kg (Base unit)",
+  "parameters": {
+    "红外热像仪": "第六代非制冷非非制焦平面/制冷式可选，分辨率最高 1280×1024",
+    "可见光传感器": "超低照度星光级 CMOS，分辨率 1920×1080，支持 1000mm 变焦",
+    "激光/测距": "支持 808nm/940nm 补光(最远 3000m)及 10km 级激光测距",
+    "旋转性能": "水平 0.01°～80°/s，俯仰 -90°～+90°，定位精度优于 0.02°",
+    "智能算法": "多目标检测追踪、区域入侵识别、无人机/人/车分类提取",
+    "环境适应性": "工作温度 -40℃～60℃，防护等级 IP66，防雷/防腐蚀设计",
+    "功耗/接口": "峰值功耗 ≤500W，稳定≤150W；支持 RJ45/DC48V 接口",
+    "结构设计": "U 型两轴两框架结构，支持断电机械锁死",
+    "尺寸": "约 572mm × 472mm × 655mm (根据配置略有差异)"
+  },
+  "parameters_en": {
+    "Thermal Imaging": "6th gen uncooled VOx or Cooled MCT; resolution up to 1280x1024",
+    "Daylight Sensor": "Ultra-low-light Starlight CMOS (1080P) with optional 1000mm zoom lens",
+    "Laser & Rangefinding": "808nm/940nm IR illuminator (up to 3km) and 10km laser rangefinder",
+    "Rotation Performance": "Pan: 0.01°–80°/s; Tilt: -90° to +90°; Accuracy better than 0.02°",
+    "Smart Algorithms": "Multi-target tracking; area intrusion; UAV/Human/Vehicle classification",
+    "Environmental": "IP66 rated; Operating temp: -40°C to 60°C; Lighting/Corrosion protection",
+    "Power & Interface": "Peak ≤500W, Stable ≤150W; RJ45 / DC48V support",
+    "Structure Design": "U-type two-axis two-frame architecture with mechanical power-off lock",
+    "Dimensions": "Approx. 572mm x 472mm x 655mm (varies by configuration)"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>中空长焦探测深度：配备大口径连续变焦镜头，可在数公里外锁定小型低空目标。</li><li>多光谱感知融合：集成非制冷/制冷红外、可见光与激光测距，实现烟、火、雾及全黑环境下的无死角扫描。</li><li>极致机械稳定性：采用高强度 U 型框架设计，支持 255 个以上预置位及断电自动归位功能。</li><li>AI智能识别引擎：支持越界、入侵、逆行、聚集等多种逻辑判读，智能区分自然环境干扰与真实威胁。</li><li>军工级防护标准：采用航空铝合金外壳及特种防腐涂层，适应海防、沙漠等极端恶劣环境。</li><li>雷达联动追迹：支持与多厂家低空雷达系统标准对接，实现雷达发现、光电锁定追迹。</li><li>Figure 1 Multi-Band Electro-Optical PTZ</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Long-Range Deep Sensing: equipped with large-aperture motorized zoom lenses to lock onto small low-altitude targets from several kilometers away.</li><li>Multi-Spectral Fusion: unifies thermal, visible, and laser rangefinding to provide clear imagery through smoke, fog, and total darkness.</li><li>Mechanical Precision: the rugged U-frame architecture supports 255+ presets with high-torque motors ensuring 0.02° repeat accuracy.</li><li>AI Logic Engine: identifies complex scenarios such as trespassing, loitering, and reverse movements, filtering out environmental noise like swaying trees.</li><li>Maritime-Ready Defense: features an aerospace-grade aluminum chassis with specialized anti-corrosive coatings for deployment in coastal or high-heat desert zones.</li><li>Radar-PTZ Synchronization: standard interfaces allow seamless integration with low-altitude radar systems for automated handoff and tracking.</li></ul>",
+  "main_image": "/products/surveillance/FC-DMA-Multi-Band-EO-IR-PTZ.png",
+  "handle": "fc-dma-long-range-optical-turntable",
+  "category_primary": "Perimeter & Area Surveillance (要地周边防护与监控)",
+  "category_secondary": "Multi-Band EO/IR PTZ Cameras (多波段光电转台 / 智能多波段摄像机)"
+}

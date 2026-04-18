@@ -1,0 +1,43 @@
+{
+  "product_name": "固定式反无人机无线电主动防御设备",
+  "product_name_en": "Stationary Active RF Defense System (Spoofing)",
+  "summary": "该设备采用卫星导航模拟技术，发射导航诱骗信号，使无人机被驱离或迫降。通过部署导航诱骗设备，可使管控区域外的无人机无法进入，管控区域内的无人机无法起飞。 图1固定式反无人机无线电主动防御设备",
+  "summary_en": "This equipment utilizes satellite navigation simulation technology to emit spoofing signals, causing drones to be repelled or forced to land. By deploying navigation spoofing devices, drones outside the controlled area can be prevented from entering, while drones within the controlled area can be prevented from taking off.",
+  "key_application": "应用领域：发射功率低，符合国家标准；防爆设计，可应用在石化、能源领域。；具有国家工信部颁发的无线电发射设备型号核准证，符合相关行业的国家标准及要求。；涵盖GPS、GLONASS、加利路等导航信号，可应对多模导航无人机。",
+  "key_application_en": "Low-power emission compliant with national safety standards; explosion-proof design for petrochemical and energy sectors; covers GPS, GLONASS, and Galileo for multi-mode navigation denial; supports multi-system integration.",
+  "key_parameter_1": "有效作用距离: 大于500米、小于1000米，距离可调",
+  "key_parameter_1_en": "Effective Range: 500m - 1000m (Adjustable)",
+  "key_parameter_2": "输出功率: ≤10dBm (mW)",
+  "key_parameter_2_en": "Output Power: ≤10dBm (mW)",
+  "parameters": {
+    "发射频率": "GPS L1/ GLONASS L1/Galileo E1",
+    "输出功率": "≤10dBm (mW)",
+    "诱骗响应时间": "≤10s",
+    "同步时间精度": "＜1us",
+    "有效作用距离": "大于500米、小于1000米，距离可调",
+    "有效驱离角度": "水平360°",
+    "功耗": "≤30W",
+    "定位": "设备具有GPS定位功能并显示经纬度坐标",
+    "工作温度": "-40℃~+65℃",
+    "外壳防护等级": "IP65"
+  },
+  "parameters_en": {
+    "Transmission Frequency": "GPS L1, GLONASS L1, Galileo E1",
+    "Output Power": "≤10dBm (mW)",
+    "Spoofing Response": "≤10s",
+    "Sync Accuracy": "＜1us",
+    "Effective Range": "500m - 1000m (Adjustable)",
+    "Repulsion Angle": "360° Horizontal",
+    "Power Consumption": "≤30W",
+    "Positioning": "Integrated GPS with coordinate display",
+    "Operating Temp": "-40℃ to +65℃",
+    "IP Rating": "IP65"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>模拟卫星导航信号，实现对无人机的定向驱离、区域拒止与禁飞管理。</li><li>低功率发射设计，具备防爆认证，特别适用于石化、电力、能源等高危敏感场所。</li><li>获得国家无线电核准证，符合行业安全运行标准。</li><li>全天候可靠工作，无视夜晚、大雾、雨雪等恶劣气候影响。</li><li>可与雷达、无线电侦测及干扰系统联动，构建多层次立体防护网。</li><li>Figure 1 Stationary Active RF Defense System (Spoofing)</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Satellite signal simulation: enables directional repulsion, area denial, and no-fly zone enforcement.</li><li>Safety first: low-power design with explosion-proof certification, ideal for petrochemical and energy sectors.</li><li>Regulatory compliance: holds national radio type approval certificate, meeting strict industry standards.</li><li>All-weather reliability: operates consistently in night, rain, snow, or thick fog conditions.</li><li>System integration: supports automatic linkage with low-altitude radars, RF detection, and jamming systems.</li></ul>",
+  "main_image": "/products/anti-drone/Stationary-Active-RF-Defense-System.png",
+  "handle": "stationary-active-rf-defense-system",
+  "category_primary": "Anti-Drone / C-UAS Systems (反无人机系统)",
+  "category_secondary": "Spoofing & Deception (导航诱骗/诱导)",
+  "category_tertiary": "Spoofing System [Stationary & Portable] (导航诱骗设备 - 固定式/便携式)"
+}

@@ -1,0 +1,43 @@
+{
+  "product_name": "光电识别跟踪设备",
+  "product_name_en": "Electro-Optical (EO) Tracking System",
+  "summary": "光学识别跟踪设备集高清可见光摄像机、制冷/非制冷热成像仪、激光照明器等多频谱探测模块、自动跟踪、智能分析和精密电子控制于一体，采用小型化隐蔽式结构设计，用于实现对小型无人机目标的探测、定位、跟踪和识别，并可与通信侦测分系统、雷达探测分系统互相引导，实现对空中小型无人机或其他低慢小目标的侦察判证和视频取证。 高品质设计，外壳选用超强铝合金材质，球面低风阻设计，抗强风、低扰动。采用内外双层“三防”技术和真空充氮密封技术，整机防护等级达到IP66,有效确保设备在野外恶劣环镜中长期稳定运转。",
+  "summary_en": "The EO tracking system integrates high-definition visible light cameras, cooled/uncooled thermal imagers, and laser illuminators among other multi-spectral detection modules. It features automatic tracking, intelligent analysis, and precise electronic control in a compact, undercover structural design. The system is designed for the detection, positioning, tracking, and identification of small drone targets. It can collaborate with RF detection and radar systems to achieve reconnaissance validation and video forensic evidence collection for low, slow, and small aerial targets. Built with high-strength aluminum alloy and a spherical low-drag design, it ensures stability in strong winds. Integrated dual-layer 'three-proof' and nitrogen-sealed technology (IP66) ensure long-term operation in harsh outdoor environments.",
+  "key_application": "应用领域：高品质设计，外壳选用超强铝合金材质，球面低风阻设计，抗强风、低扰动。采用内外双层“三防”技术和真空充氮密封技术，整机防护等级达到IP66,有效确保设备在野外恶劣环镜中长期稳定运转。；负载能力强；可承载长焦可见光摄像机、大口径热像仪、随动激光照明器，选配激光测距、定位导航、数字罗盘等传感模块，实现超远距离目标观测。",
+  "key_application_en": "Ultra-long-distance target observation (up to 4km tracking); multi-spectral fusion for all-weather surveillance; high-speed precision tracking with 100°/s² acceleration; intelligent classification and radar-linkage support.",
+  "key_parameter_1": "对0.3m*0.3m无人机目标，作用距离: 可见光跟踪距离≥4000m,识别距离≥3000m热像跟踪距离≥2000m,识别距离≥800m",
+  "key_parameter_1_en": "Detection Range (0.3m target): Visible tracking ≥4000m, identification ≥3000m; Thermal tracking ≥2000m, identification ≥800m",
+  "key_parameter_2": "总重量: ≤105kg",
+  "key_parameter_2_en": "Total Weight: ≤105kg",
+  "parameters": {
+    "对0.3m*0.3m无人机目标，作用距离": "可见光跟踪距离≥4000m,识别距离≥3000m热像跟踪距离≥2000m,识别距离≥800m",
+    "光谱探测器": "第五代VOx氧化钒非制冷探测器，分辨率640×512像素，22~230mm,10倍连续光学变焦镜头",
+    "可见光探测器": "200万像素高清机芯，12.5~775mm高清电动变镜头，日夜切换彩转黑CMOS",
+    "智能分析": "越界入侵，自动跟踪，无人机识别",
+    "重型转台": "0.01°高精度定位，方位回转范围0~360°，俯仰回转范围±90，回转速度80°/s，最小速度0.01°/s",
+    "IP网络接口": "支持ONVIF/RTSP/28181协议",
+    "供电": "AC220V",
+    "整机功耗": "≤500W",
+    "外形尺寸": "Φ565mm×H880mm",
+    "总重量": "≤105kg"
+  },
+  "parameters_en": {
+    "Detection Range (0.3m target)": "Visible: Tracking ≥4000m, ID ≥3000m; Thermal: Tracking ≥2000m, ID ≥800m",
+    "Thermal Sensor": "5th Gen VOx uncooled, 640×512, 10x Continuous Zoom (22-230mm)",
+    "Visible Sensor": "2MP HD, 12.5-775mm HD Electric Zoom, Day/Night CMOS",
+    "Intelligence": "Intrusion detection, Auto-tracking, UAV classification",
+    "PTZ Gimbals": "360° Azimuth, ±90° Pitch; 0.01° Position Accuracy; Speed up to 80°/s",
+    "Protocol Support": "ONVIF, RTSP, GB/T 28181",
+    "Power Supply": "AC 220V",
+    "Power Consumption": "≤500W",
+    "Dimensions": "Φ565mm × H880mm",
+    "Total Weight": "≤105kg"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>高容量负载设计：支持长焦可见光、大口径热像仪及随动激光器，实现超远距侦测。</li><li>全天候多频谱监测：高清可见光与制冷/非制冷热成像互补，主被动复合探测。</li><li>超快动态响应：水平回转速度80°/s，加速度100°/s²，轻松捕获高速机动目标。</li><li>精密伺服控制：定位精度达0.02°，闭环控制算法确保目标始终锁定在画面中心。</li><li>工业级防护 (IP66)：铝合金材质配合真空充氮密封，耐腐蚀、抗强风、防扰动。</li><li>智能化特征识别：支持入侵检测、目标自动分类告警及雷达多级联动系统。</li><li>Figure 1 Electro-Optical (EO) Tracking System</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>High-payload design: accommodates long-focal HD cameras and large-aperture thermal imagers for ultra-long-distance surveillance.</li><li>Multi-spectral integration: combines visible light, thermal imaging, and laser illumination for consistent performance across day and night.</li><li>Rapid dynamic response: features 80°/s pan speed and 100°/s² acceleration to capture high-speed aerial targets.</li><li>High-precision gimbals: utilizes closed-loop servo control with 0.02° accuracy and advanced auto-focus mechanisms.</li><li>Tactical intelligence: supports autonomous target tracking, intrusion detection, and classification. Compatible with radar-guided tracking.</li><li>Military-grade durability: IP66 protection with vacuum nitrogen sealing and aerospace-grade aluminum construction for extreme environments.</li></ul>",
+  "main_image": "/products/anti-drone/Electro-Optical-(EO)-Tracking-System.png",
+  "handle": "composite-electro-optical-tracking-system",
+  "category_primary": "Anti-Drone / C-UAS Systems (反无人机系统)",
+  "category_secondary": "Detection & Tracking (探测与跟踪)",
+  "category_tertiary": "Electro-Optical (EO) Tracking Systems (光电识别跟踪设备)"
+}

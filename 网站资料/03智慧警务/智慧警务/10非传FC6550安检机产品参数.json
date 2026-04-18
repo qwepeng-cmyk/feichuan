@@ -1,0 +1,43 @@
+{
+  "product_name": "FC6550安检机",
+  "product_name_en": "X-Ray Baggage Scanner FC6550",
+  "summary": "FC6550 是一款高精度 X 射线安全检查设备，旨在对各类行李和包裹进行精确探测。传感器能迅速穿透输送带上的物品，通过数字成像算法进行细致分类，辅助操作员快速识别并排除潜在安全隐患。该设备具备爆炸物及毒品辅助检查功能，探测精确及时，配备 21.5 寸高清图文显示系统。凭借 650x500mm 的通道尺寸与 270kg 的高额定负荷，它能广泛应用于机场、车站及大型活动的公共安全防卫。",
+  "summary_en": "The FC6550 is a high-precision X-ray security inspection system designed for accurate detection across various types of baggage and parcels. High-speed sensors penetrate items on the conveyor belt, utilizing digital imaging algorithms for detailed classification and assisting operators in rapidly identifying and eliminating potential security risks. Featuring assisted inspection for explosives and narcotics, this device provides precise and timely detection supported by a 21.5-inch HD graphic display system. With its 650x500mm tunnel size and heavy-duty 270kg load capacity, it is widely suitable for public security defense in airports, railway stations, and large-scale event venues.",
+  "key_application": "应用领域：FC6550安检机；运用X射线对行李进行精确检测。具备爆炸物/毒品辅助检查与超级图像增强功能，适用于人流量大的公共场所。",
+  "key_application_en": "High-precision X-ray scanning for medium-sized baggage; 270kg heavy-duty conveyor for high-traffic environments; assisted detection for explosives and narcotics; ultra-low noise design (≤49dB) for comfortable operation.",
+  "key_parameter_1": "外形尺寸: 2808.45(长)×902（宽）×1362.5（高）mm",
+  "key_parameter_1_en": "Dimensions: 2808.45(L) x 902(W) x 1362.5(H) mm",
+  "key_parameter_2": "通道尺寸: 650（宽）×500（高）mm",
+  "key_parameter_2_en": "Tunnel Size: 650mm(W) x 500mm(H)",
+  "parameters": {
+    "外形尺寸": "2808.45(L) × 902(W) × 1362.5(H) mm",
+    "通道尺寸": "650(W) × 500(H) mm",
+    "传送带速度": "0.22 m/s",
+    "传送带额定负荷": "270 kg",
+    "穿透力": "28mm 钢板",
+    "辐射安全": "单次检查剂量 ≤ 1.0µGy，泄露剂量率 0.01μGy/h",
+    "显示系统": "21.5 英寸彩色液晶显示器，24 位真彩色",
+    "图像处理": "边缘增强、超级图像增强、局域放大镜、增亮/减暗",
+    "存储与检索": "实时图像保存，可对前 20 万幅图像进行回拉处理",
+    "噪声级": "≤ 49 dB (极低作业噪音)"
+  },
+  "parameters_en": {
+    "Tunnel Size": "650mm (W) x 500mm (H)",
+    "Conveyor Speed": "0.22 m/s (Rated load 270kg)",
+    "Penetration": "28mm steel plate",
+    "Radiation Safety": "Dosage per scan ≤ 1.0µGy; Leakage < 0.01μGy/h",
+    "Display": "21.5-inch High-Resolution Color LCD; 24-bit True Color",
+    "Image Tech": "Edge enhancement, Super-image enhancement, Local magnifying glass",
+    "Forensic Logs": "Image playback for up to 200,000 previous scans",
+    "Operation Environment": "0℃ to 45℃; 20%-95% Humidity",
+    "Noise Level": "≤ 49 dB (Whisper-quiet operation)",
+    "Dimensions": "2808mm(L) x 902mm(W) x 1362mm(H)"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>中型通道安检利器：650x500mm标准作业空间，轻松应对标准登机箱及各类大宗包裹。</li><li>24位真彩判图：采用L形多能量传感器阵列，精准捕捉物质密度差异并进行多色渲染。</li><li>极致细节展现：内置超级图像增强算法，使重叠包裹中的金属刀具、枪案及细微电线轮廓清晰可见。</li><li>超长历史追溯：行业领先的20万幅图像海量回拉功能，支持对既往过机物品的随时查阅。</li><li>绿色作业环境：低辐射泄露率优于国际标准，且拥有同类产品中极低的运行时噪音（≤49dB）。</li><li>工业耐用架构：重载传送带设计，最高支持270kg物品，满足枢纽级安检站点的高频次、高负重作业。</li><li>Figure 1 X-Ray Baggage Scanner</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Medium-Throughput Specialist: the 650x500mm tunnel accommodates the majority of standard checked and carry-on luggage with ease.</li><li>Material Density Analysis: utilizes a multi-energy L-shaped photodiode array to render items based on atomic weight in vivid 24-bit color.</li><li>Super Image Enhancement: proprietary algorithms heighten the contrast of dense objects, making potential threats in cluttered bags stand out instantly.</li><li>Unprecedented Playback: features a 200,000-image forensic buffer, allowing security personnel to back-scan previous items without stopping currents.</li><li>Acoustic Comfort: engineered for low-noise performance (≤49dB), significantly reducing operator fatigue in quiet indoor environments.</li><li>Heavy-Duty Durability: reinforced conveyor structure supports workloads up to 270kg, ideal for logistics centers and central transit terminals.</li></ul>",
+  "main_image": "/products/security/FC6550-X-Ray-Baggage-Scanner.png",
+  "handle": "fc6550-standard-x-ray-baggage-scanner",
+  "category_primary": "Security Screening & Policing (安检与智慧警务装备)",
+  "category_secondary": "X-Ray Baggage & Parcel Scanners (X光行李/物品安检机 - 含双视角/小型机)",
+  "category_tertiary": "Baggage Scanners [Standard] (标准型安检机)"
+}

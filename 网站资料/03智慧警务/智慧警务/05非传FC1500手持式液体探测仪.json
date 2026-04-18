@@ -1,0 +1,43 @@
+{
+  "product_name": "FC1500手持式液体探测仪",
+  "product_name_en": "Handheld Liquid Detector FC1500",
+  "summary": "FC1500 手持式危险液体安全检测仪，是一款专门用于探测易燃易爆液体的安检仪器。该设备体积小、分析快、操作简便，能够在不接触液体的情况下快速辨别出易燃易爆液体，被广泛应用于车站、地铁、机场、公检法政府机构、大型运动会等场所的安检工作。它也是全球首个旨在通过探测硝基甲烷、硫酸、盐酸、汽油等成分，预防液体炸弹威胁的便携式检测工具。",
+  "summary_en": "The FC1500 Handheld Hazardous Liquid Security Detector is a specialized instrument designed for the detection of flammable and explosive liquids. Characterized by its compact size, rapid analysis, and simple operation, it can quickly identify hazardous liquids without direct contact. It is widely utilized in security screening for stations, subways, airports, public security agencies, and large-scale sporting events. As a pioneering portable tool, it aims to prevent threats from liquid explosives by detecting components such as nitromethane, sulfuric acid, hydrochloric acid, and gasoline, thereby minimizing risks to life and property.",
+  "key_application": "应用领域：FC1500手持式危险液体安全检测仪，是一款专门用于探测易燃易爆液体的安检仪器。体积小、分析快、操作简便，能够在不接触液体的情况下快速辨别出易燃易爆液体，被广泛应用于车站、地铁、机场、公检法政府机构、大型运动会等场所的安检工作。",
+  "key_application_en": "Non-contact hazardous liquid identification; portable security for airports, subways, and major events; detects 40+ types of chemicals including nitromethane and acids; high-endurance battery for 1250+ tests.",
+  "key_parameter_1": "探测原理: 微波方式",
+  "key_parameter_1_en": "Detection Principle: Microwave Analysis",
+  "key_parameter_2": "探测响应时间: 1秒～2.5秒",
+  "key_parameter_2_en": "Response Time: 1s - 2.5s",
+  "parameters": {
+    "探测原理": "微波方式 (基于传导率与阻力识别)",
+    "探测响应时间": "1秒～2.5秒",
+    "开机启动时间": "1秒 (无需预热)",
+    "可探测种类": "汽油、煤油、柴油、乙醚、异丙醚、硝基甲烷、硫酸、盐酸等40余种",
+    "自校验时间": "5秒",
+    "报警方式": "LCD图像显示及声音警报",
+    "电池续航": "锂离子电池，充满电可支持检测 ≥1250 次",
+    "整机重量": "约 199.5g (含电池)",
+    "设备尺寸": "L216 * W50 * H79 mm",
+    "数据存储": "存储不少于10000次检测结果，支持USB导出"
+  },
+  "parameters_en": {
+    "Technology": "Microwave Analysis (based on conductivity and resistance)",
+    "Response Time": "1s - 2.5s",
+    "Startup": "1s (No preheating required)",
+    "Library": "40+ hazardous liquids including gasoline, nitromethane, and concentrated acids",
+    "Self-Calibration": "5 seconds",
+    "Alarms": "OLED graphic display and acoustic signal",
+    "Battery Life": "Li-ion battery; ≥1250 tests per charge",
+    "Weight": "Approx. 199.5g (including battery)",
+    "Dimensions": "216mm * 50mm * 79mm",
+    "Data Export": "Stores ≥10,000 records; USB interface"
+  },
+  "detail_html": "<h4>功能特点</h4><ul><li>非接触式极速探测：利用微波穿透容器壁，1-2.5秒内即可准确判别容器内液体的物理属性。</li><li>广泛的危化品库：内置40多种危险液体算法，涵盖易燃燃油、有机溶剂、强酸强碱及炸药原料（如硝基甲烷）。</li><li>超轻便携设计：整机重量仅约200g，专为高流动性巡检与进站快速安检设计。</li><li>高频率作业能力：一次充电支持超过1250次检测，配合座充及220V直供，确保任务不间断。</li><li>智能化数据检索：OLED高清屏实时显示，支持1万条记录滚动存储及上位机数据导出分析。</li><li>主动火灾预防：相比传统消防器材的灾后运行，该设备能将风险在火灾发生前有效截获。</li><li>Figure 1 Handheld Liquid Detector</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Non-destructive Analysis: utilizes microwave signals to penetrate vessel walls and identify liquid properties within 2.5 seconds without opening the container.</li><li>Comprehensive Library: detects over 40 types of hazardous substances, including fuels, solvents, and the liquid explosive precursor Nitromethane.</li><li>Ultra-portable Ergonomics: weighing only 199.5g, it is designed for tactical mobility and high-speed frontline security screening.</li><li>Operational Stamina: integrated high-capacity lithium battery allows for over 1250 successful scans on a single mission.</li><li>Intuitive Interface: featuring a self-luminous OLED screen for clear information feedback in low-light environments (subways, night shifts).</li><li>Proactive Risk Mitigation: designed as a preventative tool to intercept 'liquid bombs' before they enter high-density areas.</li></ul>",
+  "main_image": "/products/security/FC1500-Handheld-Liquid-Detector.png",
+  "handle": "fc1500-handheld-liquid-detector",
+  "category_primary": "Security Screening & Policing (安检与智慧警务装备)",
+  "category_secondary": "Hazardous Liquid Inspectors (危险液体检验仪 - 含台式/手持式)",
+  "category_tertiary": "Handheld Liquid Inspectors (手持式液体检验仪)"
+}
