@@ -1,0 +1,397 @@
+{
+  "categories": [
+    "UAV & Drone Systems",
+    "Anti-Drone / C-UAS Systems",
+    "Security Screening & Policing",
+    "Defense Engineering & Field Logistics",
+    "Field & Mobile Hospitals",
+    "Perimeter & Area Surveillance"
+  ],
+  "solutions": [
+    {
+      "main_category": "🛡️ Border Patrol & Security (边境巡逻)",
+      "title": "Drone Maritime Patrol (无人机海防巡逻)",
+      "overview": "有效替代或协助现有警用装备与执勤人员开展常态化巡防任务，减轻一线值守压力。搭载双光红外吊舱等设备，实现全天候远距离实时监控，数据同步回传指挥平台。支持远程下达任务指令，开展警示劝导、现场驱离等执法操作。",
+      "scenarios": [],
+      "related_products": [
+        "FC-YJZC-01无人机",
+        "系留无人机系统。"
+      ]
+    },
+    {
+      "main_category": "🛡️ Border Patrol & Security (边境巡逻)",
+      "title": "Land-Based Maritime Surveillance & Warning (陆基海域监控预警)",
+      "overview": "融合雷达、光电等多源信息，运用智能分析与联动跟踪技术，建成数字化、智能化海防管控体系。跨越“监控手段单一、感知不全”的传统痛点，实现全天候监控、自动预警与高效现场管控，严防海上非法活动威胁。",
+      "scenarios": [],
+      "related_products": [
+        "FC-RDS500-4R型雷视融合系统",
+        "光电转台。"
+      ]
+    },
+    {
+      "main_category": "🛡️ Border Patrol & Security (边境巡逻)",
+      "title": "Drone Maritime Emergency Rescue (无人机海防应急救援)",
+      "overview": "突发险情时第一时间飞抵事发海域，实时回传现场全景态势，开展现场警戒、目标搜寻、人员定位。可搭载应急投放装置，精准投递救生衣、救急包等物资，为遇险人员争取宝贵救援时间。",
+      "scenarios": [],
+      "related_products": [
+        "FC-DLXJ-01无人机",
+        "重载空投物资包。"
+      ]
+    },
+    {
+      "main_category": "🏭 Critical Infrastructure Protection (关键设施防护)",
+      "title": "Chemical Plant Area Protection (化工企业厂区防护)",
+      "overview": "化工企业遍布易燃易爆设施，防爆为首要原则。在核心区划定电子围栏、部署智能光电转台（红外热成像24小时监测）。识别入侵无人机后即启动非接触式安全反制方式，严防窃密与事故。",
+      "scenarios": [],
+      "related_products": [
+        "防爆导航诱骗系统",
+        "远距光电识别跟踪设备。"
+      ]
+    },
+    {
+      "main_category": "🏭 Critical Infrastructure Protection (关键设施防护)",
+      "title": "Oil Production Base Protection (石油生产基地防护)",
+      "overview": "选用超远距光电转台部署于高耸设施顶端。外围部署侦测定位操控者，预警区采用诱骗驱离，核心区域用定向干扰设备实施迫降，进行分层立体防御，全方位防范安全风险。",
+      "scenarios": [],
+      "related_products": [
+        "固定式转台无线电压制",
+        "大覆盖光电跟踪设备。"
+      ]
+    },
+    {
+      "main_category": "🏭 Critical Infrastructure Protection (关键设施防护)",
+      "title": "Hydroelectric Dam Protection (水利发电大坝防护)",
+      "overview": "应对地形复杂、干扰物多的水环境问题，利用热成像克服水面反光与雾气。发现可疑目标立即启动大功率反制强制迫降，系统工作绝不影响发电大坝内核心机房的正常运行。",
+      "scenarios": [],
+      "related_products": [
+        "中远距离侦测雷达",
+        "光电联动追瞄系统。"
+      ]
+    },
+    {
+      "main_category": "🏭 Critical Infrastructure Protection (关键设施防护)",
+      "title": "Airport Anti-drone Application (机场反无应用)",
+      "overview": "针对机场周边及进近航线等敏感净空区域进行7x24小时全时段护卫，阻断“黑飞”无人机干扰航班正常起降的威胁。",
+      "scenarios": [],
+      "related_products": [
+        "固定式无线电侦测与压制联动设备",
+        "导航欺骗系统。"
+      ]
+    },
+    {
+      "main_category": "🏭 Critical Infrastructure Protection (关键设施防护)",
+      "title": "Power Facility Anti-drone Application (发电设施反无应用)",
+      "overview": "为高压火电站、核电站及核心变电枢纽定制。自动探测未授权的测绘飞行活动，防止异物跌落造成关键线路短路损毁。",
+      "scenarios": [],
+      "related_products": [
+        "全向/定向便携式反无盾",
+        "固定式察打一体装置。"
+      ]
+    },
+    {
+      "main_category": "🦅 Key Area Security (要地安保)",
+      "title": "Judicial Department Security Protection (司法部门安全防护)",
+      "overview": "针对人员流动频繁、涉密信息集中的特点，统筹部署监控、反无、安检三大板块。对空防范无人机空投资品，对地精准核实出入人员及物品。",
+      "scenarios": [],
+      "related_products": [
+        "FC-H 智慧手机探测门",
+        "FC2088手持金属探测器",
+        "固定反无人机系统。"
+      ]
+    },
+    {
+      "main_category": "🦅 Key Area Security (要地安保)",
+      "title": "Large-scale Sports Event Security Protection (大型体育赛事安全防护)",
+      "overview": "解决千万级人群集聚的现场痛点。融合反无预警与智能安检终端，实现场馆无死角低空监测，并在进出卡口高效拦截危险品。",
+      "scenarios": [],
+      "related_products": [
+        "便携式无人机反制盾",
+        "FC1800T台式爆炸物毒品探测仪。"
+      ]
+    },
+    {
+      "main_category": "🦅 Key Area Security (要地安保)",
+      "title": "Airport Security Protection (机场安全防护)",
+      "overview": "加速公共交通枢纽的常态化大客流进出安防效率。通过极速扫描安检设备及双视角行李查验，在满足民航级安全下提升运转能力。",
+      "scenarios": [],
+      "related_products": [
+        "FC6550D双源双视角安检机",
+        "危密液体探测仪。"
+      ]
+    },
+    {
+      "main_category": "🚑 Emergency & Disaster Rescue (应急救灾)",
+      "title": "Emergency Communication Drone (应急通信无人机)",
+      "overview": "搭载一体化高空基站与中继链路，在灾区公网损毁时火速恢复网络。建立专属应急专网，贯通救援指挥中枢。",
+      "scenarios": [],
+      "related_products": [
+        "FC-YJTX-01系留及挂载通信终端无人机。"
+      ]
+    },
+    {
+      "main_category": "🚑 Emergency & Disaster Rescue (应急救灾)",
+      "title": "Emergency Reconnaissance Drone (应急侦查无人机)",
+      "overview": "无视险情地形阻断，集成高清光电红外载荷穿插纵深灾区。实施大面积巡航航测与人员锁定，为指挥部绘制精准救援地图。",
+      "scenarios": [],
+      "related_products": [
+        "FC-YJZC-01无人机",
+        "结合野战箱组式医疗方舱。"
+      ]
+    },
+    {
+      "main_category": "🚑 Emergency & Disaster Rescue (应急救灾)",
+      "title": "Emergency Lighting Drone (应急照明无人机)",
+      "overview": "利用系留式平台无限时空中定点悬停。配备大功率高亮防爆 LED 星光阵列，无惧地形遮挡，完成大面积强光深穿透夜间照明。",
+      "scenarios": [],
+      "related_products": [
+        "FC-YJZM-01系留无人机",
+        "配合抢修使用的贝雷钢桥（装配式公路钢桥）。"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "FC-DLXJ-01无人机",
+      "model": "FC-DLXJ-01无人机",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC-H 智慧手机探测门",
+      "model": "FC-H 智慧手机探测门",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC-RDS500-4R型雷视融合系统",
+      "model": "FC-RDS500-4R型雷视融合系统",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC-YJTX-01系留及挂载通信终端无人机。",
+      "model": "FC-YJTX-01系留及挂载通信终端无人机。",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC-YJZC-01无人机",
+      "model": "FC-YJZC-01无人机",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC-YJZM-01系留无人机",
+      "model": "FC-YJZM-01系留无人机",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC1800T台式爆炸物毒品探测仪。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC2088手持金属探测器",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "FC6550D双源双视角安检机",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "中远距离侦测雷达",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "便携式无人机反制盾",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "光电联动追瞄系统。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "光电转台。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "全向/定向便携式反无盾",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "危密液体探测仪。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "固定反无人机系统。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "固定式察打一体装置。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "固定式无线电侦测与压制联动设备",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "固定式转台无线电压制",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "大覆盖光电跟踪设备。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "导航欺骗系统。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "系留无人机系统。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "结合野战箱组式医疗方舱。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "远距光电识别跟踪设备。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "配合抢修使用的贝雷钢桥（装配式公路钢桥）。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "重载空投物资包。",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    },
+    {
+      "name": "防爆导航诱骗系统",
+      "model": "",
+      "category": "",
+      "description": "",
+      "features": [],
+      "specifications": {},
+      "images": []
+    }
+  ]
+}
