@@ -1,0 +1,29 @@
+{
+  "product_name": "石油生产基地防护",
+  "product_name_en": "Oil Production Base Protection",
+  "summary": "光电转台部署于厂区高耸设施顶端，选用超远距型号，实现生产区、储油罐区及周边区域的无缝全覆盖监控。反无设备采用分层应用策略，外围侦测定位，预警区诱骗驱离，核心区域迫降，全方位防范安全风险。",
+  "summary_en": "Optoelectronic turntables are deployed atop high structures in the plant area, using ultra-long-range models to achieve seamless coverage of production areas, tank farms, and surrounding zones. Counter-UAV equipment uses layered strategies: peripheral detection, warning zone decoy-eviction, and core zone forced landing to fully mitigate security risks.",
+  "key_application": "Anti-drone Application for Natural Gas Facilities (天然气设施反无应用)",
+  "key_application_en": "Anti-drone Application for Natural Gas Facilities",
+  "key_parameter_1": "全域覆盖监测: 利用高位部署实现生产区、储油罐区及周边无缝监控",
+  "key_parameter_1_en": "Wide-area Coverage: Strategic high-altitude deployment for seamless monitoring of tanks and production zones",
+  "key_parameter_2": "分层防御体系: 整合无线电侦测、导航欺骗与定向干扰实施联动反制",
+  "key_parameter_2_en": "Layered Defense: Integrated link of radio detection, nav-decoy, and directional jamming",
+  "parameters": {
+    "覆盖距离": "5km - 10km (视型号)",
+    "反制手段": "全频段压制 + 导航欺骗",
+    "跟踪能力": "支持多目标同时跟踪",
+    "系统集成": "与厂区安防中控联动"
+  },
+  "parameters_en": {
+    "Range": "5km - 10km (depending on model)",
+    "Countermeasure": "Full-band suppression + Nav-decoy",
+    "Tracking": "Supports multi-target tracking",
+    "Integration": "Integrated with plant central security"
+  },
+  "detail_html": "<h4>立体防控体系</h4><p>石油生产基地不仅需要广域监控，更需要精准的反制。利用高位部署，系统可以提前发现数公里外的威胁并采取分层拦截。</p><ul><li>分层立体防御（侦、打结合）</li><li>超远距离红外热成像</li><li>实时定位飞控手位置</li></ul>",
+  "detail_html_en": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise countermeasures. Strategic high deployment allows the system to detect threats kilometers away and conduct layered interception.</p><ul><li>Layered defense (Detection + Neutralization)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
+  "main_image": "/images/solutions/oil-base.jpg",
+  "handle": "oil-production-base-protection",
+  "category_primary": "Infrastructure Protection (关键设施防护)"
+}

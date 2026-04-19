@@ -1,0 +1,29 @@
+{
+  "product_name": "机场反无应用",
+  "product_name_en": "Airport Anti-UAV Application",
+  "summary": "针对机场周边及进近航线等敏感净空区域进行7x24小时全时段护卫，阻断“黑飞”无人机干扰航班正常起降的威胁。采用无线电侦测与压制联动，配合导航欺骗，确保机场净空安全，保障民用航空秩序。",
+  "summary_en": "Providing 24/7 protection for sensitive clearance areas such as airport surroundings and approach routes, blocking 'black-flight' UAVs from interfering with normal takeoff and landing. Linkage of wireless detection, suppression, and navigation deception ensures airport clearance safety and maintains civil aviation order.",
+  "key_application": "",
+  "key_application_en": "",
+  "key_parameter_1": "敏感净空保障: 对机场周边及进近航线进行7x24小时全时段护卫",
+  "key_parameter_1_en": "Sensitive Clearance Protection: 24/7 guarding of airport surroundings and approach routes",
+  "key_parameter_2": "多措并举反制: 整合无线电侦测、诱骗与压制，杜绝“黑飞”干扰航班",
+  "key_parameter_2_en": "Multi-layered Countermeasures: Integrated wireless detection, decoy, and suppression against unauthorized flights",
+  "parameters": {
+    "系统组成": "雷达探测-光电同步-反制联动",
+    "干扰频段": "涵盖全民用及特殊频段",
+    "防御半径": "3km - 10km 可定制",
+    "技术合规": "符合民航反无人机技术标准"
+  },
+  "parameters_en": {
+    "Components": "Radar-EO-Countermeasure linkage",
+    "Frequencies": "Covers all civil and special bands",
+    "Defense Radius": "3km - 10km customizable",
+    "Compliance": "Meets civil aviation anti-UAV standards"
+  },
+  "detail_html": "<h4>机场防护详解</h4><p>机场是反无人机的高敏感区域，对反制设备的频率管控要求极高。我们的系统在干扰非法无人机的同时，不影响塔台通信与波道导航。</p><ul><li>保护起降净空区域</li><li>多手段联动响应</li><li>实时记录与存证</li></ul>",
+  "detail_html_en": "<h4>Airport Defense Details</h4><p>Airports are highly sensitive areas for anti-UAV operations, requiring extreme precision in frequency control. Our system neutralizes illegal drones without interfering with tower communications or navigation beacons.</p><ul><li>Protecting takeoff/landing clearance</li><li>Multi-layered linkage response</li><li>Real-time recording and evidence storage</li></ul>",
+  "main_image": "/images/solutions/airport-anti-uav.jpg",
+  "handle": "airport-anti-uav",
+  "category_primary": "Infrastructure Protection (关键设施防护)"
+}

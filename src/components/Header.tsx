@@ -115,7 +115,7 @@ export default function Header() {
                     </div>
 
                     <div className={`nav-item ${pathname.startsWith('/products') ? 'active' : ''}`}>
-                        <div className="nav-link">Products</div>
+                        <a href="/products" className="nav-link">Products</a>
                         <div className="mega-menu">
                             <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '50px', width: '100%' }}>
                                 <div className="mega-column">
@@ -152,7 +152,7 @@ export default function Header() {
                     </div>
 
                     <div className={`nav-item ${pathname.startsWith('/solutions') ? 'active' : ''}`}>
-                        <div className="nav-link">Solutions</div>
+                        <a href="/solutions" className="nav-link">Solutions</a>
                         <div className="mega-menu">
                             <div className="mega-column">
                                 <h3 className="mega-title">Border Patrol</h3>
@@ -170,8 +170,16 @@ export default function Header() {
                     </div>
 
                     <div className={`nav-item ${pathname.startsWith('/cases') ? 'active' : ''}`}><div className="nav-link">Cases</div></div>
-                    <div className={`nav-item ${pathname.startsWith('/news') ? 'active' : ''}`}><div className="nav-link">News</div></div>
-                    <div className={`nav-item ${pathname.startsWith('/about') ? 'active' : ''}`}><div className="nav-link">About</div></div>
+                    <div className={`nav-item ${pathname.startsWith('/media') || pathname.startsWith('/news') ? 'active' : ''}`}><a href="/media" className="nav-link">Media</a></div>
+                    <div className={`nav-item ${pathname.startsWith('/about') || pathname.startsWith('/contact') ? 'active' : ''}`}>
+                        <div className="nav-link">About</div>
+                        <div className="dropdown-menu" style={{ left: 'auto', right: 0 }}>
+                            <ul className="dropdown-list">
+                                <li><a href="/about">About us</a></li>
+                                <li><a href="/contact">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
                     {isHome && (
                         <div className="lang-switch">

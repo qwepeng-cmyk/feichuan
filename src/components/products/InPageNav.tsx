@@ -16,7 +16,7 @@ export default function InPageNav({ items }: InPageNavProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = window.scrollY + 180;
       for (const item of items) {
         const element = document.getElementById(item.id);
         if (element) {
@@ -33,11 +33,11 @@ export default function InPageNav({ items }: InPageNavProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [items]);
 
-  const scrollTo = (id: string) => {
+    const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 100,
+        top: element.offsetTop - 180,
         behavior: 'smooth',
       });
     }
@@ -46,7 +46,7 @@ export default function InPageNav({ items }: InPageNavProps) {
   return (
     <nav className="sticky-nav">
       <div className="container">
-        <ul className="nav-list">
+        <ul className="nav-list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
           {items.map((item) => (
             <li
               key={item.id}

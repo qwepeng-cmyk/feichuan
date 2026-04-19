@@ -231,6 +231,48 @@ header.scrolled .nav-item:hover {
     gap: 60px;
 }
 
+/* SMALL DROPDOWN MENU */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    background: #ffffff;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.dropdown-list li a {
+    display: block;
+    padding: 12px 25px;
+    color: #444;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.dropdown-list li a:hover {
+    background: #f4f7fa;
+    color: #315ba4;
+    padding-left: 30px;
+}
+
 .nav-item:hover .mega-menu {
     opacity: 1;
     visibility: visible;
@@ -921,7 +963,7 @@ header#site-header.scrolled .nav-item {
 /* IN-PAGE NAV */
 .sticky-nav {
     position: sticky;
-    top: 80px;
+    top: 114px;
     z-index: 900;
     background: #e6effb;
 }

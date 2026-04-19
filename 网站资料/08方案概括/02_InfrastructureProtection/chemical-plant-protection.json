@@ -1,0 +1,29 @@
+{
+  "product_name": "化工企业厂区防护",
+  "product_name_en": "Chemical Plant Protection",
+  "summary": "化工企业厂区属于高风险区域，遍布易燃易爆设施，低空安防核心是实现无人机的预警与精准处置，严防无人机侵入引发安全或窃密事故。系统以防爆为首要原则，在核心区域划定电子围栏、部署智能光电转台，借助红外热成像实现24小时监测。通过AI算法识别无人机后，立即发出最高级别告警并追踪轨迹，保障厂区安全。",
+  "summary_en": "Chemical plants are high-risk areas filled with flammable and explosive facilities. The core of low-altitude security is achieving early warning and precise disposal of UAVs to prevent accidents or theft. Following explosion-proof principles, the system establishes electronic fences and deploys intelligent optoelectronic turntables for 24/7 monitoring using infrared thermal imaging. Once AI algorithms identify a drone, highest-level alerts are issued and trajectories tracked to ensure plant safety.",
+  "key_application": "",
+  "key_application_en": "",
+  "key_parameter_1": "防爆安防策略: 在核心高风险区域划定电子围栏，确保24小时探测",
+  "key_parameter_1_en": "Explosion-proof Policy: Establishing electronic fences in core areas for 24/7 detection",
+  "key_parameter_2": "安全反制手段: 优先采用导航欺骗、定向压制等非接触式处置方式",
+  "key_parameter_2_en": "Safe Countermeasures: Preferential use of non-contact disposal like nav-decoy and directional suppression",
+  "parameters": {
+    "防爆等级": "Ex d IIC T6 Gb",
+    "监测模式": "AI智能识别-追踪",
+    "处置手段": "导航欺骗、定向压制",
+    "防护策略": "分层立体防御"
+  },
+  "parameters_en": {
+    "Explosion-proof": "Ex d IIC T6 Gb",
+    "Monitoring": "AI intelligent recognition & tracking",
+    "Disposal": "Navigation deception, directional suppression",
+    "Defense Policy": "Layered three-dimensional defense"
+  },
+  "detail_html": "<h4>方案详解</h4><p>系统协同实现全流程自动化运行，能够适配全天候复杂场景，高效抵御各类低空非法无人机威胁。采用分层应用策略，外围部署无线电侦测设备定位无人机操控者，预警区启用导航欺骗驱离无人机。</p><ul><li>全流程自动化预警处置</li><li>防爆外壳设计，适应危化环境</li><li>AI算法自动捕捉追踪</li></ul>",
+  "detail_html_en": "<h4>Detailed Solution</h4><p>The system collaborates for fully automated operation, adapting to all-weather complex scenarios and efficiently resisting low-altitude illegal UAV threats. Using a layered strategy, wireless sensors locate pilots at the periphery, while decoy systems drive away drones in the warning zone.</p><ul><li>Fully automated alerting and disposal</li><li>Explosion-proof casing for hazardous environments</li><li>AI algorithms for auto capture and tracking</li></ul>",
+  "main_image": "/images/solutions/chemical-plant.jpg",
+  "handle": "chemical-plant-protection",
+  "category_primary": "Infrastructure Protection (关键设施防护)"
+}

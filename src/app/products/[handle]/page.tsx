@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { getProductByHandle, getAllProductHandles } from '@/lib/products';
-import ProductGallery from '@/components/products/ProductGallery';
+import UniversalGallery from '@/components/common/UniversalGallery';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
 
@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           <div className="container">
             <div className="product-grid">
               <div className="gallery-main-area">
-                <ProductGallery images={galleryImages} />
+                <UniversalGallery images={galleryImages} />
               </div>
               
               <div className="product-info">

@@ -1,0 +1,29 @@
+{
+  "product_name": "机场安全防护",
+  "product_name_en": "Airport Security Protection",
+  "summary": "机场作为交通流通枢纽，区域广、场景杂，对常态化大客流进出安防效率有极高要求。本方案通过光电监控、反无探测及极速扫描安检设备（双源双视角），在满足民航级安全标准的前提下大幅提升运转能力。",
+  "summary_en": "As a traffic hub, airports cover vast areas and complex scenarios, placing high demands on routine security efficiency for massive passenger flows. This solution utilizes EO monitoring, anti-UAV detection, and high-speed scanning systems (dual-source dual-view) to significantly boost operational capacity while meeting civil aviation safety standards.",
+  "key_application": "Traffic Hub Security (交通枢纽安保 汽车站 火车站)",
+  "key_application_en": "Traffic Hub Security (Airport/Station)",
+  "key_parameter_1": "极速通过性安检: 采用双源双视角技术，在保障标准的同时大幅提升大客流运转能力",
+  "key_parameter_1_en": "High-speed Security: Dual-source/dual-view tech boosts throughput for massive crowds",
+  "key_parameter_2": "全方位风险拦截: 实现航站楼、跑道全域监测，阻断无人机信号并精准查验人货",
+  "key_parameter_2_en": "Comprehensive Intention: Global terminal and runway monitoring with precision cargo/personnel checks",
+  "parameters": {
+    "扫描速度": "0.22m/s 快速过带",
+    "识别层级": "智能识别枪支、刀具、液体危险品",
+    "低空防御": "航站楼周边全向无线电监测",
+    "系统认证": "符合海关/民航二级安防认证"
+  },
+  "parameters_en": {
+    "Scan Speed": "0.22m/s fast conveyor",
+    "ID Levels": "Smart detection of guns, knives, liquid threats",
+    "Defense": "Omni-directional radio monitoring around terminals",
+    "Certification": "Meets Customs/CAAC Level-2 security standards"
+  },
+  "detail_html": "<h4>机场枢纽安防布局</h4><p>方案旨在加速交通枢纽的常态运行效率。通过集成最先进的双视角行李查验设备，可以在不增加旅客排队时间的情况下，更精准地发现夹藏的违禁品，确保护卫安全无隐患。</p><ul><li>整合航站楼、跑道区域全域监测</li><li>精准查验人、货风险</li><li>阻断影响精密仪器通信的非法无人机</li></ul>",
+  "detail_html_en": "<h4>Airport Hub Security Layout</h4><p>The solution aims to accelerate the routine efficiency of traffic hubs. By integrating state-of-the-art dual-view baggage inspection equipment, hidden contrabands can be detected more accurately without increasing passenger wait times, ensuring flawless security.</p><ul><li>Integrated monitoring of terminals and runways</li><li>Precision risk inspection of personnel and cargo</li><li>Blocking illegal UAVs that affect precision instrument comms</li></ul>",
+  "main_image": "/images/solutions/airport-security.jpg",
+  "handle": "airport-security-protection",
+  "category_primary": "Key Area Security (要地安保)"
+}

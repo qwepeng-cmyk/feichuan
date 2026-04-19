@@ -1,0 +1,29 @@
+{
+  "product_name": "应急通信无人机",
+  "product_name_en": "Emergency Communication UAV",
+  "summary": "应急通信无人机搭载一体化高空基站，依托卫星中继链路实现远距离数据回传，可快速在灾害损毁区域重建 4G/5G 公网覆盖。设备能够即时搭建现场专属应急专网，贯通救援前后方通信信道，全面提升指挥调度效率。",
+  "summary_en": "The emergency communication UAV is equipped with an integrated high-altitude base station and relies on satellite relay links for long-distance data return. It can quickly rebuild 4G/5G public network coverage in disaster-damaged areas. The device can instantly set up a field-exclusive emergency private network, connecting communication channels between the frontline and the rear, and comprehensively improving command dispatch efficiency.",
+  "key_application": "Post-Earthquake Communication Setup (震后应急通讯搭建)",
+  "key_application_en": "Post-Earthquake Communication Setup",
+  "key_parameter_1": "公网快速恢复: 搭载高空基站，第一时间重建受灾区域 4G/5G 网络覆盖",
+  "key_parameter_1_en": "Rapid Network Recovery: Rebuilds 4G/5G coverage in disaster zones using aerial base stations",
+  "key_parameter_2": "应急专网保障: 即时搭建现场专属应急专网，确保指挥指令实时双向传输",
+  "key_parameter_2_en": "Emergency Private Network: Instantly deploys site-specific private networks for duplex command data",
+  "parameters": {
+    "基站规格": "一体化 LTE/5G 小型基站",
+    "中继方式": "卫星/微波双模中继",
+    "滞空时间": ">= 12小时 (系留模式)",
+    "通信带宽": "上行 50Mbps / 下行 100Mbps"
+  },
+  "parameters_en": {
+    "Base Station": "Integrated LTE/5G small cell",
+    "Relay Mode": "Satellite/Microwave dual-mode relay",
+    "Endurance": ">= 12 hours (tethered mode)",
+    "Bandwidth": "50Mbps Uplink / 100Mbps Downlink"
+  },
+  "detail_html": "<h4>断网环境下的“空中基站”</h4><p>在自然灾害导致公网损毁的极端环境下，本方案能火速恢复网络。保障受灾群众语音通话、短信收发与无线网络接入，建立专属应急专网。</p><ul><li>快速重建 4G/5G 公网覆盖</li><li>贯通救援前后方通信信道</li><li>适合震后、洪涝等极端灾害现场</li></ul>",
+  "detail_html_en": "<h4>'Aerial Base Station' in Disconnected Environments</h4><p>In extreme situations where natural disasters destroy public networks, this solution can rapidly restore connectivity. It ensures voice calls, SMS, and wireless internet for victims while establishing a private network for responders.</p><ul><li>Rapid reconstruction of 4G/5G coverage</li><li>Connecting command and field channels</li><li>Ideal for earthquake, flood, and extreme disaster sites</li></ul>",
+  "main_image": "/images/solutions/emergency-communication.jpg",
+  "handle": "emergency-communication-uav",
+  "category_primary": "Emergency & Disaster Rescue (应急救灾)"
+}

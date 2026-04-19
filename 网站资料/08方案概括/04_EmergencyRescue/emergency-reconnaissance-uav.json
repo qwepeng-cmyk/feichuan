@@ -1,0 +1,29 @@
+{
+  "product_name": "应急侦察无人机",
+  "product_name_en": "Emergency Reconnaissance UAV",
+  "summary": "机动灵活、部署迅速，可突破道路阻断、山地丛林等复杂地形限制。机身集成高清光电摄像、红外搜救等多功能载荷，支持大范围巡航探测与实时影像回传，精准定位被困人员、识别风险隐患。",
+  "summary_en": "Flexible and rapid in deployment, this UAV can break through limitations of road blockages, mountainous forests, and other complex terrains. The fuselage integrates high-definition optoelectronic cameras, infrared search and rescue, and other multi-functional payloads, supporting large-scale cruise detection and real-time image return to precisely locate trapped personnel and identify potential hazards.",
+  "key_application": "Flood On-site Monitoring (水灾情况现场监测)",
+  "key_application_en": "Flood On-site Monitoring",
+  "key_parameter_1": "全域灾情态势掌握: 集成高清光电与红外载荷，实现深度大面积巡航航测",
+  "key_parameter_1_en": "Global Situational Awareness: Integrated EO/IR payloads for deep large-scale cruise mapping",
+  "key_parameter_2": "精准生命定位: 穿插复杂地形锁定受困目标，为决策提供可视化数据支撑",
+  "key_parameter_2_en": "Precision Life-finding: Navigating complex terrain to lock on targets and provide visual decision data",
+  "parameters": {
+    "载荷配置": "30倍光学变焦 + 640红外热成像",
+    "图传距离": "10km - 20km (高清图传)",
+    "定位精度": "RTK 公分级定位",
+    "巡航速度": "15m/s (最大速度)"
+  },
+  "parameters_en": {
+    "Payload": "30x optical zoom + 640 IR thermal",
+    "Transmission": "10km - 20km (HD transmission)",
+    "Accuracy": "RTK centimeter-level positioning",
+    "Cruise Speed": "15m/s (Max speed)"
+  },
+  "detail_html": "<h4>全域感知，救援先锋</h4><p>应急管理部加快落地自然灾害监测预警信息化工程。本无人机机动灵活，为资源调配、救援规划与应急决策提供直观可靠的可视化数据支撑。</p><ul><li>大面积巡航探测与实时影像回传</li><li>全景掌握灾情态势</li><li>高清光电红外多功能载荷</li></ul>",
+  "detail_html_en": "<h4>Universal Sensing, Rescue Vanguard</h4><p>Supporting the Ministry of Emergency Management's natural disaster monitoring and early warning information projects, this UAV provides intuitive and reliable visual data support for resource allocation, rescue planning, and emergency decision-making.</p><ul><li>Large-scale cruise detection and real-time feedback</li><li>Panoramic situational awareness of disasters</li><li>HD EO/IR multi-functional payloads</li></ul>",
+  "main_image": "/images/solutions/emergency-recon.jpg",
+  "handle": "emergency-reconnaissance-uav",
+  "category_primary": "Emergency & Disaster Rescue (应急救灾)"
+}
