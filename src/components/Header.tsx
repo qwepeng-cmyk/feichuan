@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -169,14 +170,18 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <div className={`nav-item ${pathname.startsWith('/cases') ? 'active' : ''}`}><div className="nav-link">Cases</div></div>
-                    <div className={`nav-item ${pathname.startsWith('/media') || pathname.startsWith('/news') ? 'active' : ''}`}><a href="/media" className="nav-link">Media</a></div>
+                    <div className={`nav-item ${pathname.startsWith('/cases') ? 'active' : ''}`}>
+                        <Link href="/cases" className="nav-link">Cases</Link>
+                    </div>
+                    <div className={`nav-item ${pathname.startsWith('/media') || pathname.startsWith('/news') ? 'active' : ''}`}>
+                        <Link href="/media" className="nav-link">Media</Link>
+                    </div>
                     <div className={`nav-item ${pathname.startsWith('/about') || pathname.startsWith('/contact') ? 'active' : ''}`}>
-                        <div className="nav-link">About</div>
+                        <Link href="/about" className="nav-link">About</Link>
                         <div className="dropdown-menu" style={{ left: 'auto', right: 0 }}>
                             <ul className="dropdown-list">
-                                <li><a href="/about">About us</a></li>
-                                <li><a href="/contact">Contact us</a></li>
+                                <li><Link href="/about">About us</Link></li>
+                                <li><Link href="/contact">Contact us</Link></li>
                             </ul>
                         </div>
                     </div>

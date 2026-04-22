@@ -23,7 +23,17 @@
   },
   "detail_html": "<h4>司法安防立体防线</h4><p>针对收押、审讯等高度敏感区域，方案不仅防范外部无人机的“黑飞”干扰，同时也提升了物理卡口人员出入的数字化管控能力。</p><ul><li>阻断违规无人机信号，防范窃密</li><li>FC-H探测门实现涉密手机精准拦截</li><li>智能X光机快速查验入场物资</li></ul>",
   "detail_html_en": "<h4>Judicial Security Defense</h4><p>Focusing on highly sensitive areas like detention and interrogation rooms, this solution prevents 'black-flight' drone interference while enhancing digitized entry control at physical checkpoints.</p><ul><li>Blocking illegal UAV signals to prevent information leakage</li><li>FC-H detector for precise interception of classified phones</li><li>Smart X-ray machines for rapid inspection of incoming goods</li></ul>",
-  "main_image": "/images/solutions/judicial-security.jpg",
+  "main_image": "/solutions/key area security/Judicial Sector Security/Judicial Sector Security.jpg",
   "handle": "judicial-sector-security",
-  "category_primary": "Key Area Security (要地安保)"
+  "category_primary": "Key Area Security (要地安保)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "fc2088-handheld-metal-detector",
+    "fc-h-smart-phone-detection-gate",
+    "fc1800t-desktop-explosives-narcotics-detector",
+    "fc6550d-dual-source-dual-view-x-ray-baggage-scanner"
+  ]
 }

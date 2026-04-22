@@ -132,16 +132,20 @@ export default async function ProductCenterPage() {
             <section className="product-banner" style={{ 
                 height: '40vh', 
                 minHeight: '320px', 
-                background: 'linear-gradient(135deg, #f0f7ff 0%, #e0edff 100%)', 
+                backgroundImage: "url('/products/products_center_banner.jpg')", 
+                backgroundSize: '100% 100%', 
+                backgroundRepeat: 'no-repeat', 
                 position: 'relative', 
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center'
             }}>
+                {/* Dark overlay for text readability */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '750px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#315ba4', marginBottom: '15px', lineHeight: 1.1 }}>Product Center</h1>
-                        <p style={{ fontSize: '2rem', color: '#666', lineHeight: 1.5, opacity: 0.9 }}>Connecting professional technology with tactical applications for a more secure world.</p>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Product Center</h1>
+                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>Connecting professional technology with tactical applications for a more secure world.</p>
                     </div>
                 </div>
                 {/* Visual Accent */}

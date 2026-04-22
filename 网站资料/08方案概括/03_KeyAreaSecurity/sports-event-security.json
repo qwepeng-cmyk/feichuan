@@ -23,7 +23,17 @@
   },
   "detail_html": "<h4>赛事保障详解</h4><p>面对千万级人群集聚的现场，方案强调快速部署与高压拦截能力。利用便携式反制设备建立临时禁飞区，配合快速安检门，实现平稳有序的流控与防卫。</p><ul><li>融合监控、反无、安检三大核心板块</li><li>高效拦截打火机、火药、毒品等危禁品</li><li>场馆全域全天候监测</li></ul>",
   "detail_html_en": "<h4>Event Protection Details</h4><p>Facing massive crowds, the solution emphasizes rapid deployment and high-pressure interception capabilities. Temporary no-fly zones are established using portable devices, complemented by rapid screening gates for orderly flow control and defense.</p><ul><li>Integrates monitoring, anti-UAV, and security screening</li><li>Efficiently intercepts lighters, gunpowder, drugs, etc.</li><li>Panoramic 24/7 venue monitoring</li></ul>",
-  "main_image": "/images/solutions/event-security.jpg",
+  "main_image": "/solutions/key area security/Sports event security/Sports event security.jpg",
   "handle": "sports-event-security",
-  "category_primary": "Key Area Security (要地安保)"
+  "category_primary": "Key Area Security (要地安保)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "fc2088-handheld-metal-detector",
+    "fc-h-smart-phone-detection-gate",
+    "fc1800t-desktop-explosives-narcotics-detector",
+    "fc6550d-dual-source-dual-view-x-ray-baggage-scanner"
+  ]
 }

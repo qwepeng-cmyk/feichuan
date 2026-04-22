@@ -119,7 +119,7 @@ export default function Home() {
         track.addEventListener("pointermove", dragMove as any);
         track.addEventListener("pointerup", stopDrag as any);
         track.addEventListener("pointercancel", stopDrag as any);
-        
+
         return () => {
             track.removeEventListener("pointerdown", startDrag as any);
             track.removeEventListener("pointermove", dragMove as any);
@@ -161,7 +161,7 @@ export default function Home() {
         track.addEventListener("pointermove", dragMove as any);
         track.addEventListener("pointerup", stopDrag as any);
         track.addEventListener("pointercancel", stopDrag as any);
-        
+
         return () => {
             track.removeEventListener("pointerdown", startDrag as any);
             track.removeEventListener("pointermove", dragMove as any);
@@ -208,10 +208,10 @@ export default function Home() {
                         <h2 style={{ fontSize: '3.6rem', color: 'var(--primary)' }}>Product Center</h2>
                         <div style={{ width: '60px', height: '4px', background: 'var(--accent)', margin: '20px auto' }}></div>
                     </div>
-                    
+
                     <div className="pc2-stage-wrap" style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
                         <button className="pc2-arrow" onClick={() => switchProduct((currentIndex - 1 + products.length) % products.length)} style={{ fontSize: '30px', background: 'none', border: 'none', cursor: 'pointer' }}>&#10094;</button>
-                        
+
                         <div className="pc2-stage" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '60px', alignItems: 'center', flex: 1 }}>
                             <div className="pc2-content">
                                 <h3 style={{ color: 'var(--secondary)', fontSize: '2rem', fontWeight: 600, marginBottom: '15px' }}>{currentProduct.top}</h3>
@@ -222,27 +222,27 @@ export default function Home() {
                                     <a href="#" className="btn" style={{ border: '1px solid #ddd' }}>View Specifications</a>
                                 </div>
                             </div>
-                            <div className="pc2-image-wrap" style={{ 
-                                textAlign: 'center', 
-                                height: '480px', 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justify_content: 'center',
+                            <div className="pc2-image-wrap" style={{
+                                textAlign: 'center',
+                                height: '480px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
                                 flex: 1
                             }}>
-                                <img 
-                                    key={currentProduct.main} 
-                                    src={currentProduct.img} 
-                                    alt={currentProduct.main} 
-                                    style={{ 
-                                        maxHeight: '100%', 
-                                        maxWidth: '100%', 
-                                        width: 'auto', 
-                                        height: 'auto', 
+                                <img
+                                    key={currentProduct.main}
+                                    src={currentProduct.img}
+                                    alt={currentProduct.main}
+                                    style={{
+                                        maxHeight: '100%',
+                                        maxWidth: '100%',
+                                        width: 'auto',
+                                        height: 'auto',
                                         objectFit: 'contain',
-                                        transform: `scale(${currentProduct.scale}) translateY(${currentProduct.offsetY}px)`, 
-                                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)' 
-                                    }} 
+                                        transform: `scale(${currentProduct.scale}) translateY(${currentProduct.offsetY}px)`,
+                                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                                    }}
                                 />
                             </div>
                         </div>
@@ -256,7 +256,7 @@ export default function Home() {
                                 {String(i + 1).padStart(2, '0')}
                             </span>
                         ))}
-                        <a href="#" style={{ marginLeft: '40px', fontSize: '1.4rem', fontWeight: 700, lettersSpacing: '0.1em', color: 'var(--primary)' }}>ALL PRODUCTS</a>
+                        <a href="#" style={{ marginLeft: '40px', fontSize: '1.4rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--primary)' }}>ALL PRODUCTS</a>
                     </div>
                 </div>
             </section>
@@ -281,23 +281,23 @@ export default function Home() {
             </section>
 
             {/* SCREEN 5: ABOUT US */}
-            <section className="aboutus-band" style={{ 
-                backgroundImage: 'url(/index/about_bg.jpg)', 
+            <section className="aboutus-band" style={{
+                backgroundImage: 'url(/index/about_bg.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 position: 'relative',
-                color: '#fff', 
+                color: '#fff',
                 height: '600px',
                 display: 'flex',
                 alignItems: 'center'
             }}>
                 {/* Overlay for better text readability */}
-                <div style={{ 
-                    position: 'absolute', 
-                    inset: 0, 
-                    background: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4), rgba(0,0,0,0.7))' 
+                <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4), rgba(0,0,0,0.7))'
                 }}></div>
-                
+
                 <div className="container-wide" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <div style={{ maxWidth: '900px' }}>
                         <h2 style={{ fontSize: '4.8rem', fontWeight: 900, marginBottom: '30px', color: '#fff' }}>ABOUT US</h2>
@@ -318,26 +318,26 @@ export default function Home() {
                     </div>
                     <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                         {[
-                            { 
-                                title: "Unlocking the Full Value of Limestone! Industrial processing breakthroughs.", 
-                                date: "2026/04/15", 
-                                img: "/index/news_drone.png" 
+                            {
+                                title: "Unlocking the Full Value of Limestone! Industrial processing breakthroughs.",
+                                date: "2026/04/15",
+                                img: "/index/news_drone.png"
                             },
-                            { 
-                                title: "N-TET Heavy Industry sincerely invites you to Mining World Russia 2026.", 
-                                date: "2026/04/15", 
-                                img: "/index/news_drone.png" 
+                            {
+                                title: "N-TET Heavy Industry sincerely invites you to Mining World Russia 2026.",
+                                date: "2026/04/15",
+                                img: "/index/news_drone.png"
                             },
-                            { 
-                                title: "N-TET sincerely invites you to Chihuahua International Convention of Mining.", 
-                                date: "2026/04/14", 
-                                img: "/index/news_drone.png" 
+                            {
+                                title: "N-TET sincerely invites you to Chihuahua International Convention of Mining.",
+                                date: "2026/04/14",
+                                img: "/index/news_drone.png"
                             }
                         ].map((item, i) => (
-                            <div key={i} className="news-card" style={{ 
-                                background: '#f8f8f8', 
+                            <div key={i} className="news-card" style={{
+                                background: '#f8f8f8',
                                 border: '1px solid #eee',
-                                overflow: 'hidden', 
+                                overflow: 'hidden',
                                 transition: 'all 0.3s ease',
                                 cursor: 'pointer'
                             }}>
@@ -345,16 +345,16 @@ export default function Home() {
                                     <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                                 </div>
                                 <div style={{ padding: '25px' }}>
-                                    <h3 style={{ 
-                                        fontSize: '1.8rem', 
-                                        color: '#333', 
-                                        marginBottom: '15px', 
-                                        lineHeight: 1.4, 
-                                        fontWeight: 500, 
-                                        display: '-webkit-box', 
-                                        WebkitLineClamp: 2, 
-                                        WebkitBoxOrient: 'vertical', 
-                                        overflow: 'hidden' 
+                                    <h3 style={{
+                                        fontSize: '1.8rem',
+                                        color: '#333',
+                                        marginBottom: '15px',
+                                        lineHeight: 1.4,
+                                        fontWeight: 500,
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
                                     }}>{item.title}</h3>
                                     <p style={{ color: '#999', fontSize: '1.4rem' }}>{item.date}</p>
                                 </div>

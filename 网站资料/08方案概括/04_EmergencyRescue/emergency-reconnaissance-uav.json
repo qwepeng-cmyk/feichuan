@@ -23,7 +23,11 @@
   },
   "detail_html": "<h4>全域感知，救援先锋</h4><p>应急管理部加快落地自然灾害监测预警信息化工程。本无人机机动灵活，为资源调配、救援规划与应急决策提供直观可靠的可视化数据支撑。</p><ul><li>大面积巡航探测与实时影像回传</li><li>全景掌握灾情态势</li><li>高清光电红外多功能载荷</li></ul>",
   "detail_html_en": "<h4>Universal Sensing, Rescue Vanguard</h4><p>Supporting the Ministry of Emergency Management's natural disaster monitoring and early warning information projects, this UAV provides intuitive and reliable visual data support for resource allocation, rescue planning, and emergency decision-making.</p><ul><li>Large-scale cruise detection and real-time feedback</li><li>Panoramic situational awareness of disasters</li><li>HD EO/IR multi-functional payloads</li></ul>",
-  "main_image": "/images/solutions/emergency-recon.jpg",
+  "main_image": "/solutions/emergency & disaster rescue/Emergency Reconnaissance Drone/Emergency Reconnaissance Drone.png",
   "handle": "emergency-reconnaissance-uav",
-  "category_primary": "Emergency & Disaster Rescue (应急救灾)"
+  "category_primary": "Emergency & Disaster Rescue (应急救灾)",
+  "recommended_products": [
+    "fc-yjzc-01-emergency-reconnaissance-drone",
+    "containerized-medical-rescue-system"
+  ]
 }

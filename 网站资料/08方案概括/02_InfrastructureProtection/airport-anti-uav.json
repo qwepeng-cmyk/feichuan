@@ -23,7 +23,15 @@
   },
   "detail_html": "<h4>机场防护详解</h4><p>机场是反无人机的高敏感区域，对反制设备的频率管控要求极高。我们的系统在干扰非法无人机的同时，不影响塔台通信与波道导航。</p><ul><li>保护起降净空区域</li><li>多手段联动响应</li><li>实时记录与存证</li></ul>",
   "detail_html_en": "<h4>Airport Defense Details</h4><p>Airports are highly sensitive areas for anti-UAV operations, requiring extreme precision in frequency control. Our system neutralizes illegal drones without interfering with tower communications or navigation beacons.</p><ul><li>Protecting takeoff/landing clearance</li><li>Multi-layered linkage response</li><li>Real-time recording and evidence storage</li></ul>",
-  "main_image": "/images/solutions/airport-anti-uav.jpg",
+  "main_image": "/solutions/infrastructure protection/Airport Anti-drone Application/Airport Anti-drone Application.jpg",
   "handle": "airport-anti-uav",
-  "category_primary": "Infrastructure Protection (关键设施防护)"
+  "category_primary": "Infrastructure Protection (关键设施防护)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "handheld-integrated-sdr-c-uas",
+    "portable-anti-drone-jammer-shield"
+  ]
 }

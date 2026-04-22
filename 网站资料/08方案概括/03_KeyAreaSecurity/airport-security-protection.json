@@ -23,7 +23,17 @@
   },
   "detail_html": "<h4>机场枢纽安防布局</h4><p>方案旨在加速交通枢纽的常态运行效率。通过集成最先进的双视角行李查验设备，可以在不增加旅客排队时间的情况下，更精准地发现夹藏的违禁品，确保护卫安全无隐患。</p><ul><li>整合航站楼、跑道区域全域监测</li><li>精准查验人、货风险</li><li>阻断影响精密仪器通信的非法无人机</li></ul>",
   "detail_html_en": "<h4>Airport Hub Security Layout</h4><p>The solution aims to accelerate the routine efficiency of traffic hubs. By integrating state-of-the-art dual-view baggage inspection equipment, hidden contrabands can be detected more accurately without increasing passenger wait times, ensuring flawless security.</p><ul><li>Integrated monitoring of terminals and runways</li><li>Precision risk inspection of personnel and cargo</li><li>Blocking illegal UAVs that affect precision instrument comms</li></ul>",
-  "main_image": "/images/solutions/airport-security.jpg",
+  "main_image": "/solutions/key area security/Airport Security Protection/Airport Security Protection.jpg",
   "handle": "airport-security-protection",
-  "category_primary": "Key Area Security (要地安保)"
+  "category_primary": "Key Area Security (要地安保)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "fc2088-handheld-metal-detector",
+    "fc-h-smart-phone-detection-gate",
+    "fc1800t-desktop-explosives-narcotics-detector",
+    "fc6550d-dual-source-dual-view-x-ray-baggage-scanner"
+  ]
 }

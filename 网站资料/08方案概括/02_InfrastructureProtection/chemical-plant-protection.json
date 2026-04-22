@@ -23,7 +23,15 @@
   },
   "detail_html": "<h4>方案详解</h4><p>系统协同实现全流程自动化运行，能够适配全天候复杂场景，高效抵御各类低空非法无人机威胁。采用分层应用策略，外围部署无线电侦测设备定位无人机操控者，预警区启用导航欺骗驱离无人机。</p><ul><li>全流程自动化预警处置</li><li>防爆外壳设计，适应危化环境</li><li>AI算法自动捕捉追踪</li></ul>",
   "detail_html_en": "<h4>Detailed Solution</h4><p>The system collaborates for fully automated operation, adapting to all-weather complex scenarios and efficiently resisting low-altitude illegal UAV threats. Using a layered strategy, wireless sensors locate pilots at the periphery, while decoy systems drive away drones in the warning zone.</p><ul><li>Fully automated alerting and disposal</li><li>Explosion-proof casing for hazardous environments</li><li>AI algorithms for auto capture and tracking</li></ul>",
-  "main_image": "/images/solutions/chemical-plant.jpg",
+  "main_image": "/solutions/infrastructure protection/Chemical Plant Area Protection/Chemical Plant Area Protection.png",
   "handle": "chemical-plant-protection",
-  "category_primary": "Infrastructure Protection (关键设施防护)"
+  "category_primary": "Infrastructure Protection (关键设施防护)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "handheld-integrated-sdr-c-uas",
+    "portable-anti-drone-jammer-shield"
+  ]
 }

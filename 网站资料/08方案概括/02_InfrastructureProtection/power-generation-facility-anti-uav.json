@@ -23,7 +23,15 @@
   },
   "detail_html": "<h4>能源设施安全保障</h4><p>在低空威胁持续升级的背景下，电网变电站、石油生产等关键基础设施频繁遭受“黑飞”无人机侵扰。通过参数优化避免对关键设施设备产生干扰，实现变电站外围察打一体。高效抵御各类低空非法无人机威胁，切实守护关键设施安全。</p><ul><li>全天候精准捕捉无人机轨迹</li><li>参数调优，不影响电力设施运行</li><li>适配全天候复杂工业场景</li></ul>",
   "detail_html_en": "<h4>Energy Facility Safety</h4><p>With escalating low-altitude threats, grid substations and energy production sites are frequently harassed by 'black-flight' UAVs. Parameters are optimized to avoid interference with critical assets while achieving integrated surveillance and neutralization. Effectively resists various illegal drones to safeguard infrastructure safety.</p><ul><li>24/7 precision tracking of UAV trajectories</li><li>Parameter tuning to ensure non-interference with power assets</li><li>Adapts to complex all-weather industrial scenarios</li></ul>",
-  "main_image": "/images/solutions/power-facility.jpg",
+  "main_image": "/solutions/infrastructure protection/Power Facility Anti-drone Application/Power Facility Anti-drone Application.png",
   "handle": "power-generation-facility-anti-uav",
-  "category_primary": "Infrastructure Protection (关键设施防护)"
+  "category_primary": "Infrastructure Protection (关键设施防护)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "handheld-integrated-sdr-c-uas",
+    "portable-anti-drone-jammer-shield"
+  ]
 }

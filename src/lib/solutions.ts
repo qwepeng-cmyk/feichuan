@@ -7,6 +7,7 @@ export interface Solution {
     id: string;      // We will map 'handle' to this
     handle: string;
     category_id: string;
+    category_name: string;
     category_primary: string;
     product_name_en: string; 
     title_en: string; // Fallback to product_name_en
@@ -17,13 +18,14 @@ export interface Solution {
     key_parameter_1_en?: string;
     key_parameter_2_en?: string;
     main_image?: string;
+    recommended_products?: string[];
 }
 
 const CATEGORY_MAP: Record<string, string> = {
     '01_BorderPatrol': 'Border Patrol',
     '02_InfrastructureProtection': 'Infrastructure Protection',
     '03_KeyAreaSecurity': 'Key Area Security',
-    '04_EmergencyRescue': 'Emergency Rescue'
+    '04_EmergencyRescue': 'Emergency & Disaster Rescue'
 };
 
 export async function getAllSolutions(): Promise<Solution[]> {
@@ -45,6 +47,7 @@ export async function getAllSolutions(): Promise<Solution[]> {
                 id: data.handle || file.replace('.json', ''),
                 title_en: data.product_name_en, // In solutions JSON, it is product_name_en
                 category_id: cat,
+                category_name: CATEGORY_MAP[cat],
             };
             solutions.push(solution);
         }

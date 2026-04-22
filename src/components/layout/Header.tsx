@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,42 +16,21 @@ const Header = () => {
   return (
     <header id="site-header" className={scrolled ? 'scrolled' : ''}>
       <div className="container nav-container">
-        <a href="#" className="logo">
+        <Link href="/" className="logo">
           <img src="/logo.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
           <img src="/logo.png" alt="N-TET Logo" className="logo-dark" />
-        </a>
+        </Link>
 
         <input type="checkbox" id="nav-checkbox" className="hidden" />
         <label htmlFor="nav-checkbox" className="menu-toggle">☰</label>
 
         <nav className="main-nav">
-          <div className="nav-item">
-            <div className="nav-link">Home</div>
-          </div>
-          <div className="nav-item group">
-            <div className="nav-link">Solutions</div>
-            <div className="mega-menu group-hover:opacity-100 group-hover:visible">
-               <div className="container grid grid-cols-4 gap-12 w-full">
-                  <div className="mega-column">
-                    <h3 className="mega-title">Border Patrol</h3>
-                    <ul className="mega-list">
-                      <li><a href="#">Maritime Patrol</a></li>
-                      <li><a href="#">Land Surveillance</a></li>
-                    </ul>
-                  </div>
-                  {/* ... other columns ... */}
-               </div>
-            </div>
-          </div>
-          <div className="nav-item">
-            <div className="nav-link">Products</div>
-          </div>
-          <div className="nav-item">
-            <div className="nav-link">Cases</div>
-          </div>
-          <div className="nav-item">
-            <div className="nav-link">About</div>
-          </div>
+          <Link href="/" className="nav-item nav-link">Home</Link>
+          <Link href="/solutions" className="nav-item nav-link">Solutions</Link>
+          <Link href="/products" className="nav-item nav-link">Products</Link>
+          <Link href="/cases" className="nav-item nav-link">Cases</Link>
+          <Link href="/media" className="nav-item nav-link">Media</Link>
+          <Link href="/about" className="nav-item nav-link">About</Link>
         </nav>
       </div>
     </header>

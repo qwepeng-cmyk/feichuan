@@ -23,7 +23,11 @@
   },
   "detail_html": "<h4>方案深度解析</h4><p>边前沿任务繁重，反渗透、反走私等防控压力突出，智慧边海防空地一体建设为提升防控效能带来重要机遇。无人机搭载高性能光电吊舱，可开展大范围海域巡检，实现全域动态监测。夜晚环境定位可疑目标，锁定追踪移动目标、过滤干扰，实现“识别-追踪-预警”智能化。二者协同联动，同步传输高清画面，为指挥决策提供精准支撑。</p><ul><li>提升海域管控智能化水平</li><li>大幅减轻一线值守压力</li><li>全天候远距离实时监控</li></ul>",
   "detail_html_en": "<h4>Solution Deep Dive</h4><p>Front-line tasks are heavy with significant pressures from anti-infiltration and anti-smuggling. The integrated air-ground construction of smart border defense brings key opportunities. UAVs equipped with high-performance pods carry out large-scale inspections for dynamic monitoring. They locate suspicious targets at night, track moving targets, and filter interference for intelligent 'Identification-Tracking-Warning'. Real-time HD transmission provides precise support for command decisions.</p><ul><li>Intellectualizing maritime management</li><li>Reducing frontline staffing pressure</li><li>24/7 long-distance real-time monitoring</li></ul>",
-  "main_image": "/images/solutions/maritime-patrol.jpg",
+  "main_image": "/solutions/border patrol/Drone Maritime Patrol/Drone Maritime Patrol.jpg",
   "handle": "uav-maritime-patrol",
-  "category_primary": "Border Patrol (边境巡逻)"
+  "category_primary": "Border Patrol (边境巡逻)",
+  "recommended_products": [
+    "fc-yjzc-01-emergency-reconnaissance-drone",
+    "fc-rds500-4r-radar-vision-sentinel"
+  ]
 }

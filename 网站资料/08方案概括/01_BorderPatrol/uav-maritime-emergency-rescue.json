@@ -23,7 +23,12 @@
   },
   "detail_html": "<h4>方案深度解析</h4><p>海边突发险情时，传统救援船只到达速度受限。无人机可无视地形障碍，第一时间送达救生物资，为生命争取时间。</p><ul><li>实时回传全景态势</li><li>高清光电红外全方位搜寻</li><li>精准投递救生物资</li></ul>",
   "detail_html_en": "<h4>Solution Deep Dive</h4><p>Traditional rescue vessels are limited by speed during coastal emergencies. UAVs can bypass terrain obstacles and deliver life-saving supplies immediately to buy time for survival.</p><ul><li>Real-time situational feedback</li><li>HD EO/IR all-round searching</li><li>Precision delivery of rescue materials</li></ul>",
-  "main_image": "/images/solutions/maritime-rescue.jpg",
+  "main_image": "/solutions/border patrol/Drone Maritime Emergency Rescue/Drone Maritime Emergency Rescue.jpg",
   "handle": "uav-maritime-emergency-rescue",
-  "category_primary": "Border Patrol (边境巡逻)"
+  "category_primary": "Border Patrol (边境巡逻)",
+  "recommended_products": [
+    "fc-yjzc-01-emergency-reconnaissance-drone",
+    "fc-rds500-4r-radar-vision-sentinel",
+    "composite-electro-optical-tracking-system"
+  ]
 }

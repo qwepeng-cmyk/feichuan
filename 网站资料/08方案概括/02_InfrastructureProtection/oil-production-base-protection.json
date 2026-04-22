@@ -23,7 +23,15 @@
   },
   "detail_html": "<h4>立体防控体系</h4><p>石油生产基地不仅需要广域监控，更需要精准的反制。利用高位部署，系统可以提前发现数公里外的威胁并采取分层拦截。</p><ul><li>分层立体防御（侦、打结合）</li><li>超远距离红外热成像</li><li>实时定位飞控手位置</li></ul>",
   "detail_html_en": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise countermeasures. Strategic high deployment allows the system to detect threats kilometers away and conduct layered interception.</p><ul><li>Layered defense (Detection + Neutralization)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
-  "main_image": "/images/solutions/oil-base.jpg",
+  "main_image": "/solutions/infrastructure protection/Oil Production Base Protection/Oil Production Base Protection.png",
   "handle": "oil-production-base-protection",
-  "category_primary": "Infrastructure Protection (关键设施防护)"
+  "category_primary": "Infrastructure Protection (关键设施防护)",
+  "recommended_products": [
+    "stationary-rf-detection-system",
+    "stationary-active-rf-defense-system",
+    "uav-navigation-spoofing-system",
+    "composite-electro-optical-tracking-system",
+    "handheld-integrated-sdr-c-uas",
+    "portable-anti-drone-jammer-shield"
+  ]
 }

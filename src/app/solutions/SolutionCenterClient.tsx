@@ -16,7 +16,7 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
         '01_BorderPatrol': 'Border Patrol',
         '02_InfrastructureProtection': 'Infrastructure Protection',
         '03_KeyAreaSecurity': 'Key Area Security',
-        '04_EmergencyRescue': 'Emergency Rescue'
+        '04_EmergencyRescue': 'Emergency & Disaster Rescue'
     };
 
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -66,19 +66,26 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
 
     return (
         <div className="solution-center-page" style={{ paddingTop: '114px' }}>
-            <section className="product-banner" style={{ 
-                height: '40vh', 
-                minHeight: '320px', 
-                background: 'linear-gradient(135deg, #f0f7ff 0%, #e0edff 100%)', 
-                position: 'relative', 
+            <section className="product-banner" style={{
+                height: '40vh',
+                minHeight: '320px',
+                backgroundImage: "url('/solutions/solution_center_banner_01.png')",
+                backgroundSize: '100% 100%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                position: 'relative',
                 overflow: 'hidden',
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                borderBottom: '1px solid #e1e8f0'
             }}>
+                {/* 30% Dark overlay to ensure white text pops on any background */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '800px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#315ba4', marginBottom: '15px', lineHeight: 1.1 }}>Solution Center</h1>
-                        <p style={{ fontSize: '2rem', color: '#666', lineHeight: 1.5, opacity: 0.9 }}>Tailored tactical systems for border security, infrastructure protection, and emergency mission success.</p>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Solution Center</h1>
+                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Tailored tactical systems for border security, infrastructure protection, and emergency mission success.</p>
                     </div>
                 </div>
             </section>
@@ -92,12 +99,49 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                             <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '60px' }}>
                                 <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
                                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
+                                <a
+                                    href={`/solutions/category/${category.id}`}
+                                    className="solution-btn-animated"
+                                    style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: '8px',
+                                        marginTop: '16px',
+                                        fontSize: '1.6rem',
+                                        fontWeight: 700,
+                                        color: '#315ba4',
+                                        textDecoration: 'none',
+                                        padding: '10px 24px',
+                                        border: '2px solid #315ba4',
+                                        borderRadius: '0',
+                                        transition: 'all 0.3s ease',
+                                        position: 'relative',
+                                        overflow: 'hidden'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = '#315ba4';
+                                        e.currentTarget.style.color = '#fff';
+                                        e.currentTarget.style.transform = 'translateY(-2px)';
+                                        e.currentTarget.style.boxShadow = '0 10px 20px rgba(49, 91, 164, 0.2)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = 'transparent';
+                                        e.currentTarget.style.color = '#315ba4';
+                                        e.currentTarget.style.transform = 'translateY(0)';
+                                        e.currentTarget.style.boxShadow = 'none';
+                                    }}
+                                >
+                                    Explore Complete Solution Suite
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.3s' }}>
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
                             </div>
 
-                            <div className="solution-grid" style={{ 
-                                display: 'grid', 
-                                gridTemplateColumns: 'repeat(3, 1fr)', 
-                                gap: '30px' 
+                            <div className="solution-grid" style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(3, 1fr)',
+                                gap: '30px'
                             }}>
                                 {groupedSolutions[category.id]?.map((sol, idx) => (
                                     <a href={`/solutions/${sol.id}`} key={idx} className="catalog-card-item">

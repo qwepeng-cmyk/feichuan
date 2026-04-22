@@ -23,7 +23,11 @@
   },
   "detail_html": "<h4>核心优势</h4><p>当前海防监管存在监控手段单一、感知不全、数据整合共享不足等问题。本系统通过融合多源信息，构建数字化海防管控体系。</p><ul><li>全天候无死角监控</li><li>自动识别追踪移动目标</li><li>精准捕捉目标细节</li></ul>",
   "detail_html_en": "<h4>Core Advantages</h4><p>Current maritime supervision faces issues like single monitoring methods and insufficient data sharing. This system builds a digital control architecture by integrating multi-source data.</p><ul><li>24/7 blind-spot-free monitoring</li><li>Automatic identification and tracking</li><li>Precision capture of target details</li></ul>",
-  "main_image": "/images/solutions/land-surveillance.jpg",
+  "main_image": "/solutions/border patrol/Land-Based Maritime Surveillance & Warning/Land-Based Maritime Surveillance & Warning.jpg",
   "handle": "land-based-maritime-surveillance",
-  "category_primary": "Border Patrol (边境巡逻)"
+  "category_primary": "Border Patrol (边境巡逻)",
+  "recommended_products": [
+    "fc-yjzc-01-emergency-reconnaissance-drone",
+    "fc-rds500-4r-radar-vision-sentinel"
+  ]
 }

@@ -23,7 +23,10 @@
   },
   "detail_html": "<h4>断网环境下的“空中基站”</h4><p>在自然灾害导致公网损毁的极端环境下，本方案能火速恢复网络。保障受灾群众语音通话、短信收发与无线网络接入，建立专属应急专网。</p><ul><li>快速重建 4G/5G 公网覆盖</li><li>贯通救援前后方通信信道</li><li>适合震后、洪涝等极端灾害现场</li></ul>",
   "detail_html_en": "<h4>'Aerial Base Station' in Disconnected Environments</h4><p>In extreme situations where natural disasters destroy public networks, this solution can rapidly restore connectivity. It ensures voice calls, SMS, and wireless internet for victims while establishing a private network for responders.</p><ul><li>Rapid reconstruction of 4G/5G coverage</li><li>Connecting command and field channels</li><li>Ideal for earthquake, flood, and extreme disaster sites</li></ul>",
-  "main_image": "/images/solutions/emergency-communication.jpg",
+  "main_image": "/solutions/emergency & disaster rescue/Emergency Communication Drone/Emergency Communication Drone.jpg",
   "handle": "emergency-communication-uav",
-  "category_primary": "Emergency & Disaster Rescue (应急救灾)"
+  "category_primary": "Emergency & Disaster Rescue (应急救灾)",
+  "recommended_products": [
+    "fc-yjtx-01-emergency-communication-drone"
+  ]
 }

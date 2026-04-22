@@ -61,28 +61,19 @@ export default function MediaPage() {
 
     return (
         <div className="media-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
-            {/* 1. Breadcrumb Row (Shared Global Class) */}
-            <div className="product-breadcrumb-nav">
-                <div className="container">
-                    <div className="breadcrumb-path">
-                        <a href="/">Home</a> &gt; Insights & Feed
-                    </div>
-                </div>
-            </div>
-
             {/* 2. Banner Section ( Matches Design ) */}
             <section className="media-banner" style={{ 
                 height: '40vh', 
                 minHeight: '320px', 
-                background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1920") no-repeat center/cover',
+                background: 'linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("/media/media_banner.jpg") no-repeat center/cover',
                 display: 'flex',
                 alignItems: 'center',
                 color: '#fff'
             }}>
                 <div className="container">
                     <div style={{ maxWidth: '800px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, marginBottom: '20px', textTransform: 'uppercase' }}>Insights & Global Feed</h1>
-                        <p style={{ fontSize: '2rem', opacity: 0.9 }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, marginBottom: '20px', textTransform: 'uppercase', color: '#fff' }}>Insights & Global Feed</h1>
+                        <p style={{ fontSize: '2rem', opacity: 1, color: '#fff' }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
                     </div>
                 </div>
             </section>

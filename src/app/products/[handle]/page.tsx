@@ -46,7 +46,7 @@ export default async function ProductPage({ params }: { params: { handle: string
               <div className="gallery-main-area">
                 <UniversalGallery images={galleryImages} />
               </div>
-              
+
               <div className="product-info">
                 <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1' }}>
                   {product.product_name_en}
@@ -98,9 +98,9 @@ export default async function ProductPage({ params }: { params: { handle: string
         {product.detail_html_en && (
           <section id="features" className="detail-section alt">
             <div className="container">
-              <div 
+              <div
                 className="rich-content"
-                dangerouslySetInnerHTML={{ __html: product.detail_html_en }} 
+                dangerouslySetInnerHTML={{ __html: product.detail_html_en }}
               />
             </div>
           </section>
@@ -121,13 +121,13 @@ export default async function ProductPage({ params }: { params: { handle: string
                   </thead>
                   <tbody>
                     {Object.entries(product.parameters_en).map(([param, val], idx) => (
-                      <tr key={idx} className="spec-row-hover" style={{ 
-                        background: idx % 2 === 0 ? '#fff' : '#fafafa', 
-                        borderBottom: '1px solid #eee', 
-                        transition: 'background 0.2s' 
+                      <tr key={idx} className="spec-row-hover" style={{
+                        background: idx % 2 === 0 ? '#fff' : '#fafafa',
+                        borderBottom: '1px solid #eee',
+                        transition: 'background 0.2s'
                       }}>
                         <td style={{ padding: '20px 30px', fontWeight: 'bold', width: '45%', fontSize: '1.5rem' }}>{param}</td>
-                        <td style={{ padding: '20px 30px', fontSize: '1.5rem' }}>{val}</td>
+                        <td style={{ padding: '20px 30px', fontSize: '1.5rem' }}>{val as string}</td>
                       </tr>
                     ))}
                   </tbody>
