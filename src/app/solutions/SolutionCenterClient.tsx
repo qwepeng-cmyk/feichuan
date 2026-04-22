@@ -19,36 +19,105 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
         '04_EmergencyRescue': 'Emergency & Disaster Rescue'
     };
 
+    // Define common equipment components to ensure 100% consistency
+    const ICON_CAMERA = (
+        <g>
+            <path d="M14 12h20l2 10H12l2-10z" fill="rgba(49, 91, 164, 0.05)" />
+            <circle cx="24" cy="28" r="10" />
+            <circle cx="24" cy="28" r="4" fill="#315ba4" stroke="none" />
+            <path d="M14 28h20M24 18v20" strokeOpacity="0.2" />
+            <rect x="20" y="38" width="8" height="4" />
+            <path d="M12 22h24" strokeWidth="2" />
+        </g>
+    );
+
+    const ICON_ANTIDRONE = (
+        <g>
+            <path d="M10 24a14 14 0 0 1 28 0H10z" fill="rgba(49, 91, 164, 0.05)" />
+            <path d="M10 24h28M14 26h20v2H14z" />
+            <path d="M24 28v4M18 42l6-10 6 10M24 32v2M20 37l-4 5m12-5l4 5" />
+            <path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8" strokeDasharray="2 2" />
+        </g>
+    );
+
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
         '01_BorderPatrol': (
-            <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.2">
-                <path d="M24 4L4 12v12c0 11 10 20 20 20s20-9 20-20V12L24 4z" fill="rgba(49, 91, 164, 0.05)" />
-                <circle cx="24" cy="22" r="8" />
-                <path d="M24 14v16M16 22h16" />
-                <path d="M10 38l4-4M38 38l-4-4" />
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
+                {/* Device 1: Airplane UAV */}
+                <g transform="translate(0, 0)">
+                    <path d="M24 10l2 24-2 4-2-4 2-24z" fill="rgba(49, 91, 164, 0.05)" />
+                    <path d="M4 22l20-4 20 4-20 4L4 22z" strokeWidth="1.8" />
+                    <path d="M18 36l6-2 6 2-6 2-6-2z" />
+                    <g fill="#315ba4" stroke="none">
+                        <rect x="10" y="16" width="1.5" height="12" rx="0.5" />
+                        <rect x="37" y="16" width="1.5" height="12" rx="0.5" />
+                    </g>
+                </g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
         '02_InfrastructureProtection': (
-            <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.2">
-                <path d="M8 40l4-28h24l4 28" fill="rgba(49, 91, 164, 0.05)" />
-                <path d="M12 12l2 28M34 12l-2 28M12 18h24M12 28h24" />
-                <path d="M20 4h8v4h-8z" />
-                <circle cx="24" cy="23" r="3" fill="#315ba4" />
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
+                <g transform="translate(0, 0)">{ICON_ANTIDRONE}</g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
         '03_KeyAreaSecurity': (
-            <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.2">
-                <rect x="10" y="10" width="28" height="28" rx="2" fill="rgba(49, 91, 164, 0.05)" />
-                <path d="M10 24h28M24 10v28" />
-                <circle cx="24" cy="24" r="5" />
-                <path d="M14 14l5 5M29 29l5 5M34 14l-5 5M19 29l-5 5" />
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
+                <g transform="translate(0, 0)">{ICON_ANTIDRONE}</g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                {/* Device 2: Security Gate */}
+                <g transform="translate(62, 0)">
+                    <rect x="12" y="6" width="24" height="36" />
+                    <path d="M16 6v36M32 6v36" strokeWidth="2" />
+                    <rect x="18" y="8" width="12" height="6" fill="rgba(49, 91, 164, 0.1)" />
+                    <path d="M12 18h24M12 24h24M12 30h24M12 36h24" strokeOpacity="0.3" />
+                    <circle cx="24" cy="11" r="1.5" fill="#315ba4" stroke="none" />
+                </g>
             </svg>
         ),
         '04_EmergencyRescue': (
-            <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.2">
-                <circle cx="24" cy="24" r="20" fill="rgba(49, 91, 164, 0.05)" />
-                <path d="M24 12v24M12 24h24" strokeWidth="3" />
-                <path d="M16 16l16 16M32 16L16 32" strokeOpacity="0.3" />
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.2" style={{ height: '48px', width: 'auto' }}>
+                {/* Device 1: Comm Drone */}
+                <g transform="translate(0, 0)">
+                    <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
+                    <g strokeWidth="1.5" strokeLinecap="round">
+                        <path d="M24 18V9M24 28v10" />
+                        <path d="M21 19.5l-8-5M27 26.5l8 5M21 26.5l-8 5M27 19.5l8-5" />
+                    </g>
+                    {/* Bolder, More Obvious Comm Signal */}
+                    <path d="M18 7c2-2 10-2 12 0M15 4c3-3 15-3 18 0M12 1c4-4 20-4 24 0" stroke="#ff9800" strokeWidth="2" strokeLinecap="round" />
+                    <g fill="#315ba4" stroke="none">
+                        <g transform="translate(24,9)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(24,38)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(13,14.5) rotate(60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(35,31.5) rotate(60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(13,31.5) rotate(-60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(35,14.5) rotate(-60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                    </g>
+                </g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                {/* Device 2: Lighting Drone */}
+                <g transform="translate(62, 0)">
+                    <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
+                    <g strokeWidth="1.5" strokeLinecap="round">
+                        <path d="M24 18V9M24 28v10" />
+                        <path d="M21 19.5l-8-5M27 26.5l8 5M21 26.5l-8 5M27 19.5l8-5" />
+                    </g>
+                    {/* Clear Lighting Beam Effect */}
+                    <path d="M22 30l-10 16h24l-10-16z" fill="rgba(255, 152, 0, 0.25)" stroke="none" />
+                    <path d="M18 42l-2 4M24 42v4M30 42l2 4" stroke="#ff9800" strokeWidth="1" strokeLinecap="round" />
+                    <g fill="#315ba4" stroke="none">
+                        <g transform="translate(24,9)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(24,38)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(13,14.5) rotate(60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(35,31.5) rotate(60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(13,31.5) rotate(-60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                        <g transform="translate(35,14.5) rotate(-60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
+                    </g>
+                </g>
             </svg>
         )
     };

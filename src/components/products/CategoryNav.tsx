@@ -99,7 +99,11 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
                                 borderBottom: activeTab === cat.id ? '3px solid #315ba4' : '3px solid transparent'
                             }}
                         >
-                            <div style={{ width: '54px', height: '54px', transition: 'transform 0.3s ease' }}>{cat.icon}</div>
+                            <div className="nav-icon-container" style={{ height: '54px', minWidth: '54px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 0.3s ease' }}>
+                                {React.isValidElement(cat.icon) ? React.cloneElement(cat.icon as React.ReactElement, {
+                                    style: { height: '100%', width: 'auto', display: 'block' }
+                                }) : cat.icon}
+                            </div>
                             <span style={{ 
                                 fontSize: '1.2rem', 
                                 fontWeight: 700, 
