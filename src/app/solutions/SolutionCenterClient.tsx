@@ -138,8 +138,9 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
             <section className="product-banner" style={{
                 height: '40vh',
                 minHeight: '320px',
+                maxHeight: '450px',
                 backgroundImage: "url('/solutions/solution_center_banner_01.png')",
-                backgroundSize: '100% 100%',
+                backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 position: 'relative',
@@ -163,9 +164,9 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
 
             <div className="solution-lists-wrap" style={{ padding: '80px 0' }}>
                 {categoryList.map((category) => (
-                    <section key={category.id} id={category.id} style={{ marginBottom: '120px', scrollMarginTop: '240px' }}>
+                    <section key={category.id} id={category.id} style={{ marginBottom: '120px', scrollMarginTop: '300px' }}>
                         <div className="container">
-                            <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '60px' }}>
+                            <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
                                 <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
                                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
                                 <a
@@ -234,50 +235,7 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                 </div>
             </section>
 
-            <style jsx>{`
-                .catalog-card-item {
-                    text-decoration: none;
-                    background: #fff;
-                    border: 1px solid #f0f0f0;
-                    transition: all 0.3s ease;
-                    display: block;
-                    overflow: hidden;
-                }
-                .card-image {
-                    height: 240px;
-                    overflow: hidden;
-                    background: #f8f9fa;
-                }
-                .card-image img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    transition: transform 0.5s;
-                }
-                .card-content {
-                    padding: 25px;
-                    text-align: center;
-                }
-                .card-content h3 {
-                    font-size: 1.8rem;
-                    fontWeight: 700;
-                    color: #333;
-                    margin: 0;
-                    line-height: 1.4;
-                    transition: color 0.3s;
-                }
-                .catalog-card-item:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-                    border-color: #315ba4;
-                }
-                .catalog-card-item:hover h3 {
-                    color: #315ba4;
-                }
-                .catalog-card-item:hover .card-image img {
-                    transform: scale(1.05);
-                }
-            `}</style>
+            
         </div>
     );
 }

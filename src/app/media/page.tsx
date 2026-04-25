@@ -61,19 +61,28 @@ export default function MediaPage() {
 
     return (
         <div className="media-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
-            {/* 2. Banner Section ( Matches Design ) */}
-            <section className="media-banner" style={{ 
-                height: '40vh', 
-                minHeight: '320px', 
-                background: 'linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("/media/media_banner.jpg") no-repeat center/cover',
+            {/* 2. Banner Section (Sync with Center Pages Style) */}
+            <section className="product-banner" style={{ 
+                height: '40vh',
+                minHeight: '320px',
+                maxHeight: '450px', 
+                backgroundImage: "url('/media/media_banner.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
                 display: 'flex',
                 alignItems: 'center',
-                color: '#fff'
+                position: 'relative',
+                overflow: 'hidden',
+                borderBottom: '1px solid #e1e8f0'
             }}>
-                <div className="container">
+                {/* Visual Overlay - 30% for consistency */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '800px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, marginBottom: '20px', textTransform: 'uppercase', color: '#fff' }}>Insights & Global Feed</h1>
-                        <p style={{ fontSize: '2rem', opacity: 1, color: '#fff' }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Insights & Global Feed</h1>
+                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
                     </div>
                 </div>
             </section>

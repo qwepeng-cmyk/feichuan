@@ -14,7 +14,7 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     id: '01_BorderPatrol',
     name: '边境巡逻',
     name_en: 'Border Patrol',
-    bannerImage: '/solutions/01/Drone Border Patrol.png',
+    bannerImage: '/solutions/border patrol banner bg.png',
     industryNeeds_en: 'Border and coastal defense is critical to overall national security and development. Traditional frontline defense tasks are heavy, with prominent pressure on anti-infiltration and anti-smuggling. The integrated air-ground construction of smart border defense brings important opportunities to enhance prevention and control efficiency. UAVs equipped with high-performance optoelectronic pods can conduct wide-area maritime inspections for full-domain dynamic monitoring. Intelligent optoelectronic turrets serve as border surveillance equipment, featuring visible light and infrared dual-spectrum systems for 24/7 blind-spot-free monitoring, precisely capturing target details and locating suspicious targets in nocturnal environments. Integrating AI algorithms and high-precision control technology, they can lock and track moving targets, filter interference, and realize intelligent "identification-tracking-warning". Working in coordination, they synchronously transmit HD footage, providing precise support for command decisions, acting as powerful tools to safeguard maritime security and combat illegal activities, and helping build an all-around, three-dimensional smart border defense system.',
     applicationScenes: [
       { title: '非法船只监管', title_en: 'Illegal Vessel Surveillance' },
@@ -37,7 +37,7 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     id: '02_InfrastructureProtection',
     name: '关键设施防护',
     name_en: 'Critical Infrastructure Protection',
-    bannerImage: '/solutions/02/Protection of Critical Facilities.png',
+    bannerImage: '/solutions/infrastructure protection banner bg.png',
     industryNeeds_en: 'With the rapid development of the low-altitude economy, low-altitude activities have become increasingly frequent. While the popularization of UAV technology brings convenience, it also triggers a series of low-altitude security issues such as unauthorized "black flights". Around critical infrastructure like power substations, hydroelectric dams, oil production bases, and chemical plants, unauthorized drone flights pose serious threats to operational safety. Preventing low-altitude risks and ensuring absolute facility security has become an urgent priority. Critical infrastructure protection uses optoelectronic turrets as core sensing units, equipped with dual-band detection technology to accurately capture UAV trajectories, identify targets, and synchronously transmit data 24/7. Relying on front-end sensing data, counter-UAV equipment combines radio monitoring and navigation deception, utilizing flexible fixed and mobile deployments. Through parameter optimization, it avoids interference with critical facility equipment. The coordinated system achieves fully automated operation, adapting to all-weather complex scenarios to efficiently defend against various low-altitude threats and ensure the safe and stable operation of critical infrastructure.',
     applicationScenes: [
       { title: '机场反无应用', title_en: 'Airport Anti-Drone Application' },
@@ -60,7 +60,7 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     id: '03_KeyAreaSecurity',
     name: '要地安保',
     name_en: 'Key Area Security',
-    bannerImage: '/solutions/03/Security of important places 01.png',
+    bannerImage: '/solutions/key area security banner bg.png',
     industryNeeds_en: 'Critical key areas such as large-scale sports events, airports, and judicial departments are typically densely populated, scenario-complex, and concentrated with classified information, facing multiple security risks including drone intrusions, unauthorized personnel movement, and contraband smuggling. Traditional single-method security measures can no longer meet increasingly severe security control requirements. There is an urgent need to establish a comprehensive, smart, efficient, and multi-line coordinated security system to address complex and volatile security challenges. Key area security protection centers on comprehensive, intelligent three-dimensional prevention and control, integrating three core sectors: optoelectronic surveillance, counter-UAV, and smart security screening. Optoelectronic surveillance relies on multi-spectral imaging and laser ranging technologies to achieve full-domain 24/7 precision monitoring and target positioning. Counter-UAV equipment can effectively block unauthorized drone signals and prevent low-altitude security risks. Security screening equipment uses smart detection technology to quickly and accurately inspect personnel and goods, thereby fortifying the security defense line of key areas and ensuring their safe and stable operation.',
     applicationScenes: [
       { title: '要地安保', title_en: 'Key Area Security' },
@@ -93,7 +93,7 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     id: '04_EmergencyRescue',
     name: '应急救灾',
     name_en: 'Emergency & Disaster Rescue',
-    bannerImage: '/solutions/04/Emergency Relief.png',
+    bannerImage: '/solutions/emergrncy  & disater rescue banner bg.png',
     industryNeeds_en: 'To continuously enhance comprehensive disaster prevention, mitigation, and relief capabilities, strengthen proactive risk prevention, and efficiently handle various natural disasters, the Ministry of Emergency Management is closely following the national emergency capability system construction requirements of unified leadership, aligned authority and responsibility, and authoritative efficiency. It is accelerating the modernization of the emergency management system and capabilities, striving to build a comprehensive safety and emergency framework. In the field of comprehensive natural disaster prevention and emergency response, the Ministry is accelerating the implementation of the emergency management big data project and the natural disaster monitoring and early warning informatization project. Simultaneously, it is promoting deepened synergy and linkage between emergency management departments at all levels and industry departments such as natural resources, water conservancy, and meteorology, breaking down data barriers in monitoring and early warning to achieve information interconnection and sharing, having initially established a comprehensive natural disaster monitoring and early warning system covering all domains.',
     applicationScenes: [
       { title: '震后应急通讯搭建', title_en: 'Post-Earthquake Emergency Communication Setup' },

@@ -15,7 +15,7 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
         setActiveTab(id);
         const element = document.getElementById(id);
         if (element) {
-            const offset = 240; // Header(114) + Nav(~100) + breathing space
+            const offset = 300; // Header(114) + Nav(~100) + breathing space (Balanced for top/bottom symmetry)
             const bodyRect = document.body.getBoundingClientRect().top;
             const elementRect = element.getBoundingClientRect().top;
             const elementPosition = elementRect - bodyRect;
@@ -32,7 +32,7 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
     useEffect(() => {
         const handleScroll = () => {
             const sections = categories.map(cat => document.getElementById(cat.id));
-            const scrollPos = window.scrollY + 250;
+            const scrollPos = window.scrollY + 310;
 
             for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];

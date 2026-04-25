@@ -130,10 +130,11 @@ export default async function ProductCenterPage() {
         <div className="product-page-new" style={{ paddingTop: '114px' }}>
             {/* HERO BANNER (HALF HEIGHT) */}
             <section className="product-banner" style={{ 
-                height: '40vh', 
-                minHeight: '320px', 
+                height: '40vh',
+                minHeight: '320px',
+                maxHeight: '450px', 
                 backgroundImage: "url('/products/products_center_banner.jpg')", 
-                backgroundSize: '100% 100%', 
+                backgroundSize: 'cover', 
                 backgroundRepeat: 'no-repeat', 
                 position: 'relative', 
                 overflow: 'hidden',
@@ -160,9 +161,9 @@ export default async function ProductCenterPage() {
             {/* PRODUCT LISTS */}
             <div className="product-lists-wrap" style={{ padding: '60px 0' }}>
                 {categoryList.map((category) => (
-                    <section key={category.id} id={category.id} style={{ marginBottom: '100px', scrollMarginTop: '200px' }}>
+                    <section key={category.id} id={category.id} style={{ marginBottom: '100px', scrollMarginTop: '300px' }}>
                         <div className="container">
-                            <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '50px' }}>
+                            <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
                                 <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
                                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
                             </div>

@@ -77,7 +77,8 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
       <section className="cl-hero" style={{
         position: 'relative',
         height: '40vh',
-        minHeight: '320px',
+                minHeight: '320px',
+                maxHeight: '450px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -91,35 +92,31 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
           backgroundImage: `url('${data.bannerImage}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           zIndex: 0,
         }} />
-        {/* Dark Overlay */}
+        {/* Consistent 30% Dark Overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(0, 15, 40, 0.5)',
+          background: 'rgba(0, 0, 0, 0.3)',
           zIndex: 1,
         }} />
         {/* Content */}
         <div className="container" style={{ ...containerStyle, position: 'relative', zIndex: 2 }}>
-          <div className="hero-content-anim" style={{ textAlign: 'center', width: '100%' }}>
+          <div className="hero-content-anim" style={{ textAlign: 'left', width: '100%', maxWidth: '800px' }}>
             <h1 style={{
               fontSize: '5.2rem',
               fontWeight: 900,
               color: '#ffffff',
               lineHeight: 1.1,
-              marginBottom: '30px',
-              letterSpacing: '1px',
-              textShadow: '0 4px 20px rgba(0,0,0,0.6)',
-              textTransform: 'uppercase'
+              marginBottom: '15px'
             }}>
               {data.name_en}
             </h1>
-            <div>
-              <a href="/contact" className="btn-premium primary" style={{ position: 'relative', zIndex: 10 }}>
-                Consult Expert
-              </a>
-            </div>
+            <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
+              Professional integrated solutions for {data.name_en.toLowerCase()} operations and strategic safety management.
+            </p>
           </div>
         </div>
       </section>
@@ -176,7 +173,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                   className={`cl-subsolution-row reveal-on-scroll ${isReversed ? 'reversed' : ''}`}
                 >
 
-                  
+
                   <div style={{
                     display: 'flex',
                     flexDirection: isReversed ? 'row-reverse' : 'row',
@@ -186,7 +183,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                     overflow: 'hidden'
                   }}>
                     {/* Image Block */}
-                    <a 
+                    <a
                       href={`/solutions/${sol.handle}`}
                       style={{ width: '50%', aspectRatio: '380 / 240', overflow: 'hidden', flexShrink: 0, display: 'block' }}
                     >
@@ -212,54 +209,54 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                       flexDirection: 'column',
                       justifyContent: 'center'
                     }}>
-                    <a href={`/solutions/${sol.handle}`} style={{ textDecoration: 'none' }}>
-                      <h3 style={{
-                        fontSize: '3.2rem',
-                        fontWeight: 700,
-                        color: '#0f172a',
-                        marginBottom: '20px',
-                        lineHeight: 1.2,
-                        transition: 'color 0.3s'
-                      }} className="hover-color-primary">
-                        {sol.product_name_en}
-                      </h3>
-                    </a>
-                    <p style={{
-                      fontSize: '1.8rem',
-                      color: '#444',
-                      lineHeight: 1.8,
-                      marginBottom: '32px',
-                    }}>
-                      {sol.summary_en}
-                    </p>
-
-                    <div>
-                      <a
-                        href={`/solutions/${sol.handle}`}
-                        className="btn-premium primary"
-                        style={{
-                          fontSize: '1.6rem',
+                      <a href={`/solutions/${sol.handle}`} style={{ textDecoration: 'none' }}>
+                        <h3 style={{
+                          fontSize: '3.2rem',
                           fontWeight: 700,
-                          textDecoration: 'none',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          padding: '12px 24px',
-                          background: 'var(--accent)',
-                          color: '#fff',
-                          transition: 'all 0.3s'
-                        }}
-                      >
-                        View Details
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
+                          color: '#0f172a',
+                          marginBottom: '20px',
+                          lineHeight: 1.2,
+                          transition: 'color 0.3s'
+                        }} className="hover-color-primary">
+                          {sol.product_name_en}
+                        </h3>
                       </a>
+                      <p style={{
+                        fontSize: '1.8rem',
+                        color: '#444',
+                        lineHeight: 1.8,
+                        marginBottom: '32px',
+                      }}>
+                        {sol.summary_en}
+                      </p>
+
+                      <div>
+                        <a
+                          href={`/solutions/${sol.handle}`}
+                          className="btn-premium primary"
+                          style={{
+                            fontSize: '1.6rem',
+                            fontWeight: 700,
+                            textDecoration: 'none',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '12px 24px',
+                            background: 'var(--accent)',
+                            color: '#fff',
+                            transition: 'all 0.3s'
+                          }}
+                        >
+                          View Details
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
+              );
             })}
           </div>
         </div>
@@ -306,109 +303,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
       {/* ============================================ */}
       {/* STYLES (Clean, no overlap, straight edges)  */}
       {/* ============================================ */}
-      <style jsx>{`
-        /* Scroll Reveal */
-        .reveal-on-scroll {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .reveal-on-scroll.animate-reveal {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .hover-zoom {
-          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease, box-shadow 0.3s ease !important;
-        }
-
-        .hover-zoom:hover {
-          transform: scale(1.08) !important;
-          filter: brightness(1.1);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-          cursor: pointer;
-        }
-
-        .hover-color-primary {
-          transition: color 0.3s ease !important;
-        }
-
-        .hover-color-primary:hover {
-          color: var(--primary) !important;
-          text-decoration: underline !important;
-          cursor: pointer;
-        }
-
-        /* Hero Zoom */
-        @keyframes subtleZoom {
-          from { transform: scale(1.05); }
-          to { transform: scale(1); }
-        }
-        .hero-bg-anim {
-          animation: subtleZoom 8s ease-out forwards;
-        }
-
-        /* Buttons */
-        .btn-premium {
-          display: inline-flex;
-          align-items: center;
-          padding: 14px 32px;
-          border-radius: 0;
-          font-size: 1.6rem;
-          font-weight: 700;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
-        .btn-premium.primary {
-          background: var(--accent);
-          color: #fff;
-        }
-        .btn-premium.primary:hover {
-          background: #f57c00;
-          transform: translateY(-2px);
-        }
-
-        /* Scene Cards */
-        .scene-card-simple {
-          padding: 30px;
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          text-align: center;
-          transition: all 0.3s;
-        }
-        .scene-card-simple:hover {
-          border-color: var(--primary);
-          background: #fff;
-        }
-        .scene-text {
-          font-size: 1.8rem;
-          font-weight: 600;
-          color: #0f172a;
-        }
-
-        /* Product Cards */
-        .product-card-simple {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          padding: 40px;
-          text-align: center;
-          transition: all 0.3s;
-        }
-        .product-card-simple:hover {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: var(--accent);
-        }
-        .product-card-simple h4 {
-          font-size: 1.8rem;
-          color: #fff;
-          margin: 0;
-        }
-
-        @media (max-width: 991px) {
-          .cl-subsolution-row { flex-direction: column !important; }
-          .cl-hero h1 { font-size: 3.6rem !important; }
-        }
-      `}</style>
+      
     </div>
   );
 }

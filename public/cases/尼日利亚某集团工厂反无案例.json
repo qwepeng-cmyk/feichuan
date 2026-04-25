@@ -1,0 +1,27 @@
+{
+  "title": "尼日利亚某集团工厂反无案例",
+  "title_en": "Anti-UAV Case of a Group Factory in Nigeria",
+  "description": "2025尼日利亚某集团工厂反无案例\n设备使用 \n频谱侦测设备\n导航诱骗设备\n指挥控制平台\n项目简介\n本项目于2025年成功部署了一套定制化低空管控系统。通过集成可移动式频谱侦测车，系统具备了全域覆盖的侦测能力，配合导航诱骗设备实施精准反制。在指挥控制平台的统一管理下，实现了对无人机目标的实时预警与高效处置，显著提升了厂区应对非传统安全威胁的能力，有效保障了大型工业园区的生产安全与隐私防护。",
+  "description_en": "2025 Anti-UAV Case of a Group Factory in Nigeria\nEquipment Used:\nSpectrum Detection Equipment\nNavigation Spoofing Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this project successfully deployed a customized low-altitude control system. By integrating a mobile spectrum detection vehicle, the system possesses full-area coverage detection capabilities and implements precise countermeasures in coordination with navigation spoofing equipment. Under the unified management of the command and control platform, it achieved real-time early warning and efficient disposal of drone targets. This significantly enhanced the factory area's ability to cope with non-traditional security threats, effectively ensuring the production safety and privacy protection of the large-scale industrial park.",
+  "devices": [
+    "固定式反无人机无线电主动防御设备",
+    "便携式无人机察打一体设备",
+    "无线电干扰设备（全向）",
+    "无线电干扰设备（定向）"
+  ],
+  "devices_en": [
+    "Stationary Active RF Defense System (Spoofing)",
+    "Integrated Detection & Jamming C-UAS",
+    "Omni-directional RF Jammer",
+    "Directional RF Jammer"
+  ],
+  "main_image": "/cases/尼日利亚某集团工厂反无案例/main.png",
+  "case_images": [],
+  "recommendedProductHandles": [
+    "stationary-active-rf-defense-system",
+    "portable-integrated-detection-jamming-c-uas-basic",
+    "omni-directional-rf-jammer",
+    "directional-rf-jammer"
+  ],
+  "handle": "nigeria-factory-anti-uav"
+}

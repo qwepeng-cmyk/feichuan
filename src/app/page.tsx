@@ -9,7 +9,8 @@ const products = [
         desc: "Engineered with advanced industrial design and one-piece carbon-fiber structure for single-operator deployment and multi-payload mission flexibility.",
         img: "/products/01-uav-drone-systems/uav-systems.png",
         scale: 0.95,
-        offsetY: 0
+        offsetY: 0,
+        handle: "fc-dlxj-01-power-grid-inspection-drone"
     },
     {
         top: "Anti-Drone Response Platform",
@@ -17,7 +18,8 @@ const products = [
         desc: "Portable multi-band suppression architecture for rapid anti-drone response in airports, events, and mission-critical areas.",
         img: "/products/02-anti-drone-cuas/anti-drone-systems.png",
         scale: 1.16,
-        offsetY: 2
+        offsetY: 2,
+        handle: "handheld-integrated-sdr-c-uas"
     },
     {
         top: "Security Screening Platform",
@@ -25,7 +27,8 @@ const products = [
         desc: "Integrates intelligent screening and anomaly recognition to improve throughput and security reliability.",
         img: "/products/03-security-screening/security-policing.png",
         scale: 1.14,
-        offsetY: 8
+        offsetY: 8,
+        handle: "fc-h-smart-phone-detection-gate"
     },
     {
         top: "Defense Logistics Platform",
@@ -33,7 +36,8 @@ const products = [
         desc: "Built for quick deployment and reliable operation in emergency bridges, rescue corridors, and field logistics support.",
         img: "/products/04-defense-engineering/defense-logistics.png",
         scale: 1.12,
-        offsetY: 10
+        offsetY: 10,
+        handle: "bailey-bridge"
     },
     {
         top: "Mobile Medical Platform",
@@ -41,7 +45,8 @@ const products = [
         desc: "Modular and mobile healthcare infrastructure designed for disaster response and complex mission environments.",
         img: "/products/05-field-mobile-hospitals/field-hospitals.png",
         scale: 1.12,
-        offsetY: 14
+        offsetY: 14,
+        handle: "containerized-medical-rescue-system"
     },
     {
         top: "Perimeter Intelligence Platform",
@@ -49,7 +54,8 @@ const products = [
         desc: "Combines radar-vision fusion and all-weather monitoring to protect key infrastructure and sensitive zones.",
         img: "/products/06-perimeter-surveillance/perimeter-surveillance.png",
         scale: 1.1,
-        offsetY: 12
+        offsetY: 12,
+        handle: "fc-dms10-smart-electronic-sentinel"
     }
 ];
 
@@ -57,22 +63,59 @@ const solutions = [
     {
         id: "01",
         title: "Drone Border Patrol",
-        img: "/solutions/01/Drone Border Patrol.png"
+        img: "/solutions/01/Drone Border Patrol.png",
+        link: "/solutions/category/01_BorderPatrol"
     },
     {
         id: "02",
-        title: "Large-scale Event Low-Altitude Security",
-        img: "/solutions/02/Protection of Critical Facilities.png"
+        title: "Infrastructure Protection",
+        img: "/solutions/02/Protection of Critical Facilities.png",
+        link: "/solutions/category/02_InfrastructureProtection"
     },
     {
         id: "03",
-        title: "Emergency Rescue & Relief",
-        img: "/solutions/03/Security of important places 01.png"
+        title: "Key Area Security",
+        img: "/solutions/03/Security of important places 01.png",
+        link: "/solutions/category/03_KeyAreaSecurity"
     },
     {
         id: "04",
-        title: "Industrial Infrastructure Protection",
-        img: "/solutions/04/Emergency Relief.png"
+        title: "Emergency and Disaster Rescue",
+        img: "/solutions/04/Emergency Relief.png",
+        link: "/solutions/category/04_EmergencyRescue"
+    }
+];
+
+const homeCases = [
+    {
+        title: "Airport Low-Altitude Security",
+        handle: "airport-security-application",
+        img: "/cases/机场低空安防应用/main.png"
+    },
+    {
+        title: "Pakistan Power Plant Anti-UAV",
+        handle: "pakistan-power-plant-anti-uav",
+        img: "/cases/巴基斯坦某电厂反无案例/main.png"
+    },
+    {
+        title: "Asian Games Security",
+        handle: "asian-games-security",
+        img: "/cases/亚运会低空安防应用/main.png"
+    },
+    {
+        title: "Water Conservancy Security",
+        handle: "water-conservancy-security",
+        img: "/cases/水利设施低空安保/main.png"
+    },
+    {
+        title: "Brazil Refinery Anti-UAV",
+        handle: "brazil-refinery-anti-uav",
+        img: "/cases/巴西某炼油厂反无案例/main.png"
+    },
+    {
+        title: "Nigeria Factory Anti-UAV",
+        handle: "nigeria-factory-anti-uav",
+        img: "/cases/尼日利亚某集团工厂反无案例/main.png"
     }
 ];
 
@@ -180,7 +223,7 @@ export default function Home() {
                 <div className="container-wide hero-content">
                     <h1 className="hero-title">Global unmanned security field<br />Defense experts</h1>
                     <p className="hero-subtitle">Connecting technology and applications, providing top-tier integrated security services to global clients.</p>
-                    <a href="#" className="btn btn-orange">Discover Solutions ↗</a>
+                    <a href="/solutions" className="btn btn-orange">Discover Solutions ↗</a>
                 </div>
             </section>
 
@@ -190,7 +233,7 @@ export default function Home() {
                     <h2 className="solutions-heading" style={{ textAlign: 'center' }}>Solutions</h2>
                     <div className="solutions-track" id="solutions-track" ref={solutionTrackRef}>
                         {solutions.map((sol) => (
-                            <a key={sol.id} className="solution-card" href="#">
+                            <a key={sol.id} className="solution-card" href={sol.link}>
                                 <div className="solution-media">
                                     <img src={sol.img} alt={sol.title} />
                                 </div>
@@ -218,8 +261,8 @@ export default function Home() {
                                 <h2 style={{ fontSize: '4.8rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '25px', lineHeight: 1.1 }}>{currentProduct.main}</h2>
                                 <p style={{ fontSize: '1.8rem', color: '#555', lineHeight: 1.7, marginBottom: '40px' }}>{currentProduct.desc}</p>
                                 <div className="pc2-actions" style={{ display: 'flex', gap: '20px' }}>
-                                    <a href="#" className="btn btn-orange">Get the Price Now</a>
-                                    <a href="#" className="btn" style={{ border: '1px solid #ddd' }}>View Specifications</a>
+                                    <a href="/contact" className="btn btn-orange">Get the Price Now</a>
+                                    <a href={`/products/${currentProduct.handle}`} className="btn" style={{ border: '1px solid #ddd' }}>View Specifications</a>
                                 </div>
                             </div>
                             <div className="pc2-image-wrap" style={{
@@ -230,20 +273,34 @@ export default function Home() {
                                 justifyContent: 'center',
                                 flex: 1
                             }}>
-                                <img
-                                    key={currentProduct.main}
-                                    src={currentProduct.img}
-                                    alt={currentProduct.main}
-                                    style={{
-                                        maxHeight: '100%',
-                                        maxWidth: '100%',
-                                        width: 'auto',
-                                        height: 'auto',
-                                        objectFit: 'contain',
-                                        transform: `scale(${currentProduct.scale}) translateY(${currentProduct.offsetY}px)`,
-                                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+                                <a 
+                                    href={`/products/${currentProduct.handle}`} 
+                                    className="pc2-image-link"
+                                    style={{ 
+                                        display: 'flex', 
+                                        alignItems: 'center', 
+                                        justifyContent: 'center', 
+                                        width: '100%', 
+                                        height: '100%',
+                                        transition: 'all 0.5s ease'
                                     }}
-                                />
+                                >
+                                    <img
+                                        key={currentProduct.main}
+                                        src={currentProduct.img}
+                                        alt={currentProduct.main}
+                                        style={{
+                                            maxHeight: '100%',
+                                            maxWidth: '100%',
+                                            width: 'auto',
+                                            height: 'auto',
+                                            objectFit: 'contain',
+                                            transform: `scale(${currentProduct.scale}) translateY(${currentProduct.offsetY}px)`,
+                                            transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.1))'
+                                        }}
+                                    />
+                                </a>
                             </div>
                         </div>
 
@@ -262,22 +319,66 @@ export default function Home() {
             </section>
 
             {/* SCREEN 4: CUSTOMER CASES */}
-            <section className="section-cases" style={{ padding: '40px 0 100px', background: '#fff' }}>
+            <section className="section-cases" style={{ padding: '80px 0 100px', background: '#fff' }}>
                 <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '3.6rem' }}>Customer Cases</h2>
+                        <h2 style={{ fontSize: '3.6rem', fontWeight: 700 }}>Customer Cases</h2>
+                        <div style={{ width: '60px', height: '4px', background: 'var(--accent)', margin: '20px auto' }}></div>
                     </div>
                     <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {[1, 2, 3, 4, 5, 6].map(i => (
-                            <div key={i} className="case-card" style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden', height: '300px' }}>
-                                <img src={`/cases/0${(i % 3) || 3}/case0${(i % 3) || 3}.png`} alt="Case" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                <div className="case-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', display: 'flex', alignItems: 'flex-end', padding: '30px' }}>
-                                    <h3 style={{ color: '#fff', fontSize: '2rem' }}>Case Heading {i}</h3>
+                        {homeCases.map((item, idx) => (
+                            <a 
+                                key={idx} 
+                                href={`/cases/${item.handle}`}
+                                className="case-card-link"
+                                style={{ 
+                                    position: 'relative', 
+                                    borderRadius: '12px', 
+                                    overflow: 'hidden', 
+                                    height: '320px',
+                                    display: 'block',
+                                    textDecoration: 'none',
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                                    transition: 'all 0.4s ease'
+                                }}
+                            >
+                                <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} />
+                                <div className="case-overlay" style={{ 
+                                    position: 'absolute', 
+                                    inset: 0, 
+                                    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)', 
+                                    display: 'flex', 
+                                    flexDirection: 'column',
+                                    justifyContent: 'flex-end', 
+                                    padding: '30px',
+                                    transition: 'background 0.4s ease'
+                                }}>
+                                    <span style={{ color: 'var(--accent)', fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px', display: 'block', letterSpacing: '0.1em' }}>Success Case</span>
+                                    <h3 style={{ color: '#fff', fontSize: '2.2rem', fontWeight: 700, margin: 0, lineHeight: 1.2 }}>{item.title}</h3>
                                 </div>
-                            </div>
+                            </a>
                         ))}
                     </div>
+                    <div style={{ textAlign: 'center', marginTop: '60px' }}>
+                        <a href="/cases" className="btn btn-orange" style={{ padding: '15px 40px' }}>VIEW ALL CASES</a>
+                    </div>
                 </div>
+                <style jsx>{`
+                    .case-card-link:hover {
+                        transform: translateY(-10px);
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+                    }
+                    .case-card-link:hover img {
+                        transform: scale(1.1);
+                    }
+                    .case-card-link:hover .case-overlay {
+                        background: linear-gradient(to top, rgba(49, 91, 164, 0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+                    }
+                    .pc2-image-link:hover img {
+                        transform: scale(${parseFloat(currentProduct.scale.toString()) * 1.05}) translateY(${currentProduct.offsetY - 10}px) !important;
+                        filter: drop-shadow(0 20px 40px rgba(49, 91, 164, 0.25)) !important;
+                    }
+                `}</style>
             </section>
 
             {/* SCREEN 5: ABOUT US */}
