@@ -93,7 +93,9 @@ ul {
 }
 
 @media (max-width: 768px) {
-    .container, .container-wide {
+
+    .container,
+    .container-wide {
         padding: 0 20px;
     }
 }
@@ -109,22 +111,25 @@ header.site-header {
     transition: var(--transition);
 }
 
-header.site-header.transparent {
+/* Home Header - Initial State (Transparent) */
+header.site-header.header-home {
     background: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     color: #ffffff;
 }
 
-header.site-header.scrolled,
-header.site-header.force-white {
-    background: #ffffff;
+/* Home Header - Scrolled State OR Inner Page Header (Solid White) */
+header.site-header.header-home.scrolled,
+header.site-header.header-inner {
+    background: #ffffff !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    color: #000000;
+    color: #000000 !important;
     border-bottom: 1px solid #eee;
 }
 
-header.site-header.scrolled .nav-item,
-header.site-header.force-white .nav-item {
+/* Nav Item Colors in White Background State */
+header.site-header.header-home.scrolled .nav-item,
+header.site-header.header-inner .nav-item {
     color: #000024 !important;
 }
 
@@ -145,14 +150,15 @@ header.site-header.force-white .nav-item {
     height: 40px;
 }
 
-header.scrolled .logo img.logo-light,
-header.force-white .logo img.logo-light {
-    display: none;
+/* Logo Visibility Logic */
+header.site-header.scrolled .logo img.logo-light,
+header.site-header.header-inner .logo img.logo-light {
+    display: none !important;
 }
 
-header.scrolled .logo img.logo-dark,
-header.force-white .logo img.logo-dark {
-    display: block;
+header.site-header.scrolled .logo img.logo-dark,
+header.site-header.header-inner .logo img.logo-dark {
+    display: block !important;
 }
 
 .main-nav {
@@ -167,7 +173,7 @@ header.force-white .logo img.logo-dark {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    cursor: pointer;
+    cursor: default;
     position: relative;
 }
 
@@ -176,6 +182,7 @@ header.force-white .logo img.logo-dark {
     height: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-link::after {
@@ -194,13 +201,15 @@ header.force-white .logo img.logo-dark {
     opacity: 1;
 }
 
-header.scrolled .nav-item:hover {
+header.scrolled .nav-item:hover,
+header.header-inner .nav-item:hover {
     color: var(--accent);
 }
 
 .nav-item.active {
     background-color: #315ba4;
-    padding: 0 25px; /* Slightly wider for the active block */
+    padding: 0 25px;
+    /* Slightly wider for the active block */
 }
 
 .nav-item.active .nav-link {
@@ -208,6 +217,30 @@ header.scrolled .nav-item:hover {
 }
 
 .nav-item.active .nav-link::after {
+    display: none;
+}
+
+/* Homepage: remove active blue block, keep text white */
+header.site-header.header-home .nav-item.active {
+    background-color: transparent;
+    padding: 0 20px;
+}
+
+header.site-header.header-home .nav-item.active .nav-link {
+    color: inherit !important;
+}
+
+/* Homepage: blue background hover effect on nav items */
+header.site-header.header-home .nav-item:hover {
+    background-color: #315ba4;
+    color: #fff !important;
+}
+
+header.site-header.header-home .nav-item:hover .nav-link {
+    color: #fff !important;
+}
+
+header.site-header.header-home .nav-item:hover .nav-link::after {
     display: none;
 }
 
@@ -612,14 +645,9 @@ header.scrolled .nav-item:hover {
     color: #fff;
 }
 
+/* Header shadow and color in scrolled state */
 header#site-header.scrolled {
-    background-color: #ffffff !important;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1) !important;
-    color: #000000 !important;
-}
-
-header#site-header.scrolled .nav-item {
-    color: #000000 !important;
 }
 
 /* ===== MOBILE ADAPTATION ===== */
@@ -675,7 +703,7 @@ header#site-header.scrolled .nav-item {
         color: #555 !important;
     }
 
-    .nav-item:first-child {
+    .nav-item.active {
         background: var(--primary);
         color: #fff !important;
     }
@@ -1120,17 +1148,21 @@ header#site-header.scrolled .nav-item {
     .product-grid {
         grid-template-columns: 1fr;
     }
+
     .gallery-container {
         flex-direction: column;
     }
+
     .gallery-thumbs {
         flex-direction: row;
         width: 100%;
         overflow-x: auto;
     }
+
     .adv-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .form-grid {
         grid-template-columns: 1fr;
     }
@@ -1140,6 +1172,7 @@ header#site-header.scrolled .nav-item {
     .adv-grid {
         grid-template-columns: 1fr;
     }
+
     .inquiry-container {
         padding: 40px 20px;
     }
@@ -1191,12 +1224,14 @@ header#site-header.scrolled .nav-item {
     margin: 0;
     display: block;
 }
+
 /* INTERACTION ENHANCEMENTS */
 .spec-row-hover:hover {
     background-color: #f1f7ff !important;
 }
 
-.form-input:hover, .form-input:focus {
+.form-input:hover,
+.form-input:focus {
     border-color: var(--accent) !important;
     outline: none;
     background-color: #fff !important;
@@ -1218,7 +1253,7 @@ header#site-header.scrolled .nav-item {
     color: #fff;
     padding: 12px 24px;
     border-radius: 30px;
-    box-shadow: 0 10px 25px rgba(255,106,0,0.3);
+    box-shadow: 0 10px 25px rgba(255, 106, 0, 0.3);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 700;
@@ -1229,7 +1264,7 @@ header#site-header.scrolled .nav-item {
 
 .sticky-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(255,106,0,0.4);
+    box-shadow: 0 15px 35px rgba(255, 106, 0, 0.4);
     background: #ff7f24;
 }
 
@@ -1250,21 +1285,25 @@ header#site-header.scrolled .nav-item {
     display: block;
     overflow: hidden;
 }
+
 .catalog-card-item .card-image {
     height: 240px;
     overflow: hidden;
     background: #f8f9fa;
 }
+
 .catalog-card-item .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
 }
+
 .catalog-card-item .card-content {
     padding: 25px;
     text-align: center;
 }
+
 .catalog-card-item .card-content h3 {
     font-size: 1.8rem;
     font-weight: 700;
@@ -1273,14 +1312,17 @@ header#site-header.scrolled .nav-item {
     line-height: 1.4;
     transition: color 0.3s;
 }
+
 .catalog-card-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: #315ba4;
 }
+
 .catalog-card-item:hover h3 {
     color: #315ba4;
 }
+
 .catalog-card-item:hover .card-image img {
     transform: scale(1.05);
 }

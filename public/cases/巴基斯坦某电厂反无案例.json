@@ -20,5 +20,8 @@
     "omni-directional-rf-jammer",
     "directional-rf-jammer"
   ],
-  "handle": "pakistan-power-plant-anti-uav"
+  "handle": "pakistan-power-plant-anti-uav",
+  "region_en": "Asia",
+  "country_en": "Pakistan",
+  "solution_category_id": "02_InfrastructureProtection"
 }

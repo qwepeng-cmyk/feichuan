@@ -14,11 +14,11 @@ export default function InquiryForm() {
     });
 
     const demandOptions = [
-        'Equipment',
-        'Materials (brochures, catalogs)',
-        'To Be Our Agent',
-        'After-sales Services & Spare Parts',
-        'Operational Support'
+        'Product Pricing & Quotation',
+        'Request a Custom Solution',
+        'Product Brochures & Tech Specs',
+        'Partnership / Distributor Application',
+        'Technical & After-Sales Support'
     ];
 
     const toggleDemand = (opt: string) => {
@@ -39,7 +39,7 @@ export default function InquiryForm() {
         <div className="inquiry-container" style={{ borderRadius: '0', boxShadow: 'none', border: '1px solid #eee' }}>
             <h2 className="section-title" style={{ marginBottom: '10px' }}>Get Solution & Quotation</h2>
             <p style={{ textAlign: 'center', color: '#666', fontSize: '1.6rem', maxWidth: '800px', margin: '0 auto 40px', lineHeight: '1.6' }}>
-                Please fill out the form below, and we can satisfy any of your needs including equipment selection, scheme design, technical support, or after-sales service. We will contact you as soon as possible.
+                Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.
             </p>
 
             <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
@@ -90,15 +90,72 @@ export default function InquiryForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label"><span style={{ color: 'red' }}>*</span> Country Code</label>
-                        <input
-                            type="text"
+                        <select
                             required
                             className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            placeholder="e.g. +86"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        />
+                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}
+                            value={formData.countryCode}
+                            onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
+                        >
+                            <option value="">Select Code...</option>
+                            
+                            <optgroup label="Asia & Middle East">
+                                <option value="+86">China (+86)</option>
+                                <option value="+971">UAE (+971)</option>
+                                <option value="+966">Saudi Arabia (+966)</option>
+                                <option value="+98">Iran (+98)</option>
+                                <option value="+90">Turkey (+90)</option>
+                                <option value="+974">Qatar (+974)</option>
+                                <option value="+968">Oman (+968)</option>
+                                <option value="+965">Kuwait (+965)</option>
+                                <option value="+964">Iraq (+964)</option>
+                                <option value="+91">India (+91)</option>
+                                <option value="+81">Japan (+81)</option>
+                                <option value="+82">South Korea (+82)</option>
+                                <option value="+65">Singapore (+65)</option>
+                                <option value="+60">Malaysia (+60)</option>
+                                <option value="+998">Uzbekistan (+998)</option>
+                            </optgroup>
+
+                            <optgroup label="Europe & CIS">
+                                <option value="+7">Russia / Kazakhstan (+7)</option>
+                                <option value="+375">Belarus (+375)</option>
+                                <option value="+44">United Kingdom (+44)</option>
+                                <option value="+49">Germany (+49)</option>
+                                <option value="+33">France (+33)</option>
+                                <option value="+39">Italy (+39)</option>
+                                <option value="+34">Spain (+34)</option>
+                            </optgroup>
+
+                            <optgroup label="South America">
+                                <option value="+55">Brazil (+55)</option>
+                                <option value="+54">Argentina (+54)</option>
+                                <option value="+57">Colombia (+57)</option>
+                                <option value="+56">Chile (+56)</option>
+                                <option value="+51">Peru (+51)</option>
+                                <option value="+593">Ecuador (+593)</option>
+                                <option value="+58">Venezuela (+58)</option>
+                            </optgroup>
+
+                            <optgroup label="Africa">
+                                <option value="+20">Egypt (+20)</option>
+                                <option value="+213">Algeria (+213)</option>
+                                <option value="+212">Morocco (+212)</option>
+                                <option value="+234">Nigeria (+234)</option>
+                                <option value="+27">South Africa (+27)</option>
+                                <option value="+254">Kenya (+254)</option>
+                                <option value="+251">Ethiopia (+251)</option>
+                            </optgroup>
+
+                            <optgroup label="North America & Oceania">
+                                <option value="+1">USA / Canada (+1)</option>
+                                <option value="+52">Mexico (+52)</option>
+                                <option value="+61">Australia (+61)</option>
+                                <option value="+64">New Zealand (+64)</option>
+                            </optgroup>
+
+                            <option value="other">Other (Please add in message)</option>
+                        </select>
                     </div>
                     <div className="form-group">
                         <label className="form-label"><span style={{ color: 'red' }}>*</span> Phone Number</label>
@@ -114,7 +171,7 @@ export default function InquiryForm() {
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> Demand:</label>
+                    <label className="form-label"><span style={{ color: 'red' }}>*</span> Inquiry Type:</label>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
                         {demandOptions.map(opt => (
                             <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1.5rem', color: '#444' }}>
@@ -131,12 +188,12 @@ export default function InquiryForm() {
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> What products or content are you interested in?</label>
+                    <label className="form-label"><span style={{ color: 'red' }}>*</span> Project Details / Message</label>
                     <textarea
                         required
                         className="form-input form-textarea"
                         style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '120px' }}
-                        placeholder="What problems have you encountered? The more detailed you write here, the more targeted solutions we can provide."
+                        placeholder="Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening)."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />

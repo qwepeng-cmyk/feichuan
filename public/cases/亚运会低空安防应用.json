@@ -24,5 +24,8 @@
     "directional-rf-jammer",
     "low-altitude-3d-pulse-doppler-radar"
   ],
-  "handle": "asian-games-security"
+  "handle": "asian-games-security",
+  "region_en": "Asia",
+  "country_en": "China",
+  "solution_category_id": "03_KeyAreaSecurity"
 }

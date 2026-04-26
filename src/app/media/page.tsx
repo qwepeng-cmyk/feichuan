@@ -6,6 +6,8 @@ import NEWS_DATA from '../../../public/media/news_data.json';
 export default function MediaPage() {
     // Current category state for filtering
     const [activeCategory, setActiveCategory] = React.useState('all');
+    const [currentPage, setCurrentPage] = React.useState(1);
+    const pageSize = 6; // 3 rows of 2 cards
 
     // Title mapping based on selected category
     const categoryTitles: Record<string, string> = {
@@ -14,6 +16,17 @@ export default function MediaPage() {
         'product': 'Product & Tech',
         'industry': 'Industry Insights'
     };
+
+    // Filtered data
+    const filteredNews = NEWS_DATA.filter(n => activeCategory === 'all' || n.category === activeCategory);
+    
+    // Reset page when category changes
+    React.useEffect(() => {
+        setCurrentPage(1);
+    }, [activeCategory]);
+
+    const totalPages = Math.ceil(filteredNews.length / pageSize);
+    const paginatedNews = filteredNews.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
     return (
         <div className="media-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
@@ -93,7 +106,7 @@ export default function MediaPage() {
                             }}></div>
                         </h2>
                         <div style={{ fontSize: '1.4rem', color: '#888', fontWeight: 500, marginTop: '10px' }}>
-                            {NEWS_DATA.filter(n => activeCategory === 'all' || n.category === activeCategory).length} updates found
+                            {filteredNews.length} updates found
                         </div>
                     </div>
 
@@ -102,7 +115,7 @@ export default function MediaPage() {
                         gridTemplateColumns: 'repeat(2, 1fr)', 
                         gap: '40px' 
                     }}>
-                        {NEWS_DATA.filter(n => activeCategory === 'all' || n.category === activeCategory).map((news) => (
+                        {paginatedNews.map((news) => (
                             <a href={`/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
                                 <div className="news-image-wrapper" style={{ 
                                     height: '350px', 
@@ -142,34 +155,53 @@ export default function MediaPage() {
                         ))}
                     </div>
 
-                    {/* 5. Pagination */}
-                    <div className="pagination-wrapper" style={{ 
-                        marginTop: '80px', 
-                        display: 'flex', 
-                        justifyContent: 'center', 
-                        gap: '10px' 
-                    }}>
-                        {[1, 2, 3].map(p => (
-                            <div key={p} style={{ 
-                                width: '45px', 
-                                height: '45px', 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                justifyContent: 'center', 
-                                border: '1px solid #ddd', 
-                                fontSize: '1.6rem',
-                                fontWeight: 600,
-                                color: p === 1 ? '#fff' : '#444',
-                                backgroundColor: p === 1 ? '#315ba4' : 'transparent',
-                                cursor: 'pointer'
-                            }}>{p}</div>
-                        ))}
-                    </div>
+                    {/* 5. Dynamic Pagination */}
+                    {totalPages > 1 && (
+                        <div className="pagination-wrapper" style={{ 
+                            marginTop: '80px', 
+                            display: 'flex', 
+                            justifyContent: 'center', 
+                            gap: '10px' 
+                        }}>
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+                                <div 
+                                    key={p} 
+                                    onClick={() => {
+                                        setCurrentPage(p);
+                                        window.scrollTo({ top: 300, behavior: 'smooth' });
+                                    }}
+                                    style={{ 
+                                        width: '45px', 
+                                        height: '45px', 
+                                        display: 'flex', 
+                                        alignItems: 'center', 
+                                        justifyContent: 'center', 
+                                        border: '1px solid #ddd', 
+                                        fontSize: '1.6rem',
+                                        fontWeight: 600,
+                                        color: p === currentPage ? '#fff' : '#444',
+                                        backgroundColor: p === currentPage ? '#315ba4' : 'transparent',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.2s'
+                                    }}
+                                >
+                                    {p}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 
             {/* CSS for custom hover in Media page */}
             <style jsx>{`
+                .news-card-group {
+                    transition: all 0.3s ease;
+                }
+                .news-card-group:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                }
                 .news-card-group:hover .news-text-content {
                     background-color: #315ba4 !important;
                     border-color: #315ba4 !important;
@@ -178,7 +210,7 @@ export default function MediaPage() {
                     color: #fff !important;
                 }
                 .news-card-group:hover .card-img {
-                    transform: scale(1.05);
+                    transform: scale(1.08);
                 }
             `}</style>
         </div>

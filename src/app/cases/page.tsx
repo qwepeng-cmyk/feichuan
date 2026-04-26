@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAllCases } from '@/lib/cases';
+import CasesPageClient from './CasesPageClient';
 
 export default async function CasesPage() {
     // 动态获取所有的真实 Cases 数据
@@ -32,31 +33,9 @@ export default async function CasesPage() {
                     </div>
                 </section>
 
-                {/* 2. CASE LISTS (与 Solution Center 图文样式完全对齐) */}
-                <div className="product-lists-wrap" style={{ padding: '80px 0', backgroundColor: '#fcfdfe' }}>
-                    <div className="container">
-                        <div className="solution-grid" style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(3, 1fr)',
-                            gap: '30px'
-                        }}>
-                            {cases.map((item, idx) => (
-                                <a href={`/cases/${item.handle}`} key={idx} className="catalog-card-item">
-                                    <div className="card-image">
-                                        <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={item.title_en} />
-                                    </div>
-                                    <div className="card-content">
-                                        <h3>{item.title_en}</h3>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                {/* 2. CASE LISTS WITH FILTERS */}
+                <CasesPageClient allCases={cases} />
             </main>
-
-            {/* 注入与 Solution 页面一致的 CSS */}
-            
         </div>
     );
 }

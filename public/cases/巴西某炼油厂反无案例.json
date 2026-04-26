@@ -23,5 +23,8 @@
     "omni-directional-rf-jammer",
     "directional-rf-jammer"
   ],
-  "handle": "brazil-refinery-anti-uav"
+  "handle": "brazil-refinery-anti-uav",
+  "region_en": "South America",
+  "country_en": "Brazil",
+  "solution_category_id": "02_InfrastructureProtection"
 }

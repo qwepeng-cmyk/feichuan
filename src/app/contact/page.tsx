@@ -66,7 +66,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>WhatsApp</h4>
-                                            <a href="https://wa.me/+8613761974616" style={{ fontSize: '2rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none' }}>+86 13761974616</a>
+                                            <a href="https://wa.me/+8613613714648" style={{ fontSize: '2rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none' }}>+86 136 1371 4648</a>
                                         </div>
                                     </div>
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>Email</h4>
-                                            <div style={{ fontSize: '2rem', fontWeight: 700, color: '#333' }}>sales@fc-uav.com</div>
+                                            <div style={{ fontSize: '2rem', fontWeight: 700, color: '#333' }}>info@n-tetbj.com</div>
                                         </div>
                                     </div>
 
@@ -86,7 +86,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>Sales Hotline</h4>
-                                            <div style={{ fontSize: '20px', fontWeight: 700, color: '#333' }}>+86 137 6197 4616</div>
+                                            <div style={{ fontSize: '20px', fontWeight: 700, color: '#333' }}>+86 010 8362 2127</div>
                                         </div>
                                     </div>
 
@@ -97,8 +97,8 @@ export default function ContactPage() {
                                         <div>
                                             <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>Company Address</h4>
                                             <div style={{ fontSize: '1.8rem', fontWeight: 600, color: '#333', lineHeight: '1.4' }}>
-                                                Shanghai Songjiang High Tech Park, <br/>
-                                                388 Xxxx Road, Shanghai, China
+                                                Jujie Financial Building, Lize Road,<br/>
+                                                Fengtai District, Beijing, China
                                             </div>
                                         </div>
                                     </div>

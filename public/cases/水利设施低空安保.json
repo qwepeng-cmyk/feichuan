@@ -19,5 +19,8 @@
     "stationary-rf-detection-system",
     "stationary-active-rf-defense-system"
   ],
-  "handle": "water-conservancy-security"
+  "handle": "water-conservancy-security",
+  "region_en": "Asia",
+  "country_en": "China",
+  "solution_category_id": "02_InfrastructureProtection"
 }

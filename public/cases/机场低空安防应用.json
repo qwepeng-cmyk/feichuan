@@ -27,5 +27,8 @@
     "low-altitude-3d-pulse-doppler-radar",
     "handheld-integrated-multi-band-jammer-gun"
   ],
-  "handle": "airport-security-application"
+  "handle": "airport-security-application",
+  "region_en": "Asia",
+  "country_en": "China",
+  "solution_category_id": "03_KeyAreaSecurity"
 }

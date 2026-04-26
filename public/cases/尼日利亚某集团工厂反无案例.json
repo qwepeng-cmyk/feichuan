@@ -23,5 +23,8 @@
     "omni-directional-rf-jammer",
     "directional-rf-jammer"
   ],
-  "handle": "nigeria-factory-anti-uav"
+  "handle": "nigeria-factory-anti-uav",
+  "region_en": "Africa",
+  "country_en": "Nigeria",
+  "solution_category_id": "02_InfrastructureProtection"
 }

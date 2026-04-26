@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
+import NEWS_DATA from '../../public/media/news_data.json';
 
 const products = [
     {
@@ -123,6 +124,9 @@ export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const solutionTrackRef = useRef<HTMLDivElement>(null);
 
+    // Get latest 3 news
+    const latestNews = NEWS_DATA.slice(0, 3);
+
     const switchProduct = (index: number) => {
         setCurrentIndex(index);
     };
@@ -215,7 +219,6 @@ export default function Home() {
 
     return (
         <main>
-
             {/* SCREEN 1: HERO */}
             <section className="hero">
                 <video src="/index_banner_bg_1.mp4" autoPlay loop muted playsInline></video>
@@ -273,14 +276,14 @@ export default function Home() {
                                 justifyContent: 'center',
                                 flex: 1
                             }}>
-                                <a 
-                                    href={`/products/${currentProduct.handle}`} 
+                                <a
+                                    href={`/products/${currentProduct.handle}`}
                                     className="pc2-image-link"
-                                    style={{ 
-                                        display: 'flex', 
-                                        alignItems: 'center', 
-                                        justifyContent: 'center', 
-                                        width: '100%', 
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: '100%',
                                         height: '100%',
                                         transition: 'all 0.5s ease'
                                     }}
@@ -327,14 +330,14 @@ export default function Home() {
                     </div>
                     <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                         {homeCases.map((item, idx) => (
-                            <a 
-                                key={idx} 
+                            <a
+                                key={idx}
                                 href={`/cases/${item.handle}`}
                                 className="case-card-link"
-                                style={{ 
-                                    position: 'relative', 
-                                    borderRadius: '12px', 
-                                    overflow: 'hidden', 
+                                style={{
+                                    position: 'relative',
+                                    borderRadius: '12px',
+                                    overflow: 'hidden',
                                     height: '320px',
                                     display: 'block',
                                     textDecoration: 'none',
@@ -343,13 +346,13 @@ export default function Home() {
                                 }}
                             >
                                 <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} />
-                                <div className="case-overlay" style={{ 
-                                    position: 'absolute', 
-                                    inset: 0, 
-                                    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)', 
-                                    display: 'flex', 
+                                <div className="case-overlay" style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)',
+                                    display: 'flex',
                                     flexDirection: 'column',
-                                    justifyContent: 'flex-end', 
+                                    justifyContent: 'flex-end',
                                     padding: '30px',
                                     transition: 'background 0.4s ease'
                                 }}>
@@ -363,22 +366,6 @@ export default function Home() {
                         <a href="/cases" className="btn btn-orange" style={{ padding: '15px 40px' }}>VIEW ALL CASES</a>
                     </div>
                 </div>
-                <style jsx>{`
-                    .case-card-link:hover {
-                        transform: translateY(-10px);
-                        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-                    }
-                    .case-card-link:hover img {
-                        transform: scale(1.1);
-                    }
-                    .case-card-link:hover .case-overlay {
-                        background: linear-gradient(to top, rgba(49, 91, 164, 0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-                    }
-                    .pc2-image-link:hover img {
-                        transform: scale(${parseFloat(currentProduct.scale.toString()) * 1.05}) translateY(${currentProduct.offsetY - 10}px) !important;
-                        filter: drop-shadow(0 20px 40px rgba(49, 91, 164, 0.25)) !important;
-                    }
-                `}</style>
             </section>
 
             {/* SCREEN 5: ABOUT US */}
@@ -418,53 +405,73 @@ export default function Home() {
                         <h2 style={{ fontSize: '3.6rem', fontWeight: 600, color: '#333', letterSpacing: '2px', textTransform: 'uppercase' }}>News</h2>
                     </div>
                     <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {[
-                            {
-                                title: "Unlocking the Full Value of Limestone! Industrial processing breakthroughs.",
-                                date: "2026/04/15",
-                                img: "/index/news_drone.png"
-                            },
-                            {
-                                title: "N-TET Heavy Industry sincerely invites you to Mining World Russia 2026.",
-                                date: "2026/04/15",
-                                img: "/index/news_drone.png"
-                            },
-                            {
-                                title: "N-TET sincerely invites you to Chihuahua International Convention of Mining.",
-                                date: "2026/04/14",
-                                img: "/index/news_drone.png"
-                            }
-                        ].map((item, i) => (
-                            <div key={i} className="news-card" style={{
+                        {latestNews.map((item, i) => (
+                            <a key={i} href={`/media/${item.id}`} className="news-card" style={{
                                 background: '#f8f8f8',
                                 border: '1px solid #eee',
                                 overflow: 'hidden',
                                 transition: 'all 0.3s ease',
-                                cursor: 'pointer'
+                                cursor: 'pointer',
+                                textDecoration: 'none',
+                                display: 'block'
                             }}>
                                 <div style={{ height: '220px', overflow: 'hidden' }}>
-                                    <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                                    <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                                 </div>
-                                <div style={{ padding: '25px' }}>
+                                <div className="news-card-content" style={{ padding: '25px', transition: 'background-color 0.3s ease' }}>
                                     <h3 style={{
                                         fontSize: '1.8rem',
                                         color: '#333',
                                         marginBottom: '15px',
                                         lineHeight: 1.4,
-                                        fontWeight: 500,
+                                        fontWeight: 600,
                                         display: '-webkit-box',
                                         WebkitLineClamp: 2,
                                         WebkitBoxOrient: 'vertical',
-                                        overflow: 'hidden'
+                                        overflow: 'hidden',
+                                        transition: 'color 0.3s ease'
                                     }}>{item.title}</h3>
-                                    <p style={{ color: '#999', fontSize: '1.4rem' }}>{item.date}</p>
+                                    <p style={{ color: '#999', fontSize: '1.4rem', transition: 'color 0.3s ease' }}>{item.date}</p>
                                 </div>
-                            </div>
+                            </a>
                         ))}
+                    </div>
+                    <div style={{ textAlign: 'center', marginTop: '60px' }}>
+                        <a href="/media" className="btn btn-orange" style={{ padding: '15px 40px' }}>VIEW ALL NEWS</a>
                     </div>
                 </div>
             </section>
 
+            <style jsx>{`
+                .case-card-link:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+                }
+                .case-card-link:hover img {
+                    transform: scale(1.1);
+                }
+                .case-card-link:hover .case-overlay {
+                    background: linear-gradient(to top, rgba(49, 91, 164, 0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+                }
+                .pc2-image-link:hover img {
+                    transform: scale(${parseFloat(currentProduct.scale.toString()) * 1.05}) translateY(${currentProduct.offsetY - 10}px) !important;
+                    filter: drop-shadow(0 20px 40px rgba(49, 91, 164, 0.25)) !important;
+                }
+                .news-card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                    border-color: var(--primary) !important;
+                }
+                .news-card:hover .news-card-content {
+                    background-color: var(--primary) !important;
+                }
+                .news-card:hover img {
+                    transform: scale(1.1);
+                }
+                .news-card:hover h3, .news-card:hover p {
+                    color: #fff !important;
+                }
+            `}</style>
         </main>
     );
 }
