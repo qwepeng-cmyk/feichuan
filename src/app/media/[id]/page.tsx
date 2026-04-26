@@ -2,29 +2,11 @@
 import React from 'react';
 import InquiryForm from '@/components/products/InquiryForm';
 
-// Mock news catalog for matching
-const MOCK_NEWS = [
-    {
-        id: 1,
-        category: 'corporate',
-        title: 'N-TET Signed Strategic Partnership for Border Security Equipment Supply',
-        date: 'Oct 24, 2024',
-        summary: 'In a significant move to enhance regional security, N-TET has entered into a strategic partnership with global defense agencies to provide advanced UAV and anti-drone surveillance systems.',
-        content: `
-            <p>Our commitment to global security has reached a new milestone. The agreement signed this week paves the way for a comprehensive deployment of long-range reconnaissance drones and signal jamming stations across critical border lines.</p>
-            <img src="https://images.unsplash.com/photo-1454165833767-02654ef5c121?auto=format&fit=crop&q=80&w=1200" alt="Signing Ceremony" style="width:100%; margin: 30px 0;" />
-            <p>The joint initiative focuses on "Total Tactical Advantage" — a multi-layered approach that integrates AI-driven analytics with rugged hardware capable of operating in extreme environments from -30°C to +55°C.</p>
-            <h3>Technological Sophistication</h3>
-            <p>The systems provided include the newly developed Sentinel-4 UAVs, which offer a flight endurance of over 10 hours and encrypted data transmission links secure against sophisticated cyber threats. By deploying these systems, local enforcement can achieve a 24/7 "Eye in the Sky" capability, significantly reducing illegal incursions.</p>
-            <p>As part of the package, N-TET will also provide full training and 3-year on-site operational support to ensure the highest level of mission success.</p>
-        `
-    }
-];
+import NEWS_DATA from '../../../../public/media/news_data.json';
 
 export default function NewsDetailPage({ params }: { params: { id: string } }) {
     // Dynamically find news based on the ID in the URL
-    const newsId = parseInt(params.id);
-    const news = MOCK_NEWS.find(n => n.id === newsId) || MOCK_NEWS[0]; // Fallback to first if not found
+    const news = NEWS_DATA.find(n => n.id === params.id) || NEWS_DATA[0]; // Fallback to first if not found
 
     if (!news) {
         return <div style={{ padding: '200px', textAlign: 'center', fontSize: '2rem' }}>News Article Not Found.</div>;
@@ -41,17 +23,29 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
                 </div>
             </div>
 
-            {/* 2. Banner Section */}
-            <section className="internal-banner" style={{ 
-                height: '30vh', 
-                minHeight: '240px', 
-                background: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920") no-repeat center/cover',
+            {/* 2. Banner Section (Sync with Center Pages Style) */}
+            <section className="product-banner" style={{ 
+                height: '40vh',
+                minHeight: '320px',
+                maxHeight: '450px', 
+                backgroundImage: "url('/media/media_banner.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
                 display: 'flex',
                 alignItems: 'center',
-                color: '#fff'
+                position: 'relative',
+                overflow: 'hidden',
+                borderBottom: '1px solid #e1e8f0'
             }}>
-                <div className="container">
-                    <h2 style={{ fontSize: '3.6rem', fontWeight: 800, textTransform: 'uppercase' }}>Insights & Feed</h2>
+                {/* Visual Overlay - 30% for consistency */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div style={{ maxWidth: '800px' }}>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Insights & Global Feed</h1>
+                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
+                    </div>
                 </div>
             </section>
 
@@ -64,27 +58,18 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
                         <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>Published on: {news.date}</div>
                     </div>
 
-                    {/* Summary Block */}
-                    <div style={{ 
-                        padding: '30px', 
-                        background: '#f4f7fa', 
-                        borderLeft: '5px solid #315ba4', 
-                        marginBottom: '50px',
-                        fontSize: '1.8rem',
-                        lineHeight: '1.7',
-                        color: '#555',
-                        fontStyle: 'italic'
-                    }}>
-                        {news.summary}
+                    {/* Featured Image */}
+                    <div style={{ marginBottom: '50px' }}>
+                        <img src={news.image} alt={news.title} style={{ width: '100%', maxHeight: '600px', objectFit: 'cover', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }} />
                     </div>
 
                     {/* Rich Content Area */}
-                    <div className="news-rich-content" dangerouslySetInnerHTML={{ __html: news.content }} style={{
+                    <div className="news-rich-content" style={{
                         fontSize: '1.8rem',
                         lineHeight: '1.8',
                         color: '#444'
                     }}>
-                        {/* Styles for content injected via dangerouslySetInnerHTML */}
+                        <p>{news.content}</p>
                     </div>
                 </div>
             </article>

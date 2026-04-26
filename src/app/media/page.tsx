@@ -1,51 +1,7 @@
 'use client';
 import React from 'react';
 
-// Mock news data structure for development
-const MOCK_NEWS = [
-    {
-        id: 1,
-        category: 'corporate',
-        title: 'N-TET Signed Strategic Partnership for Border Security Equipment Supply',
-        date: 'Oct 24, 2024',
-        image: 'https://images.unsplash.com/photo-1454165833767-02654ef5c121?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        id: 2,
-        category: 'product',
-        title: 'Launch of Next-Generation Anti-Drone System with AI-Target Tracking',
-        date: 'Oct 15, 2024',
-        image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        id: 3,
-        category: 'industry',
-        title: 'Low-Altitude Economy: New Opportunities in Civil UAV Market Regulation',
-        date: 'Sep 28, 2024',
-        image: 'https://images.unsplash.com/photo-1473960104372-7bc7ae212a10?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        id: 4,
-        category: 'corporate',
-        title: 'Company Delegation Visit to the International Defense Electronics Exhibition',
-        date: 'Sep 12, 2024',
-        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        id: 5,
-        category: 'product',
-        title: 'Technical Breakthrough: Long-Range Wireless Power for Tethered UAVs',
-        date: 'Aug 30, 2024',
-        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        id: 6,
-        category: 'industry',
-        title: 'Global Trends in Infrastructure Protection Against Unauthorized Drone Incursions',
-        date: 'Aug 18, 2024',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-    }
-];
+import NEWS_DATA from '../../../public/media/news_data.json';
 
 export default function MediaPage() {
     // Current category state for filtering
@@ -137,7 +93,7 @@ export default function MediaPage() {
                             }}></div>
                         </h2>
                         <div style={{ fontSize: '1.4rem', color: '#888', fontWeight: 500, marginTop: '10px' }}>
-                            {MOCK_NEWS.filter(n => activeCategory === 'all' || n.category === activeCategory).length} updates found
+                            {NEWS_DATA.filter(n => activeCategory === 'all' || n.category === activeCategory).length} updates found
                         </div>
                     </div>
 
@@ -146,7 +102,7 @@ export default function MediaPage() {
                         gridTemplateColumns: 'repeat(2, 1fr)', 
                         gap: '40px' 
                     }}>
-                        {MOCK_NEWS.filter(n => activeCategory === 'all' || n.category === activeCategory).map((news) => (
+                        {NEWS_DATA.filter(n => activeCategory === 'all' || n.category === activeCategory).map((news) => (
                             <a href={`/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
                                 <div className="news-image-wrapper" style={{ 
                                     height: '350px', 

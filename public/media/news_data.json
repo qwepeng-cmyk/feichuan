@@ -1,0 +1,74 @@
+[
+    {
+        "id": "corp-01",
+        "category": "corporate",
+        "title": "N-TET Global HQ Expansion: Fostering Innovation in Unmanned Security",
+        "date": "Apr 20, 2026",
+        "image": "/media/news/corporate_hq_1777182801190.png",
+        "content": "To meet the growing global demand for advanced low-altitude security systems, N-TET has officially broken ground on its new 50,000 sqm Global Headquarters and R&D Center. This state-of-the-art facility will house over 500 engineers and feature dedicated testing zones for multi-band RF systems and heavy-lift UAVs. 'This expansion reflects our commitment to staying at the forefront of global defense technology,' said the CEO during the ground-breaking ceremony."
+    },
+    {
+        "id": "corp-02",
+        "category": "corporate",
+        "title": "N-TET Signs Strategic MoU with Middle East Defense Consortium",
+        "date": "Mar 15, 2026",
+        "image": "/media/news/corporate_mou_1777182812892.png",
+        "content": "In a landmark agreement, N-TET has signed a Memorandum of Understanding with a major Middle East defense consortium to provide comprehensive C-UAS (Counter-Unmanned Aircraft Systems) solutions. The partnership aims to protect critical infrastructure across the region, integrating N-TET's proprietary radar-vision fusion technology with existing localized defense grids."
+    },
+    {
+        "id": "corp-03",
+        "category": "corporate",
+        "title": "Annual Sustainability Report: Achieving Carbon-Neutral Manufacturing by 2030",
+        "date": "Feb 10, 2026",
+        "image": "/media/news/corporate_eco_1777182825626.png",
+        "content": "As part of its ongoing ESG initiatives, N-TET has released its 2025 Sustainability Report, outlining a clear roadmap to achieve carbon-neutral manufacturing by 2030. Key initiatives include outfitting the primary production facility with high-efficiency solar arrays and transitioning to 100% recyclable carbon fiber composites for all UAV airframes."
+    },
+    {
+        "id": "prod-01",
+        "category": "product",
+        "title": "Unveiling the FC-X8: The Next Evolution in Heavy-Lift Tactical UAVs",
+        "date": "Apr 18, 2026",
+        "image": "/media/news/product_uav_1777182838859.png",
+        "content": "Building on the success of the FC-X6, N-TET is proud to announce the FC-X8, a next-generation heavy-lift tactical UAV. Featuring an enhanced carbon-fiber monolithic chassis and a dual-redundant flight control system, the FC-X8 increases payload capacity by 40% while maintaining exceptional stability in adverse weather conditions, making it ideal for emergency rescue and defense logistics."
+    },
+    {
+        "id": "prod-02",
+        "category": "product",
+        "title": "Revolutionary AI Tracking Algorithm Integrated into Omni-Directional Jammers",
+        "date": "Mar 22, 2026",
+        "image": "/media/news/product_ai_1777182850701.png",
+        "content": "Our R&D team has successfully deployed a new AI-driven optical tracking algorithm into our portable and stationary jammer series. This software update allows the systems to autonomously distinguish between authorized fleet drones and hostile incursions within milliseconds, dynamically adjusting RF suppression frequencies for surgical precision without disrupting local communications."
+    },
+    {
+        "id": "prod-03",
+        "category": "product",
+        "title": "New Mil-Spec Certification for Containerized Field Hospital Solutions",
+        "date": "Jan 25, 2026",
+        "image": "/media/news/product_hospital_1777182863995.png",
+        "content": "N-TET’s Mobile Medical Platform has officially received the latest international Mil-Spec certification for environmental resilience. The containerized field hospital units successfully passed rigorous testing for extreme temperatures (-40°C to +55°C), electromagnetic interference shielding, and rapid deployment capabilities under 30 minutes, solidifying its position as a top-tier disaster response asset."
+    },
+    {
+        "id": "ind-01",
+        "category": "industry",
+        "title": "The Future of Low-Altitude Economy: Regulatory Trends in 2026",
+        "date": "Apr 05, 2026",
+        "image": "/media/news/industry_low_altitude_1777182876014.png",
+        "content": "With the exponential growth of the low-altitude economy, global aviation authorities are rapidly updating regulatory frameworks. 2026 marks a turning point with the mandatory implementation of Remote ID systems for commercial drones. This shift underscores the urgent need for integrated low-altitude traffic management (UTM) and intelligent monitoring networks to ensure urban airspace safety."
+    },
+    {
+        "id": "ind-02",
+        "category": "industry",
+        "title": "Integrating C-UAS in Critical Infrastructure: A Global Perspective",
+        "date": "Mar 02, 2026",
+        "image": "/media/news/industry_infrastructure_1777182885720.png",
+        "content": "Recent incidents have highlighted the vulnerability of critical infrastructure—such as power plants and refineries—to unauthorized drone activities. Industry experts are now advocating for a multi-layered defense approach. Establishing an invisible 'electronic dome' using a combination of spoofing, jamming, and kinetic interception is quickly becoming the standard for essential facility protection."
+    },
+    {
+        "id": "ind-03",
+        "category": "industry",
+        "title": "Advancements in Radar-Vision Fusion for Perimeter Defense",
+        "date": "Jan 15, 2026",
+        "image": "/media/news/industry_radar_1777182900682.png",
+        "content": "The limitation of traditional optical cameras in adverse weather has driven a massive industry pivot towards Radar-Vision Fusion technology. By combining the all-weather, long-range detection capabilities of pulse-Doppler radar with the target verification precision of high-definition thermal imaging, security forces can now achieve near 0% false alarm rates in complex environments."
+    }
+]
