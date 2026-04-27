@@ -28,7 +28,7 @@ export default async function ProductPage({ params }: { params: { handle: string
   ];
 
   return (
-    <div className="product-detail-page" style={{ paddingTop: '114px' }}>
+    <div className="product-detail-page" style={{ paddingTop: '112px' }}>
       <main>
         {/* Breadcrumb Row */}
         <div className="product-breadcrumb-nav">

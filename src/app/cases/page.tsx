@@ -7,13 +7,13 @@ export default async function CasesPage() {
     const cases = await getAllCases();
 
     return (
-        <div className="cases-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
+        <div className="cases-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
             <main>
                 {/* 1. HERO BANNER */}
                 <section className="product-banner" style={{
                     height: '40vh',
-                minHeight: '320px',
-                maxHeight: '450px',
+                    minHeight: '320px',
+                    maxHeight: '450px',
                     backgroundImage: "url('/cases/case_banner_final_副本2.png')",
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -22,7 +22,8 @@ export default async function CasesPage() {
                     overflow: 'hidden',
                     display: 'flex',
                     alignItems: 'center',
-                    borderBottom: '1px solid #e1e8f0'
+                    margin: 0,
+                    border: 'none'
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>

@@ -107,8 +107,9 @@ header.site-header {
     left: 0;
     right: 0;
     z-index: 1000;
-    height: 80px;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Home Header - Initial State (Transparent) */
@@ -124,7 +125,7 @@ header.site-header.header-inner {
     background: #ffffff !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     color: #000000 !important;
-    border-bottom: 1px solid #eee;
+    border-bottom: none;
 }
 
 /* Nav Item Colors in White Background State */
@@ -259,7 +260,7 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
-    padding: 50px 0;
+    padding: 20px 0;
     justify-content: center;
     gap: 60px;
 }
@@ -312,7 +313,6 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
 }
 
 .mega-column {
-    width: 260px;
     text-align: left;
 }
 
@@ -326,7 +326,7 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
 }
 
 .mega-list li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     line-height: 1.4;
 }
 
@@ -338,8 +338,7 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
 }
 
 .mega-list a:hover {
-    color: var(--accent);
-    padding-left: 5px;
+    color: var(--primary);
 }
 
 /* LANG SWITCH */
@@ -433,11 +432,12 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
 }
 
 .hero-subtitle {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 300;
-    margin-bottom: 40px;
-    max-width: 700px;
-    color: #ffffff !important;
+    margin-bottom: 45px;
+    max-width: 1000px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95) !important;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 

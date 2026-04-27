@@ -13,13 +13,13 @@ export default async function ProductCenterPage() {
                 {/* Hexacopter - Blades Perpendicular to Arms (Deployed State) */}
                 {/* Central Body Hull */}
                 <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
-                
+
                 {/* 6 Arms */}
                 <g strokeWidth="1.5" strokeLinecap="round">
                     <path d="M24 18V9M24 28v10" />
                     <path d="M21 19.5l-8-5M27 26.5l8 5M21 26.5l-8 5M27 19.5l8-5" />
                 </g>
-                
+
                 {/* Static Blades (Exactly 90° to Arms) */}
                 <g fill="#315ba4" stroke="none">
                     {/* Top Motor (Vertical Arm -> Horizontal Blades) */}
@@ -47,7 +47,7 @@ export default async function ProductCenterPage() {
                         <path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" />
                     </g>
                 </g>
-                
+
                 {/* Hubs */}
                 <circle cx="24" cy="9" r="1.2" fill="#315ba4" />
                 <circle cx="24" cy="38" r="1.2" fill="#315ba4" />
@@ -127,16 +127,16 @@ export default async function ProductCenterPage() {
     }));
 
     return (
-        <div className="product-page-new" style={{ paddingTop: '114px' }}>
+        <div className="product-page-new" style={{ paddingTop: '112px' }}>
             {/* HERO BANNER (HALF HEIGHT) */}
-            <section className="product-banner" style={{ 
+            <section className="product-banner" style={{
                 height: '40vh',
                 minHeight: '320px',
-                maxHeight: '450px', 
-                backgroundImage: "url('/products/products_center_banner.jpg')", 
-                backgroundSize: 'cover', 
-                backgroundRepeat: 'no-repeat', 
-                position: 'relative', 
+                maxHeight: '450px',
+                backgroundImage: "url('/products/products_center_banner.jpg')",
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                position: 'relative',
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center'
@@ -168,10 +168,10 @@ export default async function ProductCenterPage() {
                                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
                             </div>
 
-                            <div className="product-grid" style={{ 
-                                display: 'grid', 
-                                gridTemplateColumns: 'repeat(3, 1fr)', 
-                                gap: '30px' 
+                            <div className="product-grid" style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(3, 1fr)',
+                                gap: '30px'
                             }}>
                                 {categoriesData[category.id]?.map((product, idx) => (
                                     <ProductGridCard key={idx} product={product} />

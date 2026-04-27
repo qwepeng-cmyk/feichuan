@@ -47,7 +47,7 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
   ];
 
   return (
-    <div className="product-detail-page" style={{ paddingTop: '114px' }}>
+    <div className="product-detail-page" style={{ paddingTop: '112px' }}>
       <main>
         {/* 1. 面包屑导航 */}
         <div className="product-breadcrumb-nav">

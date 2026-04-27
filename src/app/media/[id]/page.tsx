@@ -13,7 +13,7 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
     }
 
     return (
-        <div className="news-detail-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
+        <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
             {/* 1. Breadcrumb Row (Shared Global Class) */}
             <div className="product-breadcrumb-nav">
                 <div className="container">

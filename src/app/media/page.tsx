@@ -29,7 +29,7 @@ export default function MediaPage() {
     const paginatedNews = filteredNews.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
     return (
-        <div className="media-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
+        <div className="media-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
             {/* 2. Banner Section (Sync with Center Pages Style) */}
             <section className="product-banner" style={{ 
                 height: '40vh',
@@ -156,7 +156,7 @@ export default function MediaPage() {
                     </div>
 
                     {/* 5. Dynamic Pagination */}
-                    {totalPages > 1 && (
+                    {totalPages >= 1 && (
                         <div className="pagination-wrapper" style={{ 
                             marginTop: '80px', 
                             display: 'flex', 

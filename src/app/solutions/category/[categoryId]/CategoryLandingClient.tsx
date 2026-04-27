@@ -58,7 +58,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
   const containerStyle = { maxWidth: '1240px', margin: '0 auto', padding: '0 20px' };
 
   return (
-    <div className="premium-landing-page" style={{ paddingTop: '114px', background: '#fff', color: '#0f172a', overflowX: 'hidden' }}>
+    <div className="premium-landing-page" style={{ paddingTop: '112px', background: '#fff', color: '#0f172a', overflowX: 'hidden' }}>
 
       {/* ============================================ */}
       {/* 0. Breadcrumb Row                            */}

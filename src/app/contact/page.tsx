@@ -3,7 +3,7 @@ import InquiryForm from '@/components/products/InquiryForm';
 
 export default function ContactPage() {
     return (
-        <div className="contact-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
+        <div className="contact-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
             <main>
                 {/* 1. Breadcrumb Row */}
                 <div className="product-breadcrumb-nav">

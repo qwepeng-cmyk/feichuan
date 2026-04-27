@@ -190,7 +190,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                             </div>
 
                             {/* Dynamic Pagination */}
-                            {totalPages > 1 && (
+                            {totalPages >= 1 && (
                                 <div className="pagination-wrapper" style={{ 
                                     marginTop: '60px', 
                                     display: 'flex', 

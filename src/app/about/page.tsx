@@ -3,7 +3,7 @@ import { Shield, Zap, Eye, Users, Settings } from 'lucide-react';
 
 export default function AboutPage() {
     return (
-        <div className="about-page" style={{ paddingTop: '114px', backgroundColor: '#fff' }}>
+        <div className="about-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
             <main>
                 {/* 1. Breadcrumb Row */}
                 <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>

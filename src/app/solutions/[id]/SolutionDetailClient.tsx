@@ -17,7 +17,7 @@ export default function SolutionDetailClient({ solution, recommendedProducts }: 
   ];
 
   return (
-    <div className="solution-detail-page" style={{ paddingTop: '114px' }}>
+    <div className="solution-detail-page" style={{ paddingTop: '112px' }}>
       <main>
         {/* 1. Breadcrumb Row */}
         <div className="product-breadcrumb-nav">

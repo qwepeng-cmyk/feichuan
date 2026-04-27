@@ -134,7 +134,7 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
     }));
 
     return (
-        <div className="solution-center-page" style={{ paddingTop: '114px' }}>
+        <div className="solution-center-page" style={{ paddingTop: '112px' }}>
             <section className="product-banner" style={{
                 height: '40vh',
                 minHeight: '320px',
