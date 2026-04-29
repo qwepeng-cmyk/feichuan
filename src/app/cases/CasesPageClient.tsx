@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
 
 interface CaseItem {
     handle: string;
@@ -56,7 +57,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
     }, [allCases, selectedSolution, selectedRegionId]);
 
     // Reset to page 1 when filters change
-    React.useEffect(() => {
+    useEffect(() => {
         setCurrentPage(1);
     }, [selectedSolution, selectedRegionId]);
 
@@ -150,89 +151,131 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
     );
 
     return (
-        <div className="cases-page-client">
-            {/* Filter Section */}
-            <section className="filter-bar" style={{ 
-                padding: '65px 0 40px 0', 
-                backgroundColor: '#fff', 
-                borderBottom: '1px solid #f0f3f7'
-            }}>
-                <div className="container">
-                    <div className="filters-wrapper" style={{ maxWidth: '1240px', margin: '0 auto' }}>
-                        {renderRadioFilter('Region:', REGIONS, selectedRegionId, setSelectedRegionId)}
-                        {renderRadioFilter('Solutions:', SOLUTION_CATEGORIES, selectedSolution, setSelectedSolution)}
+        <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                .mobile_only { display: none !important; }
+                .pc_only { display: block !important; }
+                @media (max-width: 991px) {
+                    .mobile_only { display: block !important; }
+                    .pc_only { display: none !important; }
+                }
+            `}} />
+
+            <div className="pc_only">
+                {/* 1. HERO BANNER (PC ONLY) */}
+                <section className="product-banner" style={{
+                    height: '40vh',
+                    minHeight: '320px',
+                    maxHeight: '450px',
+                    backgroundImage: "url('/cases/case_banner_final_副本2.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: 0,
+                    border: 'none'
+                }}>
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                        <div style={{ maxWidth: '800px' }}>
+                            <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Global Case Center</h1>
+                            <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>A global track record of mission success across border patrol, critical facility protection, and emergency rescue operations.</p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Cases Grid */}
-            <div className="product-lists-wrap" style={{ padding: '25px 0 100px 0', backgroundColor: '#fcfdfe', minHeight: '600px' }}>
-                <div className="container">
-                    {paginatedCases.length > 0 ? (
-                        <>
-                            <div className="solution-grid" style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, 1fr)',
-                                gap: '40px'
-                            }}>
-                                {paginatedCases.map((item, idx) => (
-                                    <a href={`/cases/${item.handle}`} key={idx} className="catalog-card-item">
-                                        <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden' }}>
-                                            <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={item.title_en} />
-                                        </div>
-                                        <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
-                                            <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#333', margin: '0', lineHeight: '1.4' }}>
-                                                {item.title_en}
-                                            </h3>
-                                        </div>
-                                    </a>
-                                ))}
+                <div className="cases-page-client">
+                    {/* Filter Section */}
+                    <section className="filter-bar" style={{ 
+                        padding: '65px 0 40px 0', 
+                        backgroundColor: '#fff', 
+                        borderBottom: '1px solid #f0f3f7'
+                    }}>
+                        <div className="container">
+                            <div className="filters-wrapper" style={{ maxWidth: '1240px', margin: '0 auto' }}>
+                                {renderRadioFilter('Region:', REGIONS, selectedRegionId, setSelectedRegionId)}
+                                {renderRadioFilter('Solutions:', SOLUTION_CATEGORIES, selectedSolution, setSelectedSolution)}
                             </div>
+                        </div>
+                    </section>
 
-                            {/* Dynamic Pagination */}
-                            {totalPages >= 1 && (
-                                <div className="pagination-wrapper" style={{ 
-                                    marginTop: '60px', 
-                                    display: 'flex', 
-                                    justifyContent: 'center', 
-                                    gap: '10px' 
-                                }}>
-                                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-                                        <div 
-                                            key={p} 
-                                            onClick={() => {
-                                                setCurrentPage(p);
-                                                window.scrollTo({ top: 300, behavior: 'smooth' });
-                                            }}
-                                            style={{ 
-                                                width: '45px', 
-                                                height: '45px', 
-                                                display: 'flex', 
-                                                alignItems: 'center', 
-                                                justifyContent: 'center', 
-                                                border: '1px solid #ddd', 
-                                                fontSize: '1.6rem',
-                                                fontWeight: 600,
-                                                color: p === currentPage ? '#fff' : '#444',
-                                                backgroundColor: p === currentPage ? '#315ba4' : 'transparent',
-                                                cursor: 'pointer',
-                                                transition: 'all 0.2s'
-                                            }}
-                                        >
-                                            {p}
+                    {/* Cases Grid */}
+                    <div className="product-lists-wrap" style={{ padding: '25px 0 100px 0', backgroundColor: '#fcfdfe', minHeight: '600px' }}>
+                        <div className="container">
+                            {paginatedCases.length > 0 ? (
+                                <>
+                                    <div className="solution-grid" style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(3, 1fr)',
+                                        gap: '40px'
+                                    }}>
+                                        {paginatedCases.map((item, idx) => (
+                                            <a href={`/cases/${item.handle}`} key={idx} className="catalog-card-item">
+                                                <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden' }}>
+                                                    <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={item.title_en} />
+                                                </div>
+                                                <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
+                                                    <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#333', margin: '0', lineHeight: '1.4' }}>
+                                                        {item.title_en}
+                                                    </h3>
+                                                </div>
+                                            </a>
+                                        ))}
+                                    </div>
+
+                                    {/* Dynamic Pagination */}
+                                    {totalPages >= 1 && (
+                                        <div className="pagination-wrapper" style={{ 
+                                            marginTop: '60px', 
+                                            display: 'flex', 
+                                            justifyContent: 'center', 
+                                            gap: '10px' 
+                                        }}>
+                                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+                                                <div 
+                                                    key={p} 
+                                                    onClick={() => {
+                                                        setCurrentPage(p);
+                                                        window.scrollTo({ top: 300, behavior: 'smooth' });
+                                                    }}
+                                                    style={{ 
+                                                        width: '45px', 
+                                                        height: '45px', 
+                                                        display: 'flex', 
+                                                        alignItems: 'center', 
+                                                        justifyContent: 'center', 
+                                                        border: '1px solid #ddd', 
+                                                        fontSize: '1.6rem',
+                                                        fontWeight: 600,
+                                                        color: p === currentPage ? '#fff' : '#444',
+                                                        backgroundColor: p === currentPage ? '#315ba4' : 'transparent',
+                                                        cursor: 'pointer',
+                                                        transition: 'all 0.2s'
+                                                    }}
+                                                >
+                                                    {p}
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
+                                    )}
+                                </>
+                            ) : (
+                                <div style={{ textAlign: 'center', padding: '120px 0', background: '#fff', borderRadius: '8px' }}>
+                                    <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>🔍</div>
+                                    <div style={{ fontSize: '1.8rem', color: '#999' }}>No cases found matching your criteria.</div>
                                 </div>
                             )}
-                        </>
-                    ) : (
-                        <div style={{ textAlign: 'center', padding: '120px 0', background: '#fff', borderRadius: '8px' }}>
-                            <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>🔍</div>
-                            <div style={{ fontSize: '1.8rem', color: '#999' }}>No cases found matching your criteria.</div>
                         </div>
-                    )}
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <div className="mobile_only">
+                <MobileCaseCenter allCases={allCases} />
+            </div>
+        </>
     );
 }

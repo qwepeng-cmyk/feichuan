@@ -1,0 +1,253 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    padding-top: 108px; /* Room for Main Header */
+}
+
+/* 1. Mini Banner */
+.banner {
+    height: 120px;
+    width: 100%;
+    background-image: url('/products/products_center_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.bannerContent h1 {
+    color: #ffffff !important;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 2. Sticky Sub-Nav */
+.stickyNav {
+    position: relative;
+    width: 100%;
+    z-index: 90;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    height: 80px;
+}
+
+.stickyNav.fixed {
+    position: fixed;
+    top: 108px;
+    left: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tabTrack {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 5px;
+    gap: 8px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    align-items: center;
+}
+
+.tabTrack::-webkit-scrollbar { display: none; }
+
+.tabItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 88px;
+    flex: 0 0 auto;
+    transition: all 0.3s;
+    color: #315ba4;
+}
+
+.iconBox {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.iconBox svg {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.tabText {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0.7;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.tabItem.active .iconBox,
+.tabItem.active .tabText {
+    opacity: 1;
+}
+
+/* 3. Product Grid */
+.listContainer { padding-top: 0; }
+.categorySection { padding: 30px 15px; }
+.sectionHeader {
+    margin-bottom: 25px;
+    border-left: 4px solid #315ba4;
+    padding-left: 15px;
+}
+.sectionHeader h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.productCard {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageBox {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.imageBox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cardInfo { padding: 12px; }
+.cardInfo h3 {
+    font-size: 12px;
+    font-weight: 800;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+/* 4. Common Inquiry Form Styles (Integrated) */
+.inquiryContainer {
+    padding: 60px 20px;
+    background: #f8faff;
+    border-top: 1px solid #eee;
+}
+
+.formTitle {
+    font-size: 28px;
+    font-weight: 900;
+    color: #111;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.formSubtitle {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formLabel {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.formLabel span {
+    color: #e63946;
+    margin-right: 4px;
+}
+
+.formInput, .formSelect, .formTextarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 2px;
+    font-size: 16px; /* Best for mobile interaction */
+    color: #333;
+    -webkit-appearance: none;
+}
+
+.formTextarea {
+    height: 120px;
+    resize: none;
+}
+
+.formCheckboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formCheckboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.formCheckbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #315ba4;
+}
+
+.formSubmit {
+    margin-top: 20px;
+    padding: 18px;
+    background: #ff9800; /* PC Match Yellow */
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

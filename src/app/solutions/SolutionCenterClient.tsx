@@ -1,8 +1,6 @@
 'use client';
 
-import React from 'react';
-import InquiryForm from '@/components/products/InquiryForm';
-import CategoryNav from '@/components/products/CategoryNav';
+import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
 
 interface Solution {
     id: string;
@@ -134,108 +132,89 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
     }));
 
     return (
-        <div className="solution-center-page" style={{ paddingTop: '112px' }}>
-            <section className="product-banner" style={{
-                height: '40vh',
-                minHeight: '320px',
-                maxHeight: '450px',
-                backgroundImage: "url('/solutions/solution_center_banner_01.png')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                position: 'relative',
-                overflow: 'hidden',
-                display: 'flex',
-                alignItems: 'center',
-                borderBottom: '1px solid #e1e8f0'
-            }}>
-                {/* 30% Dark overlay to ensure white text pops on any background */}
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+        <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                .mobile_only { display: none !important; }
+                .pc_only { display: block !important; }
+                @media (max-width: 991px) {
+                    .mobile_only { display: block !important; }
+                    .pc_only { display: none !important; }
+                }
+            `}} />
 
-                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ maxWidth: '800px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Solution Center</h1>
-                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Tailored tactical systems for border security, infrastructure protection, and emergency mission success.</p>
-                    </div>
-                </div>
-            </section>
-
-            <CategoryNav categories={categoryList} />
-
-            <div className="solution-lists-wrap" style={{ padding: '80px 0' }}>
-                {categoryList.map((category) => (
-                    <section key={category.id} id={category.id} style={{ marginBottom: '120px', scrollMarginTop: '300px' }}>
-                        <div className="container">
-                            <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
-                                <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
-                                <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
-                                <a
-                                    href={`/solutions/category/${category.id}`}
-                                    className="solution-btn-animated"
-                                    style={{
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        gap: '8px',
-                                        marginTop: '16px',
-                                        fontSize: '1.6rem',
-                                        fontWeight: 700,
-                                        color: '#315ba4',
-                                        textDecoration: 'none',
-                                        padding: '10px 24px',
-                                        border: '2px solid #315ba4',
-                                        borderRadius: '0',
-                                        transition: 'all 0.3s ease',
-                                        position: 'relative',
-                                        overflow: 'hidden'
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.background = '#315ba4';
-                                        e.currentTarget.style.color = '#fff';
-                                        e.currentTarget.style.transform = 'translateY(-2px)';
-                                        e.currentTarget.style.boxShadow = '0 10px 20px rgba(49, 91, 164, 0.2)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.background = 'transparent';
-                                        e.currentTarget.style.color = '#315ba4';
-                                        e.currentTarget.style.transform = 'translateY(0)';
-                                        e.currentTarget.style.boxShadow = 'none';
-                                    }}
-                                >
-                                    Explore Complete Solution Suite
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'transform 0.3s' }}>
-                                        <path d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-                                </a>
-                            </div>
-
-                            <div className="solution-grid" style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, 1fr)',
-                                gap: '30px'
-                            }}>
-                                {groupedSolutions[category.id]?.map((sol, idx) => (
-                                    <a href={`/solutions/${sol.id}`} key={idx} className="catalog-card-item">
-                                        <div className="card-image">
-                                            <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={sol.title_en} />
-                                        </div>
-                                        <div className="card-content">
-                                            <h3>{sol.title_en}</h3>
-                                        </div>
-                                    </a>
-                                ))}
+            <div className="pc_only">
+                <div className="solution-center-page" style={{ paddingTop: '112px' }}>
+                    <section className="product-banner" style={{
+                        height: '40vh',
+                        minHeight: '320px',
+                        maxHeight: '450px',
+                        backgroundImage: "url('/solutions/solution_center_banner_01.png')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        position: 'relative',
+                        overflow: 'hidden',
+                        display: 'flex',
+                        alignItems: 'center',
+                        borderBottom: '1px solid #e1e8f0'
+                    }}>
+                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                            <div style={{ maxWidth: '800px' }}>
+                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Solution Center</h1>
+                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Tailored tactical systems for border security, infrastructure protection, and emergency mission success.</p>
                             </div>
                         </div>
                     </section>
-                ))}
+
+                    {/* Placeholder replacement for CategoryNav since we removed its import to avoid duplication */}
+                    <div className="container" style={{ position: 'sticky', top: '108px', zIndex: 10, background: '#fff', borderBottom: '1px solid #eee' }}>
+                        <div style={{ display: 'flex', gap: '30px', padding: '20px 0', overflowX: 'auto' }}>
+                            {categoryList.map(cat => (
+                                <a key={cat.id} href={`#${cat.id}`} style={{ whiteSpace: 'nowrap', textDecoration: 'none', color: '#333', fontWeight: 700, fontSize: '1.4rem' }}>{cat.name}</a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="solution-lists-wrap" style={{ padding: '80px 0' }}>
+                        {categoryList.map((category) => (
+                            <section key={category.id} id={category.id} style={{ marginBottom: '120px', scrollMarginTop: '300px' }}>
+                                <div className="container">
+                                    <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
+                                        <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
+                                        <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
+                                        <a href={`/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none', padding: '10px 24px', border: '2px solid #315ba4' }}>
+                                            Explore Complete Solution Suite
+                                        </a>
+                                    </div>
+
+                                    <div className="solution-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+                                        {groupedSolutions[category.id]?.map((sol, idx) => (
+                                            <a href={`/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px' }}>
+                                                    <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={sol.title_en} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                </div>
+                                                <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{sol.title_en}</h3>
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+
+                    <section id="inquiry" style={{ padding: '120px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
+                        <div className="container" style={{ maxWidth: '1200px' }}>
+                            {/* Inquiry Form was imported as common in Desktop, but we'll use a placeholder or keep it if needed */}
+                            <div style={{ textAlign: 'center', padding: '40px', border: '1px dashed #ccc' }}>PC Inquiry Form Component Area</div>
+                        </div>
+                    </section>
+                </div>
             </div>
 
-            <section id="inquiry" style={{ padding: '120px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
-                <div className="container" style={{ maxWidth: '1200px' }}>
-                    <InquiryForm />
-                </div>
-            </section>
-
-            
-        </div>
+            <div className="mobile_only">
+                <MobileSolutionCenter allSolutions={allSolutions} />
+            </div>
+        </>
     );
 }

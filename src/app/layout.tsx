@@ -13,8 +13,16 @@ export const metadata: Metadata = {
   description: "Global unmanned security field defense experts",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 
 export default function RootLayout({
   children,
@@ -28,8 +36,13 @@ export default function RootLayout({
         {children}
         <Footer />
 
-        {/* STICKY BAR */}
-        <div className="sticky-inquiry">
+        {/* MOBILE STICKY BAR */}
+        <div className="mobile_only">
+            <MobileStickyBar />
+        </div>
+
+        {/* STICKY BAR (PC) */}
+        <div className="pc_only sticky-inquiry">
             <div className="sticky-item orange">
                 <svg style={{ width: '24px', height: '24px', fill: '#fff' }} viewBox="0 0 24 24">
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />

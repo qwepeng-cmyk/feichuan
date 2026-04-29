@@ -1,0 +1,102 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    padding-top: 108px;
+}
+
+/* 1. Mini Banner */
+.banner {
+    height: 120px;
+    width: 100%;
+    background-image: url('/about/contact_banner.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.bannerContent h1 {
+    color: #ffffff !important;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* 2. Direct Contact Info */
+.infoSection {
+    padding: 40px 20px;
+    background: #f4f7fa;
+    border-top: 1px solid #eee;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 35px;
+    border-left: 4px solid #315ba4;
+    padding-left: 15px;
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.infoItem {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.iconBox {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #315ba4;
+}
+
+.iconBox.whatsapp { color: #25D366; }
+
+.iconBox svg {
+    width: 28px;
+    height: 28px;
+}
+
+.infoContent h4 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.infoValue {
+    font-size: 17px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+.linkValue {
+    color: #315ba4;
+}
+
+/* 3. Form Section */
+.formSection {
+    padding: 0;
+}

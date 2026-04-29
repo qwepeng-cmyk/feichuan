@@ -1,0 +1,177 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    padding-top: 108px; /* Main Header Height */
+}
+
+/* 1. Mini Banner */
+.banner {
+    height: 120px;
+    width: 100%;
+    background-image: url('/solutions/solution_center_banner_01.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+.bannerContent h1 {
+    color: #ffffff !important;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 2. Sticky Sub-Nav */
+.stickyNav {
+    position: relative;
+    width: 100%;
+    z-index: 90;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    height: 80px;
+}
+
+.stickyNav.fixed {
+    position: fixed;
+    top: 108px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tabTrack {
+    display: flex;
+    padding: 10px 15px; /* Tightened padding */
+    justify-content: space-between;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.tabTrack::-webkit-scrollbar { display: none; }
+
+.tabItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 92px; /* Increased to fill space better */
+    flex: 0 0 auto;
+    transition: all 0.3s;
+    color: #315ba4;
+}
+
+.iconBox {
+    width: 80px; /* Wide icon box to fit PC icons */
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.iconBox svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
+
+.tabText {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0.7;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.1;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabItem.active .iconBox,
+.tabItem.active .tabText {
+    opacity: 1;
+}
+
+.tabItem.active {
+    background: rgba(49, 91, 164, 0.05);
+    border-radius: 4px;
+}
+
+/* 3. Solution Grid (Cloned from Product List) */
+.listContainer { padding-top: 0; }
+.categorySection { padding: 30px 15px; }
+
+.sectionHeader {
+    margin-bottom: 25px;
+    border-left: 4px solid #315ba4;
+    padding-left: 15px;
+}
+
+.sectionHeader h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageBox {
+    aspect-ratio: 4 / 3; /* Optimized for scenario-based solution images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardInfo { padding: 12px; }
+.cardInfo h3 {
+    font-size: 12px;
+    font-weight: 800;
+    color: #333;
+    line-height: 1.4;
+    height: 34px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 0;
+    text-align: center;
+}

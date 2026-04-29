@@ -1,0 +1,197 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    padding-top: 108px;
+}
+
+/* 1. Mini Banner */
+.banner {
+    height: 120px;
+    width: 100%;
+    background-image: url('/about/about_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+.bannerContent h1 {
+    color: #ffffff !important;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* 2. Company Profile */
+.section {
+    padding: 40px 20px 20px;
+}
+
+.titleBox {
+    margin-bottom: 30px;
+}
+
+.titleBox h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.titleLine {
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #315ba4;
+    margin-top: 15px;
+}
+
+.profileImage {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.profileText {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.8;
+    text-align: left; /* Fix for double space issue caused by justify */
+}
+
+.profileText p {
+    margin-bottom: 20px;
+}
+
+/* 3. R&D Team */
+.rdSection {
+    background: #f8fafc;
+    padding: 40px 20px 60px;
+}
+
+.rdHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rdHeader h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.rdHeader p {
+    font-size: 15px;
+    color: #64748b;
+}
+
+.statsCard {
+    background: #315ba4;
+    color: #fff;
+    padding: 40px 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 35px rgba(49, 91, 164, 0.2);
+}
+
+.statsNumber {
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.statsTitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.statsDesc {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.rdSystem {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 25px;
+}
+
+.rdSystem h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+}
+
+.rdSystem p {
+    font-size: 13px;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* Core Capabilities */
+.capabilities {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.capabilities h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.capItem {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.iconCircle {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #315ba4;
+}
+
+.capText h4 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.capText p {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+}
