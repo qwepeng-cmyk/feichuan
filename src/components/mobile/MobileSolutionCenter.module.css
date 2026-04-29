@@ -1,7 +1,8 @@
 .wrapper {
     width: 100%;
     background: #fff;
-    padding-top: 108px; /* Main Header Height */
+    padding-top: 108px;
+    /* Main Header Height */
 }
 
 /* 1. Mini Banner */
@@ -28,7 +29,7 @@
     font-size: 22px;
     font-weight: 900;
     letter-spacing: 2px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* 2. Sticky Sub-Nav */
@@ -46,12 +47,13 @@
     top: 108px;
     left: 0;
     width: 100%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tabTrack {
     display: flex;
-    padding: 10px 15px; /* Tightened padding */
+    padding: 10px 15px;
+    /* Tightened padding */
     justify-content: space-between;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -60,7 +62,9 @@
     overflow-x: auto;
 }
 
-.tabTrack::-webkit-scrollbar { display: none; }
+.tabTrack::-webkit-scrollbar {
+    display: none;
+}
 
 .tabItem {
     display: flex;
@@ -71,14 +75,16 @@
     background: transparent;
     border: none;
     padding: 0;
-    width: 92px; /* Increased to fill space better */
+    width: 92px;
+    /* Increased to fill space better */
     flex: 0 0 auto;
     transition: all 0.3s;
     color: #315ba4;
 }
 
 .iconBox {
-    width: 80px; /* Wide icon box to fit PC icons */
+    width: 80px;
+    /* Wide icon box to fit PC icons */
     height: 36px;
     display: flex;
     align-items: center;
@@ -117,8 +123,13 @@
 }
 
 /* 3. Solution Grid (Cloned from Product List) */
-.listContainer { padding-top: 0; }
-.categorySection { padding: 30px 15px; }
+.listContainer {
+    padding-top: 0;
+}
+
+.categorySection {
+    padding: 30px 15px;
+}
 
 .sectionHeader {
     margin-bottom: 25px;
@@ -148,7 +159,8 @@
 }
 
 .imageBox {
-    aspect-ratio: 4 / 3; /* Optimized for scenario-based solution images */
+    aspect-ratio: 4 / 3;
+    /* Optimized for scenario-based solution images */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,7 +173,10 @@
     object-fit: cover;
 }
 
-.cardInfo { padding: 12px; }
+.cardInfo {
+    padding: 12px;
+}
+
 .cardInfo h3 {
     font-size: 12px;
     font-weight: 800;
@@ -174,4 +189,22 @@
     -webkit-box-orient: vertical;
     margin: 0;
     text-align: center;
+}
+
+.viewMoreButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 15px 0; /* Changed margin to match container padding */
+    background: #315ba4;
+    color: #fff;
+    height: 48px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.viewMoreButton:active {
+    background: #264a85;
 }

@@ -1,0 +1,129 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    padding-top: 108px;
+}
+
+.banner {
+    height: 120px;
+    width: 100%;
+    background-image: url('/media/media_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+.bannerContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.bannerContent h1 {
+    color: #ffffff !important;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin: 0;
+}
+
+.breadcrumb {
+    padding: 7px 15px;
+    background: #f1f6ff;
+    border-bottom: 1px solid #e5eefd;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.breadcrumb::-webkit-scrollbar { display: none; }
+
+.breadcrumb a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 4px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbActive {
+    color: #64748b;
+    font-weight: 500;
+    padding: 8px 4px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbSeparator {
+    color: #94a3b8;
+}
+
+.articleContainer {
+    padding: 30px 15px 50px;
+}
+
+.newsTitle {
+    font-size: 24px;
+    font-weight: 900;
+    color: #111;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.newsMeta {
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.featuredImage {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.featuredImage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* No rounded corners as requested */
+}
+
+.richContent {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.richContent p {
+    margin-bottom: 20px;
+}
+
+.richContent :global(img) {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 15px 0;
+    /* No rounded corners */
+}
+
+.section {
+    padding: 40px 15px;
+    border-top: 1px solid #f0f0f0;
+}

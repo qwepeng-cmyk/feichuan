@@ -172,7 +172,7 @@ export default function DesktopProductCenter({ categoriesData }: { categoriesDat
                                 gridTemplateColumns: 'repeat(3, 1fr)',
                                 gap: '30px'
                             }}>
-                                {categoriesData[category.id]?.map((product, idx) => (
+                                {categoriesData[category.id]?.map((product: any, idx: number) => (
                                     <ProductGridCard key={idx} product={product} />
                                 ))}
                             </div>

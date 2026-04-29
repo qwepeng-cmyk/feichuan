@@ -1,0 +1,282 @@
+.wrapper {
+    width: 100%;
+    background: #fff;
+    padding-top: 108px;
+}
+
+/* 1. Breadcrumb */
+.breadcrumb {
+    padding: 7px 15px; /* Reduced vertical padding to compensate for link padding */
+    background: #f1f6ff;
+    border-bottom: 1px solid #e5eefd;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.breadcrumb::-webkit-scrollbar { display: none; }
+
+.breadcrumb a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 4px; /* Large clickable area */
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbActive {
+    color: #64748b;
+    font-weight: 500;
+    padding: 8px 4px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbSeparator {
+    color: #94a3b8;
+}
+
+/* 2. Main Info */
+.heroSection {
+    padding: 0; /* Flush with breadcrumb */
+    margin-bottom: 30px; /* Gap before Sub-Nav */
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #111;
+    line-height: 1.2;
+    margin: 20px 15px;
+}
+
+.infoContent {
+    padding: 0 15px;
+}
+
+.keyParams {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.paramItem {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 15px;
+}
+
+.paramItem::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: #315ba4;
+    border-radius: 50%;
+}
+
+.ctaButton {
+    width: calc(100% - 30px);
+    margin: 0 15px 30px;
+    height: 54px;
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.2);
+}
+
+/* 3. Gallery */
+.gallery {
+    margin-bottom: 10px;
+}
+
+.mainImage {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.mainImage img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.navArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.prevArrow { left: 0; border-radius: 0 4px 4px 0; }
+.nextArrow { right: 0; border-radius: 4px 0 0 4px; }
+
+.thumbTrack {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px 15px;
+}
+
+.thumbTrack::-webkit-scrollbar { display: none; }
+
+.thumbItem {
+    flex: 0 0 70px;
+    height: 52px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.2s;
+}
+
+.thumbItem.active {
+    border-color: #ff9800;
+    border-width: 2px;
+}
+
+.thumbItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 4. Sub Nav */
+.stickyNav {
+    position: sticky;
+    top: 108px;
+    z-index: 100;
+    background: #e6effb; /* PC Match BG */
+    border-bottom: 1px solid #dce5f2;
+}
+
+.navTrack {
+    display: flex;
+    width: 100%;
+}
+
+.navItem {
+    flex: 1;
+    height: 52px; /* Slightly larger for touch */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #4b5563;
+    border: none;
+    background: transparent;
+    position: relative;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.navItem.active {
+    color: #fff;
+    background: #315ba4;
+}
+
+/* 5. Content Sections */
+.section {
+    padding: 15px 15px 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sectionTitleCenter {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.richText {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.8;
+}
+
+.richText :global(h2), .richText :global(h3) {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    margin: 25px 0 12px;
+}
+
+.richText :global(img) {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 15px 0;
+}
+
+/* 6. Technical Specs Table */
+.specsTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    font-size: 14px;
+}
+
+.specsTable tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.specsTable td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.4;
+}
+
+.specLabel {
+    width: 40%;
+    font-weight: 700;
+    color: #333;
+    background: #f4f7fa;
+    border-right: 1px solid #eee;
+}
+
+.specValue {
+    color: #555;
+}
+
+/* 7. Summary Box */
+.summaryBox {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 0; /* PC Style No Rounded Corners */
+    margin: 20px 15px 0;
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.7;
+    border: 1px solid #e2e8f0;
+}

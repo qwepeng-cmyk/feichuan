@@ -215,6 +215,9 @@ export default function MobileSolutionCenter({ allSolutions }: { allSolutions: S
                                     </Link>
                                 ))}
                         </div>
+                        <Link href={`/solutions/category/${category.id}`} className={styles.viewMoreButton}>
+                            View Details
+                        </Link>
                     </section>
                 ))}
             </div>

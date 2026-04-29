@@ -47,22 +47,28 @@ export default function MobileHeader() {
             </div>
 
             {/* Side Drawer Menu */}
-            {menuOpen && (
-                <div className={styles.drawerOverlay} onClick={() => setMenuOpen(false)}>
-                    <div className={styles.drawerContent} onClick={e => e.stopPropagation()}>
-                        <div className={styles.drawerHeader}>Navigation</div>
-                        <div className={styles.drawerLinks}>
-                            <Link href="/">Home</Link>
-                            <Link href="/products">Products</Link>
-                            <Link href="/solutions">Solutions</Link>
-                            <Link href="/cases">Cases</Link>
-                            <Link href="/media">Media</Link>
-                            <Link href="/about">About Us</Link>
-                            <Link href="/contact">Contact</Link>
-                        </div>
+            <div className={`${styles.drawerOverlay} ${menuOpen ? styles.show : ''}`} onClick={() => setMenuOpen(false)}>
+                <div className={`${styles.drawerContent} ${menuOpen ? styles.open : ''}`} onClick={e => e.stopPropagation()}>
+                    <div className={styles.drawerLinks}>
+                        {[
+                            { name: 'Home', href: '/' },
+                            { name: 'Products', href: '/products' },
+                            { name: 'Solutions', href: '/solutions' },
+                            { name: 'Cases', href: '/cases' },
+                            { name: 'Media', href: '/media' },
+                            { name: 'About Us', href: '/about' },
+                            { name: 'Contact', href: '/contact' }
+                        ].map((link) => (
+                            <Link href={link.href} key={link.name} className={styles.drawerLink}>
+                                <span>{link.name}</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004a99" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </Link>
+                        ))}
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 }

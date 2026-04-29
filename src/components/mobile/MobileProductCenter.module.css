@@ -171,6 +171,7 @@
     text-align: center;
     margin-bottom: 15px;
     line-height: 1.2;
+    scroll-margin-top: 180px; /* Precise landing (108 Header + 52 Nav + 20 Gap) */
 }
 
 .formSubtitle {

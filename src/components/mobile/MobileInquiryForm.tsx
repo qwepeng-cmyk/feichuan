@@ -39,7 +39,7 @@ export default function MobileInquiryForm() {
 
     return (
         <div className={styles.inquiryContainer}>
-            <h2 className={styles.formTitle}>Get Solution & Quotation</h2>
+            <h2 id="inquiry-title" className={styles.formTitle}>Get Solution & Quotation</h2>
             <p className={styles.formSubtitle}>
                 Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.
             </p>
