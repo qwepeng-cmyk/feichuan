@@ -1,16 +1,13 @@
-import fs from 'fs';
-import path from 'path';
-
-const SOLUTIONS_DIR = path.join(process.cwd(), '网站资料/08方案概括');
+import db from './db';
 
 export interface Solution {
-    id: string;      // We will map 'handle' to this
+    id: string;
     handle: string;
     category_id: string;
     category_name: string;
-    category_primary: string;
+    category_primary?: string;
     product_name_en: string; 
-    title_en: string; // Fallback to product_name_en
+    title_en: string;
     summary_en: string;
     key_application_en: string;
     parameters_en: Record<string, string>;
@@ -19,48 +16,47 @@ export interface Solution {
     key_parameter_2_en?: string;
     main_image?: string;
     recommended_products?: string[];
+    [key: string]: any; // Catch-all for extra raw JSON fields
 }
 
-const CATEGORY_MAP: Record<string, string> = {
-    '01_BorderPatrol': 'Border Patrol',
-    '02_InfrastructureProtection': 'Infrastructure Protection',
-    '03_KeyAreaSecurity': 'Key Area Security',
-    '04_EmergencyRescue': 'Emergency & Disaster Rescue'
-};
-
 export async function getAllSolutions(): Promise<Solution[]> {
-    const solutions: Solution[] = [];
-    const categories = Object.keys(CATEGORY_MAP);
+    const rows = db.prepare('SELECT handle, category_id, category_name, raw_json FROM solutions').all() as any[];
+    
+    return rows.map(row => {
+        let data: any = {};
+        try {
+            data = JSON.parse(row.raw_json);
+        } catch (e) {}
 
-    for (const cat of categories) {
-        const catPath = path.join(SOLUTIONS_DIR, cat);
-        if (!fs.existsSync(catPath)) continue;
-
-        const files = fs.readdirSync(catPath).filter(f => f.endsWith('.json'));
-        for (const file of files) {
-            const content = fs.readFileSync(path.join(catPath, file), 'utf8');
-            const data = JSON.parse(content);
-            
-            // Map handle to id, and ensure basic titles exist
-            const solution: Solution = {
-                ...data,
-                id: data.handle || file.replace('.json', ''),
-                title_en: data.product_name_en, // In solutions JSON, it is product_name_en
-                category_id: cat,
-                category_name: CATEGORY_MAP[cat],
-            };
-            solutions.push(solution);
-        }
-    }
-    return solutions;
+        return {
+            ...data,
+            id: row.handle,
+            title_en: data.product_name_en,
+            category_id: row.category_id,
+            category_name: row.category_name,
+        } as Solution;
+    });
 }
 
 export async function getSolutionById(id: string): Promise<Solution | null> {
-    const all = await getAllSolutions();
-    return all.find(s => s.id === id) || null;
+    const row = db.prepare('SELECT category_id, category_name, raw_json FROM solutions WHERE handle = ?').get(id) as any;
+    if (!row) return null;
+
+    let data: any = {};
+    try {
+        data = JSON.parse(row.raw_json);
+    } catch (e) {}
+
+    return {
+        ...data,
+        id: id,
+        title_en: data.product_name_en,
+        category_id: row.category_id,
+        category_name: row.category_name,
+    } as Solution;
 }
 
 export async function getAllSolutionHandles(): Promise<string[]> {
-    const all = await getAllSolutions();
-    return all.map(s => s.id);
+    const rows = db.prepare('SELECT handle FROM solutions').all() as any[];
+    return rows.map(r => r.handle);
 }

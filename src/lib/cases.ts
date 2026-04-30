@@ -1,33 +1,27 @@
-import fs from 'fs';
-import path from 'path';
+import db from './db';
 
-const casesDirectory = path.join(process.cwd(), 'public/cases');
-
-// Reads all cases and returns their data
 export async function getAllCases() {
-  if (!fs.existsSync(casesDirectory)) return [];
-  const fileNames = fs.readdirSync(casesDirectory);
-  const cases = [];
-  for (const fileName of fileNames) {
-    if (fileName.endsWith('.json') && fileName !== 'cases_data.json') {
-      const fullPath = path.join(casesDirectory, fileName);
+  const rows = db.prepare('SELECT raw_json FROM cases').all() as any[];
+  return rows.map(r => {
       try {
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        cases.push(JSON.parse(fileContents));
+          return JSON.parse(r.raw_json);
       } catch (e) {
-        console.error(`Error parsing case JSON ${fileName}:`, e);
+          return {};
       }
-    }
-  }
-  return cases;
+  });
 }
 
 export async function getAllCaseHandles() {
-  const cases = await getAllCases();
-  return cases.map(c => c.handle).filter(Boolean);
+  const rows = db.prepare('SELECT handle FROM cases').all() as any[];
+  return rows.map(r => r.handle).filter(Boolean);
 }
 
 export async function getCaseByHandle(handle: string) {
-  const cases = await getAllCases();
-  return cases.find(c => c.handle === handle) || null;
+  const row = db.prepare('SELECT raw_json FROM cases WHERE handle = ?').get(handle) as any;
+  if (!row) return null;
+  try {
+      return JSON.parse(row.raw_json);
+  } catch(e) {
+      return null;
+  }
 }

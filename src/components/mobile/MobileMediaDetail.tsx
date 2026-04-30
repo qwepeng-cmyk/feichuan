@@ -41,11 +41,7 @@ export default function MobileMediaDetail({ news }: MediaProps) {
                     </div>
                 )}
 
-                <div className={styles.richContent}>
-                    {news.content && news.content.split('\n').map((paragraph: string, idx: number) => (
-                        paragraph.trim() ? <p key={idx}>{paragraph}</p> : null
-                    ))}
-                </div>
+                <div className={styles.richContent} dangerouslySetInnerHTML={{ __html: news.content }} />
             </article>
 
             {/* 4. Inquiry Section */}

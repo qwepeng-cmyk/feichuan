@@ -6,3 +6,63 @@
    - Local:        http://localhost:3000
 
  ✓ Ready in 1179ms
+ ⨯ Error: Cannot find module '/Users/mattchyi/Documents/Project/fc/.next/server/app/products/page.js'
+Require stack:
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1383:15)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1463:12)
+    at mod.require (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:147:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next'
+  ]
+}
+ ⨯ Error: Cannot find module '/Users/mattchyi/Documents/Project/fc/.next/server/pages/_error.js'
+Require stack:
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js
+- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1383:15)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1463:12)
+    at mod.require (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:147:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js',
+    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next'
+  ]
+}

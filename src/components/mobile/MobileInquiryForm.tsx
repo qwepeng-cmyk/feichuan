@@ -32,9 +32,32 @@ export default function MobileInquiryForm() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Thank you for your inquiry! We will contact you soon.');
+        setSubmitStatus('loading');
+        
+        try {
+            const res = await fetch('/api/inquiries', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            
+            if (res.ok) {
+                setSubmitStatus('success');
+                setFormData({
+                    name: '', company: '', email: '', contactMethod: 'WhatsApp',
+                    countryCode: '', phone: '', demands: [], message: ''
+                });
+                setTimeout(() => setSubmitStatus('idle'), 5000);
+            } else {
+                setSubmitStatus('error');
+            }
+        } catch(e) {
+            setSubmitStatus('error');
+        }
     };
 
     return (
@@ -168,9 +191,10 @@ export default function MobileInquiryForm() {
                     />
                 </div>
 
-                <button type="submit" className={styles.formSubmit}>
-                    SUBMIT INQUIRY
+                <button type="submit" className={styles.formSubmit} disabled={submitStatus === 'loading' || submitStatus === 'success'}>
+                    {submitStatus === 'loading' ? 'SUBMITTING...' : submitStatus === 'success' ? 'SUBMITTED SUCCESSFULLY!' : 'SUBMIT INQUIRY'}
                 </button>
+                {submitStatus === 'error' && <div style={{color: 'red', marginTop: '10px', textAlign: 'center'}}>Failed to submit. Please try again.</div>}
             </form>
         </div>
     );

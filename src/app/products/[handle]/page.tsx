@@ -122,29 +122,49 @@ export default async function ProductPage({ params }: { params: { handle: string
             )}
 
             {/* Specs Table Section */}
-            {product.parameters_en && Object.keys(product.parameters_en).length > 0 && (
+            {product.parameters_en && (Array.isArray(product.parameters_en) ? product.parameters_en.length > 0 : Object.keys(product.parameters_en).length > 0) && (
               <section id="specs" className="detail-section" style={{ padding: '80px 0' }}>
                 <div className="container" style={{ maxWidth: '1200px' }}>
                   <h2 className="section-title" style={{ fontSize: '3.6rem', fontWeight: 700, marginBottom: '40px', textAlign: 'center' }}>Technical Specifications</h2>
-                  <div style={{ border: '1px solid #eee' }}>
-                    <table className="spec-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
-                      <thead>
-                        <tr style={{ background: '#f4f7fa', color: '#333', borderBottom: '2px solid #315ba4' }}>
-                          <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>Parameter</th>
-                          <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>Description</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Object.entries(product.parameters_en).map(([param, val], idx) => (
-                          <tr key={idx} style={{
-                            background: idx % 2 === 0 ? '#fff' : '#fafafa',
-                            borderBottom: '1px solid #eee'
-                          }}>
-                            <td style={{ padding: '20px 30px', fontWeight: 'bold', width: '45%', fontSize: '1.5rem' }}>{param}</td>
-                            <td style={{ padding: '20px 30px', fontSize: '1.5rem' }}>{val as string}</td>
-                          </tr>
-                        ))}
-                      </tbody>
+                  <div style={{ border: '1px solid #eee', overflowX: 'auto' }}>
+                    <table className="spec-table" style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px' }}>
+                      {Array.isArray(product.parameters_en) ? (
+                        <>
+                          <thead>
+                            <tr style={{ background: '#f4f7fa', color: '#333', borderBottom: '2px solid #315ba4' }}>
+                              {product.parameters_en[0].map((cell: string, ci: number) => (
+                                <th key={ci} style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold', borderRight: '1px solid #eee' }}>{cell}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {product.parameters_en.slice(1).map((row: string[], ri: number) => (
+                              <tr key={ri} style={{ background: ri % 2 === 0 ? '#fff' : '#fafafa', borderBottom: '1px solid #eee' }}>
+                                {row.map((cell: string, ci: number) => (
+                                  <td key={ci} style={{ padding: '20px 30px', fontSize: '1.5rem', borderRight: '1px solid #eee' }}>{cell}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </>
+                      ) : (
+                        <>
+                          <thead>
+                            <tr style={{ background: '#f4f7fa', color: '#333', borderBottom: '2px solid #315ba4' }}>
+                              <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>Parameter</th>
+                              <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {Object.entries(product.parameters_en).map(([param, val], idx) => (
+                              <tr key={idx} style={{ background: idx % 2 === 0 ? '#fff' : '#fafafa', borderBottom: '1px solid #eee' }}>
+                                <td style={{ padding: '20px 30px', fontWeight: 'bold', width: '45%', fontSize: '1.5rem' }}>{param}</td>
+                                <td style={{ padding: '20px 30px', fontSize: '1.5rem' }}>{val as string}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </>
+                      )}
                     </table>
                   </div>
                 </div>

@@ -1,15 +1,21 @@
-'use client';
 import React from 'react';
+import { notFound } from 'next/navigation';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileMediaDetail from '@/components/mobile/MobileMediaDetail';
-import NEWS_DATA from '../../../../public/media/news_data.json';
+import { getMediaById, getAllMediaIds } from '@/lib/media';
 
-export default function NewsDetailPage({ params }: { params: { id: string } }) {
-    // Dynamically find news based on the ID in the URL
-    const news = NEWS_DATA.find(n => n.id === params.id) || NEWS_DATA[0];
+export async function generateStaticParams() {
+    const ids = await getAllMediaIds();
+    return ids.map((id) => ({
+        id,
+    }));
+}
+
+export default async function NewsDetailPage({ params }: { params: { id: string } }) {
+    const news = await getMediaById(params.id);
 
     if (!news) {
-        return <div style={{ padding: '200px', textAlign: 'center', fontSize: '2rem' }}>News Article Not Found.</div>;
+        notFound();
     }
 
     return (
@@ -80,7 +86,7 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
                                 lineHeight: '1.8',
                                 color: '#444'
                             }}>
-                                <p>{news.content}</p>
+                                <div dangerouslySetInnerHTML={{ __html: news.content }} />
                             </div>
                         </div>
                     </article>
@@ -98,17 +104,6 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
             <div className="mobile_only">
                 <MobileMediaDetail news={news} />
             </div>
-
-            <style jsx global>{`
-                .news-rich-content p { margin-bottom: 25px; }
-                .news-rich-content h3 { 
-                    font-size: 2.8rem; 
-                    font-weight: 800; 
-                    color: #333; 
-                    margin: 40px 0 20px; 
-                }
-                .news-rich-content img { border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-            `}</style>
         </>
     );
 }
