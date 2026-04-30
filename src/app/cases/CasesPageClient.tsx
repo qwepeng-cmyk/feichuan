@@ -40,7 +40,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
     const filteredCases = useMemo(() => {
         return allCases.filter(item => {
             const matchesSolution = selectedSolution === 'all' || item.solution_category_id === selectedSolution;
-            
+
             let matchesRegion = true;
             if (selectedRegionId === 'all') {
                 matchesRegion = true;
@@ -51,7 +51,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
             } else {
                 matchesRegion = item.region_en === selectedRegionId;
             }
-            
+
             return matchesSolution && matchesRegion;
         });
     }, [allCases, selectedSolution, selectedRegionId]);
@@ -65,28 +65,28 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
     const paginatedCases = filteredCases.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
     const renderRadioFilter = (
-        label: string, 
-        items: { id: string, name: string }[], 
-        currentId: string, 
+        label: string,
+        items: { id: string, name: string }[],
+        currentId: string,
         onSelect: (id: string) => void
     ) => (
-        <div className="filter-row" style={{ 
-            marginBottom: label === 'Region:' ? '25px' : '0', 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '20px' 
+        <div className="filter-row" style={{
+            marginBottom: label === 'Region:' ? '25px' : '0',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '20px'
         }}>
-            <span style={{ 
-                fontSize: '1.7rem', 
-                fontWeight: '800', 
-                color: '#333', 
+            <span style={{
+                fontSize: '1.7rem',
+                fontWeight: '800',
+                color: '#333',
                 minWidth: '90px'
             }}>{label}</span>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', alignItems: 'center' }}>
                 {items.map(item => {
                     const isActive = currentId === item.id;
                     return (
-                        <div 
+                        <div
                             key={item.id}
                             onClick={() => onSelect(item.id)}
                             style={{
@@ -132,8 +132,8 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                                             <div style={{ width: '9px', height: '9px', borderRadius: '50%', backgroundColor: '#315ba4' }}></div>
                                         )}
                                     </div>
-                                    <span style={{ 
-                                        fontSize: '1.6rem', 
+                                    <span style={{
+                                        fontSize: '1.6rem',
                                         color: isActive ? '#315ba4' : '#666',
                                         fontWeight: isActive ? '700' : '600',
                                         whiteSpace: 'nowrap',
@@ -152,7 +152,8 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
 
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .mobile_only { display: none !important; }
                 .pc_only { display: block !important; }
                 @media (max-width: 991px) {
@@ -161,7 +162,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                 }
             `}} />
 
-            <div className="pc_only">
+            <div className="pc_only product-page-new" style={{ paddingTop: '112px' }}>
                 {/* 1. HERO BANNER (PC ONLY) */}
                 <section className="product-banner" style={{
                     height: '40vh',
@@ -169,14 +170,11 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                     maxHeight: '450px',
                     backgroundImage: "url('/cases/case_banner_final_副本2.png')",
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                     position: 'relative',
                     overflow: 'hidden',
                     display: 'flex',
-                    alignItems: 'center',
-                    margin: 0,
-                    border: 'none'
+                    alignItems: 'center'
                 }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -189,9 +187,9 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
 
                 <div className="cases-page-client">
                     {/* Filter Section */}
-                    <section className="filter-bar" style={{ 
-                        padding: '65px 0 40px 0', 
-                        backgroundColor: '#fff', 
+                    <section className="filter-bar" style={{
+                        padding: '65px 0 40px 0',
+                        backgroundColor: '#fff',
                         borderBottom: '1px solid #f0f3f7'
                     }}>
                         <div className="container">
@@ -228,26 +226,26 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
 
                                     {/* Dynamic Pagination */}
                                     {totalPages >= 1 && (
-                                        <div className="pagination-wrapper" style={{ 
-                                            marginTop: '60px', 
-                                            display: 'flex', 
-                                            justifyContent: 'center', 
-                                            gap: '10px' 
+                                        <div className="pagination-wrapper" style={{
+                                            marginTop: '60px',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            gap: '10px'
                                         }}>
                                             {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-                                                <div 
-                                                    key={p} 
+                                                <div
+                                                    key={p}
                                                     onClick={() => {
                                                         setCurrentPage(p);
                                                         window.scrollTo({ top: 300, behavior: 'smooth' });
                                                     }}
-                                                    style={{ 
-                                                        width: '45px', 
-                                                        height: '45px', 
-                                                        display: 'flex', 
-                                                        alignItems: 'center', 
-                                                        justifyContent: 'center', 
-                                                        border: '1px solid #ddd', 
+                                                    style={{
+                                                        width: '45px',
+                                                        height: '45px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        border: '1px solid #ddd',
                                                         fontSize: '1.6rem',
                                                         fontWeight: 600,
                                                         color: p === currentPage ? '#fff' : '#444',

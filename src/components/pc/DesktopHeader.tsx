@@ -225,36 +225,36 @@ export default function Header() {
                                 <div className={isHome ? "container-wide" : "container"} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '60px', padding: '25px 0' }}>
                                     <div className="mega-column">
                                         <h3 className="mega-title">Border Patrol & Security</h3>
-                                        <div className="mega-list">
+                                        <ul className="mega-list">
                                             <li><a href="/solutions/category/01_BorderPatrol">Drone Maritime Patrol</a></li>
                                             <li><a href="/solutions/category/01_BorderPatrol">Land-Based Maritime Surveillance</a></li>
                                             <li><a href="/solutions/category/01_BorderPatrol">Drone Maritime Emergency Rescue</a></li>
-                                        </div>
+                                        </ul>
                                     </div>
                                     <div className="mega-column">
                                         <h3 className="mega-title">Critical Infrastructure Protection</h3>
-                                        <div className="mega-list">
+                                        <ul className="mega-list">
                                             <li><a href="/solutions/category/02_InfrastructureProtection">Chemical Plant Area Protection</a></li>
                                             <li><a href="/solutions/category/02_InfrastructureProtection">Oil Production Base Protection</a></li>
                                             <li><a href="/solutions/category/02_InfrastructureProtection">Power & Hydroelectric Dam Protection</a></li>
                                             <li><a href="/solutions/category/02_InfrastructureProtection">Airport Anti-drone Application</a></li>
-                                        </div>
+                                        </ul>
                                     </div>
                                     <div className="mega-column">
                                         <h3 className="mega-title">Key Area Security</h3>
-                                        <div className="mega-list">
+                                        <ul className="mega-list">
                                             <li><a href="/solutions/category/03_KeyAreaSecurity">Judicial Department Security</a></li>
                                             <li><a href="/solutions/category/03_KeyAreaSecurity">Large-scale Sports Event Security</a></li>
                                             <li><a href="/solutions/category/03_KeyAreaSecurity">Traffic Hub Security Protection</a></li>
-                                        </div>
+                                        </ul>
                                     </div>
                                     <div className="mega-column">
                                         <h3 className="mega-title">Emergency & Disaster Rescue</h3>
-                                        <div className="mega-list">
+                                        <ul className="mega-list">
                                             <li><a href="/solutions/category/04_EmergencyRescue">Emergency Communication Drone</a></li>
                                             <li><a href="/solutions/category/04_EmergencyRescue">Emergency Reconnaissance Drone</a></li>
                                             <li><a href="/solutions/category/04_EmergencyRescue">Emergency Lighting Drone</a></li>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

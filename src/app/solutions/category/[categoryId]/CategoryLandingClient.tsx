@@ -60,7 +60,8 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .mobile_only { display: none !important; }
         .pc_only { display: block !important; }
         @media (max-width: 991px) {
@@ -210,7 +211,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
 
       {/* MOBILE VIEW */}
       <div className="mobile_only">
-        <MobileCategoryLanding 
+        <MobileCategoryLanding
           categoryId={categoryId}
           categoryName={data.name_en}
           bannerImage={data.bannerImage}

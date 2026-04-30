@@ -1,6 +1,7 @@
 'use client';
 
 import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
+import CategoryNav from '@/components/products/CategoryNav';
 
 interface Solution {
     id: string;
@@ -133,7 +134,8 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
 
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: `
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .mobile_only { display: none !important; }
                 .pc_only { display: block !important; }
                 @media (max-width: 991px) {
@@ -167,14 +169,8 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                         </div>
                     </section>
 
-                    {/* Placeholder replacement for CategoryNav since we removed its import to avoid duplication */}
-                    <div className="container" style={{ position: 'sticky', top: '108px', zIndex: 10, background: '#fff', borderBottom: '1px solid #eee' }}>
-                        <div style={{ display: 'flex', gap: '30px', padding: '20px 0', overflowX: 'auto' }}>
-                            {categoryList.map(cat => (
-                                <a key={cat.id} href={`#${cat.id}`} style={{ whiteSpace: 'nowrap', textDecoration: 'none', color: '#333', fontWeight: 700, fontSize: '1.4rem' }}>{cat.name}</a>
-                            ))}
-                        </div>
-                    </div>
+                    {/* STICKY CATEGORY NAV (RESTORED STYLE) */}
+                    <CategoryNav categories={categoryList} />
 
                     <div className="solution-lists-wrap" style={{ padding: '80px 0' }}>
                         {categoryList.map((category) => (
