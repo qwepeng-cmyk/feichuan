@@ -1,7 +1,7 @@
 {
   "product_name": "应急应用无人机",
   "product_name_en": "Emergency Response Drone",
-  "summary": "产品概述 应急应用无人机是一款专为突发事件响应与灾害管理设计的快速部署型空中作业平台。系统由高机动性无人机平台、多任务载荷模块及一体化指挥控制终端组成，通过多链路融合通信技术，实现对复杂应急场景的实时监控、快速侦察与数据采集，为指挥决策提供关键信息支持。",
+  "summary": "应急应用无人机是一款专为突发事件响应与灾害管理设计的快速部署型空中作业平台。系统由高机动性无人机平台、多任务载荷模块及一体化指挥控制终端组成，通过多链路融合通信技术，实现对复杂应急场景的实时监控、快速侦察与数据采集，为指挥决策提供关键信息支持。",
   "summary_en": "The Emergency Response Drone is a rapidly deployable aerial platform specifically designed for incident response and disaster management. The system consists of a high-mobility drone platform, multi-task payload modules, and an integrated command terminal. By utilizing multi-link fusion communication technology, it achieves real-time monitoring, rapid reconnaissance, and data collection in complex emergency scenarios, providing critical information to support command decision-making.",
   "key_application": "应用领域：森林防火、地质灾害、水旱灾害、有害气体等突发事件响应；灾害现场大范围监察、动态搜救、测绘取证及三维建模评估。",
   "key_application_en": "Incident response (forest fires, geological/water disasters); large-scale monitoring at disaster sites, search and rescue, digital mapping, and 3D modeling for damage assessment.",

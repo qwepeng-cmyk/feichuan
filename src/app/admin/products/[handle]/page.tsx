@@ -244,7 +244,8 @@ export default function ProductEditPage({ params }: { params: { handle: string }
             const data = await res.json();
             if (data.success) {
                 setSuccessMsg('Product saved successfully!');
-                setTimeout(() => router.push('/admin/products'), 1200);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => router.push('/admin/products'), 1500);
             } else {
                 setError(data.error || 'Save failed');
             }
@@ -286,8 +287,8 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                 </button>
             </div>
 
-            {error && <div style={{ padding: '14px 20px', backgroundColor: '#fff5f5', color: '#c53030', borderRadius: '10px', marginBottom: '20px', border: '1px solid #fed7d7', fontSize: '1.4rem', fontWeight: 500 }}>{error}</div>}
-            {successMsg && <div style={{ padding: '14px 20px', backgroundColor: '#f0fff4', color: '#276749', borderRadius: '10px', marginBottom: '20px', border: '1px solid #c6f6d5', fontSize: '1.4rem', fontWeight: 500 }}>{successMsg}</div>}
+            {error && <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 10000, padding: '14px 30px', backgroundColor: '#fff5f5', color: '#c53030', borderRadius: '12px', border: '1px solid #fed7d7', fontSize: '1.4rem', fontWeight: 600, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '10px' }}><span>⚠️</span> {error}</div>}
+            {successMsg && <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 10000, padding: '14px 30px', backgroundColor: '#f0fff4', color: '#276749', borderRadius: '12px', border: '1px solid #c6f6d5', fontSize: '1.4rem', fontWeight: 600, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '10px' }}><span>✅</span> {successMsg}</div>}
 
             {/* ═══════════ SECTION 1: Identity ═══════════ */}
             <div style={sectionCard}>

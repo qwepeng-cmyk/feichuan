@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Edit, Plus, Trash2 } from 'lucide-react';
+import { Edit, Eye, Plus, Trash2 } from 'lucide-react';
 
 export default function CasesPage() {
     const [cases, setCases] = useState<any[]>([]);
@@ -73,6 +73,14 @@ export default function CasesPage() {
                                     </td>
                                     <td style={{ padding: '14px 22px', textAlign: 'right' }}>
                                         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
+                                            <Link href={`/cases/${p.handle}`} target="_blank" style={{ 
+                                                display: 'inline-flex', alignItems: 'center', gap: '5px', 
+                                                padding: '7px 14px', backgroundColor: '#f0f9ff', color: '#0284c7', 
+                                                borderRadius: '7px', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 500,
+                                                transition: 'all 0.15s'
+                                            }}>
+                                                <Eye size={14} /> 查看
+                                            </Link>
                                             <Link href={`/admin/cases/${p.handle}`} style={{ 
                                                 display: 'inline-flex', alignItems: 'center', gap: '5px', 
                                                 padding: '7px 14px', backgroundColor: '#f0f4f8', color: '#475569', 

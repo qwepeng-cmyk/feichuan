@@ -1,7 +1,7 @@
 {
   "product_name": "应急消防无人机",
   "product_name_en": "Aerial Firefighting Drone",
-  "summary": "产品概述 高层系留应急消防系统主要由消防综合运输车、系留式消防无人机 and 机载灭火载荷组成，其中消防综合运输车集成了AC/DC转换电源、系留线缆、自动收放线装置、伺服控制电机、消防供液系统、智能指挥模块及安全防护系统等；消防综合运输车将市电、车载发电机提供的交流电转换为高压直流电，通过高强度系留线缆同步传输至系留式消防无人机，机载设备将高压直流电转换为低压直流电为无人机及机载灭火载荷供电，同时通过供液系统将灭火介质加压后供高压水枪使用，以实现可达12h不间断滞空灭火作业，使其能够完美完成高层建筑长时间应急消防处置任务，提升高层灭火能力。",
+  "summary": "高层系留应急消防系统主要由消防综合运输车、系留式消防无人机和机载灭火载荷组成，其中消防综合运输车集成了AC/DC转换电源、系留线缆、自动收放线装置、伺服控制电机、消防供液系统、智能指挥模块及安全防护系统等；消防综合运输车将市电、车载发电机提供的交流电转换为高压直流电，通过高强度系留线缆同步传输至系留式消防无人机，机载设备将高压直流电转换为低压直流电为无人机及机载灭火载荷供电，同时通过供液系统将灭火介质加压后供高压水枪使用，以实现可达12h不间断滞空灭火作业，使其能够完美完成高层建筑长时间应急消防处置任务，提升高层灭火能力。",
   "summary_en": "The high-rise tethered emergency firefighting system consists of a firefighting transport vehicle, a tethered drone, and airborne fire extinguishing payloads. The vehicle integrates AC/DC conversion power, automatic winding, and fire fluid supply systems. It converts AC power from the grid or generators into high-voltage DC for synchronous transmission to the drone. This enables up to 12 hours of continuous airborne firefighting operation, effectively handling long-duration emergency situations in high-rise buildings and significantly enhancing high-altitude firefighting capabilities.",
   "key_application": "应用领域：高层及超高层建筑火灾现场精准灭火；大型化工装置火灾持续冷却隔离；山火消防处置、火情侦察与救援辅助；火灾扑灭后长时间洒水降温。",
   "key_application_en": "Precision firefighting at high-rise building fire sites; continuous cooling and isolation for large-scale chemical installation fires; forest fire disposal and rescue assistance; post-fire watering and cooling.",

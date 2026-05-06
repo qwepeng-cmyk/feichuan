@@ -118,7 +118,15 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
         setSaving(true); setError(''); setOk('');
         let d; if(showAdv){try{d=JSON.parse(rawJson)}catch{setError('Invalid JSON');setSaving(false);return;}} else d=build();
         const url = isNew ? '/api/admin/solutions' : `/api/admin/solutions/${params.id}`;
-        try{const r=await fetch(url,{method:isNew?'POST':'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});const j=await r.json();if(j.success){setOk('Saved!');setTimeout(()=>router.push('/admin/solutions'),1200)}else setError(j.error||'Failed')}catch{setError('Server error')}finally{setSaving(false)}
+        try {
+            const r = await fetch(url, { method: isNew ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+            const j = await r.json();
+            if (j.success) {
+                setOk('Saved successfully!');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => router.push('/admin/solutions'), 1500);
+            } else setError(j.error || 'Failed')
+        } catch { setError('Server error') } finally { setSaving(false) }
     };
 
     if (loading) return <div style={{padding:'60px',textAlign:'center',color:'#94a3b8',fontSize:'1.4rem'}}>加载中...</div>;
@@ -132,8 +140,8 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
                 <h1 style={{fontSize:'2.0rem',color:'#1e293b',fontWeight:700,margin:0,letterSpacing:'-0.2px'}}>{isNew?'新增方案':'编辑方案'}</h1>
                 <button onClick={save} disabled={saving} style={{display:'flex',alignItems:'center',gap:'6px',padding:'9px 22px',backgroundColor:saving?'#93b5f0':'#3b82f6',color:'#fff',border:'none',borderRadius:'8px',cursor:saving?'not-allowed':'pointer',fontWeight:600,fontSize:'1.3rem',boxShadow:'0 1px 3px rgba(59,130,246,0.3)',transition:'all 0.2s'}}><Save size={18}/> {saving?'保存中...':'保存方案'}</button>
             </div>
-            {error&&<div style={{padding:'12px 18px',backgroundColor:'#fff5f5',color:'#c53030',borderRadius:'10px',marginBottom:'16px',border:'1px solid #fed7d7',fontSize:'1.3rem'}}>{error}</div>}
-            {ok&&<div style={{padding:'12px 18px',backgroundColor:'#f0fff4',color:'#276749',borderRadius:'10px',marginBottom:'16px',border:'1px solid #c6f6d5',fontSize:'1.3rem'}}>{ok}</div>}
+            {error && <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 10000, padding: '14px 30px', backgroundColor: '#fff5f5', color: '#c53030', borderRadius: '12px', border: '1px solid #fed7d7', fontSize: '1.4rem', fontWeight: 600, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '10px' }}><span>⚠️</span> {error}</div>}
+            {ok && <div style={{ position: 'fixed', top: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 10000, padding: '14px 30px', backgroundColor: '#f0fff4', color: '#276749', borderRadius: '12px', border: '1px solid #c6f6d5', fontSize: '1.4rem', fontWeight: 600, boxShadow: '0 10px 25px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '10px' }}><span>✅</span> {ok}</div>}
 
             <div style={s.card}><h2 style={s.title}>🛡️ Solution Identity</h2>
                 {isNew&&<div style={{marginBottom:'20px'}}><label style={s.label}>URL Handle</label><input style={s.input} value={f.handle||''} onChange={e=>upd('handle',e.target.value)}/></div>}

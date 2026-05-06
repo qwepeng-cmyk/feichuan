@@ -1,7 +1,7 @@
 {
   "product_name": "水利监测无人机",
   "product_name_en": "Water Conservancy Monitoring Drone",
-  "summary": "产品概述 水利监测无人机是一款专为水域环境与水利工程管理设计的智能化监测系统。该系统由多旋翼飞行平台、高精度监测载荷和便携式地面站组成，通过稳定可靠的无线通信链路，实现对水域状况、水利设施和防汛应急场景的实时监测与数据采集。",
+  "summary": "水利监测无人机是一款专为水域环境与水利工程管理设计的智能化监测系统。该系统由多旋翼飞行平台、高精度监测载荷和便携式地面站组成，通过稳定可靠的无线通信链路，实现对水域状况、水利设施和防汛应急场景的实时监测与数据采集。",
   "summary_en": "The Water Conservancy Monitoring Drone is an intelligent system specifically designed for managing aquatic environments and hydraulic projects. It comprises a multi-rotor flying platform, high-precision monitoring payloads, and a portable ground station. Through stable and reliable wireless communication links, it enables real-time monitoring and data collection for water conditions, hydraulic facilities, and flood prevention emergency scenarios.",
   "key_application": "应用领域：汛期水文监测与险情勘察；河湖水域常态化监管（水质、排污、非法采砂）；坝体裂缝、管涌渗漏等水利设施智能巡检；堰塞湖与冰凌应急监测。",
   "key_application_en": "Hydrological monitoring and hazard inspection during flood seasons; regular supervision of rivers/lakes (water quality, sewage, sand mining); intelligent inspection of dams (cracks, seepage); emergency monitoring of barrier lakes.",

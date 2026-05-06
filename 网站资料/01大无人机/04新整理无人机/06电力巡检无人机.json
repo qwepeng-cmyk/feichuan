@@ -1,7 +1,7 @@
 {
   "product_name": "电力巡检无人机",
   "product_name_en": "Power Grid Inspection Drone",
-  "summary": "产品概述 电力巡检运维无人机是一款专为输配电线路及电力设施智能化运维设计的专业化巡检系统。系统主要由高可靠性无人机飞行平台、机载巡检载荷和地面控制终端三部分组成。能够在山区、林区等复杂地形高效完成大范围线路普查、杆塔巡检及通道勘测等复杂场景下的立体化巡检与数据采集任务。",
+  "summary": "电力巡检运维无人机是一款专为输配电线路及电力设施智能化运维设计的专业化巡检系统。系统主要由高可靠性无人机飞行平台、机载巡检载荷和地面控制终端三部分组成。能够在山区、林区等复杂地形高效完成大范围线路普查、杆塔巡检及通道勘测等复杂场景下的立体化巡检与数据采集任务。",
   "summary_en": "The Power Grid Inspection Drone is a professional system designed for the intelligent operation and maintenance of power transmission lines and facilities. It consists of a high-reliability flight platform, airborne inspection payloads, and a ground control terminal. The system efficiently performs large-scale line surveys, tower inspections, and corridor surveys in complex terrains such as mountains and forests, providing 3D inspection and data collection for power infrastructure.",
   "key_application": "应用领域：输配电线路常态化自主巡检；杆塔与变电站设备异常发热、缺陷识别；电力走廊三维建模、树障分析及清障规划。",
   "key_application_en": "Routine autonomous inspection of transmission/distribution lines; identifying abnormal heating and defects in towers/substations; 3D modeling of power corridors and tree barrier analysis.",

@@ -1,7 +1,7 @@
 {
   "product_name": "应急照明无人机",
   "product_name_en": "Emergency Lighting Drone",
-  "summary": "产品概述 系留无人机应急照明系统主要由无人机、系留箱、机载电源和泛光照明灯组成，其中系留箱集成了AC/DC转换电源、系留线缆、收放线装置、伺服电机、通信模块、散热系统以及控制管理系统等；系留箱将市电、发电机或移动电源等供电设备所提供的交流电转换为高压直流电，通过系留线缆传输至机载电源，机载电源将高压直流电转换为低压直流电为无人机以及泛光照明灯等任务载荷供电，以实现可达12h不间断飞行。",
+  "summary": "系留无人机应急照明系统主要由无人机、系留箱、机载电源和泛光照明灯组成，其中系留箱集成了AC/DC转换电源、系留线缆、收放线装置、伺服电机、通信模块、散热系统以及控制管理系统等；系留箱将市电、发电机或移动电源等供电设备所提供的交流电转换为高压直流电，通过系留线缆传输至机载电源，机载电源将高压直流电转换为低压直流电为无人机以及泛光照明灯等任务载荷供电，以实现可达12h不间断飞行。",
   "summary_en": "The tethered drone emergency lighting system mainly consists of a drone, a tethered box, an onboard power supply, and a floodlight. The tethered box integrates AC/DC conversion power, a winding device, and a cooling system. It converts AC power from the grid or generators into high-voltage DC for transmission to the drone via the tethered cable. The onboard power supply then converts this into low-voltage DC to power the drone and the floodlight, enabling up to 12 hours of uninterrupted flight.",
   "key_application": "应用领域：应急救援、抢修现场大面积照明；公安反恐、交通监管、救灾抢险及新闻采访等领域的视频拍摄、区域监控与探照搜索。",
   "key_application_en": "Large-area illumination for emergency rescue and repair sites; video recording, monitoring, and search operations for public security, traffic management, disaster relief, and media reporting.",

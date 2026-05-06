@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare } from 'lucide-react';
+import { LayoutDashboard, Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ExternalLink } from 'lucide-react';
 import styles from '@/app/admin/admin.module.css';
 
 export default function AdminSidebar() {
@@ -44,6 +44,18 @@ export default function AdminSidebar() {
                         </Link>
                     );
                 })}
+
+                <div style={{ margin: '20px 0', borderTop: '1px solid rgba(255,255,255,0.1)' }} />
+                
+                <Link 
+                    href="/" 
+                    target="_blank"
+                    className={styles.navItem}
+                    style={{ color: '#94a3b8' }}
+                >
+                    <ExternalLink size={20} />
+                    返回前台首页
+                </Link>
             </nav>
         </aside>
     );
