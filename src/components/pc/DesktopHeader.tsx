@@ -115,103 +115,104 @@ export default function Header() {
                         </div>
 
                         <div className={`nav-item ${pathname.startsWith('/products') ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <a href="/products" className="nav-link">Products</a>
+                            <Link href="/products" className="nav-link">Products</Link>
                             <div className="mega-menu">
                                 <div className={isHome ? "container-wide" : "container"} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '50px', padding: '25px 0' }}>
                                     {/* Column 1: UAV Systems */}
                                     <div className="mega-column">
-                                        <h3 className="mega-title">UAV & Drone Systems</h3>
+                                        <h3 className="mega-title"><Link href="/products#uav-drone-systems">UAV & Drone Systems</Link></h3>
                                         <div style={{ marginBottom: '15px' }}>
                                             <div className="mega-sub-header">By Flight Platform</div>
                                             <ul className="mega-list">
-                                                <li><a href="/products#uav-drone-systems">Multi-Rotor UAVs</a></li>
-                                                <li><a href="/products#uav-drone-systems">VTOL Fixed-Wing UAVs</a></li>
-                                                <li><a href="/products#uav-drone-systems">Tethered UAVs</a></li>
+                                                <li><Link href="/products#uav-drone-systems">Multi-Rotor UAVs</Link></li>
+                                                <li><Link href="/products#uav-drone-systems">VTOL Fixed-Wing UAVs</Link></li>
+                                                <li><Link href="/products#uav-drone-systems">Tethered UAVs</Link></li>
                                             </ul>
                                         </div>
                                         <div>
                                             <div className="mega-sub-header">By Mission & Application</div>
                                             <ul className="mega-list">
-                                                <li><a href="/products#uav-drone-systems">Emergency & Rescue</a></li>
-                                                <li><a href="/products#uav-drone-systems">Aerial Firefighting</a></li>
-                                                <li><a href="/products#uav-drone-systems">Utility & Pipeline Inspection</a></li>
-                                                <li><a href="/products#uav-drone-systems">Water & Environmental</a></li>
+                                                <li><Link href="/products/fc-yjzc-01-emergency-reconnaissance-drone">Emergency & Rescue</Link></li>
+                                                <li><Link href="/products/fc-yjxf-01-aerial-firefighting-drone">Aerial Firefighting</Link></li>
+                                                <li><Link href="/products/fc-yqxj-01-utility-inspection-drone">Utility & Pipeline Inspection</Link></li>
+                                                <li><Link href="/products/fc-sljc-01-water-conservancy-monitoring-drone">Water & Environmental</Link></li>
+                                                <li><Link href="/products/fc-yjtx-01-emergency-communication-drone">Emergency Communication</Link></li>
+                                                <li><Link href="/products/fc-dlxj-01-power-grid-inspection-drone">Power Grid Inspection</Link></li>
                                             </ul>
                                         </div>
                                     </div>
 
                                     {/* Column 2: Anti-Drone / C-UAS Systems */}
                                     <div className="mega-column">
-                                        <h3 className="mega-title">Anti-Drone / C-UAS Systems</h3>
+                                        <h3 className="mega-title"><Link href="/products#anti-drone-cuas">Anti-Drone / C-UAS Systems</Link></h3>
                                         <div style={{ marginBottom: '12px' }}>
                                             <div className="mega-sub-header">Detection & Tracking</div>
                                             <ul className="mega-list">
-                                                <li><a href="/products#anti-drone-cuas">Low-Altitude Detection Radars</a></li>
-                                                <li><a href="/products#anti-drone-cuas">RF Detection Systems [Stationary & Portable]</a></li>
-                                                <li><a href="/products#anti-drone-cuas">Electro-Optical (EO) Tracking Systems</a></li>
-                                                <li><a href="/products#anti-drone-cuas">Remote ID & Monitoring Systems</a></li>
+                                                <li><Link href="/products/low-altitude-detection-radar-ku-band">Low-Altitude Detection Radars</Link></li>
+                                                <li><Link href="/products/stationary-rf-detection-system">RF Detection Systems [Stationary & Portable]</Link></li>
+                                                <li><Link href="/products/composite-electro-optical-tracking-system">Electro-Optical (EO) Tracking Systems</Link></li>
+                                                <li><Link href="/products/uav-remote-id-monitoring-system">Remote ID & Monitoring Systems</Link></li>
                                             </ul>
                                         </div>
                                         <div style={{ marginBottom: '12px' }}>
                                             <div className="mega-sub-header">Interference & Defeat</div>
                                             <ul className="mega-list">
-                                                <li><a href="/products#anti-drone-cuas">Handheld Anti-Drone Guns & Shields</a></li>
-                                                <li><a href="/products#anti-drone-cuas">RF Jamming Systems [Directional & Omni]</a></li>
-                                                <li><a href="/products#anti-drone-cuas">Navigation Spoofing Systems</a></li>
-                                                <li><a href="/products#anti-drone-cuas">Active RF Defense Systems</a></li>
+                                                <li><Link href="/products/handheld-integrated-multi-band-jammer-gun">Handheld Anti-Drone Guns & Shields</Link></li>
+                                                <li><Link href="/products/omni-directional-rf-jammer">RF Jamming Systems [Directional & Omni]</Link></li>
+                                                <li><Link href="/products/uav-navigation-spoofing-system">Navigation Spoofing Systems</Link></li>
+                                                <li><Link href="/products/stationary-active-rf-defense-system">Active RF Defense Systems</Link></li>
                                             </ul>
                                         </div>
                                         <div>
                                             <div className="mega-sub-header">Integrated Counter-UAS</div>
                                             <ul className="mega-list">
-                                                <li><a href="/products#anti-drone-cuas">Portable Integrated C-UAS</a></li>
-                                                <li><a href="/products#anti-drone-cuas">Stationary Integrated Defense</a></li>
+                                                <li><Link href="/products/portable-integrated-detection-jamming-c-uas-basic">Portable Integrated C-UAS</Link></li>
+                                                <li><Link href="/products/handheld-integrated-sdr-c-uas">Handheld Integrated C-UAS</Link></li>
                                             </ul>
                                         </div>
                                     </div>
 
                                     {/* Column 3: Security Screening & Policing */}
                                     <div className="mega-column">
-                                        <h3 className="mega-title">Security Screening & Policing</h3>
+                                        <h3 className="mega-title"><Link href="/products#security-screening">Security Screening & Policing</Link></h3>
                                         <ul className="mega-list">
-                                            <li><a href="/products#security-screening">X-Ray Baggage & Parcel Scanners</a></li>
-                                            <li><a href="/products#security-screening">Metal & Contraband Detection</a></li>
-                                            <li><a href="/products#security-screening">Walk-Through Metal Detectors</a></li>
-                                            <li><a href="/products#security-screening">Smart Phone Detection Gates</a></li>
-                                            <li><a href="/products#security-screening">Ferromagnetic Security Pillars</a></li>
-                                            <li><a href="/products#security-screening">Handheld Metal Detectors</a></li>
-                                            <li><a href="/products#security-screening">Explosive & Narcotics Detectors</a></li>
-                                            <li><a href="/products#security-screening">Hazardous Liquid Inspectors</a></li>
-                                            <li><a href="/products#security-screening">Explosion Protection</a></li>
-                                            <li><a href="/products#security-screening">Radiation Detectors / Dosimeters</a></li>
-                                            <li><a href="/products#security-screening">Access Control Turnstiles</a></li>
+                                            <li><Link href="/products/fc6550-standard-x-ray-baggage-scanner">X-Ray Baggage & Parcel Scanners</Link></li>
+                                            <li><Link href="/products/fc-c-lcd-walk-through-metal-detector">Walk-Through Metal Detectors</Link></li>
+                                            <li><Link href="/products/fc-h-smart-phone-detection-gate">Smart Phone Detection Gates</Link></li>
+                                            <li><Link href="/products/fc-3000-ferromagnetic-detection-column">Ferromagnetic Security Pillars</Link></li>
+                                            <li><Link href="/products/fc2088-handheld-metal-detector">Handheld Metal Detectors</Link></li>
+                                            <li><Link href="/products/fc1800t-desktop-explosives-narcotics-detector">Explosive & Narcotics Detectors</Link></li>
+                                            <li><Link href="/products/fc1500b-desktop-liquid-security-inspector">Hazardous Liquid Inspectors</Link></li>
+                                            <li><Link href="/products/fbg-g15-fc06-explosion-containment-vessel">Explosion Protection</Link></li>
+                                            <li><Link href="/products/fc902-personal-radiation-dose-alarm">Radiation Detectors / Dosimeters</Link></li>
+                                            <li><Link href="/products/fc-smart-swing-turnstile">Access Control Turnstiles</Link></li>
                                         </ul>
                                     </div>
 
                                     {/* Column 4: Engineering, Medical & Surveillance */}
                                     <div className="mega-column">
                                         <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title">Defense Engineering</h3>
+                                            <h3 className="mega-title"><Link href="/products#defense-engineering">Defense Engineering</Link></h3>
                                             <ul className="mega-list">
-                                                <li><a href="/products#defense-engineering">Prefabricated Steel Bridges / Bailey Bridges</a></li>
-                                                <li><a href="/products#defense-engineering">Bridge Components & Accessories</a></li>
+                                                <li><Link href="/products/bailey-bridge">Prefabricated Steel Bridges / Bailey Bridges</Link></li>
+                                                <li><Link href="/products/bailey-bridge">Bridge Components & Accessories</Link></li>
                                             </ul>
                                         </div>
                                         <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title">Field & Mobile Hospitals</h3>
+                                            <h3 className="mega-title"><Link href="/products#field-hospitals">Field & Mobile Hospitals</Link></h3>
                                             <ul className="mega-list">
-                                                <li><a href="/products#field-hospitals">Containerized Medical Systems</a></li>
-                                                <li><a href="/products#field-hospitals">Intelligent Mobile Cabin Hospitals</a></li>
+                                                <li><Link href="/products/containerized-medical-rescue-system">Containerized Medical Systems</Link></li>
+                                                <li><Link href="/products/intelligent-mobile-cabin-hospital">Intelligent Mobile Cabin Hospitals</Link></li>
                                             </ul>
                                         </div>
                                         <div>
-                                            <h3 className="mega-title">Perimeter Surveillance</h3>
+                                            <h3 className="mega-title"><Link href="/products#perimeter-intelligence">Perimeter Surveillance</Link></h3>
                                             <ul className="mega-list">
-                                                <li><a href="/products#perimeter-intelligence">Smart Electronic Sentinels</a></li>
-                                                <li><a href="/products#perimeter-intelligence">Radar-Vision Integration Systems</a></li>
-                                                <li><a href="/products#perimeter-intelligence">Multi-Band EO/IR PTZ Cameras</a></li>
-                                                <li><a href="/products#perimeter-intelligence">Dual-Band Thermal High-Speed Domes</a></li>
-                                                <li><a href="/products#perimeter-intelligence">HD Laser Cameras</a></li>
+                                                <li><Link href="/products/fc-dms10-smart-electronic-sentinel">Smart Electronic Sentinels</Link></li>
+                                                <li><Link href="/products/fc-rds500-4r-radar-vision-sentinel">Radar-Vision Integration Systems</Link></li>
+                                                <li><Link href="/products/fc-dma-long-range-optical-turntable">Multi-Band EO/IR PTZ Cameras</Link></li>
+                                                <li><Link href="/products/fc-dtvc-dual-band-thermal-ptz">Dual-Band Thermal High-Speed Domes</Link></li>
+                                                <li><Link href="/products/fc-rc-series-hd-laser-camera">HD Laser Cameras</Link></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -220,40 +221,41 @@ export default function Header() {
                         </div>
 
                         <div className={`nav-item ${pathname.startsWith('/solutions') ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <a href="/solutions" className="nav-link">Solutions</a>
+                            <Link href="/solutions" className="nav-link">Solutions</Link>
                             <div className="mega-menu">
                                 <div className={isHome ? "container-wide" : "container"} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '60px', padding: '25px 0' }}>
                                     <div className="mega-column">
-                                        <h3 className="mega-title">Border Patrol & Security</h3>
+                                        <h3 className="mega-title"><Link href="/solutions/category/01_BorderPatrol">Border Patrol & Security</Link></h3>
                                         <ul className="mega-list">
-                                            <li><a href="/solutions/category/01_BorderPatrol">Drone Maritime Patrol</a></li>
-                                            <li><a href="/solutions/category/01_BorderPatrol">Land-Based Maritime Surveillance</a></li>
-                                            <li><a href="/solutions/category/01_BorderPatrol">Drone Maritime Emergency Rescue</a></li>
+                                            <li><Link href="/solutions/uav-maritime-patrol">UAV Maritime Patrol</Link></li>
+                                            <li><Link href="/solutions/land-based-maritime-surveillance">Land-Based Maritime Surveillance</Link></li>
+                                            <li><Link href="/solutions/uav-maritime-emergency-rescue">UAV Maritime Emergency Rescue</Link></li>
                                         </ul>
                                     </div>
                                     <div className="mega-column">
-                                        <h3 className="mega-title">Critical Infrastructure Protection</h3>
+                                        <h3 className="mega-title"><Link href="/solutions/category/02_InfrastructureProtection">Critical Infrastructure Protection</Link></h3>
                                         <ul className="mega-list">
-                                            <li><a href="/solutions/category/02_InfrastructureProtection">Chemical Plant Area Protection</a></li>
-                                            <li><a href="/solutions/category/02_InfrastructureProtection">Oil Production Base Protection</a></li>
-                                            <li><a href="/solutions/category/02_InfrastructureProtection">Power & Hydroelectric Dam Protection</a></li>
-                                            <li><a href="/solutions/category/02_InfrastructureProtection">Airport Anti-drone Application</a></li>
+                                            <li><Link href="/solutions/chemical-plant-protection">Chemical Plant Protection</Link></li>
+                                            <li><Link href="/solutions/oil-production-base-protection">Oil Production Base Protection</Link></li>
+                                            <li><Link href="/solutions/power-generation-facility-anti-uav">Power Generation Facility Anti-UAV</Link></li>
+                                            <li><Link href="/solutions/hydroelectric-dam-protection">Hydroelectric Dam Protection</Link></li>
+                                            <li><Link href="/solutions/airport-anti-uav">Airport Anti-UAV Application</Link></li>
                                         </ul>
                                     </div>
                                     <div className="mega-column">
-                                        <h3 className="mega-title">Key Area Security</h3>
+                                        <h3 className="mega-title"><Link href="/solutions/category/03_KeyAreaSecurity">Key Area Security</Link></h3>
                                         <ul className="mega-list">
-                                            <li><a href="/solutions/category/03_KeyAreaSecurity">Judicial Department Security</a></li>
-                                            <li><a href="/solutions/category/03_KeyAreaSecurity">Large-scale Sports Event Security</a></li>
-                                            <li><a href="/solutions/category/03_KeyAreaSecurity">Traffic Hub Security Protection</a></li>
+                                            <li><Link href="/solutions/judicial-sector-security">Judicial Sector Security</Link></li>
+                                            <li><Link href="/solutions/sports-event-security">Large Sports Event Security</Link></li>
+                                            <li><Link href="/solutions/airport-security-protection">Airport Security Protection</Link></li>
                                         </ul>
                                     </div>
                                     <div className="mega-column">
-                                        <h3 className="mega-title">Emergency & Disaster Rescue</h3>
+                                        <h3 className="mega-title"><Link href="/solutions/category/04_EmergencyRescue">Emergency & Disaster Rescue</Link></h3>
                                         <ul className="mega-list">
-                                            <li><a href="/solutions/category/04_EmergencyRescue">Emergency Communication Drone</a></li>
-                                            <li><a href="/solutions/category/04_EmergencyRescue">Emergency Reconnaissance Drone</a></li>
-                                            <li><a href="/solutions/category/04_EmergencyRescue">Emergency Lighting Drone</a></li>
+                                            <li><Link href="/solutions/emergency-communication-uav">Emergency Communication UAV</Link></li>
+                                            <li><Link href="/solutions/emergency-reconnaissance-uav">Emergency Reconnaissance UAV</Link></li>
+                                            <li><Link href="/solutions/emergency-lighting-uav">Emergency Lighting UAV</Link></li>
                                         </ul>
                                     </div>
                                 </div>
