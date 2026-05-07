@@ -29,7 +29,7 @@ export default function MobileHeader() {
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link href="/" className={styles.logo}>
-                    <img src="/logo.png" alt="N-TET" style={{ height: '26px' }} />
+                    <img src="/logo1.png" alt="N-TET" style={{ height: '42px' }} />
                 </Link>
                 <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)}>
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>

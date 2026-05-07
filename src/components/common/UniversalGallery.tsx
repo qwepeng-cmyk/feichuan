@@ -31,7 +31,7 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
         <img 
             src={displayImages[activeIndex]} 
             alt="Main display" 
-            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
         
         {/* Navigation Buttons (Matched with Screen Sample) */}
@@ -93,7 +93,7 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
         )}
       </div>
 
-      {/* 2. Thumbnails Rail (Strict Sizing / Active Logic) */}
+      {/* 2. Thumbnails Rail (Always show) */}
       <div className="gallery-thumbs">
         {displayImages.map((img, index) => (
           <div

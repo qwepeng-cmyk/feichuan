@@ -92,7 +92,7 @@ export default function MobileProductDetail({ product }: ProductProps) {
                         <img src={displayImages[activeIndex]} alt={product.product_name_en} />
 
                     </div>
-                    {displayImages.length > 1 && (
+                    {displayImages.length >= 1 && (
                         <div className={styles.thumbTrack}>
                             {displayImages.map((img, idx) => (
                                 <div 

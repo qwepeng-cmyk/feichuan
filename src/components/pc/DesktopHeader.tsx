@@ -55,7 +55,7 @@ export default function Header() {
                         alignItems: 'center', 
                         height: '100%' 
                     }}>
-                        <div>Email: info@n-tet.com</div>
+                        <div>Email: info@n-tetbj.com</div>
                         
                         {/* Language Selector with Dropdown */}
                         <div className="lang-switch-top" style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -105,8 +105,8 @@ export default function Header() {
                     justifyContent: 'space-between'
                 }}>
                     <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src="/logo.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
-                        <img src="/logo.png" alt="N-TET Logo" className="logo-dark" />
+                        <img src="/logo1.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
+                        <img src="/logo1.png" alt="N-TET Logo" className="logo-dark" />
                     </a>
 
                     <nav className="main-nav" style={{ display: 'flex', height: '100%' }}>

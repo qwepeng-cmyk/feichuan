@@ -1,57 +1,57 @@
 export const products = [
     {
-        top: "Multi-Rotor UAV Platform",
-        main: "FC-X6 Multi-Rotor UAV",
-        desc: "Engineered with advanced industrial design and one-piece carbon-fiber structure for single-operator deployment and multi-payload mission flexibility.",
+        top: "UAV & Drone Systems",
+        main: "Water Conservancy Monitoring Drone",
+        desc: "Intelligent system specifically designed for managing aquatic environments and hydraulic projects, featuring multi-rotor flying platform and high-precision monitoring payloads.",
         img: "/products/01-uav-drone-systems/uav-systems.png",
         scale: 0.95,
         offsetY: 0,
-        handle: "fc-dlxj-01-power-grid-inspection-drone"
+        handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Anti-Drone Response Platform",
-        main: "Portable C-UAS Interception Unit",
-        desc: "Portable multi-band suppression architecture for rapid anti-drone response in airports, events, and mission-critical areas.",
+        top: "Anti-Drone / C-UAS Systems",
+        main: "Multi-band Detection & Jamming Gun",
+        desc: "Provides precise directional suppression, long-range detection warning, and rapid deployment capabilities to effectively neutralize mainstream drones.",
         img: "/products/02-anti-drone-cuas/anti-drone-systems.png",
         scale: 1.16,
         offsetY: 2,
-        handle: "handheld-integrated-sdr-c-uas"
+        handle: "handheld-integrated-multi-band-jammer-gun"
     },
     {
-        top: "Security Screening Platform",
-        main: "Smart Electronic Sentinel Suite",
-        desc: "Integrates intelligent screening and anomaly recognition to improve throughput and security reliability.",
+        top: "Security Screening & Policing",
+        main: "Smart Phone Detection Gate FC-H",
+        desc: "Utilizes leading electromagnetic wave signal detection technology to effectively distinguish mobile phones in any state, including standby, power-off, and power-on.",
         img: "/products/03-security-screening/security-policing.png",
         scale: 1.14,
         offsetY: 8,
         handle: "fc-h-smart-phone-detection-gate"
     },
     {
-        top: "Defense Logistics Platform",
-        main: "Rapid Engineering Deployment Unit",
-        desc: "Built for quick deployment and reliable operation in emergency bridges, rescue corridors, and field logistics support.",
+        top: "Defense Engineering",
+        main: "Bailey Steel Bridge",
+        desc: "A globally recognized modular steel truss structure system that balances high load capacity and ease of assembly for infrastructure and emergency relief.",
         img: "/products/04-defense-engineering/defense-logistics.png",
         scale: 1.12,
         offsetY: 10,
         handle: "bailey-bridge"
     },
     {
-        top: "Mobile Medical Platform",
-        main: "Containerized Field Hospital Unit",
-        desc: "Modular and mobile healthcare infrastructure designed for disaster response and complex mission environments.",
+        top: "Field & Mobile Hospitals",
+        main: "Containerized Medical Rescue System",
+        desc: "A highly integrated modular design that enables rapid construction of a fully functional large-scale field hospital in complex terrain within just 20 minutes.",
         img: "/products/05-field-mobile-hospitals/field-hospitals.png",
         scale: 1.12,
         offsetY: 14,
         handle: "containerized-medical-rescue-system"
     },
     {
-        top: "Perimeter Intelligence Platform",
-        main: "EO-IR Surveillance Node",
-        desc: "Combines radar-vision fusion and all-weather monitoring to protect key infrastructure and sensitive zones.",
+        top: "Perimeter & Area Surveillance",
+        main: "Radar-Vision Fusion System",
+        desc: "Wide-area panoramic sentinel that fuses four-sided array radar with a PTZ camera, combining active radar detection with visual intelligence for reliable monitoring in complex environments.",
         img: "/products/06-perimeter-surveillance/perimeter-surveillance.png",
-        scale: 1.1,
-        offsetY: 12,
-        handle: "fc-dms10-smart-electronic-sentinel"
+        scale: 1.10,
+        offsetY: 5,
+        handle: "fc-rds500-4r-radar-vision-sentinel"
     }
 ];
 

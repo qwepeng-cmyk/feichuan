@@ -180,7 +180,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>
                             <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Global Case Center</h1>
-                            <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>A global track record of mission success across border patrol, critical facility protection, and emergency rescue operations.</p>
+                            <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>A global track record across border patrol, infrastructure protection, key area security, and emergency rescue.</p>
                         </div>
                     </div>
                 </section>

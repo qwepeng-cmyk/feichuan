@@ -25,7 +25,7 @@ export default function MobileAboutUs() {
 
                 <div 
                     className={styles.profileImage} 
-                    style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200")' }}
+                    style={{ backgroundImage: 'url("/about/about_company.jpg")' }}
                 ></div>
 
                 <div className={styles.profileText}>

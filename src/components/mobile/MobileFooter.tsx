@@ -7,7 +7,7 @@ export default function MobileFooter() {
     return (
         <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                <img src="/logo.png" alt="Logo" style={{ height: '30px', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
+                <img src="/logo1.png" alt="Logo" style={{ height: '48px', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
                 
                 {/* Consultation 按钮 */}
                 <a href="/contact" style={{

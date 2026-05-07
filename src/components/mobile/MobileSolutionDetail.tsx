@@ -14,9 +14,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
 
-    // Support multiple images if available in JSON, else just main_image
-    // For solutions, the old code mocked multiple images if only main_image was present
-    const rawGallery = solution.solution_images || solution.Solution_Images || (solution.main_image ? [solution.main_image, solution.main_image] : []);
+    const rawGallery = solution.solution_images || solution.Solution_Images || [];
     const mainImg = solution.main_image;
     
     // Touch swipe logic
@@ -50,8 +48,8 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
         }
     };
     
-    // Combine and remove duplicates, but we want to allow duplicates if we are mocking
-    let displayImages = [mainImg, ...rawGallery].filter(Boolean);
+    // Combine and remove duplicates
+    let displayImages = Array.from(new Set([mainImg, ...rawGallery])).filter(Boolean) as string[];
     if (displayImages.length === 0) displayImages = ['/images/solutions/placeholder.jpg'];
 
     const scrollToSection = (id: string) => {
@@ -98,7 +96,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
                         <img src={displayImages[activeIndex]} alt={solution.title_en} />
 
                     </div>
-                    {displayImages.length > 1 && (
+                    {displayImages.length >= 1 && (
                         <div className={styles.thumbTrack}>
                             {displayImages.map((img, idx) => (
                                 <div 

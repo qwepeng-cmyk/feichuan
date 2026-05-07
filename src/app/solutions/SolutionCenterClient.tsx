@@ -164,7 +164,7 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
                                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Solution Center</h1>
-                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Tailored tactical systems for border security, infrastructure protection, and emergency mission success.</p>
+                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Tailored solutions for border patrol, infrastructure protection, key area security, and emergency rescue.</p>
                             </div>
                         </div>
                     </section>

@@ -8,7 +8,7 @@ import ProductGridCard from '@/components/products/ProductGridCard';
 
 export default function SolutionDetailClient({ solution, recommendedProducts }: { solution: any, recommendedProducts: any[] }) {
   // Create an array of images (Mock more if only one exists for gallery testing)
-  const images = solution.main_image ? [solution.main_image, solution.main_image, solution.main_image] : ['/images/solutions/placeholder.jpg'];
+  const images = solution.main_image ? [solution.main_image] : ['/images/solutions/placeholder.jpg'];
 
   const navItems = [
     { id: 'overview', label: 'Overview' },

@@ -36,7 +36,7 @@
     "Channel Dimensions": "≤ 2000(H) x 710(W) x 650(D) mm"
   },
   "detail_html": "<h4>功能特点</h4><ul><li>Product Introduct</li><li>区位显示：产品分成12防区，可疑物能在每个区域准确显示。</li><li>统计人数：主界面自动显示更新通过人数和报警人数。</li><li>四侧定位灯：门体四侧均带有LED灯，能直观地通过定位灯显示违禁物品所在区域，视角可达360°。</li><li>声光报警：具有语音报警、灯条闪光报警功能。</li><li>高性能CPU：采用6核芯高性能芯片,主频超过1.8GHz。</li><li>遥控操作：使用无线鼠标键盘对参数进行设置，参数可以设密码保护，非授权人员无法进行操作。</li><li>安全保护：符合国际安全标准，对心脏起博器佩带者、孕妇、磁性介质等无害。</li><li>指示灯调试：具有指示灯手动调试功能，可快速排除故障。</li></ul>",
-  "detail_html_en": "<h4>Features</h4><ul><li>Product Introduct</li><li>区位显示：产品分成12防区，可疑物能在每个区域准确显示。</li><li>统计人数：主界面自动显示更新通过人数和报警人数。</li><li>四侧定位灯：门体四侧均带有LED灯，能直观地通过定位灯显示违禁物品所在区域，视角可达360°。</li><li>声光报警：具有语音报警、灯条闪光报警功能。</li><li>高性能CPU：采用6核芯高性能芯片,主频超过1.8GHz。</li><li>遥控操作：使用无线鼠标键盘对参数进行设置，参数可以设密码保护，非授权人员无法进行操作。</li><li>安全保护：符合国际安全标准，对心脏起博器佩带者、孕妇、磁性介质等无害。</li><li>指示灯调试：具有指示灯手动调试功能，可快速排除故障。</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>29-inch large display for clear, real-time zone-mapping visualization of detected devices.</li><li>Daily Item Filtering: Excludes belt buckles, glasses, pens, pencil cases and other everyday items during phone detection.</li><li>Zone Display: 6 independent detection zones with accurate per-zone suspicious item display.</li><li>People Counting: Automatic real-time display of passage count and alarm count on the main interface.</li><li>Four-Side LED Positioning: LED indicators on all four sides display the prohibited item location with 360° visibility.</li><li>Audio-Visual Alarm: Voice alarm and LED strip flash alarm functions.</li></ul>",
   "main_image": "/products/anti-drone/FC-H-Smart-Phone-Detection-Gate.png",
   "handle": "fc-h-smart-phone-detection-gate-29in",
   "category_primary": "Security Screening & Policing (安检与智慧警务装备)",

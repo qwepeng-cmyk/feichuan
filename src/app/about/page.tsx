@@ -47,7 +47,7 @@ export default function AboutPage() {
                                 <div style={{ maxWidth: '800px' }}>
                                     <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Company Profile</h1>
                                     <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
-                                        Dedicated to world safety through leading-edge unmanned systems and intelligent security solutions.
+                                        Engineering leading-edge unmanned and intelligent security systems for a safer world.
                                     </p>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ export default function AboutPage() {
                                             width: '100%',
                                             aspectRatio: '16/9',
                                             backgroundColor: '#f8fafc',
-                                            backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200")',
+                                            backgroundImage: 'url("/about/about_company.jpg")',
                                             backgroundSize: 'cover',
                                             backgroundPosition: 'center',
                                             borderRadius: '4px',

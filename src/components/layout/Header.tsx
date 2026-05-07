@@ -17,8 +17,8 @@ const Header = () => {
     <header id="site-header" className={scrolled ? 'scrolled' : ''}>
       <div className="container nav-container">
         <Link href="/" className="logo">
-          <img src="/logo.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
-          <img src="/logo.png" alt="N-TET Logo" className="logo-dark" />
+          <img src="/logo1.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
+          <img src="/logo1.png" alt="N-TET Logo" className="logo-dark" />
         </Link>
 
         <input type="checkbox" id="nav-checkbox" className="hidden" />

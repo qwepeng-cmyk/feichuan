@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1.2fr', gap: '60px', marginBottom: '60px' }}>
                     <div>
-                        <img src="/logo.png" alt="Logo" style={{ height: '40px', marginBottom: '30px', filter: 'brightness(0) invert(1)' }} />
+                        <img src="/logo1.png" alt="Logo" style={{ height: '56px', marginBottom: '30px', filter: 'brightness(0) invert(1)' }} />
                         <p style={{ lineHeight: 1.6, fontSize: '1.4rem' }}>Leading provider of intelligent UAV systems and integrated C-UAS technologies, dedicated to delivering advanced defense and security solutions worldwide.</p>
                     </div>
                     

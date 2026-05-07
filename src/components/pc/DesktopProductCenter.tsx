@@ -145,12 +145,12 @@ export default function DesktopProductCenter({ categoriesData }: { categoriesDat
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '750px' }}>
                         <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Product Center</h1>
-                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>Connecting professional technology with tactical applications for a more secure world.</p>
+                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>Specialist hardware engineered to connect professional technology with frontline tactical operations.</p>
                     </div>
                 </div>
                 {/* Visual Accent */}
                 <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)' }}>
-                    <img src="/logo.png" alt="" style={{ height: '400px' }} />
+                    <img src="/logo1.png" alt="" style={{ height: '400px' }} />
                 </div>
             </section>
 

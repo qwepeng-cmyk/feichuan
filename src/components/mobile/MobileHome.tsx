@@ -120,7 +120,7 @@ export default function MobileHome() {
             <section style={{ padding: '40px 15px', background: '#f2f6ff' }}>
                 <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>Product Center</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-                    {products.slice(0, 4).map((item, idx) => (
+                    {products.slice(0, 6).map((item, idx) => (
                         <a key={idx} href={`/products/${item.handle}`} style={{ 
                             background: '#fff', 
                             border: '1px solid #f0f0f0',
