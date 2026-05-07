@@ -80,7 +80,7 @@ export default function RichTextEditor({ value, onChange, placeholder, height = 
 
     useEffect(() => {
         if (editor && value !== editor.getHTML()) {
-            editor.commands.setContent(value, false);
+            editor.commands.setContent(value, { emitUpdate: false });
         }
         if (value !== htmlValue) {
             setHtmlValue(value);
@@ -183,7 +183,7 @@ export default function RichTextEditor({ value, onChange, placeholder, height = 
                             const val = e.target.value;
                             setHtmlValue(val);
                             onChange(val);
-                            editor.commands.setContent(val, false);
+                            editor.commands.setContent(val, { emitUpdate: false });
                         }}
                         style={{
                             width: '100%',

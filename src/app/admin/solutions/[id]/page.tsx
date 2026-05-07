@@ -93,11 +93,11 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
                 setF(data);
                 setF(data);
                 const pEn = data.parameters_en;
-                if (pEn && !Array.isArray(pEn)) setParamsEn([['Parameter', 'Value'], ...Object.entries(pEn)]);
+                if (pEn && !Array.isArray(pEn)) setParamsEn([['Parameter', 'Value'], ...(Object.entries(pEn) as string[][])]);
                 else if (Array.isArray(pEn)) setParamsEn(pEn);
                 
                 const pCn = data.parameters;
-                if (pCn && !Array.isArray(pCn)) setParamsCn([['参数', '值'], ...Object.entries(pCn)]);
+                if (pCn && !Array.isArray(pCn)) setParamsCn([['参数', '值'], ...(Object.entries(pCn) as string[][])]);
                 else if (Array.isArray(pCn)) setParamsCn(pCn);
                 setRawJson(JSON.stringify(data,null,2));
                 setLoading(false);

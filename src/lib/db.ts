@@ -11,7 +11,7 @@ if (!fs.existsSync(dataDir)) {
 const dbPath = path.join(dataDir, 'ntet.db');
 
 // Create database instance
-const db = new Database(dbPath, { verbose: null }); // Set verbose to console.log for debugging
+const db = new Database(dbPath, { verbose: undefined }); // Set verbose to console.log for debugging
 
 // Initialize tables
 db.exec(`

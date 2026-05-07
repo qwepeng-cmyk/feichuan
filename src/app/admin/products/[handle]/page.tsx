@@ -177,14 +177,14 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     // Convert old object format to new array grid format if needed
                     const pEn = data.parameters_en;
                     if (pEn && !Array.isArray(pEn)) {
-                        setParamsEn([['Parameter', 'Value'], ...Object.entries(pEn)]);
+                        setParamsEn([['Parameter', 'Value'], ...(Object.entries(pEn) as string[][])]);
                     } else if (Array.isArray(pEn)) {
                         setParamsEn(pEn);
                     }
 
                     const pCn = data.parameters;
                     if (pCn && !Array.isArray(pCn)) {
-                        setParamsCn([['参数', '值'], ...Object.entries(pCn)]);
+                        setParamsCn([['参数', '值'], ...(Object.entries(pCn) as string[][])]);
                     } else if (Array.isArray(pCn)) {
                         setParamsCn(pCn);
                     }
