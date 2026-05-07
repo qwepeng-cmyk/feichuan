@@ -41,19 +41,29 @@ export function middleware(request: NextRequest) {
     }
 
     // --- i18n Locale Routing ---
-    // Check if the pathname already has a valid locale prefix
-    const pathnameHasLocale = i18n.locales.some(
-        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    );
+    const { locales, defaultLocale } = i18n;
 
-    if (pathnameHasLocale) {
+    // 1. If it starts with the default locale prefix (/en), REDIRECT to prefix-less version
+    if (pathname.startsWith(`/${defaultLocale}/`) || pathname === `/${defaultLocale}`) {
+        const newPathname = pathname === `/${defaultLocale}` 
+            ? '/' 
+            : pathname.replace(`/${defaultLocale}/`, '/');
+        return NextResponse.redirect(new URL(newPathname, request.url), { status: 301 });
+    }
+
+    // 2. Check if the pathname has another valid locale prefix (e.g., /ru)
+    const pathnameHasOtherLocale = locales
+        .filter(l => l !== defaultLocale)
+        .some(locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+
+    if (pathnameHasOtherLocale) {
         return NextResponse.next();
     }
 
-    // Redirect to default locale (e.g., /products → /en/products)
-    const locale = i18n.defaultLocale;
-    return NextResponse.redirect(
-        new URL(`/${locale}${pathname}`, request.url)
+    // 3. If no locale prefix, it's the default locale (English).
+    // We REWRITE internally so the URL stays clean (no /en) but App Router sees /[locale]
+    return NextResponse.rewrite(
+        new URL(`/${defaultLocale}${pathname}`, request.url)
     );
 }
 

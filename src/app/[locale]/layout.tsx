@@ -3,6 +3,24 @@ import { i18n, type Locale } from "@/i18n/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
+  const { locale } = params;
+  const baseUrl = 'https://n-tetbj.com'; // 请确认你的正式域名
+  
+  return {
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
+      languages: {
+        'en': '/',
+        'ru': '/ru',
+        'x-default': '/', // 默认语言设为英文
+      },
+    },
+  };
+}
 
 const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
@@ -26,9 +44,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={`${roboto.className} antialiased`}>
-        <Header />
+        <Header locale={locale} />
         {children}
-        <Footer />
+        <Footer locale={locale} />
 
         {/* MOBILE STICKY BAR */}
         <div className="mobile_only">
