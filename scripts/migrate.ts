@@ -30,8 +30,11 @@ function migrateProducts() {
         INSERT OR REPLACE INTO products (
             handle, product_name_en, category_primary, summary_en, 
             key_application_en, key_parameter_1_en, key_parameter_2_en, 
-            parameters_en, detail_html_en, main_image, raw_json
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            parameters_en, detail_html_en, 
+            product_name_ru, summary_ru, key_application_ru, 
+            key_parameter_1_ru, key_parameter_2_ru, parameters_ru, detail_html_ru,
+            main_image, raw_json
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     let count = 0;
@@ -73,6 +76,13 @@ function processProduct(filePath: string, categoryId: string, stmt: any, inc: ()
             content.key_parameter_2_en || '',
             JSON.stringify(content.parameters_en || content.parameters || {}),
             content.detail_html_en || '',
+            content.product_name_ru || '',
+            content.summary_ru || '',
+            content.key_application_ru || '',
+            content.key_parameter_1_ru || '',
+            content.key_parameter_2_ru || '',
+            JSON.stringify(content.parameters_ru || {}),
+            content.detail_html_ru || '',
             content.main_image || (content.Product_Images && content.Product_Images[0]) || (content.product_images && content.product_images[0]) || '/placeholder.png',
             rawJson
         );
@@ -87,9 +97,11 @@ function migrateSolutions() {
     const insert = db.prepare(`
         INSERT OR REPLACE INTO solutions (
             handle, category_id, category_name, product_name_en, 
-            summary_en, key_application_en, parameters_en, 
-            detail_html_en, main_image, recommended_products, raw_json
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            summary_en, key_application_en, parameters_en, detail_html_en, 
+            product_name_ru, summary_ru, key_application_ru, 
+            key_parameter_1_ru, key_parameter_2_ru, parameters_ru, detail_html_ru,
+            main_image, recommended_products, raw_json
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     let count = 0;
@@ -115,6 +127,13 @@ function migrateSolutions() {
                     data.key_application_en || '',
                     JSON.stringify(data.parameters_en || {}),
                     data.detail_html_en || '',
+                    data.product_name_ru || '',
+                    data.summary_ru || '',
+                    data.key_application_ru || '',
+                    data.key_parameter_1_ru || '',
+                    data.key_parameter_2_ru || '',
+                    JSON.stringify(data.parameters_ru || {}),
+                    data.detail_html_ru || '',
                     data.main_image || '',
                     JSON.stringify(data.recommended_products || []),
                     rawJson
@@ -132,10 +151,12 @@ function migrateCases() {
     console.log('Migrating cases...');
     const insert = db.prepare(`
         INSERT OR REPLACE INTO cases (
-            handle, title_en, description_en, devices_en, 
+            handle, title_en, description_en, devices_en, parameters_en,
+            title_ru, description_ru, devices_ru, parameters_ru,
             main_image, case_images, region_en, country_en, 
+            region_ru, country_ru,
             solution_category_id, recommended_product_handles, raw_json
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     if (!fs.existsSync(CASES_DIR)) return;
@@ -154,10 +175,17 @@ function migrateCases() {
                     data.title_en || '',
                     data.description_en || '',
                     JSON.stringify(data.devices_en || []),
+                    JSON.stringify(data.parameters_en || []),
+                    data.title_ru || '',
+                    data.description_ru || '',
+                    JSON.stringify(data.devices_ru || []),
+                    JSON.stringify(data.parameters_ru || []),
                     data.main_image || '',
                     JSON.stringify(data.case_images || []),
                     data.region_en || '',
                     data.country_en || '',
+                    data.region_ru || '',
+                    data.country_ru || '',
                     data.solution_category_id || '',
                     JSON.stringify(data.recommendedProductHandles || []),
                     rawJson
@@ -175,8 +203,9 @@ function migrateMedia() {
     console.log('Migrating media...');
     const insert = db.prepare(`
         INSERT OR REPLACE INTO media (
-            id, category, title, date, image, content, raw_json
-        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+            id, category, title, date, image, content, 
+            title_ru, content_ru, raw_json
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     try {
@@ -192,6 +221,8 @@ function migrateMedia() {
                 item.date,
                 item.image || '',
                 item.content || '',
+                item.title_ru || '',
+                item.content_ru || '',
                 JSON.stringify(item)
             );
             count++;
