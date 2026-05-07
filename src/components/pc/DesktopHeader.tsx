@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Header() {
     const pathname = usePathname();
-    const isHome = pathname === '/';
+    const isHome = pathname === '/' || ['/en', '/ru'].some(locale => pathname === locale || pathname === `${locale}/`);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
