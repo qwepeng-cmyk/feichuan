@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function MobileFooter({ locale }: { locale: string }) {
+export default function MobileFooter({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     return (
         <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
@@ -27,7 +27,7 @@ export default function MobileFooter({ locale }: { locale: string }) {
                     margin: '0 auto 40px',
                     width: '90%'
                 }}>
-                    <span style={{ fontSize: '20px' }}>🎧</span> Consultation
+                    <span style={{ fontSize: '20px' }}>🎧</span> {dict.contact.consultation}
                 </Link>
             </div>
 
@@ -36,51 +36,51 @@ export default function MobileFooter({ locale }: { locale: string }) {
                 
                 {/* About Us 段落 */}
                 <div>
-                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>About Us</h4>
+                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.aboutUs}</h4>
                     <p style={{ color: '#888', fontSize: '16px', lineHeight: '1.6' }}>
-                        Leading provider of intelligent UAV systems and integrated C-UAS technologies, dedicated to delivering advanced defense and security solutions worldwide.
+                        {dict.footer.tagline}
                     </p>
                 </div>
 
                 {/* Solutions 列表 */}
                 <div>
-                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>Solutions</h4>
+                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        <Link href={l("/solutions/category/01_BorderPatrol")} style={{ color: '#888', fontSize: '16px' }}>Border Patrol</Link>
-                        <Link href={l("/solutions/category/02_InfrastructureProtection")} style={{ color: '#888', fontSize: '16px' }}>Infrastructure Protection</Link>
-                        <Link href={l("/solutions/category/03_KeyAreaSecurity")} style={{ color: '#888', fontSize: '16px' }}>Key Area Security</Link>
-                        <Link href={l("/solutions/category/04_EmergencyRescue")} style={{ color: '#888', fontSize: '16px' }}>Emergency Rescue</Link>
+                        <Link href={l("/solutions/category/01_BorderPatrol")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.borderPatrol}</Link>
+                        <Link href={l("/solutions/category/02_InfrastructureProtection")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.infrastructureProtection}</Link>
+                        <Link href={l("/solutions/category/03_KeyAreaSecurity")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.keyAreaSecurity}</Link>
+                        <Link href={l("/solutions/category/04_EmergencyRescue")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.emergencyRescue}</Link>
                     </div>
                 </div>
 
                 {/* Products 列表 */}
                 <div>
-                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>Products</h4>
+                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.products}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        <Link href={l("/products#uav-drone-systems")} style={{ color: '#888', fontSize: '16px' }}>UAV Systems</Link>
-                        <Link href={l("/products#anti-drone-cuas")} style={{ color: '#888', fontSize: '16px' }}>C-UAS Technologies</Link>
-                        <Link href={l("/products#security-screening")} style={{ color: '#888', fontSize: '16px' }}>Security Screening</Link>
-                        <Link href={l("/products#defense-engineering")} style={{ color: '#888', fontSize: '16px' }}>Defense Engineering</Link>
-                        <Link href={l("/products#field-hospitals")} style={{ color: '#888', fontSize: '16px' }}>Field Hospitals</Link>
-                        <Link href={l("/products#perimeter-intelligence")} style={{ color: '#888', fontSize: '16px' }}>Perimeter Surveillance</Link>
+                        <Link href={l("/products#uav-drone-systems")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.uavSystems}</Link>
+                        <Link href={l("/products#anti-drone-cuas")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.antiDrone}</Link>
+                        <Link href={l("/products#security-screening")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.securityScreening}</Link>
+                        <Link href={l("/products#defense-engineering")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.defenseEngineering}</Link>
+                        <Link href={l("/products#field-hospitals")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.fieldHospitals}</Link>
+                        <Link href={l("/products#perimeter-intelligence")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.perimeterSurveillance}</Link>
                     </div>
                 </div>
 
 
                 {/* Contact Us 列表 */}
                 <div>
-                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '20px' }}>Contact Us</h4>
+                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '20px' }}>{dict.nav.contact}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                         <div>
-                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>WhatsApp</div>
+                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>
                             <div style={{ color: '#888', fontSize: '16px' }}>+86 136 1371 4648</div>
                         </div>
                         <div>
-                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>Email</div>
+                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.email}</div>
                             <div style={{ color: '#888', fontSize: '16px' }}>info@n-tetbj.com</div>
                         </div>
                         <div>
-                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>Sales Hotline</div>
+                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.salesHotline}</div>
                             <div style={{ color: '#888', fontSize: '16px' }}>+86 010 8362 2127</div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ export default function MobileFooter({ locale }: { locale: string }) {
             </div>
 
             <div style={{ marginTop: '60px', textAlign: 'center', color: '#444', fontSize: '12px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
-                <p>© 2026 N-TET Technology. All Rights Reserved.</p>
+                <p>{dict.footer.copyright}</p>
             </div>
         </footer>
     );

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './MobileHeader.module.css';
 
-export default function MobileHeader({ locale }: { locale: string }) {
+export default function MobileHeader({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
@@ -41,10 +41,10 @@ export default function MobileHeader({ locale }: { locale: string }) {
 
             {/* Row 2: Sub-navigation tabs */}
             <div className={styles.subNav}>
-                <Link href={l("/")} className={`${styles.navLink} ${pathname === l("/") ? styles.active : ''}`}>HOME</Link>
-                <Link href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) ? styles.active : ''}`}>PRODUCT</Link>
-                <Link href={l("/solutions")} className={`${styles.navLink} ${pathname.startsWith(l('/solutions')) ? styles.active : ''}`}>SOLUTIONS</Link>
-                <Link href={l("/cases")} className={`${styles.navLink} ${pathname.startsWith(l('/cases')) ? styles.active : ''}`}>CASES</Link>
+                <Link href={l("/")} className={`${styles.navLink} ${pathname === l("/") ? styles.active : ''}`}>{dict.mobileNav.home}</Link>
+                <Link href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) ? styles.active : ''}`}>{dict.mobileNav.product}</Link>
+                <Link href={l("/solutions")} className={`${styles.navLink} ${pathname.startsWith(l('/solutions')) ? styles.active : ''}`}>{dict.mobileNav.solutions}</Link>
+                <Link href={l("/cases")} className={`${styles.navLink} ${pathname.startsWith(l('/cases')) ? styles.active : ''}`}>{dict.mobileNav.cases}</Link>
             </div>
 
             {/* Side Drawer Menu */}
@@ -52,15 +52,15 @@ export default function MobileHeader({ locale }: { locale: string }) {
                 <div className={`${styles.drawerContent} ${menuOpen ? styles.open : ''}`} onClick={e => e.stopPropagation()}>
                     <div className={styles.drawerLinks}>
                         {[
-                            { name: 'Home', href: '/' },
-                            { name: 'Products', href: '/products' },
-                            { name: 'Solutions', href: '/solutions' },
-                            { name: 'Cases', href: '/cases' },
-                            { name: 'Media', href: '/media' },
-                            { name: 'About Us', href: '/about' },
-                            { name: 'Contact', href: '/contact' }
+                            { name: dict.nav.home, href: '/' },
+                            { name: dict.nav.products, href: '/products' },
+                            { name: dict.nav.solutions, href: '/solutions' },
+                            { name: dict.nav.cases, href: '/cases' },
+                            { name: dict.nav.media, href: '/media' },
+                            { name: dict.nav.aboutUs, href: '/about' },
+                            { name: dict.nav.contact, href: '/contact' }
                         ].map((link) => (
-                            <Link href={l(link.href)} key={link.name} className={styles.drawerLink}>
+                            <Link href={l(link.href)} key={link.href} className={styles.drawerLink}>
                                 <span>{link.name}</span>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004a99" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M9 18l6-6-6-6" />
