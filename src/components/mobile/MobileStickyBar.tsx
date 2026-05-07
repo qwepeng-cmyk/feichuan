@@ -2,7 +2,9 @@
 
 import React from 'react';
 
-export default function MobileStickyBar() {
+export default function MobileStickyBar({ locale, dict }: { locale: string; dict: any }) {
+    const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+
     return (
         <div style={{
             position: 'fixed',
@@ -18,8 +20,8 @@ export default function MobileStickyBar() {
             boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
             zIndex: 3000
         }}>
-            {/* 图 4：Get Solution 按钮 */}
-            <a href="/contact" style={{
+            {/* Get Solution */}
+            <a href={l("/contact")} style={{
                 flex: 1,
                 display: 'flex',
                 alignItems: 'center',
@@ -29,15 +31,15 @@ export default function MobileStickyBar() {
                 color: '#fff',
                 height: '46px',
                 borderRadius: '4px',
-                fontSize: '15px',
+                fontSize: '14px',
                 fontWeight: 700,
                 textDecoration: 'none'
             }}>
-                <span style={{ fontSize: '18px' }}>📝</span> Get Solution
+                <span style={{ fontSize: '18px' }}>📝</span> {dict.products.getSolution}
             </a>
 
-            {/* 图 4：Online Chat 按钮 */}
-            <a href="#" style={{
+            {/* WhatsApp / Chat */}
+            <a href="https://wa.me/8615011035546" target="_blank" style={{
                 flex: 1,
                 display: 'flex',
                 alignItems: 'center',
@@ -47,11 +49,11 @@ export default function MobileStickyBar() {
                 color: '#fff',
                 height: '46px',
                 borderRadius: '4px',
-                fontSize: '15px',
+                fontSize: '14px',
                 fontWeight: 700,
                 textDecoration: 'none'
             }}>
-                <span style={{ fontSize: '18px' }}>💬</span> Online Chat
+                <span style={{ fontSize: '18px' }}>💬</span> {dict.products.whatsapp}
             </a>
         </div>
     );

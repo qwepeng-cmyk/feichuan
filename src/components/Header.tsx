@@ -4,7 +4,7 @@ import React from 'react';
 import DesktopHeader from './pc/DesktopHeader';
 import MobileHeader from './mobile/MobileHeader';
 
-export default function Header({ locale }: { locale: string }) {
+export default function Header({ locale, dict }: { locale: string; dict: any }) {
     return (
         <>
             {/* 这里的样式会直接注入 HTML，比任何外部 CSS 都快 */}
@@ -19,11 +19,11 @@ export default function Header({ locale }: { locale: string }) {
             `}} />
 
             <div className="pc_only_container">
-                <DesktopHeader locale={locale} />
+                <DesktopHeader locale={locale} dict={dict} />
             </div>
 
             <div className="mobile_only_container">
-                <MobileHeader locale={locale} />
+                <MobileHeader locale={locale} dict={dict} />
             </div>
         </>
     );
