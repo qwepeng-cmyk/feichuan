@@ -12,19 +12,28 @@ interface NewsItem {
     category: string;
     image: string;
     content?: string;
+    [key: string]: any;
 }
 
-const CATEGORIES = [
-    { id: 'all', label: 'Latest' },
-    { id: 'corporate', label: 'Corporate' },
-    { id: 'product', label: 'Product & Tech' },
-    { id: 'industry', label: 'Industry' }
-];
-
-export default function MobileMediaCenter({ newsData }: { newsData: NewsItem[] }) {
+export default function MobileMediaCenter({ 
+    newsData,
+    locale,
+    dict
+}: { 
+    newsData: NewsItem[],
+    locale: string,
+    dict: any
+}) {
     const [activeCategory, setActiveCategory] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 8;
+
+    const CATEGORIES = [
+        { id: 'all', label: dict.media.categories.latest },
+        { id: 'corporate', label: dict.media.categories.corporate },
+        { id: 'product', label: dict.media.categories.product },
+        { id: 'industry', label: dict.media.categories.industry }
+    ];
 
     const filteredNews = useMemo(() => {
         return newsData.filter(n => activeCategory === 'all' || n.category === activeCategory);
@@ -59,7 +68,7 @@ export default function MobileMediaCenter({ newsData }: { newsData: NewsItem[] }
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>MEDIA CENTER</h1>
+                    <h1>{dict.media.bannerTitle}</h1>
                 </div>
             </section>
 
@@ -79,17 +88,20 @@ export default function MobileMediaCenter({ newsData }: { newsData: NewsItem[] }
 
             <div id="news-grid-top" className={styles.listContainer}>
                 <div className={styles.grid}>
-                    {paginatedNews.map((news) => (
-                        <Link href={`/media/${news.id}`} key={news.id} className={styles.card}>
-                            <div className={styles.imageBox}>
-                                <img src={news.image} alt={news.title} />
-                            </div>
-                            <div className={styles.cardContent}>
-                                <div className={styles.date}>{news.date}</div>
-                                <h3>{news.title}</h3>
-                            </div>
-                        </Link>
-                    ))}
+                    {paginatedNews.map((news) => {
+                        const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+                        return (
+                            <Link href={`/${locale}/media/${news.id}`} key={news.id} className={styles.card}>
+                                <div className={styles.imageBox}>
+                                    <img src={news.image} alt={newsTitle} />
+                                </div>
+                                <div className={styles.cardContent}>
+                                    <div className={styles.date}>{news.date}</div>
+                                    <h3>{newsTitle}</h3>
+                                </div>
+                            </Link>
+                        );
+                    })}
                 </div>
 
                 {totalPages > 1 && (
@@ -107,7 +119,8 @@ export default function MobileMediaCenter({ newsData }: { newsData: NewsItem[] }
                 )}
             </div>
 
-            <MobileInquiryForm />
+            <MobileInquiryForm dict={dict} />
         </div>
     );
 }
+

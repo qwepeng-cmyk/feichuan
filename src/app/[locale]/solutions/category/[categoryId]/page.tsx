@@ -3,20 +3,28 @@ import path from 'path';
 import CategoryLandingClient from './CategoryLandingClient';
 import { getAllProducts } from '@/lib/products';
 import categoryLandingData from '@/lib/categoryLandingData';
+import { getDictionary } from '@/i18n/getDictionary';
+import { Locale } from '@/i18n/config';
 
 interface SolutionJson {
   product_name: string;
   product_name_en: string;
+  product_name_ru: string;
   summary: string;
   summary_en: string;
+  summary_ru: string;
   key_parameter_1: string;
   key_parameter_1_en: string;
+  key_parameter_1_ru: string;
   key_parameter_2: string;
   key_parameter_2_en: string;
+  key_parameter_2_ru: string;
   main_image: string;
   handle: string;
   detail_html_en?: string;
+  detail_html_ru?: string;
   parameters_en?: Record<string, string>;
+  parameters_ru?: Record<string, string>;
 }
 
 // Valid category IDs for static generation
@@ -31,8 +39,9 @@ export function generateStaticParams() {
   return VALID_CATEGORIES.map((id) => ({ categoryId: id }));
 }
 
-export default async function CategoryLandingPage({ params }: { params: { categoryId: string } }) {
-  const { categoryId } = params;
+export default async function CategoryLandingPage({ params }: { params: { categoryId: string; locale: Locale } }) {
+  const { categoryId, locale } = params;
+  const dict = await getDictionary(locale);
 
   // Read all JSON files from the corresponding data directory
   const dataDir = path.join(process.cwd(), '网站资料', '08方案概括', categoryId);
@@ -61,6 +70,8 @@ export default async function CategoryLandingPage({ params }: { params: { catego
       categoryId={categoryId} 
       subSolutions={subSolutions} 
       recommendedProducts={recommendedProducts} 
+      locale={locale}
+      dict={dict}
     />
   );
 }

@@ -1,9 +1,11 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
 import { getProductByHandle, getAllProductHandles } from '@/lib/products';
+import MobileProductDetail from '@/components/mobile/MobileProductDetail';
 import UniversalGallery from '@/components/common/UniversalGallery';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
+import { getDictionary } from '@/i18n/getDictionary';
+import { Locale } from '@/i18n/config';
 
 export async function generateStaticParams() {
   const handles = await getAllProductHandles();
@@ -12,21 +14,37 @@ export async function generateStaticParams() {
   }));
 }
 
-import MobileProductDetail from '@/components/mobile/MobileProductDetail';
-
-export default async function ProductPage({ params }: { params: { handle: string } }) {
-  const product = await getProductByHandle(params.handle);
+export default async function ProductDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
+  const { handle, locale } = params;
+  const product = await getProductByHandle(handle);
+  const dict = await getDictionary(locale);
 
   if (!product) {
     notFound();
   }
 
-  const galleryImages = product.main_image ? [product.main_image] : [];
+  // Localized field selection
+  const name = product[`product_name_${locale}`] || product.product_name_en || product.name;
+  const summary = product[`summary_${locale}`] || product.summary_en;
+  const keyApp = product[`key_application_${locale}`] || product.key_application_en;
+  const keyParam1 = product[`key_parameter_1_${locale}`] || product.key_parameter_1_en;
+  const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
+  const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
+  
+  let parameters: any = null;
+  try {
+    const rawParams = product[`parameters_${locale}`] || product.parameters_en;
+    parameters = typeof rawParams === 'string' ? JSON.parse(rawParams) : rawParams;
+  } catch (e) {
+    parameters = {};
+  }
+
+  const galleryImages = [product.main_image, ...(product.product_images || [])].filter(Boolean);
 
   const navItems = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'specs', label: 'Technical Specifications' },
-    { id: 'inquiry', label: 'Get Solution & Quotation' },
+    { id: 'overview', label: dict.products.overview },
+    { id: 'specs', label: dict.products.technicalSpecs },
+    { id: 'inquiry', label: dict.nav.contact },
   ];
 
   return (
@@ -40,56 +58,58 @@ export default async function ProductPage({ params }: { params: { handle: string
         }
       `}} />
 
-      {/* Desktop View */}
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
           <main>
-            {/* Breadcrumb Row */}
+            {/* 1. Breadcrumb Row */}
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
-                  <a href="/">Home</a> &gt; <a href="/products">Product</a> &gt; {product.product_name_en}
+                  <a href={`/${locale}`}>{dict.nav.home}</a> &gt; <a href={`/${locale}/products`}>{dict.nav.products}</a> &gt; {name}
                 </div>
               </div>
             </div>
 
-            {/* Hero Section */}
-            <section id="overview" className="product-hero" style={{ padding: '40px 0 20px' }}>
+            {/* 2. Hero Section */}
+            <section id="overview" className="product-hero" style={{ padding: '40px 0 20px', background: '#fff' }}>
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
+
+                  {/* Image Gallery Area */}
                   <div className="gallery-main-area">
                     <UniversalGallery images={galleryImages} />
                   </div>
 
+                  {/* Product Info Area */}
                   <div className="product-info">
-                    <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1' }}>
-                      {product.product_name_en}
+                    <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
+                      {name}
                     </h1>
 
                     <div className="drone-specs" style={{ marginBottom: '40px' }}>
-                      {product.key_parameter_1_en && (
+                      {keyParam1 && (
                         <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>
-                          {product.key_parameter_1_en}
+                            {keyParam1}
                         </div>
                       )}
-                      {product.key_parameter_2_en && (
+                      {keyParam2 && (
                         <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>
-                          {product.key_parameter_2_en}
+                            {keyParam2}
                         </div>
                       )}
-                      {product.key_application_en && (
+                      {keyApp && (
                         <div style={{ fontSize: '1.8rem', color: '#525a66', lineHeight: '1.4' }}>
-                          {product.key_application_en}
+                            {keyApp}
                         </div>
                       )}
                     </div>
 
                     <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
-                      <button className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer' }}>
-                        Get quotation
-                      </button>
-                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
-                        WhatsApp
+                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
+                        {dict.products.getQuotation}
+                      </a>
+                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                        {dict.products.whatsapp}
                       </a>
                     </div>
                   </div>
@@ -97,48 +117,49 @@ export default async function ProductPage({ params }: { params: { handle: string
               </div>
             </section>
 
-            {/* Summary Text */}
-            <section className="product-intro-section" style={{ paddingBottom: '60px' }}>
+            {/* 2.5 Summary Intro */}
+            <section className="product-intro-section" style={{ paddingBottom: '60px', background: '#fff' }}>
               <div className="container">
                 <div className="product-intro-text" style={{ fontSize: '1.8rem', color: '#444', lineHeight: '1.8', borderTop: '1px solid #eee', paddingTop: '40px' }}>
-                  {product.summary_en}
+                  {summary}
                 </div>
               </div>
             </section>
 
+            {/* 3. Sticky Nav */}
             <InPageNav items={navItems} />
 
-            {/* Detail HTML Content (Features / Description) */}
-            {product.detail_html_en && (
-              <section id="features" className="detail-section alt" style={{ padding: '80px 0', background: '#f8fafc' }}>
+            {/* 4. Detail HTML */}
+            {detailHtml && (
+              <section id="features" className="detail-section alt" style={{ padding: '80px 0', backgroundColor: '#f8fafc' }}>
                 <div className="container">
                   <div
                     className="rich-content"
+                    dangerouslySetInnerHTML={{ __html: detailHtml }}
                     style={{ fontSize: '1.8rem', lineHeight: '1.8' }}
-                    dangerouslySetInnerHTML={{ __html: product.detail_html_en }}
                   />
                 </div>
               </section>
             )}
 
-            {/* Specs Table Section */}
-            {product.parameters_en && (Array.isArray(product.parameters_en) ? product.parameters_en.length > 0 : Object.keys(product.parameters_en).length > 0) && (
-              <section id="specs" className="detail-section" style={{ padding: '80px 0' }}>
-                <div className="container" style={{ maxWidth: '1200px' }}>
-                  <h2 className="section-title" style={{ fontSize: '3.6rem', fontWeight: 700, marginBottom: '40px', textAlign: 'center' }}>Technical Specifications</h2>
+            {/* 5. Parameters Table */}
+            {parameters && (Array.isArray(parameters) ? parameters.length > 0 : Object.keys(parameters).length > 0) && (
+              <section id="specs" className="detail-section" style={{ padding: '80px 0', backgroundColor: '#fff' }}>
+                <div className="container">
+                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px', fontSize: '3.6rem', fontWeight: 700 }}>{dict.products.technicalSpecs}</h2>
                   <div style={{ border: '1px solid #eee', overflowX: 'auto' }}>
                     <table className="spec-table" style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px' }}>
-                      {Array.isArray(product.parameters_en) ? (
+                      {Array.isArray(parameters) ? (
                         <>
                           <thead>
                             <tr style={{ background: '#f4f7fa', color: '#333', borderBottom: '2px solid #315ba4' }}>
-                              {product.parameters_en[0].map((cell: string, ci: number) => (
+                              {parameters[0].map((cell: string, ci: number) => (
                                 <th key={ci} style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold', borderRight: '1px solid #eee' }}>{cell}</th>
                               ))}
                             </tr>
                           </thead>
                           <tbody>
-                            {product.parameters_en.slice(1).map((row: string[], ri: number) => (
+                            {parameters.slice(1).map((row: string[], ri: number) => (
                               <tr key={ri} style={{ background: ri % 2 === 0 ? '#fff' : '#fafafa', borderBottom: '1px solid #eee' }}>
                                 {row.map((cell: string, ci: number) => (
                                   <td key={ci} style={{ padding: '20px 30px', fontSize: '1.5rem', borderRight: '1px solid #eee' }}>{cell}</td>
@@ -151,13 +172,16 @@ export default async function ProductPage({ params }: { params: { handle: string
                         <>
                           <thead>
                             <tr style={{ background: '#f4f7fa', color: '#333', borderBottom: '2px solid #315ba4' }}>
-                              <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>Parameter</th>
-                              <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>Description</th>
+                              <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>{dict.products.parameter}</th>
+                              <th style={{ padding: '20px 30px', textAlign: 'left', fontSize: '1.6rem', fontWeight: 'bold' }}>{dict.products.description}</th>
                             </tr>
                           </thead>
                           <tbody>
-                            {Object.entries(product.parameters_en).map(([param, val], idx) => (
-                              <tr key={idx} style={{ background: idx % 2 === 0 ? '#fff' : '#fafafa', borderBottom: '1px solid #eee' }}>
+                            {Object.entries(parameters).map(([param, val], idx) => (
+                              <tr key={idx} style={{
+                                background: idx % 2 === 0 ? '#fff' : '#fafafa',
+                                borderBottom: '1px solid #eee'
+                              }}>
                                 <td style={{ padding: '20px 30px', fontWeight: 'bold', width: '45%', fontSize: '1.5rem' }}>{param}</td>
                                 <td style={{ padding: '20px 30px', fontSize: '1.5rem' }}>{val as string}</td>
                               </tr>
@@ -171,19 +195,18 @@ export default async function ProductPage({ params }: { params: { handle: string
               </section>
             )}
 
-            {/* Inquiry */}
+            {/* 6. Contact Form */}
             <section id="inquiry" className="detail-section alt" style={{ padding: '80px 0', background: '#f8fafc' }}>
               <div className="container" style={{ maxWidth: '1200px' }}>
-                <InquiryForm />
+                <InquiryForm dict={dict} />
               </div>
             </section>
           </main>
         </div>
       </div>
 
-      {/* Mobile View */}
       <div className="mobile_only">
-        <MobileProductDetail product={product} />
+        <MobileProductDetail product={product} locale={locale} dict={dict} />
       </div>
     </>
   );

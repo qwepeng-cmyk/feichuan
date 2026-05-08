@@ -5,21 +5,43 @@ import styles from './MobileAboutUs.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
 
-export default function MobileAboutUs() {
+export default function MobileAboutUs({ dict }: { dict?: any }) {
+    const d = dict?.about || {
+        pageTitle: "Company Profile",
+        bannerTitle: "ABOUT US",
+        companyProfile: "Company Profile",
+        companyDesc1: "Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.",
+        companyDesc2: "Based on technological innovation, the company integrates global high-quality resources and market networks, and is committed to building an efficient and collaborative industrial ecosystem.",
+        companyDesc3: "We uphold the development mission of \"Connecting Technology with Applications, Integrating Domestic and International Markets\" to provide top-tier integrated security services for global customers.",
+        rdTeam: "R&D Team",
+        rdTeamDesc: "Driving innovation with technical expertise and deep industry experience.",
+        rdRatio: "R&D Team Ratio",
+        rdExperience: "The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience.",
+        rdSystem: "R&D System",
+        rdSystemDesc: "A reliability design system built based on intelligent industrial standards.",
+        coreCapabilities: "Core Capabilities",
+        uavReliability: "UAV Reliability Design",
+        uavReliabilityDesc: "Adopting redundant flight control architecture, combined with lightweight materials and adaptive control algorithms, ensuring stable operation of UAVs in complex environments.",
+        intelligentAlgo: "Intelligent Algorithms",
+        intelligentAlgoDesc: "Technology based on multi-sensor fusion, achieving fast threat identification and dynamic interference strategy optimization, effectively dealing with UAV intrusions.",
+        aiRecognition: "AI Recognition Tech",
+        aiRecognitionDesc: "AI-based image analysis and processing technology, providing comprehensive optical visual system solutions in all-weather and complex environments."
+    };
+
     return (
         <div className={styles.wrapper}>
             {/* 1. Mini Banner */}
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>ABOUT US</h1>
+                    <h1>{d.bannerTitle}</h1>
                 </div>
             </section>
 
             {/* 2. Company Profile */}
             <section className={styles.section}>
                 <div className={styles.titleBox}>
-                    <h2>Company Profile</h2>
+                    <h2>{d.companyProfile}</h2>
                     <span className={styles.titleLine}></span>
                 </div>
 
@@ -29,52 +51,46 @@ export default function MobileAboutUs() {
                 ></div>
 
                 <div className={styles.profileText}>
-                    <p>
-                        Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.
-                    </p>
-                    <p>
-                        Based on technological innovation, the company integrates global high-quality resources and market networks, and is committed to building an efficient and collaborative industrial ecosystem. Adhering to the development concept of "Connecting Technology with Applications, Integrating Domestic and International Markets", the company continues to provide leading intelligent security solutions for global customers and strives to become a technology enterprise with international influence.
-                    </p>
-                    <p>
-                        We uphold the development mission of "Connecting Technology with Applications, Integrating Domestic and International Markets" to provide top-tier integrated security services for global customers.
-                    </p>
+                    <p>{d.companyDesc1}</p>
+                    <p>{d.companyDesc2}</p>
+                    <p>{d.companyDesc3}</p>
                 </div>
             </section>
 
             {/* 3. R&D Team */}
             <section className={styles.rdSection}>
                 <div className={styles.rdHeader}>
-                    <h2>R&D Team</h2>
-                    <p>Driving innovation with technical expertise and deep industry experience.</p>
+                    <h2>{d.rdTeam}</h2>
+                    <p>{d.rdTeamDesc}</p>
                 </div>
 
                 {/* Left Box: Team Stats (Mobile View) */}
                 <div className={styles.statsCard}>
                     <div className={styles.statsNumber}>70%</div>
-                    <h3 className={styles.statsTitle}>R&D Team Ratio</h3>
+                    <h3 className={styles.statsTitle}>{d.rdRatio}</h3>
                     <p className={styles.statsDesc}>
-                        The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience, possessing both deep technical accumulation and mature civil scenario implementation capabilities.
+                        {d.rdExperience}
                     </p>
                     <div className={styles.rdSystem}>
-                        <h4><Settings size={20} /> R&D System</h4>
+                        <h4><Settings size={20} /> {d.rdSystem}</h4>
                         <p>
-                            A reliability design system built based on intelligent industrial standards, adapted to civil market needs.
+                            {d.rdSystemDesc}
                         </p>
                     </div>
                 </div>
 
                 {/* Right Section: Core Capabilities (Mobile View) */}
                 <div className={styles.capabilities}>
-                    <h3>Core Capabilities</h3>
+                    <h3>{d.coreCapabilities}</h3>
 
                     <div className={styles.capItem}>
                         <div className={styles.iconCircle}>
                             <Shield size={28} />
                         </div>
                         <div className={styles.capText}>
-                            <h4>UAV Reliability Design</h4>
+                            <h4>{d.uavReliability}</h4>
                             <p>
-                                Adopting redundant flight control architecture, combined with lightweight materials and adaptive control algorithms, ensuring stable operation of UAVs in complex environments.
+                                {d.uavReliabilityDesc}
                             </p>
                         </div>
                     </div>
@@ -84,9 +100,9 @@ export default function MobileAboutUs() {
                             <Zap size={28} />
                         </div>
                         <div className={styles.capText}>
-                            <h4>Intelligent Algorithms</h4>
+                            <h4>{d.intelligentAlgo}</h4>
                             <p>
-                                Technology based on multi-sensor fusion, achieving fast threat identification and dynamic interference strategy optimization, effectively dealing with UAV intrusions.
+                                {d.intelligentAlgoDesc}
                             </p>
                         </div>
                     </div>
@@ -96,16 +112,16 @@ export default function MobileAboutUs() {
                             <Eye size={28} />
                         </div>
                         <div className={styles.capText}>
-                            <h4>AI Recognition Tech</h4>
+                            <h4>{d.aiRecognition}</h4>
                             <p>
-                                AI-based image analysis and processing technology, providing comprehensive optical visual system solutions in all-weather and complex environments.
+                                {d.aiRecognitionDesc}
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <MobileInquiryForm />
+            <MobileInquiryForm dict={dict} />
         </div>
     );
 }

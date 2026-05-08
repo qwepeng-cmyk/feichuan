@@ -57,25 +57,25 @@ export const products = [
 
 export const solutions = [
     {
-        id: "01",
+        id: "01_BorderPatrol",
         title: "Drone Border Patrol",
         img: "/solutions/01/Drone Border Patrol.png",
         link: "/solutions/category/01_BorderPatrol"
     },
     {
-        id: "02",
+        id: "02_InfrastructureProtection",
         title: "Infrastructure Protection",
         img: "/solutions/02/Protection of Critical Facilities.png",
         link: "/solutions/category/02_InfrastructureProtection"
     },
     {
-        id: "03",
+        id: "03_KeyAreaSecurity",
         title: "Key Area Security",
         img: "/solutions/03/Security of important places 01.png",
         link: "/solutions/category/03_KeyAreaSecurity"
     },
     {
-        id: "04",
+        id: "04_EmergencyRescue",
         title: "Emergency and Disaster Rescue",
         img: "/solutions/04/Emergency Relief.png",
         link: "/solutions/category/04_EmergencyRescue"

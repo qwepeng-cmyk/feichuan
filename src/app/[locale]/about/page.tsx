@@ -1,9 +1,13 @@
 import React from 'react';
-import { Shield, Zap, Eye, Users, Settings } from 'lucide-react';
-
+import { Shield, Zap, Eye, Settings } from 'lucide-react';
 import MobileAboutUs from '@/components/mobile/MobileAboutUs';
+import { getDictionary } from '@/i18n/getDictionary';
+import { Locale } from '@/i18n/config';
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: { locale: Locale } }) {
+    const { locale } = params;
+    const dict = await getDictionary(locale);
+
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: `
@@ -22,7 +26,7 @@ export default function AboutPage() {
                         <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                             <div className="container">
                                 <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
-                                    <a href="/" style={{ color: '#315ba4', textDecoration: 'none' }}>Home</a> &gt; About Us
+                                    <a href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</a> &gt; {dict.nav.about}
                                 </div>
                             </div>
                         </div>
@@ -45,9 +49,9 @@ export default function AboutPage() {
                             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ maxWidth: '800px' }}>
-                                    <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Company Profile</h1>
+                                    <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.about.bannerTitle}</h1>
                                     <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
-                                        Engineering leading-edge unmanned and intelligent security systems for a safer world.
+                                        {dict.about.bannerDesc}
                                     </p>
                                 </div>
                             </div>
@@ -71,18 +75,18 @@ export default function AboutPage() {
                                     </div>
                                     <div className="profile-text-content">
                                         <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '30px', position: 'relative' }}>
-                                            Company Profile
+                                            {dict.about.companyProfile}
                                             <span style={{ display: 'block', width: '60px', height: '4px', background: '#315ba4', marginTop: '15px' }}></span>
                                         </h2>
                                         <div style={{ fontSize: '1.8rem', color: '#475569', lineHeight: 1.8, textAlign: 'left' }}>
                                             <p style={{ marginBottom: '20px' }}>
-                                                Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.
+                                                {dict.about.companyDesc1}
                                             </p>
                                             <p style={{ marginBottom: '20px' }}>
-                                                Based on technological innovation, the company integrates global high-quality resources and market networks, and is committed to building an efficient and collaborative industrial ecosystem. Adhering to the development concept of "Connecting Technology with Applications, Integrating Domestic and International Markets", the company continues to provide leading intelligent security solutions for global customers and strives to become a technology enterprise with international influence.
+                                                {dict.about.companyDesc2}
                                             </p>
                                             <p>
-                                                We uphold the development mission of "Connecting Technology with Applications, Integrating Domestic and International Markets" to provide top-tier integrated security services for global customers.
+                                                {dict.about.companyDesc3}
                                             </p>
                                         </div>
                                     </div>
@@ -94,8 +98,8 @@ export default function AboutPage() {
                         <section style={{ padding: '100px 0', backgroundColor: '#f8fafc' }}>
                             <div className="container">
                                 <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-                                    <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '15px' }}>R&D Team</h2>
-                                    <p style={{ fontSize: '1.8rem', color: '#64748b' }}>Driving innovation with technical expertise and deep industry experience.</p>
+                                    <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '15px' }}>{dict.about.rdTeam}</h2>
+                                    <p style={{ fontSize: '1.8rem', color: '#64748b' }}>{dict.about.rdTeamDesc}</p>
                                 </div>
 
                                 <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', gap: '60px' }}>
@@ -107,31 +111,31 @@ export default function AboutPage() {
                                         boxShadow: '0 20px 40px rgba(49, 91, 164, 0.2)'
                                     }}>
                                         <div style={{ fontSize: '7.2rem', fontWeight: 900, marginBottom: '10px' }}>70%</div>
-                                        <h3 style={{ fontSize: '2.4rem', fontWeight: 700, marginBottom: '30px' }}>R&D Team Ratio</h3>
+                                        <h3 style={{ fontSize: '2.4rem', fontWeight: 700, marginBottom: '30px' }}>{dict.about.rdRatio}</h3>
                                         <p style={{ fontSize: '1.6rem', lineHeight: 1.6, opacity: 0.9, marginBottom: '40px' }}>
-                                            The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience.
+                                            {dict.about.rdExperience}
                                         </p>
                                         <div style={{ paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
                                             <h4 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                                <Settings size={20} /> R&D System
+                                                <Settings size={20} /> {dict.about.rdSystem}
                                             </h4>
                                             <p style={{ fontSize: '1.5rem', opacity: 0.85, lineHeight: 1.5 }}>
-                                                A reliability design system built based on intelligent industrial standards.
+                                                {dict.about.rdSystemDesc}
                                             </p>
                                         </div>
                                     </div>
 
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', justifyContent: 'center' }}>
-                                        <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#0f172a', marginBottom: '10px' }}>Core Capabilities</h3>
+                                        <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#0f172a', marginBottom: '10px' }}>{dict.about.coreCapabilities}</h3>
                                         
                                         <div style={{ display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
                                             <div style={{ minWidth: '60px', height: '60px', borderRadius: '50%', background: '#e0e7ff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#315ba4' }}>
                                                 <Shield size={32} />
                                             </div>
                                             <div>
-                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>UAV Reliability Design</h4>
+                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>{dict.about.uavReliability}</h4>
                                                 <p style={{ fontSize: '1.6rem', color: '#475569', lineHeight: 1.6 }}>
-                                                    Adopting redundant flight control architecture, ensuring stable operation of UAVs in complex environments.
+                                                    {dict.about.uavReliabilityDesc}
                                                 </p>
                                             </div>
                                         </div>
@@ -141,9 +145,9 @@ export default function AboutPage() {
                                                 <Zap size={32} />
                                             </div>
                                             <div>
-                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>Intelligent Algorithms</h4>
+                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>{dict.about.intelligentAlgo}</h4>
                                                 <p style={{ fontSize: '1.6rem', color: '#475569', lineHeight: 1.6 }}>
-                                                    Technology based on multi-sensor fusion, effectively dealing with various illegal UAV intrusions.
+                                                    {dict.about.intelligentAlgoDesc}
                                                 </p>
                                             </div>
                                         </div>
@@ -153,9 +157,9 @@ export default function AboutPage() {
                                                 <Eye size={32} />
                                             </div>
                                             <div>
-                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>AI Recognition Technology</h4>
+                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>{dict.about.aiRecognition}</h4>
                                                 <p style={{ fontSize: '1.6rem', color: '#475569', lineHeight: 1.6 }}>
-                                                    AI-based image analysis technology, providing comprehensive optical visual system solutions.
+                                                    {dict.about.aiRecognitionDesc}
                                                 </p>
                                             </div>
                                         </div>
@@ -168,7 +172,7 @@ export default function AboutPage() {
             </div>
 
             <div className="mobile_only">
-                <MobileAboutUs />
+                <MobileAboutUs dict={dict} />
             </div>
         </>
     );

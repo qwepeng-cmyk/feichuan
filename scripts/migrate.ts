@@ -233,6 +233,108 @@ function migrateMedia() {
     }
 }
 
+// Clear existing tables to ensure schema sync
+try {
+    console.log('Resetting tables for schema sync...');
+    db.exec(`
+        DROP TABLE IF EXISTS products;
+        DROP TABLE IF EXISTS solutions;
+        DROP TABLE IF EXISTS cases;
+        DROP TABLE IF EXISTS media;
+    `);
+    // Re-initialize tables by importing db (it runs the CREATE TABLE commands)
+    // Actually, since db is already imported and it runs exec on startup, 
+    // we need to make sure the tables are recreated.
+    // The easiest way is to just call the same CREATE TABLE logic here or restart.
+    // But since we are in the same process, we can just run the CREATE TABLE commands again.
+    db.exec(`
+        CREATE TABLE IF NOT EXISTS products (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            handle TEXT UNIQUE NOT NULL,
+            product_name_en TEXT NOT NULL,
+            category_primary TEXT NOT NULL,
+            summary_en TEXT,
+            key_application_en TEXT,
+            key_parameter_1_en TEXT,
+            key_parameter_2_en TEXT,
+            parameters_en TEXT,
+            detail_html_en TEXT,
+            product_name_ru TEXT,
+            summary_ru TEXT,
+            key_application_ru TEXT,
+            key_parameter_1_ru TEXT,
+            key_parameter_2_ru TEXT,
+            parameters_ru TEXT,
+            detail_html_ru TEXT,
+            main_image TEXT,
+            raw_json TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS solutions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            handle TEXT UNIQUE NOT NULL,
+            category_id TEXT NOT NULL,
+            category_name TEXT NOT NULL,
+            product_name_en TEXT NOT NULL,
+            summary_en TEXT,
+            key_application_en TEXT,
+            parameters_en TEXT,
+            detail_html_en TEXT,
+            product_name_ru TEXT,
+            summary_ru TEXT,
+            key_application_ru TEXT,
+            key_parameter_1_ru TEXT,
+            key_parameter_2_ru TEXT,
+            parameters_ru TEXT,
+            detail_html_ru TEXT,
+            main_image TEXT,
+            recommended_products TEXT,
+            raw_json TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS cases (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            handle TEXT UNIQUE NOT NULL,
+            title_en TEXT NOT NULL,
+            description_en TEXT,
+            devices_en TEXT,
+            parameters_en TEXT,
+            title_ru TEXT,
+            description_ru TEXT,
+            devices_ru TEXT,
+            parameters_ru TEXT,
+            main_image TEXT,
+            case_images TEXT,
+            region_en TEXT,
+            country_en TEXT,
+            region_ru TEXT,
+            country_ru TEXT,
+            solution_category_id TEXT,
+            recommended_product_handles TEXT,
+            raw_json TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS media (
+            id TEXT PRIMARY KEY,
+            category TEXT NOT NULL,
+            title TEXT NOT NULL,
+            date TEXT NOT NULL,
+            image TEXT,
+            content TEXT,
+            title_ru TEXT,
+            content_ru TEXT,
+            raw_json TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+    `);
+} catch (e) {
+    console.error('Failed to reset tables:', e);
+}
+
 // Run all migrations
 try {
     migrateProducts();

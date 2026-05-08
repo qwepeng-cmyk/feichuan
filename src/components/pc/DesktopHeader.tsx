@@ -113,7 +113,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
 
                     <nav className="main-nav" style={{ display: 'flex', height: '100%' }}>
                         <div className={`nav-item ${pathname === l("/") ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/")} className="nav-link">Home</Link>
+                            <Link href={l("/")} className="nav-link">{dict.nav.home}</Link>
                         </div>
 
 

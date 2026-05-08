@@ -13,14 +13,22 @@ interface Product {
     handle: string;
 }
 
-export default function MobileProductCenter({ categoriesData }: { categoriesData: any }) {
+export default function MobileProductCenter({ 
+    categoriesData,
+    locale,
+    dict
+}: { 
+    categoriesData: any,
+    locale: string,
+    dict: any
+}) {
     const CATEGORY_NAMES: Record<string, string> = {
-        'uav-drone-systems': 'UAV & Drone Systems',
-        'anti-drone-cuas': 'Anti-Drone / C-UAS Systems',
-        'security-screening': 'Security Screening & Policing',
-        'defense-engineering': 'Defense Engineering & Logistics',
-        'field-hospitals': 'Field & Mobile Hospitals',
-        'perimeter-intelligence': 'Perimeter & Area Surveillance'
+        'uav-drone-systems': dict.products.categories.uav,
+        'anti-drone-cuas': dict.products.categories.antiDrone,
+        'security-screening': dict.products.categories.security,
+        'defense-engineering': dict.products.categories.defense,
+        'field-hospitals': dict.products.categories.medical,
+        'perimeter-intelligence': dict.products.categories.surveillance
     };
 
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -85,14 +93,11 @@ export default function MobileProductCenter({ categoriesData }: { categoriesData
 
     useEffect(() => {
         const handleScroll = () => {
-            // 1. Toggle Sticky State
             if (bannerRef.current) {
                 const bannerBottom = bannerRef.current.getBoundingClientRect().bottom;
-                // Header is 108px high
                 setIsFixed(bannerBottom <= 108);
             }
 
-            // 2. Active Category Detection
             const sections = categoryList.map(cat => document.getElementById(`mobile-${cat.id}`));
             const scrollPos = window.scrollY + 250;
 
@@ -115,7 +120,6 @@ export default function MobileProductCenter({ categoriesData }: { categoriesData
     const scrollToCategory = (id: string) => {
         const element = document.getElementById(`mobile-${id}`);
         if (element) {
-            // Main Header (108) + Nav (80) + Padding (10) = 198px
             const totalOffset = 198;
             const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
             const offsetPosition = elementPosition - totalOffset;
@@ -133,7 +137,7 @@ export default function MobileProductCenter({ categoriesData }: { categoriesData
             <section className={styles.banner} ref={bannerRef}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>PRODUCT CENTER</h1>
+                    <h1>{dict.products.bannerTitle}</h1>
                 </div>
             </section>
 
@@ -165,7 +169,7 @@ export default function MobileProductCenter({ categoriesData }: { categoriesData
 
                         <div className={styles.grid}>
                             {categoriesData[category.id]?.map((product: Product, idx: number) => (
-                                <Link href={`/products/${product.handle}`} key={idx} className={styles.productCard}>
+                                <Link href={`/${locale}/products/${product.handle}`} key={idx} className={styles.productCard}>
                                     <div className={styles.imageBox}>
                                         <img src={product.image} alt={product.name} />
                                     </div>
@@ -180,7 +184,8 @@ export default function MobileProductCenter({ categoriesData }: { categoriesData
             </div>
 
             {/* Mobile Inquiry Form */}
-            <MobileInquiryForm />
+            <MobileInquiryForm dict={dict} />
         </div>
     );
 }
+

@@ -2,24 +2,28 @@
 import React from 'react';
 import MobileMediaCenter from '@/components/mobile/MobileMediaCenter';
 
-export default function MediaClient({ newsData }: { newsData: any[] }) {
-    // Current category state for filtering
+export default function MediaClient({ 
+    newsData,
+    locale,
+    dict
+}: { 
+    newsData: any[],
+    locale: string,
+    dict: any
+}) {
     const [activeCategory, setActiveCategory] = React.useState('all');
     const [currentPage, setCurrentPage] = React.useState(1);
-    const pageSize = 6; // 3 rows of 2 cards
+    const pageSize = 6;
 
-    // Title mapping based on selected category
     const categoryTitles: Record<string, string> = {
-        'all': 'N-TET NEWS',
-        'corporate': 'Corporate News',
-        'product': 'Product & Tech',
-        'industry': 'Industry Insights'
+        'all': dict.media.categories.latest,
+        'corporate': dict.media.categories.corporate,
+        'product': dict.media.categories.product,
+        'industry': dict.media.categories.industry
     };
 
-    // Filtered data
     const filteredNews = newsData.filter(n => activeCategory === 'all' || n.category === activeCategory);
     
-    // Reset page when category changes
     React.useEffect(() => {
         setCurrentPage(1);
     }, [activeCategory]);
@@ -40,7 +44,6 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
 
             <div className="pc_only">
                 <div className="media-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
-                    {/* 2. Banner Section (Sync with Center Pages Style) */}
                     <section className="product-banner" style={{ 
                         height: '40vh',
                         minHeight: '320px',
@@ -55,26 +58,24 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
                         overflow: 'hidden',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        {/* Visual Overlay - 30% for consistency */}
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
-                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Insights & Global Feed</h1>
-                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
+                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</h1>
+                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.media.bannerSubtitle}</p>
                             </div>
                         </div>
                     </section>
 
-                    {/* 3. Category Filter (Now 100% Shared Secondary Nav Style) */}
                     <div className="sticky-nav">
                         <div className="container">
                             <ul className="nav-list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                                 {[
-                                    { id: 'all', label: 'Latest' },
-                                    { id: 'corporate', label: 'Corporate News' },
-                                    { id: 'product', label: 'Product & Tech' },
-                                    { id: 'industry', label: 'Industry Insights' }
+                                    { id: 'all', label: dict.media.categories.latest },
+                                    { id: 'corporate', label: dict.media.categories.corporate },
+                                    { id: 'product', label: dict.media.categories.product },
+                                    { id: 'industry', label: dict.media.categories.industry }
                                 ].map((cat) => (
                                     <li 
                                         key={cat.id} 
@@ -88,10 +89,8 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
                         </div>
                     </div>
 
-                    {/* 4. News List Section */}
                     <section style={{ padding: '80px 0' }}>
                         <div className="container">
-                            {/* DYNAMIC HEADING AREA (CENTERED STYLE) */}
                             <div className="category-heading-wrap" style={{ 
                                 marginBottom: '60px', 
                                 textAlign: 'center',
@@ -116,7 +115,7 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
                                     }}></div>
                                 </h2>
                                 <div style={{ fontSize: '1.4rem', color: '#888', fontWeight: 500, marginTop: '10px' }}>
-                                    {filteredNews.length} updates found
+                                    {filteredNews.length} {dict.media.updatesFound || 'updates found'}
                                 </div>
                             </div>
 
@@ -125,47 +124,49 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
                                 gridTemplateColumns: 'repeat(2, 1fr)', 
                                 gap: '40px' 
                             }}>
-                                {paginatedNews.map((news) => (
-                                    <a href={`/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
-                                        <div className="news-image-wrapper" style={{ 
-                                            height: '350px', 
-                                            overflow: 'hidden', 
-                                            position: 'relative',
-                                            marginBottom: '0' 
-                                        }}>
-                                            <img src={news.image} alt={news.title} style={{ 
-                                                width: '100%', 
-                                                height: '100%', 
-                                                objectFit: 'cover',
-                                                transition: 'transform 0.5s ease'
-                                            }} className="card-img" />
-                                        </div>
-                                        <div className="news-text-content" style={{ 
-                                            padding: '30px', 
-                                            border: '1px solid #eee', 
-                                            borderTop: 'none', 
-                                            backgroundColor: '#fcfcfc',
-                                            transition: 'all 0.3s ease'
-                                        }}>
-                                            <div className="news-date" style={{ 
-                                                fontSize: '1.4rem', 
-                                                color: '#315ba4', 
-                                                fontWeight: 600, 
-                                                marginBottom: '15px' 
-                                            }}>{news.date}</div>
-                                            <h3 style={{ 
-                                                fontSize: '2.2rem', 
-                                                fontWeight: 700, 
-                                                color: '#333', 
-                                                lineHeight: '1.4',
-                                                margin: 0
-                                            }}>{news.title}</h3>
-                                        </div>
-                                    </a>
-                                ))}
+                                {paginatedNews.map((news) => {
+                                    const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+                                    return (
+                                        <a href={`/${locale}/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
+                                            <div className="news-image-wrapper" style={{ 
+                                                height: '350px', 
+                                                overflow: 'hidden', 
+                                                position: 'relative',
+                                                marginBottom: '0' 
+                                            }}>
+                                                <img src={news.image} alt={newsTitle} style={{ 
+                                                    width: '100%', 
+                                                    height: '100%', 
+                                                    objectFit: 'cover',
+                                                    transition: 'transform 0.5s ease'
+                                                }} className="card-img" />
+                                            </div>
+                                            <div className="news-text-content" style={{ 
+                                                padding: '30px', 
+                                                border: '1px solid #eee', 
+                                                borderTop: 'none', 
+                                                backgroundColor: '#fcfcfc',
+                                                transition: 'all 0.3s ease'
+                                            }}>
+                                                <div className="news-date" style={{ 
+                                                    fontSize: '1.4rem', 
+                                                    color: '#315ba4', 
+                                                    fontWeight: 600, 
+                                                    marginBottom: '15px' 
+                                                }}>{news.date}</div>
+                                                <h3 style={{ 
+                                                    fontSize: '2.2rem', 
+                                                    fontWeight: 700, 
+                                                    color: '#333', 
+                                                    lineHeight: '1.4',
+                                                    margin: 0
+                                                }}>{newsTitle}</h3>
+                                            </div>
+                                        </a>
+                                    );
+                                })}
                             </div>
 
-                            {/* 5. Dynamic Pagination */}
                             {totalPages >= 1 && (
                                 <div className="pagination-wrapper" style={{ 
                                     marginTop: '80px', 
@@ -206,10 +207,9 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
             </div>
 
             <div className="mobile_only">
-                <MobileMediaCenter newsData={newsData} />
+                <MobileMediaCenter newsData={newsData} locale={locale} dict={dict} />
             </div>
 
-            {/* CSS for custom hover in Media page (PC ONLY) */}
             <style jsx>{`
                 .pc_only .news-card-group {
                     transition: all 0.3s ease;
@@ -232,3 +232,4 @@ export default function MediaClient({ newsData }: { newsData: any[] }) {
         </>
     );
 }
+

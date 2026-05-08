@@ -8,11 +8,29 @@ import Link from 'next/link';
 interface SolutionProps {
     solution: any;
     recommendedProducts: any[];
+    locale: string;
+    dict: any;
 }
 
-export default function MobileSolutionDetail({ solution, recommendedProducts }: SolutionProps) {
+export default function MobileSolutionDetail({ solution, recommendedProducts, locale, dict }: SolutionProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
+
+    // Localized field selection
+    const name = solution[`product_name_${locale}`] || solution.product_name_en || solution.title_en;
+    const summary = solution[`summary_${locale}`] || solution.summary_en;
+    const keyApp = solution[`key_application_${locale}`] || solution.key_application_en;
+    const keyParam1 = solution[`key_parameter_1_${locale}`] || solution.key_parameter_1_en;
+    const keyParam2 = solution[`key_parameter_2_${locale}`] || solution.key_parameter_2_en;
+    const detailHtml = solution[`detail_html_${locale}`] || solution.detail_html_en;
+    
+    let parameters: any = null;
+    try {
+        const rawParams = solution[`parameters_${locale}`] || solution.parameters_en;
+        parameters = typeof rawParams === 'string' ? JSON.parse(rawParams) : rawParams;
+    } catch (e) {
+        parameters = {};
+    }
 
     const rawGallery = solution.solution_images || solution.Solution_Images || [];
     const mainImg = solution.main_image;
@@ -39,16 +57,13 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
         
         if (isLeftSwipe || isRightSwipe) {
             if (isLeftSwipe) {
-                // Swiped left -> next image
                 setActiveIndex(prev => prev === displayImages.length - 1 ? 0 : prev + 1);
             } else {
-                // Swiped right -> prev image
                 setActiveIndex(prev => prev === 0 ? displayImages.length - 1 : prev - 1);
             }
         }
     };
     
-    // Combine and remove duplicates
     let displayImages = Array.from(new Set([mainImg, ...rawGallery])).filter(Boolean) as string[];
     if (displayImages.length === 0) displayImages = ['/images/solutions/placeholder.jpg'];
 
@@ -56,7 +71,6 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
         setActiveTab(id);
         const element = document.getElementById(id);
         if (element) {
-            // 108 (header) + 52 (subnav) + 5 (gap) = 165
             const headerOffset = 165;
             const rect = element.getBoundingClientRect();
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -72,14 +86,14 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb - Clean Text Style */}
             <div className={styles.breadcrumb}>
-                <a href="/">Home</a>
+                <a href={`/${locale}`}>{dict.nav.home}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href="/solutions">Solutions</a>
+                <a href={`/${locale}/solutions`}>{dict.nav.solutions}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={`/solutions/category/${solution.category_id}`}>{solution.category_name}</a>
+                <a href={`/${locale}/solutions/category/${solution.category_id}`}>{solution.category_name}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
-                    {solution.title_en}
+                    {name}
                 </span>
             </div>
 
@@ -93,8 +107,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <img src={displayImages[activeIndex]} alt={solution.title_en} />
-
+                        <img src={displayImages[activeIndex]} alt={name} />
                     </div>
                     {displayImages.length >= 1 && (
                         <div className={styles.thumbTrack}>
@@ -112,15 +125,15 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
                 </div>
 
                 {/* Title Second */}
-                <h1 className={styles.title}>{solution.title_en}</h1>
+                <h1 className={styles.title}>{name}</h1>
 
                 {/* Info Content */}
                 <div className={styles.infoContent}>
                     {/* Key Parameters */}
                     <div className={styles.keyParams}>
-                        {solution.key_application_en && <div className={styles.paramItem}>{solution.key_application_en}</div>}
-                        {solution.key_parameter_1_en && <div className={styles.paramItem}>{solution.key_parameter_1_en}</div>}
-                        {solution.key_parameter_2_en && <div className={styles.paramItem}>{solution.key_parameter_2_en}</div>}
+                        {keyApp && <div className={styles.paramItem}>{keyApp}</div>}
+                        {keyParam1 && <div className={styles.paramItem}>{keyParam1}</div>}
+                        {keyParam2 && <div className={styles.paramItem}>{keyParam2}</div>}
                     </div>
                 </div>
 
@@ -133,13 +146,13 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
                         scrollToSection('inquiry-title');
                     }}
                 >
-                    GET QUOTATION
+                    {dict.products.getQuotation}
                 </a>
 
                 {/* Summary */}
-                {solution.summary_en && (
+                {summary && (
                     <div className={styles.summaryBox}>
-                        {solution.summary_en}
+                        {summary}
                     </div>
                 )}
             </section>
@@ -151,43 +164,43 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
                         className={`${styles.navItem} ${activeTab === 'overview' ? styles.active : ''}`}
                         onClick={() => scrollToSection('overview-title')}
                     >
-                        Overview
+                        {dict.products.overview}
                     </button>
                     <button 
                         className={`${styles.navItem} ${activeTab === 'specs' ? styles.active : ''}`}
                         onClick={() => scrollToSection('specs-title')}
                     >
-                        Specs
+                        {dict.products.technicalSpecs}
                     </button>
                     <button 
                         className={`${styles.navItem} ${activeTab === 'inquiry' ? styles.active : ''}`}
                         onClick={() => scrollToSection('inquiry-title')}
                     >
-                        Inquiry
+                        {dict.nav.contact}
                     </button>
                 </div>
             </nav>
 
             {/* 4. Overview Section */}
             <section className={styles.section}>
-                <h2 id="overview-title" className={styles.sectionTitleCenter}>Overview</h2>
-                {solution.detail_html_en ? (
+                <h2 id="overview-title" className={styles.sectionTitleCenter}>{dict.products.overview}</h2>
+                {detailHtml ? (
                     <div 
                         className={styles.richText}
-                        dangerouslySetInnerHTML={{ __html: solution.detail_html_en }}
+                        dangerouslySetInnerHTML={{ __html: detailHtml }}
                     />
                 ) : (
-                    <p className={styles.richText}>No detailed description available.</p>
+                    <p className={styles.richText}>{dict.products.noDetail || "No detailed description available."}</p>
                 )}
             </section>
 
             {/* 5. Technical Specifications Section */}
-            {solution.parameters_en && Object.keys(solution.parameters_en).length > 0 && (
+            {parameters && Object.keys(parameters).length > 0 && (
                 <section className={styles.section}>
-                    <h2 id="specs-title" className={styles.sectionTitleCenter}>Technical Specifications</h2>
+                    <h2 id="specs-title" className={styles.sectionTitleCenter}>{dict.products.technicalSpecs}</h2>
                     <table className={styles.specsTable}>
                         <tbody>
-                            {Object.entries(solution.parameters_en).map(([param, val], idx) => (
+                            {Object.entries(parameters).map(([param, val], idx) => (
                                 <tr key={idx}>
                                     <td className={styles.specLabel}>{param}</td>
                                     <td className={styles.specValue}>{val as string}</td>
@@ -198,13 +211,13 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
                 </section>
             )}
 
-            {/* 5.5 Related Products (if any) */}
+            {/* 5.5 Related Products */}
             {recommendedProducts && recommendedProducts.length > 0 && (
                 <section className={styles.section} style={{ background: '#f8faff', paddingBottom: '30px' }}>
-                    <h2 className={styles.sectionTitleCenter}>Related Equipment</h2>
+                    <h2 className={styles.sectionTitleCenter}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                         {recommendedProducts.map((prod, idx) => (
-                            <Link href={`/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
+                            <Link href={`/${locale}/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ aspectRatio: '4/3', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <img src={prod.image} alt={prod.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                                 </div>
@@ -218,9 +231,10 @@ export default function MobileSolutionDetail({ solution, recommendedProducts }: 
             )}
 
             {/* 6. Inquiry Section */}
-            <section className={styles.section} style={{ background: '#f8faff', paddingTop: '20px' }}>
-                <MobileInquiryForm />
+            <section id="inquiry-title" className={styles.section} style={{ background: '#f8faff', paddingTop: '20px' }}>
+                <MobileInquiryForm dict={dict} />
             </section>
         </div>
     );
 }
+

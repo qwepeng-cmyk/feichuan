@@ -7,20 +7,25 @@ export interface Solution {
     category_name: string;
     category_primary?: string;
     product_name_en: string; 
+    product_name_ru?: string;
     title_en: string;
     summary_en: string;
+    summary_ru?: string;
     key_application_en: string;
-    parameters_en: Record<string, string>;
+    key_application_ru?: string;
+    parameters_en: any;
+    parameters_ru?: any;
     detail_html_en: string;
+    detail_html_ru?: string;
     key_parameter_1_en?: string;
     key_parameter_2_en?: string;
     main_image?: string;
     recommended_products?: string[];
-    [key: string]: any; // Catch-all for extra raw JSON fields
+    [key: string]: any; 
 }
 
 export async function getAllSolutions(): Promise<Solution[]> {
-    const rows = db.prepare('SELECT handle, category_id, category_name, raw_json FROM solutions').all() as any[];
+    const rows = db.prepare('SELECT * FROM solutions').all() as any[];
     
     return rows.map(row => {
         let data: any = {};
@@ -30,8 +35,9 @@ export async function getAllSolutions(): Promise<Solution[]> {
 
         return {
             ...data,
+            ...row,
             id: row.handle,
-            title_en: data.product_name_en,
+            title_en: row.product_name_en,
             category_id: row.category_id,
             category_name: row.category_name,
         } as Solution;
@@ -39,7 +45,7 @@ export async function getAllSolutions(): Promise<Solution[]> {
 }
 
 export async function getSolutionById(id: string): Promise<Solution | null> {
-    const row = db.prepare('SELECT category_id, category_name, raw_json FROM solutions WHERE handle = ?').get(id) as any;
+    const row = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(id) as any;
     if (!row) return null;
 
     let data: any = {};
@@ -49,8 +55,9 @@ export async function getSolutionById(id: string): Promise<Solution | null> {
 
     return {
         ...data,
+        ...row,
         id: id,
-        title_en: data.product_name_en,
+        title_en: row.product_name_en,
         category_id: row.category_id,
         category_name: row.category_name,
     } as Solution;

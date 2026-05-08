@@ -12,12 +12,20 @@ interface Solution {
     category_id: string;
 }
 
-export default function MobileSolutionCenter({ allSolutions }: { allSolutions: Solution[] }) {
+export default function MobileSolutionCenter({ 
+    allSolutions,
+    locale,
+    dict
+}: { 
+    allSolutions: Solution[],
+    locale: string,
+    dict: any
+}) {
     const CATEGORY_NAMES: Record<string, string> = {
-        '01_BorderPatrol': 'Border Patrol',
-        '02_InfrastructureProtection': 'Infrastructure Protection',
-        '03_KeyAreaSecurity': 'Key Area Security',
-        '04_EmergencyRescue': 'Emergency Rescue'
+        '01_BorderPatrol': dict.solutions.categories.border,
+        '02_InfrastructureProtection': dict.solutions.categories.infrastructure,
+        '03_KeyAreaSecurity': dict.solutions.categories.security,
+        '04_EmergencyRescue': dict.solutions.categories.emergency
     };
 
     // Replicating PC Icon Components
@@ -173,7 +181,7 @@ export default function MobileSolutionCenter({ allSolutions }: { allSolutions: S
             <section className={styles.banner} ref={bannerRef}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>SOLUTION CENTER</h1>
+                    <h1>{dict.solutions.bannerTitle}</h1>
                 </div>
             </section>
 
@@ -204,25 +212,28 @@ export default function MobileSolutionCenter({ allSolutions }: { allSolutions: S
                         <div className={styles.grid}>
                             {allSolutions
                                 .filter(s => s.category_id === category.id)
-                                .map((sol, idx) => (
-                                    <Link href={`/solutions/${sol.id}`} key={idx} className={styles.card}>
-                                        <div className={styles.imageBox}>
-                                            <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={sol.title_en} />
-                                        </div>
-                                        <div className={styles.cardInfo}>
-                                            <h3>{sol.title_en}</h3>
-                                        </div>
-                                    </Link>
-                                ))}
+                                .map((sol, idx) => {
+                                    const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
+                                    return (
+                                        <Link href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
+                                            <div className={styles.imageBox}>
+                                                <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} />
+                                            </div>
+                                            <div className={styles.cardInfo}>
+                                                <h3>{solTitle}</h3>
+                                            </div>
+                                        </Link>
+                                    );
+                                })}
                         </div>
-                        <Link href={`/solutions/category/${category.id}`} className={styles.viewMoreButton}>
-                            View Details
+                        <Link href={`/${locale}/solutions/category/${category.id}`} className={styles.viewMoreButton}>
+                            {dict.solutions.viewDetails}
                         </Link>
                     </section>
                 ))}
             </div>
 
-            <MobileInquiryForm />
+            <MobileInquiryForm dict={dict} />
         </div>
     );
 }

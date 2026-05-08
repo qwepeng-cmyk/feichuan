@@ -8,8 +8,10 @@ import Link from 'next/link';
 interface SubSolution {
     product_name: string;
     product_name_en: string;
+    product_name_ru: string;
     summary: string;
     summary_en: string;
+    summary_ru: string;
     main_image: string;
     handle: string;
 }
@@ -21,6 +23,8 @@ interface Props {
     industryNeeds: string;
     subSolutions: SubSolution[];
     recommendedProducts: any[];
+    locale: string;
+    dict: any;
 }
 
 export default function MobileCategoryLanding({ 
@@ -28,8 +32,12 @@ export default function MobileCategoryLanding({
     bannerImage, 
     industryNeeds, 
     subSolutions, 
-    recommendedProducts 
+    recommendedProducts,
+    locale,
+    dict
 }: Props) {
+    const l = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+
     return (
         <div className={styles.wrapper}>
             {/* 1. Banner - Consistent with Product Center */}
@@ -39,19 +47,19 @@ export default function MobileCategoryLanding({
                     <h1>{categoryName}</h1>
                 </div>
             </section>
-
+ 
             {/* 2. Breadcrumb */}
             <div className={styles.breadcrumb}>
-                <a href="/">Home</a>
+                <a href={l("/")}>{dict.nav.home}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href="/solutions">Solutions</a>
+                <a href={l("/solutions")}>{dict.nav.solutions}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>{categoryName}</span>
             </div>
 
             {/* 3. Industry Needs */}
             <section className={styles.section}>
-                <h2 className={styles.sectionTitle}>Industry Needs</h2>
+                <h2 className={styles.sectionTitle}>{dict.solutions.industryNeeds}</h2>
                 <div className={styles.textContent}>
                     {industryNeeds}
                 </div>
@@ -59,47 +67,55 @@ export default function MobileCategoryLanding({
 
             {/* 4. Solution Overview */}
             <section className={styles.section} style={{ background: '#f8fafc' }}>
-                <h2 className={styles.sectionTitle}>Solution Overview</h2>
+                <h2 className={styles.sectionTitle}>{dict.solutions.pageTitle}</h2>
                 <div className={styles.solutionsList}>
-                    {subSolutions.map((sol) => (
-                        <div key={sol.handle} className={styles.solutionItem}>
-                            <Link href={`/solutions/${sol.handle}`} className={styles.solutionImage}>
-                                <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={sol.product_name_en} />
-                            </Link>
-                            <div className={styles.solutionInfo}>
-                                <h3>{sol.product_name_en}</h3>
-                                <p>{sol.summary_en}</p>
-                                <Link href={`/solutions/${sol.handle}`} className={styles.viewDetailsBtn}>
-                                    View Details
+                    {subSolutions.map((sol) => {
+                        const solName = locale === 'ru' ? sol.product_name_ru : sol.product_name_en;
+                        const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
+                        return (
+                            <div key={sol.handle} className={styles.solutionItem}>
+                                <Link href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage}>
+                                    <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} />
                                 </Link>
+                                <div className={styles.solutionInfo}>
+                                    <h3>{solName}</h3>
+                                    <p>{solSummary}</p>
+                                    <Link href={l(`/solutions/${sol.handle}`)} className={styles.viewDetailsBtn}>
+                                        {dict.solutions.viewDetails}
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </section>
 
             {/* 5. Product Recommendations - Dark Background as PC */}
             {recommendedProducts && recommendedProducts.length > 0 && (
                 <section className={styles.recommendations}>
-                    <h2 className={styles.recommendationsTitle}>Product Recommendations</h2>
+                    <h2 className={styles.recommendationsTitle}>{dict.solutions.recommendedProducts}</h2>
                     <div className={styles.productGrid}>
-                        {recommendedProducts.map((prod, idx) => (
-                            <Link href={`/products/${prod.handle}`} key={idx} className={styles.productCard}>
-                                <div className={styles.productImageBox}>
-                                    <img src={prod.main_image || prod.image} alt={prod.product_name_en || prod.name} />
-                                </div>
-                                <div className={styles.productInfo}>
-                                    <h3>{prod.product_name_en || prod.name}</h3>
-                                </div>
-                            </Link>
-                        ))}
+                        {recommendedProducts.map((prod, idx) => {
+                             const prodName = locale === 'ru' ? (prod.product_name_ru || prod.name_ru || prod.name) : (prod.product_name_en || prod.name_en || prod.name);
+                             const prodImage = prod.main_image || prod.image;
+                             return (
+                                <Link href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>
+                                    <div className={styles.productImageBox}>
+                                        <img src={prodImage} alt={prodName} />
+                                    </div>
+                                    <div className={styles.productInfo}>
+                                        <h3>{prodName}</h3>
+                                    </div>
+                                </Link>
+                             );
+                        })}
                     </div>
                 </section>
             )}
 
             {/* 6. Inquiry Section */}
             <section className={styles.section} style={{ background: '#f8f9fa' }}>
-                <MobileInquiryForm />
+                <MobileInquiryForm locale={locale} dict={dict} />
             </section>
         </div>
     );

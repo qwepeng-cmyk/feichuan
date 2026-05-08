@@ -4,7 +4,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import NEWS_DATA from '../../../public/media/news_data.json';
 import { products, solutions, homeCases } from '@/constants/homeData';
 
-export default function DesktopHome() {
+export default function DesktopHome({ 
+    locale,
+    dict
+}: { 
+    locale: string,
+    dict: any
+}) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const solutionTrackRef = useRef<HTMLDivElement>(null);
 
@@ -16,6 +22,9 @@ export default function DesktopHome() {
     };
 
     const currentProduct = products[currentIndex];
+    const localizedProductMain = currentProduct[`main_${locale}`] || currentProduct.main;
+    const localizedProductDesc = currentProduct[`desc_${locale}`] || currentProduct.desc;
+    const localizedProductTop = currentProduct[`top_${locale}`] || currentProduct.top;
 
     // Drag logic for solutions track
     useEffect(() => {
@@ -66,25 +75,35 @@ export default function DesktopHome() {
                 <video src="/index_banner_bg_1.mp4" autoPlay loop muted playsInline></video>
                 <div className="hero-overlay"></div>
                 <div className="container-wide hero-content">
-                    <h1 className="hero-title">Empowering Global Security<br />with Advanced UAV & C-UAS Systems</h1>
-                    <p className="hero-subtitle">Professional-grade unmanned aircraft systems and comprehensive counter-drone solutions for mission-critical operations.</p>
-                    <a href="/solutions" className="btn btn-orange">Discover Solutions ↗</a>
+                    <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: dict.home.hero.title }}></h1>
+                    <p className="hero-subtitle">{dict.home.hero.subtitle}</p>
+                    <a href={`/${locale}/solutions`} className="btn btn-orange">{dict.home.hero.button} ↗</a>
                 </div>
             </section>
 
             {/* SCREEN 2: SOLUTIONS */}
             <section className="section-solutions" id="solutions">
                 <div className="container-wide">
-                    <h2 className="solutions-heading" style={{ textAlign: 'center' }}>Solutions</h2>
+                    <h2 className="solutions-heading" style={{ textAlign: 'center' }}>{dict.home.sections.solutions}</h2>
                     <div className="solutions-track" id="solutions-track" ref={solutionTrackRef}>
-                        {solutions.map((sol) => (
-                            <a key={sol.id} className="solution-card" href={sol.link}>
-                                <div className="solution-media">
-                                    <img src={sol.img} alt={sol.title} />
-                                </div>
-                                <h3 className="solution-title">{sol.title}</h3>
-                            </a>
-                        ))}
+                        {solutions.map((sol) => {
+                            const solMap: Record<string, string> = {
+                                '01_BorderPatrol': dict.solutions.categories.border,
+                                '02_InfrastructureProtection': dict.solutions.categories.infrastructure,
+                                '03_KeyAreaSecurity': dict.solutions.categories.security,
+                                '04_EmergencyRescue': dict.solutions.categories.emergency
+                            };
+                            const solName = solMap[sol.id] || sol.title;
+
+                            return (
+                                <a key={sol.id} className="solution-card" href={`/${locale}${sol.link}`}>
+                                    <div className="solution-media">
+                                        <img src={sol.img} alt={solName} />
+                                    </div>
+                                    <h3 className="solution-title">{solName}</h3>
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -93,7 +112,7 @@ export default function DesktopHome() {
             <section className="product-center-2" id="product-center-2" style={{ padding: '50px 0 40px', background: '#f2f6ff' }}>
                 <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '3.6rem', color: 'var(--primary)' }}>Product Center</h2>
+                        <h2 style={{ fontSize: '3.6rem', color: 'var(--primary)' }}>{dict.home.sections.products}</h2>
                         <div style={{ width: '60px', height: '4px', background: 'var(--accent)', margin: '20px auto' }}></div>
                     </div>
 
@@ -102,12 +121,12 @@ export default function DesktopHome() {
 
                         <div className="pc2-stage" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '60px', alignItems: 'center', flex: 1 }}>
                             <div className="pc2-content">
-                                <h3 style={{ color: 'var(--secondary)', fontSize: '2rem', fontWeight: 600, marginBottom: '15px' }}>{currentProduct.top}</h3>
-                                <h2 style={{ fontSize: '4.8rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '25px', lineHeight: 1.1 }}>{currentProduct.main}</h2>
-                                <p style={{ fontSize: '1.8rem', color: '#555', lineHeight: 1.7, marginBottom: '40px' }}>{currentProduct.desc}</p>
+                                <h3 style={{ color: 'var(--secondary)', fontSize: '2rem', fontWeight: 600, marginBottom: '15px' }}>{localizedProductTop}</h3>
+                                <h2 style={{ fontSize: '4.8rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '25px', lineHeight: 1.1 }}>{localizedProductMain}</h2>
+                                <p style={{ fontSize: '1.8rem', color: '#555', lineHeight: 1.7, marginBottom: '40px' }}>{localizedProductDesc}</p>
                                 <div className="pc2-actions" style={{ display: 'flex', gap: '20px' }}>
-                                    <a href="/contact" className="btn btn-orange">Get the Price Now</a>
-                                    <a href={`/products/${currentProduct.handle}`} className="btn" style={{ border: '1px solid #ddd' }}>View Specifications</a>
+                                    <a href={`/${locale}/contact`} className="btn btn-orange">{dict.products.getQuote}</a>
+                                    <a href={`/${locale}/products/${currentProduct.handle}`} className="btn" style={{ border: '1px solid #ddd' }}>{dict.products.viewSpecs}</a>
                                 </div>
                             </div>
                             <div className="pc2-image-wrap" style={{
@@ -119,7 +138,7 @@ export default function DesktopHome() {
                                 flex: 1
                             }}>
                                 <a
-                                    href={`/products/${currentProduct.handle}`}
+                                    href={`/${locale}/products/${currentProduct.handle}`}
                                     className="pc2-image-link"
                                     style={{
                                         display: 'flex',
@@ -131,9 +150,9 @@ export default function DesktopHome() {
                                     }}
                                 >
                                     <img
-                                        key={currentProduct.main}
+                                        key={localizedProductMain}
                                         src={currentProduct.img}
-                                        alt={currentProduct.main}
+                                        alt={localizedProductMain}
                                         style={{
                                             maxHeight: '100%',
                                             maxWidth: '100%',
@@ -158,7 +177,7 @@ export default function DesktopHome() {
                                 {String(i + 1).padStart(2, '0')}
                             </span>
                         ))}
-                        <a href="#" style={{ marginLeft: '40px', fontSize: '1.4rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--primary)' }}>ALL PRODUCTS</a>
+                        <a href={`/${locale}/products`} style={{ marginLeft: '40px', fontSize: '1.4rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--primary)' }}>{dict.home.buttons.allProducts}</a>
                     </div>
                 </div>
             </section>
@@ -167,45 +186,48 @@ export default function DesktopHome() {
             <section className="section-cases" style={{ padding: '80px 0 100px', background: '#fff' }}>
                 <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '3.6rem', fontWeight: 700 }}>Customer Cases</h2>
+                        <h2 style={{ fontSize: '3.6rem', fontWeight: 700 }}>{dict.home.sections.cases}</h2>
                         <div style={{ width: '60px', height: '4px', background: 'var(--accent)', margin: '20px auto' }}></div>
                     </div>
                     <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {homeCases.map((item, idx) => (
-                            <a
-                                key={idx}
-                                href={`/cases/${item.handle}`}
-                                className="case-card-link"
-                                style={{
-                                    position: 'relative',
-                                    borderRadius: '12px',
-                                    overflow: 'hidden',
-                                    height: '320px',
-                                    display: 'block',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                                    transition: 'all 0.4s ease'
-                                }}
-                            >
-                                <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} />
-                                <div className="case-overlay" style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'flex-end',
-                                    padding: '30px',
-                                    transition: 'background 0.4s ease'
-                                }}>
-                                    <span style={{ color: 'var(--accent)', fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px', display: 'block', letterSpacing: '0.1em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>Success Case</span>
-                                    <h3 style={{ color: '#fff', fontSize: '2.2rem', fontWeight: 700, margin: 0, lineHeight: 1.2, textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>{item.title}</h3>
-                                </div>
-                            </a>
-                        ))}
+                        {homeCases.map((item, idx) => {
+                            const localizedCaseTitle = item[`title_${locale}`] || item.title;
+                            return (
+                                <a
+                                    key={idx}
+                                    href={`/${locale}/cases/${item.handle}`}
+                                    className="case-card-link"
+                                    style={{
+                                        position: 'relative',
+                                        borderRadius: '12px',
+                                        overflow: 'hidden',
+                                        height: '320px',
+                                        display: 'block',
+                                        textDecoration: 'none',
+                                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                                        transition: 'all 0.4s ease'
+                                    }}
+                                >
+                                    <img src={item.img} alt={localizedCaseTitle} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} />
+                                    <div className="case-overlay" style={{
+                                        position: 'absolute',
+                                        inset: 0,
+                                        background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'flex-end',
+                                        padding: '30px',
+                                        transition: 'background 0.4s ease'
+                                    }}>
+                                        <span style={{ color: 'var(--accent)', fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px', display: 'block', letterSpacing: '0.1em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>{dict.home.labels.successCase}</span>
+                                        <h3 style={{ color: '#fff', fontSize: '2.2rem', fontWeight: 700, margin: 0, lineHeight: 1.2, textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>{localizedCaseTitle}</h3>
+                                    </div>
+                                </a>
+                            );
+                        })}
                     </div>
                     <div style={{ textAlign: 'center', marginTop: '60px' }}>
-                        <a href="/cases" className="btn btn-orange" style={{ padding: '15px 40px' }}>VIEW ALL CASES</a>
+                        <a href={`/${locale}/cases`} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllCases}</a>
                     </div>
                 </div>
             </section>
@@ -221,7 +243,6 @@ export default function DesktopHome() {
                 display: 'flex',
                 alignItems: 'center'
             }}>
-                {/* Overlay for better text readability */}
                 <div style={{
                     position: 'absolute',
                     inset: 0,
@@ -230,11 +251,11 @@ export default function DesktopHome() {
 
                 <div className="container-wide" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <div style={{ maxWidth: '900px' }}>
-                        <h2 style={{ fontSize: '4.8rem', fontWeight: 900, marginBottom: '30px', color: '#fff' }}>ABOUT US</h2>
-                        <p style={{ fontSize: '2rem', lineHeight: 1.6, marginBottom: '40px', opacity: 0.9 }}>N-TET is a technology-driven enterprise focused on low-altitude security systems, intelligent defense equipment, and integrated mission solutions. We combine R&D, engineering, and delivery to provide reliable deployment capabilities for critical infrastructure, major events, and emergency scenarios worldwide.</p>
+                        <h2 style={{ fontSize: '4.8rem', fontWeight: 900, marginBottom: '30px', color: '#fff' }}>{dict.home.sections.about}</h2>
+                        <p style={{ fontSize: '2rem', lineHeight: 1.6, marginBottom: '40px', opacity: 0.9 }}>{dict.home.about.content}</p>
                         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                            <a href="#" className="btn btn-orange">Product Center</a>
-                            <a href="#" className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>Learn More</a>
+                            <a href={`/${locale}/products`} className="btn btn-orange">{dict.home.sections.products}</a>
+                            <a href={`/${locale}/about`} className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>{dict.home.buttons.learnMore}</a>
                         </div>
                     </div>
                 </div>
@@ -244,42 +265,45 @@ export default function DesktopHome() {
             <section className="section-news" style={{ padding: '60px 0 100px', background: '#fff' }}>
                 <div className="container-wide">
                     <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '3.6rem', fontWeight: 600, color: '#333', letterSpacing: '2px', textTransform: 'uppercase' }}>News</h2>
+                        <h2 style={{ fontSize: '3.6rem', fontWeight: 600, color: '#333', letterSpacing: '2px', textTransform: 'uppercase' }}>{dict.home.sections.news}</h2>
                     </div>
                     <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {latestNews.map((item, i) => (
-                            <a key={i} href={`/media/${item.id}`} className="news-card" style={{
-                                background: '#f8f8f8',
-                                border: '1px solid #eee',
-                                overflow: 'hidden',
-                                transition: 'all 0.3s ease',
-                                cursor: 'pointer',
-                                textDecoration: 'none',
-                                display: 'block'
-                            }}>
-                                <div style={{ height: '220px', overflow: 'hidden' }}>
-                                    <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
-                                </div>
-                                <div className="news-card-content" style={{ padding: '25px', transition: 'background-color 0.3s ease' }}>
-                                    <h3 style={{
-                                        fontSize: '1.8rem',
-                                        color: '#333',
-                                        marginBottom: '15px',
-                                        lineHeight: 1.4,
-                                        fontWeight: 600,
-                                        display: '-webkit-box',
-                                        WebkitLineClamp: 2,
-                                        WebkitBoxOrient: 'vertical',
-                                        overflow: 'hidden',
-                                        transition: 'color 0.3s ease'
-                                    }}>{item.title}</h3>
-                                    <p style={{ color: '#999', fontSize: '1.4rem', transition: 'color 0.3s ease' }}>{item.date}</p>
-                                </div>
-                            </a>
-                        ))}
+                        {latestNews.map((item, i) => {
+                            const localizedNewsTitle = item[`title_${locale}`] || item.title_en || item.title;
+                            return (
+                                <a key={i} href={`/${locale}/media/${item.id}`} className="news-card" style={{
+                                    background: '#f8f8f8',
+                                    border: '1px solid #eee',
+                                    overflow: 'hidden',
+                                    transition: 'all 0.3s ease',
+                                    cursor: 'pointer',
+                                    textDecoration: 'none',
+                                    display: 'block'
+                                }}>
+                                    <div style={{ height: '220px', overflow: 'hidden' }}>
+                                        <img src={item.image} alt={localizedNewsTitle} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                                    </div>
+                                    <div className="news-card-content" style={{ padding: '25px', transition: 'background-color 0.3s ease' }}>
+                                        <h3 style={{
+                                            fontSize: '1.8rem',
+                                            color: '#333',
+                                            marginBottom: '15px',
+                                            lineHeight: 1.4,
+                                            fontWeight: 600,
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: 2,
+                                            WebkitBoxOrient: 'vertical',
+                                            overflow: 'hidden',
+                                            transition: 'color 0.3s ease'
+                                        }}>{localizedNewsTitle}</h3>
+                                        <p style={{ color: '#999', fontSize: '1.4rem', transition: 'color 0.3s ease' }}>{item.date}</p>
+                                    </div>
+                                </a>
+                            );
+                        })}
                     </div>
                     <div style={{ textAlign: 'center', marginTop: '60px' }}>
-                        <a href="/media" className="btn btn-orange" style={{ padding: '15px 40px' }}>VIEW ALL NEWS</a>
+                        <a href={`/${locale}/media`} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllNews}</a>
                     </div>
                 </div>
             </section>
@@ -317,3 +341,4 @@ export default function DesktopHome() {
         </main>
     );
 }
+

@@ -3,6 +3,8 @@ import { getSolutionById, getAllSolutionHandles } from '@/lib/solutions';
 import { getAllProducts } from '@/lib/products';
 import SolutionDetailClient from './SolutionDetailClient';
 import MobileSolutionDetail from '@/components/mobile/MobileSolutionDetail';
+import { getDictionary } from '@/i18n/getDictionary';
+import { Locale } from '@/i18n/config';
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
@@ -11,17 +13,27 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function SolutionDetailPage({ params }: { params: { id: string } }) {
-  const solution = await getSolutionById(params.id);
+export default async function SolutionDetailPage({ params }: { params: { id: string; locale: Locale } }) {
+  const { id, locale } = params;
+  const solution = await getSolutionById(id);
+  const dict = await getDictionary(locale);
 
   if (!solution) {
     notFound();
   }
 
   // Fetch Recommended Products
-  const productsByCategory = await getAllProducts();
+  const productsByCategory = await getAllProducts(locale);
   const allProducts = Object.values(productsByCategory).flat();
-  const recommendedHandles = solution.recommended_products || [];
+  
+  let recommendedHandles = [];
+  try {
+      recommendedHandles = typeof solution.recommended_products === 'string' 
+        ? JSON.parse(solution.recommended_products) 
+        : (solution.recommended_products || []);
+  } catch(e) {
+      recommendedHandles = [];
+  }
 
   const recommendedProducts = allProducts.filter(p => recommendedHandles.includes(p.handle));
 
@@ -37,11 +49,21 @@ export default async function SolutionDetailPage({ params }: { params: { id: str
       `}} />
 
       <div className="pc_only">
-        <SolutionDetailClient solution={solution} recommendedProducts={recommendedProducts} />
+        <SolutionDetailClient 
+            solution={solution} 
+            recommendedProducts={recommendedProducts} 
+            locale={locale}
+            dict={dict}
+        />
       </div>
 
       <div className="mobile_only">
-        <MobileSolutionDetail solution={solution} recommendedProducts={recommendedProducts} />
+        <MobileSolutionDetail 
+            solution={solution} 
+            recommendedProducts={recommendedProducts} 
+            locale={locale}
+            dict={dict}
+        />
       </div>
     </>
   );

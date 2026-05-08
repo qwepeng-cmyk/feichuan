@@ -12,34 +12,43 @@ interface CaseItem {
     region_en?: string;
     country_en?: string;
     solution_category_id?: string;
+    [key: string]: any;
 }
 
-const SOLUTION_CATEGORIES = [
-    { id: 'all', name: 'All Solutions' },
-    { id: '01_BorderPatrol', name: 'Border Patrol' },
-    { id: '02_InfrastructureProtection', name: 'Infrastructure Protection' },
-    { id: '03_KeyAreaSecurity', name: 'Key Area Security' },
-    { id: '04_EmergencyRescue', name: 'Emergency & Disaster Rescue' }
-];
-
-const REGIONS = [
-    { id: 'all', name: 'All Regions' },
-    { id: 'china', name: 'China' },
-    { id: 'Asia', name: 'Asia' },
-    { id: 'Africa', name: 'Africa' },
-    { id: 'North America', name: 'North America' },
-    { id: 'South America', name: 'South America' },
-    { id: 'Europe', name: 'Europe' },
-    { id: 'Oceania', name: 'Oceania' }
-];
-
-export default function MobileCaseCenter({ allCases }: { allCases: CaseItem[] }) {
+export default function MobileCaseCenter({ 
+    allCases,
+    locale,
+    dict
+}: { 
+    allCases: CaseItem[],
+    locale: string,
+    dict: any
+}) {
     const [selectedSolution, setSelectedSolution] = useState('all');
     const [selectedRegionId, setSelectedRegionId] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 8; // Even number for 2-column grid
+    const pageSize = 8;
     const [regionOpen, setRegionOpen] = useState(false);
     const [solutionOpen, setSolutionOpen] = useState(false);
+
+    const SOLUTION_CATEGORIES = [
+        { id: 'all', name: dict.cases.filters.allSolutions || 'All Solutions' },
+        { id: '01_BorderPatrol', name: dict.solutions.categories.border },
+        { id: '02_InfrastructureProtection', name: dict.solutions.categories.infrastructure },
+        { id: '03_KeyAreaSecurity', name: dict.solutions.categories.security },
+        { id: '04_EmergencyRescue', name: dict.solutions.categories.emergency }
+    ];
+
+    const REGIONS = [
+        { id: 'all', name: dict.cases.filters.allRegions || 'All Regions' },
+        { id: 'china', name: dict.cases.filters.regions.china },
+        { id: 'Asia', name: dict.cases.filters.regions.asia },
+        { id: 'Africa', name: dict.cases.filters.regions.africa },
+        { id: 'North America', name: dict.cases.filters.regions.northAmerica },
+        { id: 'South America', name: dict.cases.filters.regions.southAmerica },
+        { id: 'Europe', name: dict.cases.filters.regions.europe },
+        { id: 'Oceania', name: dict.cases.filters.regions.oceania }
+    ];
 
     const filteredCases = useMemo(() => {
         return allCases.filter(item => {
@@ -96,13 +105,13 @@ export default function MobileCaseCenter({ allCases }: { allCases: CaseItem[] })
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>CASE CENTER</h1>
+                    <h1>{dict.cases.bannerTitle}</h1>
                 </div>
             </section>
 
             <section className={styles.filterSection}>
                 <div className={styles.filterGroup}>
-                    <label className={styles.filterLabel}>Region</label>
+                    <label className={styles.filterLabel}>{dict.cases.filters.regionLabel || 'Region'}</label>
                     <div 
                         className={`${styles.selectBox} ${regionOpen ? styles.dropdownActive : ''}`}
                         onClick={() => {
@@ -133,7 +142,7 @@ export default function MobileCaseCenter({ allCases }: { allCases: CaseItem[] })
                 </div>
 
                 <div className={styles.filterGroup}>
-                    <label className={styles.filterLabel}>Solutions</label>
+                    <label className={styles.filterLabel}>{dict.cases.filters.solutionsLabel || 'Solutions'}</label>
                     <div 
                         className={`${styles.selectBox} ${solutionOpen ? styles.dropdownActive : ''}`}
                         onClick={() => {
@@ -168,16 +177,19 @@ export default function MobileCaseCenter({ allCases }: { allCases: CaseItem[] })
                 {paginatedCases.length > 0 ? (
                     <>
                         <div className={styles.grid}>
-                            {paginatedCases.map((item, idx) => (
-                                <Link href={`/cases/${item.handle}`} key={idx} className={styles.card}>
-                                    <div className={styles.imageBox}>
-                                        <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={item.title_en} />
-                                    </div>
-                                    <div className={styles.cardContent}>
-                                        <h3>{item.title_en}</h3>
-                                    </div>
-                                </Link>
-                            ))}
+                            {paginatedCases.map((item, idx) => {
+                                const caseTitle = item[`title_${locale}`] || item.title_en;
+                                return (
+                                    <Link href={`/${locale}/cases/${item.handle}`} key={idx} className={styles.card}>
+                                        <div className={styles.imageBox}>
+                                            <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} />
+                                        </div>
+                                        <div className={styles.cardContent}>
+                                            <h3>{caseTitle}</h3>
+                                        </div>
+                                    </Link>
+                                );
+                            })}
                         </div>
 
                         {totalPages > 1 && (
@@ -197,12 +209,13 @@ export default function MobileCaseCenter({ allCases }: { allCases: CaseItem[] })
                 ) : (
                     <div className={styles.emptyState}>
                         <div className={styles.emptyIcon}>🔍</div>
-                        <p>No cases found matching your selection.</p>
+                        <p>{dict.cases.noResults || 'No cases found matching your selection.'}</p>
                     </div>
                 )}
             </div>
 
-            <MobileInquiryForm />
+            <MobileInquiryForm dict={dict} />
         </div>
     );
 }
+

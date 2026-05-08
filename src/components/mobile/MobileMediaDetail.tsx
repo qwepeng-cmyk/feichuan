@@ -6,47 +6,52 @@ import MobileInquiryForm from './MobileInquiryForm';
 
 interface MediaProps {
     news: any;
+    locale: string;
+    dict: any;
 }
 
-export default function MobileMediaDetail({ news }: MediaProps) {
+export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
+    const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+    const newsContent = news[`content_${locale}`] || news.content_en || news.content;
+
     return (
         <div className={styles.wrapper}>
             {/* 1. Mini Banner - Consistent with Product Center */}
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>MEDIA CENTER</h1>
+                    <h1>{dict.nav.media.toUpperCase()}</h1>
                 </div>
             </section>
 
             {/* 2. Breadcrumb */}
             <div className={styles.breadcrumb}>
-                <a href="/">Home</a>
+                <a href={`/${locale}`}>{dict.nav.home}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href="/media">Media Center</a>
+                <a href={`/${locale}/media`}>{dict.nav.media}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
-                    {news.title}
+                    {newsTitle}
                 </span>
             </div>
 
             {/* 3. News Content */}
             <article className={styles.articleContainer}>
-                <h1 className={styles.newsTitle}>{news.title}</h1>
-                <div className={styles.newsMeta}>Published on: {news.date}</div>
+                <h1 className={styles.newsTitle}>{newsTitle}</h1>
+                <div className={styles.newsMeta}>{news.date}</div>
 
                 {news.image && (
                     <div className={styles.featuredImage}>
-                        <img src={news.image} alt={news.title} />
+                        <img src={news.image} alt={newsTitle} />
                     </div>
                 )}
 
-                <div className={styles.richContent} dangerouslySetInnerHTML={{ __html: news.content }} />
+                <div className={styles.richContent} dangerouslySetInnerHTML={{ __html: newsContent }} />
             </article>
 
             {/* 4. Inquiry Section */}
             <section className={styles.section} style={{ background: '#f8faff' }}>
-                <MobileInquiryForm />
+                <MobileInquiryForm dict={dict} />
             </section>
         </div>
     );

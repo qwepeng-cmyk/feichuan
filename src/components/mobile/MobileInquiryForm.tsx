@@ -3,7 +3,32 @@
 import React, { useState } from 'react';
 import styles from './MobileProductCenter.module.css';
 
-export default function MobileInquiryForm() {
+export default function MobileInquiryForm({ dict }: { dict?: any }) {
+    const d = dict?.inquiry || {
+        title: "Get Solution & Quotation",
+        subtitle: "Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.",
+        name: "Name",
+        company: "Company Name",
+        email: "E-mail",
+        contactMethod: "Contact Method",
+        countryCode: "Country Code",
+        phone: "Phone Number",
+        inquiryType: "Inquiry Type:",
+        messageLabel: "Project Details / Message",
+        messagePlaceholder: "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening).",
+        submit: "SUBMIT INQUIRY",
+        submitting: "SUBMITTING...",
+        submitted: "SUBMITTED SUCCESSFULLY!",
+        failed: "Failed to submit. Please try again.",
+        types: [
+            "Product Pricing & Quotation",
+            "Request a Custom Solution",
+            "Product Brochures & Tech Specs",
+            "Partnership / Distributor Application",
+            "Technical & After-Sales Support"
+        ]
+    };
+
     const [formData, setFormData] = useState({
         name: '',
         company: '',
@@ -14,14 +39,6 @@ export default function MobileInquiryForm() {
         demands: [] as string[],
         message: '',
     });
-
-    const demandOptions = [
-        'Product Pricing & Quotation',
-        'Request a Custom Solution',
-        'Product Brochures & Tech Specs',
-        'Partnership / Distributor Application',
-        'Technical & After-Sales Support'
-    ];
 
     const toggleDemand = (opt: string) => {
         setFormData(prev => ({
@@ -62,15 +79,15 @@ export default function MobileInquiryForm() {
 
     return (
         <div className={styles.inquiryContainer}>
-            <h2 id="inquiry-title" className={styles.formTitle}>Get Solution & Quotation</h2>
+            <h2 id="inquiry-title" className={styles.formTitle}>{d.title}</h2>
             <p className={styles.formSubtitle}>
-                Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.
+                {d.subtitle}
             </p>
 
             <form onSubmit={handleSubmit} className={styles.formWrapper}>
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>
-                        <span>*</span>Name
+                        <span>*</span>{d.name}
                     </label>
                     <input
                         type="text"
@@ -78,24 +95,24 @@ export default function MobileInquiryForm() {
                         className={styles.formInput}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Your full name"
+                        placeholder=""
                     />
                 </div>
 
                 <div className={styles.formField}>
-                    <label className={styles.formLabel}>Company Name</label>
+                    <label className={styles.formLabel}>{d.company}</label>
                     <input
                         type="text"
                         className={styles.formInput}
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Optional"
+                        placeholder=""
                     />
                 </div>
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>
-                        <span>*</span>E-mail
+                        <span>*</span>{d.email}
                     </label>
                     <input
                         type="email"
@@ -108,7 +125,7 @@ export default function MobileInquiryForm() {
                 </div>
 
                 <div className={styles.formField}>
-                    <label className={styles.formLabel}>Contact Method</label>
+                    <label className={styles.formLabel}>{d.contactMethod}</label>
                     <select 
                         className={styles.formSelect}
                         value={formData.contactMethod}
@@ -122,7 +139,7 @@ export default function MobileInquiryForm() {
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>
-                        <span>*</span>Country Code
+                        <span>*</span>{d.countryCode}
                     </label>
                     <select
                         required
@@ -147,7 +164,7 @@ export default function MobileInquiryForm() {
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>
-                        <span>*</span>Phone Number
+                        <span>*</span>{d.phone}
                     </label>
                     <input
                         type="tel"
@@ -155,16 +172,16 @@ export default function MobileInquiryForm() {
                         className={styles.formInput}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="Number"
+                        placeholder=""
                     />
                 </div>
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>
-                        <span>*</span>Inquiry Type
+                        <span>*</span>{d.inquiryType}
                     </label>
                     <div className={styles.formCheckboxGroup}>
-                        {demandOptions.map(opt => (
+                        {d.types.map((opt: string) => (
                             <label key={opt} className={styles.formCheckboxLabel}>
                                 <input
                                     type="checkbox"
@@ -180,22 +197,23 @@ export default function MobileInquiryForm() {
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>
-                        <span>*</span>Project Details
+                        <span>*</span>{d.messageLabel}
                     </label>
                     <textarea
                         required
                         className={styles.formTextarea}
-                        placeholder="Please tell us about your requirements..."
+                        placeholder={d.messagePlaceholder}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />
                 </div>
 
                 <button type="submit" className={styles.formSubmit} disabled={submitStatus === 'loading' || submitStatus === 'success'}>
-                    {submitStatus === 'loading' ? 'SUBMITTING...' : submitStatus === 'success' ? 'SUBMITTED SUCCESSFULLY!' : 'SUBMIT INQUIRY'}
+                    {submitStatus === 'loading' ? d.submitting : submitStatus === 'success' ? d.submitted : d.submit}
                 </button>
-                {submitStatus === 'error' && <div style={{color: 'red', marginTop: '10px', textAlign: 'center'}}>Failed to submit. Please try again.</div>}
+                {submitStatus === 'error' && <div style={{color: 'red', marginTop: '10px', textAlign: 'center'}}>{d.failed}</div>}
             </form>
         </div>
     );
 }
+

@@ -2,7 +2,29 @@
 
 import { useState } from 'react';
 
-export default function InquiryForm() {
+export default function InquiryForm({ dict }: { dict?: any }) {
+    const d = dict?.inquiry || {
+        title: "Get Solution & Quotation",
+        subtitle: "Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.",
+        name: "Name",
+        company: "Company Name",
+        email: "E-mail",
+        contactMethod: "Contact Method",
+        countryCode: "Country Code",
+        phone: "Phone Number",
+        inquiryType: "Inquiry Type:",
+        messageLabel: "Project Details / Message",
+        messagePlaceholder: "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening).",
+        submit: "SUBMIT INQUIRY",
+        types: [
+            "Product Pricing & Quotation",
+            "Request a Custom Solution",
+            "Product Brochures & Tech Specs",
+            "Partnership / Distributor Application",
+            "Technical & After-Sales Support"
+        ]
+    };
+
     const [formData, setFormData] = useState({
         name: '',
         company: '',
@@ -12,14 +34,6 @@ export default function InquiryForm() {
         demands: [] as string[],
         message: '',
     });
-
-    const demandOptions = [
-        'Product Pricing & Quotation',
-        'Request a Custom Solution',
-        'Product Brochures & Tech Specs',
-        'Partnership / Distributor Application',
-        'Technical & After-Sales Support'
-    ];
 
     const toggleDemand = (opt: string) => {
         setFormData(prev => ({
@@ -32,20 +46,20 @@ export default function InquiryForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Thank you for your inquiry!');
+        alert(dict?.common?.thankYou || 'Thank you for your inquiry!');
     };
 
     return (
         <div className="inquiry-container" style={{ borderRadius: '0', boxShadow: 'none', border: '1px solid #eee' }}>
-            <h2 className="section-title" style={{ marginBottom: '10px' }}>Get Solution & Quotation</h2>
+            <h2 className="section-title" style={{ marginBottom: '10px' }}>{d.title}</h2>
             <p style={{ textAlign: 'center', color: '#666', fontSize: '1.6rem', maxWidth: '800px', margin: '0 auto 40px', lineHeight: '1.6' }}>
-                Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.
+                {d.subtitle}
             </p>
 
             <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
                 <div className="form-grid">
                     <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> Name</label>
+                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.name}</label>
                         <input
                             type="text"
                             required
@@ -56,7 +70,7 @@ export default function InquiryForm() {
                         />
                     </div>
                     <div className="form-group">
-                        <label className="form-label">Company Name</label>
+                        <label className="form-label">{d.company}</label>
                         <input
                             type="text"
                             className="form-input"
@@ -68,7 +82,7 @@ export default function InquiryForm() {
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> E-mail</label>
+                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.email}</label>
                     <input
                         type="email"
                         required
@@ -81,7 +95,7 @@ export default function InquiryForm() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.5fr', gap: '20px', marginBottom: '30px' }}>
                     <div className="form-group">
-                        <label className="form-label">Contact Method</label>
+                        <label className="form-label">{d.contactMethod}</label>
                         <select className="form-input" style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}>
                             <option>WhatsApp</option>
                             <option>Phone</option>
@@ -89,7 +103,7 @@ export default function InquiryForm() {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> Country Code</label>
+                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.countryCode}</label>
                         <select
                             required
                             className="form-input"
@@ -158,7 +172,7 @@ export default function InquiryForm() {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> Phone Number</label>
+                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.phone}</label>
                         <input
                             type="text"
                             required
@@ -171,9 +185,9 @@ export default function InquiryForm() {
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> Inquiry Type:</label>
+                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.inquiryType}</label>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
-                        {demandOptions.map(opt => (
+                        {d.types.map((opt: string) => (
                             <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1.5rem', color: '#444' }}>
                                 <input
                                     type="checkbox"
@@ -188,21 +202,22 @@ export default function InquiryForm() {
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> Project Details / Message</label>
+                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.messageLabel}</label>
                     <textarea
                         required
                         className="form-input form-textarea"
                         style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '120px' }}
-                        placeholder="Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening)."
+                        placeholder={d.messagePlaceholder}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     />
                 </div>
 
                 <button type="submit" className="btn-submit" style={{ borderRadius: '0', background: 'var(--accent)', textTransform: 'uppercase' }}>
-                    SUBMIT INQUIRY
+                    {d.submit}
                 </button>
             </form>
         </div>
     );
 }
+

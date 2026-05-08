@@ -9,12 +9,16 @@ import MobileCategoryLanding from '@/components/mobile/MobileCategoryLanding';
 interface SubSolution {
   product_name: string;
   product_name_en: string;
+  product_name_ru: string;
   summary: string;
   summary_en: string;
+  summary_ru: string;
   key_parameter_1: string;
   key_parameter_1_en: string;
+  key_parameter_1_ru: string;
   key_parameter_2: string;
   key_parameter_2_en: string;
+  key_parameter_2_ru: string;
   main_image: string;
   handle: string;
 }
@@ -23,10 +27,13 @@ interface Props {
   categoryId: string;
   subSolutions: SubSolution[];
   recommendedProducts: { name: string; handle: string; image: string }[];
+  locale: string;
+  dict: any;
 }
 
-export default function CategoryLandingClient({ categoryId, subSolutions, recommendedProducts }: Props) {
+export default function CategoryLandingClient({ categoryId, subSolutions, recommendedProducts, locale, dict }: Props) {
   const data = categoryLandingData[categoryId];
+  const l = (path: string) => `/${locale}${path === '/' ? '' : path}`;
 
   // Intersection Observer for scroll animations
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -55,6 +62,9 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
     );
   }
 
+  const categoryName = locale === 'ru' ? data.name_ru : data.name_en;
+  const industryNeeds = locale === 'ru' ? data.industryNeeds_ru : data.industryNeeds_en;
+
   // Standard container width from globals.css is 1240px
   const containerStyle = { maxWidth: '1240px', margin: '0 auto', padding: '0 20px' };
 
@@ -78,7 +88,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
           <div className="product-breadcrumb-nav" style={{ background: '#fff', borderBottom: '1px solid #f0f0f0' }}>
             <div className="container" style={containerStyle}>
               <div className="breadcrumb-path">
-                <a href="/">Home</a> &gt; <a href="/solutions">Solutions</a> &gt; {data.name_en}
+                <a href={l("/")}>{dict.nav.home}</a> &gt; <a href={l("/solutions")}>{dict.nav.solutions}</a> &gt; {categoryName}
               </div>
             </div>
           </div>
@@ -113,10 +123,10 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
             <div className="container" style={{ ...containerStyle, position: 'relative', zIndex: 2 }}>
               <div style={{ textAlign: 'left', width: '100%', maxWidth: '800px' }}>
                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#ffffff', lineHeight: 1.1, marginBottom: '15px' }}>
-                  {data.name_en}
+                  {categoryName}
                 </h1>
                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
-                  Professional integrated solutions for {data.name_en.toLowerCase()} operations and strategic safety management.
+                   {dict.solutions.bannerSubtitle || dict.solutions.bannerDesc}
                 </p>
               </div>
             </div>
@@ -127,13 +137,13 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
             <div className="container" style={containerStyle}>
               <div className="reveal-on-scroll" style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
-                  INDUSTRY NEEDS
+                  {dict.solutions.industryNeeds}
                 </h2>
                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto 0' }}></div>
               </div>
               <div className="reveal-on-scroll" style={{ borderTop: '1px solid #eee', paddingTop: '40px' }}>
                 <p style={{ fontSize: '1.8rem', color: '#444', lineHeight: 1.8, textAlign: 'justify', margin: 0 }}>
-                  {data.industryNeeds_en}
+                  {industryNeeds}
                 </p>
               </div>
             </div>
@@ -144,7 +154,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
             <div className="container" style={containerStyle}>
               <div className="reveal-on-scroll" style={{ textAlign: 'center', marginBottom: '80px' }}>
                 <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
-                  SOLUTION OVERVIEW
+                  {dict.solutions.pageTitle}
                 </h2>
                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto 0' }}></div>
               </div>
@@ -152,6 +162,9 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
               <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
                 {subSolutions.map((sol, idx) => {
                   const isReversed = idx % 2 === 1;
+                  const solName = locale === 'ru' ? sol.product_name_ru : sol.product_name_en;
+                  const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
+
                   return (
                     <div key={sol.handle} className="reveal-on-scroll">
                       <div style={{
@@ -162,16 +175,16 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                         border: '1px solid #eee',
                         overflow: 'hidden'
                       }}>
-                        <a href={`/solutions/${sol.handle}`} style={{ width: '50%', aspectRatio: '380 / 240', display: 'block' }}>
-                          <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={sol.product_name_en} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <a href={l(`/solutions/${sol.handle}`)} style={{ width: '50%', aspectRatio: '380 / 240', display: 'block' }}>
+                          <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </a>
                         <div style={{ flex: 1, padding: '40px 60px' }}>
-                          <h3 style={{ fontSize: '3.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '20px' }}>{sol.product_name_en}</h3>
-                          <p style={{ fontSize: '1.8rem', color: '#444', lineHeight: 1.8, marginBottom: '32px' }}>{sol.summary_en}</p>
-                          <a href={`/solutions/${sol.handle}`} className="btn-premium primary" style={{
+                          <h3 style={{ fontSize: '3.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '20px' }}>{solName}</h3>
+                          <p style={{ fontSize: '1.8rem', color: '#444', lineHeight: 1.8, marginBottom: '32px' }}>{solSummary}</p>
+                          <a href={l(`/solutions/${sol.handle}`)} className="btn-premium primary" style={{
                             fontSize: '1.6rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#315ba4', color: '#fff'
                           }}>
-                            View Details
+                            {dict.solutions.viewDetails}
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                           </a>
                         </div>
@@ -188,13 +201,13 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
             <div className="container" style={containerStyle}>
               <div className="reveal-on-scroll" style={{ textAlign: 'center', marginBottom: '60px' }}>
                 <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#ffffff', textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
-                  PRODUCT RECOMMENDATIONS
+                  {dict.solutions.recommendedProducts}
                 </h2>
                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto 0' }}></div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
                 {recommendedProducts.map((prod, idx) => (
-                  <ProductGridCard key={idx} product={prod} />
+                  <ProductGridCard key={idx} product={prod} locale={locale} dict={dict} />
                 ))}
               </div>
             </div>
@@ -203,7 +216,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
           {/* 5. Inquiry Form */}
           <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
             <div className="container" style={{ maxWidth: '1200px' }}>
-              <InquiryForm />
+              <InquiryForm locale={locale} dict={dict} />
             </div>
           </section>
         </div>
@@ -213,11 +226,13 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
       <div className="mobile_only">
         <MobileCategoryLanding
           categoryId={categoryId}
-          categoryName={data.name_en}
+          categoryName={categoryName}
           bannerImage={data.bannerImage}
-          industryNeeds={data.industryNeeds_en}
+          industryNeeds={industryNeeds}
           subSolutions={subSolutions}
           recommendedProducts={recommendedProducts}
+          locale={locale}
+          dict={dict}
         />
       </div>
     </>

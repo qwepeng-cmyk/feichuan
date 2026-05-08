@@ -8,17 +8,26 @@ interface Solution {
     title_en: string;
     main_image?: string;
     category_id: string;
+    [key: string]: any;
 }
 
-export default function SolutionCenterClient({ allSolutions }: { allSolutions: Solution[] }) {
+export default function SolutionCenterClient({ 
+    allSolutions,
+    locale,
+    dict
+}: { 
+    allSolutions: Solution[],
+    locale: string,
+    dict: any
+}) {
     const CATEGORY_NAMES: Record<string, string> = {
-        '01_BorderPatrol': 'Border Patrol',
-        '02_InfrastructureProtection': 'Infrastructure Protection',
-        '03_KeyAreaSecurity': 'Key Area Security',
-        '04_EmergencyRescue': 'Emergency & Disaster Rescue'
+        '01_BorderPatrol': dict.solutions.categories.border,
+        '02_InfrastructureProtection': dict.solutions.categories.infrastructure,
+        '03_KeyAreaSecurity': dict.solutions.categories.security,
+        '04_EmergencyRescue': dict.solutions.categories.emergency
     };
 
-    // Define common equipment components to ensure 100% consistency
+    // Define common equipment components
     const ICON_CAMERA = (
         <g>
             <path d="M14 12h20l2 10H12l2-10z" fill="rgba(49, 91, 164, 0.05)" />
@@ -42,7 +51,6 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
         '01_BorderPatrol': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
-                {/* Device 1: Airplane UAV */}
                 <g transform="translate(0, 0)">
                     <path d="M24 10l2 24-2 4-2-4 2-24z" fill="rgba(49, 91, 164, 0.05)" />
                     <path d="M4 22l20-4 20 4-20 4L4 22z" strokeWidth="1.8" />
@@ -67,7 +75,6 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
                 <g transform="translate(0, 0)">{ICON_ANTIDRONE}</g>
                 <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
-                {/* Device 2: Security Gate */}
                 <g transform="translate(62, 0)">
                     <rect x="12" y="6" width="24" height="36" />
                     <path d="M16 6v36M32 6v36" strokeWidth="2" />
@@ -79,14 +86,12 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
         ),
         '04_EmergencyRescue': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.2" style={{ height: '48px', width: 'auto' }}>
-                {/* Device 1: Comm Drone */}
                 <g transform="translate(0, 0)">
                     <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
                     <g strokeWidth="1.5" strokeLinecap="round">
                         <path d="M24 18V9M24 28v10" />
                         <path d="M21 19.5l-8-5M27 26.5l8 5M21 26.5l-8 5M27 19.5l8-5" />
                     </g>
-                    {/* Bolder, More Obvious Comm Signal */}
                     <path d="M18 7c2-2 10-2 12 0M15 4c3-3 15-3 18 0M12 1c4-4 20-4 24 0" stroke="#ff9800" strokeWidth="2" strokeLinecap="round" />
                     <g fill="#315ba4" stroke="none">
                         <g transform="translate(24,9)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
@@ -98,14 +103,12 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                     </g>
                 </g>
                 <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
-                {/* Device 2: Lighting Drone */}
                 <g transform="translate(62, 0)">
                     <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
                     <g strokeWidth="1.5" strokeLinecap="round">
                         <path d="M24 18V9M24 28v10" />
                         <path d="M21 19.5l-8-5M27 26.5l8 5M21 26.5l-8 5M27 19.5l8-5" />
                     </g>
-                    {/* Clear Lighting Beam Effect */}
                     <path d="M22 30l-10 16h24l-10-16z" fill="rgba(255, 152, 0, 0.25)" stroke="none" />
                     <path d="M18 42l-2 4M24 42v4M30 42l2 4" stroke="#ff9800" strokeWidth="1" strokeLinecap="round" />
                     <g fill="#315ba4" stroke="none">
@@ -163,13 +166,12 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
-                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Solution Center</h1>
-                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Tailored solutions for border patrol, infrastructure protection, key area security, and emergency rescue.</p>
+                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.solutions.bannerTitle}</h1>
+                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.solutions.bannerSubtitle}</p>
                             </div>
                         </div>
                     </section>
 
-                    {/* STICKY CATEGORY NAV (RESTORED STYLE) */}
                     <CategoryNav categories={categoryList} />
 
                     <div className="solution-lists-wrap" style={{ padding: '80px 0' }}>
@@ -179,37 +181,33 @@ export default function SolutionCenterClient({ allSolutions }: { allSolutions: S
                                     <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
                                         <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
                                         <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
-                                        <a href={`/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none', padding: '10px 24px', border: '2px solid #315ba4' }}>
-                                            Explore Complete Solution Suite
+                                        <a href={`/${locale}/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#fff', backgroundColor: '#315ba4', textDecoration: 'none', padding: '12px 32px', borderRadius: '4px', transition: 'all 0.3s ease' }}>
+                                            {dict.solutions.exploreAll}
                                         </a>
                                     </div>
 
                                     <div className="solution-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                                        {groupedSolutions[category.id]?.map((sol, idx) => (
-                                            <a href={`/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                                <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px' }}>
-                                                    <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={sol.title_en} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                                </div>
-                                                <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{sol.title_en}</h3>
-                                            </a>
-                                        ))}
+                                        {groupedSolutions[category.id]?.map((sol, idx) => {
+                                            const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
+                                            return (
+                                                <a href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                    <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px' }}>
+                                                        <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                    </div>
+                                                    <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{solTitle}</h3>
+                                                </a>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </section>
                         ))}
                     </div>
-
-                    <section id="inquiry" style={{ padding: '120px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
-                        <div className="container" style={{ maxWidth: '1200px' }}>
-                            {/* Inquiry Form was imported as common in Desktop, but we'll use a placeholder or keep it if needed */}
-                            <div style={{ textAlign: 'center', padding: '40px', border: '1px dashed #ccc' }}>PC Inquiry Form Component Area</div>
-                        </div>
-                    </section>
                 </div>
             </div>
 
             <div className="mobile_only">
-                <MobileSolutionCenter allSolutions={allSolutions} />
+                <MobileSolutionCenter allSolutions={allSolutions} locale={locale} dict={dict} />
             </div>
         </>
     );

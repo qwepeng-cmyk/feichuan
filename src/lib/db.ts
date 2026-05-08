@@ -94,6 +94,8 @@ db.exec(`
         date TEXT NOT NULL,
         image TEXT,
         content TEXT,
+        title_ru TEXT,
+        content_ru TEXT,
         raw_json TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP

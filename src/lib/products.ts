@@ -5,9 +5,10 @@ export interface ProductMetadata {
   handle: string;
   image: string;
   category: string;
+  name_ru?: string;
 }
 
-export async function getAllProducts() {
+export async function getAllProducts(locale: string = 'en') {
   const categories: Record<string, ProductMetadata[]> = {
     'uav-drone-systems': [],
     'anti-drone-cuas': [],
@@ -17,12 +18,12 @@ export async function getAllProducts() {
     'perimeter-intelligence': []
   };
 
-  const rows = db.prepare('SELECT handle, product_name_en, main_image, category_primary FROM products').all() as any[];
+  const rows = db.prepare('SELECT handle, product_name_en, product_name_ru, main_image, category_primary FROM products').all() as any[];
 
   for (const row of rows) {
     if (categories[row.category_primary]) {
       categories[row.category_primary].push({
-        name: row.product_name_en,
+        name: locale === 'ru' && row.product_name_ru ? row.product_name_ru : row.product_name_en,
         handle: row.handle,
         image: row.main_image,
         category: row.category_primary
@@ -39,13 +40,16 @@ export async function getAllProductHandles() {
 }
 
 export async function getProductByHandle(handle: string) {
-  const row = db.prepare('SELECT raw_json FROM products WHERE handle = ?').get(handle) as any;
+  const row = db.prepare('SELECT * FROM products WHERE handle = ?').get(handle) as any;
   if (!row) return null;
   
   try {
-    return JSON.parse(row.raw_json);
+    const base = JSON.parse(row.raw_json);
+    return {
+      ...base,
+      ...row // Overwrite with DB columns to ensure latest data/translations
+    };
   } catch (e) {
-    console.error("Error parsing product JSON for handle:", handle);
-    return null;
+    return row;
   }
 }

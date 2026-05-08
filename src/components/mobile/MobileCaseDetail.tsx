@@ -8,11 +8,25 @@ import Link from 'next/link';
 interface CaseProps {
     caseData: any;
     recommendedProducts: any[];
+    locale: string;
+    dict: any;
 }
 
-export default function MobileCaseDetail({ caseData, recommendedProducts }: CaseProps) {
+export default function MobileCaseDetail({ caseData, recommendedProducts, locale, dict }: CaseProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
+
+    // Localized field selection
+    const title = caseData[`title_${locale}`] || caseData.title_en;
+    const description = caseData[`description_${locale}`] || caseData.description_en;
+    
+    let devices = [];
+    try {
+        const rawDevices = caseData[`devices_${locale}`] || caseData.devices_en;
+        devices = typeof rawDevices === 'string' ? JSON.parse(rawDevices) : (rawDevices || []);
+    } catch (e) {
+        devices = [];
+    }
 
     const displayImages = [caseData.main_image, ...(caseData.case_images || [])].filter(Boolean);
     if (displayImages.length === 0) displayImages.push('/images/placeholder.jpg');
@@ -50,7 +64,6 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
         setActiveTab(id);
         const element = document.getElementById(id);
         if (element) {
-            // 108 (header) + 52 (subnav) + 5 (gap) = 165
             const headerOffset = 165;
             const rect = element.getBoundingClientRect();
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -66,12 +79,12 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb */}
             <div className={styles.breadcrumb}>
-                <a href="/">Home</a>
+                <a href={`/${locale}`}>{dict.nav.home}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href="/cases">Cases</a>
+                <a href={`/${locale}/cases`}>{dict.nav.cases}</a>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
-                    {caseData.title_en}
+                    {title}
                 </span>
             </div>
 
@@ -85,7 +98,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <img src={displayImages[activeIndex]} alt={caseData.title_en} />
+                        <img src={displayImages[activeIndex]} alt={title} />
                     </div>
                     {displayImages.length > 1 && (
                         <div className={styles.thumbTrack}>
@@ -103,13 +116,15 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
                 </div>
 
                 {/* Title */}
-                <h1 className={styles.title}>{caseData.title_en}</h1>
+                <h1 className={styles.title}>{title}</h1>
 
                 {/* Info Content - Equipment List */}
                 <div className={styles.infoContent}>
                     <div className={styles.keyParams}>
-                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '5px' }}>Equipment Used:</div>
-                        {caseData.devices_en && caseData.devices_en.map((device: string, idx: number) => (
+                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '5px' }}>
+                            {dict.cases?.equipmentUsed || 'Equipment Used'}:
+                        </div>
+                        {devices && devices.map((device: string, idx: number) => (
                             <div key={idx} className={styles.paramItem}>{device}</div>
                         ))}
                     </div>
@@ -124,7 +139,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
                         scrollToSection('inquiry-title');
                     }}
                 >
-                    GET QUOTATION
+                    {dict.products.getQuotation}
                 </a>
             </section>
 
@@ -135,28 +150,28 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
                         className={`${styles.navItem} ${activeTab === 'overview' ? styles.active : ''}`}
                         onClick={() => scrollToSection('overview-title')}
                     >
-                        Overview
+                        {dict.products.overview}
                     </button>
                     <button 
                         className={`${styles.navItem} ${activeTab === 'products' ? styles.active : ''}`}
                         onClick={() => scrollToSection('products-title')}
                     >
-                        Equipment
+                        {dict.products.relatedEquipment || 'Equipment'}
                     </button>
                     <button 
                         className={`${styles.navItem} ${activeTab === 'inquiry' ? styles.active : ''}`}
                         onClick={() => scrollToSection('inquiry-title')}
                     >
-                        Inquiry
+                        {dict.nav.contact}
                     </button>
                 </div>
             </nav>
 
             {/* 4. Overview / Case Description Section */}
             <section className={styles.section}>
-                <h2 id="overview-title" className={styles.sectionTitleCenter}>Case Details</h2>
+                <h2 id="overview-title" className={styles.sectionTitleCenter}>{dict.products.overview}</h2>
                 <div className={styles.richText}>
-                    {caseData.description_en && caseData.description_en.split('\n').map((paragraph: string, idx: number) => (
+                    {description && description.split('\n').map((paragraph: string, idx: number) => (
                         paragraph.trim() ? <p key={idx} style={{ marginBottom: '15px' }}>{paragraph}</p> : null
                     ))}
                 </div>
@@ -165,10 +180,10 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
             {/* 5. Related Equipment */}
             {recommendedProducts && recommendedProducts.length > 0 && (
                 <section className={styles.section} style={{ background: '#f8faff', paddingBottom: '30px' }}>
-                    <h2 id="products-title" className={styles.sectionTitleCenter}>Related Equipment</h2>
+                    <h2 id="products-title" className={styles.sectionTitleCenter}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                         {recommendedProducts.map((prod, idx) => (
-                            <Link href={`/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
+                            <Link href={`/${locale}/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ aspectRatio: '4/3', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <img src={prod.image} alt={prod.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                                 </div>
@@ -182,9 +197,10 @@ export default function MobileCaseDetail({ caseData, recommendedProducts }: Case
             )}
 
             {/* 6. Inquiry Section */}
-            <section className={styles.section} style={{ background: '#f8faff', paddingTop: '20px' }}>
-                <MobileInquiryForm />
+            <section id="inquiry-title" className={styles.section} style={{ background: '#f8faff', paddingTop: '20px' }}>
+                <MobileInquiryForm dict={dict} />
             </section>
         </div>
     );
 }
+

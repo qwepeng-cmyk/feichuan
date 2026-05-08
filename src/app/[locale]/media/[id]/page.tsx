@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileMediaDetail from '@/components/mobile/MobileMediaDetail';
 import { getMediaById, getAllMediaIds } from '@/lib/media';
+import { getDictionary } from '@/i18n/getDictionary';
+import { Locale } from '@/i18n/config';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
@@ -11,12 +13,17 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function NewsDetailPage({ params }: { params: { id: string } }) {
-    const news = await getMediaById(params.id);
+export default async function NewsDetailPage({ params }: { params: { id: string, locale: Locale } }) {
+    const { id, locale } = params;
+    const news = await getMediaById(id);
+    const dict = await getDictionary(locale);
 
     if (!news) {
         notFound();
     }
+
+    const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+    const newsContent = news[`content_${locale}`] || news.content_en || news.content;
 
     return (
         <>
@@ -33,10 +40,10 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
             <div className="pc_only">
                 <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
                     {/* 1. Breadcrumb Row */}
-                    <div className="product-breadcrumb-nav">
+                    <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                         <div className="container">
-                            <div className="breadcrumb-path">
-                                <a href="/">Home</a> &gt; <a href="/media">Media Center</a> &gt; {news.title}
+                            <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
+                                <a href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</a> &gt; <a href={`/${locale}/media`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.media}</a> &gt; {newsTitle}
                             </div>
                         </div>
                     </div>
@@ -60,8 +67,8 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
-                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Insights & Global Feed</h1>
-                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>Stay updated with the latest technological breakthroughs and industry analysis from N-TET.</p>
+                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</h1>
+                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.media.bannerSubtitle}</p>
                             </div>
                         </div>
                     </section>
@@ -71,13 +78,13 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
                         <div className="container" style={{ maxWidth: '1200px' }}>
                             {/* Title & Meta */}
                             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                                <h1 style={{ fontSize: '4.8rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '30px' }}>{news.title}</h1>
-                                <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>Published on: {news.date}</div>
+                                <h1 style={{ fontSize: '4.8rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '30px' }}>{newsTitle}</h1>
+                                <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>{news.date}</div>
                             </div>
 
                             {/* Featured Image */}
                             <div style={{ marginBottom: '50px' }}>
-                                <img src={news.image} alt={news.title} style={{ width: '100%', maxHeight: '600px', objectFit: 'cover', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }} />
+                                <img src={news.image} alt={newsTitle} style={{ width: '100%', maxHeight: '600px', objectFit: 'cover', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }} />
                             </div>
 
                             {/* Rich Content Area */}
@@ -86,7 +93,7 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
                                 lineHeight: '1.8',
                                 color: '#444'
                             }}>
-                                <div dangerouslySetInnerHTML={{ __html: news.content }} />
+                                <div dangerouslySetInnerHTML={{ __html: newsContent }} />
                             </div>
                         </div>
                     </article>
@@ -94,7 +101,7 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
                     {/* 4. Global Inquiry Module */}
                     <section style={{ padding: '100px 0', backgroundColor: '#f9f9f9', borderTop: '1px solid #eee' }}>
                         <div className="container" style={{ maxWidth: '1200px' }}>
-                            <InquiryForm />
+                            <InquiryForm dict={dict} />
                         </div>
                     </section>
                 </div>
@@ -102,7 +109,7 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
 
             {/* MOBILE VIEW */}
             <div className="mobile_only">
-                <MobileMediaDetail news={news} />
+                <MobileMediaDetail news={news} locale={locale} dict={dict} />
             </div>
         </>
     );

@@ -11,20 +11,30 @@
     "selectLanguage": "Select Language"
   },
   "home": {
-    "heroTitle": "Empowering Global Security",
-    "heroSubtitle": "with Intelligent Unmanned Systems",
-    "heroDesc": "Providing advanced UAV platforms, C-UAS defense systems, and integrated security solutions for critical infrastructure worldwide.",
-    "exploreProducts": "Explore Products",
-    "contactUs": "Contact Us",
-    "productCenter": "Product Center",
-    "productCenterDesc": "Browse our complete catalog of intelligent defense and security equipment.",
-    "solutionCenter": "Solution Center",
-    "solutionCenterDesc": "Explore comprehensive security solutions tailored to your operational needs.",
-    "viewAll": "View All",
-    "viewDetails": "View Details",
-    "casesTitle": "Global Case Center",
-    "casesDesc": "A global track record of mission success across critical operations.",
-    "viewAllCases": "View All Cases"
+    "hero": {
+      "title": "Empowering Global Security<br/>with Intelligent Unmanned Systems",
+      "subtitle": "Providing advanced UAV platforms, C-UAS defense systems, and integrated security solutions for critical infrastructure worldwide.",
+      "button": "Explore Solutions"
+    },
+    "sections": {
+      "solutions": "Our Solutions",
+      "products": "Product Center",
+      "cases": "Case Center",
+      "about": "About Us",
+      "news": "Latest News"
+    },
+    "buttons": {
+      "allProducts": "ALL PRODUCTS",
+      "viewAllCases": "View All Cases",
+      "learnMore": "LEARN MORE",
+      "viewAllNews": "View All News"
+    },
+    "labels": {
+      "successCase": "Mission Success"
+    },
+    "about": {
+      "content": "Beijing Feichuan Equipment Technology Co., Ltd. is a high-tech enterprise focusing on unmanned systems and intelligent security. We integrate global resources to build an efficient industrial ecosystem."
+    }
   },
   "products": {
     "pageTitle": "Product Center",
@@ -32,22 +42,41 @@
     "bannerDesc": "Browse our full catalog of advanced defense technology and security equipment.",
     "getPrice": "Get Price",
     "getQuotation": "Get quotation",
+    "getQuote": "Get a Quote",
+    "viewSpecs": "View Specifications",
     "whatsapp": "WhatsApp",
     "overview": "Overview",
     "technicalSpecs": "Technical Specifications",
     "getSolution": "Get Solution & Quotation",
     "parameter": "Parameter",
     "description": "Description",
-    "features": "Features"
+    "features": "Features",
+    "categories": {
+      "uav": "UAV & Drone Systems",
+      "antiDrone": "Anti-Drone / C-UAS",
+      "security": "Security Screening",
+      "defense": "Defense Engineering",
+      "medical": "Field Hospitals",
+      "surveillance": "Perimeter Intelligence"
+    }
   },
   "solutions": {
     "pageTitle": "Solution Center",
     "bannerTitle": "Solution Center",
     "bannerDesc": "Comprehensive security solutions tailored to your specific operational requirements.",
+    "bannerSubtitle": "Comprehensive security solutions tailored to your specific operational requirements.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
-    "viewProduct": "View Product"
+    "viewProduct": "View Product",
+    "exploreAll": "EXPLORE ALL",
+    "viewDetails": "VIEW DETAILS",
+    "categories": {
+      "border": "Border Patrol",
+      "infrastructure": "Infrastructure Protection",
+      "security": "Key Area Security",
+      "emergency": "Emergency & Disaster Rescue"
+    }
   },
   "cases": {
     "pageTitle": "Global Case Center",
@@ -56,17 +85,40 @@
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
-    "noResults": "No cases found matching your criteria."
+    "noResults": "No cases found matching your criteria.",
+    "filters": {
+      "all": "All",
+      "allSolutions": "All Solutions",
+      "allRegions": "All Regions",
+      "regionLabel": "Region:",
+      "solutionsLabel": "Solutions:",
+      "regions": {
+        "china": "China",
+        "asia": "Asia",
+        "africa": "Africa",
+        "northAmerica": "North America",
+        "southAmerica": "South America",
+        "europe": "Europe",
+        "oceania": "Oceania"
+      }
+    }
   },
   "media": {
     "pageTitle": "Insights & Global Feed",
     "bannerTitle": "Insights & Global Feed",
     "bannerDesc": "Stay updated with the latest technological breakthroughs and industry analysis from N-TET.",
+    "bannerSubtitle": "Stay updated with the latest technological breakthroughs and industry analysis from N-TET.",
     "latest": "Latest",
     "corporate": "Corporate News",
     "productTech": "Product & Tech",
     "industryInsights": "Industry Insights",
-    "updatesFound": "updates found"
+    "updatesFound": "updates found",
+    "categories": {
+      "latest": "Latest",
+      "corporate": "Corporate News",
+      "product": "Product & Tech",
+      "industry": "Industry Insights"
+    }
   },
   "about": {
     "pageTitle": "Company Profile",
@@ -107,24 +159,31 @@
     "tagline": "Advanced Defense & Security Solutions",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
-    "copyright": "© 2024 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved."
+    "copyright": "© 2026 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved."
   },
   "inquiry": {
-    "title": "Get Price & Technical Support",
+    "title": "Get Solution & Quotation",
+    "subtitle": "Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.",
     "name": "Name",
-    "company": "Company",
-    "emailField": "Email",
-    "contactMethod": "Preferred Contact",
-    "phone": "Phone / WhatsApp",
-    "demands": "Interested Products",
-    "message": "Message",
-    "submit": "Send Inquiry",
-    "success": "Your inquiry has been submitted successfully!",
-    "namePlaceholder": "Your name",
-    "companyPlaceholder": "Company name",
-    "emailPlaceholder": "your@email.com",
-    "phonePlaceholder": "Phone / WhatsApp number",
-    "messagePlaceholder": "Tell us about your requirements..."
+    "company": "Company Name",
+    "email": "E-mail",
+    "contactMethod": "Contact Method",
+    "countryCode": "Country Code",
+    "phone": "Phone Number",
+    "inquiryType": "Inquiry Type:",
+    "messageLabel": "Project Details / Message",
+    "messagePlaceholder": "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening).",
+    "submit": "SUBMIT INQUIRY",
+    "submitting": "SUBMITTING...",
+    "submitted": "SUBMITTED SUCCESSFULLY!",
+    "failed": "Failed to submit. Please try again.",
+    "types": [
+      "Product Pricing & Quotation",
+      "Request a Custom Solution",
+      "Product Brochures & Tech Specs",
+      "Partnership / Distributor Application",
+      "Technical & After-Sales Support"
+    ]
   },
   "common": {
     "home": "Home",

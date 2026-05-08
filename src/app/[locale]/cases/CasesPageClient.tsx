@@ -10,32 +10,41 @@ interface CaseItem {
     region_en?: string;
     country_en?: string;
     solution_category_id?: string;
+    [key: string]: any;
 }
 
-const SOLUTION_CATEGORIES = [
-    { id: 'all', name: 'All' },
-    { id: '01_BorderPatrol', name: 'Border Patrol' },
-    { id: '02_InfrastructureProtection', name: 'Infrastructure Protection' },
-    { id: '03_KeyAreaSecurity', name: 'Key Area Security' },
-    { id: '04_EmergencyRescue', name: 'Emergency & Disaster Rescue' }
-];
-
-const REGIONS = [
-    { id: 'all', name: 'All' },
-    { id: 'china', name: 'China' },
-    { id: 'Asia', name: 'Asia' },
-    { id: 'Africa', name: 'Africa' },
-    { id: 'North America', name: 'North America' },
-    { id: 'South America', name: 'South America' },
-    { id: 'Europe', name: 'Europe' },
-    { id: 'Oceania', name: 'Oceania' }
-];
-
-export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) {
+export default function CasesPageClient({ 
+    allCases,
+    locale,
+    dict
+}: { 
+    allCases: CaseItem[],
+    locale: string,
+    dict: any
+}) {
     const [selectedSolution, setSelectedSolution] = useState('all');
     const [selectedRegionId, setSelectedRegionId] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 9;
+
+    const SOLUTION_CATEGORIES = [
+        { id: 'all', name: dict.cases.filters.all },
+        { id: '01_BorderPatrol', name: dict.solutions.categories.border },
+        { id: '02_InfrastructureProtection', name: dict.solutions.categories.infrastructure },
+        { id: '03_KeyAreaSecurity', name: dict.solutions.categories.security },
+        { id: '04_EmergencyRescue', name: dict.solutions.categories.emergency }
+    ];
+
+    const REGIONS = [
+        { id: 'all', name: dict.cases.filters.all },
+        { id: 'china', name: dict.cases.filters.regions.china },
+        { id: 'Asia', name: dict.cases.filters.regions.asia },
+        { id: 'Africa', name: dict.cases.filters.regions.africa },
+        { id: 'North America', name: dict.cases.filters.regions.northAmerica },
+        { id: 'South America', name: dict.cases.filters.regions.southAmerica },
+        { id: 'Europe', name: dict.cases.filters.regions.europe },
+        { id: 'Oceania', name: dict.cases.filters.regions.oceania }
+    ];
 
     const filteredCases = useMemo(() => {
         return allCases.filter(item => {
@@ -71,7 +80,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
         onSelect: (id: string) => void
     ) => (
         <div className="filter-row" style={{
-            marginBottom: label === 'Region:' ? '25px' : '0',
+            marginBottom: label === dict.cases.filters.regionLabel ? '25px' : '0',
             display: 'flex',
             alignItems: 'center',
             gap: '20px'
@@ -112,7 +121,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                                         transition: 'all 0.2s'
                                     }}
                                 >
-                                    All
+                                    {dict.cases.filters.all}
                                 </button>
                             ) : (
                                 <>
@@ -162,8 +171,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                 }
             `}} />
 
-            <div className="pc_only product-page-new" style={{ paddingTop: '112px' }}>
-                {/* 1. HERO BANNER (PC ONLY) */}
+            <div className="pc_only product-page-new">
                 <section className="product-banner" style={{
                     height: '40vh',
                     minHeight: '320px',
@@ -179,14 +187,13 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>
-                            <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Global Case Center</h1>
-                            <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>A global track record across border patrol, infrastructure protection, key area security, and emergency rescue.</p>
+                            <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.cases.bannerTitle}</h1>
+                            <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.cases.bannerSubtitle}</p>
                         </div>
                     </div>
                 </section>
 
                 <div className="cases-page-client">
-                    {/* Filter Section */}
                     <section className="filter-bar" style={{
                         padding: '65px 0 40px 0',
                         backgroundColor: '#fff',
@@ -194,13 +201,12 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                     }}>
                         <div className="container">
                             <div className="filters-wrapper" style={{ maxWidth: '1240px', margin: '0 auto' }}>
-                                {renderRadioFilter('Region:', REGIONS, selectedRegionId, setSelectedRegionId)}
-                                {renderRadioFilter('Solutions:', SOLUTION_CATEGORIES, selectedSolution, setSelectedSolution)}
+                                {renderRadioFilter(dict.cases.filters.regionLabel, REGIONS, selectedRegionId, setSelectedRegionId)}
+                                {renderRadioFilter(dict.cases.filters.solutionsLabel, SOLUTION_CATEGORIES, selectedSolution, setSelectedSolution)}
                             </div>
                         </div>
                     </section>
 
-                    {/* Cases Grid */}
                     <div className="product-lists-wrap" style={{ padding: '25px 0 100px 0', backgroundColor: '#fcfdfe', minHeight: '600px' }}>
                         <div className="container">
                             {paginatedCases.length > 0 ? (
@@ -210,21 +216,23 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                                         gridTemplateColumns: 'repeat(3, 1fr)',
                                         gap: '40px'
                                     }}>
-                                        {paginatedCases.map((item, idx) => (
-                                            <a href={`/cases/${item.handle}`} key={idx} className="catalog-card-item">
-                                                <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden' }}>
-                                                    <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={item.title_en} />
-                                                </div>
-                                                <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
-                                                    <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#333', margin: '0', lineHeight: '1.4' }}>
-                                                        {item.title_en}
-                                                    </h3>
-                                                </div>
-                                            </a>
-                                        ))}
+                                        {paginatedCases.map((item, idx) => {
+                                            const caseTitle = item[`title_${locale}`] || item.title_en;
+                                            return (
+                                                <a href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
+                                                    <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden' }}>
+                                                        <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} />
+                                                    </div>
+                                                    <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
+                                                        <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#333', margin: '0', lineHeight: '1.4' }}>
+                                                            {caseTitle}
+                                                        </h3>
+                                                    </div>
+                                                </a>
+                                            );
+                                        })}
                                     </div>
 
-                                    {/* Dynamic Pagination */}
                                     {totalPages >= 1 && (
                                         <div className="pagination-wrapper" style={{
                                             marginTop: '60px',
@@ -263,7 +271,7 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
                             ) : (
                                 <div style={{ textAlign: 'center', padding: '120px 0', background: '#fff', borderRadius: '8px' }}>
                                     <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>🔍</div>
-                                    <div style={{ fontSize: '1.8rem', color: '#999' }}>No cases found matching your criteria.</div>
+                                    <div style={{ fontSize: '1.8rem', color: '#999' }}>{dict.cases.noResults || 'No cases found matching your criteria.'}</div>
                                 </div>
                             )}
                         </div>
@@ -272,8 +280,9 @@ export default function CasesPageClient({ allCases }: { allCases: CaseItem[] }) 
             </div>
 
             <div className="mobile_only">
-                <MobileCaseCenter allCases={allCases} />
+                <MobileCaseCenter allCases={allCases} locale={locale} dict={dict} />
             </div>
         </>
     );
 }
+

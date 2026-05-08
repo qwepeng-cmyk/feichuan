@@ -1,10 +1,13 @@
-'use client';
-
 import React from 'react';
 import DesktopHome from '@/components/pc/DesktopHome';
 import MobileHome from '@/components/mobile/MobileHome';
+import { getDictionary } from '@/i18n/getDictionary';
+import { Locale } from '@/i18n/config';
 
-export default function Page() {
+export default async function Page({ params }: { params: { locale: Locale } }) {
+    const { locale } = params;
+    const dict = await getDictionary(locale);
+
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: `
@@ -18,11 +21,11 @@ export default function Page() {
             `}} />
 
             <div className="pc_only">
-                <DesktopHome />
+                <DesktopHome locale={locale} dict={dict} />
             </div>
 
             <div className="mobile_only">
-                <MobileHome />
+                <MobileHome locale={locale} dict={dict} />
             </div>
         </>
     );
