@@ -120,7 +120,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/products')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link href={l("/products")} className="nav-link">{dict.nav.products}</Link>
                             <div className="mega-menu">
-                                <div className={isHome ? "container-wide" : "container"} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '50px', padding: '25px 0' }}>
+                                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '50px', padding: '25px 0' }}>
                                     {/* Column 1: UAV Systems */}
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link href={l("/products#uav-drone-systems")}>{dict.megaMenu.uavSystems}</Link></h3>
@@ -226,7 +226,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/solutions')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link href={l("/solutions")} className="nav-link">{dict.nav.solutions}</Link>
                             <div className="mega-menu">
-                                <div className={isHome ? "container-wide" : "container"} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '60px', padding: '25px 0' }}>
+                                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '60px', padding: '25px 0' }}>
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link href={l("/solutions/category/01_BorderPatrol")}>{dict.megaMenu.borderPatrol}</Link></h3>
                                         <ul className="mega-list">
