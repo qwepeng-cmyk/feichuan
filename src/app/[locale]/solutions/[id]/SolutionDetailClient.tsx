@@ -116,7 +116,7 @@ export default function SolutionDetailClient({
         {detailHtml && (
           <section id="features" className="detail-section" style={{ padding: '100px 0', backgroundColor: '#f8f9fa' }}>
             <div className="container">
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '50px' }}>{dict.products.tacticalAdvantages || 'Tactical Advantages'}</h2>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '50px' }}>{dict.products.coreAdvantages || 'Core Advantages'}</h2>
               <div
                 className="rich-content"
                 dangerouslySetInnerHTML={{ __html: detailHtml }}

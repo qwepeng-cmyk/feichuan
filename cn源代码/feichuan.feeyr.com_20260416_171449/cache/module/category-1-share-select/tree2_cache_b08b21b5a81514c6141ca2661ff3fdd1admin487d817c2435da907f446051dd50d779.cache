@@ -1,7 +1,0 @@
-<select class="bs-select form-control" name="catid">
-<option value='0'>全部</option>
-<option _selected_3_ value='3'>新闻资讯</option>
-<option _selected_12_ value='12'>&nbsp;&nbsp;├&nbsp;企业动态</option>
-<option _selected_13_ value='13'>&nbsp;&nbsp;├&nbsp;行业资讯</option>
-<option _selected_14_ value='14'>&nbsp;&nbsp;└&nbsp;视频中心</option>
-</select>

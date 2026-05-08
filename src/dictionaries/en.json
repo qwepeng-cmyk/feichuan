@@ -51,7 +51,7 @@
     "parameter": "Parameter",
     "description": "Description",
     "features": "Features",
-    "tacticalAdvantages": "Tactical Advantages",
+    "coreAdvantages": "Core Advantages",
     "relatedEquipment": "Related Equipment",
     "categories": {
       "uav": "UAV & Drone Systems",
@@ -185,7 +185,68 @@
       "Product Brochures & Tech Specs",
       "Partnership / Distributor Application",
       "Technical & After-Sales Support"
-    ]
+    ],
+    "selectCode": "Select Code...",
+    "contactMethods": {
+      "whatsapp": "WhatsApp",
+      "phone": "Phone",
+      "wechat": "WeChat"
+    },
+    "regions": {
+      "asia": "Asia & Middle East",
+      "europe": "Europe & CIS",
+      "southAmerica": "South America",
+      "africa": "Africa",
+      "northAmerica": "North America & Oceania",
+      "other": "Other (Please add in message)"
+    },
+    "countries": {
+      "china": "China",
+      "uae": "UAE",
+      "saudiArabia": "Saudi Arabia",
+      "iran": "Iran",
+      "turkey": "Turkey",
+      "qatar": "Qatar",
+      "oman": "Oman",
+      "kuwait": "Kuwait",
+      "iraq": "Iraq",
+      "india": "India",
+      "japan": "Japan",
+      "southKorea": "South Korea",
+      "singapore": "Singapore",
+      "malaysia": "Malaysia",
+      "uzbekistan": "Uzbekistan",
+      "russiaKazakhstan": "Russia / Kazakhstan",
+      "belarus": "Belarus",
+      "uk": "United Kingdom",
+      "germany": "Germany",
+      "france": "France",
+      "italy": "Italy",
+      "spain": "Spain",
+      "brazil": "Brazil",
+      "argentina": "Argentina",
+      "colombia": "Colombia",
+      "chile": "Chile",
+      "peru": "Peru",
+      "ecuador": "Ecuador",
+      "venezuela": "Venezuela",
+      "egypt": "Egypt",
+      "algeria": "Algeria",
+      "morocco": "Morocco",
+      "nigeria": "Nigeria",
+      "southAfrica": "South Africa",
+      "kenya": "Kenya",
+      "ethiopia": "Ethiopia",
+      "usaCanada": "USA / Canada",
+      "mexico": "Mexico",
+      "australia": "Australia",
+      "newZealand": "New Zealand"
+    },
+    "submitted": {
+      "title": "SUBMITTED SUCCESSFULLY!",
+      "subtitle": "Thank you for your inquiry. Our team will review your requirements and get back to you within 24 hours.",
+      "backButton": "Send Another Message"
+    }
   },
   "common": {
     "home": "Home",

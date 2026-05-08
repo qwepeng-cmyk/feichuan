@@ -208,7 +208,7 @@ export default function SolutionCenterClient({
                     {/* INQUIRY FORM */}
                     <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
                         <div className="container" style={{ maxWidth: '1200px' }}>
-                            <InquiryForm />
+                            <InquiryForm dict={dict} />
                         </div>
                     </section>
                 </div>

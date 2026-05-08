@@ -1,2 +1,0 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');?>
-{"ip":"39.144.78.159","uid":0,"url":"http://n-tetbj.com/admin.php?c=login&go=&","time":1776156105,"param":[],"action":"登录后台成功","username":"admin"}

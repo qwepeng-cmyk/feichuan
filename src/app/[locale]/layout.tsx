@@ -55,15 +55,15 @@ export default async function LocaleLayout({
             <MobileStickyBar locale={locale} dict={dict} />
         </div>
 
-        {/* STICKY BAR (PC) */}
-        <div className="pc_only sticky-inquiry">
-            <div className="sticky-item orange">
-                <svg style={{ width: '24px', height: '24px', fill: '#fff' }} viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        {/* STICKY INQUIRY (CRISP STYLE) */}
+        <a href="#inquiry" className="pc_only crisp-inquiry-trigger">
+            <div className="crisp-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span>{dict.products.getQuotation}</span>
             </div>
-        </div>
+            <span className="crisp-label">{dict.products.getQuotation}</span>
+        </a>
       </body>
     </html>
   );

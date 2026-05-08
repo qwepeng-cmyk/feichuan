@@ -1,1 +1,0 @@
-DROP TABLE IF EXISTS `{dbprefix}app_synlang_trans`;

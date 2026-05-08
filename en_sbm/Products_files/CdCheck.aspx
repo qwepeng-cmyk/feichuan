@@ -1,1 +1,0 @@
-LR_CheckImgJS(5,2);LR_CheckImgJS(5);
