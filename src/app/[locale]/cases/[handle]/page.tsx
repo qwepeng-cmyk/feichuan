@@ -78,7 +78,11 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
       extraImages = [];
   }
   
-  const galleryImages = [caseData.main_image, ...extraImages].filter(Boolean);
+  // Option A: If we have extra images, use them as the gallery. 
+  // Otherwise fall back to the main_image.
+  const galleryImages = (extraImages && extraImages.length > 0) 
+    ? extraImages.filter(Boolean)
+    : [caseData.main_image].filter(Boolean);
 
   // 次级导航
   const navItems = [

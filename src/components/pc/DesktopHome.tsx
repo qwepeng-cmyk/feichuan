@@ -199,7 +199,7 @@ export default function DesktopHome({
                                     className="case-card-link"
                                     style={{
                                         position: 'relative',
-                                        borderRadius: '12px',
+                                        borderRadius: '0',
                                         overflow: 'hidden',
                                         height: '320px',
                                         display: 'block',

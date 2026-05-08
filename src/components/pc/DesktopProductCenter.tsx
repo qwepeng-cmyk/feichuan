@@ -4,7 +4,15 @@ import InquiryForm from '@/components/products/InquiryForm';
 import CategoryNav from '@/components/products/CategoryNav';
 import ProductGridCard from '@/components/products/ProductGridCard';
 
-export default function DesktopProductCenter({ categoriesData }: { categoriesData: any }) {
+export default function DesktopProductCenter({ 
+    categoriesData,
+    locale,
+    dict
+}: { 
+    categoriesData: any,
+    locale: string,
+    dict: any
+}) {
 
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
         'uav-drone-systems': (
@@ -68,7 +76,7 @@ export default function DesktopProductCenter({ categoriesData }: { categoriesDat
         'security-screening': (
             <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
                 {/* Detailed Walk-through Metal Detector */}
-                <rect x="12" y="6" width="24" height="36" />
+                <path d="M12 6h24M12 42h24M12 6v36M36 6v36" />
                 <path d="M16 6v36M32 6v36" strokeWidth="2" />
                 <rect x="18" y="8" width="12" height="6" fill="rgba(49, 91, 164, 0.1)" />
                 <path d="M12 18h24M12 24h24M12 30h24M12 36h24" strokeOpacity="0.3" />
@@ -111,12 +119,12 @@ export default function DesktopProductCenter({ categoriesData }: { categoriesDat
     };
 
     const CATEGORY_NAMES: Record<string, string> = {
-        'uav-drone-systems': 'UAV & Drone Systems',
-        'anti-drone-cuas': 'Anti-Drone / C-UAS Systems',
-        'security-screening': 'Security Screening & Policing',
-        'defense-engineering': 'Defense Engineering & Logistics',
-        'field-hospitals': 'Field & Mobile Hospitals',
-        'perimeter-intelligence': 'Perimeter & Area Surveillance'
+        'uav-drone-systems': dict.products.categories.uav,
+        'anti-drone-cuas': dict.products.categories.antiDrone,
+        'security-screening': dict.products.categories.security,
+        'defense-engineering': dict.products.categories.defense,
+        'field-hospitals': dict.products.categories.medical,
+        'perimeter-intelligence': dict.products.categories.surveillance
     };
 
     const categoryList = Object.keys(CATEGORY_NAMES).map(key => ({
@@ -144,8 +152,8 @@ export default function DesktopProductCenter({ categoriesData }: { categoriesDat
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '750px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>Product Center</h1>
-                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>Specialist hardware engineered to connect professional technology with frontline tactical operations.</p>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.products.bannerTitle}</h1>
+                        <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>{dict.products.bannerDesc}</p>
                     </div>
                 </div>
                 {/* Visual Accent */}
