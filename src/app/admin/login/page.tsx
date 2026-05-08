@@ -26,7 +26,7 @@ export default function AdminLogin() {
             } else {
                 setError(data.message || 'Login failed');
             }
-        } catch (err) {
+        } catch (err: any) {
             setError('Server connection error');
         } finally {
             setLoading(false);

@@ -44,8 +44,7 @@ export default async function LocaleLayout({
   const dict = await getDictionary(locale);
 
   return (
-    <html lang={locale}>
-      <body className={`${roboto.className} antialiased`}>
+    <>
         <Header locale={locale} dict={dict} />
         {children}
         <Footer locale={locale} dict={dict} />
@@ -64,7 +63,6 @@ export default async function LocaleLayout({
             </div>
             <span className="crisp-label">{dict.products.getQuotation}</span>
         </a>
-      </body>
-    </html>
+    </>
   );
 }

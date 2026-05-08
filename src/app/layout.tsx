@@ -25,5 +25,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <html lang="en">
+      <body className={`${roboto.className} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
 }

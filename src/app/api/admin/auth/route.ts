@@ -9,7 +9,7 @@ export async function POST(request: Request) {
         if (password === process.env.ADMIN_PASSWORD) {
             cookies().set('admin_token', process.env.ADMIN_SECRET || 'default_secret', {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
+                secure: false, // Temporarily false for debugging localhost issue
                 sameSite: 'lax',
                 path: '/',
                 maxAge: 60 * 60 * 24 * 7 // 1 week
