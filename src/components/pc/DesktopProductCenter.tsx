@@ -181,7 +181,7 @@ export default function DesktopProductCenter({
                                 gap: '30px'
                             }}>
                                 {categoriesData[category.id]?.map((product: any, idx: number) => (
-                                    <ProductGridCard key={idx} product={product} />
+                                    <ProductGridCard key={idx} product={product} locale={locale} dict={dict} />
                                 ))}
                             </div>
                         </div>

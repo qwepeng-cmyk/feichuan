@@ -2,6 +2,7 @@
 
 import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
 import CategoryNav from '@/components/products/CategoryNav';
+import InquiryForm from '@/components/products/InquiryForm';
 
 interface Solution {
     id: string;
@@ -203,6 +204,13 @@ export default function SolutionCenterClient({
                             </section>
                         ))}
                     </div>
+
+                    {/* INQUIRY FORM */}
+                    <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
+                        <div className="container" style={{ maxWidth: '1200px' }}>
+                            <InquiryForm />
+                        </div>
+                    </section>
                 </div>
             </div>
 

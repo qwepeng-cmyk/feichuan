@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
+import InquiryForm from '@/components/products/InquiryForm';
 
 interface CaseItem {
     handle: string;
@@ -277,6 +278,13 @@ export default function CasesPageClient({
                         </div>
                     </div>
                 </div>
+
+                {/* INQUIRY FORM */}
+                <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
+                    <div className="container" style={{ maxWidth: '1200px' }}>
+                        <InquiryForm />
+                    </div>
+                </section>
             </div>
 
             <div className="mobile_only">

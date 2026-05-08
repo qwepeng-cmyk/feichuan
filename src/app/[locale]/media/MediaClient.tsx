@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import MobileMediaCenter from '@/components/mobile/MobileMediaCenter';
+import InquiryForm from '@/components/products/InquiryForm';
 
 export default function MediaClient({ 
     newsData,
@@ -201,6 +202,13 @@ export default function MediaClient({
                                     ))}
                                 </div>
                             )}
+                        </div>
+                    </section>
+
+                    {/* INQUIRY FORM */}
+                    <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
+                        <div className="container" style={{ maxWidth: '1200px' }}>
+                            <InquiryForm />
                         </div>
                     </section>
                 </div>

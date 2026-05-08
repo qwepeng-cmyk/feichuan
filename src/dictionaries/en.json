@@ -51,6 +51,8 @@
     "parameter": "Parameter",
     "description": "Description",
     "features": "Features",
+    "tacticalAdvantages": "Tactical Advantages",
+    "relatedEquipment": "Related Equipment",
     "categories": {
       "uav": "UAV & Drone Systems",
       "antiDrone": "Anti-Drone / C-UAS",

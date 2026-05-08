@@ -51,6 +51,8 @@
     "parameter": "Параметр",
     "description": "Описание",
     "features": "Функции и особенности",
+    "tacticalAdvantages": "Тактические преимущества",
+    "relatedEquipment": "Связанное оборудование",
     "categories": {
       "uav": "БПЛА и дроны",
       "antiDrone": "Противодействие БПЛА",
