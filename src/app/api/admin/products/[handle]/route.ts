@@ -20,22 +20,29 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
         // Update both the specific columns and the raw JSON
         db.prepare(`
             UPDATE products 
-            SET product_name_en = ?, category_primary = ?, main_image = ?, 
-                summary_en = ?, key_application_en = ?, 
-                key_parameter_1_en = ?, key_parameter_2_en = ?, 
-                parameters_en = ?, detail_html_en = ?, 
+            SET product_name_en = ?, product_name_ru = ?, category_primary = ?, main_image = ?, 
+                summary_en = ?, summary_ru = ?, key_application_en = ?, key_application_ru = ?,
+                key_parameter_1_en = ?, key_parameter_1_ru = ?, key_parameter_2_en = ?, key_parameter_2_ru = ?,
+                parameters_en = ?, parameters_ru = ?, detail_html_en = ?, detail_html_ru = ?,
                 raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE handle = ?
         `).run(
             body.product_name_en || body.product_name, 
+            body.product_name_ru || '',
             body.category_primary, 
             body.main_image, 
             body.summary_en || '',
+            body.summary_ru || '',
             body.key_application_en || '',
+            body.key_application_ru || '',
             body.key_parameter_1_en || '',
+            body.key_parameter_1_ru || '',
             body.key_parameter_2_en || '',
+            body.key_parameter_2_ru || '',
             JSON.stringify(body.parameters_en || {}),
+            JSON.stringify(body.parameters_ru || {}),
             body.detail_html_en || '',
+            body.detail_html_ru || '',
             raw_json, 
             params.handle
         );

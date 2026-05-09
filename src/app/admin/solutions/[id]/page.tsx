@@ -79,6 +79,7 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
     const [f, setF] = useState<any>({});
     const [paramsEn, setParamsEn] = useState<string[][]>([['Parameter', 'Value'], ['', '']]);
     const [paramsCn, setParamsCn] = useState<string[][]>([['参数', '值'], ['', '']]);
+    const [paramsRu, setParamsRu] = useState<string[][]>([['Параметр', 'Значение'], ['', '']]);
     const [showAdv, setShowAdv] = useState(false);
     const [rawJson, setRawJson] = useState('{}');
     const [loading, setLoading] = useState(!isNew);
@@ -91,7 +92,6 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
             fetch(`/api/admin/solutions/${params.id}`).then(r=>r.json()).then(({success,data})=>{
                 if(!success){setLoading(false);return;}
                 setF(data);
-                setF(data);
                 const pEn = data.parameters_en;
                 if (pEn && !Array.isArray(pEn)) setParamsEn([['Parameter', 'Value'], ...(Object.entries(pEn) as string[][])]);
                 else if (Array.isArray(pEn)) setParamsEn(pEn);
@@ -99,6 +99,11 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
                 const pCn = data.parameters;
                 if (pCn && !Array.isArray(pCn)) setParamsCn([['参数', '值'], ...(Object.entries(pCn) as string[][])]);
                 else if (Array.isArray(pCn)) setParamsCn(pCn);
+
+                const pRu = data.parameters_ru;
+                if (pRu && !Array.isArray(pRu)) setParamsRu([['Параметр', 'Значение'], ...(Object.entries(pRu) as string[][])]);
+                else if (Array.isArray(pRu)) setParamsRu(pRu);
+
                 setRawJson(JSON.stringify(data,null,2));
                 setLoading(false);
             });
@@ -111,6 +116,7 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
         ...f,
         parameters: paramsCn,
         parameters_en: paramsEn,
+        parameters_ru: paramsRu,
         recommended_products: typeof f.recommended_products==='string' ? f.recommended_products.split(',').map((s:string)=>s.trim()).filter(Boolean) : (f.recommended_products||[]),
     });
 
@@ -133,6 +139,8 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
 
     const catId = SOL_CATEGORIES.find(c=>c.name===f.category_name||c.id===f.category_id)?.id || f.category_id || '';
 
+    const threeCol = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '18px' };
+
     return (
         <div style={{maxWidth:'1100px',margin:'0 auto'}}>
             <button onClick={()=>router.push('/admin/solutions')} style={{display:'flex',alignItems:'center',gap:'6px',background:'none',border:'none',color:'#6b87b5',cursor:'pointer',fontSize:'1.3rem',fontWeight:500,marginBottom:'18px',padding:0}}><ArrowLeft size={18}/> 返回方案列表</button>
@@ -145,9 +153,10 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
 
             <div style={s.card}><h2 style={s.title}>🛡️ Solution Identity</h2>
                 {isNew&&<div style={{marginBottom:'20px'}}><label style={s.label}>URL Handle</label><input style={s.input} value={f.handle||''} onChange={e=>upd('handle',e.target.value)}/></div>}
-                <div style={s.twoCol}>
+                <div style={threeCol}>
                     <div><label style={s.label}>Name (EN)</label><input style={s.input} value={f.product_name_en||''} onChange={e=>upd('product_name_en',e.target.value)}/></div>
                     <div><label style={s.label}>名称 (中文)</label><input style={s.input} value={f.product_name||''} onChange={e=>upd('product_name',e.target.value)}/></div>
+                    <div><label style={s.label}>Название (RU)</label><input style={s.input} value={f.product_name_ru||''} onChange={e=>upd('product_name_ru',e.target.value)}/></div>
                 </div>
                 <div style={{...s.twoCol,marginTop:'20px'}}>
                     <div><label style={s.label}>Category</label>
@@ -164,20 +173,27 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
             </div>
 
             <div style={s.card}><h2 style={s.title}>📝 Summary</h2>
-                <div style={s.twoCol}>
+                <div style={threeCol}>
                     <div><label style={s.label}>Summary (EN)</label><textarea style={{...s.input,resize:'vertical'as const,height:'160px',lineHeight:'1.6'}} value={f.summary_en||''} onChange={e=>upd('summary_en',e.target.value)}/></div>
                     <div><label style={s.label}>简介 (中文)</label><textarea style={{...s.input,resize:'vertical'as const,height:'160px',lineHeight:'1.6'}} value={f.summary||''} onChange={e=>upd('summary',e.target.value)}/></div>
+                    <div><label style={s.label}>Описание (RU)</label><textarea style={{...s.input,resize:'vertical'as const,height:'160px',lineHeight:'1.6'}} value={f.summary_ru||''} onChange={e=>upd('summary_ru',e.target.value)}/></div>
                 </div></div>
 
             <div style={s.card}><h2 style={s.title}>🎯 Key Application & Params</h2>
-                <div style={s.twoCol}>
+                <div style={threeCol}>
                     <div><label style={s.label}>Application (EN)</label><textarea style={{...s.input,resize:'vertical'as const,height:'100px',lineHeight:'1.6'}} value={f.key_application_en||''} onChange={e=>upd('key_application_en',e.target.value)}/></div>
                     <div><label style={s.label}>应用 (中文)</label><textarea style={{...s.input,resize:'vertical'as const,height:'100px',lineHeight:'1.6'}} value={f.key_application||''} onChange={e=>upd('key_application',e.target.value)}/></div>
+                    <div><label style={s.label}>Применение (RU)</label><textarea style={{...s.input,resize:'vertical'as const,height:'100px',lineHeight:'1.6'}} value={f.key_application_ru||''} onChange={e=>upd('key_application_ru',e.target.value)}/></div>
                 </div>
-                <div style={{...s.twoCol,marginTop:'16px'}}><div><label style={s.label}>Key Param #1 (EN)</label><input style={s.input} value={f.key_parameter_1_en||''} onChange={e=>upd('key_parameter_1_en',e.target.value)}/></div><div><label style={s.label}>核心参数 #1</label><input style={s.input} value={f.key_parameter_1||''} onChange={e=>upd('key_parameter_1',e.target.value)}/></div></div>
-                <div style={{...s.twoCol,marginTop:'12px'}}>
+                <div style={{...threeCol,marginTop:'16px'}}>
+                    <div><label style={s.label}>Key Param #1 (EN)</label><input style={s.input} value={f.key_parameter_1_en||''} onChange={e=>upd('key_parameter_1_en',e.target.value)}/></div>
+                    <div><label style={s.label}>核心参数 #1 (中文)</label><input style={s.input} value={f.key_parameter_1||''} onChange={e=>upd('key_parameter_1',e.target.value)}/></div>
+                    <div><label style={s.label}>Ключевой параметр #1 (RU)</label><input style={s.input} value={f.key_parameter_1_ru||''} onChange={e=>upd('key_parameter_1_ru',e.target.value)}/></div>
+                </div>
+                <div style={{...threeCol,marginTop:'12px'}}>
                     <div><label style={s.label}>Key Param #2 (EN)</label><input style={s.input} value={f.key_parameter_2_en||''} onChange={e=>upd('key_parameter_2_en',e.target.value)}/></div>
-                    <div><label style={s.label}>核心参数 #2</label><input style={s.input} value={f.key_parameter_2||''} onChange={e=>upd('key_parameter_2',e.target.value)}/></div>
+                    <div><label style={s.label}>核心参数 #2 (中文)</label><input style={s.input} value={f.key_parameter_2||''} onChange={e=>upd('key_parameter_2',e.target.value)}/></div>
+                    <div><label style={s.label}>Ключевой параметр #2 (RU)</label><input style={s.input} value={f.key_parameter_2_ru||''} onChange={e=>upd('key_parameter_2_ru',e.target.value)}/></div>
                 </div>
             </div>
 
@@ -187,9 +203,12 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
             <div style={s.card}><h2 style={s.title}>⚙️ 参数 (中文)</h2>
                 <GridParamEditor data={paramsCn} onChange={setParamsCn} />
             </div>
+            <div style={s.card}><h2 style={s.title}>⚙️ Параметры (RU)</h2>
+                <GridParamEditor data={paramsRu} onChange={setParamsRu} />
+            </div>
 
             <div style={s.card}><h2 style={s.title}>📄 Detail Content (HTML)</h2>
-                <div style={s.twoCol}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
                     <div>
                         <label style={s.label}>Detail (EN)</label>
                         <RichTextEditor value={f.detail_html_en||''} onChange={v=>upd('detail_html_en',v)} height={300} />
@@ -197,6 +216,10 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
                     <div>
                         <label style={s.label}>详情 (中文)</label>
                         <RichTextEditor value={f.detail_html||''} onChange={v=>upd('detail_html',v)} height={300} />
+                    </div>
+                    <div>
+                        <label style={s.label}>Подробности (RU)</label>
+                        <RichTextEditor value={f.detail_html_ru||''} onChange={v=>upd('detail_html_ru',v)} height={300} />
                     </div>
                 </div></div>
 

@@ -15,8 +15,20 @@ export async function POST(request: Request) {
         const body = await request.json();
         const handle = body.handle || body.title_en.toLowerCase().replace(/\\s+/g, '-');
         
-        db.prepare('INSERT INTO cases (handle, title_en, region_en, raw_json) VALUES (?, ?, ?, ?)').run(
-            handle, body.title_en, body.region_en || 'Global', JSON.stringify(body)
+        db.prepare(`
+            INSERT INTO cases (
+                handle, title_en, title_ru, region_en, region_ru, 
+                description_en, description_ru, raw_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        `).run(
+            handle, 
+            body.title_en,
+            body.title_ru || '',
+            body.region_en || 'Global',
+            body.region_ru || '',
+            body.description_en || '',
+            body.description_ru || '',
+            JSON.stringify(body)
         );
         return NextResponse.json({ success: true, handle });
     } catch (e) {

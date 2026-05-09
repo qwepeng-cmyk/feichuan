@@ -122,24 +122,30 @@ export default function ProductEditPage({ params }: { params: { handle: string }
     const [handle, setHandle] = useState('');
     const [productNameEn, setProductNameEn] = useState('');
     const [productNameCn, setProductNameCn] = useState('');
+    const [productNameRu, setProductNameRu] = useState('');
     const [categoryPrimary, setCategoryPrimary] = useState('');
     const [categorySecondary, setCategorySecondary] = useState('');
     const [mainImage, setMainImage] = useState('');
     const [summaryEn, setSummaryEn] = useState('');
     const [summaryCn, setSummaryCn] = useState('');
+    const [summaryRu, setSummaryRu] = useState('');
     const [keyAppEn, setKeyAppEn] = useState('');
     const [keyAppCn, setKeyAppCn] = useState('');
+    const [keyAppRu, setKeyAppRu] = useState('');
     const [keyParam1En, setKeyParam1En] = useState('');
     const [keyParam1Cn, setKeyParam1Cn] = useState('');
+    const [keyParam1Ru, setKeyParam1Ru] = useState('');
     const [keyParam2En, setKeyParam2En] = useState('');
     const [keyParam2Cn, setKeyParam2Cn] = useState('');
+    const [keyParam2Ru, setKeyParam2Ru] = useState('');
     const [detailHtmlEn, setDetailHtmlEn] = useState('');
     const [detailHtmlCn, setDetailHtmlCn] = useState('');
+    const [detailHtmlRu, setDetailHtmlRu] = useState('');
 
-    /* Parameters (EN) - Array of Arrays for Grid */
+    /* Parameters - Array of Arrays for Grid */
     const [paramsEn, setParamsEn] = useState<string[][]>([['Parameter', 'Value'], ['', '']]);
-    /* Parameters (CN) */
     const [paramsCn, setParamsCn] = useState<string[][]>([['参数', '值'], ['', '']]);
+    const [paramsRu, setParamsRu] = useState<string[][]>([['Параметр', 'Значение'], ['', '']]);
 
     /* Advanced JSON (collapsible) */
     const [showAdvanced, setShowAdvanced] = useState(false);
@@ -160,19 +166,25 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     setHandle(data.handle || '');
                     setProductNameEn(data.product_name_en || '');
                     setProductNameCn(data.product_name || '');
+                    setProductNameRu(data.product_name_ru || '');
                     setCategoryPrimary(data.category_primary || '');
                     setCategorySecondary(data.category_secondary || '');
                     setMainImage(data.main_image || '');
                     setSummaryEn(data.summary_en || '');
                     setSummaryCn(data.summary || '');
+                    setSummaryRu(data.summary_ru || '');
                     setKeyAppEn(data.key_application_en || '');
                     setKeyAppCn(data.key_application || '');
+                    setKeyAppRu(data.key_application_ru || '');
                     setKeyParam1En(data.key_parameter_1_en || '');
                     setKeyParam1Cn(data.key_parameter_1 || '');
+                    setKeyParam1Ru(data.key_parameter_1_ru || '');
                     setKeyParam2En(data.key_parameter_2_en || '');
                     setKeyParam2Cn(data.key_parameter_2 || '');
+                    setKeyParam2Ru(data.key_parameter_2_ru || '');
                     setDetailHtmlEn(data.detail_html_en || '');
                     setDetailHtmlCn(data.detail_html || '');
+                    setDetailHtmlRu(data.detail_html_ru || '');
                     
                     // Convert old object format to new array grid format if needed
                     const pEn = data.parameters_en;
@@ -188,6 +200,14 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     } else if (Array.isArray(pCn)) {
                         setParamsCn(pCn);
                     }
+
+                    const pRu = data.parameters_ru;
+                    if (pRu && !Array.isArray(pRu)) {
+                        setParamsRu([['Параметр', 'Значение'], ...(Object.entries(pRu) as string[][])]);
+                    } else if (Array.isArray(pRu)) {
+                        setParamsRu(pRu);
+                    }
+
                     setRawJsonStr(JSON.stringify(data, null, 2));
                     setLoading(false);
                 });
@@ -199,21 +219,28 @@ export default function ProductEditPage({ params }: { params: { handle: string }
         handle: handle || params.handle,
         product_name: productNameCn,
         product_name_en: productNameEn,
+        product_name_ru: productNameRu,
         category_primary: categoryPrimary,
         category_secondary: categorySecondary,
         main_image: mainImage,
         summary: summaryCn,
         summary_en: summaryEn,
+        summary_ru: summaryRu,
         key_application: keyAppCn,
         key_application_en: keyAppEn,
+        key_application_ru: keyAppRu,
         key_parameter_1: keyParam1Cn,
         key_parameter_1_en: keyParam1En,
+        key_parameter_1_ru: keyParam1Ru,
         key_parameter_2: keyParam2Cn,
         key_parameter_2_en: keyParam2En,
+        key_parameter_2_ru: keyParam2Ru,
         detail_html: detailHtmlCn,
         detail_html_en: detailHtmlEn,
+        detail_html_ru: detailHtmlRu,
         parameters: paramsCn,
         parameters_en: paramsEn,
+        parameters_ru: paramsRu,
     });
 
     /* ── Save ── */
@@ -261,6 +288,12 @@ export default function ProductEditPage({ params }: { params: { handle: string }
 
     if (loading) return <div style={{ padding: '60px', textAlign: 'center', color: '#94a3b8', fontSize: '1.4rem' }}>加载中...</div>;
 
+    const threeCol: React.CSSProperties = {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr',
+        gap: '18px',
+    };
+
     return (
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
             {/* ── Top Bar ── */}
@@ -301,7 +334,7 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     </div>
                 )}
 
-                <div style={twoCol}>
+                <div style={threeCol}>
                     <div>
                         <label style={fieldLabel}>Product Name (English)</label>
                         <input style={textInput} value={productNameEn} onChange={e => setProductNameEn(e.target.value)} placeholder="English product name" />
@@ -309,6 +342,10 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     <div>
                         <label style={fieldLabel}>产品名称 (中文)</label>
                         <input style={textInput} value={productNameCn} onChange={e => setProductNameCn(e.target.value)} placeholder="中文产品名称" />
+                    </div>
+                    <div>
+                        <label style={fieldLabel}>Название продукта (Russian)</label>
+                        <input style={textInput} value={productNameRu} onChange={e => setProductNameRu(e.target.value)} placeholder="Русское название продукта" />
                     </div>
                 </div>
 
@@ -345,7 +382,7 @@ export default function ProductEditPage({ params }: { params: { handle: string }
             {/* ═══════════ SECTION 2: Summary ═══════════ */}
             <div style={sectionCard}>
                 <h2 style={sectionTitle}>📝 Product Summary</h2>
-                <div style={twoCol}>
+                <div style={threeCol}>
                     <div>
                         <label style={fieldLabel}>Summary (English)</label>
                         <textarea style={{ ...textArea, height: '160px' }} value={summaryEn} onChange={e => setSummaryEn(e.target.value)} placeholder="English product summary..." />
@@ -354,13 +391,17 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                         <label style={fieldLabel}>产品简介 (中文)</label>
                         <textarea style={{ ...textArea, height: '160px' }} value={summaryCn} onChange={e => setSummaryCn(e.target.value)} placeholder="中文产品简介..." />
                     </div>
+                    <div>
+                        <label style={fieldLabel}>Краткое описание (Russian)</label>
+                        <textarea style={{ ...textArea, height: '160px' }} value={summaryRu} onChange={e => setSummaryRu(e.target.value)} placeholder="Русское описание..." />
+                    </div>
                 </div>
             </div>
 
             {/* ═══════════ SECTION 3: Key Application ═══════════ */}
             <div style={sectionCard}>
                 <h2 style={sectionTitle}>🎯 Key Application</h2>
-                <div style={twoCol}>
+                <div style={threeCol}>
                     <div>
                         <label style={fieldLabel}>Application (English)</label>
                         <textarea style={{ ...textArea, height: '120px' }} value={keyAppEn} onChange={e => setKeyAppEn(e.target.value)} placeholder="Key use cases..." />
@@ -369,8 +410,12 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                         <label style={fieldLabel}>应用领域 (中文)</label>
                         <textarea style={{ ...textArea, height: '120px' }} value={keyAppCn} onChange={e => setKeyAppCn(e.target.value)} placeholder="应用领域描述..." />
                     </div>
+                    <div>
+                        <label style={fieldLabel}>Применение (Russian)</label>
+                        <textarea style={{ ...textArea, height: '120px' }} value={keyAppRu} onChange={e => setKeyAppRu(e.target.value)} placeholder="Области применения..." />
+                    </div>
                 </div>
-                <div style={{ ...twoCol, marginTop: '20px' }}>
+                <div style={{ ...threeCol, marginTop: '20px' }}>
                     <div>
                         <label style={fieldLabel}>Highlight Param #1 (EN)</label>
                         <input style={textInput} value={keyParam1En} onChange={e => setKeyParam1En(e.target.value)} />
@@ -379,8 +424,12 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                         <label style={fieldLabel}>核心参数 #1 (中文)</label>
                         <input style={textInput} value={keyParam1Cn} onChange={e => setKeyParam1Cn(e.target.value)} />
                     </div>
+                    <div>
+                        <label style={fieldLabel}>Ключевой параметр #1 (RU)</label>
+                        <input style={textInput} value={keyParam1Ru} onChange={e => setKeyParam1Ru(e.target.value)} />
+                    </div>
                 </div>
-                <div style={{ ...twoCol, marginTop: '12px' }}>
+                <div style={{ ...threeCol, marginTop: '12px' }}>
                     <div>
                         <label style={fieldLabel}>Highlight Param #2 (EN)</label>
                         <input style={textInput} value={keyParam2En} onChange={e => setKeyParam2En(e.target.value)} />
@@ -388,6 +437,10 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     <div>
                         <label style={fieldLabel}>核心参数 #2 (中文)</label>
                         <input style={textInput} value={keyParam2Cn} onChange={e => setKeyParam2Cn(e.target.value)} />
+                    </div>
+                    <div>
+                        <label style={fieldLabel}>Ключевой параметр #2 (RU)</label>
+                        <input style={textInput} value={keyParam2Ru} onChange={e => setKeyParam2Ru(e.target.value)} />
                     </div>
                 </div>
             </div>
@@ -404,17 +457,23 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                 <GridParamEditor data={paramsCn} onChange={setParamsCn} />
             </div>
 
-            {/* ═══════════ SECTION 6: Detail HTML ═══════════ */}
+            {/* ═══════════ SECTION 6: Parameters Table (RU) ═══════════ */}
+            <div style={sectionCard}>
+                <h2 style={sectionTitle}>⚙️ Технические параметры (Russian)</h2>
+                <GridParamEditor data={paramsRu} onChange={setParamsRu} />
+            </div>
+
+            {/* ═══════════ SECTION 7: Detail HTML ═══════════ */}
             <div style={sectionCard}>
                 <h2 style={sectionTitle}>📄 Detail Page Content (HTML)</h2>
-                <div style={twoCol}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
                     <div>
                         <label style={fieldLabel}>Detail Content (English)</label>
                         <RichTextEditor 
                             value={detailHtmlEn} 
                             onChange={setDetailHtmlEn} 
                             placeholder="English features and details..." 
-                            height={350} 
+                            height={300} 
                         />
                     </div>
                     <div>
@@ -423,7 +482,16 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                             value={detailHtmlCn} 
                             onChange={setDetailHtmlCn} 
                             placeholder="中文功能特点与详情..." 
-                            height={350} 
+                            height={300} 
+                        />
+                    </div>
+                    <div>
+                        <label style={fieldLabel}>Подробное описание (Russian)</label>
+                        <RichTextEditor 
+                            value={detailHtmlRu} 
+                            onChange={setDetailHtmlRu} 
+                            placeholder="Подробности на русском..." 
+                            height={300} 
                         />
                     </div>
                 </div>

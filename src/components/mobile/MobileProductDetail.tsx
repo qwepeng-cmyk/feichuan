@@ -178,11 +178,11 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
             </nav>
 
             {/* 4. Overview Section */}
-            <section className={styles.section}>
+            <section className={styles.section} style={{ backgroundColor: '#f8fafc' }}>
                 <h2 id="overview-title" className={styles.sectionTitleCenter}>{dict.products.overview}</h2>
                 {detailHtml ? (
                     <div 
-                        className={styles.richText}
+                        className={`${styles.richText} rich-content auto-grid`}
                         dangerouslySetInnerHTML={{ __html: detailHtml }}
                     />
                 ) : (

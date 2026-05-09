@@ -17,20 +17,28 @@ export async function POST(request: Request) {
         
         db.prepare(`
             INSERT OR REPLACE INTO products (
-                handle, product_name_en, category_primary, summary_en, 
-                key_application_en, key_parameter_1_en, key_parameter_2_en, 
-                parameters_en, detail_html_en, main_image, raw_json, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+                handle, product_name_en, product_name_ru, category_primary, summary_en, summary_ru,
+                key_application_en, key_application_ru, key_parameter_1_en, key_parameter_1_ru, 
+                key_parameter_2_en, key_parameter_2_ru, parameters_en, parameters_ru, 
+                detail_html_en, detail_html_ru, main_image, raw_json, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
         `).run(
             handle, 
-            body.product_name_en, 
+            body.product_name_en,
+            body.product_name_ru || '',
             body.category_primary,
             body.summary_en || '',
+            body.summary_ru || '',
             body.key_application_en || '',
+            body.key_application_ru || '',
             body.key_parameter_1_en || '',
+            body.key_parameter_1_ru || '',
             body.key_parameter_2_en || '',
+            body.key_parameter_2_ru || '',
             JSON.stringify(body.parameters_en || {}),
+            JSON.stringify(body.parameters_ru || {}),
             body.detail_html_en || '',
+            body.detail_html_ru || '',
             body.main_image || '',
             JSON.stringify(body)
         );

@@ -131,12 +131,14 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
 
             {/* 4. Detail HTML */}
             {detailHtml && (
-              <section id="features" className="detail-section alt" style={{ padding: '80px 0', backgroundColor: '#f8fafc' }}>
+              <section id="features" className="detail-section alt" style={{ 
+                padding: '100px 0', 
+                backgroundColor: '#f8fafc' // Original Light Grayish-Blue
+              }}>
                 <div className="container">
                   <div
-                    className="rich-content"
+                    className="rich-content auto-grid"
                     dangerouslySetInnerHTML={{ __html: detailHtml }}
-                    style={{ fontSize: '1.8rem', lineHeight: '1.8' }}
                   />
                 </div>
               </section>

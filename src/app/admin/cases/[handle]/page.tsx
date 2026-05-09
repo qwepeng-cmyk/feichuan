@@ -72,6 +72,7 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
     const [caseImages, setCaseImages] = useState<string[]>([]);
     const [paramsEn, setParamsEn] = useState<string[][]>([['Parameter', 'Value'], ['', '']]);
     const [paramsCn, setParamsCn] = useState<string[][]>([['参数', '值'], ['', '']]);
+    const [paramsRu, setParamsRu] = useState<string[][]>([['Параметр', 'Значение'], ['', '']]);
     const [showAdv, setShowAdv] = useState(false);
     const [rawJson, setRawJson] = useState('{}');
     const [loading, setLoading] = useState(!isNew);
@@ -91,6 +92,10 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
                 const pCn = data.parameters;
                 if (pCn && !Array.isArray(pCn)) setParamsCn([['参数', '值'], ...(Object.entries(pCn) as string[][])]);
                 else if (Array.isArray(pCn)) setParamsCn(pCn);
+                const pRu = data.parameters_ru;
+                if (pRu && !Array.isArray(pRu)) setParamsRu([['Параметр', 'Значение'], ...(Object.entries(pRu) as string[][])]);
+                else if (Array.isArray(pRu)) setParamsRu(pRu);
+
                 setRawJson(JSON.stringify(data,null,2));
                 setLoading(false);
             });
@@ -104,6 +109,7 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
         case_images: caseImages.filter(Boolean),
         parameters: paramsCn,
         parameters_en: paramsEn,
+        parameters_ru: paramsRu,
         recommendedProductHandles: typeof f.recommendedProductHandles==='string'
             ? f.recommendedProductHandles.split(',').map((s:string)=>s.trim()).filter(Boolean)
             : (f.recommendedProductHandles||[]),
@@ -126,6 +132,8 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
 
     if (loading) return <div style={{padding:'60px',textAlign:'center',color:'#94a3b8',fontSize:'1.4rem'}}>加载中...</div>;
 
+    const threeCol = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '18px' };
+
     return (
         <div style={{maxWidth:'1100px',margin:'0 auto'}}>
             <button onClick={()=>router.push('/admin/cases')} style={{display:'flex',alignItems:'center',gap:'6px',background:'none',border:'none',color:'#6b87b5',cursor:'pointer',fontSize:'1.3rem',fontWeight:500,marginBottom:'18px',padding:0}}><ArrowLeft size={18}/> 返回案例列表</button>
@@ -139,13 +147,20 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
             {/* Identity */}
             <div style={s.card}><h2 style={s.title}>🌍 Case Identity</h2>
                 {isNew&&<div style={{marginBottom:'20px'}}><label style={s.label}>URL Handle</label><input style={s.input} value={f.handle||''} onChange={e=>upd('handle',e.target.value)}/></div>}
-                <div style={s.twoCol}>
+                <div style={threeCol}>
                     <div><label style={s.label}>Title (EN)</label><input style={s.input} value={f.title_en||''} onChange={e=>upd('title_en',e.target.value)}/></div>
                     <div><label style={s.label}>标题 (中文)</label><input style={s.input} value={f.title||''} onChange={e=>upd('title',e.target.value)}/></div>
+                    <div><label style={s.label}>Название (RU)</label><input style={s.input} value={f.title_ru||''} onChange={e=>upd('title_ru',e.target.value)}/></div>
                 </div>
-                <div style={{...s.twoCol,marginTop:'20px'}}>
-                    <div><label style={s.label}>Region</label><input style={s.input} value={f.region_en||''} onChange={e=>upd('region_en',e.target.value)} placeholder="e.g. Asia, Africa"/></div>
-                    <div><label style={s.label}>Country</label><input style={s.input} value={f.country_en||''} onChange={e=>upd('country_en',e.target.value)} placeholder="e.g. Pakistan"/></div>
+                <div style={{...threeCol,marginTop:'20px'}}>
+                    <div><label style={s.label}>Region (EN)</label><input style={s.input} value={f.region_en||''} onChange={e=>upd('region_en',e.target.value)} placeholder="e.g. Asia"/></div>
+                    <div><label style={s.label}>地区 (中文)</label><input style={s.input} value={f.region_cn||''} onChange={e=>upd('region_cn',e.target.value)} placeholder="例如：亚洲"/></div>
+                    <div><label style={s.label}>Регион (RU)</label><input style={s.input} value={f.region_ru||''} onChange={e=>upd('region_ru',e.target.value)} placeholder="например: Азия"/></div>
+                </div>
+                <div style={{...threeCol,marginTop:'20px'}}>
+                    <div><label style={s.label}>Country (EN)</label><input style={s.input} value={f.country_en||''} onChange={e=>upd('country_en',e.target.value)} placeholder="e.g. Pakistan"/></div>
+                    <div><label style={s.label}>国家 (中文)</label><input style={s.input} value={f.country_cn||''} onChange={e=>upd('country_cn',e.target.value)} placeholder="例如：巴基斯坦"/></div>
+                    <div><label style={s.label}>Страна (RU)</label><input style={s.input} value={f.country_ru||''} onChange={e=>upd('country_ru',e.target.value)} placeholder="например: Пакистан"/></div>
                 </div>
                 <div style={{marginTop:'20px'}}><label style={s.label}>Solution Category ID</label><input style={s.input} value={f.solution_category_id||''} onChange={e=>upd('solution_category_id',e.target.value)} placeholder="e.g. anti-drone"/></div>
             </div>
@@ -172,9 +187,10 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
 
             {/* Description */}
             <div style={s.card}><h2 style={s.title}>📝 Description</h2>
-                <div style={s.twoCol}>
+                <div style={threeCol}>
                     <div><label style={s.label}>Description (EN)</label><textarea style={{...s.input,height:'200px',resize:'vertical'as const,lineHeight:'1.6'}} value={f.description_en||''} onChange={e=>upd('description_en',e.target.value)}/></div>
                     <div><label style={s.label}>描述 (中文)</label><textarea style={{...s.input,height:'200px',resize:'vertical'as const,lineHeight:'1.6'}} value={f.description||''} onChange={e=>upd('description',e.target.value)}/></div>
+                    <div><label style={s.label}>Описание (RU)</label><textarea style={{...s.input,height:'200px',resize:'vertical'as const,lineHeight:'1.6'}} value={f.description_ru||''} onChange={e=>upd('description_ru',e.target.value)}/></div>
                 </div>
             </div>
 
@@ -183,6 +199,9 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
             </div>
             <div style={s.card}><h2 style={s.title}>⚙️ 参数 (中文)</h2>
                 <GridParamEditor data={paramsCn} onChange={setParamsCn} />
+            </div>
+            <div style={s.card}><h2 style={s.title}>⚙️ Параметры (RU)</h2>
+                <GridParamEditor data={paramsRu} onChange={setParamsRu} />
             </div>
 
             {/* Recommended */}
