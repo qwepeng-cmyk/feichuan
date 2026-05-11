@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 export const revalidate = 3600;
@@ -23,11 +24,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function CaseDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
-  const { handle, locale } = params;
+async function CaseDetailContent({ handle, locale, dict }: { handle: string; locale: Locale; dict: any }) {
   const caseData = await getCaseByHandle(handle);
-  const dict = await getDictionary(locale);
-
   if (!caseData) {
     notFound();
   }
@@ -80,12 +78,9 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
           extraImages = [caseData.case_images];
       }
   } catch (e) {
-      console.error("Failed to parse case_images:", e);
       extraImages = [];
   }
   
-  // Option A: If we have extra images, use them as the gallery. 
-  // Otherwise fall back to the main_image.
   const galleryImages = (extraImages && extraImages.length > 0) 
     ? extraImages.filter(Boolean)
     : [caseData.main_image].filter(Boolean);
@@ -99,19 +94,9 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
-        .mobile_only { display: none !important; }
-        .pc_only { display: block !important; }
-        @media (max-width: 991px) {
-          .mobile_only { display: block !important; }
-          .pc_only { display: none !important; }
-        }
-      `}} />
-
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
           <main>
-            {/* 1. 面包屑导航 */}
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
@@ -120,21 +105,16 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
               </div>
             </div>
 
-            {/* 2. 主图与右侧文字 */}
             <section id="overview" className="product-hero" style={{ padding: '40px 0 20px', background: '#fff' }}>
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px' }}>
-                  
                   <div className="gallery-main-area">
                     <UniversalGallery images={galleryImages} />
                   </div>
-
                   <div className="product-info">
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {title}
                     </h1>
-
-                    {/* Equipment (设备清单) */}
                     <div className="drone-specs" style={{ marginBottom: '40px' }}>
                       <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
                         {dict.cases?.equipmentUsed || 'Equipment Used'}:
@@ -146,13 +126,11 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
                         </div>
                       ))}
                     </div>
-
-                    {/* 操作按钮 */}
                     <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
-                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
                       </a>
                     </div>
@@ -161,7 +139,6 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
               </div>
             </section>
 
-            {/* 3. 正文段落 (案例详细描述) */}
             <section className="product-intro-section" style={{ padding: '60px 0', background: '#fff' }}>
               <div className="container">
                 <div className="product-intro-text" style={{ fontSize: '1.8rem', color: '#444', lineHeight: '1.8', borderTop: '1px solid #eee', paddingTop: '40px' }}>
@@ -172,19 +149,13 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
               </div>
             </section>
 
-            {/* 3.5 次导航 */}
             <InPageNav items={navItems} />
 
-            {/* 4. 关联产品 */}
             {recommendedProducts.length > 0 && (
               <section id="products" className="detail-section" style={{ padding: '100px 0', backgroundColor: '#f4f7fa' }}>
                 <div className="container">
                   <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
-                  <div style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-                    gap: '30px' 
-                  }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '30px' }}>
                     {recommendedProducts.map((product, idx) => (
                       <ProductGridCard key={idx} product={product} locale={locale} />
                     ))}
@@ -193,7 +164,6 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
               </section>
             )}
 
-            {/* 5. 公用表单模块 */}
             <section id="inquiry" className="detail-section alt">
               <div className="container" style={{ maxWidth: '1200px' }}>
                 <InquiryForm dict={dict} />
@@ -211,6 +181,33 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
             dict={dict}
         />
       </div>
+    </>
+  );
+}
+
+export default async function CaseDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
+  const { handle, locale } = params;
+  const dict = await getDictionary(locale);
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .mobile_only { display: none !important; }
+        .pc_only { display: block !important; }
+        @media (max-width: 991px) {
+          .mobile_only { display: block !important; }
+          .pc_only { display: none !important; }
+        }
+      `}} />
+
+      <Suspense fallback={
+        <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
+          <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
+          <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+        </div>
+      }>
+        <CaseDetailContent handle={handle} locale={locale} dict={dict} />
+      </Suspense>
     </>
   );
 }

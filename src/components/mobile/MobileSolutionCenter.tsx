@@ -222,8 +222,8 @@ export default function MobileSolutionCenter({
                                             : (sol.product_name_en || sol.title_en);
                                     return (
                                         <Link href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
-                                            <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
-                                                <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
+                                            <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
+                                                <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 2} />
                                             </div>
                                             <div className={styles.cardInfo}>
                                                 <h3>{solTitle}</h3>

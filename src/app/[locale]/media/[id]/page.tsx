@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,11 +16,8 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function NewsDetailPage({ params }: { params: { id: string, locale: Locale } }) {
-    const { id, locale } = params;
+async function NewsDetailContent({ id, locale, dict }: { id: string, locale: Locale, dict: any }) {
     const news = await getMediaById(id);
-    const dict = await getDictionary(locale);
-
     if (!news) {
         notFound();
     }
@@ -30,19 +27,8 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
 
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: `
-                .mobile_only { display: none !important; }
-                .pc_only { display: block !important; }
-                @media (max-width: 991px) {
-                    .mobile_only { display: block !important; }
-                    .pc_only { display: none !important; }
-                }
-            `}} />
-
-            {/* PC VIEW */}
             <div className="pc_only">
                 <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
-                    {/* 1. Breadcrumb Row */}
                     <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                         <div className="container">
                             <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
@@ -51,7 +37,6 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                         </div>
                     </div>
 
-                    {/* 2. Banner Section */}
                     <section className="product-banner" style={{ 
                         height: '40vh',
                         minHeight: '320px',
@@ -73,32 +58,23 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                         </div>
                     </section>
 
-                    {/* 3. News Main Content */}
                     <article style={{ padding: '80px 0' }}>
                         <div className="container" style={{ maxWidth: '1200px' }}>
-                            {/* Title & Meta */}
                             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                                 <h1 style={{ fontSize: '4.8rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '30px' }}>{newsTitle}</h1>
                                 <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>{news.date}</div>
                             </div>
 
-                            {/* Featured Image */}
-                            <div style={{ marginBottom: '50px', position: 'relative', height: '500px', width: '100%' }}>
+                            <div style={{ marginBottom: '50px', position: 'relative', height: '500px', width: '100%', backgroundColor: '#f5f5f5' }}>
                                 <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover', borderRadius: '8px' }} sizes="100vw" />
                             </div>
 
-                            {/* Rich Content Area */}
-                            <div className="news-rich-content" style={{
-                                fontSize: '1.8rem',
-                                lineHeight: '1.8',
-                                color: '#444'
-                            }}>
+                            <div className="news-rich-content" style={{ fontSize: '1.8rem', lineHeight: '1.8', color: '#444' }}>
                                 <OptimizedRichText className="rich-content" html={newsContent} />
                             </div>
                         </div>
                     </article>
 
-                    {/* 4. Global Inquiry Module */}
                     <section style={{ padding: '100px 0', backgroundColor: '#f9f9f9', borderTop: '1px solid #eee' }}>
                         <div className="container" style={{ maxWidth: '1200px' }}>
                             <InquiryForm dict={dict} />
@@ -107,10 +83,36 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                 </div>
             </div>
 
-            {/* MOBILE VIEW */}
             <div className="mobile_only">
                 <MobileMediaDetail news={news} locale={locale} dict={dict} />
             </div>
+        </>
+    );
+}
+
+export default async function NewsDetailPage({ params }: { params: { id: string, locale: Locale } }) {
+    const { id, locale } = params;
+    const dict = await getDictionary(locale);
+
+    return (
+        <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                .mobile_only { display: none !important; }
+                .pc_only { display: block !important; }
+                @media (max-width: 991px) {
+                    .mobile_only { display: block !important; }
+                    .pc_only { display: none !important; }
+                }
+            `}} />
+
+            <Suspense fallback={
+                <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
+                    <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
+                    <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+                </div>
+            }>
+                <NewsDetailContent id={id} locale={locale} dict={dict} />
+            </Suspense>
         </>
     );
 }

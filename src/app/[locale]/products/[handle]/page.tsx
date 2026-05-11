@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import React, { Suspense } from 'react';
 export const revalidate = 3600; 
 import { getProductByHandle, getAllProductHandles } from '@/lib/products';
 import MobileProductDetail from '@/components/mobile/MobileProductDetail';
@@ -22,10 +23,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProductDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
-  const { handle, locale } = params;
+// 1. Data Fetching Component
+async function ProductDetailContent({ handle, locale, dict }: { handle: string; locale: Locale; dict: any }) {
   const product = await getProductByHandle(handle);
-  const dict = await getDictionary(locale);
 
   if (!product) {
     notFound();
@@ -57,19 +57,9 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
-        .mobile_only { display: none !important; }
-        .pc_only { display: block !important; }
-        @media (max-width: 991px) {
-          .mobile_only { display: block !important; }
-          .pc_only { display: none !important; }
-        }
-      `}} />
-
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
           <main>
-            {/* 1. Breadcrumb Row */}
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
@@ -78,45 +68,26 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
               </div>
             </div>
 
-            {/* 2. Hero Section */}
             <section id="overview" className="product-hero" style={{ padding: '40px 0 20px', background: '#fff' }}>
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
-
-                  {/* Image Gallery Area */}
                   <div className="gallery-main-area">
                     <UniversalGallery images={galleryImages} />
                   </div>
-
-                  {/* Product Info Area */}
                   <div className="product-info">
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {name}
                     </h1>
-
                     <div className="drone-specs" style={{ marginBottom: '40px' }}>
-                      {keyParam1 && (
-                        <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>
-                            {keyParam1}
-                        </div>
-                      )}
-                      {keyParam2 && (
-                        <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>
-                            {keyParam2}
-                        </div>
-                      )}
-                      {keyApp && (
-                        <div style={{ fontSize: '1.8rem', color: '#525a66', lineHeight: '1.4' }}>
-                            {keyApp}
-                        </div>
-                      )}
+                      {keyParam1 && <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>{keyParam1}</div>}
+                      {keyParam2 && <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>{keyParam2}</div>}
+                      {keyApp && <div style={{ fontSize: '1.8rem', color: '#525a66', lineHeight: '1.4' }}>{keyApp}</div>}
                     </div>
-
                     <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
-                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
+                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
                       </a>
                     </div>
@@ -125,7 +96,6 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
               </div>
             </section>
 
-            {/* 2.5 Summary Intro */}
             <section className="product-intro-section" style={{ paddingBottom: '60px', background: '#fff' }}>
               <div className="container">
                 <div className="product-intro-text" style={{ fontSize: '1.8rem', color: '#444', lineHeight: '1.8', borderTop: '1px solid #eee', paddingTop: '40px' }}>
@@ -134,25 +104,16 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
               </div>
             </section>
 
-            {/* 3. Sticky Nav */}
             <InPageNav items={navItems} />
 
-            {/* 4. Detail HTML */}
             {detailHtml && (
-              <section id="features" className="detail-section alt" style={{ 
-                padding: '100px 0', 
-                backgroundColor: '#f8fafc' // Original Light Grayish-Blue
-              }}>
+              <section id="features" className="detail-section alt" style={{ padding: '100px 0', backgroundColor: '#f8fafc' }}>
                 <div className="container">
-                  <OptimizedRichText
-                    className="rich-content auto-grid"
-                    html={detailHtml}
-                  />
+                  <OptimizedRichText className="rich-content auto-grid" html={detailHtml} />
                 </div>
               </section>
             )}
 
-            {/* 5. Parameters Table */}
             {parameters && (Array.isArray(parameters) ? parameters.length > 0 : Object.keys(parameters).length > 0) && (
               <section id="specs" className="detail-section" style={{ padding: '80px 0', backgroundColor: '#fff' }}>
                 <div className="container">
@@ -188,10 +149,7 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
                           </thead>
                           <tbody>
                             {Object.entries(parameters).map(([param, val], idx) => (
-                              <tr key={idx} style={{
-                                background: idx % 2 === 0 ? '#fff' : '#fafafa',
-                                borderBottom: '1px solid #eee'
-                              }}>
+                              <tr key={idx} style={{ background: idx % 2 === 0 ? '#fff' : '#fafafa', borderBottom: '1px solid #eee' }}>
                                 <td style={{ padding: '20px 30px', fontWeight: 'bold', width: '45%', fontSize: '1.5rem' }}>{param}</td>
                                 <td style={{ padding: '20px 30px', fontSize: '1.5rem' }}>{val as string}</td>
                               </tr>
@@ -205,7 +163,6 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
               </section>
             )}
 
-            {/* 6. Contact Form */}
             <section id="inquiry" className="detail-section alt" style={{ padding: '80px 0', background: '#f8fafc' }}>
               <div className="container" style={{ maxWidth: '1200px' }}>
                 <InquiryForm dict={dict} />
@@ -218,6 +175,34 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
       <div className="mobile_only">
         <MobileProductDetail product={product} locale={locale} dict={dict} />
       </div>
+    </>
+  );
+}
+
+// 2. Main Page Skeleton
+export default async function ProductDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
+  const { handle, locale } = params;
+  const dict = await getDictionary(locale);
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .mobile_only { display: none !important; }
+        .pc_only { display: block !important; }
+        @media (max-width: 991px) {
+          .mobile_only { display: block !important; }
+          .pc_only { display: none !important; }
+        }
+      `}} />
+
+      <Suspense fallback={
+        <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
+          <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
+          <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+        </div>
+      }>
+        <ProductDetailContent handle={handle} locale={locale} dict={dict} />
+      </Suspense>
     </>
   );
 }
