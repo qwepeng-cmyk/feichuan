@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -11,7 +12,9 @@ export default function Footer({ locale, dict }: { locale: string; dict: any }) 
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1.2fr', gap: '60px', marginBottom: '60px' }}>
                     <div>
-                        <img src="/logo1.png" alt="Logo" style={{ height: '56px', marginBottom: '30px', filter: 'brightness(0) invert(1)' }} />
+                        <div style={{ position: 'relative', width: '168px', height: '56px', marginBottom: '30px' }}>
+                            <Image src="/logo1.png" alt="Logo" fill style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+                        </div>
                         <p style={{ lineHeight: 1.6, fontSize: '1.4rem' }}>{dict.footer.tagline}</p>
                     </div>
                     

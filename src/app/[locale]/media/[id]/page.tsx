@@ -7,6 +7,7 @@ import MobileMediaDetail from '@/components/mobile/MobileMediaDetail';
 import { getMediaById, getAllMediaIds } from '@/lib/media';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import OptimizedRichText from '@/components/common/OptimizedRichText';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
@@ -92,7 +93,7 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                                 lineHeight: '1.8',
                                 color: '#444'
                             }}>
-                                <div dangerouslySetInnerHTML={{ __html: newsContent }} />
+                                <OptimizedRichText className="rich-content" html={newsContent} />
                             </div>
                         </div>
                     </article>

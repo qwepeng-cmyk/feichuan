@@ -227,12 +227,14 @@ export default function MobileHome({
 
             {/* 5. About Us */}
             <section style={{ 
-                background: 'url(/index/about_bg.webp) center/cover',
+                position: 'relative',
                 padding: '60px 20px',
                 color: '#fff',
-                textAlign: 'center'
+                textAlign: 'center',
+                overflow: 'hidden'
             }}>
-                <div style={{ background: 'rgba(0,0,0,0.6)', padding: '40px 20px' }}>
+                <Image src="/index/about_bg.webp" fill style={{ objectFit: 'cover' }} alt={dict.home.sections.about} />
+                <div style={{ position: 'relative', zIndex: 1, background: 'rgba(0,0,0,0.6)', padding: '40px 20px' }}>
                     <h2 style={{ fontSize: '28px', marginBottom: '15px', color: '#ffffff', fontWeight: 900, textTransform: 'uppercase' }}>{dict.home.sections.about}</h2>
                     <p style={{ fontSize: '16px', lineHeight: '1.6', opacity: 0.9 }}>
                         {dict.home.about.content}

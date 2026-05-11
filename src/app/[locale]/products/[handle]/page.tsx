@@ -8,6 +8,7 @@ import InPageNav from '@/components/products/InPageNav';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import dynamic from 'next/dynamic';
+import OptimizedRichText from '@/components/common/OptimizedRichText';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -143,9 +144,9 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
                 backgroundColor: '#f8fafc' // Original Light Grayish-Blue
               }}>
                 <div className="container">
-                  <div
+                  <OptimizedRichText
                     className="rich-content auto-grid"
-                    dangerouslySetInnerHTML={{ __html: detailHtml }}
+                    html={detailHtml}
                   />
                 </div>
               </section>

@@ -6,6 +6,7 @@ import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import UniversalGallery from '@/components/common/UniversalGallery';
 import ProductGridCard from '@/components/products/ProductGridCard';
+import OptimizedRichText from '@/components/common/OptimizedRichText';
 
 export default function SolutionDetailClient({ 
     solution, 
@@ -118,9 +119,9 @@ export default function SolutionDetailClient({
           <section id="features" className="detail-section" style={{ padding: '100px 0', backgroundColor: '#f8f9fa' }}>
             <div className="container">
               <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '50px' }}>{dict.products.coreAdvantages || 'Core Advantages'}</h2>
-              <div
+              <OptimizedRichText
                 className="rich-content"
-                dangerouslySetInnerHTML={{ __html: detailHtml }}
+                html={detailHtml}
                 style={{ fontSize: '1.8rem', lineHeight: '1.8' }}
               />
             </div>

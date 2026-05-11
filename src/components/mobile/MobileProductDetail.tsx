@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './MobileProductDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
+import OptimizedRichText from '../common/OptimizedRichText';
 
 interface ProductProps {
     product: any;
@@ -183,9 +184,9 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
             <section className={styles.section} style={{ backgroundColor: '#f8fafc' }}>
                 <h2 id="overview-title" className={styles.sectionTitleCenter}>{dict.products.overview}</h2>
                 {detailHtml ? (
-                    <div 
+                    <OptimizedRichText 
                         className={`${styles.richText} rich-content auto-grid`}
-                        dangerouslySetInnerHTML={{ __html: detailHtml }}
+                        html={detailHtml}
                     />
                 ) : (
                     <p className={styles.richText}>{dict.products.noDetail || "No detailed description available."}</p>

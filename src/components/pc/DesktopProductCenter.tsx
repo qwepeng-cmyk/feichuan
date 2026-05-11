@@ -156,8 +156,8 @@ export default function DesktopProductCenter({
                     </div>
                 </div>
                 {/* Visual Accent */}
-                <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)' }}>
-                    <img src="/logo1.png" alt="" style={{ height: '400px' }} />
+                <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
+                    <Image src="/logo1.png" alt="" fill style={{ objectFit: 'contain' }} />
                 </div>
             </section>
 

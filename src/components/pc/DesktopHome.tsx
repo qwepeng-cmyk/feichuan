@@ -217,19 +217,19 @@ export default function DesktopHome({
 
             {/* SCREEN 5: ABOUT US */}
             <section className="aboutus-band" style={{
-                backgroundImage: 'url(/index/about_bg.webp)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 position: 'relative',
                 color: '#fff',
                 height: '600px',
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                overflow: 'hidden'
             }}>
+                <Image src="/index/about_bg.webp" fill style={{ objectFit: 'cover' }} alt={dict.home.sections.about} />
                 <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4), rgba(0,0,0,0.7))'
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4), rgba(0,0,0,0.7))',
+                    zIndex: 1
                 }}></div>
 
                 <div className="container-wide" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>

@@ -3,10 +3,12 @@
 import React from 'react';
 import styles from './MobileAboutUs.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
+import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
 
 export default function MobileAboutUs({ dict }: { dict?: any }) {
     const d = dict?.about || {
+        // ... omitted defaults for brevity if tool handles it, but better provide full
         pageTitle: "Company Profile",
         bannerTitle: "ABOUT US",
         companyProfile: "Company Profile",
@@ -45,10 +47,9 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
                     <span className={styles.titleLine}></span>
                 </div>
 
-                <div 
-                    className={styles.profileImage} 
-                    style={{ backgroundImage: 'url("/about/about_company.jpg")' }}
-                ></div>
+                <div className={styles.profileImage} style={{ position: 'relative', overflow: 'hidden' }}>
+                    <Image src="/about/about_company.jpg" alt={d.companyProfile} fill style={{ objectFit: 'cover' }} />
+                </div>
 
                 <div className={styles.profileText}>
                     <p>{d.companyDesc1}</p>

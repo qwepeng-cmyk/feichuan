@@ -184,7 +184,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                         {recommendedProducts.map((prod, idx) => (
                             <Link href={`/${locale}/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
-                                <div style={{ aspectRatio: '4/3', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div style={{ aspectRatio: '4/3', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
                                     <Image src={prod.image} alt={prod.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                 </div>
                                 <div style={{ padding: '12px', textAlign: 'center' }}>

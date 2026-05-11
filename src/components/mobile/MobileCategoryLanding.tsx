@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './MobileCategoryLanding.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface SubSolution {
     product_name: string;
@@ -41,7 +42,8 @@ export default function MobileCategoryLanding({
     return (
         <div className={styles.wrapper}>
             {/* 1. Banner - Consistent with Product Center */}
-            <section className={styles.banner} style={{ backgroundImage: `url('${bannerImage}')` }}>
+            <section className={styles.banner} style={{ position: 'relative', overflow: 'hidden' }}>
+                <Image src={bannerImage} fill style={{ objectFit: 'cover' }} priority alt={categoryName} />
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
                     <h1>{categoryName}</h1>
@@ -74,8 +76,8 @@ export default function MobileCategoryLanding({
                         const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
                         return (
                             <div key={sol.handle} className={styles.solutionItem}>
-                                <Link href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage}>
-                                    <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} />
+                                <Link href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block' }}>
+                                    <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                 </Link>
                                 <div className={styles.solutionInfo}>
                                     <h3>{solName}</h3>
@@ -100,8 +102,8 @@ export default function MobileCategoryLanding({
                              const prodImage = prod.main_image || prod.image;
                              return (
                                 <Link href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>
-                                    <div className={styles.productImageBox}>
-                                        <img src={prodImage} alt={prodName} />
+                                    <div className={styles.productImageBox} style={{ position: 'relative' }}>
+                                        <Image src={prodImage} alt={prodName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                     </div>
                                     <div className={styles.productInfo}>
                                         <h3>{prodName}</h3>

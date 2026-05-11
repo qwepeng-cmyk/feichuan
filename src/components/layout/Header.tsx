@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,9 +17,9 @@ const Header = () => {
   return (
     <header id="site-header" className={scrolled ? 'scrolled' : ''}>
       <div className="container nav-container">
-        <Link href="/" className="logo">
-          <img src="/logo1.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
-          <img src="/logo1.png" alt="N-TET Logo" className="logo-dark" />
+        <Link href="/" className="logo" style={{ position: 'relative', display: 'block', width: '120px', height: '40px' }}>
+          <Image src="/logo1.png" alt="N-TET Logo" fill style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} className="logo-light" />
+          <Image src="/logo1.png" alt="N-TET Logo" fill style={{ objectFit: 'contain' }} className="logo-dark" />
         </Link>
 
         <input type="checkbox" id="nav-checkbox" className="hidden" />

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './MobileMediaDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
+import OptimizedRichText from '../common/OptimizedRichText';
 
 interface MediaProps {
     news: any;
@@ -50,7 +51,7 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
                     </div>
                 )}
 
-                <div className={styles.richContent} dangerouslySetInnerHTML={{ __html: newsContent }} />
+                <OptimizedRichText className={styles.richContent} html={newsContent} />
             </article>
 
             {/* 4. Inquiry Section */}

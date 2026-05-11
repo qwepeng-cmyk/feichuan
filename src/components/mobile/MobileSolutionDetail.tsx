@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './MobileSolutionDetail.module.css';
+import OptimizedRichText from '../common/OptimizedRichText';
 
 interface SolutionProps {
     solution: any;
@@ -185,9 +186,9 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
             <section className={styles.section}>
                 <h2 id="overview-title" className={styles.sectionTitleCenter}>{dict.products.overview}</h2>
                 {detailHtml ? (
-                    <div 
+                    <OptimizedRichText 
                         className={styles.richText}
-                        dangerouslySetInnerHTML={{ __html: detailHtml }}
+                        html={detailHtml}
                     />
                 ) : (
                     <p className={styles.richText}>{dict.products.noDetail || "No detailed description available."}</p>
