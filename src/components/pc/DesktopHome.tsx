@@ -94,7 +94,7 @@ export default function DesktopHome({
                     style={{ backgroundColor: '#000' }}
                 >
                     <source src="/index_banner_bg_2.webm" type="video/webm" />
-                    <source src="/index_banner_bg_2.mp4" type="video/mp4" />
+                    <source src="/index_banner_bg_3.mp4" type="video/mp4" />
                 </video>
                 <div className="hero-overlay"></div>
                 <div className="container-wide hero-content">

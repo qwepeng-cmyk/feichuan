@@ -49,7 +49,7 @@ export default function MobileHome({
                     style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000' }}
                 >
                     <source src="/index_banner_bg_2.webm" type="video/webm" />
-                    <source src="/index_banner_bg_2.mp4" type="video/mp4" />
+                    <source src="/index_banner_bg_3.mp4" type="video/mp4" />
                 </video>
                 <div style={{
                     position: 'absolute',
