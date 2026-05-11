@@ -256,10 +256,12 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
     color: var(--text-dark);
     border-top: 1px solid var(--border);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-    display: flex;
+    /* display:none when closed prevents Next.js <Link> viewport prefetch from firing
+       on dozens of mega-menu URLs (fixes very slow overseas loads while “loading”). */
+    display: none;
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
     padding: 20px 0;
     justify-content: center;
     gap: 60px;
@@ -308,6 +310,7 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
 }
 
 .nav-item:hover .mega-menu {
+    display: flex;
     opacity: 1;
     visibility: visible;
 }

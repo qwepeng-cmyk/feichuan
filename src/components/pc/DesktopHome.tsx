@@ -22,9 +22,9 @@ export default function DesktopHome({
     };
 
     const currentProduct = products[currentIndex];
-    const localizedProductMain = currentProduct[`main_${locale}`] || currentProduct.main;
-    const localizedProductDesc = currentProduct[`desc_${locale}`] || currentProduct.desc;
-    const localizedProductTop = currentProduct[`top_${locale}`] || currentProduct.top;
+    const localizedProductMain = locale === 'ru' ? currentProduct.main_ru : currentProduct.main;
+    const localizedProductDesc = locale === 'ru' ? currentProduct.desc_ru : currentProduct.desc;
+    const localizedProductTop = locale === 'ru' ? currentProduct.top_ru : currentProduct.top;
 
     // Drag logic for solutions track
     useEffect(() => {
@@ -191,7 +191,7 @@ export default function DesktopHome({
                     </div>
                     <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                         {homeCases.map((item, idx) => {
-                            const localizedCaseTitle = item[`title_${locale}`] || item.title;
+                            const localizedCaseTitle = locale === 'ru' ? item.title_ru : item.title;
                             return (
                                 <a
                                     key={idx}
@@ -269,7 +269,10 @@ export default function DesktopHome({
                     </div>
                     <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                         {latestNews.map((item, i) => {
-                            const localizedNewsTitle = item[`title_${locale}`] || item.title_en || item.title;
+                            const localizedNewsTitle =
+                                locale === 'ru'
+                                    ? item.title_ru || item.title
+                                    : (item as { title_en?: string }).title_en || item.title;
                             return (
                                 <a key={i} href={`/${locale}/media/${item.id}`} className="news-card" style={{
                                     background: '#f8f8f8',

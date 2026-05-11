@@ -115,7 +115,7 @@ export default function MobileCategoryLanding({
 
             {/* 6. Inquiry Section */}
             <section className={styles.section} style={{ background: '#f8f9fa' }}>
-                <MobileInquiryForm locale={locale} dict={dict} />
+                <MobileInquiryForm dict={dict} />
             </section>
         </div>
     );

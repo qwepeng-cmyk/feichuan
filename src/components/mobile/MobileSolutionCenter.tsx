@@ -8,6 +8,8 @@ import Link from 'next/link';
 interface Solution {
     id: string;
     title_en: string;
+    product_name_en?: string;
+    product_name_ru?: string;
     main_image?: string;
     category_id: string;
 }
@@ -213,7 +215,10 @@ export default function MobileSolutionCenter({
                             {allSolutions
                                 .filter(s => s.category_id === category.id)
                                 .map((sol, idx) => {
-                                    const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
+                                    const solTitle =
+                                        locale === 'ru'
+                                            ? (sol.product_name_ru || sol.product_name_en || sol.title_en)
+                                            : (sol.product_name_en || sol.title_en);
                                     return (
                                         <Link href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
                                             <div className={styles.imageBox}>

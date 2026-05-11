@@ -137,7 +137,7 @@ export default function MobileHome({
                 <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.products}</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
                     {products.slice(0, 6).map((item, idx) => {
-                        const productTitle = item[`main_${locale}`] || item.main;
+                        const productTitle = locale === 'ru' ? item.main_ru : item.main;
                         return (
                             <Link key={idx} href={`/${locale}/products/${item.handle}`} style={{ 
                                 background: '#fff', 
@@ -197,7 +197,7 @@ export default function MobileHome({
                 <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.cases}</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                     {homeCases.slice(0, 3).map((item, idx) => {
-                        const caseTitle = item[`title_${locale}`] || item.title;
+                        const caseTitle = locale === 'ru' ? item.title_ru : item.title;
                         return (
                             <Link key={idx} href={`/${locale}/cases/${item.handle}`} style={{ 
                                 position: 'relative', 

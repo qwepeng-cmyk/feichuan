@@ -216,7 +216,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
           {/* 5. Inquiry Form */}
           <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
             <div className="container" style={{ maxWidth: '1200px' }}>
-              <InquiryForm locale={locale} dict={dict} />
+              <InquiryForm dict={dict} />
             </div>
           </section>
         </div>
