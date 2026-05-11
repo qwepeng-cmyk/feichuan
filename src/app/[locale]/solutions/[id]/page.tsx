@@ -14,7 +14,9 @@ export async function generateStaticParams() {
   }));
 }
 
-async function SolutionDetailContent({ id, locale, dict }: { id: string; locale: Locale; dict: any }) {
+// 1. Data Fetching Component (Streaming)
+async function SolutionDetailContent({ id, locale }: { id: string; locale: Locale }) {
+  const dict = await getDictionary(locale);
   const solution = await getSolutionById(id);
   if (!solution) {
     notFound();
@@ -58,9 +60,9 @@ async function SolutionDetailContent({ id, locale, dict }: { id: string; locale:
   );
 }
 
+// 2. Entry Page Component (Instant Navigation)
 export default async function SolutionDetailPage({ params }: { params: { id: string; locale: Locale } }) {
   const { id, locale } = params;
-  const dict = await getDictionary(locale);
 
   return (
     <>
@@ -74,14 +76,17 @@ export default async function SolutionDetailPage({ params }: { params: { id: str
       `}} />
 
       <Suspense fallback={
-        <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
-          <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
-          <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+        <div style={{ paddingTop: '112px', minHeight: '100vh', backgroundColor: '#fff' }}>
+            <div className="container" style={{ padding: '40px 15px' }}>
+                <div style={{ height: '50px', backgroundColor: '#f0f0f0', width: '60%', marginBottom: '30px' }} />
+                <div style={{ width: '100%', height: '300px', backgroundColor: '#f5f5f5', borderRadius: '8px', marginBottom: '40px' }} />
+                <div style={{ height: '20px', backgroundColor: '#f5f5f5', width: '90%', marginBottom: '15px' }} />
+                <div style={{ height: '20px', backgroundColor: '#f5f5f5', width: '80%', marginBottom: '15px' }} />
+            </div>
         </div>
       }>
-        <SolutionDetailContent id={id} locale={locale} dict={dict} />
+        <SolutionDetailContent id={id} locale={locale} />
       </Suspense>
     </>
   );
 }
-

@@ -16,7 +16,9 @@ export async function generateStaticParams() {
     }));
 }
 
-async function NewsDetailContent({ id, locale, dict }: { id: string, locale: Locale, dict: any }) {
+// 1. Data Fetching Component (Streaming)
+async function NewsDetailContent({ id, locale }: { id: string, locale: Locale }) {
+    const dict = await getDictionary(locale);
     const news = await getMediaById(id);
     if (!news) {
         notFound();
@@ -90,9 +92,9 @@ async function NewsDetailContent({ id, locale, dict }: { id: string, locale: Loc
     );
 }
 
+// 2. Entry Page Component (Instant Navigation)
 export default async function NewsDetailPage({ params }: { params: { id: string, locale: Locale } }) {
     const { id, locale } = params;
-    const dict = await getDictionary(locale);
 
     return (
         <>
@@ -106,12 +108,22 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
             `}} />
 
             <Suspense fallback={
-                <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
-                    <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
-                    <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+                <div style={{ paddingTop: '112px', minHeight: '100vh', backgroundColor: '#fff' }}>
+                    {/* Banner Skeleton */}
+                    <div style={{ height: '35vh', backgroundColor: '#f5f5f5' }} />
+                    <div className="container" style={{ padding: '60px 15px' }}>
+                        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                            {/* Title Skeleton */}
+                            <div style={{ height: '40px', backgroundColor: '#f0f0f0', marginBottom: '30px' }} />
+                            {/* Date Skeleton */}
+                            <div style={{ height: '20px', backgroundColor: '#f5f5f5', width: '20%', margin: '0 auto 50px' }} />
+                            {/* Image Skeleton */}
+                            <div style={{ width: '100%', height: '400px', backgroundColor: '#f5f5f5', borderRadius: '8px' }} />
+                        </div>
+                    </div>
                 </div>
             }>
-                <NewsDetailContent id={id} locale={locale} dict={dict} />
+                <NewsDetailContent id={id} locale={locale} />
             </Suspense>
         </>
     );
