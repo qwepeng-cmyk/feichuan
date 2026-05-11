@@ -117,6 +117,15 @@ db.exec(`
         is_read INTEGER DEFAULT 0,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
+
+    -- Optimized Indexes for Performance
+    CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_primary);
+    CREATE INDEX IF NOT EXISTS idx_solutions_category ON solutions(category_id);
+    CREATE INDEX IF NOT EXISTS idx_cases_solution_category ON cases(solution_category_id);
+    CREATE INDEX IF NOT EXISTS idx_media_category ON media(category);
+    CREATE INDEX IF NOT EXISTS idx_products_handle ON products(handle);
+    CREATE INDEX IF NOT EXISTS idx_solutions_handle ON solutions(handle);
+    CREATE INDEX IF NOT EXISTS idx_cases_handle ON cases(handle);
 `);
 
 export default db;

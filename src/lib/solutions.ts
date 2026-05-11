@@ -1,4 +1,5 @@
 import db from './db';
+import { unstable_cache } from 'next/cache';
 
 export interface Solution {
     id: string;
@@ -24,10 +25,35 @@ export interface Solution {
     [key: string]: any; 
 }
 
-export async function getAllSolutions(): Promise<Solution[]> {
-    const rows = db.prepare('SELECT * FROM solutions').all() as any[];
-    
-    return rows.map(row => {
+export const getAllSolutions = unstable_cache(
+    async (): Promise<Solution[]> => {
+        const rows = db.prepare('SELECT * FROM solutions').all() as any[];
+        
+        return rows.map(row => {
+            let data: any = {};
+            try {
+                data = JSON.parse(row.raw_json);
+            } catch (e) {}
+
+            return {
+                ...data,
+                ...row,
+                id: row.handle,
+                title_en: row.product_name_en,
+                category_id: row.category_id,
+                category_name: row.category_name,
+            } as Solution;
+        });
+    },
+    ['all-solutions'],
+    { revalidate: 3600, tags: ['solutions'] }
+);
+
+export const getSolutionById = unstable_cache(
+    async (id: string): Promise<Solution | null> => {
+        const row = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(id) as any;
+        if (!row) return null;
+
         let data: any = {};
         try {
             data = JSON.parse(row.raw_json);
@@ -36,34 +62,21 @@ export async function getAllSolutions(): Promise<Solution[]> {
         return {
             ...data,
             ...row,
-            id: row.handle,
+            id: id,
             title_en: row.product_name_en,
             category_id: row.category_id,
             category_name: row.category_name,
         } as Solution;
-    });
-}
+    },
+    ['solution-detail'],
+    { revalidate: 3600, tags: ['solutions'] }
+);
 
-export async function getSolutionById(id: string): Promise<Solution | null> {
-    const row = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(id) as any;
-    if (!row) return null;
-
-    let data: any = {};
-    try {
-        data = JSON.parse(row.raw_json);
-    } catch (e) {}
-
-    return {
-        ...data,
-        ...row,
-        id: id,
-        title_en: row.product_name_en,
-        category_id: row.category_id,
-        category_name: row.category_name,
-    } as Solution;
-}
-
-export async function getAllSolutionHandles(): Promise<string[]> {
-    const rows = db.prepare('SELECT handle FROM solutions').all() as any[];
-    return rows.map(r => r.handle);
-}
+export const getAllSolutionHandles = unstable_cache(
+    async (): Promise<string[]> => {
+        const rows = db.prepare('SELECT handle FROM solutions').all() as any[];
+        return rows.map(r => r.handle);
+    },
+    ['solution-handles'],
+    { revalidate: 3600, tags: ['solutions'] }
+);

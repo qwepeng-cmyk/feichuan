@@ -1,4 +1,3 @@
-import { Roboto } from "next/font/google";
 import { i18n, type Locale } from "@/i18n/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -23,11 +22,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   };
 }
 
-const roboto = Roboto({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "700", "900"],
-  variable: "--font-roboto",
-});
+
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));

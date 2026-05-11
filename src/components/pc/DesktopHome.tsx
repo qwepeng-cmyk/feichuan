@@ -90,8 +90,7 @@ export default function DesktopHome({
                     loop 
                     muted 
                     playsInline 
-                    preload="auto" 
-                    poster="/hero_poster.webp"
+                    preload="metadata"
                     style={{ backgroundColor: '#000' }}
                 >
                     <source src="/index_banner_bg_2.webm" type="video/webm" />
