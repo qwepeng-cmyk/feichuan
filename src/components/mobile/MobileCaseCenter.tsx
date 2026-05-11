@@ -182,7 +182,7 @@ export default function MobileCaseCenter({
                                 const caseTitle = item[`title_${locale}`] || item.title_en;
                                 return (
                                     <Link href={`/${locale}/cases/${item.handle}`} key={idx} className={styles.card}>
-                                        <div className={styles.imageBox}>
+                                        <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                             <Image src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                         </div>
                                         <div className={styles.cardContent}>

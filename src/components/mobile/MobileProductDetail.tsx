@@ -33,10 +33,16 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
         parameters = {};
     }
 
-    const rawGallery = product.product_images || product.Product_Images || [];
+    let gallery = [];
+    try {
+        const rawGallery = product.product_images || product.Product_Images || [];
+        gallery = typeof rawGallery === 'string' ? JSON.parse(rawGallery) : (rawGallery || []);
+    } catch (e) {
+        gallery = [];
+    }
     const mainImg = product.main_image;
     
-    const displayImages = Array.from(new Set([mainImg, ...rawGallery])).filter(Boolean) as string[];
+    const displayImages = Array.from(new Set([mainImg, ...gallery])).filter(Boolean) as string[];
     if (displayImages.length === 0) displayImages.push('/images/placeholder.jpg');
 
     // Touch swipe logic
@@ -102,6 +108,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                 <div className={styles.gallery}>
                     <div 
                         className={styles.mainImage}
+                        style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', background: '#fff', marginBottom: '10px' }}
                         onTouchStart={onTouchStart}
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
@@ -114,6 +121,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                                 <div 
                                     key={idx} 
                                     className={`${styles.thumbItem} ${activeIndex === idx ? styles.active : ''}`}
+                                    style={{ position: 'relative', flex: '0 0 70px', height: '52px' }}
                                     onClick={() => setActiveIndex(idx)}
                                 >
                                     <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />

@@ -76,7 +76,7 @@ export default function MobileCategoryLanding({
                         const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
                         return (
                             <div key={sol.handle} className={styles.solutionItem}>
-                                <Link href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block' }}>
+                                <Link href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '56.25%', overflow: 'hidden' }}>
                                     <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                 </Link>
                                 <div className={styles.solutionInfo}>
@@ -102,7 +102,7 @@ export default function MobileCategoryLanding({
                              const prodImage = prod.main_image || prod.image;
                              return (
                                 <Link href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>
-                                    <div className={styles.productImageBox} style={{ position: 'relative' }}>
+                                    <div className={styles.productImageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                         <Image src={prodImage} alt={prodName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                     </div>
                                     <div className={styles.productInfo}>

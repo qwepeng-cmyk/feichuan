@@ -171,7 +171,7 @@ export default function MobileProductCenter({
                         <div className={styles.grid}>
                             {categoriesData[category.id]?.map((product: Product, idx: number) => (
                                 <Link href={`/${locale}/products/${product.handle}`} key={idx} className={styles.productCard}>
-                                    <div className={styles.imageBox}>
+                                    <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                         <Image src={product.image} alt={product.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                     </div>
                                     <div className={styles.cardInfo}>

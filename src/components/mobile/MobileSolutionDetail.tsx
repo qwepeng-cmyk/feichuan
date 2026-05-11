@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './MobileSolutionDetail.module.css';
 import OptimizedRichText from '../common/OptimizedRichText';
+import MobileInquiryForm from './MobileInquiryForm';
 
 interface SolutionProps {
     solution: any;
@@ -33,7 +34,13 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
         parameters = {};
     }
 
-    const rawGallery = solution.solution_images || solution.Solution_Images || [];
+    let gallery = [];
+    try {
+        const rawGallery = solution.solution_images || solution.Solution_Images || [];
+        gallery = typeof rawGallery === 'string' ? JSON.parse(rawGallery) : (rawGallery || []);
+    } catch (e) {
+        gallery = [];
+    }
     const mainImg = solution.main_image;
     
     // Touch swipe logic
@@ -65,7 +72,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
         }
     };
     
-    let displayImages = Array.from(new Set([mainImg, ...rawGallery])).filter(Boolean) as string[];
+    let displayImages = Array.from(new Set([mainImg, ...gallery])).filter(Boolean) as string[];
     if (displayImages.length === 0) displayImages = ['/images/solutions/placeholder.jpg'];
 
     const scrollToSection = (id: string) => {
@@ -104,6 +111,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
                 <div className={styles.gallery}>
                     <div 
                         className={styles.mainImage}
+                        style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', background: '#fff', marginBottom: '10px' }}
                         onTouchStart={onTouchStart}
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
@@ -116,6 +124,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
                                 <div 
                                     key={idx} 
                                     className={`${styles.thumbItem} ${activeIndex === idx ? styles.active : ''}`}
+                                    style={{ position: 'relative', flex: '0 0 70px', height: '52px' }}
                                     onClick={() => setActiveIndex(idx)}
                                 >
                                     <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
@@ -219,7 +228,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                         {recommendedProducts.map((prod, idx) => (
                             <Link href={`/${locale}/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
-                                <div style={{ aspectRatio: '4/3', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                     <Image src={prod.image} alt={prod.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                 </div>
                                 <div style={{ padding: '12px', textAlign: 'center' }}>
