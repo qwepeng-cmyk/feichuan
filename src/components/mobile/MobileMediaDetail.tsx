@@ -45,7 +45,7 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
 
                 {news.image && (
                     <div className={styles.featuredImage}>
-                        <div className={styles.imageBox}>
+                        <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '56.25%', overflow: 'hidden' }}>
                             <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
                         </div>
                     </div>

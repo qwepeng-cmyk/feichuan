@@ -93,7 +93,7 @@ export default function MobileMediaCenter({
                         const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
                         return (
                             <Link href={`/${locale}/media/${news.id}`} key={news.id} className={styles.card}>
-                                <div className={styles.imageBox}>
+                                <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                     <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                 </div>
                                 <div className={styles.cardContent}>
