@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface ProductGalleryProps {
   images: string[];
@@ -21,8 +22,15 @@ export default function ProductGallery({ images }: ProductGalleryProps) {
 
   return (
     <div className="gallery-container">
-      <div className="gallery-main" style={{ position: 'relative' }}>
-        <img src={images[activeIndex]} alt="Main Product View" />
+      <div className="gallery-main" style={{ position: 'relative', width: '100%', height: '500px', background: '#f8f9fa' }}>
+        <Image 
+          src={images[activeIndex] || '/logo1.png'} 
+          alt="Main Product View" 
+          fill 
+          priority
+          style={{ objectFit: 'contain', padding: '20px' }}
+          sizes="(max-width: 1200px) 100vw, 50vw"
+        />
         
         <button 
           onClick={handlePrev} 
@@ -84,8 +92,15 @@ export default function ProductGallery({ images }: ProductGalleryProps) {
             key={index}
             className={`thumb-item ${activeIndex === index ? 'active' : ''}`}
             onClick={() => setActiveIndex(index)}
+            style={{ position: 'relative' }}
           >
-            <img src={img} alt={`Thumbnail ${index + 1}`} />
+            <Image 
+              src={img || '/logo1.png'} 
+              alt={`Thumbnail ${index + 1}`} 
+              fill 
+              style={{ objectFit: 'cover' }}
+              sizes="80px"
+            />
           </div>
         ))}
       </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface UniversalGalleryProps {
   images: string[];
@@ -22,16 +23,19 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
   if (!images || images.length === 0) return null;
 
   // Ensure we have at least one valid image
-  const displayImages = images.length > 0 ? images : ['/images/placeholder.jpg'];
+  const displayImages = images.length > 0 ? images : ['/logo1.png'];
 
   return (
     <div className="gallery-container">
       {/* 1. Main Display Area */}
-      <div className="gallery-main">
-        <img 
-            src={displayImages[activeIndex]} 
+      <div className="gallery-main" style={{ position: 'relative' }}>
+        <Image 
+            src={displayImages[activeIndex] || '/logo1.png'} 
             alt="Main display" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            fill
+            priority
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 1200px) 100vw, 50vw"
         />
         
         {/* Navigation Buttons (Matched with Screen Sample) */}
@@ -100,8 +104,15 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
             key={index}
             className={`thumb-item ${activeIndex === index ? 'active' : ''}`}
             onClick={() => setActiveIndex(index)}
+            style={{ position: 'relative' }}
           >
-            <img src={img} alt={`Thumbnail ${index + 1}`} />
+            <Image 
+              src={img || '/logo1.png'} 
+              alt={`Thumbnail ${index + 1}`} 
+              fill 
+              style={{ objectFit: 'cover' }}
+              sizes="120px"
+            />
           </div>
         ))}
       </div>

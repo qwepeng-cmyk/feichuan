@@ -4,6 +4,7 @@ import React from 'react';
 import { products, solutions, homeCases } from '@/constants/homeData';
 import NEWS_DATA from '../../../public/media/news_data.json';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function MobileHome({ 
     locale,
@@ -99,7 +100,15 @@ export default function MobileHome({
                                 display: 'block',
                                 background: '#eee'
                             }}>
-                                <img src={sol.img} alt={solName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                                    <Image 
+                                        src={sol.img} 
+                                        alt={solName} 
+                                        fill 
+                                        style={{ objectFit: 'cover' }}
+                                        sizes="42vw"
+                                    />
+                                </div>
                                 <div style={{
                                     position: 'absolute',
                                     inset: 0,
@@ -152,9 +161,16 @@ export default function MobileHome({
                                     alignItems: 'center', 
                                     justifyContent: 'center', 
                                     overflow: 'hidden',
-                                    padding: '15px'
+                                    padding: '15px',
+                                    position: 'relative'
                                 }}>
-                                    <img src={item.img} alt={productTitle} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                    <Image 
+                                        src={item.img} 
+                                        alt={productTitle} 
+                                        fill 
+                                        style={{ objectFit: 'contain', padding: '15px' }}
+                                        sizes="45vw"
+                                    />
                                 </div>
                                 <div style={{ padding: '12px', textAlign: 'center' }}>
                                     <h3 style={{ 
@@ -206,7 +222,13 @@ export default function MobileHome({
                                 borderRadius: '0',
                                 boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                             }}>
-                                <img src={item.img} alt={caseTitle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image 
+                                    src={item.img} 
+                                    alt={caseTitle} 
+                                    fill 
+                                    style={{ objectFit: 'cover' }}
+                                    sizes="95vw"
+                                />
                                 <div style={{ 
                                     position: 'absolute', 
                                     inset: 0, 
@@ -228,7 +250,7 @@ export default function MobileHome({
 
             {/* 5. About Us */}
             <section style={{ 
-                background: 'url(/index/about_bg.jpg) center/cover',
+                background: 'url(/index/about_bg.webp) center/cover',
                 padding: '60px 20px',
                 color: '#fff',
                 textAlign: 'center'
@@ -262,8 +284,14 @@ export default function MobileHome({
                                 display: 'block',
                                 boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
                             }}>
-                                <div style={{ aspectRatio: '1.6 / 1', overflow: 'hidden' }}>
-                                    <img src={news.image} alt={newsTitle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <div style={{ aspectRatio: '1.6 / 1', overflow: 'hidden', position: 'relative' }}>
+                                    <Image 
+                                        src={news.image} 
+                                        alt={newsTitle} 
+                                        fill 
+                                        style={{ objectFit: 'cover' }}
+                                        sizes="75vw"
+                                    />
                                 </div>
                                 <div style={{ padding: '15px' }}>
                                     <h4 style={{ fontSize: '14px', color: '#333', fontWeight: 700, marginBottom: '8px', height: '36px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{newsTitle}</h4>

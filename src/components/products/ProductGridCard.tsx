@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import Image from 'next/image';
 
 interface Product {
     name: string;
@@ -48,14 +48,20 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                position: 'relative'
             }}>
-                <img src={product.image} alt={prodName} style={{ 
-                    maxWidth: '95%', 
-                    maxHeight: '95%', 
-                    objectFit: 'contain',
-                    transition: 'transform 0.5s ease'
-                }} />
+                <Image 
+                    src={product.image || '/logo1.png'} 
+                    alt={prodName} 
+                    fill
+                    style={{ 
+                        padding: '15px',
+                        objectFit: 'contain',
+                        transition: 'transform 0.5s ease'
+                    }} 
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                />
             </div>
             <div className="p-card-content" style={{ padding: '25px', textAlign: 'center', borderTop: '1px solid #eee' }}>
                 <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#333', margin: 0, transition: 'color 0.3s' }}>{prodName}</h3>

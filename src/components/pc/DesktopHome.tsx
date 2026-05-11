@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import NEWS_DATA from '../../../public/media/news_data.json';
 import { products, solutions, homeCases } from '@/constants/homeData';
 
@@ -97,8 +98,14 @@ export default function DesktopHome({
 
                             return (
                                 <a key={sol.id} className="solution-card" href={`/${locale}${sol.link}`}>
-                                    <div className="solution-media">
-                                        <img src={sol.img} alt={solName} />
+                                    <div className="solution-media" style={{ position: 'relative', width: '100%', height: '100%' }}>
+                                        <Image 
+                                            src={sol.img} 
+                                            alt={solName} 
+                                            fill 
+                                            style={{ objectFit: 'cover' }}
+                                            sizes="(max-width: 1200px) 50vw, 25vw"
+                                        />
                                     </div>
                                     <h3 className="solution-title">{solName}</h3>
                                 </a>
@@ -149,20 +156,20 @@ export default function DesktopHome({
                                         transition: 'all 0.5s ease'
                                     }}
                                 >
-                                    <img
+                                    <Image
                                         key={localizedProductMain}
                                         src={currentProduct.img}
                                         alt={localizedProductMain}
+                                        fill
+                                        priority
                                         style={{
-                                            maxHeight: '100%',
-                                            maxWidth: '100%',
-                                            width: 'auto',
-                                            height: 'auto',
                                             objectFit: 'contain',
+                                            padding: '20px',
                                             transform: `scale(${currentProduct.scale}) translateY(${currentProduct.offsetY}px)`,
                                             transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                                             filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.1))'
                                         }}
+                                        sizes="(max-width: 1200px) 100vw, 50vw"
                                     />
                                 </a>
                             </div>
@@ -208,7 +215,13 @@ export default function DesktopHome({
                                         transition: 'all 0.4s ease'
                                     }}
                                 >
-                                    <img src={item.img} alt={localizedCaseTitle} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s ease' }} />
+                                    <Image 
+                                        src={item.img} 
+                                        alt={localizedCaseTitle} 
+                                        fill 
+                                        style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} 
+                                        sizes="(max-width: 1200px) 50vw, 33vw"
+                                    />
                                     <div className="case-overlay" style={{
                                         position: 'absolute',
                                         inset: 0,
@@ -234,7 +247,7 @@ export default function DesktopHome({
 
             {/* SCREEN 5: ABOUT US */}
             <section className="aboutus-band" style={{
-                backgroundImage: 'url(/index/about_bg.jpg)',
+                backgroundImage: 'url(/index/about_bg.webp)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 position: 'relative',
@@ -283,8 +296,14 @@ export default function DesktopHome({
                                     textDecoration: 'none',
                                     display: 'block'
                                 }}>
-                                    <div style={{ height: '220px', overflow: 'hidden' }}>
-                                        <img src={item.image} alt={localizedNewsTitle} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                                    <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                                        <Image 
+                                            src={item.image} 
+                                            alt={localizedNewsTitle} 
+                                            fill 
+                                            style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                                            sizes="(max-width: 1200px) 50vw, 33vw"
+                                        />
                                     </div>
                                     <div className="news-card-content" style={{ padding: '25px', transition: 'background-color 0.3s ease' }}>
                                         <h3 style={{

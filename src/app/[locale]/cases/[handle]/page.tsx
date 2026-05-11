@@ -1,5 +1,5 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
+export const revalidate = 3600;
 import { getCaseByHandle, getAllCaseHandles } from '@/lib/cases';
 import { getProductByHandle } from '@/lib/products';
 import UniversalGallery from '@/components/common/UniversalGallery';

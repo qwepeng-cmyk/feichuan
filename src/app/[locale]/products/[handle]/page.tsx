@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+export const revalidate = 3600; 
 import { getProductByHandle, getAllProductHandles } from '@/lib/products';
 import MobileProductDetail from '@/components/mobile/MobileProductDetail';
 import UniversalGallery from '@/components/common/UniversalGallery';
