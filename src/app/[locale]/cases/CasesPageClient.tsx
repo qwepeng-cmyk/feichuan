@@ -174,7 +174,7 @@ export default function CasesPageClient({
                 }
             `}} />
 
-            <div className="pc_only product-page-new">
+            <div className="pc_only product-page-new" style={{ paddingTop: '112px' }}>
                 <section className="product-banner" style={{
                     height: '40vh',
                     minHeight: '320px',

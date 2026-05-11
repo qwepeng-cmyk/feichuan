@@ -2,6 +2,7 @@
     width: 100%;
     background: #fcfdfe;
     padding-top: 108px; /* Main Header Height */
+    margin-top: 0;
 }
 
 /* 1. Mini Banner */
@@ -15,6 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .bannerOverlay {
@@ -31,11 +34,12 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     position: relative;
     z-index: 1;
+    margin: 0; /* Remove default h1 margins */
 }
 
 /* 2. Filter Section */
 .filterSection {
-    padding: 20px 15px;
+    padding: 10px 15px 20px; /* Reduced top padding */
     background: #fff;
     border-bottom: 1px solid #eee;
     display: flex;

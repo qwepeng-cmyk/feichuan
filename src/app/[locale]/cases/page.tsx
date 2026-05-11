@@ -10,7 +10,7 @@ export default async function CasesPage({ params }: { params: { locale: Locale }
     const dict = await getDictionary(locale);
 
     return (
-        <div className="cases-page" style={{ backgroundColor: '#fff', paddingTop: '112px' }}>
+        <div className="cases-page" style={{ backgroundColor: '#fff' }}>
             <main>
                 <CasesPageClient allCases={cases} locale={locale} dict={dict} />
             </main>
