@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import styles from './MobileSolutionDetail.module.css';
-import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
+import styles from './MobileSolutionDetail.module.css';
 
 interface SolutionProps {
     solution: any;
@@ -107,7 +107,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <img src={displayImages[activeIndex]} alt={name} />
+                        <Image src={displayImages[activeIndex]} alt={name} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
                     </div>
                     {displayImages.length >= 1 && (
                         <div className={styles.thumbTrack}>
@@ -117,7 +117,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
                                     className={`${styles.thumbItem} ${activeIndex === idx ? styles.active : ''}`}
                                     onClick={() => setActiveIndex(idx)}
                                 >
-                                    <img src={img} alt={`Thumb ${idx}`} />
+                                    <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
                                 </div>
                             ))}
                         </div>
@@ -219,7 +219,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
                         {recommendedProducts.map((prod, idx) => (
                             <Link href={`/${locale}/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ aspectRatio: '4/3', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <img src={prod.image} alt={prod.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                                    <Image src={prod.image} alt={prod.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                 </div>
                                 <div style={{ padding: '12px', textAlign: 'center' }}>
                                     <h3 style={{ fontSize: '12px', fontWeight: '800', color: '#333', margin: 0 }}>{prod.name}</h3>

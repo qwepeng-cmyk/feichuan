@@ -4,6 +4,7 @@ import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
 import CategoryNav from '@/components/products/CategoryNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Solution {
     id: string;
@@ -193,8 +194,8 @@ export default function SolutionCenterClient({
                                             const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
                                             return (
                                                 <Link href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                                    <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px' }}>
-                                                        <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                    <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px', position: 'relative' }}>
+                                                        <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 1200px) 33vw, 400px" />
                                                     </div>
                                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{solTitle}</h3>
                                                 </Link>

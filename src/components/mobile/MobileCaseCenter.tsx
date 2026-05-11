@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import styles from './MobileCaseCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CaseItem {
     handle: string;
@@ -182,7 +183,7 @@ export default function MobileCaseCenter({
                                 return (
                                     <Link href={`/${locale}/cases/${item.handle}`} key={idx} className={styles.card}>
                                         <div className={styles.imageBox}>
-                                            <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} />
+                                            <Image src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                         </div>
                                         <div className={styles.cardContent}>
                                             <h3>{caseTitle}</h3>

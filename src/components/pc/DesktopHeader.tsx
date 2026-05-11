@@ -107,8 +107,22 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                     justifyContent: 'space-between'
                 }}>
                     <Link href={l("/")} className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src="/logo1.png" alt="N-TET Logo" className="logo-light" style={{ filter: 'brightness(0) invert(1)' }} />
-                        <img src="/logo1.png" alt="N-TET Logo" className="logo-dark" />
+                        <Image 
+                            src="/logo1.png" 
+                            alt="N-TET Logo" 
+                            width={140} 
+                            height={48} 
+                            className="logo-light" 
+                            style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }} 
+                        />
+                        <Image 
+                            src="/logo1.png" 
+                            alt="N-TET Logo" 
+                            width={140} 
+                            height={48} 
+                            className="logo-dark" 
+                            style={{ height: '48px', width: 'auto' }}
+                        />
                     </Link>
 
                     <nav className="main-nav" style={{ display: 'flex', height: '100%' }}>

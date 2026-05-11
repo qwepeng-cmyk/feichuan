@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './MobileProductCenter.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 import MobileInquiryForm from './MobileInquiryForm';
 
 interface Product {
@@ -171,7 +172,7 @@ export default function MobileProductCenter({
                             {categoriesData[category.id]?.map((product: Product, idx: number) => (
                                 <Link href={`/${locale}/products/${product.handle}`} key={idx} className={styles.productCard}>
                                     <div className={styles.imageBox}>
-                                        <img src={product.image} alt={product.name} />
+                                        <Image src={product.image} alt={product.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                     </div>
                                     <div className={styles.cardInfo}>
                                         <h3>{product.name}</h3>

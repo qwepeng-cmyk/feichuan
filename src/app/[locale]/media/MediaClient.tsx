@@ -3,6 +3,7 @@ import React from 'react';
 import MobileMediaCenter from '@/components/mobile/MobileMediaCenter';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function MediaClient({ 
     newsData,
@@ -136,12 +137,17 @@ export default function MediaClient({
                                                 position: 'relative',
                                                 marginBottom: '0' 
                                             }}>
-                                                <img src={news.image} alt={newsTitle} style={{ 
-                                                    width: '100%', 
-                                                    height: '100%', 
-                                                    objectFit: 'cover',
-                                                    transition: 'transform 0.5s ease'
-                                                }} className="card-img" />
+                                                <Image 
+                                                    src={news.image} 
+                                                    alt={newsTitle} 
+                                                    fill 
+                                                    style={{ 
+                                                        objectFit: 'cover',
+                                                        transition: 'transform 0.5s ease'
+                                                    }} 
+                                                    className="card-img" 
+                                                    sizes="(max-width: 1200px) 50vw, 600px"
+                                                />
                                             </div>
                                             <div className="news-text-content" style={{ 
                                                 padding: '30px', 

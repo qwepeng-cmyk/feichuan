@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './MobileSolutionCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Solution {
     id: string;
@@ -222,7 +223,7 @@ export default function MobileSolutionCenter({
                                     return (
                                         <Link href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
                                             <div className={styles.imageBox}>
-                                                <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} />
+                                                <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                             </div>
                                             <div className={styles.cardInfo}>
                                                 <h3>{solTitle}</h3>

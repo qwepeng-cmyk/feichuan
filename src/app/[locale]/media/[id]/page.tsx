@@ -1,5 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileMediaDetail from '@/components/mobile/MobileMediaDetail';
 import { getMediaById, getAllMediaIds } from '@/lib/media';
@@ -53,17 +55,14 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                         height: '40vh',
                         minHeight: '320px',
                         maxHeight: '450px', 
-                        backgroundImage: "url('/media/media_banner.jpg')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
                         display: 'flex',
                         alignItems: 'center',
                         position: 'relative',
                         overflow: 'hidden',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                        <Image src="/media/media_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.media.bannerTitle} />
+                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
@@ -83,8 +82,8 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                             </div>
 
                             {/* Featured Image */}
-                            <div style={{ marginBottom: '50px' }}>
-                                <img src={news.image} alt={newsTitle} style={{ width: '100%', maxHeight: '600px', objectFit: 'cover', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }} />
+                            <div style={{ marginBottom: '50px', position: 'relative', height: '500px', width: '100%' }}>
+                                <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover', borderRadius: '8px' }} sizes="100vw" />
                             </div>
 
                             {/* Rich Content Area */}

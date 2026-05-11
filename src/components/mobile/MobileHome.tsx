@@ -46,7 +46,7 @@ export default function MobileHome({
                     muted 
                     playsInline 
                     preload="auto"
-                    poster="/index/about_bg.webp"
+                    poster="/hero_poster.webp"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000' }}
                 >
                     <source src="/index_banner_bg_2.webm" type="video/webm" />

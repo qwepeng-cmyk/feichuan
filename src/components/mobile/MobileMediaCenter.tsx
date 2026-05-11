@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import styles from './MobileMediaCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface NewsItem {
     id: string;
@@ -93,7 +94,7 @@ export default function MobileMediaCenter({
                         return (
                             <Link href={`/${locale}/media/${news.id}`} key={news.id} className={styles.card}>
                                 <div className={styles.imageBox}>
-                                    <img src={news.image} alt={newsTitle} />
+                                    <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                 </div>
                                 <div className={styles.cardContent}>
                                     <div className={styles.date}>{news.date}</div>

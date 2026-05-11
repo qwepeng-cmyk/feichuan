@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CaseItem {
     handle: string;
@@ -222,8 +223,8 @@ export default function CasesPageClient({
                                             const caseTitle = item[`title_${locale}`] || item.title_en;
                                             return (
                                                 <Link href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
-                                                    <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden' }}>
-                                                        <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} />
+                                                    <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden', position: 'relative', height: '240px' }}>
+                                                        <Image src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 1200px) 33vw, 400px" />
                                                     </div>
                                                     <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
                                                         <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#333', margin: '0', lineHeight: '1.4' }}>

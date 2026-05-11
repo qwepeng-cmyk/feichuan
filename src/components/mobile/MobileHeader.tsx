@@ -30,7 +30,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link href={l("/")} className={styles.logo}>
-                    <img src="/logo1.png" alt="N-TET" style={{ height: '42px' }} />
+                    <Image src="/logo1.png" alt="N-TET" width={120} height={42} style={{ height: '42px', width: 'auto' }} />
                 </Link>
                 <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)}>
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>

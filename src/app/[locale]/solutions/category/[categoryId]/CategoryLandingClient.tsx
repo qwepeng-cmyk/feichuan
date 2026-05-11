@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import categoryLandingData from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import InquiryForm from '@/components/products/InquiryForm';
@@ -105,15 +106,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
             overflow: 'hidden',
             backgroundColor: '#020c1b'
           }}>
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: `url('${data.bannerImage}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              zIndex: 0,
-            }} />
+            <Image src={data.bannerImage} fill style={{ objectFit: 'cover' }} priority alt={categoryName} />
             <div style={{
               position: 'absolute',
               inset: 0,
@@ -175,8 +168,8 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                         border: '1px solid #eee',
                         overflow: 'hidden'
                       }}>
-                        <a href={l(`/solutions/${sol.handle}`)} style={{ width: '50%', aspectRatio: '380 / 240', display: 'block' }}>
-                          <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <a href={l(`/solutions/${sol.handle}`)} style={{ width: '50%', aspectRatio: '380 / 240', display: 'block', position: 'relative' }}>
+                          <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} fill style={{ objectFit: 'cover' }} sizes="50vw" />
                         </a>
                         <div style={{ flex: 1, padding: '40px 60px' }}>
                           <h3 style={{ fontSize: '3.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '20px' }}>{solName}</h3>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './MobileProductDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 
@@ -104,7 +105,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <img src={displayImages[activeIndex]} alt={name} />
+                        <Image src={displayImages[activeIndex]} alt={name} fill style={{ objectFit: 'contain' }} priority sizes="100vw" />
                     </div>
                     {displayImages.length >= 1 && (
                         <div className={styles.thumbTrack}>
@@ -114,7 +115,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                                     className={`${styles.thumbItem} ${activeIndex === idx ? styles.active : ''}`}
                                     onClick={() => setActiveIndex(idx)}
                                 >
-                                    <img src={img} alt={`Thumb ${idx}`} />
+                                    <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
                                 </div>
                             ))}
                         </div>

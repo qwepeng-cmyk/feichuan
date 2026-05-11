@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const solutions = [
   {
@@ -57,10 +58,14 @@ const Solutions = () => {
                 <h3>{item.title} <span>{item.titleCn}</span></h3>
               </div>
               <div className="sol-card-top">
-                <img src={item.mainImg} className="sol-main-img" alt={item.title} />
+                <div className="sol-main-img-box" style={{ position: 'relative', width: '100%', height: '300px' }}>
+                  <Image src={item.mainImg} fill style={{ objectFit: 'cover' }} alt={item.title} />
+                </div>
                 <div className="sol-accessories">
                   {item.parts.map((p, pidx) => (
-                    <img key={pidx} src={p} className="sol-acc-img" alt="Part" />
+                    <div key={pidx} className="sol-acc-img-box" style={{ position: 'relative', width: '60px', height: '60px' }}>
+                      <Image src={p} fill style={{ objectFit: 'contain' }} alt="Part" />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -76,7 +81,9 @@ const Solutions = () => {
               </div>
               <div className="sol-card-bot">
                 {item.scenes.map((s, sidx) => (
-                  <img key={sidx} src={s} className="sol-scene-img" alt="Scene" />
+                  <div key={sidx} className="sol-scene-img-box" style={{ position: 'relative', width: '50%', height: '120px' }}>
+                    <Image src={s} fill style={{ objectFit: 'cover' }} alt="Scene" />
+                  </div>
                 ))}
               </div>
             </div>

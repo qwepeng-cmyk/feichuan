@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './MobileMediaDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 
@@ -43,7 +44,9 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
 
                 {news.image && (
                     <div className={styles.featuredImage}>
-                        <img src={news.image} alt={newsTitle} />
+                        <div className={styles.imageBox}>
+                            <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
+                        </div>
                     </div>
                 )}
 
