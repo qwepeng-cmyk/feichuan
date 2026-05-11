@@ -2,6 +2,7 @@
 import React from 'react';
 import MobileMediaCenter from '@/components/mobile/MobileMediaCenter';
 import InquiryForm from '@/components/products/InquiryForm';
+import Link from 'next/link';
 
 export default function MediaClient({ 
     newsData,
@@ -128,7 +129,7 @@ export default function MediaClient({
                                 {paginatedNews.map((news) => {
                                     const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
                                     return (
-                                        <a href={`/${locale}/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
+                                        <Link href={`/${locale}/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
                                             <div className="news-image-wrapper" style={{ 
                                                 height: '350px', 
                                                 overflow: 'hidden', 
@@ -163,7 +164,7 @@ export default function MediaClient({
                                                     margin: 0
                                                 }}>{newsTitle}</h3>
                                             </div>
-                                        </a>
+                                        </Link>
                                     );
                                 })}
                             </div>

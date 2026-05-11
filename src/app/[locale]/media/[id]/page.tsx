@@ -43,7 +43,7 @@ export default async function NewsDetailPage({ params }: { params: { id: string,
                     <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                         <div className="container">
                             <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
-                                <a href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</a> &gt; <a href={`/${locale}/media`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.media}</a> &gt; {newsTitle}
+                                <Link href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</Link> &gt; <Link href={`/${locale}/media`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.media}</Link> &gt; {newsTitle}
                             </div>
                         </div>
                     </div>

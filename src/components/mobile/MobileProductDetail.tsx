@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styles from './MobileProductDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 
@@ -84,9 +85,9 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb - Clean Text Style */}
             <div className={styles.breadcrumb}>
-                <a href={`/${locale}`}>{dict.nav.home}</a>
+                <Link href={`/${locale}`}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={`/${locale}/products`}>{dict.nav.products}</a>
+                <Link href={`/${locale}/products`}>{dict.nav.products}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {name}

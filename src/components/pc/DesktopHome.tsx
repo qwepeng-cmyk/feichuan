@@ -2,8 +2,20 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import NEWS_DATA from '../../../public/media/news_data.json';
 import { products, solutions, homeCases } from '@/constants/homeData';
+
+// Dynamic imports for better performance
+const HomeCases = dynamic(() => import('../home/sections/HomeCases'), { 
+    ssr: true,
+    loading: () => <div style={{ minHeight: '600px', background: '#f8f9fa' }} /> 
+});
+const HomeNews = dynamic(() => import('../home/sections/HomeNews'), { 
+    ssr: true,
+    loading: () => <div style={{ minHeight: '500px', background: '#f8f9fa' }} /> 
+});
 
 export default function DesktopHome({ 
     locale,
@@ -78,7 +90,7 @@ export default function DesktopHome({
                 <div className="container-wide hero-content">
                     <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: dict.home.hero.title }}></h1>
                     <p className="hero-subtitle">{dict.home.hero.subtitle}</p>
-                    <a href={`/${locale}/solutions`} className="btn btn-orange">{dict.home.hero.button} ↗</a>
+                    <Link href={`/${locale}/solutions`} className="btn btn-orange">{dict.home.hero.button} ↗</Link>
                 </div>
             </section>
 
@@ -97,7 +109,7 @@ export default function DesktopHome({
                             const solName = solMap[sol.id] || sol.title;
 
                             return (
-                                <a key={sol.id} className="solution-card" href={`/${locale}${sol.link}`}>
+                                <Link key={sol.id} className="solution-card" href={`/${locale}${sol.link}`}>
                                     <div className="solution-media" style={{ position: 'relative', width: '100%', height: '100%' }}>
                                         <Image 
                                             src={sol.img} 
@@ -108,7 +120,7 @@ export default function DesktopHome({
                                         />
                                     </div>
                                     <h3 className="solution-title">{solName}</h3>
-                                </a>
+                                </Link>
                             );
                         })}
                     </div>
@@ -132,8 +144,8 @@ export default function DesktopHome({
                                 <h2 style={{ fontSize: '4.8rem', fontWeight: 800, color: 'var(--text-dark)', marginBottom: '25px', lineHeight: 1.1 }}>{localizedProductMain}</h2>
                                 <p style={{ fontSize: '1.8rem', color: '#555', lineHeight: 1.7, marginBottom: '40px' }}>{localizedProductDesc}</p>
                                 <div className="pc2-actions" style={{ display: 'flex', gap: '20px' }}>
-                                    <a href={`/${locale}/contact`} className="btn btn-orange">{dict.products.getQuote}</a>
-                                    <a href={`/${locale}/products/${currentProduct.handle}`} className="btn" style={{ border: '1px solid #ddd' }}>{dict.products.viewSpecs}</a>
+                                    <Link href={`/${locale}/contact`} className="btn btn-orange">{dict.products.getQuote}</Link>
+                                    <Link href={`/${locale}/products/${currentProduct.handle}`} className="btn" style={{ border: '1px solid #ddd' }}>{dict.products.viewSpecs}</Link>
                                 </div>
                             </div>
                             <div className="pc2-image-wrap" style={{
@@ -144,7 +156,7 @@ export default function DesktopHome({
                                 justifyContent: 'center',
                                 flex: 1
                             }}>
-                                <a
+                                <Link
                                     href={`/${locale}/products/${currentProduct.handle}`}
                                     className="pc2-image-link"
                                     style={{
@@ -171,7 +183,7 @@ export default function DesktopHome({
                                         }}
                                         sizes="(max-width: 1200px) 100vw, 50vw"
                                     />
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -184,66 +196,13 @@ export default function DesktopHome({
                                 {String(i + 1).padStart(2, '0')}
                             </span>
                         ))}
-                        <a href={`/${locale}/products`} style={{ marginLeft: '40px', fontSize: '1.4rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--primary)' }}>{dict.home.buttons.allProducts}</a>
+                        <Link href={`/${locale}/products`} style={{ marginLeft: '40px', fontSize: '1.4rem', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--primary)' }}>{dict.home.buttons.allProducts}</Link>
                     </div>
                 </div>
             </section>
 
-            {/* SCREEN 4: CUSTOMER CASES */}
-            <section className="section-cases" style={{ padding: '80px 0 100px', background: '#fff' }}>
-                <div className="container-wide">
-                    <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '3.6rem', fontWeight: 700 }}>{dict.home.sections.cases}</h2>
-                        <div style={{ width: '60px', height: '4px', background: 'var(--accent)', margin: '20px auto' }}></div>
-                    </div>
-                    <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {homeCases.map((item, idx) => {
-                            const localizedCaseTitle = locale === 'ru' ? item.title_ru : item.title;
-                            return (
-                                <a
-                                    key={idx}
-                                    href={`/${locale}/cases/${item.handle}`}
-                                    className="case-card-link"
-                                    style={{
-                                        position: 'relative',
-                                        borderRadius: '0',
-                                        overflow: 'hidden',
-                                        height: '320px',
-                                        display: 'block',
-                                        textDecoration: 'none',
-                                        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                                        transition: 'all 0.4s ease'
-                                    }}
-                                >
-                                    <Image 
-                                        src={item.img} 
-                                        alt={localizedCaseTitle} 
-                                        fill 
-                                        style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} 
-                                        sizes="(max-width: 1200px) 50vw, 33vw"
-                                    />
-                                    <div className="case-overlay" style={{
-                                        position: 'absolute',
-                                        inset: 0,
-                                        background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'flex-end',
-                                        padding: '30px',
-                                        transition: 'background 0.4s ease'
-                                    }}>
-                                        <span style={{ color: 'var(--accent)', fontSize: '1.2rem', fontWeight: 700, textTransform: 'uppercase', marginBottom: '10px', display: 'block', letterSpacing: '0.1em', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>{dict.home.labels.successCase}</span>
-                                        <h3 style={{ color: '#fff', fontSize: '2.2rem', fontWeight: 700, margin: 0, lineHeight: 1.2, textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>{localizedCaseTitle}</h3>
-                                    </div>
-                                </a>
-                            );
-                        })}
-                    </div>
-                    <div style={{ textAlign: 'center', marginTop: '60px' }}>
-                        <a href={`/${locale}/cases`} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllCases}</a>
-                    </div>
-                </div>
-            </section>
+            {/* SCREEN 4: CUSTOMER CASES (DYNAMIC) */}
+            <HomeCases locale={locale} dict={dict} homeCases={homeCases} />
 
             {/* SCREEN 5: ABOUT US */}
             <section className="aboutus-band" style={{
@@ -267,97 +226,20 @@ export default function DesktopHome({
                         <h2 style={{ fontSize: '4.8rem', fontWeight: 900, marginBottom: '30px', color: '#fff' }}>{dict.home.sections.about}</h2>
                         <p style={{ fontSize: '2rem', lineHeight: 1.6, marginBottom: '40px', opacity: 0.9 }}>{dict.home.about.content}</p>
                         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                            <a href={`/${locale}/products`} className="btn btn-orange">{dict.home.sections.products}</a>
-                            <a href={`/${locale}/about`} className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>{dict.home.buttons.learnMore}</a>
+                            <Link href={`/${locale}/products`} className="btn btn-orange">{dict.home.sections.products}</Link>
+                            <Link href={`/${locale}/about`} className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>{dict.home.buttons.learnMore}</Link>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SCREEN 6: NEWS */}
-            <section className="section-news" style={{ padding: '60px 0 100px', background: '#fff' }}>
-                <div className="container-wide">
-                    <div className="section-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                        <h2 style={{ fontSize: '3.6rem', fontWeight: 600, color: '#333', letterSpacing: '2px', textTransform: 'uppercase' }}>{dict.home.sections.news}</h2>
-                    </div>
-                    <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                        {latestNews.map((item, i) => {
-                            const localizedNewsTitle =
-                                locale === 'ru'
-                                    ? item.title_ru || item.title
-                                    : (item as { title_en?: string }).title_en || item.title;
-                            return (
-                                <a key={i} href={`/${locale}/media/${item.id}`} className="news-card" style={{
-                                    background: '#f8f8f8',
-                                    border: '1px solid #eee',
-                                    overflow: 'hidden',
-                                    transition: 'all 0.3s ease',
-                                    cursor: 'pointer',
-                                    textDecoration: 'none',
-                                    display: 'block'
-                                }}>
-                                    <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                                        <Image 
-                                            src={item.image} 
-                                            alt={localizedNewsTitle} 
-                                            fill 
-                                            style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                                            sizes="(max-width: 1200px) 50vw, 33vw"
-                                        />
-                                    </div>
-                                    <div className="news-card-content" style={{ padding: '25px', transition: 'background-color 0.3s ease' }}>
-                                        <h3 style={{
-                                            fontSize: '1.8rem',
-                                            color: '#333',
-                                            marginBottom: '15px',
-                                            lineHeight: 1.4,
-                                            fontWeight: 600,
-                                            display: '-webkit-box',
-                                            WebkitLineClamp: 2,
-                                            WebkitBoxOrient: 'vertical',
-                                            overflow: 'hidden',
-                                            transition: 'color 0.3s ease'
-                                        }}>{localizedNewsTitle}</h3>
-                                        <p style={{ color: '#999', fontSize: '1.4rem', transition: 'color 0.3s ease' }}>{item.date}</p>
-                                    </div>
-                                </a>
-                            );
-                        })}
-                    </div>
-                    <div style={{ textAlign: 'center', marginTop: '60px' }}>
-                        <a href={`/${locale}/media`} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllNews}</a>
-                    </div>
-                </div>
-            </section>
+            {/* SCREEN 6: NEWS (DYNAMIC) */}
+            <HomeNews locale={locale} dict={dict} latestNews={latestNews} />
 
             <style jsx>{`
-                .case-card-link:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-                }
-                .case-card-link:hover img {
-                    transform: scale(1.1);
-                }
-                .case-card-link:hover .case-overlay {
-                    background: linear-gradient(to top, rgba(49, 91, 164, 0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-                }
-                .pc2-image-link:hover img {
+                .pc2-image-link:hover :global(img) {
                     transform: scale(${parseFloat(currentProduct.scale.toString()) * 1.05}) translateY(${currentProduct.offsetY - 10}px) !important;
                     filter: drop-shadow(0 20px 40px rgba(49, 91, 164, 0.25)) !important;
-                }
-                .news-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-                    border-color: var(--primary) !important;
-                }
-                .news-card:hover .news-card-content {
-                    background-color: var(--primary) !important;
-                }
-                .news-card:hover img {
-                    transform: scale(1.1);
-                }
-                .news-card:hover h3, .news-card:hover p {
-                    color: #fff !important;
                 }
             `}</style>
         </main>

@@ -1,14 +1,20 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 export const revalidate = 3600;
 import { getCaseByHandle, getAllCaseHandles } from '@/lib/cases';
 import { getProductByHandle } from '@/lib/products';
 import UniversalGallery from '@/components/common/UniversalGallery';
 import InPageNav from '@/components/products/InPageNav';
-import InquiryForm from '@/components/products/InquiryForm';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import MobileCaseDetail from '@/components/mobile/MobileCaseDetail';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import dynamic from 'next/dynamic';
+
+const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '400px', background: '#f8fafc' }} />
+});
 
 export async function generateStaticParams() {
   const handles = await getAllCaseHandles();
@@ -109,7 +115,7 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
-                  <a href={`/${locale}`}>{dict.nav.home}</a> &gt; <a href={`/${locale}/cases`}>{dict.nav.cases}</a> &gt; {title}
+                  <Link href={`/${locale}`}>{dict.nav.home}</Link> &gt; <Link href={`/${locale}/cases`}>{dict.nav.cases}</Link> &gt; {title}
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import UniversalGallery from '@/components/common/UniversalGallery';
@@ -48,7 +49,7 @@ export default function SolutionDetailClient({
         <div className="product-breadcrumb-nav">
           <div className="container">
             <div className="breadcrumb-path">
-              <a href={`/${locale}`}>{dict.nav.home}</a> &gt; <a href={`/${locale}/solutions`}>{dict.nav.solutions}</a> &gt; <a href={`/${locale}/solutions/category/${solution.category_id}`}>{solution.category_name}</a> &gt; {name}
+              <Link href={`/${locale}`}>{dict.nav.home}</Link> &gt; <Link href={`/${locale}/solutions`}>{dict.nav.solutions}</Link> &gt; <Link href={`/${locale}/solutions/category/${solution.category_id}`}>{solution.category_name}</Link> &gt; {name}
             </div>
           </div>
         </div>

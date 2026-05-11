@@ -1,12 +1,18 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 export const revalidate = 3600; 
 import { getProductByHandle, getAllProductHandles } from '@/lib/products';
 import MobileProductDetail from '@/components/mobile/MobileProductDetail';
 import UniversalGallery from '@/components/common/UniversalGallery';
 import InPageNav from '@/components/products/InPageNav';
-import InquiryForm from '@/components/products/InquiryForm';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import dynamic from 'next/dynamic';
+
+const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '400px', background: '#f8fafc' }} />
+});
 
 export async function generateStaticParams() {
   const handles = await getAllProductHandles();
@@ -66,7 +72,7 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
-                  <a href={`/${locale}`}>{dict.nav.home}</a> &gt; <a href={`/${locale}/products`}>{dict.nav.products}</a> &gt; {name}
+                  <Link href={`/${locale}`}>{dict.nav.home}</Link> &gt; <Link href={`/${locale}/products`}>{dict.nav.products}</Link> &gt; {name}
                 </div>
               </div>
             </div>

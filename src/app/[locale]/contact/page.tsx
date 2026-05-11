@@ -26,7 +26,7 @@ export default async function ContactPage({ params }: { params: { locale: Locale
                         <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                             <div className="container">
                                 <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
-                                    <a href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</a> &gt; {dict.nav.contact}
+                                    <Link href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</Link> &gt; {dict.nav.contact}
                                 </div>
                             </div>
                         </div>

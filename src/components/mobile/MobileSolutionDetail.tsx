@@ -86,11 +86,11 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, lo
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb - Clean Text Style */}
             <div className={styles.breadcrumb}>
-                <a href={`/${locale}`}>{dict.nav.home}</a>
+                <Link href={`/${locale}`}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={`/${locale}/solutions`}>{dict.nav.solutions}</a>
+                <Link href={`/${locale}/solutions`}>{dict.nav.solutions}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={`/${locale}/solutions/category/${solution.category_id}`}>{solution.category_name}</a>
+                <Link href={`/${locale}/solutions/category/${solution.category_id}`}>{solution.category_name}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {name}

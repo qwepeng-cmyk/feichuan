@@ -3,6 +3,7 @@
 import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
 import CategoryNav from '@/components/products/CategoryNav';
 import InquiryForm from '@/components/products/InquiryForm';
+import Link from 'next/link';
 
 interface Solution {
     id: string;
@@ -182,21 +183,21 @@ export default function SolutionCenterClient({
                                     <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
                                         <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
                                         <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
-                                        <a href={`/${locale}/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#fff', backgroundColor: '#315ba4', textDecoration: 'none', padding: '12px 32px', borderRadius: '4px', transition: 'all 0.3s ease' }}>
+                                        <Link href={`/${locale}/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#fff', backgroundColor: '#315ba4', textDecoration: 'none', padding: '12px 32px', borderRadius: '4px', transition: 'all 0.3s ease' }}>
                                             {dict.solutions.exploreAll}
-                                        </a>
+                                        </Link>
                                     </div>
 
                                     <div className="solution-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                                         {groupedSolutions[category.id]?.map((sol, idx) => {
                                             const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
                                             return (
-                                                <a href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                <Link href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
                                                     <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px' }}>
                                                         <img src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                                     </div>
                                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{solTitle}</h3>
-                                                </a>
+                                                </Link>
                                             );
                                         })}
                                     </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Product {
     name: string;
@@ -17,7 +18,7 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
     const prodName = locale === 'ru' ? (product.product_name_ru || product.name_ru || product.name) : (product.product_name_en || product.name_en || product.name);
 
     return (
-        <a 
+        <Link 
             href={l(`/products/${product.handle}`)} 
             className="p-card-sbm" 
             style={{
@@ -66,6 +67,6 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
             <div className="p-card-content" style={{ padding: '25px', textAlign: 'center', borderTop: '1px solid #eee' }}>
                 <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#333', margin: 0, transition: 'color 0.3s' }}>{prodName}</h3>
             </div>
-        </a>
+        </Link>
     );
 }

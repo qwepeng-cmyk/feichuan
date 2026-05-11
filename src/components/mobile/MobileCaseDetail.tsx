@@ -79,9 +79,9 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb */}
             <div className={styles.breadcrumb}>
-                <a href={`/${locale}`}>{dict.nav.home}</a>
+                <Link href={`/${locale}`}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={`/${locale}/cases`}>{dict.nav.cases}</a>
+                <Link href={`/${locale}/cases`}>{dict.nav.cases}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {title}

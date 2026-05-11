@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import styles from './MobileMediaDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 
@@ -26,9 +27,9 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
 
             {/* 2. Breadcrumb */}
             <div className={styles.breadcrumb}>
-                <a href={`/${locale}`}>{dict.nav.home}</a>
+                <Link href={`/${locale}`}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={`/${locale}/media`}>{dict.nav.media}</a>
+                <Link href={`/${locale}/media`}>{dict.nav.media}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {newsTitle}

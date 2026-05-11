@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
 import InquiryForm from '@/components/products/InquiryForm';
+import Link from 'next/link';
 
 interface CaseItem {
     handle: string;
@@ -220,7 +221,7 @@ export default function CasesPageClient({
                                         {paginatedCases.map((item, idx) => {
                                             const caseTitle = item[`title_${locale}`] || item.title_en;
                                             return (
-                                                <a href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
+                                                <Link href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
                                                     <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden' }}>
                                                         <img src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} />
                                                     </div>
@@ -229,7 +230,7 @@ export default function CasesPageClient({
                                                             {caseTitle}
                                                         </h3>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             );
                                         })}
                                     </div>
