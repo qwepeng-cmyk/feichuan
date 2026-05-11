@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
@@ -6,25 +6,12 @@ import MobileAboutUs from '@/components/mobile/MobileAboutUs';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 
-export default async function AboutPage({ params }: { params: { locale: Locale } }) {
-    const { locale } = params;
-    const dict = await getDictionary(locale);
-
+async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: `
-                .mobile_only { display: none !important; }
-                .pc_only { display: block !important; }
-                @media (max-width: 991px) {
-                    .mobile_only { display: block !important; }
-                    .pc_only { display: none !important; }
-                }
-            `}} />
-
             <div className="pc_only">
                 <div className="about-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
                     <main>
-                        {/* 1. Breadcrumb Row */}
                         <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                             <div className="container">
                                 <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
@@ -33,7 +20,6 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
                             </div>
                         </div>
 
-                        {/* 2. Banner Section */}
                         <section className="product-banner" style={{
                             height: '40vh',
                             minHeight: '320px',
@@ -56,7 +42,6 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
                             </div>
                         </section>
 
-                        {/* 3. Company Profile Section */}
                         <section style={{ padding: '100px 0', backgroundColor: '#fff' }}>
                             <div className="container">
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
@@ -94,7 +79,6 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
                             </div>
                         </section>
 
-                        {/* 4. R&D Team Section */}
                         <section style={{ padding: '100px 0', backgroundColor: '#f8fafc' }}>
                             <div className="container">
                                 <div style={{ textAlign: 'center', marginBottom: '80px' }}>
@@ -174,6 +158,33 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
             <div className="mobile_only">
                 <MobileAboutUs dict={dict} />
             </div>
+        </>
+    );
+}
+
+export default async function AboutPage({ params }: { params: { locale: Locale } }) {
+    const { locale } = params;
+    const dict = await getDictionary(locale);
+
+    return (
+        <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                .mobile_only { display: none !important; }
+                .pc_only { display: block !important; }
+                @media (max-width: 991px) {
+                    .mobile_only { display: block !important; }
+                    .pc_only { display: none !important; }
+                }
+            `}} />
+
+            <Suspense fallback={
+                <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
+                    <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
+                    <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+                </div>
+            }>
+                <AboutContent locale={locale} dict={dict} />
+            </Suspense>
         </>
     );
 }

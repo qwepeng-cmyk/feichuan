@@ -1,28 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import Link from 'next/link';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileContact from '@/components/mobile/MobileContact';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 
-export default async function ContactPage({ params }: { params: { locale: Locale } }) {
-    const { locale } = params;
-    const dict = await getDictionary(locale);
-
+async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
     return (
         <>
-            <style dangerouslySetInnerHTML={{ __html: `
-                .mobile_only { display: none !important; }
-                .pc_only { display: block !important; }
-                @media (max-width: 991px) {
-                    .mobile_only { display: block !important; }
-                    .pc_only { display: none !important; }
-                }
-            `}} />
-
             <div className="pc_only">
                 <div className="contact-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
                     <main>
-                        {/* 1. Breadcrumb Row */}
                         <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                             <div className="container">
                                 <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
@@ -31,7 +19,6 @@ export default async function ContactPage({ params }: { params: { locale: Locale
                             </div>
                         </div>
 
-                        {/* 2. Banner Section */}
                         <section className="contact-banner" style={{ 
                             height: '35vh', 
                             minHeight: '280px', 
@@ -53,7 +40,6 @@ export default async function ContactPage({ params }: { params: { locale: Locale
                             </div>
                         </section>
 
-                        {/* 3. Main Content Section */}
                         <section className="contact-main-content" style={{ padding: '80px 0' }}>
                             <div className="container">
                                 <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1fr', gap: '40px' }}>
@@ -126,6 +112,33 @@ export default async function ContactPage({ params }: { params: { locale: Locale
             <div className="mobile_only">
                 <MobileContact dict={dict} />
             </div>
+        </>
+    );
+}
+
+export default async function ContactPage({ params }: { params: { locale: Locale } }) {
+    const { locale } = params;
+    const dict = await getDictionary(locale);
+
+    return (
+        <>
+            <style dangerouslySetInnerHTML={{ __html: `
+                .mobile_only { display: none !important; }
+                .pc_only { display: block !important; }
+                @media (max-width: 991px) {
+                    .mobile_only { display: block !important; }
+                    .pc_only { display: none !important; }
+                }
+            `}} />
+
+            <Suspense fallback={
+                <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
+                    <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
+                    <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+                </div>
+            }>
+                <ContactContent locale={locale} dict={dict} />
+            </Suspense>
         </>
     );
 }
