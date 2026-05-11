@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import Link from 'next/link';
 
 export default function MobileStickyBar({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -21,7 +20,7 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
             zIndex: 3000
         }}>
             {/* Get Solution */}
-            <a href={l("/contact")} style={{
+            <Link href={l("/contact")} style={{
                 flex: 1,
                 display: 'flex',
                 alignItems: 'center',
@@ -36,7 +35,7 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
                 textDecoration: 'none'
             }}>
                 <span style={{ fontSize: '18px' }}>📝</span> {dict.products.getSolution}
-            </a>
+            </Link>
 
             {/* WhatsApp / Chat */}
             <a href="https://wa.me/8615011035546" target="_blank" style={{

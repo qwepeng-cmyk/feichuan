@@ -33,7 +33,7 @@ export default async function ProductDetailPage() {
                 <div className="product-breadcrumb-nav">
                     <div className="container">
                         <div className="breadcrumb-path">
-                            <a href="/">Home</a> &gt; <a href="/products">Product</a> &gt; {product.product_name_en}
+                            <Link href="/">Home</Link> &gt; <Link href="/products">Product</Link> &gt; {product.product_name_en}
                         </div>
                     </div>
                 </div>

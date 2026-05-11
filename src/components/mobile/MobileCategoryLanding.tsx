@@ -51,12 +51,12 @@ export default function MobileCategoryLanding({
             </section>
  
             {/* 2. Breadcrumb */}
-            <div className={styles.breadcrumb}>
-                <a href={l("/")}>{dict.nav.home}</a>
-                <span className={styles.breadcrumbSeparator}>/</span>
-                <a href={l("/solutions")}>{dict.nav.solutions}</a>
-                <span className={styles.breadcrumbSeparator}>/</span>
-                <span className={styles.breadcrumbActive}>{categoryName}</span>
+            <div className="cl-m-breadcrumb" style={{ fontSize: '13px', color: '#666', marginBottom: '15px' }}>
+                <Link href={l("/")}>{dict.nav.home}</Link>
+                <span style={{ margin: '0 5px' }}>&gt;</span>
+                <Link href={l("/solutions")}>{dict.nav.solutions}</Link>
+                <span style={{ margin: '0 5px' }}>&gt;</span>
+                <span>{categoryName}</span>
             </div>
 
             {/* 3. Industry Needs */}
