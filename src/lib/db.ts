@@ -8,7 +8,9 @@ if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
 }
 
-const dbPath = path.join(dataDir, 'ntet.db');
+const dbPath = process.env.DATABASE_URL 
+    ? path.resolve(process.cwd(), process.env.DATABASE_URL)
+    : path.join(dataDir, 'ntet.db');
 
 // Create database instance
 const db = new Database(dbPath, { verbose: undefined }); // Set verbose to console.log for debugging
