@@ -85,7 +85,18 @@ export default function DesktopHome({
         <main>
             {/* SCREEN 1: HERO */}
             <section className="hero">
-                <video src="/index_banner_bg_1.mp4" autoPlay loop muted playsInline></video>
+                <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    preload="auto" 
+                    poster="/index/about_bg.webp"
+                    style={{ backgroundColor: '#000' }}
+                >
+                    <source src="/index_banner_bg_2.webm" type="video/webm" />
+                    <source src="/index_banner_bg_2.mp4" type="video/mp4" />
+                </video>
                 <div className="hero-overlay"></div>
                 <div className="container-wide hero-content">
                     <h1 className="hero-title" dangerouslySetInnerHTML={{ __html: dict.home.hero.title }}></h1>
