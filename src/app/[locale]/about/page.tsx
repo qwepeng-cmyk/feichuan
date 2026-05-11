@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
 import MobileAboutUs from '@/components/mobile/MobileAboutUs';
 import { getDictionary } from '@/i18n/getDictionary';
@@ -36,17 +38,14 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
                             height: '40vh',
                             minHeight: '320px',
                             maxHeight: '450px',
-                            backgroundImage: "url('/about/about_banner.jpg')",
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
                             display: 'flex',
                             alignItems: 'center',
                             position: 'relative',
                             overflow: 'hidden',
                             borderBottom: '1px solid #e1e8f0'
                         }}>
-                            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                            <Image src="/about/about_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.about.bannerTitle} />
+                            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ maxWidth: '800px' }}>
                                     <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.about.bannerTitle}</h1>
@@ -66,12 +65,13 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
                                             width: '100%',
                                             aspectRatio: '16/9',
                                             backgroundColor: '#f8fafc',
-                                            backgroundImage: 'url("/about/about_company.jpg")',
-                                            backgroundSize: 'cover',
-                                            backgroundPosition: 'center',
+                                            position: 'relative',
                                             borderRadius: '4px',
+                                            overflow: 'hidden',
                                             boxShadow: '0 20px 40px rgba(0,0,0,0.05)'
-                                        }}></div>
+                                        }}>
+                                            <Image src="/about/about_company.jpg" fill style={{ objectFit: 'cover' }} alt={dict.about.companyProfile} />
+                                        </div>
                                     </div>
                                     <div className="profile-text-content">
                                         <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '30px', position: 'relative' }}>
