@@ -132,9 +132,14 @@ export default async function ContactPage({ params }: { params: { locale: Locale
             `}} />
 
             <Suspense fallback={
-                <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
-                    <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
-                    <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+                <div style={{ paddingTop: '112px', minHeight: '100vh', backgroundColor: '#fff' }}>
+                    <div style={{ height: '35vh', backgroundColor: '#f5f5f5' }} />
+                    <div className="container" style={{ padding: '80px 15px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1fr', gap: '40px' }}>
+                            <div style={{ height: '500px', backgroundColor: '#f9f9f9' }} />
+                            <div style={{ height: '500px', backgroundColor: '#f4f7fa' }} />
+                        </div>
+                    </div>
                 </div>
             }>
                 <ContactContent locale={locale} dict={dict} />

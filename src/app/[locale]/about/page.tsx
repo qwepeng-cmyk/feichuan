@@ -178,9 +178,18 @@ export default async function AboutPage({ params }: { params: { locale: Locale }
             `}} />
 
             <Suspense fallback={
-                <div style={{ padding: '150px 0', textAlign: 'center', opacity: 0.5 }}>
-                    <div style={{ width: '50px', height: '50px', border: '3px solid #f3f3f3', borderTop: '3px solid #315ba4', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }} />
-                    <style dangerouslySetInnerHTML={{ __html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }' }} />
+                <div style={{ paddingTop: '112px', minHeight: '100vh', backgroundColor: '#fff' }}>
+                    <div style={{ height: '40vh', backgroundColor: '#f5f5f5' }} />
+                    <div className="container" style={{ padding: '80px 15px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px' }}>
+                            <div style={{ aspectRatio: '16/9', backgroundColor: '#f5f5f5' }} />
+                            <div>
+                                <div style={{ height: '40px', backgroundColor: '#f0f0f0', width: '60%', marginBottom: '30px' }} />
+                                <div style={{ height: '20px', backgroundColor: '#f5f5f5', width: '90%', marginBottom: '15px' }} />
+                                <div style={{ height: '20px', backgroundColor: '#f5f5f5', width: '80%', marginBottom: '15px' }} />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             }>
                 <AboutContent locale={locale} dict={dict} />
