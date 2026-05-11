@@ -156,17 +156,14 @@ export default function SolutionCenterClient({
                         height: '40vh',
                         minHeight: '320px',
                         maxHeight: '450px',
-                        backgroundImage: "url('/solutions/solution_center_banner_01.png')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
                         position: 'relative',
                         overflow: 'hidden',
                         display: 'flex',
                         alignItems: 'center',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                        <Image src="/solutions/solution_center_banner_01.png" fill style={{ objectFit: 'cover' }} priority alt={dict.solutions.bannerTitle} />
+                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
                                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.solutions.bannerTitle}</h1>

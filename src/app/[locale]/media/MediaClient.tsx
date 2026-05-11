@@ -51,17 +51,14 @@ export default function MediaClient({
                         height: '40vh',
                         minHeight: '320px',
                         maxHeight: '450px', 
-                        backgroundImage: "url('/media/media_banner.jpg')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
                         display: 'flex',
                         alignItems: 'center',
                         position: 'relative',
                         overflow: 'hidden',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                        <Image src="/media/media_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.media.bannerTitle} />
+                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>

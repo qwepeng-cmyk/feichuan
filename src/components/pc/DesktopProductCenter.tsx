@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { getAllProducts } from '@/lib/products';
 import InquiryForm from '@/components/products/InquiryForm';
 import CategoryNav from '@/components/products/CategoryNav';
@@ -140,16 +141,14 @@ export default function DesktopProductCenter({
                 height: '40vh',
                 minHeight: '320px',
                 maxHeight: '450px',
-                backgroundImage: "url('/products/products_center_banner.jpg')",
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
                 position: 'relative',
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center'
             }}>
+                <Image src="/products/products_center_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.products.bannerTitle} />
                 {/* Dark overlay for text readability */}
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 0 }}></div>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '750px' }}>
                         <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.products.bannerTitle}</h1>
