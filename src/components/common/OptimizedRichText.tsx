@@ -5,7 +5,6 @@ import React from 'react';
 interface OptimizedRichTextProps {
   html: string;
   className?: string;
-  style?: React.CSSProperties;
 }
 
 /**
@@ -13,7 +12,7 @@ interface OptimizedRichTextProps {
  * to route them through Next.js's Image Optimization API.
  * This ensures even body images are converted to WebP and resized.
  */
-export default function OptimizedRichText({ html, className, style }: OptimizedRichTextProps) {
+export default function OptimizedRichText({ html, className }: OptimizedRichTextProps) {
   if (!html) return null;
 
   // Regex to find <img> tags and extract their src
@@ -28,16 +27,15 @@ export default function OptimizedRichText({ html, className, style }: OptimizedR
     // w=1080 is a reasonable default for high-quality body images
     // q=75 is the default Next.js quality
     const optimizedSrc = `/_next/image?url=${encodeURIComponent(src)}&w=1080&q=75`;
-    
+
     // Return the new img tag with lazy loading and responsive styles
     return `<img${before}src="${optimizedSrc}"${after} loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" />`;
   });
 
   return (
-    <div 
+    <div
       className={className}
-      style={style}
-      dangerouslySetInnerHTML={{ __html: optimizedHtml }} 
+      dangerouslySetInnerHTML={{ __html: optimizedHtml }}
     />
   );
 }

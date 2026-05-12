@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import React, { Suspense } from 'react';
-export const revalidate = 3600; 
+export const revalidate = 3600;
 import { getCaseByHandle, getAllCaseHandles } from '@/lib/cases';
 import MobileCaseDetail from '@/components/mobile/MobileCaseDetail';
 import { getDictionary } from '@/i18n/getDictionary';
@@ -48,7 +48,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                   <div style={{ fontSize: '1.8rem', color: '#666', lineHeight: 1.8, marginBottom: '40px', paddingLeft: '20px', borderLeft: '4px solid #315ba4' }}>
                     {description}
                   </div>
-                  
+
                   {caseData.image && (
                     <div style={{ width: '100%', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
                       <img src={caseData.image} alt={name} style={{ width: '100%', display: 'block' }} />
@@ -70,12 +70,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
       </div>
 
       <div className="mobile_only">
-        <MobileCaseDetail 
-          caseData={caseData} 
-          recommendedProducts={caseData.recommendedProducts || []} 
-          locale={locale} 
-          dict={dict} 
-        />
+        <MobileCaseDetail caseData={caseData} locale={locale} dict={dict} />
       </div>
     </>
   );
@@ -87,7 +82,8 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .mobile_only { display: none !important; }
         .pc_only { display: block !important; }
         @media (max-width: 991px) {
@@ -99,15 +95,15 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
       <Suspense fallback={
         <div style={{ paddingTop: '112px', minHeight: '100vh', backgroundColor: '#fff' }}>
           <div className="container" style={{ padding: '60px 15px' }}>
-             <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-                {/* Title Skeleton */}
-                <div style={{ height: '50px', backgroundColor: '#f0f0f0', width: '80%', marginBottom: '30px' }} />
-                {/* Desc Skeleton */}
-                <div style={{ height: '24px', backgroundColor: '#f5f5f5', width: '100%', marginBottom: '15px' }} />
-                <div style={{ height: '24px', backgroundColor: '#f5f5f5', width: '90%', marginBottom: '40px' }} />
-                {/* Image Skeleton */}
-                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', borderRadius: '8px' }} />
-             </div>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+              {/* Title Skeleton */}
+              <div style={{ height: '50px', backgroundColor: '#f0f0f0', width: '80%', marginBottom: '30px' }} />
+              {/* Desc Skeleton */}
+              <div style={{ height: '24px', backgroundColor: '#f5f5f5', width: '100%', marginBottom: '15px' }} />
+              <div style={{ height: '24px', backgroundColor: '#f5f5f5', width: '90%', marginBottom: '40px' }} />
+              {/* Image Skeleton */}
+              <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', borderRadius: '8px' }} />
+            </div>
           </div>
         </div>
       }>

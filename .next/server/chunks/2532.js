@@ -1,1 +1,0 @@
-"use strict";exports.id=2532,exports.ids=[2532],exports.modules={92532:(e,t,s)=>{s.r(t),s.d(t,{$$typeof:()=>c,__esModule:()=>r,default:()=>d});let o=(0,s(86843).createProxy)(String.raw`/Users/mattchyi/Documents/Project/fc/src/components/pc/DesktopHome.tsx`),{__esModule:r,$$typeof:c}=o,d=o.default}};

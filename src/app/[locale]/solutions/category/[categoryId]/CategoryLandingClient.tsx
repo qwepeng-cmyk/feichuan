@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import categoryLandingData from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';
@@ -120,7 +119,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                   {categoryName}
                 </h1>
                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
-                   {dict.solutions.bannerSubtitle || dict.solutions.bannerDesc}
+                  {dict.solutions.bannerSubtitle || dict.solutions.bannerDesc}
                 </p>
               </div>
             </div>

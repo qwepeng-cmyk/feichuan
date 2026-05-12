@@ -29,35 +29,11 @@
       "static/css/app/[locale]/products/[handle]/page.css",
       "static/chunks/app/[locale]/products/[handle]/page.js"
     ],
-    "/[locale]/solutions/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[locale]/solutions/page.css",
-      "static/chunks/app/[locale]/solutions/page.js"
-    ],
     "/[locale]/cases/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/[locale]/cases/page.css",
       "static/chunks/app/[locale]/cases/page.js"
-    ],
-    "/[locale]/media/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[locale]/media/page.css",
-      "static/chunks/app/[locale]/media/page.js"
-    ],
-    "/[locale]/about/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[locale]/about/page.css",
-      "static/chunks/app/[locale]/about/page.js"
-    ],
-    "/[locale]/solutions/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/[locale]/solutions/[id]/page.css",
-      "static/chunks/app/[locale]/solutions/[id]/page.js"
     ],
     "/[locale]/cases/[handle]/page": [
       "static/chunks/webpack.js",
@@ -65,23 +41,28 @@
       "static/css/app/[locale]/cases/[handle]/page.css",
       "static/chunks/app/[locale]/cases/[handle]/page.js"
     ],
-    "/[locale]/media/[id]/page": [
+    "/[locale]/media/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[locale]/media/[id]/page.css",
-      "static/chunks/app/[locale]/media/[id]/page.js"
+      "static/css/app/[locale]/media/page.css",
+      "static/chunks/app/[locale]/media/page.js"
     ],
-    "/[locale]/contact/page": [
+    "/[locale]/solutions/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[locale]/contact/page.css",
-      "static/chunks/app/[locale]/contact/page.js"
+      "static/css/app/[locale]/solutions/page.css",
+      "static/chunks/app/[locale]/solutions/page.js"
     ],
-    "/[locale]/solutions/category/[categoryId]/page": [
+    "/[locale]/solutions/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/[locale]/solutions/category/[categoryId]/page.css",
-      "static/chunks/app/[locale]/solutions/category/[categoryId]/page.js"
+      "static/css/app/[locale]/solutions/[id]/page.css",
+      "static/chunks/app/[locale]/solutions/[id]/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }

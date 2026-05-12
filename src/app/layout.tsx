@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
@@ -33,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
-        <NextTopLoader 
+        <NextTopLoader
           color="#315ba4"
           initialPosition={0.08}
           crawlSpeed={200}
