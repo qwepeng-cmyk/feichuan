@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import categoryLandingData from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';

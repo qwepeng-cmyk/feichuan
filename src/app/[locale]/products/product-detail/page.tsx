@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import ProductGallery from '@/components/products/ProductGallery';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';

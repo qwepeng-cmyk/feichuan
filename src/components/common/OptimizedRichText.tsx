@@ -5,6 +5,7 @@ import React from 'react';
 interface OptimizedRichTextProps {
   html: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 /**
@@ -12,7 +13,7 @@ interface OptimizedRichTextProps {
  * to route them through Next.js's Image Optimization API.
  * This ensures even body images are converted to WebP and resized.
  */
-export default function OptimizedRichText({ html, className }: OptimizedRichTextProps) {
+export default function OptimizedRichText({ html, className, style }: OptimizedRichTextProps) {
   if (!html) return null;
 
   // Regex to find <img> tags and extract their src
@@ -35,6 +36,7 @@ export default function OptimizedRichText({ html, className }: OptimizedRichText
   return (
     <div 
       className={className}
+      style={style}
       dangerouslySetInnerHTML={{ __html: optimizedHtml }} 
     />
   );
