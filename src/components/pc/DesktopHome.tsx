@@ -161,6 +161,8 @@ export default function DesktopHome({
                             <div className="pc2-image-wrap" style={{
                                 textAlign: 'center',
                                 height: '480px',
+                                minHeight: '480px',
+                                position: 'relative',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -175,6 +177,7 @@ export default function DesktopHome({
                                         justifyContent: 'center',
                                         width: '100%',
                                         height: '100%',
+                                        position: 'relative',
                                         transition: 'all 0.5s ease'
                                     }}
                                 >
