@@ -42,10 +42,10 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
 
             {/* Row 2: Sub-navigation tabs */}
             <div className={styles.subNav}>
-                <Link href={l("/")} className={`${styles.navLink} ${pathname === l("/") ? styles.active : ''}`}>{dict.mobileNav.home}</Link>
-                <Link href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) ? styles.active : ''}`}>{dict.mobileNav.product}</Link>
-                <Link href={l("/solutions")} className={`${styles.navLink} ${pathname.startsWith(l('/solutions')) ? styles.active : ''}`}>{dict.mobileNav.solutions}</Link>
-                <Link href={l("/cases")} className={`${styles.navLink} ${pathname.startsWith(l('/cases')) ? styles.active : ''}`}>{dict.mobileNav.cases}</Link>
+                <Link href={l("/")} className={`${styles.navLink} ${pathname === l("/") ? styles.active : ''}`}>{dict?.mobileNav?.home || 'HOME'}</Link>
+                <Link href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) ? styles.active : ''}`}>{dict?.mobileNav?.product || 'PRODUCTS'}</Link>
+                <Link href={l("/solutions")} className={`${styles.navLink} ${pathname.startsWith(l('/solutions')) ? styles.active : ''}`}>{dict?.mobileNav?.solutions || 'SOLUTIONS'}</Link>
+                <Link href={l("/cases")} className={`${styles.navLink} ${pathname.startsWith(l('/cases')) ? styles.active : ''}`}>{dict?.mobileNav?.cases || 'CASES'}</Link>
             </div>
 
             {/* Side Drawer Menu */}
@@ -53,13 +53,13 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
                 <div className={`${styles.drawerContent} ${menuOpen ? styles.open : ''}`} onClick={e => e.stopPropagation()}>
                     <div className={styles.drawerLinks}>
                         {[
-                            { name: dict.nav.home, href: '/' },
-                            { name: dict.nav.products, href: '/products' },
-                            { name: dict.nav.solutions, href: '/solutions' },
-                            { name: dict.nav.cases, href: '/cases' },
-                            { name: dict.nav.media, href: '/media' },
-                            { name: dict.nav.aboutUs, href: '/about' },
-                            { name: dict.nav.contact, href: '/contact' }
+                            { name: dict?.nav?.home || 'Home', href: '/' },
+                            { name: dict?.nav?.products || 'Products', href: '/products' },
+                            { name: dict?.nav?.solutions || 'Solutions', href: '/solutions' },
+                            { name: dict?.nav?.cases || 'Cases', href: '/cases' },
+                            { name: dict?.nav?.media || 'News', href: '/media' },
+                            { name: dict?.nav?.aboutUs || 'About Us', href: '/about' },
+                            { name: dict?.nav?.contact || 'Contact', href: '/contact' }
                         ].map((link) => (
                             <Link href={l(link.href)} key={link.href} className={styles.drawerLink}>
                                 <span>{link.name}</span>

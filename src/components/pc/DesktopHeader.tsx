@@ -128,12 +128,12 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
 
                     <nav className="main-nav" style={{ display: 'flex', height: '100%' }}>
                         <div className={`nav-item ${pathname === l("/") ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/")} className="nav-link">{dict.nav.home}</Link>
+                            <Link href={l("/")} className="nav-link">{dict?.nav?.home || 'Home'}</Link>
                         </div>
 
 
                         <div className={`nav-item ${pathname.startsWith(l('/products')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/products")} className="nav-link">{dict.nav.products}</Link>
+                            <Link href={l("/products")} className="nav-link">{dict?.nav?.products || 'Products'}</Link>
                             <div className="mega-menu">
                                 <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '50px', padding: '25px 0' }}>
                                     {/* Column 1: UAV Systems */}
@@ -239,7 +239,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         </div>
 
                         <div className={`nav-item ${pathname.startsWith(l('/solutions')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/solutions")} className="nav-link">{dict.nav.solutions}</Link>
+                            <Link href={l("/solutions")} className="nav-link">{dict?.nav?.solutions || 'Solutions'}</Link>
                             <div className="mega-menu">
                                 <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '60px', padding: '25px 0' }}>
                                     <div className="mega-column">
@@ -281,17 +281,17 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         </div>
 
                         <div className={`nav-item ${pathname.startsWith(l('/cases')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/cases")} className="nav-link">{dict.nav.cases}</Link>
+                            <Link href={l("/cases")} className="nav-link">{dict?.nav?.cases || 'Cases'}</Link>
                         </div>
                         <div className={`nav-item ${pathname.startsWith(l('/media')) || pathname.startsWith(l('/news')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/media")} className="nav-link">{dict.nav.media}</Link>
+                            <Link href={l("/media")} className="nav-link">{dict?.nav?.media || 'News'}</Link>
                         </div>
                         <div className={`nav-item ${pathname.startsWith(l('/about')) || pathname.startsWith(l('/contact')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link href={l("/about")} className="nav-link">{dict.nav.about}</Link>
+                            <Link href={l("/about")} className="nav-link">{dict?.nav?.about || 'About'}</Link>
                             <div className="dropdown-menu" style={{ left: 'auto', right: 0 }}>
                                 <ul className="dropdown-list">
-                                    <li><Link href={l("/about")}>{dict.nav.aboutUs}</Link></li>
-                                    <li><Link href={l("/contact")}>{dict.nav.contact}</Link></li>
+                                    <li><Link href={l("/about")}>{dict?.nav?.aboutUs || 'About Us'}</Link></li>
+                                    <li><Link href={l("/contact")}>{dict?.nav?.contact || 'Contact'}</Link></li>
                                 </ul>
                             </div>
                         </div>
