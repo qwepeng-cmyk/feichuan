@@ -1,4 +1,5 @@
 import { Inter, Outfit } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
 

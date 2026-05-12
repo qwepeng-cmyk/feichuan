@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import categoryLandingData from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import InquiryForm from '@/components/products/InquiryForm';

@@ -122,7 +122,6 @@ export default function SolutionDetailClient({
               <OptimizedRichText
                 className="rich-content"
                 html={detailHtml}
-                style={{ fontSize: '1.8rem', lineHeight: '1.8' }}
               />
             </div>
           </section>

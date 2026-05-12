@@ -70,7 +70,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
       </div>
 
       <div className="mobile_only">
-        <MobileCaseDetail caseData={caseData} locale={locale} dict={dict} />
+        <MobileCaseDetail caseData={caseData} recommendedProducts={[]} locale={locale} dict={dict} />
       </div>
     </>
   );
