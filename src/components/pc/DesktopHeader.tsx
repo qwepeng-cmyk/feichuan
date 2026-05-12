@@ -253,19 +253,19 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link href={l("/solutions/category/02_InfrastructureProtection")}>{dict.megaMenu.infrastructure}</Link></h3>
                                         <ul className="mega-list">
-                                            <li><Link href={l("/solutions/chemical-plant-protection")}>{dict.megaMenu.chemicalPlantProtection || 'Chemical Plant Protection'}</Link></li>
-                                            <li><Link href={l("/solutions/oil-production-base-protection")}>{dict.megaMenu.oilProductionBaseProtection || 'Oil Production Base Protection'}</Link></li>
-                                            <li><Link href={l("/solutions/power-generation-facility-anti-uav")}>{dict.megaMenu.powerGenerationFacilityAntiUAV || 'Power Generation Facility Anti-UAV'}</Link></li>
-                                            <li><Link href={l("/solutions/hydroelectric-dam-protection")}>{dict.megaMenu.hydroelectricDamProtection || 'Hydroelectric Dam Protection'}</Link></li>
-                                            <li><Link href={l("/solutions/airport-anti-uav")}>{dict.megaMenu.airportAntiUAV || 'Airport Anti-UAV Application'}</Link></li>
+                                            <li><Link href={l("/solutions/chemical-plant-protection")}>{dict.megaMenu.chemicalPlantProtection}</Link></li>
+                                            <li><Link href={l("/solutions/oil-production-base-protection")}>{dict.megaMenu.oilProductionBaseProtection}</Link></li>
+                                            <li><Link href={l("/solutions/power-generation-facility-anti-uav")}>{dict.megaMenu.powerGenerationFacilityAntiUAV}</Link></li>
+                                            <li><Link href={l("/solutions/hydroelectric-dam-protection")}>{dict.megaMenu.hydroelectricDamProtection}</Link></li>
+                                            <li><Link href={l("/solutions/airport-anti-uav")}>{dict.megaMenu.airportAntiUAV}</Link></li>
                                         </ul>
                                     </div>
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link href={l("/solutions/category/03_KeyAreaSecurity")}>{dict.megaMenu.keyArea}</Link></h3>
                                         <ul className="mega-list">
-                                            <li><Link href={l("/solutions/judicial-sector-security")}>{dict.megaMenu.judicialSectorSecurity || 'Judicial Sector Security'}</Link></li>
-                                            <li><Link href={l("/solutions/sports-event-security")}>{dict.megaMenu.sportsEventSecurity || 'Large Sports Event Security'}</Link></li>
-                                            <li><Link href={l("/solutions/airport-security-protection")}>{dict.megaMenu.airportSecurityProtection || 'Airport Security Protection'}</Link></li>
+                                            <li><Link href={l("/solutions/judicial-sector-security")}>{dict.megaMenu.judicialSectorSecurity}</Link></li>
+                                            <li><Link href={l("/solutions/sports-event-security")}>{dict.megaMenu.sportsEventSecurity}</Link></li>
+                                            <li><Link href={l("/solutions/airport-security-protection")}>{dict.megaMenu.airportSecurityProtection}</Link></li>
                                         </ul>
                                     </div>
                                     <div className="mega-column">
@@ -273,7 +273,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                         <ul className="mega-list">
                                             <li><Link href={l("/solutions/emergency-communication-uav")}>{dict.megaMenu.emergencyComm}</Link></li>
                                             <li><Link href={l("/solutions/emergency-reconnaissance-uav")}>{dict.megaMenu.emergencyRescue}</Link></li>
-                                            <li><Link href={l("/solutions/emergency-lighting-uav")}>{dict.megaMenu.emergencyLightingUAV || 'Emergency Lighting UAV'}</Link></li>
+                                            <li><Link href={l("/solutions/emergency-lighting-uav")}>{dict.megaMenu.emergencyLightingUAV}</Link></li>
                                         </ul>
                                     </div>
                                 </div>

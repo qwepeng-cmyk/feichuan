@@ -126,14 +126,14 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>{d.contactMethod}</label>
-                    <select 
+                    <select
                         className={styles.formSelect}
                         value={formData.contactMethod}
                         onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
                     >
-                        <option>WhatsApp</option>
-                        <option>Phone</option>
-                        <option>WeChat</option>
+                        <option value="WhatsApp">{d.contactMethods?.whatsapp ?? 'WhatsApp'}</option>
+                        <option value="Phone">{d.contactMethods?.phone ?? 'Phone'}</option>
+                        <option value="WeChat">{d.contactMethods?.wechat ?? 'WeChat'}</option>
                     </select>
                 </div>
 
@@ -147,18 +147,58 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                         value={formData.countryCode}
                         onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
                     >
-                        <option value="">Select Code...</option>
-                        <optgroup label="Asia & Middle East">
-                            <option value="+86">China (+86)</option>
-                            <option value="+971">UAE (+971)</option>
-                            <option value="+966">Saudi Arabia (+966)</option>
+                        <option value="">{d.selectCode ?? 'Select Code...'}</option>
+                        <optgroup label={d.regions?.asia ?? 'Asia & Middle East'}>
+                            <option value="+86">{d.countries?.china ?? 'China'} (+86)</option>
+                            <option value="+971">{d.countries?.uae ?? 'UAE'} (+971)</option>
+                            <option value="+966">{d.countries?.saudiArabia ?? 'Saudi Arabia'} (+966)</option>
+                            <option value="+98">{d.countries?.iran ?? 'Iran'} (+98)</option>
+                            <option value="+90">{d.countries?.turkey ?? 'Turkey'} (+90)</option>
+                            <option value="+974">{d.countries?.qatar ?? 'Qatar'} (+974)</option>
+                            <option value="+968">{d.countries?.oman ?? 'Oman'} (+968)</option>
+                            <option value="+965">{d.countries?.kuwait ?? 'Kuwait'} (+965)</option>
+                            <option value="+964">{d.countries?.iraq ?? 'Iraq'} (+964)</option>
+                            <option value="+91">{d.countries?.india ?? 'India'} (+91)</option>
+                            <option value="+81">{d.countries?.japan ?? 'Japan'} (+81)</option>
+                            <option value="+82">{d.countries?.southKorea ?? 'South Korea'} (+82)</option>
+                            <option value="+65">{d.countries?.singapore ?? 'Singapore'} (+65)</option>
+                            <option value="+60">{d.countries?.malaysia ?? 'Malaysia'} (+60)</option>
+                            <option value="+998">{d.countries?.uzbekistan ?? 'Uzbekistan'} (+998)</option>
                         </optgroup>
-                        <optgroup label="Europe & CIS">
-                            <option value="+7">Russia / Kazakhstan (+7)</option>
-                            <option value="+44">United Kingdom (+44)</option>
+                        <optgroup label={d.regions?.europe ?? 'Europe & CIS'}>
+                            <option value="+7">{d.countries?.russiaKazakhstan ?? 'Russia / Kazakhstan'} (+7)</option>
+                            <option value="+375">{d.countries?.belarus ?? 'Belarus'} (+375)</option>
+                            <option value="+44">{d.countries?.uk ?? 'United Kingdom'} (+44)</option>
+                            <option value="+49">{d.countries?.germany ?? 'Germany'} (+49)</option>
+                            <option value="+33">{d.countries?.france ?? 'France'} (+33)</option>
+                            <option value="+39">{d.countries?.italy ?? 'Italy'} (+39)</option>
+                            <option value="+34">{d.countries?.spain ?? 'Spain'} (+34)</option>
                         </optgroup>
-                        <option value="+1">USA / Canada (+1)</option>
-                        <option value="other">Other</option>
+                        <optgroup label={d.regions?.southAmerica ?? 'South America'}>
+                            <option value="+55">{d.countries?.brazil ?? 'Brazil'} (+55)</option>
+                            <option value="+54">{d.countries?.argentina ?? 'Argentina'} (+54)</option>
+                            <option value="+57">{d.countries?.colombia ?? 'Colombia'} (+57)</option>
+                            <option value="+56">{d.countries?.chile ?? 'Chile'} (+56)</option>
+                            <option value="+51">{d.countries?.peru ?? 'Peru'} (+51)</option>
+                            <option value="+593">{d.countries?.ecuador ?? 'Ecuador'} (+593)</option>
+                            <option value="+58">{d.countries?.venezuela ?? 'Venezuela'} (+58)</option>
+                            <option value="+52">{d.countries?.mexico ?? 'Mexico'} (+52)</option>
+                        </optgroup>
+                        <optgroup label={d.regions?.africa ?? 'Africa'}>
+                            <option value="+20">{d.countries?.egypt ?? 'Egypt'} (+20)</option>
+                            <option value="+213">{d.countries?.algeria ?? 'Algeria'} (+213)</option>
+                            <option value="+212">{d.countries?.morocco ?? 'Morocco'} (+212)</option>
+                            <option value="+234">{d.countries?.nigeria ?? 'Nigeria'} (+234)</option>
+                            <option value="+27">{d.countries?.southAfrica ?? 'South Africa'} (+27)</option>
+                            <option value="+254">{d.countries?.kenya ?? 'Kenya'} (+254)</option>
+                            <option value="+251">{d.countries?.ethiopia ?? 'Ethiopia'} (+251)</option>
+                        </optgroup>
+                        <optgroup label={d.regions?.northAmerica ?? 'North America & Oceania'}>
+                            <option value="+1">{d.countries?.usaCanada ?? 'USA / Canada'} (+1)</option>
+                            <option value="+61">{d.countries?.australia ?? 'Australia'} (+61)</option>
+                            <option value="+64">{d.countries?.newZealand ?? 'New Zealand'} (+64)</option>
+                        </optgroup>
+                        <option value="other">{d.regions?.other ?? 'Other'}</option>
                     </select>
                 </div>
 

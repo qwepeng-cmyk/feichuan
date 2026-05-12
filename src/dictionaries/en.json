@@ -308,7 +308,16 @@
     "borderPatrol": "Border Patrol & Security",
     "infrastructure": "Critical Infrastructure Protection",
     "keyArea": "Key Area Security",
-    "emergencyDisaster": "Emergency & Disaster Rescue"
+    "emergencyDisaster": "Emergency & Disaster Rescue",
+    "chemicalPlantProtection": "Chemical Plant Protection",
+    "oilProductionBaseProtection": "Oil Production Base Protection",
+    "powerGenerationFacilityAntiUAV": "Power Generation Facility Anti-UAV",
+    "hydroelectricDamProtection": "Hydroelectric Dam Protection",
+    "airportAntiUAV": "Airport Anti-UAV Application",
+    "judicialSectorSecurity": "Judicial Sector Security",
+    "sportsEventSecurity": "Large Sports Event Security",
+    "airportSecurityProtection": "Airport Security Protection",
+    "emergencyLightingUAV": "Emergency Lighting UAV"
   },
   "solutionCategories": {
     "borderPatrol": "Border Patrol",

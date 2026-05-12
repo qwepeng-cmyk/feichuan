@@ -344,7 +344,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                         cursor: isSending ? 'not-allowed' : 'pointer'
                     }}
                 >
-                    {isSending ? 'Sending...' : d.submit}
+                    {isSending ? d.submitting : d.submit}
                 </button>
             </form>
         </div>
