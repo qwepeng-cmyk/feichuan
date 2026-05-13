@@ -105,36 +105,36 @@ export const homeCases = [
         title: "Airport Low-Altitude Security",
         title_ru: "Безопасность аэропорта на малых высотах",
         handle: "airport-security-application",
-        img: "/cases/机场低空安防应用/main.png"
+        img: "/cases/airport-security-application/main.webp"
     },
     {
         title: "Pakistan Power Plant Anti-UAV",
         title_ru: "Защита электростанции в Пакистане от БПЛА",
         handle: "pakistan-power-plant-anti-uav",
-        img: "/cases/巴基斯坦某电厂反无案例/main.png"
+        img: "/cases/pakistan-power-plant-anti-uav/main.webp"
     },
     {
         title: "Asian Games Security",
         title_ru: "Обеспечение безопасности Азиатских игр",
         handle: "asian-games-security",
-        img: "/cases/亚运会低空安防应用/main.png"
+        img: "/cases/asian-games-security/main.webp"
     },
     {
         title: "Water Conservancy Security",
         title_ru: "Безопасность объектов водного хозяйства",
         handle: "water-conservancy-security",
-        img: "/cases/水利设施低空安保/main.png"
+        img: "/cases/water-conservancy-security/main.webp"
     },
     {
         title: "Brazil Refinery Anti-UAV",
         title_ru: "Защита НПЗ в Бразилии от БПЛА",
         handle: "brazil-refinery-anti-uav",
-        img: "/cases/巴西某炼油厂反无案例/main.png"
+        img: "/cases/brazil-refinery-anti-uav/main.webp"
     },
     {
         title: "Nigeria Factory Anti-UAV",
         title_ru: "Защита завода в Нигерии от БПЛА",
         handle: "nigeria-factory-anti-uav",
-        img: "/cases/尼日利亚某集团工厂反无案例/main.png"
+        img: "/cases/nigeria-factory-anti-uav/main.webp"
     }
 ];
