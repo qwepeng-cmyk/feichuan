@@ -24,9 +24,12 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
     notFound();
   }
 
-  const name = locale === 'ru' ? caseData.title_ru : caseData.title;
-  const description = locale === 'ru' ? caseData.description_ru : caseData.description;
-  const detailHtml = locale === 'ru' ? caseData.detail_html_ru : caseData.detail_html;
+  const name = caseData[`title_${locale}`] || caseData.title_en || caseData.title;
+  const description = caseData[`description_${locale}`] || caseData.description_en || caseData.description;
+  const detailHtml = caseData[`detail_html_${locale}`] || caseData.detail_html_en || caseData.detail_html;
+  const descriptionParagraphs = typeof description === 'string'
+    ? description.split('\n').filter((paragraph: string) => paragraph.trim())
+    : [];
 
   return (
     <>
@@ -46,7 +49,11 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                 <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
                   <h1 style={{ fontSize: '4.2rem', fontWeight: 900, color: '#333', marginBottom: '30px', lineHeight: 1.2 }}>{name}</h1>
                   <div style={{ fontSize: '1.8rem', color: '#666', lineHeight: 1.8, marginBottom: '40px', paddingLeft: '20px', borderLeft: '4px solid #315ba4' }}>
-                    {description}
+                    {descriptionParagraphs.length > 0
+                      ? descriptionParagraphs.map((paragraph: string, idx: number) => (
+                          <p key={idx} style={{ margin: idx === descriptionParagraphs.length - 1 ? 0 : '0 0 12px' }}>{paragraph}</p>
+                        ))
+                      : description}
                   </div>
 
                   {caseData.image && (
@@ -58,13 +65,15 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
               </div>
             </section>
 
-            <section className="case-content" style={{ padding: '80px 0', background: '#f8fafc' }}>
-              <div className="container">
-                <div style={{ maxWidth: '1000px', margin: '0 auto', background: '#fff', padding: '60px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                  <OptimizedRichText className="rich-content" html={detailHtml || ''} />
+            {detailHtml && (
+              <section className="case-content" style={{ padding: '80px 0', background: '#f8fafc' }}>
+                <div className="container">
+                  <div style={{ maxWidth: '1000px', margin: '0 auto', background: '#fff', padding: '60px', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                    <OptimizedRichText className="rich-content" html={detailHtml} />
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            )}
           </main>
         </div>
       </div>
