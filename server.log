@@ -5,64 +5,120 @@
    ▲ Next.js 14.1.0
    - Local:        http://localhost:3000
 
- ✓ Ready in 1179ms
- ⨯ Error: Cannot find module '/Users/mattchyi/Documents/Project/fc/.next/server/app/products/page.js'
-Require stack:
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next
-    at Function.<anonymous> (node:internal/modules/cjs/loader:1383:15)
-    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:55:36
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
-    at Function._load (node:internal/modules/cjs/loader:1192:37)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
-    at Module.<anonymous> (node:internal/modules/cjs/loader:1463:12)
-    at mod.require (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:65:28)
-    at require (node:internal/modules/helpers:147:16) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next'
-  ]
+ ✓ Ready in 745ms
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at y (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:2570)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Array.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146956)
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at c (/Users/mattchyi/Documents/Project/fc/.next/server/app/[locale]/page.js:1:30142)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:588:17)
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at y (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:2570)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Array.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:588:17)
+[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '4074211984'
 }
- ⨯ Error: Cannot find module '/Users/mattchyi/Documents/Project/fc/.next/server/pages/_error.js'
-Require stack:
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js
-- /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next
-    at Function.<anonymous> (node:internal/modules/cjs/loader:1383:15)
-    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:55:36
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
-    at Function._load (node:internal/modules/cjs/loader:1192:37)
-    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
-    at Module.<anonymous> (node:internal/modules/cjs/loader:1463:12)
-    at mod.require (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require-hook.js:65:28)
-    at require (node:internal/modules/helpers:147:16) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/require.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next-server.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/next.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/server/lib/start-server.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/cli/next-start.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/lib/commands.js',
-    '/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/bin/next'
-  ]
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at c (/Users/mattchyi/Documents/Project/fc/.next/server/app/[locale]/page.js:1:30142)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:588:17)
+ ⨯ TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at y (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:2570)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Array.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146956)
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at y (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:2570)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Array.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146956)
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at c (/Users/mattchyi/Documents/Project/fc/.next/server/app/[locale]/page.js:1:30142)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:588:17)
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at y (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:2570)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Array.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:588:17)
+[Error: An error occurred in the Server Components render. The specific message is omitted in production builds to avoid leaking sensitive details. A digest property is included on this error instance which may provide additional details about the nature of the error.] {
+  digest: '4074211984'
 }
+TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at c (/Users/mattchyi/Documents/Project/fc/.next/server/app/[locale]/page.js:1:30142)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Object.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:132112)
+    at listOnTimeout (node:internal/timers:588:17)
+ ⨯ TypeError: t[e] is not a function
+    at n (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:4292)
+    at y (/Users/mattchyi/Documents/Project/fc/.next/server/chunks/732.js:9:2570)
+    at em (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:131226)
+    at /Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:142926
+    at Array.toJSON (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146504)
+    at stringify (<anonymous>)
+    at eR (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:134889)
+    at eP (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:135332)
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Timeout._onTimeout (/Users/mattchyi/Documents/Project/fc/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:146956)

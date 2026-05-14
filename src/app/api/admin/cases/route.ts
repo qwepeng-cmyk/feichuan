@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 
 export async function GET() {
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
             body.description_ru || '',
             JSON.stringify(body)
         );
+        revalidateTag('cases');
         return NextResponse.json({ success: true, handle });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Create failed' }, { status: 500 });

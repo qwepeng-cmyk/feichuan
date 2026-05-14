@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import fs from 'fs';
 import path from 'path';
@@ -41,6 +42,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         );
         
         syncMediaToJson();
+        revalidateTag('media');
         return NextResponse.json({ success: true });
     } catch (e) {
         return NextResponse.json({ success: false }, { status: 500 });
@@ -51,6 +53,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     try {
         db.prepare('DELETE FROM media WHERE id = ?').run(params.id);
         syncMediaToJson();
+        revalidateTag('media');
         return NextResponse.json({ success: true });
     } catch (e) {
         return NextResponse.json({ success: false }, { status: 500 });

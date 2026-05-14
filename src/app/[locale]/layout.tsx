@@ -7,7 +7,7 @@ import { getDictionary } from "@/i18n/getDictionary";
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
   const { locale } = params;
-  const baseUrl = 'https://n-tetbj.com'; // 请确认你的正式域名
+  const baseUrl = 'https://n-tet.com';
   
   return {
     metadataBase: new URL(baseUrl),

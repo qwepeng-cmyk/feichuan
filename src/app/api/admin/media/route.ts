@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import fs from 'fs';
 import path from 'path';
@@ -33,6 +34,7 @@ export async function POST(request: Request) {
         );
         
         syncMediaToJson();
+        revalidateTag('media');
         return NextResponse.json({ success: true, handle });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Create failed' }, { status: 500 });

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
@@ -48,6 +49,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
             params.id
         );
         
+        revalidateTag('solutions');
         return NextResponse.json({ success: true });
     } catch (e) {
         return NextResponse.json({ success: false }, { status: 500 });
@@ -57,6 +59,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
     try {
         db.prepare('DELETE FROM solutions WHERE handle = ?').run(params.id);
+        revalidateTag('solutions');
         return NextResponse.json({ success: true });
     } catch (e) {
         return NextResponse.json({ success: false }, { status: 500 });

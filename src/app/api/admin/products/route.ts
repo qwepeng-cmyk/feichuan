@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 
 export async function GET() {
@@ -42,6 +43,7 @@ export async function POST(request: Request) {
             body.main_image || '',
             JSON.stringify(body)
         );
+        revalidateTag('products');
         return NextResponse.json({ success: true, handle });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Create failed' }, { status: 500 });
