@@ -278,7 +278,7 @@ export default function CasesPageClient({
                                 </>
                             ) : (
                                 <div style={{ textAlign: 'center', padding: '120px 0', background: '#fff', borderRadius: '8px' }}>
-                                    <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>馃攳</div>
+                                    <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>...</div>
                                     <div style={{ fontSize: '1.8rem', color: '#999' }}>{dict.cases.noResults || 'No cases found matching your criteria.'}</div>
                                 </div>
                             )}

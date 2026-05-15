@@ -11,7 +11,7 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <Image src="/logo1.webp" alt="Logo" width={140} height={48} style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
                 
-                {/* Consultation 鎸夐挳 */}
+                {/* Consultation button */}
                 <Link prefetch={false} href={l("/contact")} style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -28,14 +28,14 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                     margin: '0 auto 40px',
                     width: '90%'
                 }}>
-                    <span style={{ fontSize: '20px' }}>馃帶</span> {dict.contact.consultation}
+                    {dict.contact.consultation}
                 </Link>
             </div>
 
-            {/* 璇︾粏閾炬帴鍖哄煙 */}
+            {/* Footer link sections */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
                 
-                {/* About Us 娈佃惤 */}
+                {/* About us */}
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.aboutUs}</h4>
                     <p style={{ color: '#888', fontSize: '16px', lineHeight: '1.6' }}>
@@ -43,7 +43,7 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                     </p>
                 </div>
 
-                {/* Solutions 鍒楄〃 */}
+                {/* Solutions */}
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
@@ -54,7 +54,7 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                     </div>
                 </div>
 
-                {/* Products 鍒楄〃 */}
+                {/* Products */}
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.products}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
@@ -68,7 +68,7 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                 </div>
 
 
-                {/* Contact Us 鍒楄〃 */}
+                {/* Contact us */}
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '20px' }}>{dict.nav.contact}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>

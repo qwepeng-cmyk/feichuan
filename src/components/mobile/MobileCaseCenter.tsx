@@ -209,7 +209,7 @@ export default function MobileCaseCenter({
                     </>
                 ) : (
                     <div className={styles.emptyState}>
-                        <div className={styles.emptyIcon}>馃攳</div>
+                        <div className={styles.emptyIcon}>...</div>
                         <p>{dict.cases.noResults || 'No cases found matching your selection.'}</p>
                     </div>
                 )}
