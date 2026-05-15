@@ -40,8 +40,8 @@ export default function MobileNews({ locale, dict, latestNews }: MobileNewsProps
                                 />
                             </div>
                             <div style={{ padding: '15px' }}>
-                                <h4 style={{ fontSize: '14px', color: '#333', fontWeight: 700, marginBottom: '8px', height: '36px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{newsTitle}</h4>
-                                <span style={{ fontSize: '12px', color: '#999' }}>{news.date}</span>
+                                <h3 style={{ fontSize: '14px', color: '#333', fontWeight: 700, marginBottom: '8px', height: '36px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{newsTitle}</h3>
+                                <span style={{ fontSize: '12px', color: '#666' }}>{news.date}</span>
                             </div>
                         </Link>
                     );

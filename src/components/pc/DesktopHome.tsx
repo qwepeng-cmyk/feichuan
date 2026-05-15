@@ -238,7 +238,7 @@ export default function DesktopHome({
                         <p style={{ fontSize: '2rem', lineHeight: 1.6, marginBottom: '40px', opacity: 0.9 }}>{dict.home.about.content}</p>
                         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                             <Link href={`/${locale}/products`} className="btn btn-orange">{dict.home.sections.products}</Link>
-                            <Link href={`/${locale}/about`} className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>{dict.home.buttons.learnMore}</Link>
+                            <Link href={`/${locale}/about`} aria-label={`${dict.home.buttons.learnMore}: ${dict.home.sections.about}`} className="btn" style={{ border: '1px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(5px)' }}>{dict.home.buttons.learnMore}</Link>
                         </div>
                     </div>
                 </div>

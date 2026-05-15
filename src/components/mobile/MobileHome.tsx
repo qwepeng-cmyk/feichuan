@@ -71,7 +71,7 @@ export default function MobileHome({
                     </h1>
                     <Link href={`/${locale}/solutions`} style={{
                         display: 'inline-block',
-                        background: '#ff9800',
+                        background: '#b65f00',
                         color: '#fff',
                         padding: '10px 20px',
                         borderRadius: '4px',
@@ -79,7 +79,7 @@ export default function MobileHome({
                         fontSize: '13px',
                         fontWeight: 700,
                         width: 'fit-content'
-                    }}>{dict.home.hero.button} ↗</Link>
+                    }}>{dict.home.hero.button}</Link>
                 </div>
             </section>
 
@@ -94,7 +94,7 @@ export default function MobileHome({
                     WebkitOverflowScrolling: 'touch',
                     scrollbarWidth: 'none'
                 }} className="no-scrollbar">
-                    {solutions.map(sol => {
+                    {solutions.map((sol, idx) => {
                         const solMap: Record<string, string> = {
                             '01_BorderPatrol': dict.solutions.categories.border,
                             '02_InfrastructureProtection': dict.solutions.categories.infrastructure,
@@ -114,9 +114,10 @@ export default function MobileHome({
                             }}>
                                 <div style={{ width: '100%', height: '100%', position: 'relative' }}>
                                     <Image 
-                                        src={sol.img} 
+                                        src={sol.mobileImg || sol.img} 
                                         alt={solName} 
                                         fill 
+                                        priority={idx === 0}
                                         style={{ objectFit: 'cover' }}
                                         sizes="42vw"
                                     />
@@ -136,7 +137,7 @@ export default function MobileHome({
                     })}
                 </div>
                 <div style={{ padding: '30px 20px 0' }}>
-                    <Link href={`/${locale}/solutions`} style={{
+                    <Link href={`/${locale}/solutions`} aria-label={`${dict.home.buttons.learnMore}: ${dict.home.sections.solutions}`} style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -177,7 +178,7 @@ export default function MobileHome({
                                     position: 'relative'
                                 }}>
                                     <Image 
-                                        src={item.img} 
+                                        src={item.mobileImg || item.img} 
                                         alt={productTitle} 
                                         fill 
                                         style={{ objectFit: 'contain', padding: '15px' }}
@@ -231,7 +232,7 @@ export default function MobileHome({
                 textAlign: 'center',
                 overflow: 'hidden'
             }}>
-                <Image src="/index/about_bg.webp" fill style={{ objectFit: 'cover' }} alt={dict.home.sections.about} />
+                <Image src="/index/about_bg-mobile.webp" fill style={{ objectFit: 'cover' }} alt={dict.home.sections.about} />
                 <div style={{ position: 'relative', zIndex: 1, background: 'rgba(0,0,0,0.6)', padding: '40px 20px' }}>
                     <h2 style={{ fontSize: '28px', marginBottom: '15px', color: '#ffffff', fontWeight: 900, textTransform: 'uppercase' }}>{dict.home.sections.about}</h2>
                     <p style={{ fontSize: '16px', lineHeight: '1.6', opacity: 0.9 }}>

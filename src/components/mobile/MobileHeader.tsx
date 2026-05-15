@@ -31,9 +31,14 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link prefetch={false} href={l("/")} className={styles.logo}>
-                    <Image src="/logo1-small.webp" alt="N-TET" width={120} height={42} style={{ height: '42px', width: 'auto' }} />
+                    <Image src="/logo1-small.webp" alt="N-TET" width={122} height={42} style={{ height: '42px', width: 'auto' }} />
                 </Link>
-                <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)}>
+                <button
+                    className={styles.burger}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-expanded={menuOpen}
+                >
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>
