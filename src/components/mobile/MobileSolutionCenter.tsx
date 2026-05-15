@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './MobileSolutionCenter.module.css';
@@ -221,9 +221,16 @@ export default function MobileSolutionCenter({
                                             ? (sol.product_name_ru || sol.product_name_en || sol.title_en)
                                             : (sol.product_name_en || sol.title_en);
                                     return (
-                                        <Link href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
+                                        <Link prefetch={false} href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
                                             <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
-                                                <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 2} />
+                                                <Image
+                                                    src={sol.main_image || '/images/solutions/placeholder.jpg'}
+                                                    alt={solTitle}
+                                                    fill
+                                                    style={{ objectFit: 'cover' }}
+                                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                                    priority={category.id === categoryList[0].id && idx < 2}
+                                                />
                                             </div>
                                             <div className={styles.cardInfo}>
                                                 <h3>{solTitle}</h3>
@@ -232,7 +239,7 @@ export default function MobileSolutionCenter({
                                     );
                                 })}
                         </div>
-                        <Link href={`/${locale}/solutions/category/${category.id}`} className={styles.viewMoreButton}>
+                        <Link prefetch={false} href={`/${locale}/solutions/category/${category.id}`} className={styles.viewMoreButton}>
                             {dict.solutions.viewDetails}
                         </Link>
                     </section>
@@ -243,3 +250,4 @@ export default function MobileSolutionCenter({
         </div>
     );
 }
+

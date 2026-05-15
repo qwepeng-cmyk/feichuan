@@ -87,6 +87,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         name: '',
         company: '',
         email: '',
+        contactMethod: 'WhatsApp',
         countryCode: '',
         phone: '',
         demands: [] as string[],
@@ -107,7 +108,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         setIsSending(true);
 
         try {
-            const response = await fetch('/api/send-email', {
+            const response = await fetch('/api/inquiries', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -122,6 +123,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                     name: '',
                     company: '',
                     email: '',
+                    contactMethod: 'WhatsApp',
                     countryCode: '',
                     phone: '',
                     demands: [],
@@ -216,10 +218,15 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.5fr', gap: '20px', marginBottom: '30px' }}>
                     <div className="form-group">
                         <label className="form-label">{d.contactMethod}</label>
-                        <select className="form-input" style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}>
-                            <option>{d.contactMethods.whatsapp}</option>
-                            <option>{d.contactMethods.phone}</option>
-                            <option>{d.contactMethods.wechat}</option>
+                        <select
+                            className="form-input"
+                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}
+                            value={formData.contactMethod}
+                            onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
+                        >
+                            <option value="WhatsApp">{d.contactMethods.whatsapp}</option>
+                            <option value="Phone">{d.contactMethods.phone}</option>
+                            <option value="WeChat">{d.contactMethods.wechat}</option>
                         </select>
                     </div>
                     <div className="form-group">

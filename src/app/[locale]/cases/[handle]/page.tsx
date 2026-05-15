@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import React, { Suspense } from 'react';
 export const revalidate = 3600;
@@ -77,7 +77,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
         ...product,
         name: product[`product_name_${locale}`] || product.product_name_en || product.name,
         handle: product.handle || productHandle,
-        image: product.main_image || product.image || '/logo1.png',
+        image: product.main_image || product.image || '/logo1.webp',
       });
     }
   }
@@ -233,3 +233,4 @@ export default async function CaseDetailPage({ params }: { params: { handle: str
     </>
   );
 }
+

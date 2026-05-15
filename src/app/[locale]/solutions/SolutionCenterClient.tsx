@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
 import CategoryNav from '@/components/products/CategoryNav';
@@ -162,7 +162,7 @@ export default function SolutionCenterClient({
                         alignItems: 'center',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        <Image src="/solutions/solution_center_banner_01.png" fill style={{ objectFit: 'cover' }} priority alt={dict.solutions.bannerTitle} />
+                        <Image src="/solutions/solution_center_banner_01.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.solutions.bannerTitle} />
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '800px' }}>
@@ -181,7 +181,7 @@ export default function SolutionCenterClient({
                                     <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
                                         <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
                                         <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
-                                        <Link href={`/${locale}/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#fff', backgroundColor: '#315ba4', textDecoration: 'none', padding: '12px 32px', borderRadius: '4px', transition: 'all 0.3s ease' }}>
+                                        <Link prefetch={false} href={`/${locale}/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#fff', backgroundColor: '#315ba4', textDecoration: 'none', padding: '12px 32px', borderRadius: '4px', transition: 'all 0.3s ease' }}>
                                             {dict.solutions.exploreAll}
                                         </Link>
                                     </div>
@@ -190,9 +190,16 @@ export default function SolutionCenterClient({
                                         {groupedSolutions[category.id]?.map((sol, idx) => {
                                             const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
                                             return (
-                                                <Link href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                                <Link prefetch={false} href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
                                                     <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px', position: 'relative' }}>
-                                                        <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 1200px) 33vw, 400px" />
+                                                        <Image
+                                                            src={sol.main_image || '/images/solutions/placeholder.jpg'}
+                                                            alt={solTitle}
+                                                            fill
+                                                            style={{ objectFit: 'cover' }}
+                                                            sizes="(max-width: 1200px) 33vw, 400px"
+                                                            priority={category.id === categoryList[0].id && idx < 3}
+                                                        />
                                                     </div>
                                                     <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{solTitle}</h3>
                                                 </Link>
@@ -219,3 +226,4 @@ export default function SolutionCenterClient({
         </>
     );
 }
+

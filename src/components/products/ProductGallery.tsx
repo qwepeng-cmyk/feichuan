@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -24,7 +24,7 @@ export default function ProductGallery({ images }: ProductGalleryProps) {
     <div className="gallery-container">
       <div className="gallery-main" style={{ position: 'relative', width: '100%', height: '500px', background: '#f8f9fa' }}>
         <Image 
-          src={images[activeIndex] || '/logo1.png'} 
+          src={images[activeIndex] || '/logo1.webp'} 
           alt="Main Product View" 
           fill 
           priority
@@ -95,7 +95,7 @@ export default function ProductGallery({ images }: ProductGalleryProps) {
             style={{ position: 'relative' }}
           >
             <Image 
-              src={img || '/logo1.png'} 
+              src={img || '/logo1.webp'} 
               alt={`Thumbnail ${index + 1}`} 
               fill 
               style={{ objectFit: 'cover' }}
@@ -107,3 +107,4 @@ export default function ProductGallery({ images }: ProductGalleryProps) {
     </div>
   );
 }
+

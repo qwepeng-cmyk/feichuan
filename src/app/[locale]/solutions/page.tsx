@@ -9,9 +9,10 @@ async function SolutionsDataWrapper({ locale, dict }: { locale: Locale; dict: an
     
     // Convert to a plain object array for safety during serialization
     const serializedSolutions = allSolutions.map(s => ({
-        ...s,
         id: s.id,
         title_en: s.title_en,
+        product_name_en: s.product_name_en,
+        product_name_ru: s.product_name_ru,
         main_image: s.main_image || undefined,
         category_id: s.category_id
     }));

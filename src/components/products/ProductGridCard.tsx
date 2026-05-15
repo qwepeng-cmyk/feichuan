@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,12 +11,12 @@ interface Product {
     image: string;
 }
 
-export default function ProductGridCard({ product, locale, dict }: { product: Product; locale?: string; dict?: any }) {
+export default function ProductGridCard({ product, locale, dict, priority = false }: { product: Product; locale?: string; dict?: any; priority?: boolean }) {
     const l = (path: string) => locale ? `/${locale}${path === '/' ? '' : path}` : path;
     const prodName = locale === 'ru' ? (product.product_name_ru || product.name_ru || product.name) : (product.product_name_en || product.name_en || product.name);
 
     return (
-        <Link 
+        <Link prefetch={false} 
             href={l(`/products/${product.handle}`)} 
             className="p-card-sbm" 
             style={{
@@ -29,16 +27,6 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
                 color: 'inherit',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 overflow: 'hidden'
-            }}
-            onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px)';
-                e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
-                e.currentTarget.style.borderColor = '#315ba4';
-            }}
-            onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = '#f0f0f0';
             }}
         >
             <div className="p-card-img" style={{ 
@@ -53,7 +41,7 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
                 position: 'relative'
             }}>
                 <Image 
-                    src={product.image || '/logo1.png'} 
+                    src={product.image || '/logo1.webp'} 
                     alt={prodName} 
                     fill
                     style={{ 
@@ -62,6 +50,7 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
                         transition: 'transform 0.5s ease'
                     }} 
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    priority={priority}
                 />
             </div>
             <div className="p-card-content" style={{ padding: '25px', textAlign: 'center', borderTop: '1px solid #eee' }}>
@@ -70,3 +59,5 @@ export default function ProductGridCard({ product, locale, dict }: { product: Pr
         </Link>
     );
 }
+
+

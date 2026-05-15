@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -90,7 +90,7 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
           <div className="product-breadcrumb-nav" style={{ background: '#fff', borderBottom: '1px solid #f0f0f0' }}>
             <div className="container" style={containerStyle}>
               <div className="breadcrumb-path">
-                <Link href={l("/")}>{dict.nav.home}</Link> &gt; <Link href={l("/solutions")}>{dict.nav.solutions}</Link> &gt; {categoryName}
+                <Link prefetch={false} href={l("/")}>{dict.nav.home}</Link> &gt; <Link prefetch={false} href={l("/solutions")}>{dict.nav.solutions}</Link> &gt; {categoryName}
               </div>
             </div>
           </div>
@@ -169,13 +169,13 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
                         border: '1px solid #eee',
                         overflow: 'hidden'
                       }}>
-                        <Link href={l(`/solutions/${sol.handle}`)} style={{ width: '50%', aspectRatio: '380 / 240', display: 'block', position: 'relative' }}>
+                        <Link prefetch={false} href={l(`/solutions/${sol.handle}`)} style={{ width: '50%', aspectRatio: '380 / 240', display: 'block', position: 'relative' }}>
                           <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} fill style={{ objectFit: 'cover' }} sizes="50vw" />
                         </Link>
                         <div style={{ flex: 1, padding: '40px 60px' }}>
                           <h3 style={{ fontSize: '3.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '20px' }}>{solName}</h3>
                           <p style={{ fontSize: '1.8rem', color: '#444', lineHeight: 1.8, marginBottom: '32px' }}>{solSummary}</p>
-                          <Link href={l(`/solutions/${sol.handle}`)} className="btn-premium primary" style={{
+                          <Link prefetch={false} href={l(`/solutions/${sol.handle}`)} className="btn-premium primary" style={{
                             fontSize: '1.6rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#315ba4', color: '#fff'
                           }}>
                             {dict.solutions.viewDetails}
@@ -232,3 +232,4 @@ export default function CategoryLandingClient({ categoryId, subSolutions, recomm
     </>
   );
 }
+

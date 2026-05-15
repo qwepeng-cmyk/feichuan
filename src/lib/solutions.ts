@@ -27,23 +27,24 @@ export interface Solution {
 
 export const getAllSolutions = unstable_cache(
     async (): Promise<Solution[]> => {
-        const rows = db.prepare('SELECT * FROM solutions').all() as any[];
+        const rows = db.prepare(`
+            SELECT
+                handle,
+                category_id,
+                category_name,
+                product_name_en,
+                product_name_ru,
+                main_image
+            FROM solutions
+        `).all() as any[];
         
-        return rows.map(row => {
-            let data: any = {};
-            try {
-                data = JSON.parse(row.raw_json);
-            } catch (e) {}
-
-            return {
-                ...data,
-                ...row,
-                id: row.handle,
-                title_en: row.product_name_en,
-                category_id: row.category_id,
-                category_name: row.category_name,
-            } as Solution;
-        });
+        return rows.map(row => ({
+            ...row,
+            id: row.handle,
+            title_en: row.product_name_en,
+            category_id: row.category_id,
+            category_name: row.category_name,
+        } as Solution));
     },
     ['all-solutions'],
     { revalidate: 3600, tags: ['solutions'] }

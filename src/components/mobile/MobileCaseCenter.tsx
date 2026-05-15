@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import styles from './MobileCaseCenter.module.css';
@@ -181,7 +181,7 @@ export default function MobileCaseCenter({
                             {paginatedCases.map((item, idx) => {
                                 const caseTitle = item[`title_${locale}`] || item.title_en;
                                 return (
-                                    <Link href={`/${locale}/cases/${item.handle}`} key={idx} className={styles.card}>
+                                    <Link prefetch={false} href={`/${locale}/cases/${item.handle}`} key={idx} className={styles.card}>
                                         <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
                                             <Image src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 4} />
                                         </div>
@@ -209,7 +209,7 @@ export default function MobileCaseCenter({
                     </>
                 ) : (
                     <div className={styles.emptyState}>
-                        <div className={styles.emptyIcon}>🔍</div>
+                        <div className={styles.emptyIcon}>馃攳</div>
                         <p>{dict.cases.noResults || 'No cases found matching your selection.'}</p>
                     </div>
                 )}
@@ -219,4 +219,5 @@ export default function MobileCaseCenter({
         </div>
     );
 }
+
 

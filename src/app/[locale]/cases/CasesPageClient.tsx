@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
@@ -184,7 +184,7 @@ export default function CasesPageClient({
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Image src="/cases/case_banner_final_副本2.png" fill style={{ objectFit: 'cover' }} priority alt={dict.cases.bannerTitle} />
+                    <Image src="/cases/case_banner_final_副本2.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.cases.bannerTitle} />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>
@@ -220,9 +220,16 @@ export default function CasesPageClient({
                                         {paginatedCases.map((item, idx) => {
                                             const caseTitle = item[`title_${locale}`] || item.title_en;
                                             return (
-                                                <Link href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
+                                                <Link prefetch={false} href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
                                                     <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden', position: 'relative', height: '240px' }}>
-                                                        <Image src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 1200px) 33vw, 400px" />
+                                                        <Image
+                                                            src={item.main_image || '/images/solutions/placeholder.jpg'}
+                                                            alt={caseTitle}
+                                                            fill
+                                                            style={{ objectFit: 'cover' }}
+                                                            sizes="(max-width: 1200px) 33vw, 400px"
+                                                            priority={currentPage === 1 && idx < 6}
+                                                        />
                                                     </div>
                                                     <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
                                                         <h3 style={{ fontSize: '1.8rem', fontWeight: '700', color: '#333', margin: '0', lineHeight: '1.4' }}>
@@ -271,7 +278,7 @@ export default function CasesPageClient({
                                 </>
                             ) : (
                                 <div style={{ textAlign: 'center', padding: '120px 0', background: '#fff', borderRadius: '8px' }}>
-                                    <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>🔍</div>
+                                    <div style={{ fontSize: '5rem', marginBottom: '20px', opacity: 0.2 }}>馃攳</div>
                                     <div style={{ fontSize: '1.8rem', color: '#999' }}>{dict.cases.noResults || 'No cases found matching your criteria.'}</div>
                                 </div>
                             )}
@@ -293,4 +300,5 @@ export default function CasesPageClient({
         </>
     );
 }
+
 

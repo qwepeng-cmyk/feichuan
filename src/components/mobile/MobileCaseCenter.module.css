@@ -1,4 +1,4 @@
-.wrapper {
+﻿.wrapper {
     width: 100%;
     background: #fcfdfe;
     padding-top: 108px; /* Main Header Height */
@@ -9,7 +9,7 @@
 .banner {
     height: 120px;
     width: 100%;
-    background-image: url('/cases/case_banner_final_副本2.png');
+    background-image: url('/cases/case_banner_final_副本2.webp');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -227,3 +227,4 @@
     margin-bottom: 15px;
     opacity: 0.3;
 }
+

@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { getAllProducts } from '@/lib/products';
 import InquiryForm from '@/components/products/InquiryForm';
 import CategoryNav from '@/components/products/CategoryNav';
 import ProductGridCard from '@/components/products/ProductGridCard';
+import DeferredProductSections from '@/components/products/DeferredProductSections';
 
 export default function DesktopProductCenter({ 
     categoriesData,
@@ -133,6 +133,8 @@ export default function DesktopProductCenter({
         name: CATEGORY_NAMES[key],
         icon: CATEGORY_ICONS[key]
     }));
+    const primaryCategory = categoryList[0];
+    const deferredCategories = categoryList.slice(1).map(({ id, name }) => ({ id, name }));
 
     return (
         <div className="product-page-new" style={{ paddingTop: '112px' }}>
@@ -146,7 +148,7 @@ export default function DesktopProductCenter({
                 display: 'flex',
                 alignItems: 'center'
             }}>
-                <Image src="/products/products_center_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.products.bannerTitle} />
+                <Image src="/products/products_center_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.products.bannerTitle} />
                 {/* Dark overlay for text readability */}
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -157,7 +159,7 @@ export default function DesktopProductCenter({
                 </div>
                 {/* Visual Accent */}
                 <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
-                    <Image src="/logo1.png" alt="" fill style={{ objectFit: 'contain' }} />
+                    <Image src="/logo1.webp" alt="" fill style={{ objectFit: 'contain' }} />
                 </div>
             </section>
 
@@ -166,26 +168,31 @@ export default function DesktopProductCenter({
 
             {/* PRODUCT LISTS */}
             <div className="product-lists-wrap" style={{ padding: '60px 0' }}>
-                {categoryList.map((category) => (
-                    <section key={category.id} id={category.id} style={{ marginBottom: '100px', scrollMarginTop: '300px' }}>
-                        <div className="container">
-                            <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
-                                <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
-                                <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
-                            </div>
-
-                            <div className="product-grid" style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, 1fr)',
-                                gap: '30px'
-                            }}>
-                                {categoriesData[category.id]?.map((product: any, idx: number) => (
-                                    <ProductGridCard key={idx} product={product} locale={locale} dict={dict} />
-                                ))}
-                            </div>
+                <section key={primaryCategory.id} id={primaryCategory.id} style={{ marginBottom: '100px', scrollMarginTop: '300px' }}>
+                    <div className="container">
+                        <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
+                            <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{primaryCategory.name}</h2>
+                            <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
                         </div>
-                    </section>
-                ))}
+
+                        <div className="product-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: '30px'
+                        }}>
+                            {categoriesData[primaryCategory.id]?.map((product: any, idx: number) => (
+                                <ProductGridCard
+                                    key={idx}
+                                    product={product}
+                                    locale={locale}
+                                    dict={dict}
+                                    priority={idx < 3}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                <DeferredProductSections categories={deferredCategories} locale={locale} />
             </div>
 
             {/* INQUIRY FORM */}

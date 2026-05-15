@@ -3,18 +3,19 @@ import { unstable_cache } from 'next/cache';
 
 export const getAllCases = unstable_cache(
   async () => {
-    const rows = db.prepare('SELECT * FROM cases').all() as any[];
-    return rows.map(row => {
-        try {
-            const data = JSON.parse(row.raw_json);
-            return {
-                ...data,
-                ...row
-            };
-        } catch (e) {
-            return row;
-        }
-    });
+    return db.prepare(`
+      SELECT
+        handle,
+        title_en,
+        title_ru,
+        main_image,
+        region_en,
+        country_en,
+        region_ru,
+        country_ru,
+        solution_category_id
+      FROM cases
+    `).all() as any[];
   },
   ['all-cases'],
   { revalidate: 3600, tags: ['cases'] }

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import styles from './MobileCategoryLanding.module.css';
@@ -52,9 +52,9 @@ export default function MobileCategoryLanding({
  
             {/* 2. Breadcrumb */}
             <div className="cl-m-breadcrumb" style={{ fontSize: '13px', color: '#666', marginBottom: '15px' }}>
-                <Link href={l("/")}>{dict.nav.home}</Link>
+                <Link prefetch={false} href={l("/")}>{dict.nav.home}</Link>
                 <span style={{ margin: '0 5px' }}>&gt;</span>
-                <Link href={l("/solutions")}>{dict.nav.solutions}</Link>
+                <Link prefetch={false} href={l("/solutions")}>{dict.nav.solutions}</Link>
                 <span style={{ margin: '0 5px' }}>&gt;</span>
                 <span>{categoryName}</span>
             </div>
@@ -76,13 +76,13 @@ export default function MobileCategoryLanding({
                         const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
                         return (
                             <div key={sol.handle} className={styles.solutionItem}>
-                                <Link href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '56.25%', overflow: 'hidden' }}>
+                                <Link prefetch={false} href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '56.25%', overflow: 'hidden' }}>
                                     <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                 </Link>
                                 <div className={styles.solutionInfo}>
                                     <h3>{solName}</h3>
                                     <p>{solSummary}</p>
-                                    <Link href={l(`/solutions/${sol.handle}`)} className={styles.viewDetailsBtn}>
+                                    <Link prefetch={false} href={l(`/solutions/${sol.handle}`)} className={styles.viewDetailsBtn}>
                                         {dict.solutions.viewDetails}
                                     </Link>
                                 </div>
@@ -101,7 +101,7 @@ export default function MobileCategoryLanding({
                              const prodName = locale === 'ru' ? (prod.product_name_ru || prod.name_ru || prod.name) : (prod.product_name_en || prod.name_en || prod.name);
                              const prodImage = prod.main_image || prod.image;
                              return (
-                                <Link href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>
+                                <Link prefetch={false} href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>
                                     <div className={styles.productImageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                         <Image src={prodImage} alt={prodName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                     </div>
@@ -122,3 +122,4 @@ export default function MobileCategoryLanding({
         </div>
     );
 }
+

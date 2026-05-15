@@ -1439,6 +1439,21 @@ header#site-header.scrolled {
 .catalog-card-item:hover .card-image img {
     transform: scale(1.05);
 }
+
+.p-card-sbm:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+    border-color: #315ba4 !important;
+}
+
+.p-card-sbm:hover h3 {
+    color: #315ba4 !important;
+}
+
+.p-card-sbm:hover .p-card-img img {
+    transform: scale(1.05);
+}
+
 /* HIDE STICKY BAR ON MOBILE */
 @media (max-width: 991px) {
     .sticky-inquiry {

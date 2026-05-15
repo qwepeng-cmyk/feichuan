@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -23,14 +23,14 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
   if (!images || images.length === 0) return null;
 
   // Ensure we have at least one valid image
-  const displayImages = images.length > 0 ? images : ['/logo1.png'];
+  const displayImages = images.length > 0 ? images : ['/logo1.webp'];
 
   return (
     <div className="gallery-container">
       {/* 1. Main Display Area */}
       <div className="gallery-main" style={{ position: 'relative' }}>
         <Image 
-            src={displayImages[activeIndex] || '/logo1.png'} 
+            src={displayImages[activeIndex] || '/logo1.webp'} 
             alt="Main display" 
             fill
             priority
@@ -107,7 +107,7 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
             style={{ position: 'relative' }}
           >
             <Image 
-              src={img || '/logo1.png'} 
+              src={img || '/logo1.webp'} 
               alt={`Thumbnail ${index + 1}`} 
               fill 
               style={{ objectFit: 'cover' }}
@@ -149,3 +149,4 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
     </div>
   );
 }
+

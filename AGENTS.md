@@ -74,3 +74,12 @@ DB 路径用 `scripts/update-db-refs.mjs` 批量同步，硬编码文件需手�
 - `public/media/news_data.json` — 3 条新闻 image 字段改成英文 webp
 
 服务器已部署修复后的 `.next/`，公网 21/21 图片全部 200 正常。源码改动尚未 commit。
+## 性能优化待办
+
+- 产品中心 `/products` 已做首轮瘦身：移动版不再预渲染到桌面首屏，桌面只服务端渲染第一个分类，其余分类通过 `/api/products?locale=...` 延迟加载；2026-05-15 本地 build 后 `/en/products` HTML 约 113.8KB、`<img>` 约 14 个。后续如继续压缩，优先评估 SEO 与客户端延迟加载的取舍。
+- Solutions / Cases 列表页已经去掉 `raw_json` 等大字段，HTML 明显变小；后续新增列表页时继续保持“列表只查列表字段，详情页再查详情字段”。
+- 全站批量列表、页脚、导航、分类入口的 `<Link>` 已关闭 `prefetch`，后续新增大量链接区域时也要默认 `prefetch={false}`，避免首屏悄悄预拉太多 JS。
+- 已给静态图片、字体、视频加长期缓存头；部署后用 `curl -I` 或浏览器 Network 确认 Cloudflare / 源站响应里有 `Cache-Control: public, max-age=31536000, immutable`。
+- 公开资源里仍有大量历史 PNG/JPG 和重复大图，不一定都被页面引用。后续优化应优先审计“线上页面实际引用”的图片，再继续转 WebP/清理旧文件，避免盲目压缩无用资源。
+- Cloudflare 免费套餐还可以继续做页面级缓存：优先考虑 `/products*`、`/solutions*`、`/cases*`、`/media*` 的 Cache Everything / Edge TTL；必须排除 `/api*`、`/admin*`、表单提交和需要动态状态的路径。
+- 服务器只有 4GB 内存，仍然不要在服务器跑 `npm run build`；速度优化后的构建产物继续按本地 WSL build、打包 `.next`、上传服务器、PM2 restart 的流程走。
