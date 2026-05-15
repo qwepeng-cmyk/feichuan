@@ -9,7 +9,7 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
     return (
         <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                <Image src="/logo1.webp" alt="Logo" width={140} height={48} style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
+                <Image src="/logo1-small.webp" alt="Logo" width={140} height={48} style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
                 
                 {/* Consultation button */}
                 <Link prefetch={false} href={l("/contact")} style={{

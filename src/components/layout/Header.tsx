@@ -18,8 +18,8 @@ const Header = () => {
     <header id="site-header" className={scrolled ? 'scrolled' : ''}>
       <div className="container nav-container">
         <Link href="/" className="logo" style={{ position: 'relative', display: 'block', width: '120px', height: '40px' }}>
-          <Image src="/logo1.webp" alt="N-TET Logo" fill style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} className="logo-light" />
-          <Image src="/logo1.webp" alt="N-TET Logo" fill style={{ objectFit: 'contain' }} className="logo-dark" />
+          <Image src="/logo1-small.webp" alt="N-TET Logo" fill style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} className="logo-light" />
+          <Image src="/logo1-small.webp" alt="N-TET Logo" fill style={{ objectFit: 'contain' }} className="logo-dark" />
         </Link>
 
         <input type="checkbox" id="nav-checkbox" className="hidden" />

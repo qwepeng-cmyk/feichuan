@@ -43,7 +43,7 @@ function ProductCard({ product, locale }: { product: Product; locale: string }) 
                 position: 'relative'
             }}>
                 <Image
-                    src={product.image || '/logo1.webp'}
+                    src={product.image || '/logo1-small.webp'}
                     alt={product.name}
                     fill
                     style={{

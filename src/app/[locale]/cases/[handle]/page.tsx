@@ -77,7 +77,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
         ...product,
         name: product[`product_name_${locale}`] || product.product_name_en || product.name,
         handle: product.handle || productHandle,
-        image: product.main_image || product.image || '/logo1.webp',
+        image: product.main_image || product.image || '/logo1-small.webp',
       });
     }
   }

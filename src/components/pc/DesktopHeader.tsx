@@ -109,7 +109,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                 }}>
                     <Link prefetch={false} href={l("/")} className="logo" style={{ display: 'flex', alignItems: 'center' }}>
                         <Image 
-                            src="/logo1.webp" 
+                            src="/logo1-small.webp" 
                             alt="N-TET Logo" 
                             width={140} 
                             height={48} 
@@ -117,7 +117,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                             style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }} 
                         />
                         <Image 
-                            src="/logo1.webp" 
+                            src="/logo1-small.webp" 
                             alt="N-TET Logo" 
                             width={140} 
                             height={48} 

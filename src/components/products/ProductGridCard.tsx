@@ -41,7 +41,7 @@ export default function ProductGridCard({ product, locale, dict, priority = fals
                 position: 'relative'
             }}>
                 <Image 
-                    src={product.image || '/logo1.webp'} 
+                    src={product.image || '/logo1-small.webp'} 
                     alt={prodName} 
                     fill
                     style={{ 

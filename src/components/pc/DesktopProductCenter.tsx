@@ -159,7 +159,7 @@ export default function DesktopProductCenter({
                 </div>
                 {/* Visual Accent */}
                 <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
-                    <Image src="/logo1.webp" alt="" fill style={{ objectFit: 'contain' }} />
+                    <Image src="/logo1-small.webp" alt="" fill style={{ objectFit: 'contain' }} />
                 </div>
             </section>
 

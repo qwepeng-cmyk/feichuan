@@ -93,7 +93,6 @@ export default function DesktopHome({
                     preload="metadata"
                     style={{ backgroundColor: '#000' }}
                 >
-                    <source src="/index_banner_bg_2.webm" type="video/webm" />
                     <source src="/index_banner_bg_3.mp4" type="video/mp4" />
                 </video>
                 <div className="hero-overlay"></div>
@@ -186,7 +185,6 @@ export default function DesktopHome({
                                         src={currentProduct.img}
                                         alt={localizedProductMain}
                                         fill
-                                        priority
                                         style={{
                                             objectFit: 'contain',
                                             padding: '20px',
