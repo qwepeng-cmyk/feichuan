@@ -148,13 +148,20 @@
     object-fit: contain;
 }
 
-.cardInfo { padding: 12px; }
+.cardInfo {
+    padding: 12px;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .cardInfo h3 {
     font-size: 12px;
     font-weight: 800;
     color: #333;
     text-align: center;
     margin: 0;
+    line-height: 1.35;
 }
 
 /* 4. Common Inquiry Form Styles (Integrated) */

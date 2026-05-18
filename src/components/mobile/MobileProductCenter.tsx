@@ -178,7 +178,7 @@ export default function MobileProductCenter({
                                             fill
                                             style={{ objectFit: 'contain', padding: '10px' }}
                                             sizes="45vw"
-                                            priority={category.id === categoryList[0].id && idx < 4}
+                                            priority={category.id === categoryList[0].id && idx < 2}
                                         />
                                     </div>
                                     <div className={styles.cardInfo}>

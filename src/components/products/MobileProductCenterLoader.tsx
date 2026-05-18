@@ -2,30 +2,68 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+import { fetchProductsForClient } from '@/lib/clientProducts';
 
 const MobileProductCenter = dynamic(() => import('@/components/mobile/MobileProductCenter'), {
     ssr: false,
     loading: () => <MobileProductFallback />
 });
 
-function MobileProductFallback() {
+function MobileProductFallback({ dict }: { dict?: any }) {
     return (
-        <div style={{ padding: '20px 15px' }}>
-            <div style={{ height: '170px', backgroundColor: '#eef3fa', marginBottom: '18px' }} />
-            <div style={{ display: 'flex', gap: '10px', overflow: 'hidden', marginBottom: '24px' }}>
-                {[1, 2, 3].map((item) => (
-                    <div key={item} style={{ flex: '0 0 32%', height: '64px', backgroundColor: '#f4f6fa' }} />
-                ))}
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
-                {[1, 2, 3, 4].map((item) => (
-                    <div key={item} style={{ backgroundColor: '#fff', border: '1px solid #f0f0f0' }}>
-                        <div style={{ paddingTop: '75%', backgroundColor: '#f5f5f5' }} />
-                        <div style={{ padding: '10px' }}>
-                            <div style={{ height: '12px', backgroundColor: '#f0f0f0', width: '80%' }} />
+        <div style={{ width: '100%', background: '#fff', paddingTop: '108px' }}>
+            <section
+                style={{
+                    height: '120px',
+                    width: '100%',
+                    backgroundImage: "url('/products/products_center_banner.webp')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                {dict?.products?.bannerTitle && (
+                    <h1
+                        style={{
+                            color: '#fff',
+                            fontSize: '22px',
+                            fontWeight: 900,
+                            letterSpacing: '2px',
+                            textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                            margin: 0,
+                            textAlign: 'center'
+                        }}
+                    >
+                        {dict.products.bannerTitle}
+                    </h1>
+                )}
+            </section>
+            <div style={{ height: '80px', borderBottom: '1px solid #eee', background: '#fff', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', gap: '8px', padding: '10px 5px', height: '100%', alignItems: 'center' }}>
+                    {[1, 2, 3, 4].map((item) => (
+                        <div key={item} style={{ width: '88px', flex: '0 0 auto' }}>
+                            <div style={{ width: '32px', height: '32px', margin: '0 auto 8px', backgroundColor: '#eef3fa' }} />
+                            <div style={{ height: '10px', backgroundColor: '#f4f6fa' }} />
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+            </div>
+            <div style={{ padding: '30px 15px' }}>
+                <div style={{ marginBottom: '25px', borderLeft: '4px solid #315ba4', paddingLeft: '15px' }}>
+                    <div style={{ height: '22px', width: '65%', backgroundColor: '#eef3fa' }} />
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+                    {[1, 2, 3, 4].map((item) => (
+                        <div key={item} style={{ backgroundColor: '#fff', border: '1px solid #f0f0f0' }}>
+                            <div style={{ aspectRatio: '4 / 3', backgroundColor: '#f5f5f5' }} />
+                            <div style={{ padding: '12px', minHeight: '58px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div style={{ height: '12px', backgroundColor: '#f0f0f0', width: '80%', margin: '0 auto' }} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -55,13 +93,9 @@ export default function MobileProductCenterLoader({
 
         let cancelled = false;
 
-        fetch(`/api/products?locale=${encodeURIComponent(locale)}`)
-            .then((response) => response.json())
+        fetchProductsForClient(locale)
             .then((data) => {
                 if (!cancelled) setCategoriesData(data);
-            })
-            .catch(() => {
-                if (!cancelled) setCategoriesData({});
             });
 
         return () => {
@@ -70,7 +104,7 @@ export default function MobileProductCenterLoader({
     }, [categoriesData, locale, shouldLoad]);
 
     if (!shouldLoad || !categoriesData) {
-        return <MobileProductFallback />;
+        return <MobileProductFallback dict={dict} />;
     }
 
     return <MobileProductCenter categoriesData={categoriesData} locale={locale} dict={dict} />;

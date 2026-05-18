@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { fetchProductsForClient } from '@/lib/clientProducts';
 
 interface CategoryMeta {
     id: string;
@@ -79,24 +80,36 @@ export default function DeferredProductSections({
     categories: CategoryMeta[];
     locale: string;
 }) {
+    const [isDesktop, setIsDesktop] = useState(false);
     const [categoriesData, setCategoriesData] = useState<Record<string, Product[]> | null>(null);
 
     useEffect(() => {
+        const mediaQuery = window.matchMedia('(min-width: 992px)');
+        const update = () => setIsDesktop(mediaQuery.matches);
+
+        update();
+        mediaQuery.addEventListener('change', update);
+        return () => mediaQuery.removeEventListener('change', update);
+    }, []);
+
+    useEffect(() => {
+        if (!isDesktop) return;
+
         let cancelled = false;
 
-        fetch(`/api/products?locale=${encodeURIComponent(locale)}`)
-            .then((response) => response.json())
+        fetchProductsForClient(locale)
             .then((data) => {
                 if (!cancelled) setCategoriesData(data);
-            })
-            .catch(() => {
-                if (!cancelled) setCategoriesData({});
             });
 
         return () => {
             cancelled = true;
         };
-    }, [locale]);
+    }, [isDesktop, locale]);
+
+    if (!isDesktop) {
+        return null;
+    }
 
     return (
         <>
