@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
+import { createHandle } from '@/lib/admin-utils';
 
 export async function GET() {
     try {
@@ -14,7 +15,7 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const handle = body.handle || body.product_name_en.toLowerCase().replace(/\\s+/g, '-');
+        const handle = createHandle(body.handle || body.product_name_en, 'product');
         
         db.prepare(`
             INSERT OR REPLACE INTO products (

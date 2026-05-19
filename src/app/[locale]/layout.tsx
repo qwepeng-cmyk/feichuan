@@ -4,9 +4,24 @@ import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import { Metadata } from "next";
 import { getDictionary } from "@/i18n/getDictionary";
+import { notFound } from "next/navigation";
+import Script from "next/script";
+import { getTrackingSettings } from "@/lib/siteSettings";
+
+function isValidLocale(locale: string): locale is Locale {
+  return i18n.locales.includes(locale as Locale);
+}
+
+function cleanTrackingId(value: string) {
+  return value.replace(/[^A-Z0-9-]/gi, '');
+}
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
   const { locale } = params;
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
   const baseUrl = 'https://n-tet.com';
   
   return {
@@ -36,10 +51,62 @@ export default async function LocaleLayout({
   params: { locale: Locale };
 }) {
   const locale = params.locale;
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
   const dict = await getDictionary(locale);
+  const tracking = locale === i18n.defaultLocale ? getTrackingSettings() : null;
+  const gaMeasurementId = tracking?.gaEnabled ? cleanTrackingId(tracking.gaMeasurementId) : '';
+  const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
 
   return (
     <>
+        {gtmContainerId && (
+          <Script
+            id="google-tag-manager"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmContainerId}');`,
+            }}
+          />
+        )}
+
+        {gaMeasurementId && (
+          <>
+            <Script
+              id="google-tag"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaMeasurementId}');`,
+              }}
+            />
+          </>
+        )}
+
+        {gtmContainerId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
+
         <Header locale={locale} dict={dict} />
         {children}
         <Footer locale={locale} dict={dict} />

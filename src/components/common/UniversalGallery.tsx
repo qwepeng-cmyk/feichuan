@@ -5,9 +5,10 @@ import Image from 'next/image';
 
 interface UniversalGalleryProps {
   images: string[];
+  fit?: 'cover' | 'contain';
 }
 
-export default function UniversalGallery({ images }: UniversalGalleryProps) {
+export default function UniversalGallery({ images, fit = 'cover' }: UniversalGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = (e: React.MouseEvent) => {
@@ -34,7 +35,7 @@ export default function UniversalGallery({ images }: UniversalGalleryProps) {
             alt="Main display" 
             fill
             priority
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: fit }}
             sizes="(max-width: 1200px) 100vw, 50vw"
         />
         

@@ -118,6 +118,12 @@ db.exec(`
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
+    CREATE TABLE IF NOT EXISTS site_settings (
+        key TEXT PRIMARY KEY,
+        value TEXT,
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
     -- Optimized Indexes for Performance
     CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_primary);
     CREATE INDEX IF NOT EXISTS idx_solutions_category ON solutions(category_id);

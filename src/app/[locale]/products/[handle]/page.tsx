@@ -73,7 +73,7 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
                   <div className="gallery-main-area">
-                    <UniversalGallery images={galleryImages} />
+                    <UniversalGallery images={galleryImages} fit="contain" />
                   </div>
                   <div className="product-info">
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
@@ -110,7 +110,7 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
             {detailHtml && (
               <section id="features" className="detail-section alt" style={{ padding: '100px 0', backgroundColor: '#f8fafc' }}>
                 <div className="container">
-                  <OptimizedRichText className="rich-content auto-grid" html={detailHtml} />
+                  <OptimizedRichText className="rich-content" html={detailHtml} />
                 </div>
               </section>
             )}

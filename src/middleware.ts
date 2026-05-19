@@ -4,6 +4,9 @@ import { i18n } from './i18n/config';
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
+    const isInternalDefaultLocaleRewrite =
+        request.nextUrl.searchParams.get('ntetDefaultLocale') === '1' ||
+        request.headers.get('x-ntet-default-locale') === '1';
 
     // --- Admin Authentication Protection ---
     // Protect all /admin/* routes EXCEPT /admin/login
@@ -44,11 +47,17 @@ export function middleware(request: NextRequest) {
     const { locales, defaultLocale } = i18n;
 
     // 1. If it starts with the default locale prefix (/en), REDIRECT to prefix-less version
-    if (pathname.startsWith(`/${defaultLocale}/`) || pathname === `/${defaultLocale}`) {
+    if (!isInternalDefaultLocaleRewrite && (pathname.startsWith(`/${defaultLocale}/`) || pathname === `/${defaultLocale}`)) {
         const newPathname = pathname === `/${defaultLocale}` 
             ? '/' 
             : pathname.replace(`/${defaultLocale}/`, '/');
         return NextResponse.redirect(new URL(newPathname, request.url), { status: 301 });
+    }
+
+    if (isInternalDefaultLocaleRewrite) {
+        const nextUrl = request.nextUrl.clone();
+        nextUrl.searchParams.delete('ntetDefaultLocale');
+        return NextResponse.rewrite(nextUrl);
     }
 
     // 2. Check if the pathname has another valid locale prefix (e.g., /ru)
@@ -62,9 +71,20 @@ export function middleware(request: NextRequest) {
 
     // 3. If no locale prefix, it's the default locale (English).
     // We REWRITE internally so the URL stays clean (no /en) but App Router sees /[locale]
-    return NextResponse.rewrite(
-        new URL(`/${defaultLocale}${pathname}`, request.url)
-    );
+    const defaultLocaleUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+    request.nextUrl.searchParams.forEach((value, key) => {
+        defaultLocaleUrl.searchParams.set(key, value);
+    });
+    defaultLocaleUrl.searchParams.set('ntetDefaultLocale', '1');
+
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set('x-ntet-default-locale', '1');
+
+    return NextResponse.rewrite(defaultLocaleUrl, {
+        request: {
+            headers: requestHeaders,
+        },
+    });
 }
 
 export const config = {

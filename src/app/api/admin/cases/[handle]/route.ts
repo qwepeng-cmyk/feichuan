@@ -21,9 +21,9 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
         db.prepare(`
             UPDATE cases 
             SET title_en = ?, title_ru = ?, region_en = ?, region_ru = ?, country_en = ?, country_ru = ?, 
-                solution_category_id = ?, main_image = ?, 
+                solution_category_id = ?, main_image = ?, case_images = ?,
                 description_en = ?, description_ru = ?, devices_en = ?, devices_ru = ?, 
-                parameters_en = ?, parameters = ?, parameters_ru = ?,
+                parameters_en = ?, parameters_ru = ?, recommended_product_handles = ?,
                 raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE handle = ?
         `).run(
@@ -35,13 +35,14 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
             body.country_ru || '',
             body.solution_category_id || '',
             body.main_image || '', 
+            JSON.stringify(body.case_images || []),
             body.description_en || '',
             body.description_ru || '',
             body.devices_en || '',
             body.devices_ru || '',
             JSON.stringify(body.parameters_en || []),
-            JSON.stringify(body.parameters || []),
             JSON.stringify(body.parameters_ru || []),
+            JSON.stringify(body.recommendedProductHandles || body.recommended_product_handles || []),
             raw_json, 
             params.handle
         );

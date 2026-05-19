@@ -40,7 +40,7 @@
     "Protection": "Fail-safe return, Low battery return, Resume from breakpoint"
   },
   "detail_html": "<h4>功能特点</h4><ul><li>应急应用无人机是一款专为突发事件响应与灾害管理设计的快速部署型空中作业平台。系统由高机动性无人机平台、多任务载荷模块及一体化指挥控制终端组成，通过多链路融合通信技术，实现对复杂应急场景的实时监控、快速侦察与数据采集，为指挥决策提供关键信息支持。</li><li>该系统可根据应急任务需求，灵活搭载高清广角相机、热成像传感器、气体检测模块及喊话照明设备，全面覆盖搜救、勘察、监控与通信等核心需求。主要应用于：在灾害事故现场进行大范围空中监视，通过实时图传掌控事件动态，辅助人员疏散与资源调度；对污染源、危险区域进行高空侦察取证，为环境执法与事故调查提供依据；以及对受灾区域进行快速测绘，生成正射影像图与三维模型，精确评估灾害范围与损失，实现应急响应的可视化、智能化与高效化。</li><li>图1 FC-YJZC-01无人机</li><li>技术指标</li><li>应用场景</li><li>森林防火</li><li>地质灾害监测</li><li>水旱灾害防御</li><li>有害气体监测</li></ul><h4>产品图片</h4>",
-  "detail_html_en": "<h4>Features</h4><ul><li>Rapidly deployable aerial platform for disaster management. Provides real-time monitoring and data collection via multi-link fusion technology.</li><li>Modular design supports HD cameras, thermal sensors, and gas detectors. Ideal for forest fire monitoring, disaster reconnaissance, and environmental enforcement.</li><li>Figure 1 FC-YJZC-01 Drone</li><li>Technical Specs</li><li>Application Scenarios</li><li>Forest fire prevention</li><li>Geological disaster monitoring</li><li>Hazardous gas monitoring</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Rapidly deployable aerial platform for disaster management. Provides real-time monitoring and data collection via multi-link fusion technology.</li><li>Modular design supports HD cameras, thermal sensors, and gas detectors. Ideal for forest fire monitoring, disaster reconnaissance, and environmental enforcement.</li></ul>",
   "main_image": "/products/uav-systems/FC-YJZC-01-Emergency-Reconnaissance-Drone.png",
   "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
   "category_primary": "UAV & Drone Systems (无人机系统)",

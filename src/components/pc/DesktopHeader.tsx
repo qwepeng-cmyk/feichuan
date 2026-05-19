@@ -114,6 +114,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                             width={140} 
                             height={48} 
                             className="logo-light" 
+                            priority
                             style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }} 
                         />
                         <Image 
@@ -122,6 +123,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                             width={140} 
                             height={48} 
                             className="logo-dark" 
+                            priority
                             style={{ height: '48px', width: 'auto' }}
                         />
                     </Link>

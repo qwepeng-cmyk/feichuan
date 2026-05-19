@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
+import { createHandle } from '@/lib/admin-utils';
 
 export async function GET() {
     try {
@@ -14,21 +15,33 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const handle = body.handle || body.title_en.toLowerCase().replace(/\\s+/g, '-');
+        const handle = createHandle(body.handle || body.title_en, 'case');
         
         db.prepare(`
             INSERT INTO cases (
-                handle, title_en, title_ru, region_en, region_ru, 
-                description_en, description_ru, raw_json
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                handle, title_en, title_ru, region_en, region_ru, country_en, country_ru,
+                solution_category_id, main_image, case_images, description_en, description_ru,
+                devices_en, devices_ru, parameters_en, parameters_ru, recommended_product_handles,
+                raw_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `).run(
             handle, 
             body.title_en,
             body.title_ru || '',
             body.region_en || 'Global',
             body.region_ru || '',
+            body.country_en || '',
+            body.country_ru || '',
+            body.solution_category_id || '',
+            body.main_image || '',
+            JSON.stringify(body.case_images || []),
             body.description_en || '',
             body.description_ru || '',
+            body.devices_en || '',
+            body.devices_ru || '',
+            JSON.stringify(body.parameters_en || []),
+            JSON.stringify(body.parameters_ru || []),
+            JSON.stringify(body.recommendedProductHandles || body.recommended_product_handles || []),
             JSON.stringify(body)
         );
         revalidateTag('cases');

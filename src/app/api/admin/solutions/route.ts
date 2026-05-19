@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
+import { createHandle } from '@/lib/admin-utils';
 
 export async function GET() {
     try {
@@ -14,15 +15,15 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const handle = body.handle || body.product_name_en.toLowerCase().replace(/\\s+/g, '-');
+        const handle = createHandle(body.handle || body.product_name_en, 'solution');
         
         db.prepare(`
             INSERT INTO solutions (
                 handle, category_id, category_name, product_name_en, product_name_ru, 
                 summary_en, summary_ru, key_application_en, key_application_ru,
                 parameters_en, parameters_ru, detail_html_en, detail_html_ru,
-                main_image, raw_json
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                main_image, recommended_products, raw_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `).run(
             handle, 
             body.category_id || 'new_category', 
@@ -38,6 +39,7 @@ export async function POST(request: Request) {
             body.detail_html_en || '',
             body.detail_html_ru || '',
             body.main_image || '',
+            JSON.stringify(body.recommended_products || []),
             JSON.stringify(body)
         );
         revalidateTag('solutions');

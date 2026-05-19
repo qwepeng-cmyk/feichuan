@@ -193,7 +193,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                 <h2 id="overview-title" className={styles.sectionTitleCenter}>{dict.products.overview}</h2>
                 {detailHtml ? (
                     <OptimizedRichText 
-                        className={`${styles.richText} rich-content auto-grid`}
+                        className={`${styles.richText} rich-content`}
                         html={detailHtml}
                     />
                 ) : (

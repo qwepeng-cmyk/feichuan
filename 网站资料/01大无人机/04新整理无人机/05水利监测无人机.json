@@ -40,7 +40,7 @@
     "Protection": "Fail-safe return, Low battery return, Resume from breakpoint"
   },
   "detail_html": "<h4>功能特点</h4><ul><li>水利监测无人机是一款专为水域环境与水利工程管理设计的智能化监测系统。该系统由多旋翼飞行平台、高精度监测载荷和便携式地面站组成，通过稳定可靠的无线通信链路，实现对水域状况、水利设施和防汛应急场景的实时监测与数据采集。</li><li>本系统可根据任务需求灵活配置高清光学相机、热成像仪、多光谱传感器等专业载荷，全面覆盖水利监测核心需求。主要应用于：汛期水文监测与险情勘察，快速获取水位、流速、淹没范围等关键数据；水利设施智能巡检，精准识别坝体裂缝、管涌渗漏等安全隐患；河湖水域常态化监管，高效开展水质监测、排污溯源、非法采砂巡查等任务，为水利现代化管理提供高效可靠的技术支撑。</li><li>图1 FC-SLJC-01无人机</li><li>技术指标</li><li>应用场景</li><li>河湖监测与监管</li><li>水土保持调查</li><li>水旱灾害防御</li><li>水利工程检查</li><li>堰塞湖应急监测</li><li>冰凌应急监测</li></ul><h4>产品图片</h4>",
-  "detail_html_en": "<h4>Features</h4><ul><li>Intelligent system for water and hydraulic project management. Supports real-time monitoring of water conditions and hydraulic facilities.</li><li>Professional payloads include HD cameras, thermal sensors, and multispectral sensors. Key applications: flood season monitoring, dam hazard identification, and water quality supervision.</li><li>Figure 1 FC-SLJC-01 Drone</li><li>Technical Specs</li><li>Application Scenarios</li><li>River and lake monitoring</li><li>Water/soil conservation survey</li><li>Flood prevention and monitoring</li></ul>",
+  "detail_html_en": "<h4>Features</h4><ul><li>Intelligent system for water and hydraulic project management. Supports real-time monitoring of water conditions and hydraulic facilities.</li><li>Professional payloads include HD cameras, thermal sensors, and multispectral sensors. Key applications: flood season monitoring, dam hazard identification, and water quality supervision.</li></ul>",
   "main_image": "/products/uav-systems/FC-SLJC-01-Water-Conservancy-Monitoring-Drone.png",
   "handle": "fc-sljc-01-water-conservancy-monitoring-drone",
   "category_primary": "UAV & Drone Systems (无人机系统)",

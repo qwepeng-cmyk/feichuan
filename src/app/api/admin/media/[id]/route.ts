@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 function syncMediaToJson() {
-    const rows = db.prepare('SELECT raw_json FROM media').all() as any[];
+    const rows = db.prepare('SELECT raw_json FROM media ORDER BY date DESC, created_at DESC').all() as any[];
     const jsonData = rows.map(r => JSON.parse(r.raw_json));
     const filePath = path.join(process.cwd(), 'public/media/news_data.json');
     fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 4));
