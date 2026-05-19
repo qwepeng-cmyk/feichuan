@@ -15,6 +15,7 @@ export const getAllCases = unstable_cache(
         country_ru,
         solution_category_id
       FROM cases
+      WHERE COALESCE(is_published, 1) = 1
     `).all() as any[];
   },
   ['all-cases'],
@@ -23,7 +24,7 @@ export const getAllCases = unstable_cache(
 
 export const getAllCaseHandles = unstable_cache(
   async () => {
-    const rows = db.prepare('SELECT handle FROM cases').all() as any[];
+    const rows = db.prepare('SELECT handle FROM cases WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.handle).filter(Boolean);
   },
   ['case-handles'],
@@ -32,7 +33,7 @@ export const getAllCaseHandles = unstable_cache(
 
 export const getCaseByHandle = unstable_cache(
   async (handle: string) => {
-    const row = db.prepare('SELECT * FROM cases WHERE handle = ?').get(handle) as any;
+    const row = db.prepare('SELECT * FROM cases WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(handle) as any;
     if (!row) return null;
     try {
         const data = JSON.parse(row.raw_json);

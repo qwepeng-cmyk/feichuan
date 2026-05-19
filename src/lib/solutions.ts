@@ -36,6 +36,7 @@ export const getAllSolutions = unstable_cache(
                 product_name_ru,
                 main_image
             FROM solutions
+            WHERE COALESCE(is_published, 1) = 1
         `).all() as any[];
         
         return rows.map(row => ({
@@ -52,7 +53,7 @@ export const getAllSolutions = unstable_cache(
 
 export const getSolutionById = unstable_cache(
     async (id: string): Promise<Solution | null> => {
-        const row = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(id) as any;
+        const row = db.prepare('SELECT * FROM solutions WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(id) as any;
         if (!row) return null;
 
         let data: any = {};
@@ -75,7 +76,7 @@ export const getSolutionById = unstable_cache(
 
 export const getAllSolutionHandles = unstable_cache(
     async (): Promise<string[]> => {
-        const rows = db.prepare('SELECT handle FROM solutions').all() as any[];
+        const rows = db.prepare('SELECT handle FROM solutions WHERE COALESCE(is_published, 1) = 1').all() as any[];
         return rows.map(r => r.handle);
     },
     ['solution-handles'],

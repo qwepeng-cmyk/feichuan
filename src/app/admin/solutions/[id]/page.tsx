@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, ToggleLeft, ToggleRight } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 import MainImageUploader from '@/components/admin/MainImageUploader';
 
@@ -115,6 +115,7 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
 
     const build = () => ({
         ...f,
+        is_published: f.is_published === false || f.is_published === 0 ? 0 : 1,
         parameters: paramsCn,
         parameters_en: paramsEn,
         parameters_ru: paramsRu,
@@ -141,6 +142,7 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
     const catId = SOL_CATEGORIES.find(c=>c.name===f.category_name||c.id===f.category_id)?.id || f.category_id || '';
 
     const threeCol = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '18px' };
+    const isPublished = f.is_published !== 0 && f.is_published !== false;
 
     return (
         <div style={{maxWidth:'1100px',margin:'0 auto'}}>
@@ -165,6 +167,31 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
                             <option value="">-- Select --</option>{SOL_CATEGORIES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
                         </select></div>
                     <div><label style={s.label}>Category Slug</label><input style={s.input} value={f.category_primary||''} onChange={e=>upd('category_primary',e.target.value)}/></div>
+                </div>
+                <div style={{ marginTop: '20px', padding: '14px 16px', borderRadius: '8px', border: `1px solid ${isPublished ? '#bbf7d0' : '#fed7d7'}`, backgroundColor: isPublished ? '#f0fdf4' : '#fff5f5', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+                    <div>
+                        <div style={{ fontSize: '1.35rem', fontWeight: 700, color: isPublished ? '#166534' : '#991b1b' }}>
+                            Solution status: {isPublished ? 'Published' : 'Unpublished'}
+                        </div>
+                        <div style={{ fontSize: '1.18rem', color: '#64748b', marginTop: '4px', lineHeight: 1.5 }}>
+                            Unpublished solutions are hidden from public solution lists, detail pages, and home/news JSON surfaces.
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const nextPublished = !isPublished;
+                            const actionText = nextPublished ? '上架' : '下架';
+                            const itemName = f.product_name_en || f.handle || params.id;
+                            if (window.confirm(`确认要${actionText}这个方案吗？\n\n${itemName}`)) {
+                                upd('is_published', nextPublished ? 1 : 0);
+                            }
+                        }}
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '9px 14px', borderRadius: '8px', border: 'none', backgroundColor: isPublished ? '#16a34a' : '#dc2626', color: '#fff', cursor: 'pointer', fontSize: '1.25rem', fontWeight: 700, whiteSpace: 'nowrap' }}
+                    >
+                        {isPublished ? <ToggleRight size={18} /> : <ToggleLeft size={18} />}
+                        {isPublished ? 'Set offline' : 'Publish'}
+                    </button>
                 </div>
                 <div style={{marginTop:'20px'}}><label style={s.label}>Main Image</label>
                     <MainImageUploader

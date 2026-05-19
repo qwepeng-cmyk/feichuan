@@ -4,10 +4,10 @@ import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { handle: string } }) {
     try {
-        const row = db.prepare('SELECT raw_json FROM cases WHERE handle = ?').get(params.handle) as any;
+        const row = db.prepare('SELECT raw_json, COALESCE(is_published, 1) AS is_published FROM cases WHERE handle = ?').get(params.handle) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
         
-        return NextResponse.json({ success: true, data: JSON.parse(row.raw_json) });
+        return NextResponse.json({ success: true, data: { ...JSON.parse(row.raw_json), is_published: row.is_published } });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
     }
@@ -16,7 +16,8 @@ export async function GET(request: Request, { params }: { params: { handle: stri
 export async function PUT(request: Request, { params }: { params: { handle: string } }) {
     try {
         const body = await request.json();
-        const raw_json = JSON.stringify(body);
+        const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
+        const raw_json = JSON.stringify({ ...body, is_published: isPublished });
         
         db.prepare(`
             UPDATE cases 
@@ -24,7 +25,7 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
                 solution_category_id = ?, main_image = ?, case_images = ?,
                 description_en = ?, description_ru = ?, devices_en = ?, devices_ru = ?, 
                 parameters_en = ?, parameters_ru = ?, recommended_product_handles = ?,
-                raw_json = ?, updated_at = CURRENT_TIMESTAMP
+                is_published = ?, raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE handle = ?
         `).run(
             body.title_en || body.title, 
@@ -43,12 +44,44 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
             JSON.stringify(body.parameters_en || []),
             JSON.stringify(body.parameters_ru || []),
             JSON.stringify(body.recommendedProductHandles || body.recommended_product_handles || []),
+            isPublished,
             raw_json, 
             params.handle
         );
         
         revalidateTag('cases');
         return NextResponse.json({ success: true });
+    } catch (e) {
+        return NextResponse.json({ success: false }, { status: 500 });
+    }
+}
+
+export async function PATCH(request: Request, { params }: { params: { handle: string } }) {
+    try {
+        const body = await request.json();
+        const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
+        const row = db.prepare('SELECT raw_json FROM cases WHERE handle = ?').get(params.handle) as any;
+
+        if (!row) {
+            return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
+        }
+
+        let rawData: any = {};
+        try {
+            rawData = JSON.parse(row.raw_json || '{}');
+        } catch {
+            rawData = {};
+        }
+        rawData.is_published = isPublished;
+
+        db.prepare(`
+            UPDATE cases
+            SET is_published = ?, raw_json = ?, updated_at = CURRENT_TIMESTAMP
+            WHERE handle = ?
+        `).run(isPublished, JSON.stringify(rawData), params.handle);
+
+        revalidateTag('cases');
+        return NextResponse.json({ success: true, is_published: isPublished });
     } catch (e) {
         return NextResponse.json({ success: false }, { status: 500 });
     }

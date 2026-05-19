@@ -36,6 +36,7 @@ db.exec(`
         parameters_ru TEXT,
         detail_html_ru TEXT,
         main_image TEXT,
+        is_published INTEGER DEFAULT 1,
         raw_json TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -60,6 +61,7 @@ db.exec(`
         detail_html_ru TEXT,
         main_image TEXT,
         recommended_products TEXT,
+        is_published INTEGER DEFAULT 1,
         raw_json TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -84,6 +86,7 @@ db.exec(`
         country_ru TEXT,
         solution_category_id TEXT,
         recommended_product_handles TEXT,
+        is_published INTEGER DEFAULT 1,
         raw_json TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -98,6 +101,7 @@ db.exec(`
         content TEXT,
         title_ru TEXT,
         content_ru TEXT,
+        is_published INTEGER DEFAULT 1,
         raw_json TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -132,6 +136,30 @@ db.exec(`
     CREATE INDEX IF NOT EXISTS idx_products_handle ON products(handle);
     CREATE INDEX IF NOT EXISTS idx_solutions_handle ON solutions(handle);
     CREATE INDEX IF NOT EXISTS idx_cases_handle ON cases(handle);
+`);
+
+function ensureColumn(table: string, column: string, definition: string) {
+    const columns = db.prepare(`PRAGMA table_info(${table})`).all() as { name: string }[];
+    if (!columns.some((item) => item.name === column)) {
+        try {
+            db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+        } catch (error) {
+            if (!(error instanceof Error) || !error.message.includes('duplicate column name')) {
+                throw error;
+            }
+        }
+    }
+}
+
+ensureColumn('products', 'is_published', 'INTEGER DEFAULT 1');
+ensureColumn('solutions', 'is_published', 'INTEGER DEFAULT 1');
+ensureColumn('cases', 'is_published', 'INTEGER DEFAULT 1');
+ensureColumn('media', 'is_published', 'INTEGER DEFAULT 1');
+db.exec(`
+    CREATE INDEX IF NOT EXISTS idx_products_published ON products(is_published);
+    CREATE INDEX IF NOT EXISTS idx_solutions_published ON solutions(is_published);
+    CREATE INDEX IF NOT EXISTS idx_cases_published ON cases(is_published);
+    CREATE INDEX IF NOT EXISTS idx_media_published ON media(is_published);
 `);
 
 export default db;

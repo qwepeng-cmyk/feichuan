@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, ToggleLeft, ToggleRight } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 import MainImageUploader from '@/components/admin/MainImageUploader';
 
@@ -127,6 +127,7 @@ export default function ProductEditPage({ params }: { params: { handle: string }
     const [categoryPrimary, setCategoryPrimary] = useState('');
     const [categorySecondary, setCategorySecondary] = useState('');
     const [mainImage, setMainImage] = useState('');
+    const [isPublished, setIsPublished] = useState(true);
     const [summaryEn, setSummaryEn] = useState('');
     const [summaryCn, setSummaryCn] = useState('');
     const [summaryRu, setSummaryRu] = useState('');
@@ -171,6 +172,7 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     setCategoryPrimary(data.category_primary || '');
                     setCategorySecondary(data.category_secondary || '');
                     setMainImage(data.main_image || '');
+                    setIsPublished(data.is_published !== 0 && data.is_published !== false);
                     setSummaryEn(data.summary_en || '');
                     setSummaryCn(data.summary || '');
                     setSummaryRu(data.summary_ru || '');
@@ -224,6 +226,7 @@ export default function ProductEditPage({ params }: { params: { handle: string }
         category_primary: categoryPrimary,
         category_secondary: categorySecondary,
         main_image: mainImage,
+        is_published: isPublished ? 1 : 0,
         summary: summaryCn,
         summary_en: summaryEn,
         summary_ru: summaryRu,
@@ -362,6 +365,55 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                         <label style={fieldLabel}>Secondary Category <span style={{ color: '#94a3b8', fontWeight: 400 }}>(optional)</span></label>
                         <input style={textInput} value={categorySecondary} onChange={e => setCategorySecondary(e.target.value)} placeholder="Sub-category name" />
                     </div>
+                </div>
+
+                <div style={{
+                    marginTop: '20px',
+                    padding: '14px 16px',
+                    borderRadius: '8px',
+                    border: `1px solid ${isPublished ? '#bbf7d0' : '#fed7d7'}`,
+                    backgroundColor: isPublished ? '#f0fdf4' : '#fff5f5',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '16px',
+                }}>
+                    <div>
+                        <div style={{ fontSize: '1.35rem', fontWeight: 700, color: isPublished ? '#166534' : '#991b1b' }}>
+                            Product status: {isPublished ? 'Published' : 'Unpublished'}
+                        </div>
+                        <div style={{ fontSize: '1.18rem', color: '#64748b', marginTop: '4px', lineHeight: 1.5 }}>
+                            Unpublished products are hidden from public product lists, detail pages, and related product cards.
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const nextPublished = !isPublished;
+                            const actionText = nextPublished ? '上架' : '下架';
+                            const productName = productNameEn || handle || params.handle;
+                            if (window.confirm(`确认要${actionText}这个产品吗？\n\n${productName}`)) {
+                                setIsPublished(nextPublished);
+                            }
+                        }}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '7px',
+                            padding: '9px 14px',
+                            borderRadius: '8px',
+                            border: 'none',
+                            backgroundColor: isPublished ? '#16a34a' : '#dc2626',
+                            color: '#fff',
+                            cursor: 'pointer',
+                            fontSize: '1.25rem',
+                            fontWeight: 700,
+                            whiteSpace: 'nowrap',
+                        }}
+                    >
+                        {isPublished ? <ToggleRight size={18} /> : <ToggleLeft size={18} />}
+                        {isPublished ? 'Set offline' : 'Publish'}
+                    </button>
                 </div>
 
                 <div style={{ marginTop: '20px' }}>

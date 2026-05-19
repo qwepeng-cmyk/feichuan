@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, ToggleLeft, ToggleRight } from 'lucide-react';
 import MainImageUploader from '@/components/admin/MainImageUploader';
 
 const s: Record<string, React.CSSProperties> = {
@@ -107,6 +107,7 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
 
     const build = () => ({
         ...f,
+        is_published: f.is_published === false || f.is_published === 0 ? 0 : 1,
         case_images: caseImages.filter(Boolean),
         parameters: paramsCn,
         parameters_en: paramsEn,
@@ -134,6 +135,7 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
     if (loading) return <div style={{padding:'60px',textAlign:'center',color:'#94a3b8',fontSize:'1.4rem'}}>加载中...</div>;
 
     const threeCol = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '18px' };
+    const isPublished = f.is_published !== 0 && f.is_published !== false;
 
     return (
         <div style={{maxWidth:'1100px',margin:'0 auto'}}>
@@ -164,6 +166,31 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
                     <div><label style={s.label}>Страна (RU)</label><input style={s.input} value={f.country_ru||''} onChange={e=>upd('country_ru',e.target.value)} placeholder="например: Пакистан"/></div>
                 </div>
                 <div style={{marginTop:'20px'}}><label style={s.label}>Solution Category ID</label><input style={s.input} value={f.solution_category_id||''} onChange={e=>upd('solution_category_id',e.target.value)} placeholder="e.g. anti-drone"/></div>
+                <div style={{ marginTop: '20px', padding: '14px 16px', borderRadius: '8px', border: `1px solid ${isPublished ? '#bbf7d0' : '#fed7d7'}`, backgroundColor: isPublished ? '#f0fdf4' : '#fff5f5', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+                    <div>
+                        <div style={{ fontSize: '1.35rem', fontWeight: 700, color: isPublished ? '#166534' : '#991b1b' }}>
+                            Case status: {isPublished ? 'Published' : 'Unpublished'}
+                        </div>
+                        <div style={{ fontSize: '1.18rem', color: '#64748b', marginTop: '4px', lineHeight: 1.5 }}>
+                            Unpublished cases are hidden from public case lists and detail pages.
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const nextPublished = !isPublished;
+                            const actionText = nextPublished ? '上架' : '下架';
+                            const itemName = f.title_en || f.handle || params.handle;
+                            if (window.confirm(`确认要${actionText}这个案例吗？\n\n${itemName}`)) {
+                                upd('is_published', nextPublished ? 1 : 0);
+                            }
+                        }}
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '9px 14px', borderRadius: '8px', border: 'none', backgroundColor: isPublished ? '#16a34a' : '#dc2626', color: '#fff', cursor: 'pointer', fontSize: '1.25rem', fontWeight: 700, whiteSpace: 'nowrap' }}
+                    >
+                        {isPublished ? <ToggleRight size={18} /> : <ToggleLeft size={18} />}
+                        {isPublished ? 'Set offline' : 'Publish'}
+                    </button>
+                </div>
             </div>
 
             {/* Images */}

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Save, ChevronDown, ChevronUp, Image as ImageIcon, ToggleLeft, ToggleRight } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 
 const MEDIA_CATS = ['Company News', 'Industry Analysis', 'Product Update', 'Event'];
@@ -18,7 +18,7 @@ const s: Record<string, React.CSSProperties> = {
 export default function MediaEditPage({ params }: { params: { id: string } }) {
     const isNew = params.id === 'new';
     const router = useRouter();
-    const [f, setF] = useState<any>({ id: '', title: '', date: '', image: '', category: '', content: '' });
+    const [f, setF] = useState<any>({ id: '', title: '', date: '', image: '', category: '', content: '', is_published: 1 });
     const [showAdv, setShowAdv] = useState(false);
     const [rawJson, setRawJson] = useState('{}');
     const [loading, setLoading] = useState(!isNew);
@@ -41,7 +41,7 @@ export default function MediaEditPage({ params }: { params: { id: string } }) {
         setSaving(true); setError(''); setOk('');
         let d;
         if (showAdv) { try { d = JSON.parse(rawJson); } catch { setError('Invalid JSON'); setSaving(false); return; } }
-        else d = { ...f };
+        else d = { ...f, is_published: f.is_published === false || f.is_published === 0 ? 0 : 1 };
 
         const url = isNew ? '/api/admin/media' : `/api/admin/media/${params.id}`;
         try {
@@ -57,6 +57,8 @@ export default function MediaEditPage({ params }: { params: { id: string } }) {
     };
 
     if (loading) return <div style={{ padding: '60px', textAlign: 'center', color: '#94a3b8', fontSize: '1.4rem' }}>加载中...</div>;
+
+    const isPublished = f.is_published !== 0 && f.is_published !== false;
 
     return (
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
@@ -79,6 +81,31 @@ export default function MediaEditPage({ params }: { params: { id: string } }) {
                             {MEDIA_CATS.map(c => <option key={c} value={c}>{c}</option>)}
                         </select>
                     </div>
+                </div>
+                <div style={{ marginTop: '20px', padding: '14px 16px', borderRadius: '8px', border: `1px solid ${isPublished ? '#bbf7d0' : '#fed7d7'}`, backgroundColor: isPublished ? '#f0fdf4' : '#fff5f5', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+                    <div>
+                        <div style={{ fontSize: '1.35rem', fontWeight: 700, color: isPublished ? '#166534' : '#991b1b' }}>
+                            Article status: {isPublished ? 'Published' : 'Unpublished'}
+                        </div>
+                        <div style={{ fontSize: '1.18rem', color: '#64748b', marginTop: '4px', lineHeight: 1.5 }}>
+                            Unpublished news is hidden from public media lists, detail pages, and home news cards.
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            const nextPublished = !isPublished;
+                            const actionText = nextPublished ? '上架' : '下架';
+                            const itemName = f.title || f.id || params.id;
+                            if (window.confirm(`确认要${actionText}这篇新闻吗？\n\n${itemName}`)) {
+                                upd('is_published', nextPublished ? 1 : 0);
+                            }
+                        }}
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '9px 14px', borderRadius: '8px', border: 'none', backgroundColor: isPublished ? '#16a34a' : '#dc2626', color: '#fff', cursor: 'pointer', fontSize: '1.25rem', fontWeight: 700, whiteSpace: 'nowrap' }}
+                    >
+                        {isPublished ? <ToggleRight size={18} /> : <ToggleLeft size={18} />}
+                        {isPublished ? 'Set offline' : 'Publish'}
+                    </button>
                 </div>
                 <div style={{ marginTop: '20px' }}><label style={s.label}>Cover Image URL</label>
                     <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>

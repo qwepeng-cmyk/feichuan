@@ -20,7 +20,11 @@ export const getAllProducts = unstable_cache(
       'perimeter-intelligence': []
     };
 
-    const rows = db.prepare('SELECT handle, product_name_en, product_name_ru, main_image, category_primary FROM products').all() as any[];
+    const rows = db.prepare(`
+      SELECT handle, product_name_en, product_name_ru, main_image, category_primary
+      FROM products
+      WHERE COALESCE(is_published, 1) = 1
+    `).all() as any[];
 
     for (const row of rows) {
       if (categories[row.category_primary]) {
@@ -41,7 +45,7 @@ export const getAllProducts = unstable_cache(
 
 export const getAllProductHandles = unstable_cache(
   async () => {
-    const rows = db.prepare('SELECT handle FROM products').all() as any[];
+    const rows = db.prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.handle);
   },
   ['product-handles'],
@@ -50,7 +54,7 @@ export const getAllProductHandles = unstable_cache(
 
 export const getProductByHandle = unstable_cache(
   async (handle: string) => {
-    const row = db.prepare('SELECT * FROM products WHERE handle = ?').get(handle) as any;
+    const row = db.prepare('SELECT * FROM products WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(handle) as any;
     if (!row) return null;
     
     try {
