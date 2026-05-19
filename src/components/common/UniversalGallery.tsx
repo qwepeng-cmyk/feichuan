@@ -6,9 +6,10 @@ import Image from 'next/image';
 interface UniversalGalleryProps {
   images: string[];
   fit?: 'cover' | 'contain';
+  alt?: string;
 }
 
-export default function UniversalGallery({ images, fit = 'cover' }: UniversalGalleryProps) {
+export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET image' }: UniversalGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = (e: React.MouseEvent) => {
@@ -32,7 +33,7 @@ export default function UniversalGallery({ images, fit = 'cover' }: UniversalGal
       <div className="gallery-main" style={{ position: 'relative' }}>
         <Image 
             src={displayImages[activeIndex] || '/logo1-small.webp'} 
-            alt="Main display" 
+            alt={alt} 
             fill
             priority
             style={{ objectFit: fit }}
@@ -109,7 +110,7 @@ export default function UniversalGallery({ images, fit = 'cover' }: UniversalGal
           >
             <Image 
               src={img || '/logo1-small.webp'} 
-              alt={`Thumbnail ${index + 1}`} 
+              alt={`${alt} thumbnail ${index + 1}`} 
               fill 
               style={{ objectFit: 'cover' }}
               sizes="120px"

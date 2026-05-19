@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getSolutionById, getAllSolutionHandles } from '@/lib/solutions';
 import { getAllProducts } from '@/lib/products';
@@ -12,6 +13,34 @@ export async function generateStaticParams() {
   return handles.map((id) => ({
     id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
+  const solution = await getSolutionById(params.id);
+  if (!solution) return {};
+
+  const title = solution[`product_name_${params.locale}`] || solution.product_name_en || solution.title_en;
+  const description = solution[`summary_${params.locale}`] || solution.summary_en || undefined;
+  const canonical = params.locale === 'en' ? `/solutions/${params.id}` : `/${params.locale}/solutions/${params.id}`;
+  const image = solution.main_image ? new URL(solution.main_image, 'https://n-tet.com').toString() : undefined;
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      images: image ? [{ url: image, alt: title }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: image ? [image] : undefined,
+    },
+  };
 }
 
 // 1. Data Fetching Component (Streaming)

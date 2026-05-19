@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import MainImageUploader from '@/components/admin/MainImageUploader';
 
 const s: Record<string, React.CSSProperties> = {
     card: { backgroundColor: '#fff', padding: '28px', borderRadius: '12px', boxShadow: '0 1px 8px rgba(0,0,0,0.04)', border: '1px solid #e8ecf1', marginBottom: '20px' },
@@ -169,10 +170,15 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
             <div style={s.card}><h2 style={s.title}>🖼️ Images</h2>
                 <div style={{marginBottom:'20px'}}>
                     <label style={s.label}>Main Image</label>
-                    <div style={{display:'flex',gap:'16px',alignItems:'flex-start'}}>
-                        <input style={{...s.input,flex:1}} value={f.main_image||''} onChange={e=>upd('main_image',e.target.value)}/>
-                        {f.main_image?<img src={f.main_image} alt="" style={{width:'120px',height:'90px',objectFit:'contain',borderRadius:'8px',border:'1px solid #e2e8f0',backgroundColor:'#f8fafc'}}/>:<div style={{width:'120px',height:'90px',display:'flex',alignItems:'center',justifyContent:'center',borderRadius:'8px',border:'1px dashed #cbd5e1',color:'#94a3b8',backgroundColor:'#f8fafc'}}><ImageIcon size={28}/></div>}
-                    </div>
+                    <MainImageUploader
+                        resourceType="cases"
+                        value={f.main_image || ''}
+                        onChange={url => upd('main_image', url)}
+                        entityHandle={f.handle || params.handle}
+                        entityName={f.title_en || f.title}
+                        previewFit="cover"
+                        placeholder="/cases/case-handle/case-handle-main.webp"
+                    />
                 </div>
                 <label style={s.label}>Gallery Images</label>
                 {caseImages.map((img,i)=>(

@@ -62,7 +62,7 @@ export default function SolutionDetailClient({
 
               {/* Image Gallery Area */}
               <div className="gallery-main-area">
-                <UniversalGallery images={images} />
+                <UniversalGallery images={images} alt={name} />
               </div>
 
               {/* Info Area */}

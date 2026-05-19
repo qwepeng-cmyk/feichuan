@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
+import MainImageUploader from '@/components/admin/MainImageUploader';
 
 const SOL_CATEGORIES = [
     { id: '01_BorderPatrol', name: 'Border Patrol' },
@@ -166,10 +167,16 @@ export default function SolutionEditPage({ params }: { params: { id: string } })
                     <div><label style={s.label}>Category Slug</label><input style={s.input} value={f.category_primary||''} onChange={e=>upd('category_primary',e.target.value)}/></div>
                 </div>
                 <div style={{marginTop:'20px'}}><label style={s.label}>Main Image</label>
-                    <div style={{display:'flex',gap:'16px',alignItems:'flex-start'}}>
-                        <input style={{...s.input,flex:1}} value={f.main_image||''} onChange={e=>upd('main_image',e.target.value)}/>
-                        {f.main_image?<img src={f.main_image} alt="" style={{width:'120px',height:'90px',objectFit:'contain',borderRadius:'8px',border:'1px solid #e2e8f0',backgroundColor:'#f8fafc'}}/>:<div style={{width:'120px',height:'90px',display:'flex',alignItems:'center',justifyContent:'center',borderRadius:'8px',border:'1px dashed #cbd5e1',color:'#94a3b8',backgroundColor:'#f8fafc'}}><ImageIcon size={28}/></div>}
-                    </div></div>
+                    <MainImageUploader
+                        resourceType="solutions"
+                        value={f.main_image || ''}
+                        onChange={url => upd('main_image', url)}
+                        entityHandle={f.handle || params.id}
+                        entityName={f.product_name_en || f.product_name}
+                        previewFit="cover"
+                        placeholder="/solutions/solution-handle/solution-handle-main.webp"
+                    />
+                </div>
             </div>
 
             <div style={s.card}><h2 style={s.title}>📝 Summary</h2>

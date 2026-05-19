@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
+import MainImageUploader from '@/components/admin/MainImageUploader';
 
 const CATEGORIES = [
     { value: 'uav-drone-systems', label: 'UAV Drone Systems (无人机系统)' },
@@ -365,17 +366,15 @@ export default function ProductEditPage({ params }: { params: { handle: string }
 
                 <div style={{ marginTop: '20px' }}>
                     <label style={fieldLabel}>Main Image URL</label>
-                    <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                        <input style={{ ...textInput, flex: 1 }} value={mainImage} onChange={e => setMainImage(e.target.value)} placeholder="/products/category/image.png" />
-                        {mainImage ? (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img src={mainImage} alt="Preview" style={{ width: '120px', height: '90px', objectFit: 'contain', borderRadius: '8px', border: '1px solid #e2e8f0', backgroundColor: '#f8fafc' }} />
-                        ) : (
-                            <div style={{ width: '120px', height: '90px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '8px', border: '1px dashed #cbd5e1', color: '#94a3b8', backgroundColor: '#f8fafc' }}>
-                                <ImageIcon size={28} />
-                            </div>
-                        )}
-                    </div>
+                    <MainImageUploader
+                        resourceType="products"
+                        value={mainImage}
+                        onChange={setMainImage}
+                        entityHandle={handle || params.handle}
+                        entityName={productNameEn || productNameCn}
+                        previewFit="contain"
+                        placeholder="/products/product-handle/product-handle-main.webp"
+                    />
                 </div>
             </div>
 

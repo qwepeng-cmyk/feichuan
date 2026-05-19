@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import React, { Suspense } from 'react';
 export const revalidate = 3600; 
@@ -21,6 +22,34 @@ export async function generateStaticParams() {
   return handles.map((handle) => ({
     handle,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
+  const product = await getProductByHandle(params.handle);
+  if (!product) return {};
+
+  const name = product[`product_name_${params.locale}`] || product.product_name_en || product.name;
+  const description = product[`summary_${params.locale}`] || product.summary_en || undefined;
+  const canonical = params.locale === 'en' ? `/products/${params.handle}` : `/${params.locale}/products/${params.handle}`;
+  const image = product.main_image ? new URL(product.main_image, 'https://n-tet.com').toString() : undefined;
+
+  return {
+    title: name,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title: name,
+      description,
+      url: canonical,
+      images: image ? [{ url: image, alt: name }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: name,
+      description,
+      images: image ? [image] : undefined,
+    },
+  };
 }
 
 // 1. Data Fetching Component (Streaming)
@@ -73,7 +102,7 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
                   <div className="gallery-main-area">
-                    <UniversalGallery images={galleryImages} fit="contain" />
+                    <UniversalGallery images={galleryImages} fit="contain" alt={name} />
                   </div>
                   <div className="product-info">
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
