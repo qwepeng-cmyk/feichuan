@@ -9,6 +9,10 @@ interface MobileCasesProps {
 }
 
 export default function MobileCases({ locale, dict, homeCases }: MobileCasesProps) {
+    if (homeCases.length === 0) {
+        return null;
+    }
+
     return (
         <section style={{ padding: '40px 15px', background: '#fff', minHeight: '800px' }}>
             <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.cases}</h2>

@@ -1,5 +1,10 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
+import {
+    getComplianceTier,
+    isPublicComplianceContent,
+    sanitizeRecordForTier,
+} from './complianceTaxonomy';
 
 export interface Solution {
     id: string;
@@ -39,13 +44,15 @@ export const getAllSolutions = unstable_cache(
             WHERE COALESCE(is_published, 1) = 1
         `).all() as any[];
         
-        return rows.map(row => ({
-            ...row,
-            id: row.handle,
-            title_en: row.product_name_en,
-            category_id: row.category_id,
-            category_name: row.category_name,
-        } as Solution));
+        return rows
+            .filter(row => isPublicComplianceContent('solution', row.handle))
+            .map(row => sanitizeRecordForTier({
+                ...row,
+                id: row.handle,
+                title_en: row.product_name_en,
+                category_id: row.category_id,
+                category_name: row.category_name,
+            } as Solution, getComplianceTier('solution', row.handle)));
     },
     ['all-solutions'],
     { revalidate: 3600, tags: ['solutions'] }
@@ -55,13 +62,14 @@ export const getSolutionById = unstable_cache(
     async (id: string): Promise<Solution | null> => {
         const row = db.prepare('SELECT * FROM solutions WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(id) as any;
         if (!row) return null;
+        if (!isPublicComplianceContent('solution', id)) return null;
 
         let data: any = {};
         try {
             data = JSON.parse(row.raw_json);
         } catch (e) {}
 
-        return {
+        const solution = {
             ...data,
             ...row,
             id: id,
@@ -69,6 +77,8 @@ export const getSolutionById = unstable_cache(
             category_id: row.category_id,
             category_name: row.category_name,
         } as Solution;
+
+        return sanitizeRecordForTier(solution, getComplianceTier('solution', id));
     },
     ['solution-detail'],
     { revalidate: 3600, tags: ['solutions'] }
@@ -77,7 +87,7 @@ export const getSolutionById = unstable_cache(
 export const getAllSolutionHandles = unstable_cache(
     async (): Promise<string[]> => {
         const rows = db.prepare('SELECT handle FROM solutions WHERE COALESCE(is_published, 1) = 1').all() as any[];
-        return rows.map(r => r.handle);
+        return rows.map(r => r.handle).filter(handle => isPublicComplianceContent('solution', handle));
     },
     ['solution-handles'],
     { revalidate: 3600, tags: ['solutions'] }

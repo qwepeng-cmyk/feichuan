@@ -2,11 +2,26 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import { createHandle } from '@/lib/admin-utils';
+import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 
 export async function GET() {
     try {
-        const rows = db.prepare('SELECT handle, category_name, product_name_en, main_image, COALESCE(is_published, 1) AS is_published FROM solutions ORDER BY id DESC').all();
-        return NextResponse.json({ success: true, data: rows });
+        const rows = db.prepare('SELECT handle, category_name, product_name_en, main_image, COALESCE(is_published, 1) AS is_published FROM solutions ORDER BY id DESC').all() as any[];
+        const data = rows.map((solution) => {
+            const complianceTier = getComplianceTier('solution', solution.handle);
+            const complianceLayer = getComplianceLayer(complianceTier);
+            return {
+                ...solution,
+                compliance_tier: complianceTier,
+                compliance_layer: complianceLayer.layer,
+                compliance_layer_label: complianceLayer.label,
+                compliance_layer_note: complianceLayer.note,
+                is_ad_safe: complianceTier === 'normal',
+                is_public_visible: solution.is_published !== 0 && complianceTier !== 'restricted',
+            };
+        });
+
+        return NextResponse.json({ success: true, data });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Failed to fetch solutions' }, { status: 500 });
     }

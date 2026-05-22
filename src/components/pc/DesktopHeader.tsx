@@ -162,9 +162,9 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                         </div>
                                     </div>
 
-                                    {/* Column 2: Anti-Drone / C-UAS Systems */}
+                                    {/* Column 2: Drone detection and airspace monitoring */}
                                     <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/products#anti-drone-cuas")}>{dict.megaMenu.antiDrone}</Link></h3>
+                                        <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.droneDetection}</Link></h3>
                                         <div style={{ marginBottom: '12px' }}>
                                             <div className="mega-sub-header">{dict.megaMenu.detectionTracking}</div>
                                             <ul className="mega-list">
@@ -172,22 +172,6 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                                 <li><Link prefetch={false} href={l("/products/stationary-rf-detection-system")}>{dict.megaMenu.rfDetection}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/composite-electro-optical-tracking-system")}>{dict.megaMenu.eoTracking}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/uav-remote-id-monitoring-system")}>{dict.megaMenu.remoteId}</Link></li>
-                                            </ul>
-                                        </div>
-                                        <div style={{ marginBottom: '12px' }}>
-                                            <div className="mega-sub-header">{dict.megaMenu.interference}</div>
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/handheld-integrated-multi-band-jammer-gun")}>{dict.megaMenu.handheldGuns}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/omni-directional-rf-jammer")}>{dict.megaMenu.rfJamming}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/uav-navigation-spoofing-system")}>{dict.megaMenu.navSpoofing}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/stationary-active-rf-defense-system")}>{dict.megaMenu.activeRfDefense}</Link></li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <div className="mega-sub-header">{dict.megaMenu.integratedCUAS}</div>
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/portable-integrated-detection-jamming-c-uas-basic")}>{dict.megaMenu.portableCUAS}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/handheld-integrated-sdr-c-uas")}>{dict.megaMenu.handheldCUAS}</Link></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -212,7 +196,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                     {/* Column 4: Engineering, Medical & Surveillance */}
                                     <div className="mega-column">
                                         <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#defense-engineering")}>{dict.megaMenu.defenseEngineering}</Link></h3>
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.engineeringMaterials}</Link></h3>
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.steelBridges}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.bridgeComponents}</Link></li>
@@ -257,9 +241,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                         <ul className="mega-list">
                                             <li><Link prefetch={false} href={l("/solutions/chemical-plant-protection")}>{dict?.megaMenu?.chemicalPlantProtection || 'Chemical Plant Protection'}</Link></li>
                                             <li><Link prefetch={false} href={l("/solutions/oil-production-base-protection")}>{dict?.megaMenu?.oilProductionBaseProtection || 'Oil Production Base Protection'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/power-generation-facility-anti-uav")}>{dict?.megaMenu?.powerGenerationFacilityAntiUAV || 'Power Generation Facility Anti-UAV'}</Link></li>
                                             <li><Link prefetch={false} href={l("/solutions/hydroelectric-dam-protection")}>{dict?.megaMenu?.hydroelectricDamProtection || 'Hydroelectric Dam Protection'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/airport-anti-uav")}>{dict?.megaMenu?.airportAntiUAV || 'Airport Anti-UAV'}</Link></li>
                                         </ul>
                                     </div>
                                     <div className="mega-column">

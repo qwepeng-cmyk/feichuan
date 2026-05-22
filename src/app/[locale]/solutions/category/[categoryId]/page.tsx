@@ -6,6 +6,12 @@ import { getAllProducts } from '@/lib/products';
 import categoryLandingData from '@/lib/categoryLandingData';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import {
+  getComplianceTier,
+  isPublicComplianceContent,
+  sanitizeRecordForTier,
+  sanitizeComplianceValue,
+} from '@/lib/complianceTaxonomy';
 
 interface SolutionJson {
   product_name: string;
@@ -49,7 +55,9 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
     subSolutions = files.map((file: string) => {
       const content = fs.readFileSync(path.join(dataDir, file), 'utf-8');
       return JSON.parse(content) as SolutionJson;
-    });
+    })
+      .filter((solution) => isPublicComplianceContent('solution', solution.handle))
+      .map((solution) => sanitizeRecordForTier(solution, getComplianceTier('solution', solution.handle)));
   } catch (e) {
     subSolutions = [];
   }
@@ -58,12 +66,14 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
   const productsByCategory = await getAllProducts();
   const allProducts = Object.values(productsByCategory).flat();
   const landingData = categoryLandingData[categoryId];
+  const sanitizedLandingData = landingData ? sanitizeComplianceValue(landingData) : undefined;
   const recommendedHandles = landingData?.recommendedProductHandles || [];
   const recommendedProducts = allProducts.filter(p => recommendedHandles.includes(p.handle));
 
   return (
     <CategoryLandingClient 
       categoryId={categoryId} 
+      landingData={sanitizedLandingData}
       subSolutions={subSolutions} 
       recommendedProducts={recommendedProducts} 
       locale={locale}

@@ -16,8 +16,8 @@ const solutions = [
     titleCn: "关键设施防护",
     mainImg: "/images/solution/02/02_main.png",
     parts: ["/images/solution/02/02_parts_01.png", "/images/solution/02/02_parts_02.png"],
-    composition: "RF detection arrays, phased array radars, high-speed EO trackers, and jamming modules.",
-    functions: "Multi-layer defense for oil plants and dams. Unauthorized drone identification and defeat.",
+    composition: "RF detection arrays, phased array radars, high-speed EO trackers, and event logging modules.",
+    functions: "Multi-layer monitoring for oil plants and dams. Unauthorized drone identification and airspace event management.",
     scenes: ["/images/sol_关键设施防护_1.png", "/images/solution/02/02_scene_01.png"]
   },
   {

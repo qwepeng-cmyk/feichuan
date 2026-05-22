@@ -9,6 +9,10 @@ interface HomeCasesProps {
 }
 
 export default function HomeCases({ locale, dict, homeCases }: HomeCasesProps) {
+    if (homeCases.length === 0) {
+        return null;
+    }
+
     return (
         <section className="section-cases" style={{ padding: '80px 0 100px', background: '#fff', minHeight: '600px' }}>
             <div className="container-wide">

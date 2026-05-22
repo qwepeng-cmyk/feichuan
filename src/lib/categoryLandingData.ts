@@ -18,7 +18,7 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     name_en: 'Border Patrol',
     name_ru: 'Охрана границ',
     bannerImage: '/solutions/border patrol banner bg.png',
-    industryNeeds_en: 'Border and coastal defense is critical to overall national security and development. Traditional frontline defense tasks are heavy, with prominent pressure on anti-infiltration and anti-smuggling. The integrated air-ground construction of smart border defense brings important opportunities to enhance prevention and control efficiency. UAVs equipped with high-performance optoelectronic pods can conduct wide-area maritime inspections for full-domain dynamic monitoring. Intelligent optoelectronic turrets serve as border surveillance equipment, featuring visible light and infrared dual-spectrum systems for 24/7 blind-spot-free monitoring, precisely capturing target details and locating suspicious targets in nocturnal environments. Integrating AI algorithms and high-precision control technology, they can lock and track moving targets, filter interference, and realize intelligent "identification-tracking-warning". Working in coordination, they synchronously transmit HD footage, providing precise support for command decisions, acting as powerful tools to safeguard maritime security and combat illegal activities, and helping build an all-around, three-dimensional smart border defense system.',
+    industryNeeds_en: 'Border and coastal monitoring is critical to infrastructure safety and public operations. Traditional patrol tasks are heavy, with prominent pressure on anti-infiltration and anti-smuggling work. Integrated air-ground monitoring brings important opportunities to enhance prevention and control efficiency. UAVs equipped with high-performance optoelectronic pods can conduct wide-area maritime inspections for full-domain dynamic monitoring. Intelligent optoelectronic turrets serve as border surveillance equipment, featuring visible light and infrared dual-spectrum systems for 24/7 blind-spot-free monitoring, precisely capturing target details and locating suspicious targets in nocturnal environments. Integrating AI algorithms and high-precision control technology, they can track moving targets, filter RF noise, and realize intelligent identification, tracking, and warning. Working in coordination, they synchronously transmit HD footage and provide precise support for command decisions.',
     industryNeeds_ru: 'Охрана границ и прибрежных зон имеет решающее значение для национальной безопасности. Традиционные методы патрулирования сталкиваются с высокой нагрузкой и угрозами контрабанды. Интеграция интеллектуальных систем открывает новые возможности для повышения эффективности контроля. БПЛА с высокопроизводительными оптико-электронными модулями обеспечивают динамический мониторинг обширных территорий. Интеллектуальные системы наблюдения с ИИ-алгоритмами позволяют круглосуточно идентифицировать, отслеживать и предупреждать о подозрительных целях, обеспечивая точную поддержку при принятии решений.',
     applicationScenes: [
       { title: '非法船只监管', title_en: 'Illegal Vessel Surveillance', title_ru: 'Наблюдение за незаконными судами' },
@@ -43,20 +43,19 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     name_en: 'Critical Infrastructure Protection',
     name_ru: 'Защита инфраструктуры',
     bannerImage: '/solutions/infrastructure protection banner bg.png',
-    industryNeeds_en: 'With the rapid development of the low-altitude economy, low-altitude activities have become increasingly frequent. While the popularization of UAV technology brings convenience, it also triggers a series of low-altitude security issues such as unauthorized "black flights". Around critical infrastructure like power substations, hydroelectric dams, oil production bases, and chemical plants, unauthorized drone flights pose serious threats to operational safety. Preventing low-altitude risks and ensuring absolute facility security has become an urgent priority. Critical infrastructure protection uses optoelectronic turrets as core sensing units, equipped with dual-band detection technology to accurately capture UAV trajectories, identify targets, and synchronously transmit data 24/7. Relying on front-end sensing data, counter-UAV equipment combines radio monitoring and navigation deception, utilizing flexible fixed and mobile deployments. Through parameter optimization, it avoids interference with critical facility equipment. The coordinated system achieves fully automated operation, adapting to all-weather complex scenarios to efficiently defend against various low-altitude threats and ensure the safe and stable operation of critical infrastructure.',
+    industryNeeds_en: 'With the rapid development of the low-altitude economy, low-altitude activities have become increasingly frequent. Around critical infrastructure like power substations, hydroelectric dams, oil production bases, and chemical plants, unauthorized drone flights can affect operational safety and privacy. Critical infrastructure monitoring uses optoelectronic turrets, low-altitude radar, RF spectrum monitoring, and event logging to identify airspace activity and support coordinated response. The system emphasizes detection, classification, warning, record keeping, and integration with existing security operations.',
     industryNeeds_ru: 'С развитием беспилотных технологий участились случаи несанкционированных полетов дронов над критически важными объектами. На электроподстанциях, плотинах ГЭС, нефтеперерабатывающих заводах и химических предприятиях такие полеты представляют серьезную угрозу. Обеспечение безопасности инфраструктуры стало приоритетной задачей. Наши решения объединяют системы обнаружения и противодействия, используя радарный мониторинг и навигационную подмену. Координированная работа систем позволяет в автоматическом режиме защищать объекты от различных угроз в любых погодных условиях.',
     applicationScenes: [
-      { title: '机场反无应用', title_en: 'Airport Anti-Drone Application', title_ru: 'Антидроновые решения для аэропортов' },
-      { title: '发电设施反无应用', title_en: 'Power Facility Anti-Drone Application', title_ru: 'Защита энергетических объектов' },
-      { title: '天然气设施反无应用', title_en: 'Natural Gas Facility Anti-Drone Application', title_ru: 'Защита газовой инфраструктуры' },
+      { title: '机场低空监测应用', title_en: 'Airport Airspace Monitoring', title_ru: 'Мониторинг воздушного пространства аэропорта' },
+      { title: '发电设施低空监测', title_en: 'Power Facility Airspace Monitoring', title_ru: 'Мониторинг энергетических объектов' },
+      { title: '天然气设施低空监测', title_en: 'Natural Gas Facility Airspace Monitoring', title_ru: 'Мониторинг газовой инфраструктуры' },
     ],
     products: [
-      { name: 'FC-DRS500-4D 区域低空防御系统', name_en: 'FC-DRS500-4D Regional Low-Altitude Defense System' },
-      { name: 'FC-DRS1000-4D 区域低空防御系统', name_en: 'FC-DRS1000-4D Regional Low-Altitude Defense System' },
+      { name: '低空雷达监测系统', name_en: 'Low-Altitude Radar Monitoring System' },
+      { name: '射频频谱监测系统', name_en: 'RF Spectrum Monitoring System' },
       { name: '光电识别跟踪设备', name_en: 'Optoelectronic Identification & Tracking Equipment' },
     ],
     recommendedProductHandles: [
-      'stationary-active-rf-defense-system',
       'stationary-rf-detection-system',
       'composite-electro-optical-tracking-system'
     ]
@@ -68,7 +67,7 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     name_en: 'Key Area Security',
     name_ru: 'Безопасность объектов',
     bannerImage: '/solutions/key area security banner bg.png',
-    industryNeeds_en: 'Critical key areas such as large-scale sports events, airports, and judicial departments are typically densely populated, scenario-complex, and concentrated with classified information, facing multiple security risks including drone intrusions, unauthorized personnel movement, and contraband smuggling. Traditional single-method security measures can no longer meet increasingly severe security control requirements. There is an urgent need to establish a comprehensive, smart, efficient, and multi-line coordinated security system to address complex and volatile security challenges. Key area security protection centers on comprehensive, intelligent three-dimensional prevention and control, integrating three core sectors: optoelectronic surveillance, counter-UAV, and smart security screening. Optoelectronic surveillance relies on multi-spectral imaging and laser ranging technologies to achieve full-domain 24/7 precision monitoring and target positioning. Counter-UAV equipment can effectively block unauthorized drone signals and prevent low-altitude security risks. Security screening equipment uses smart detection technology to quickly and accurately inspect personnel and goods, thereby fortifying the security defense line of key areas and ensuring their safe and stable operation.',
+    industryNeeds_en: 'Critical key areas such as large-scale sports events, airports, and judicial departments are typically densely populated and operationally complex. Traditional single-method security measures can no longer meet modern control requirements. There is an urgent need to establish a comprehensive, smart, efficient, and multi-line coordinated security system. Key area security centers on optoelectronic surveillance, low-altitude airspace monitoring, and smart security screening. Optoelectronic surveillance relies on multi-spectral imaging and laser ranging technologies to achieve full-domain 24/7 precision monitoring and target positioning. Security screening equipment uses smart detection technology to quickly and accurately inspect personnel and goods.',
     industryNeeds_ru: 'Критически важные зоны, такие как аэропорты, судебные департаменты и места проведения крупных спортивных мероприятий, требуют особого контроля из-за плотного потока людей и наличия секретной информации. Традиционные меры безопасности уже не отвечают современным вызовам. Необходима комплексная интеллектуальная система, объединяющая видеонаблюдение, досмотровое оборудование и средства борьбы с дронами. Наше оборудование обеспечивает круглосуточный высокоточный мониторинг, блокировку сигналов дронов и быструю проверку персонала и грузов, гарантируя стабильную работу объектов.',
     applicationScenes: [
       { title: '要地安保', title_en: 'Key Area Security', title_ru: 'Безопасность объектов' },
@@ -77,8 +76,8 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     ],
     products: [
       { name: '固定式无线电侦测设备', name_en: 'Fixed Radio Detection Equipment' },
-      { name: '固定式转台无线电压制', name_en: 'Fixed Turret Radio Suppression' },
-      { name: '防爆导航诱骗', name_en: 'Explosion-Proof Navigation Deception' },
+      { name: '射频频谱监测设备', name_en: 'RF Spectrum Monitoring Equipment' },
+      { name: '低空事件记录系统', name_en: 'Low-Altitude Event Logging System' },
       { name: '光电识别跟踪', name_en: 'Optoelectronic Identification & Tracking' },
       { name: 'FC2088手持金属探测器', name_en: 'FC2088 Handheld Metal Detector' },
       { name: 'FC-H 智慧手机探测门', name_en: 'FC-H Smart Phone Detection Gate' },
@@ -87,8 +86,6 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     ],
     recommendedProductHandles: [
       'stationary-rf-detection-system',
-      'directional-rf-jammer',
-      'uav-navigation-spoofing-system',
       'composite-electro-optical-tracking-system',
       'fc2088-handheld-metal-detector',
       'fc-h-smart-phone-detection-gate',

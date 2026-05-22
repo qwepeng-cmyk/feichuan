@@ -14,7 +14,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         phone: "Phone Number",
         inquiryType: "Inquiry Type:",
         messageLabel: "Project Details / Message",
-        messagePlaceholder: "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening).",
+        messagePlaceholder: "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., drone detection, security screening).",
         submit: "SUBMIT INQUIRY",
         types: [
             "Product Pricing & Quotation",

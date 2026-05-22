@@ -128,6 +128,28 @@ db.exec(`
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
+    CREATE TABLE IF NOT EXISTS compliance_terms (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        term TEXT NOT NULL UNIQUE,
+        replacement TEXT NOT NULL DEFAULT '',
+        locale TEXT NOT NULL DEFAULT 'all',
+        severity TEXT NOT NULL DEFAULT 'restricted',
+        is_enabled INTEGER DEFAULT 1,
+        note TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS compliance_content_rules (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        content_type TEXT NOT NULL,
+        handle TEXT NOT NULL,
+        tier TEXT NOT NULL,
+        note TEXT,
+        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(content_type, handle)
+    );
+
     -- Optimized Indexes for Performance
     CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_primary);
     CREATE INDEX IF NOT EXISTS idx_solutions_category ON solutions(category_id);
@@ -136,6 +158,8 @@ db.exec(`
     CREATE INDEX IF NOT EXISTS idx_products_handle ON products(handle);
     CREATE INDEX IF NOT EXISTS idx_solutions_handle ON solutions(handle);
     CREATE INDEX IF NOT EXISTS idx_cases_handle ON cases(handle);
+    CREATE INDEX IF NOT EXISTS idx_compliance_terms_enabled ON compliance_terms(is_enabled);
+    CREATE INDEX IF NOT EXISTS idx_compliance_rules_lookup ON compliance_content_rules(content_type, handle);
 `);
 
 function ensureColumn(table: string, column: string, definition: string) {

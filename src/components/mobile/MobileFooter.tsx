@@ -59,9 +59,9 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.products}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         <Link prefetch={false} href={l("/products#uav-drone-systems")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.uavSystems}</Link>
-                        <Link prefetch={false} href={l("/products#anti-drone-cuas")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.antiDrone}</Link>
+                        <Link prefetch={false} href={l("/products")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.droneDetection}</Link>
                         <Link prefetch={false} href={l("/products#security-screening")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.securityScreening}</Link>
-                        <Link prefetch={false} href={l("/products#defense-engineering")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.defenseEngineering}</Link>
+                        <Link prefetch={false} href={l("/products")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.engineeringMaterials}</Link>
                         <Link prefetch={false} href={l("/products#field-hospitals")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.fieldHospitals}</Link>
                         <Link prefetch={false} href={l("/products#perimeter-intelligence")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.perimeterSurveillance}</Link>
                     </div>

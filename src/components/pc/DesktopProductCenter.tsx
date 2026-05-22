@@ -65,7 +65,7 @@ export default function DesktopProductCenter({
                 <circle cx="35" cy="14.5" r="1.2" fill="#315ba4" />
             </svg>
         ),
-        'anti-drone-cuas': (
+        'drone-detection': (
             <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
                 {/* Realistic RF Dome & Tripod */}
                 <path d="M10 24a14 14 0 0 1 28 0H10z" fill="rgba(49, 91, 164, 0.05)" />
@@ -84,7 +84,7 @@ export default function DesktopProductCenter({
                 <circle cx="24" cy="11" r="1.5" fill="#315ba4" />
             </svg>
         ),
-        'defense-engineering': (
+        'engineering-materials': (
             <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
                 {/* Heavy Duty Bailey Bridge Section */}
                 <path d="M4 28h40M4 36h40" strokeWidth="2" />
@@ -121,9 +121,9 @@ export default function DesktopProductCenter({
 
     const CATEGORY_NAMES: Record<string, string> = {
         'uav-drone-systems': dict.products.categories.uav,
-        'anti-drone-cuas': dict.products.categories.antiDrone,
+        'drone-detection': dict.products.categories.droneDetection,
         'security-screening': dict.products.categories.security,
-        'defense-engineering': dict.products.categories.defense,
+        'engineering-materials': dict.products.categories.engineeringMaterials,
         'field-hospitals': dict.products.categories.medical,
         'perimeter-intelligence': dict.products.categories.surveillance
     };

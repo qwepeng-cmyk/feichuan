@@ -165,7 +165,7 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
                     <div><label style={s.label}>国家 (中文)</label><input style={s.input} value={f.country_cn||''} onChange={e=>upd('country_cn',e.target.value)} placeholder="例如：巴基斯坦"/></div>
                     <div><label style={s.label}>Страна (RU)</label><input style={s.input} value={f.country_ru||''} onChange={e=>upd('country_ru',e.target.value)} placeholder="например: Пакистан"/></div>
                 </div>
-                <div style={{marginTop:'20px'}}><label style={s.label}>Solution Category ID</label><input style={s.input} value={f.solution_category_id||''} onChange={e=>upd('solution_category_id',e.target.value)} placeholder="e.g. anti-drone"/></div>
+                <div style={{marginTop:'20px'}}><label style={s.label}>Solution Category ID</label><input style={s.input} value={f.solution_category_id||''} onChange={e=>upd('solution_category_id',e.target.value)} placeholder="e.g. airspace-monitoring"/></div>
                 <div style={{ marginTop: '20px', padding: '14px 16px', borderRadius: '8px', border: `1px solid ${isPublished ? '#bbf7d0' : '#fed7d7'}`, backgroundColor: isPublished ? '#f0fdf4' : '#fff5f5', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
                     <div>
                         <div style={{ fontSize: '1.35rem', fontWeight: 700, color: isPublished ? '#166534' : '#991b1b' }}>

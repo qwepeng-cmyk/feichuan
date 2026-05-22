@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import NEWS_DATA from '../../../public/media/news_data.json';
 import { products, solutions, homeCases } from '@/constants/homeData';
 
 // Dynamic imports for better performance
@@ -19,16 +18,15 @@ const HomeNews = dynamic(() => import('../home/sections/HomeNews'), {
 
 export default function DesktopHome({ 
     locale,
-    dict
+    dict,
+    latestNews
 }: { 
     locale: string,
-    dict: any
+    dict: any,
+    latestNews: any[]
 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const solutionTrackRef = useRef<HTMLDivElement>(null);
-
-    // Get latest 3 news
-    const latestNews = NEWS_DATA.slice(0, 3);
 
     const switchProduct = (index: number) => {
         setCurrentIndex(index);
