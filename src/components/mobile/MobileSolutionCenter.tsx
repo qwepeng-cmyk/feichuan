@@ -43,7 +43,7 @@ export default function MobileSolutionCenter({
         </g>
     );
 
-    const ICON_ANTIDRONE = (
+    const ICON_AIRSPACE = (
         <g>
             <path d="M10 24a14 14 0 0 1 28 0H10z" fill="rgba(49, 91, 164, 0.05)" />
             <path d="M10 24h28M14 26h20v2H14z" />
@@ -70,14 +70,14 @@ export default function MobileSolutionCenter({
         ),
         '02_InfrastructureProtection': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
-                <g transform="translate(0, 0)">{ICON_ANTIDRONE}</g>
+                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
                 <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
                 <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
         '03_KeyAreaSecurity': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
-                <g transform="translate(0, 0)">{ICON_ANTIDRONE}</g>
+                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
                 <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
                 <g transform="translate(62, 0)">
                     <rect x="12" y="6" width="24" height="36" />

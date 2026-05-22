@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import categoryLandingData from '@/lib/categoryLandingData';
+import type { CategoryLandingData } from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileCategoryLanding from '@/components/mobile/MobileCategoryLanding';
@@ -27,14 +27,15 @@ interface SubSolution {
 
 interface Props {
   categoryId: string;
+  landingData?: CategoryLandingData;
   subSolutions: SubSolution[];
   recommendedProducts: { name: string; handle: string; image: string }[];
   locale: string;
   dict: any;
 }
 
-export default function CategoryLandingClient({ categoryId, subSolutions, recommendedProducts, locale, dict }: Props) {
-  const data = categoryLandingData[categoryId];
+export default function CategoryLandingClient({ categoryId, landingData, subSolutions, recommendedProducts, locale, dict }: Props) {
+  const data = landingData;
   const l = (path: string) => `/${locale}${path === '/' ? '' : path}`;
 
   // Intersection Observer for scroll animations

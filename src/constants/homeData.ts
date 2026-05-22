@@ -13,17 +13,17 @@ export const products = [
         handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Anti-Drone / C-UAS Systems",
-        top_ru: "Системы противодействия БПЛА / C-UAS",
-        main: "Multi-band Detection & Jamming Gun",
-        main_ru: "Многодиапазонное ружье обнаружения и подавления",
-        desc: "Provides precise directional suppression, long-range detection warning, and rapid deployment capabilities to effectively neutralize mainstream drones.",
-        desc_ru: "Обеспечивает точное направленное подавление, предупреждение об обнаружении на большом расстоянии и возможность быстрого развертывания для эффективной нейтрализации распространенных БПЛА.",
-        img: "/products/02-anti-drone-cuas/anti-drone-systems-home.webp",
-        mobileImg: "/products/02-anti-drone-cuas/anti-drone-systems-mobile.webp",
+        top: "Drone Detection & Airspace Monitoring",
+        top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
+        main: "Stationary RF Detection System",
+        main_ru: "Стационарная система радиочастотного обнаружения",
+        desc: "Provides low-altitude RF awareness, drone detection alerts, and event logging for industrial airspace monitoring.",
+        desc_ru: "Обеспечивает радиочастотный анализ, раннее предупреждение и быстрый обзор воздушного пространства для промышленных объектов.",
+        img: "/products/02-drone-detection/drone-detection-home.webp",
+        mobileImg: "/products/02-drone-detection/drone-detection-mobile.webp",
         scale: 1.16,
         offsetY: 2,
-        handle: "handheld-integrated-multi-band-jammer-gun"
+        handle: "stationary-rf-detection-system"
     },
     {
         top: "Security Screening & Policing",
@@ -39,14 +39,14 @@ export const products = [
         handle: "fc-h-smart-phone-detection-gate"
     },
     {
-        top: "Defense Engineering",
+        top: "Engineering Materials",
         top_ru: "Оборонное проектирование",
         main: "Bailey Steel Bridge",
         main_ru: "Стальной мост Бейли",
         desc: "A globally recognized modular steel truss structure system that balances high load capacity and ease of assembly for infrastructure and emergency relief.",
         desc_ru: "Всемирно признанная модульная стальная ферменная система, сочетающая высокую грузоподъемность и простоту сборки для инфраструктуры и аварийно-спасательных работ.",
-        img: "/products/04-defense-engineering/defense-logistics-home.webp",
-        mobileImg: "/products/04-defense-engineering/defense-logistics-mobile.webp",
+        img: "/products/04-engineering-materials/engineering-materials-home.webp",
+        mobileImg: "/products/04-engineering-materials/engineering-materials-mobile.webp",
         scale: 1.12,
         offsetY: 10,
         handle: "bailey-bridge"
@@ -110,41 +110,4 @@ export const solutions = [
     }
 ];
 
-export const homeCases = [
-    {
-        title: "Airport Low-Altitude Security",
-        title_ru: "Безопасность аэропорта на малых высотах",
-        handle: "airport-security-application",
-        img: "/cases/airport-security-application/main-home.webp"
-    },
-    {
-        title: "Pakistan Power Plant Anti-UAV",
-        title_ru: "Защита электростанции в Пакистане от БПЛА",
-        handle: "pakistan-power-plant-anti-uav",
-        img: "/cases/pakistan-power-plant-anti-uav/main-home.webp"
-    },
-    {
-        title: "Asian Games Security",
-        title_ru: "Обеспечение безопасности Азиатских игр",
-        handle: "asian-games-security",
-        img: "/cases/asian-games-security/main-home.webp"
-    },
-    {
-        title: "Water Conservancy Security",
-        title_ru: "Безопасность объектов водного хозяйства",
-        handle: "water-conservancy-security",
-        img: "/cases/water-conservancy-security/main-home.webp"
-    },
-    {
-        title: "Brazil Refinery Anti-UAV",
-        title_ru: "Защита НПЗ в Бразилии от БПЛА",
-        handle: "brazil-refinery-anti-uav",
-        img: "/cases/brazil-refinery-anti-uav/main-home.webp"
-    },
-    {
-        title: "Nigeria Factory Anti-UAV",
-        title_ru: "Защита завода в Нигерии от БПЛА",
-        handle: "nigeria-factory-anti-uav",
-        img: "/cases/nigeria-factory-anti-uav/main-home.webp"
-    }
-];
+export const homeCases: any[] = [];

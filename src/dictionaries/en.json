@@ -13,7 +13,7 @@
   "home": {
     "hero": {
       "title": "Empowering Global Security<br/>with Intelligent Unmanned Systems",
-      "subtitle": "Providing advanced UAV platforms, C-UAS defense systems, and integrated security solutions for critical infrastructure worldwide.",
+      "subtitle": "Providing advanced UAV platforms, drone detection systems, and integrated security solutions for critical infrastructure worldwide.",
       "button": "Explore Solutions"
     },
     "sections": {
@@ -39,7 +39,7 @@
   "products": {
     "pageTitle": "Product Center",
     "bannerTitle": "Product Center",
-    "bannerDesc": "Browse our full catalog of advanced defense technology and security equipment.",
+    "bannerDesc": "Browse our full catalog of industrial technology and security equipment.",
     "getPrice": "Get Price",
     "getQuotation": "Get quotation",
     "getQuote": "Get a Quote",
@@ -55,9 +55,9 @@
     "relatedEquipment": "Related Equipment",
     "categories": {
       "uav": "UAV & Drone Systems",
-      "antiDrone": "Anti-Drone / C-UAS",
+      "droneDetection": "Drone Detection & Airspace Monitoring",
       "security": "Security Screening",
-      "defense": "Defense Engineering",
+      "engineeringMaterials": "Engineering Materials",
       "medical": "Field Hospitals",
       "surveillance": "Perimeter Intelligence"
     }
@@ -148,7 +148,7 @@
   "contact": {
     "pageTitle": "Contact Us",
     "bannerTitle": "Contact Us",
-    "bannerDesc": "We provide professional technical support and tactical solutions worldwide. Reach out to our expert team today.",
+    "bannerDesc": "We provide professional technical support and industrial security solutions worldwide. Reach out to our expert team today.",
     "directContact": "Direct Contact",
     "consultation": "Consultation",
     "whatsapp": "WhatsApp",
@@ -159,7 +159,7 @@
   },
   "footer": {
     "companyName": "N-TET",
-    "tagline": "Advanced Defense & Security Solutions",
+    "tagline": "Industrial Security & Monitoring Solutions",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "copyright": "© 2026 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved."
@@ -175,7 +175,7 @@
     "phone": "Phone Number",
     "inquiryType": "Inquiry Type:",
     "messageLabel": "Project Details / Message",
-    "messagePlaceholder": "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., Anti-Drone, Security Screening).",
+    "messagePlaceholder": "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., drone detection, security screening).",
     "submit": "SUBMIT INQUIRY",
     "submitting": "SUBMITTING...",
     "submitted": "SUBMITTED SUCCESSFULLY!",
@@ -257,9 +257,9 @@
   },
   "megaMenu": {
     "uavSystems": "UAV & Drone Systems",
-    "antiDrone": "Anti-Drone / C-UAS Systems",
+    "droneDetection": "Drone Detection & Airspace Monitoring",
     "securityScreening": "Security Screening & Policing",
-    "defenseEngineering": "Defense Engineering",
+    "engineeringMaterials": "Engineering Materials",
     "fieldHospitals": "Field & Mobile Hospitals",
     "perimeterSurveillance": "Perimeter Surveillance",
     "byFlightPlatform": "By Flight Platform",
@@ -278,14 +278,6 @@
     "rfDetection": "RF Detection Systems [Stationary & Portable]",
     "eoTracking": "Electro-Optical (EO) Tracking Systems",
     "remoteId": "Remote ID & Monitoring Systems",
-    "interference": "Interference & Defeat",
-    "handheldGuns": "Handheld Anti-Drone Guns & Shields",
-    "rfJamming": "RF Jamming Systems [Directional & Omni]",
-    "navSpoofing": "Navigation Spoofing Systems",
-    "activeRfDefense": "Active RF Defense Systems",
-    "integratedCUAS": "Integrated Counter-UAS",
-    "portableCUAS": "Portable Integrated C-UAS",
-    "handheldCUAS": "Handheld Integrated C-UAS",
     "xrayScanner": "X-Ray Baggage & Parcel Scanners",
     "walkThrough": "Walk-Through Metal Detectors",
     "phoneDetection": "Smart Phone Detection Gates",
@@ -311,9 +303,9 @@
     "emergencyDisaster": "Emergency & Disaster Rescue",
     "chemicalPlantProtection": "Chemical Plant Protection",
     "oilProductionBaseProtection": "Oil Production Base Protection",
-    "powerGenerationFacilityAntiUAV": "Power Generation Facility Anti-UAV",
+    "powerGenerationFacilityAirspace": "Power Generation Facility Airspace Monitoring",
     "hydroelectricDamProtection": "Hydroelectric Dam Protection",
-    "airportAntiUAV": "Airport Anti-UAV Application",
+    "airportAirspaceMonitoring": "Airport Airspace Monitoring",
     "judicialSectorSecurity": "Judicial Sector Security",
     "sportsEventSecurity": "Large Sports Event Security",
     "airportSecurityProtection": "Airport Security Protection",

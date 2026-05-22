@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare } from 'lucide-react';
+import { Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ShieldCheck } from 'lucide-react';
 
 export default function AdminDashboard() {
     const [stats, setStats] = useState<any>(null);
@@ -25,6 +25,7 @@ export default function AdminDashboard() {
         { title: '解决方案', value: stats?.solutions || 0, icon: <LayoutGrid size={22} color="#ef4444" />, link: '/admin/solutions', bg: '#fef2f2' },
         { title: '全球案例', value: stats?.cases || 0, icon: <FolderOpen size={22} color="#10b981" />, link: '/admin/cases', bg: '#ecfdf5' },
         { title: '新闻资讯', value: stats?.media || 0, icon: <Newspaper size={22} color="#f59e0b" />, link: '/admin/media', bg: '#fffbeb' },
+        { title: '广告合规', value: 'Rules', icon: <ShieldCheck size={22} color="#0f766e" />, link: '/admin/compliance', bg: '#f0fdfa' },
         { 
             title: '客户询价', 
             value: stats?.inquiries || 0, 

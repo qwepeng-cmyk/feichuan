@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import { getAllMedia } from '@/lib/media';
 
 // Use dynamic imports
 const DesktopHome = dynamic(() => import('@/components/pc/DesktopHome'), { 
@@ -16,15 +17,16 @@ const MobileHome = dynamic(() => import('@/components/mobile/MobileHome'), {
 // 1. Home Content Component (Streaming)
 async function HomeContent({ locale }: { locale: Locale }) {
     const dict = await getDictionary(locale);
+    const latestNews = (await getAllMedia()).slice(0, 5);
 
     return (
         <>
             <div className="pc_only">
-                <DesktopHome locale={locale} dict={dict} />
+                <DesktopHome locale={locale} dict={dict} latestNews={latestNews.slice(0, 3)} />
             </div>
 
             <div className="mobile_only">
-                <MobileHome locale={locale} dict={dict} />
+                <MobileHome locale={locale} dict={dict} latestNews={latestNews} />
             </div>
         </>
     );

@@ -106,7 +106,7 @@ export default function HomeRebuildPreview({
             </div>
             <div className={styles.panelRows}>
               <div>
-                <strong>Anti-UAV</strong>
+                <strong>Airspace Monitoring</strong>
                 <span>Detection, tracking, suppression</span>
               </div>
               <div>

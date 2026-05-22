@@ -8,7 +8,7 @@ import MainImageUploader from '@/components/admin/MainImageUploader';
 
 const CATEGORIES = [
     { value: 'uav-drone-systems', label: 'UAV Drone Systems (无人机系统)' },
-    { value: 'anti-drone-cuas', label: 'Anti-Drone / CUAS (反无人机系统)' },
+    { value: 'drone-detection', label: 'Drone Detection / Airspace Monitoring (无人机探测与空域监控)' },
     { value: 'security-screening', label: 'Security Screening (安检设备)' },
     { value: 'defense-engineering', label: 'Defense Engineering (防御工程)' },
     { value: 'field-hospitals', label: 'Field Hospitals (野战医院)' },

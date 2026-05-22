@@ -1,9 +1,14 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
+import {
+  getComplianceTier,
+  isPublicComplianceContent,
+  sanitizeRecordForTier,
+} from './complianceTaxonomy';
 
 export const getAllCases = unstable_cache(
   async () => {
-    return db.prepare(`
+    const rows = db.prepare(`
       SELECT
         handle,
         title_en,
@@ -17,6 +22,9 @@ export const getAllCases = unstable_cache(
       FROM cases
       WHERE COALESCE(is_published, 1) = 1
     `).all() as any[];
+    return rows
+      .filter(row => isPublicComplianceContent('case', row.handle))
+      .map(row => sanitizeRecordForTier(row, getComplianceTier('case', row.handle)));
   },
   ['all-cases'],
   { revalidate: 3600, tags: ['cases'] }
@@ -25,7 +33,7 @@ export const getAllCases = unstable_cache(
 export const getAllCaseHandles = unstable_cache(
   async () => {
     const rows = db.prepare('SELECT handle FROM cases WHERE COALESCE(is_published, 1) = 1').all() as any[];
-    return rows.map(r => r.handle).filter(Boolean);
+    return rows.map(r => r.handle).filter(handle => handle && isPublicComplianceContent('case', handle));
   },
   ['case-handles'],
   { revalidate: 3600, tags: ['cases'] }
@@ -35,14 +43,16 @@ export const getCaseByHandle = unstable_cache(
   async (handle: string) => {
     const row = db.prepare('SELECT * FROM cases WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(handle) as any;
     if (!row) return null;
+    if (!isPublicComplianceContent('case', handle)) return null;
     try {
         const data = JSON.parse(row.raw_json);
-        return {
+        const caseData = {
             ...data,
             ...row
         };
+        return sanitizeRecordForTier(caseData, getComplianceTier('case', handle));
     } catch(e) {
-        return row;
+        return sanitizeRecordForTier(row, getComplianceTier('case', handle));
     }
   },
   ['case-detail'],

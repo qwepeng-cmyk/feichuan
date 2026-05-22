@@ -14,8 +14,8 @@ const Hero = () => {
       ></video>
       <div className="hero-overlay"></div>
       <div className="container hero-content">
-        <h1 className="hero-title">Global unmanned security field<br />Defense experts</h1>
-        <p className="hero-subtitle">Connecting technology and applications, providing top-tier integrated security services to global clients.</p>
+        <h1 className="hero-title">Industrial Unmanned Systems<br />and Monitoring Solutions</h1>
+        <p className="hero-subtitle">Connecting technology and applications for industrial security, monitoring, and emergency operations.</p>
         <a href="#" className="btn btn-orange">Discover Solutions ↗</a>
       </div>
     </section>

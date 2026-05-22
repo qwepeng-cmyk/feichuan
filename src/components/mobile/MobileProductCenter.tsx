@@ -25,9 +25,9 @@ export default function MobileProductCenter({
 }) {
     const CATEGORY_NAMES: Record<string, string> = {
         'uav-drone-systems': dict.products.categories.uav,
-        'anti-drone-cuas': dict.products.categories.antiDrone,
+        'drone-detection': dict.products.categories.droneDetection,
         'security-screening': dict.products.categories.security,
-        'defense-engineering': dict.products.categories.defense,
+        'engineering-materials': dict.products.categories.engineeringMaterials,
         'field-hospitals': dict.products.categories.medical,
         'perimeter-intelligence': dict.products.categories.surveillance
     };
@@ -47,7 +47,7 @@ export default function MobileProductCenter({
                 </g>
             </svg>
         ),
-        'anti-drone-cuas': (
+        'drone-detection': (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M10 24a14 14 0 0 1 28 0H10z" fill="rgba(49, 91, 164, 0.05)" />
                 <path d="M10 24h28M14 26h20v2H14z" /><path d="M24 28v4M18 42l6-10 6 10M24 32v2M20 37l-4 5m12-5l4 5" />
@@ -63,7 +63,7 @@ export default function MobileProductCenter({
                 <circle cx="24" cy="11" r="1.5" fill="currentColor" />
             </svg>
         ),
-        'defense-engineering': (
+        'engineering-materials': (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M4 28h40M4 36h40" strokeWidth="2" /><path d="M6 28l6 8M16 28l6 8M26 28l6 8M36 28l6 8" /><path d="M12 28l-6 8M22 28l-6 8M32 28l-6 8M42 28l-6 8" />
                 <path d="M4 27h40v2H4z" fill="currentColor" />

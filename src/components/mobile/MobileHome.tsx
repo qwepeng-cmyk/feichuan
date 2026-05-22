@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { products, solutions, homeCases } from '@/constants/homeData';
-import NEWS_DATA from '../../../public/media/news_data.json';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
@@ -18,13 +17,13 @@ const MobileNews = dynamic(() => import('../home/sections/MobileNews'), {
 
 export default function MobileHome({ 
     locale,
-    dict
+    dict,
+    latestNews
 }: { 
     locale: string,
-    dict: any
+    dict: any,
+    latestNews: any[]
 }) {
-    const latestNews = NEWS_DATA.slice(0, 5);
-
     return (
         <main style={{ 
             overflowX: 'hidden', 

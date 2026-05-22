@@ -14,8 +14,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "N-TET - Advanced Defense & Security Solutions",
-  description: "Global unmanned security field defense experts",
+  title: "N-TET - Industrial Security & Monitoring Solutions",
+  description: "Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.",
 };
 
 export const viewport = {
