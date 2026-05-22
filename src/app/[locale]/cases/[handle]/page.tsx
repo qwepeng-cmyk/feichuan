@@ -12,6 +12,8 @@ import MobileCaseDetail from '@/components/mobile/MobileCaseDetail';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import dynamic from 'next/dynamic';
+import JsonLd from '@/components/seo/JsonLd';
+import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -92,6 +94,20 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 
   const title = caseData[`title_${locale}`] || caseData.title_en || caseData.title;
   const description = caseData[`description_${locale}`] || caseData.description_en || caseData.description;
+  const jsonLd = articleJsonLd({
+    locale,
+    path: `/cases/${handle}`,
+    title,
+    description,
+    image: caseData.main_image || caseData.image,
+    datePublished: caseData.date || caseData.created_at,
+    dateModified: caseData.updated_at || caseData.date || caseData.created_at,
+    breadcrumbs: [
+      { name: dict.nav.home, url: pageUrl(locale, '/') },
+      { name: dict.nav.cases, url: pageUrl(locale, '/cases') },
+      { name: title, url: pageUrl(locale, `/cases/${handle}`) },
+    ],
+  });
   const devices = parseList(caseData[`devices_${locale}`] || caseData.devices_en || caseData.devices);
   const recommendedProductHandles = uniqueItems([
     ...parseList(caseData.recommended_product_handles),
@@ -127,6 +143,8 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 
   return (
     <>
+      <JsonLd data={jsonLd} />
+
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
           <main>

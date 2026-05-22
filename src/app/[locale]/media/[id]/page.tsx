@@ -8,6 +8,8 @@ import { getMediaById, getAllMediaIds } from '@/lib/media';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
+import JsonLd from '@/components/seo/JsonLd';
+import { articleJsonLd, pageUrl, stripHtml } from '@/lib/structuredData';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
@@ -26,9 +28,25 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 
     const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
     const newsContent = news[`content_${locale}`] || news.content_en || news.content;
+    const jsonLd = articleJsonLd({
+        locale,
+        path: `/media/${id}`,
+        title: newsTitle,
+        description: stripHtml(newsContent).slice(0, 240),
+        image: news.image,
+        datePublished: news.date,
+        dateModified: news.date,
+        breadcrumbs: [
+            { name: dict.nav.home, url: pageUrl(locale, '/') },
+            { name: dict.nav.media, url: pageUrl(locale, '/media') },
+            { name: newsTitle, url: pageUrl(locale, `/media/${id}`) },
+        ],
+    });
 
     return (
         <>
+            <JsonLd data={jsonLd} />
+
             <div className="pc_only">
                 <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
                     <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>

@@ -11,6 +11,8 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import dynamic from 'next/dynamic';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
+import JsonLd from '@/components/seo/JsonLd';
+import { pageUrl, productJsonLd } from '@/lib/structuredData';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -78,6 +80,19 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
   }
 
   const galleryImages = [product.main_image, ...(product.product_images || [])].filter(Boolean);
+  const jsonLd = productJsonLd({
+    locale,
+    handle,
+    name,
+    description: summary,
+    image: product.main_image,
+    category: product.category_primary || product.category,
+    breadcrumbs: [
+      { name: dict.nav.home, url: pageUrl(locale, '/') },
+      { name: dict.nav.products, url: pageUrl(locale, '/products') },
+      { name, url: pageUrl(locale, `/products/${handle}`) },
+    ],
+  });
 
   const navItems = [
     { id: 'overview', label: dict.products.overview },
@@ -87,6 +102,8 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
 
   return (
     <>
+      <JsonLd data={jsonLd} />
+
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
           <main>

@@ -7,6 +7,8 @@ import { getDictionary } from "@/i18n/getDictionary";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { getTrackingSettings } from "@/lib/siteSettings";
+import JsonLd from "@/components/seo/JsonLd";
+import { siteGraphSchema } from "@/lib/structuredData";
 
 function isValidLocale(locale: string): locale is Locale {
   return i18n.locales.includes(locale as Locale);
@@ -108,6 +110,7 @@ gtag('config', '${gaMeasurementId}');`,
         )}
 
         <Header locale={locale} dict={dict} />
+        <JsonLd data={siteGraphSchema(locale)} />
         {children}
         <Footer locale={locale} dict={dict} />
 

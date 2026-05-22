@@ -7,6 +7,8 @@ import SolutionDetailClient from './SolutionDetailClient';
 import MobileSolutionDetail from '@/components/mobile/MobileSolutionDetail';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import JsonLd from '@/components/seo/JsonLd';
+import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
@@ -54,6 +56,21 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
   // Fetch Recommended Products
   const productsByCategory = await getAllProducts(locale);
   const allProducts = Object.values(productsByCategory).flat();
+  const title = solution[`product_name_${locale}`] || solution.product_name_en || solution.title_en;
+  const summary = solution[`summary_${locale}`] || solution.summary_en;
+  const jsonLd = serviceJsonLd({
+    locale,
+    handle: id,
+    name: title,
+    description: summary,
+    image: solution.main_image,
+    serviceType: solution.category_name || solution.category_id,
+    breadcrumbs: [
+      { name: dict.nav.home, url: pageUrl(locale, '/') },
+      { name: dict.nav.solutions, url: pageUrl(locale, '/solutions') },
+      { name: title, url: pageUrl(locale, `/solutions/${id}`) },
+    ],
+  });
   
   let recommendedHandles = [];
   try {
@@ -68,6 +85,8 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 
   return (
     <>
+      <JsonLd data={jsonLd} />
+
       <div className="pc_only">
         <SolutionDetailClient 
             solution={solution} 

@@ -8,7 +8,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "audit:public-risk": "node scripts/audit-public-site-risk.mjs"
+    "audit:public-risk": "node scripts/audit-public-site-risk.mjs",
+    "generate:llms": "node scripts/generate-llms-txt.mjs",
+    "audit:seo": "node scripts/seo-audit.mjs",
+    "audit:geo": "node scripts/geo-audit.mjs",
+    "audit:schema": "node scripts/schema-audit.mjs",
+    "audit:links": "node scripts/internal-link-audit.mjs",
+    "audit:eeat": "node scripts/eeat-audit.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.2",
