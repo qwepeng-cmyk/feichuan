@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -26,6 +26,63 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
     }, []);
 
     const headerClass = `site-header ${isHome ? 'header-home' : 'header-inner'} ${scrolled ? 'scrolled' : ''}`;
+    const uavCategoryPath = "/products#uav-drone-systems";
+    const uavPlatformGroups = [
+        {
+            title: dict.megaMenu.multiRotor,
+            image: "/products/uav-systems/FC-YJTX-01-Emergency-Communication-Drone.png",
+            items: [
+                { label: dict.megaMenu.multiRotor3kgPayload, href: "/products/multi-rotor-3kg-payload-uav" },
+                { label: dict.megaMenu.multiRotor8kgPayload, href: "/products/multi-rotor-8kg-payload-uav" },
+                { label: dict.megaMenu.multiRotor20kgPayload, href: "/products/multi-rotor-20kg-payload-uav" },
+                { label: dict.megaMenu.multiRotor50kgPayload, href: "/products/multi-rotor-50kg-payload-uav" },
+            ],
+        },
+        {
+            title: dict.megaMenu.vtol,
+            image: "/products/uav-systems/FC-DLXJ-01-Power-Grid-Inspection-Drone.webp",
+            items: [
+                { label: dict.megaMenu.vtol14kgMtow, href: "/products/vtol-14kg-mtow-uav" },
+                { label: dict.megaMenu.vtol26kgMtow, href: "/products/vtol-26kg-mtow-uav" },
+                { label: dict.megaMenu.vtol40kgMtow, href: "/products/vtol-40kg-mtow-uav" },
+                { label: dict.megaMenu.vtol64kgMtow, href: "/products/vtol-64kg-mtow-uav" },
+                { label: dict.megaMenu.vtol135kgMtow, href: "/products/vtol-135kg-mtow-uav" },
+            ],
+        },
+        {
+            title: dict.megaMenu.tethered,
+            items: [
+                { label: dict.megaMenu.tetheredEmergencyCommunication, href: "/products/fc-yjtx-01-emergency-communication-drone" },
+                { label: dict.megaMenu.tetheredEmergencyLighting, href: "/products/fc-yjzm-01-emergency-lighting-drone" },
+                { label: dict.megaMenu.tetheredFirefighting, href: "/products/fc-yjxf-01-aerial-firefighting-drone" },
+            ],
+        },
+    ];
+    const uavMissionItems = [
+        { label: dict.megaMenu.smartSubstationInspection, href: "/products/smart-substation-autonomous-inspection-system" },
+        { label: dict.megaMenu.powerTowerInspection, href: "/products/power-tower-inspection-drone" },
+        { label: dict.megaMenu.waterConservancyMonitoring, href: "/products/fc-sljc-01-water-conservancy-monitoring-drone" },
+        { label: dict.megaMenu.emergencySearchRescue, href: "/products/emergency-search-rescue-drone" },
+        { label: dict.megaMenu.emergencyCommunicationUav, href: "/products/fc-yjtx-01-emergency-communication-drone" },
+        { label: dict.megaMenu.tetheredLightingUav, href: "/products/fc-yjzm-01-emergency-lighting-drone" },
+        { label: dict.megaMenu.highRiseFirefightingUav, href: "/products/fc-yjxf-01-aerial-firefighting-drone" },
+    ];
+    const productMegaImages = {
+        mission: "/products/uav-systems/FC-SLJC-01-Water-Conservancy-Monitoring-Drone.webp",
+        security: "/products/security/Deluxe-Smart-Turnstile.webp",
+        engineering: "/products/defense-eng/Bailey-Bridge-Steel-Prefab.webp",
+        perimeter: "/products/surveillance/FC-DMS10-Series-Smart-Electronic-Sentinel.webp",
+    };
+    const renderMegaImage = (src: string, alt: string, compact = false) => (
+        <span className={`mega-title-image ${compact ? 'mega-title-image-compact' : ''}`} aria-hidden="true">
+            <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="(min-width: 1200px) 260px, 20vw"
+            />
+        </span>
+    );
 
     return (
         <header id="site-header" className={headerClass} style={{
@@ -101,28 +158,28 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
 
             {/* Nav Bar Wrap */}
             <div className="nav-bar-wrap" style={{ height: '80px', width: '100%' }}>
-                <div className={`${isHome ? "container-wide" : "container"}`} style={{ 
-                    height: '100%', 
-                    display: 'flex', 
+                <div className={isHome ? "container-wide" : "container"} style={{
+                    height: '100%',
+                    display: 'flex',
                     alignItems: 'stretch',
                     justifyContent: 'space-between'
                 }}>
                     <Link prefetch={false} href={l("/")} className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-                        <Image 
-                            src="/logo1-small.webp" 
-                            alt="N-TET Logo" 
-                            width={140} 
-                            height={48} 
-                            className="logo-light" 
+                        <Image
+                            src="/logo-header.webp"
+                            alt="N-TET Logo"
+                            width={107}
+                            height={64}
+                            className="logo-light"
                             priority
-                            style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }} 
+                            style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }}
                         />
-                        <Image 
-                            src="/logo1-small.webp" 
-                            alt="N-TET Logo" 
-                            width={140} 
-                            height={48} 
-                            className="logo-dark" 
+                        <Image
+                            src="/logo-header.webp"
+                            alt="N-TET Logo"
+                            width={107}
+                            height={64}
+                            className="logo-dark"
                             priority
                             style={{ height: '48px', width: 'auto' }}
                         />
@@ -137,35 +194,45 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/products')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/products")} className="nav-link">{dict?.nav?.products || 'Products'}</Link>
                             <div className="mega-menu">
-                                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '50px', padding: '25px 0' }}>
-                                    {/* Column 1: UAV Systems */}
+                                <div className="container product-mega-container">
+                                    <div className="product-mega-columns">
+                                    {/* Column 1: UAV by mission and application */}
                                     <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/products#uav-drone-systems")}>{dict.megaMenu.uavSystems}</Link></h3>
-                                        <div style={{ marginBottom: '15px' }}>
-                                            <div className="mega-sub-header">{dict.megaMenu.byFlightPlatform}</div>
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products#uav-drone-systems")}>{dict.megaMenu.multiRotor}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products#uav-drone-systems")}>{dict.megaMenu.vtol}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products#uav-drone-systems")}>{dict.megaMenu.tethered}</Link></li>
-                                            </ul>
-                                        </div>
+                                        <h3 className="mega-title"><Link prefetch={false} href={l(uavCategoryPath)}>{dict.megaMenu.uavSystems}</Link></h3>
                                         <div>
                                             <div className="mega-sub-header">{dict.megaMenu.byMission}</div>
+                                            {renderMegaImage(productMegaImages.mission, dict.megaMenu.byMission)}
                                             <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/fc-yjzc-01-emergency-reconnaissance-drone")}>{dict.megaMenu.emergencyRescue}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-yjxf-01-aerial-firefighting-drone")}>{dict.megaMenu.aerialFirefighting}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-yqxj-01-utility-inspection-drone")}>{dict.megaMenu.utilityInspection}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-sljc-01-water-conservancy-monitoring-drone")}>{dict.megaMenu.waterEnvironmental}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-yjtx-01-emergency-communication-drone")}>{dict.megaMenu.emergencyComm}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-dlxj-01-power-grid-inspection-drone")}>{dict.megaMenu.powerGridInspection}</Link></li>
+                                                {uavMissionItems.map((item) => (
+                                                    <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
+                                                ))}
                                             </ul>
                                         </div>
                                     </div>
 
-                                    {/* Column 2: Drone detection and airspace monitoring */}
+                                    {/* Column 2: UAV by flight platform */}
                                     <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.droneDetection}</Link></h3>
-                                        <div style={{ marginBottom: '12px' }}>
+                                        <h3 className="mega-title"><Link prefetch={false} href={l(uavCategoryPath)}>{dict.megaMenu.uavSystems}</Link></h3>
+                                        <div>
+                                            <div className="mega-sub-header">{dict.megaMenu.byFlightPlatform}</div>
+                                            {uavPlatformGroups.map((group) => (
+                                                <div className="mega-menu-group" key={group.title}>
+                                                    <Link prefetch={false} href={l(uavCategoryPath)} className="mega-group-title">{group.title}</Link>
+                                                    {group.image && renderMegaImage(group.image, group.title, true)}
+                                                    <ul className="mega-list mega-sub-list">
+                                                        {group.items.map((item) => (
+                                                            <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Column 3: Drone detection and security screening */}
+                                    <div className="mega-column">
+                                        <div style={{ marginBottom: '20px' }}>
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.droneDetection}</Link></h3>
                                             <div className="mega-sub-header">{dict.megaMenu.detectionTracking}</div>
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/low-altitude-detection-radar-ku-band")}>{dict.megaMenu.lowAltRadars}</Link></li>
@@ -174,11 +241,8 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                                 <li><Link prefetch={false} href={l("/products/uav-remote-id-monitoring-system")}>{dict.megaMenu.remoteId}</Link></li>
                                             </ul>
                                         </div>
-                                    </div>
-
-                                    {/* Column 3: Security Screening & Policing */}
-                                    <div className="mega-column">
                                         <h3 className="mega-title"><Link prefetch={false} href={l("/products#security-screening")}>{dict.megaMenu.securityScreening}</Link></h3>
+                                        {renderMegaImage(productMegaImages.security, dict.megaMenu.securityScreening)}
                                         <ul className="mega-list">
                                             <li><Link prefetch={false} href={l("/products/fc6550-standard-x-ray-baggage-scanner")}>{dict.megaMenu.xrayScanner}</Link></li>
                                             <li><Link prefetch={false} href={l("/products/fc-c-lcd-walk-through-metal-detector")}>{dict.megaMenu.walkThrough}</Link></li>
@@ -197,6 +261,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                     <div className="mega-column">
                                         <div style={{ marginBottom: '20px' }}>
                                             <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.engineeringMaterials}</Link></h3>
+                                            {renderMegaImage(productMegaImages.engineering, dict.megaMenu.engineeringMaterials)}
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.steelBridges}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.bridgeComponents}</Link></li>
@@ -211,6 +276,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                         </div>
                                         <div>
                                             <h3 className="mega-title"><Link prefetch={false} href={l("/products#perimeter-intelligence")}>{dict.megaMenu.perimeterSurveillance}</Link></h3>
+                                            {renderMegaImage(productMegaImages.perimeter, dict.megaMenu.perimeterSurveillance)}
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/fc-dms10-smart-electronic-sentinel")}>{dict.megaMenu.smartSentinels}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/fc-rds500-4r-radar-vision-sentinel")}>{dict.megaMenu.radarVision}</Link></li>
@@ -220,6 +286,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                             </ul>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -227,14 +294,23 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/solutions')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/solutions")} className="nav-link">{dict?.nav?.solutions || 'Solutions'}</Link>
                             <div className="mega-menu">
-                                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '60px', padding: '25px 0' }}>
+                                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'minmax(460px, 1.7fr) minmax(200px, 0.9fr) minmax(200px, 0.9fr)', gap: '44px', padding: '25px 0' }}>
                                     <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/01_BorderPatrol")}>{dict.megaMenu.borderPatrol}</Link></h3>
-                                        <ul className="mega-list">
-                                            <li><Link prefetch={false} href={l("/solutions/uav-maritime-patrol")}>{dict.megaMenu.multiRotor}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/land-based-maritime-surveillance")}>{dict.megaMenu.perimeterSurveillance}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/uav-maritime-emergency-rescue")}>{dict.megaMenu.emergencyRescue}</Link></li>
-                                        </ul>
+                                        <h3 className="mega-title"><Link prefetch={false} href={l("/solutions")}>{dict?.megaMenu?.uavIndustryApplications || 'UAV Industry Applications'}</Link></h3>
+                                        <div className="mega-split-grid">
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/solutions/power-line-uav-intelligent-inspection-solution")}>{dict?.megaMenu?.powerLineUavInspection || 'Power Line UAV Intelligent Inspection'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/smart-substation-unattended-uav-inspection-solution")}>{dict?.megaMenu?.smartSubstationUnattendedInspection || 'Smart Substation Unattended Inspection'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/water-conservancy-river-lake-uav-monitoring-solution")}>{dict?.megaMenu?.waterConservancyRiverLakeMonitoring || 'Water Conservancy & River-Lake Monitoring'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/urban-high-rise-firefighting-emergency-uav-solution")}>{dict?.megaMenu?.urbanHighRiseFirefightingRescue || 'Urban High-Rise Firefighting & Rescue'}</Link></li>
+                                            </ul>
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/solutions/disaster-site-search-rescue-reconnaissance-uav-solution")}>{dict?.megaMenu?.disasterSiteSearchRescueRecon || 'Disaster-Site Search, Rescue & Reconnaissance'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/post-disaster-emergency-communication-support-uav-solution")}>{dict?.megaMenu?.postDisasterEmergencyCommunication || 'Post-Disaster Emergency Communication Support'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/night-emergency-lighting-support-uav-solution")}>{dict?.megaMenu?.nightEmergencyLightingSupport || 'Night Emergency Lighting Support'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/uav-maritime-patrol")}>{dict?.megaMenu?.borderCoastalDefense || 'Border Patrol & Coastal Defense'}</Link></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/02_InfrastructureProtection")}>{dict?.megaMenu?.infrastructure}</Link></h3>
@@ -250,14 +326,6 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                             <li><Link prefetch={false} href={l("/solutions/judicial-sector-security")}>{dict?.megaMenu?.judicialSectorSecurity || 'Judicial Sector Security'}</Link></li>
                                             <li><Link prefetch={false} href={l("/solutions/sports-event-security")}>{dict?.megaMenu?.sportsEventSecurity || 'Sports Event Security'}</Link></li>
                                             <li><Link prefetch={false} href={l("/solutions/airport-security-protection")}>{dict?.megaMenu?.airportSecurityProtection || 'Airport Security Protection'}</Link></li>
-                                        </ul>
-                                    </div>
-                                    <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/04_EmergencyRescue")}>{dict?.megaMenu?.emergencyDisaster}</Link></h3>
-                                        <ul className="mega-list">
-                                            <li><Link prefetch={false} href={l("/solutions/emergency-communication-uav")}>{dict?.megaMenu?.emergencyComm || 'Emergency Communication'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/emergency-reconnaissance-uav")}>{dict?.megaMenu?.emergencyRescue || 'Emergency Reconnaissance'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/emergency-lighting-uav")}>{dict?.megaMenu?.emergencyLightingUAV || 'Emergency Lighting'}</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -300,4 +368,3 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
         </header>
     );
 }
-
