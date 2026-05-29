@@ -15,11 +15,11 @@
     "Low-Altitude Detection Radar (X-Band)",
     "Multi-band Detection & RF Signal Analysis Directional Antenna Unit"
   ],
-  "main_image": "/cases/机场低空安防应用/main.png",
+  "main_image": "/cases/airport-security-application/main.webp",
   "case_images": [
-    "/cases/机场低空安防应用/机场低空安保.png",
-    "/cases/机场低空安防应用/便携式反无设备低空安保.png",
-    "/cases/机场低空安防应用/杭州萧山机场低空安保.png"
+    "/cases/airport-security-application/便携式反无设备低空安保.webp",
+    "/cases/airport-security-application/机场低空安保.webp",
+    "/cases/airport-security-application/杭州萧山机场低空安保.webp"
   ],
   "recommendedProductHandles": [
     "stationary-rf-detection-system",

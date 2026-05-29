@@ -27,20 +27,22 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
 
     const headerClass = `site-header ${isHome ? 'header-home' : 'header-inner'} ${scrolled ? 'scrolled' : ''}`;
     const uavCategoryPath = "/products#uav-drone-systems";
+    const multiRotorGroup = {
+        title: dict.megaMenu.multiRotor,
+        image: "/products/uav-systems/FC-YJTX-01-Emergency-Communication-Drone.png",
+        imageVariant: "multiRotor",
+        items: [
+            { label: dict.megaMenu.multiRotor3kgPayload, href: "/products/multi-rotor-3kg-payload-uav" },
+            { label: dict.megaMenu.multiRotor8kgPayload, href: "/products/multi-rotor-8kg-payload-uav" },
+            { label: dict.megaMenu.multiRotor20kgPayload, href: "/products/multi-rotor-20kg-payload-uav" },
+            { label: dict.megaMenu.multiRotor50kgPayload, href: "/products/multi-rotor-50kg-payload-uav" },
+        ],
+    };
     const uavPlatformGroups = [
-        {
-            title: dict.megaMenu.multiRotor,
-            image: "/products/uav-systems/FC-YJTX-01-Emergency-Communication-Drone.png",
-            items: [
-                { label: dict.megaMenu.multiRotor3kgPayload, href: "/products/multi-rotor-3kg-payload-uav" },
-                { label: dict.megaMenu.multiRotor8kgPayload, href: "/products/multi-rotor-8kg-payload-uav" },
-                { label: dict.megaMenu.multiRotor20kgPayload, href: "/products/multi-rotor-20kg-payload-uav" },
-                { label: dict.megaMenu.multiRotor50kgPayload, href: "/products/multi-rotor-50kg-payload-uav" },
-            ],
-        },
         {
             title: dict.megaMenu.vtol,
             image: "/products/uav-systems/FC-DLXJ-01-Power-Grid-Inspection-Drone.webp",
+            imageVariant: "vtol",
             items: [
                 { label: dict.megaMenu.vtol14kgMtow, href: "/products/vtol-14kg-mtow-uav" },
                 { label: dict.megaMenu.vtol26kgMtow, href: "/products/vtol-26kg-mtow-uav" },
@@ -51,6 +53,8 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
         },
         {
             title: dict.megaMenu.tethered,
+            image: "/products/uav-systems/FC-YJXF-01-Aerial-Firefighting-Drone.webp",
+            imageVariant: "tethered",
             items: [
                 { label: dict.megaMenu.tetheredEmergencyCommunication, href: "/products/fc-yjtx-01-emergency-communication-drone" },
                 { label: dict.megaMenu.tetheredEmergencyLighting, href: "/products/fc-yjzm-01-emergency-lighting-drone" },
@@ -73,13 +77,14 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
         engineering: "/products/defense-eng/Bailey-Bridge-Steel-Prefab.webp",
         perimeter: "/products/surveillance/FC-DMS10-Series-Smart-Electronic-Sentinel.webp",
     };
-    const renderMegaImage = (src: string, alt: string, compact = false) => (
-        <span className={`mega-title-image ${compact ? 'mega-title-image-compact' : ''}`} aria-hidden="true">
+    const renderMegaImage = (src: string, alt: string, variant = "standard") => (
+        <span className={`mega-title-image mega-title-image-${variant}`} aria-hidden="true">
             <Image
                 src={src}
                 alt={alt}
-                fill
-                sizes="(min-width: 1200px) 260px, 20vw"
+                width={240}
+                height={120}
+                className="mega-title-image-media"
             />
         </span>
     );
@@ -201,9 +206,19 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                         <h3 className="mega-title"><Link prefetch={false} href={l(uavCategoryPath)}>{dict.megaMenu.uavSystems}</Link></h3>
                                         <div>
                                             <div className="mega-sub-header">{dict.megaMenu.byMission}</div>
-                                            {renderMegaImage(productMegaImages.mission, dict.megaMenu.byMission)}
+                                            {renderMegaImage(productMegaImages.mission, dict.megaMenu.byMission, "mission")}
                                             <ul className="mega-list">
                                                 {uavMissionItems.map((item) => (
+                                                    <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className="mega-menu-group mega-platform-under-mission">
+                                            <div className="mega-sub-header">{dict.megaMenu.byFlightPlatform}</div>
+                                            <Link prefetch={false} href={l(uavCategoryPath)} className="mega-group-title">{multiRotorGroup.title}</Link>
+                                            {renderMegaImage(multiRotorGroup.image, multiRotorGroup.title, multiRotorGroup.imageVariant)}
+                                            <ul className="mega-list mega-sub-list">
+                                                {multiRotorGroup.items.map((item) => (
                                                     <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
                                                 ))}
                                             </ul>
@@ -218,7 +233,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                             {uavPlatformGroups.map((group) => (
                                                 <div className="mega-menu-group" key={group.title}>
                                                     <Link prefetch={false} href={l(uavCategoryPath)} className="mega-group-title">{group.title}</Link>
-                                                    {group.image && renderMegaImage(group.image, group.title, true)}
+                                                    {group.image && renderMegaImage(group.image, group.title, group.imageVariant)}
                                                     <ul className="mega-list mega-sub-list">
                                                         {group.items.map((item) => (
                                                             <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
@@ -242,7 +257,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                             </ul>
                                         </div>
                                         <h3 className="mega-title"><Link prefetch={false} href={l("/products#security-screening")}>{dict.megaMenu.securityScreening}</Link></h3>
-                                        {renderMegaImage(productMegaImages.security, dict.megaMenu.securityScreening)}
+                                        {renderMegaImage(productMegaImages.security, dict.megaMenu.securityScreening, "security")}
                                         <ul className="mega-list">
                                             <li><Link prefetch={false} href={l("/products/fc6550-standard-x-ray-baggage-scanner")}>{dict.megaMenu.xrayScanner}</Link></li>
                                             <li><Link prefetch={false} href={l("/products/fc-c-lcd-walk-through-metal-detector")}>{dict.megaMenu.walkThrough}</Link></li>
@@ -261,7 +276,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                     <div className="mega-column">
                                         <div style={{ marginBottom: '20px' }}>
                                             <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.engineeringMaterials}</Link></h3>
-                                            {renderMegaImage(productMegaImages.engineering, dict.megaMenu.engineeringMaterials)}
+                                            {renderMegaImage(productMegaImages.engineering, dict.megaMenu.engineeringMaterials, "engineering")}
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.steelBridges}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.bridgeComponents}</Link></li>
@@ -276,7 +291,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                         </div>
                                         <div>
                                             <h3 className="mega-title"><Link prefetch={false} href={l("/products#perimeter-intelligence")}>{dict.megaMenu.perimeterSurveillance}</Link></h3>
-                                            {renderMegaImage(productMegaImages.perimeter, dict.megaMenu.perimeterSurveillance)}
+                                            {renderMegaImage(productMegaImages.perimeter, dict.megaMenu.perimeterSurveillance, "perimeter")}
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/fc-dms10-smart-electronic-sentinel")}>{dict.megaMenu.smartSentinels}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/fc-rds500-4r-radar-vision-sentinel")}>{dict.megaMenu.radarVision}</Link></li>

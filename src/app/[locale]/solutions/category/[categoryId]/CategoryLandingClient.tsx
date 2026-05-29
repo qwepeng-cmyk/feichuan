@@ -7,6 +7,7 @@ import type { CategoryLandingData } from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileCategoryLanding from '@/components/mobile/MobileCategoryLanding';
+import { localePath } from '@/lib/localePath';
 
 interface SubSolution {
   product_name: string;
@@ -36,7 +37,7 @@ interface Props {
 
 export default function CategoryLandingClient({ categoryId, landingData, subSolutions, recommendedProducts, locale, dict }: Props) {
   const data = landingData;
-  const l = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+  const l = (path: string) => localePath(locale, path);
 
   // Intersection Observer for scroll animations
   const observerRef = useRef<IntersectionObserver | null>(null);

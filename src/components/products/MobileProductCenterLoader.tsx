@@ -16,9 +16,9 @@ function MobileProductFallback({ dict }: { dict?: any }) {
                 style={{
                     height: '120px',
                     width: '100%',
-                    backgroundImage: "url('/products/products_center_banner.webp')",
+                    backgroundImage: "linear-gradient(90deg, rgba(5,18,37,0.72), rgba(5,18,37,0.18)), url('/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp')",
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundPosition: 'center 38%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'

@@ -184,10 +184,16 @@
 .navTrack {
     display: flex;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
+.navTrack::-webkit-scrollbar { display: none; }
+
 .navItem {
-    flex: 1;
+    flex: 0 0 auto;
+    min-width: 132px;
     height: 52px; /* Slightly larger for touch */
     display: flex;
     align-items: center;
@@ -246,16 +252,36 @@
     border-collapse: collapse;
     border: 1px solid #eee;
     font-size: 14px;
+    --mobile-table-hover-bg: #eef5ff;
+    --mobile-table-hover-accent: #315ba4;
 }
 
 .specsTable tr:nth-child(even) {
     background: #f9f9f9;
 }
 
+.specsTable tr {
+    transition: background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .specsTable td {
     padding: 12px;
     border-bottom: 1px solid #eee;
     line-height: 1.4;
+    transition: background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.specsTable tr:hover td,
+.specsTable tr:focus-within td {
+    background: var(--mobile-table-hover-bg);
+}
+
+.specsTable tr:hover td:first-child,
+.specsTable tr:focus-within td:first-child {
+    color: var(--mobile-table-hover-accent);
+    box-shadow: inset 3px 0 0 var(--mobile-table-hover-accent);
 }
 
 .specLabel {

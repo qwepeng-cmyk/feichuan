@@ -13,6 +13,8 @@ async function SolutionsDataWrapper({ locale, dict }: { locale: Locale; dict: an
         title_en: s.title_en,
         product_name_en: s.product_name_en,
         product_name_ru: s.product_name_ru,
+        summary_en: s.summary_en,
+        summary_ru: s.summary_ru,
         main_image: s.main_image || undefined,
         category_id: s.category_id
     }));

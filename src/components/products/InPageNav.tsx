@@ -44,13 +44,22 @@ export default function InPageNav({ items }: InPageNavProps) {
   };
 
   return (
-    <nav className="sticky-nav">
+    <nav className="sticky-nav" style={{ height: '52px', minHeight: '52px' }}>
       <div className="container">
-        <ul className="nav-list" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul className="nav-list" style={{ listStyle: 'none', margin: 0, padding: 0, height: '52px', minHeight: '52px' }}>
           {items.map((item) => (
             <li
               key={item.id}
               className={`nav-link-item ${activeId === item.id ? 'active' : ''}`}
+              style={{
+                height: '52px',
+                padding: '0 52px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.7rem',
+                lineHeight: 1,
+              }}
               onClick={() => scrollTo(item.id)}
             >
               {item.label}

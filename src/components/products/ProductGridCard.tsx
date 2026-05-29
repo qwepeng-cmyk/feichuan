@@ -1,5 +1,9 @@
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { localePath } from '@/lib/localePath';
 
 interface Product {
     name: string;
@@ -11,14 +15,23 @@ interface Product {
     image: string;
 }
 
+function shouldBlendImageBackground(image?: string) {
+    return Boolean(image?.includes('/products/uav-systems/'));
+}
+
 export default function ProductGridCard({ product, locale, dict, priority = false }: { product: Product; locale?: string; dict?: any; priority?: boolean }) {
-    const l = (path: string) => locale ? `/${locale}${path === '/' ? '' : path}` : path;
+    const [hovered, setHovered] = useState(false);
     const prodName = locale === 'ru' ? (product.product_name_ru || product.name_ru || product.name) : (product.product_name_en || product.name_en || product.name);
+    const blendImageBackground = shouldBlendImageBackground(product.image);
+    const imagePadding = blendImageBackground ? '15px' : '5px';
+    const imageTransform = hovered && !blendImageBackground ? 'scale(1.05)' : 'scale(1)';
 
     return (
-        <Link prefetch={false} 
-            href={l(`/products/${product.handle}`)} 
-            className="p-card-sbm" 
+        <Link prefetch={false}
+            href={localePath(locale, `/products/${product.handle}`)}
+            className="p-card-sbm"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             style={{
                 display: 'block',
                 background: '#fff',
@@ -29,25 +42,28 @@ export default function ProductGridCard({ product, locale, dict, priority = fals
                 overflow: 'hidden'
             }}
         >
-            <div className="p-card-img" style={{ 
+            <div className="p-card-img" style={{
                 width: '100%',
-                aspectRatio: '1.618 / 1', 
-                background: '#f8f9fa', 
-                padding: '15px',
+                aspectRatio: '1.618 / 1',
+                background: '#f8f9fa',
+                padding: '0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                position: 'relative'
+                position: 'relative',
+                isolation: 'isolate'
             }}>
-                <Image 
-                    src={product.image || '/logo1-small.webp'} 
-                    alt={prodName} 
+                <Image
+                    src={product.image || '/logo1-small.webp'}
+                    alt={prodName}
                     fill
                     style={{ 
-                        padding: '15px',
+                        padding: imagePadding,
                         objectFit: 'contain',
-                        transition: 'transform 0.5s ease'
+                        transition: 'transform 0.5s ease',
+                        transform: imageTransform,
+                        mixBlendMode: blendImageBackground ? 'multiply' : 'normal'
                     }} 
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                     priority={priority}
@@ -59,5 +75,3 @@ export default function ProductGridCard({ product, locale, dict, priority = fals
         </Link>
     );
 }
-
-

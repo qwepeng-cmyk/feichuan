@@ -31,7 +31,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link prefetch={false} href={l("/")} className={styles.logo}>
-                    <Image src="/logo1-small.webp" alt="N-TET" width={122} height={42} priority style={{ height: '42px', width: 'auto' }} />
+                    <Image src="/logo-header.webp" alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto' }} />
                 </Link>
                 <button
                     className={styles.burger}

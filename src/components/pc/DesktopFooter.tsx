@@ -3,9 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { solutions as homeSolutions } from '@/constants/homeData';
 
 export default function Footer({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const footerSolutions = homeSolutions.slice(0, 6);
 
     return (
         <footer className="footer" style={{ background: '#111', color: '#888', padding: '100px 0 40px' }}>
@@ -21,10 +23,16 @@ export default function Footer({ locale, dict }: { locale: string; dict: any }) 
                     <div>
                         <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{dict.nav.solutions}</h4>
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '1.4rem' }}>
-                            <li><Link prefetch={false} href={l("/solutions/category/01_BorderPatrol")} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>{dict.solutionCategories.borderPatrol}</Link></li>
-                            <li><Link prefetch={false} href={l("/solutions/category/02_InfrastructureProtection")} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>{dict.solutionCategories.infrastructureProtection}</Link></li>
-                            <li><Link prefetch={false} href={l("/solutions/category/03_KeyAreaSecurity")} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>{dict.solutionCategories.keyAreaSecurity}</Link></li>
-                            <li><Link prefetch={false} href={l("/solutions/category/04_EmergencyRescue")} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>{dict.solutionCategories.emergencyRescue}</Link></li>
+                            {footerSolutions.map((solution) => {
+                                const title = locale === 'ru' ? (solution.title_ru || solution.title) : solution.title;
+                                return (
+                                    <li key={solution.id}>
+                                        <Link prefetch={false} href={l(solution.link)} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>
+                                            {title}
+                                        </Link>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                     

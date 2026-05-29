@@ -8,6 +8,8 @@ import { getMediaById, getAllMediaIds } from '@/lib/media';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
+import { localePath } from '@/lib/localePath';
+import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
@@ -24,7 +26,8 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
         notFound();
     }
 
-    const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+    const newsTitle = getLocalizedMediaTitle(news, locale);
+    const newsDate = getLocalizedMediaDate(news.date, locale);
     const newsContent = news[`content_${locale}`] || news.content_en || news.content;
 
     return (
@@ -34,7 +37,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                     <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                         <div className="container">
                             <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
-                                <Link href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</Link> &gt; <Link href={`/${locale}/media`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.media}</Link> &gt; {newsTitle}
+                                <Link href={localePath(locale)} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</Link> &gt; <Link href={localePath(locale, '/media')} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.media}</Link> &gt; {newsTitle}
                             </div>
                         </div>
                     </div>
@@ -49,11 +52,17 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                         overflow: 'hidden',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        <Image src="/media/media_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.media.bannerTitle} />
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
+                        <Image
+                            src="/media/news-center-expo-banner.webp"
+                            fill
+                            style={{ objectFit: 'cover', objectPosition: 'center' }}
+                            priority
+                            alt={dict.media.bannerTitle}
+                        />
+                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(2, 10, 24, 0.82) 0%, rgba(13, 36, 75, 0.58) 42%, rgba(49, 91, 164, 0.12) 72%, rgba(1, 8, 18, 0.18) 100%)', zIndex: 1 }}></div>
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                            <div style={{ maxWidth: '800px' }}>
+                            <div style={{ maxWidth: '700px', textShadow: '0 10px 28px rgba(0, 0, 0, 0.34)' }}>
                                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</h1>
                                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.media.bannerSubtitle}</p>
                             </div>
@@ -64,7 +73,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                         <div className="container" style={{ maxWidth: '1200px' }}>
                             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                                 <h1 style={{ fontSize: '4.8rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '30px' }}>{newsTitle}</h1>
-                                <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>{news.date}</div>
+                                <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>{newsDate}</div>
                             </div>
 
                             <div style={{ marginBottom: '50px', position: 'relative', height: '500px', width: '100%', backgroundColor: '#f5f5f5' }}>

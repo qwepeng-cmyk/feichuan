@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { localePath } from '@/lib/localePath';
 
 interface HomeCasesProps {
     locale: string;
@@ -26,7 +27,7 @@ export default function HomeCases({ locale, dict, homeCases }: HomeCasesProps) {
                         return (
                             <Link
                                 key={idx}
-                                href={`/${locale}/cases/${item.handle}`}
+                                href={localePath(locale, `/cases/${item.handle}`)}
                                 className="case-card-link"
                                 style={{
                                     position: 'relative',
@@ -64,7 +65,7 @@ export default function HomeCases({ locale, dict, homeCases }: HomeCasesProps) {
                     })}
                 </div>
                 <div style={{ textAlign: 'center', marginTop: '60px' }}>
-                    <Link href={`/${locale}/cases`} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllCases}</Link>
+                    <Link href={localePath(locale, '/cases')} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllCases}</Link>
                 </div>
             </div>
             <style jsx>{`

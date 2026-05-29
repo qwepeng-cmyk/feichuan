@@ -26,7 +26,7 @@ export const getAllCases = unstable_cache(
       .filter(row => isPublicComplianceContent('case', row.handle))
       .map(row => sanitizeRecordForTier(row, getComplianceTier('case', row.handle)));
   },
-  ['all-cases'],
+  ['all-cases-uav-refresh-20260526'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -35,7 +35,7 @@ export const getAllCaseHandles = unstable_cache(
     const rows = db.prepare('SELECT handle FROM cases WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.handle).filter(handle => handle && isPublicComplianceContent('case', handle));
   },
-  ['case-handles'],
+  ['case-handles-uav-refresh-20260526'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -55,6 +55,6 @@ export const getCaseByHandle = unstable_cache(
         return sanitizeRecordForTier(row, getComplianceTier('case', handle));
     }
   },
-  ['case-detail'],
+  ['case-detail-uav-refresh-20260526'],
   { revalidate: 3600, tags: ['cases'] }
 );

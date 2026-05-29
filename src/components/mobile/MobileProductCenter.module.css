@@ -8,9 +8,11 @@
 .banner {
     height: 120px;
     width: 100%;
-    background-image: url('/products/products_center_banner.webp');
+    background-image:
+        linear-gradient(90deg, rgba(5,18,37,0.72), rgba(5,18,37,0.18)),
+        url('/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp');
     background-size: cover;
-    background-position: center;
+    background-position: center 38%;
     position: relative;
     display: flex;
     align-items: center;
@@ -70,7 +72,7 @@
     background: transparent;
     border: none;
     padding: 0;
-    width: 88px;
+    width: 112px;
     flex: 0 0 auto;
     transition: all 0.3s;
     color: #315ba4;
@@ -98,6 +100,9 @@
     white-space: normal;
     text-align: center;
     line-height: 1.1;
+    max-width: 104px;
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .tabItem.active .iconBox,
@@ -127,6 +132,7 @@
 }
 
 .productCard {
+    min-width: 0;
     background: #fff;
     border: 1px solid #f0f0f0;
     text-decoration: none;
@@ -150,7 +156,7 @@
 
 .cardInfo {
     padding: 12px;
-    min-height: 58px;
+    min-height: 68px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,6 +168,11 @@
     text-align: center;
     margin: 0;
     line-height: 1.35;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /* 4. Common Inquiry Form Styles (Integrated) */

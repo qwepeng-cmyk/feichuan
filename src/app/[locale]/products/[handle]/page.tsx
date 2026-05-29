@@ -11,11 +11,42 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import dynamic from 'next/dynamic';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
+import { localePath } from '@/lib/localePath';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
   loading: () => <div style={{ minHeight: '400px', background: '#f8fafc' }} />
 });
+
+function parseOverviewLine(value?: string | null, fallbackLabel?: string) {
+  const text = value?.trim();
+  if (!text) return null;
+
+  const separatorIndex = text.indexOf(':');
+  if (separatorIndex > 0) {
+    const label = text.slice(0, separatorIndex).trim();
+    const itemValue = text.slice(separatorIndex + 1).trim();
+    if (!label || !itemValue) return null;
+    return {
+      label,
+      value: itemValue,
+    };
+  }
+
+  const match = text.match(/^([^:：]+)[:：]\s*(.*)$/);
+  if (match && match[1]?.trim() && match[2]?.trim()) {
+    return {
+      label: match[1].trim(),
+      value: match[2].trim(),
+    };
+  }
+
+  if (!fallbackLabel) return null;
+  return {
+    label: fallbackLabel,
+    value: text,
+  };
+}
 
 export async function generateStaticParams() {
   const handles = await getAllProductHandles();
@@ -68,6 +99,12 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
   const keyParam1 = product[`key_parameter_1_${locale}`] || product.key_parameter_1_en;
   const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
+  const applicationLabel = locale === 'ru' ? 'Применение' : 'Application';
+  const productOverview = [
+    parseOverviewLine(keyParam1, locale === 'ru' ? 'Ключевой параметр' : 'Key Parameter'),
+    parseOverviewLine(keyParam2, locale === 'ru' ? 'Ключевой параметр' : 'Key Parameter'),
+    parseOverviewLine(keyApp, applicationLabel),
+  ].filter((item): item is { label: string; value: string } => Boolean(item));
   
   let parameters: any = null;
   try {
@@ -93,7 +130,7 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
-                  <Link href={`/${locale}`}>{dict.nav.home}</Link> &gt; <Link href={`/${locale}/products`}>{dict.nav.products}</Link> &gt; {name}
+                  <Link href={localePath(locale)}>{dict.nav.home}</Link> &gt; <Link href={localePath(locale, '/products')}>{dict.nav.products}</Link> &gt; {name}
                 </div>
               </div>
             </div>
@@ -102,17 +139,25 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
                   <div className="gallery-main-area">
-                    <UniversalGallery images={galleryImages} fit="contain" alt={name} />
+                    <UniversalGallery images={galleryImages} fit="contain" alt={name} aspectRatio="1.618 / 1" />
                   </div>
                   <div className="product-info">
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {name}
                     </h1>
-                    <div className="drone-specs" style={{ marginBottom: '40px' }}>
-                      {keyParam1 && <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>{keyParam1}</div>}
-                      {keyParam2 && <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>{keyParam2}</div>}
-                      {keyApp && <div style={{ fontSize: '1.8rem', color: '#525a66', lineHeight: '1.4' }}>{keyApp}</div>}
-                    </div>
+                    {productOverview.length > 0 && (
+                      <div className="product-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
+                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
+                          Product Overview
+                        </div>
+                        {productOverview.map((item, idx) => (
+                          <div key={`${item.label}-${idx}`} style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '18px', fontSize: '1.65rem', lineHeight: '1.5', marginBottom: idx === productOverview.length - 1 ? 0 : '12px' }}>
+                            <div style={{ color: '#6b7280', fontWeight: 700 }}>{item.label}</div>
+                            <div style={{ color: '#263241', fontWeight: 600 }}>{item.value}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                     <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
                       <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}

@@ -5,6 +5,7 @@ import styles from './MobileCategoryLanding.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
 
 interface SubSolution {
     product_name: string;
@@ -37,7 +38,7 @@ export default function MobileCategoryLanding({
     locale,
     dict
 }: Props) {
-    const l = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+    const l = (path: string) => localePath(locale, path);
 
     return (
         <div className={styles.wrapper}>

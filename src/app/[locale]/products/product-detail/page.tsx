@@ -11,6 +11,23 @@ export const metadata = {
     description: 'High-end tethered mission drone system for ultra-long endurance emergency communications.',
 };
 
+function formatSpecLine(value?: string | null, fallbackLabel?: string) {
+    const text = value?.trim();
+    if (!text) return null;
+
+    const normalized = fallbackLabel && !/[:：]/.test(text) ? `${fallbackLabel}: ${text}` : text;
+    const match = normalized.match(/^([^:：]+[:：])\s*(.*)$/);
+
+    if (!match) return normalized;
+
+    return (
+        <>
+            <strong style={{ fontWeight: 700, color: 'inherit' }}>{match[1]}</strong>
+            {match[2] ? ` ${match[2]}` : ''}
+        </>
+    );
+}
+
 export default async function ProductDetailPage() {
     // Default to the Emergency Communication Drone for this specific test URL
     const product = await getProductByHandle('fc-yjtx-01-emergency-communication-drone');
@@ -55,17 +72,17 @@ export default async function ProductDetailPage() {
                                 <div className="drone-specs" style={{ marginBottom: '40px' }}>
                                     {product.key_parameter_1_en && (
                                         <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>
-                                            {product.key_parameter_1_en}
+                                            {formatSpecLine(product.key_parameter_1_en)}
                                         </div>
                                     )}
                                     {product.key_parameter_2_en && (
                                         <div style={{ fontSize: '1.8rem', color: '#525a66', marginBottom: '8px', lineHeight: '1.4' }}>
-                                            {product.key_parameter_2_en}
+                                            {formatSpecLine(product.key_parameter_2_en)}
                                         </div>
                                     )}
                                     {product.key_application_en && (
                                         <div style={{ fontSize: '1.8rem', color: '#525a66', lineHeight: '1.4' }}>
-                                            {product.key_application_en}
+                                            {formatSpecLine(product.key_application_en, 'Applications')}
                                         </div>
                                     )}
                                 </div>

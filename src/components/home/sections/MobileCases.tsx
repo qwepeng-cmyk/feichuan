@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { localePath } from '@/lib/localePath';
 
 interface MobileCasesProps {
     locale: string;
@@ -20,23 +21,23 @@ export default function MobileCases({ locale, dict, homeCases }: MobileCasesProp
                 {homeCases.slice(0, 3).map((item, idx) => {
                     const caseTitle = locale === 'ru' ? item.title_ru : item.title;
                     return (
-                        <Link key={idx} href={`/${locale}/cases/${item.handle}`} style={{ 
-                            position: 'relative', 
-                            height: '280px', 
+                        <Link key={idx} href={localePath(locale, `/cases/${item.handle}`)} style={{
+                            position: 'relative',
+                            height: '280px',
                             overflow: 'hidden',
                             borderRadius: '0',
                             boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                         }}>
-                            <Image 
-                                src={item.img} 
-                                alt={caseTitle} 
-                                fill 
+                            <Image
+                                src={item.img}
+                                alt={caseTitle}
+                                fill
                                 style={{ objectFit: 'cover' }}
                                 sizes="95vw"
                             />
-                            <div style={{ 
-                                position: 'absolute', 
-                                inset: 0, 
+                            <div style={{
+                                position: 'absolute',
+                                inset: 0,
                                 background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%)',
                                 display: 'flex',
                                 alignItems: 'flex-end',

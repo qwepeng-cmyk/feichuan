@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './MobileCaseDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
+import { localePath } from '@/lib/localePath';
 
 interface CaseProps {
     caseData: any;
@@ -21,12 +22,20 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
     const title = caseData[`title_${locale}`] || caseData.title_en;
     const description = caseData[`description_${locale}`] || caseData.description_en;
     
-    let devices = [];
+    let caseSnapshot: { label: string; value: string }[] = [];
     try {
-        const rawDevices = caseData[`devices_${locale}`] || caseData.devices_en;
-        devices = typeof rawDevices === 'string' ? JSON.parse(rawDevices) : (rawDevices || []);
+        const rawSnapshot = caseData[`case_snapshot_${locale}`] || caseData.case_snapshot_en;
+        const parsedSnapshot = typeof rawSnapshot === 'string' ? JSON.parse(rawSnapshot) : (rawSnapshot || []);
+        caseSnapshot = Array.isArray(parsedSnapshot)
+            ? parsedSnapshot
+                .map((item: any) => ({
+                    label: typeof item?.label === 'string' ? item.label.trim() : '',
+                    value: typeof item?.value === 'string' ? item.value.trim() : ''
+                }))
+                .filter((item: { label: string; value: string }) => item.label && item.value)
+            : [];
     } catch (e) {
-        devices = [];
+        caseSnapshot = [];
     }
 
     let gallery = [];
@@ -37,7 +46,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
         gallery = [];
     }
 
-    const displayImages = [caseData.main_image, ...gallery].filter(Boolean);
+    const displayImages = Array.from(new Set([caseData.main_image, ...gallery].filter(Boolean))) as string[];
     if (displayImages.length === 0) displayImages.push('/images/placeholder.jpg');
 
     // Touch swipe logic
@@ -88,9 +97,9 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb */}
             <div className={styles.breadcrumb}>
-                <Link href={`/${locale}`}>{dict.nav.home}</Link>
+                <Link href={localePath(locale)}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <Link href={`/${locale}/cases`}>{dict.nav.cases}</Link>
+                <Link href={localePath(locale, '/cases')}>{dict.nav.cases}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {title}
@@ -129,17 +138,21 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                 {/* Title */}
                 <h1 className={styles.title}>{title}</h1>
 
-                {/* Info Content - Equipment List */}
-                <div className={styles.infoContent}>
-                    <div className={styles.keyParams}>
-                        <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '5px' }}>
-                            {dict.cases?.equipmentUsed || 'Equipment Used'}:
+                {/* Info Content - Project Overview */}
+                {caseSnapshot.length > 0 && (
+                    <div className={styles.infoContent}>
+                        <div className={styles.keyParams}>
+                            <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '8px' }}>
+                                Project Overview
+                            </div>
+                            {caseSnapshot.map((item, idx) => (
+                                <div key={idx} className={styles.paramItem}>
+                                    <strong>{item.label}: </strong>{item.value}
+                                </div>
+                            ))}
                         </div>
-                        {devices && devices.map((device: string, idx: number) => (
-                            <div key={idx} className={styles.paramItem}>{device}</div>
-                        ))}
                     </div>
-                </div>
+                )}
 
                 {/* CTA Button */}
                 <a 
@@ -194,7 +207,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                     <h2 id="products-title" className={styles.sectionTitleCenter}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                         {recommendedProducts.map((prod, idx) => (
-                            <Link href={`/${locale}/products/${prod.handle}`} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
+                            <Link href={localePath(locale, `/products/${prod.handle}`)} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                     <Image src={prod.image} alt={prod.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                 </div>

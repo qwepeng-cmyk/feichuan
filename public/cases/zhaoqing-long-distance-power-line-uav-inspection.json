@@ -1,0 +1,71 @@
+{
+  "title": "肇庆市远距离电力巡检",
+  "title_en": "Zhaoqing Long-Distance Power-Line UAV Inspection",
+  "description": "肇庆市远距离电力巡检\n在肇庆某110kV电力线巡检作业中，我司产品充分发挥高效便捷的核心优势，针对该线路总长度37.9km、平均塔高35米、共112基杆塔且最大高差达440米的复杂作业环境，完成10个架次的飞行作业，顺利达成全线路37.9公里的巡检任务，作业过程中每个架次完成后立即进行数据解算，并同步与前一架次数据完成拼接，最终产出的数据完整规范、拐点无重影、拼接处无错位，精准满足电力线路巡检的高标准要求。",
+  "description_en": "Zhaoqing Long-Distance Power-Line UAV Inspection\nDuring an inspection of a 110 kV power line in Zhaoqing, our product demonstrated its high-efficiency and convenient-operation advantages. The line measured 37.9 km in total length, with an average tower height of 35 m, 112 towers, and a maximum elevation difference of 440 m. In this complex environment, the operation completed 10 sorties and successfully inspected the full 37.9 km line. After each sortie, data processing was performed immediately and stitched with the previous sortie data. The final output was complete and standardized, with no duplicate shadows at turning points and no misalignment at stitching points, meeting the high-standard requirements of power-line inspection.",
+  "main_image": "/cases/zhaoqing-long-distance-power-line-uav-inspection/01.webp",
+  "case_images": [
+    "/cases/zhaoqing-long-distance-power-line-uav-inspection/01.webp",
+    "/cases/zhaoqing-long-distance-power-line-uav-inspection/02.webp",
+    "/cases/zhaoqing-long-distance-power-line-uav-inspection/03.webp",
+    "/cases/zhaoqing-long-distance-power-line-uav-inspection/04.webp"
+  ],
+  "recommendedProductHandles": [
+    "fc-dlxj-01-power-grid-inspection-drone",
+    "power-tower-inspection-drone"
+  ],
+  "handle": "zhaoqing-long-distance-power-line-uav-inspection",
+  "title_ru": "Дальняя инспекция ЛЭП с БПЛА в Чжаоцине",
+  "description_ru": "Дальняя инспекция ЛЭП с БПЛА в Чжаоцине\nВо время обследования линии 110 кВ в Чжаоцине наш продукт показал преимущества высокой эффективности и удобства применения. Длина линии составляла 37,9 км, средняя высота опор - 35 м, всего было 112 опор, а максимальный перепад высот достигал 440 м. В этих сложных условиях выполнено 10 вылетов и успешно завершена инспекция всей линии 37,9 км. После каждого вылета данные сразу обрабатывались и сшивались с данными предыдущего вылета. Итоговый результат был полным и стандартизированным: без повторных теней на поворотах и без смещений в местах сшивки, что соответствует высоким требованиям инспекции ЛЭП.",
+  "region_ru": "Азия",
+  "country_ru": "Китай",
+  "region_en": "Asia",
+  "country_en": "China",
+  "solution_category_id": "02_InfrastructureProtection",
+  "related_products": [],
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Long-distance 110 kV power-line inspection"
+    },
+    {
+      "label": "Location",
+      "value": "Zhaoqing, Guangdong, China"
+    },
+    {
+      "label": "Mission Scale",
+      "value": "37.9 km, 112 towers, 10 sorties"
+    },
+    {
+      "label": "Key Capability",
+      "value": "Immediate data processing and stitching after each sortie"
+    },
+    {
+      "label": "Result",
+      "value": "Complete standardized output with no turning-point duplication or stitching misalignment"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "??????????",
+      "value": "??????? ????????? ????? 110 ??"
+    },
+    {
+      "label": "???????",
+      "value": "???????, ???????, ?????"
+    },
+    {
+      "label": "???????",
+      "value": "37,9 ??, 112 ????, 10 ???????"
+    },
+    {
+      "label": "???????? ???????????",
+      "value": "??????????? ????????? ? ?????? ?????? ????? ??????? ??????"
+    },
+    {
+      "label": "?????????",
+      "value": "??????????????????? ????????? ??? ?????? ?? ????????? ? ???????? ??? ??????"
+    }
+  ]
+}

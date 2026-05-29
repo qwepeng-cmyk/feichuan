@@ -4,6 +4,7 @@ import InquiryForm from '@/components/products/InquiryForm';
 import MobileContact from '@/components/mobile/MobileContact';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import { localePath } from '@/lib/localePath';
 
 async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
     return (
@@ -14,7 +15,7 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                         <div className="product-breadcrumb-nav" style={{ borderBottom: '1px solid #f0f0f0', padding: '15px 0' }}>
                             <div className="container">
                                 <div className="breadcrumb-path" style={{ fontSize: '1.4rem', color: '#666' }}>
-                                    <Link href={`/${locale}`} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</Link> &gt; {dict.nav.contact}
+                                    <Link href={localePath(locale)} style={{ color: '#315ba4', textDecoration: 'none' }}>{dict.nav.home}</Link> &gt; {dict.nav.contact}
                                 </div>
                             </div>
                         </div>

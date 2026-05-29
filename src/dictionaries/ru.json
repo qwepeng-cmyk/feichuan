@@ -159,7 +159,7 @@
   },
   "footer": {
     "companyName": "N-TET",
-    "tagline": "Промышленные решения безопасности и мониторинга",
+    "tagline": "Промышленные БПЛА и системы обнаружения дронов",
     "quickLinks": "Быстрые ссылки",
     "contactInfo": "Контактная информация",
     "copyright": "© 2026 Beijing Feichuan Equipment Technology Co., Ltd. Все права защищены."
@@ -178,7 +178,11 @@
     "messagePlaceholder": "Пожалуйста, предоставьте подробную информацию о вашем проекте, требованиях или интересующих вас системах (например, обнаружение дронов, досмотровое оборудование).",
     "submit": "ОТПРАВИТЬ ЗАПРОС",
     "submitting": "ОТПРАВКА...",
-    "submitted": "УСПЕШНО ОТПРАВЛЕНО!",
+    "submitted": {
+      "title": "УСПЕШНО ОТПРАВЛЕНО!",
+      "subtitle": "Благодарим за ваш запрос. Наша команда изучит ваши требования и свяжется с вами в течение 24 часов.",
+      "backButton": "Отправить еще одно сообщение"
+    },
     "failed": "Ошибка отправки. Пожалуйста, попробуйте еще раз.",
     "types": [
       "Цены и коммерческое предложение",
@@ -242,11 +246,6 @@
       "mexico": "Мексика",
       "australia": "Австралия",
       "newZealand": "Новая Зеландия"
-    },
-    "submitted": {
-      "title": "УСПЕШНО ОТПРАВЛЕНО!",
-      "subtitle": "Благодарим за ваш запрос. Наша команда изучит ваши требования и свяжется с вами в течение 24 часов.",
-      "backButton": "Отправить еще одно сообщение"
     }
   },
   "common": {
@@ -264,9 +263,30 @@
     "perimeterSurveillance": "Периметральное наблюдение",
     "byFlightPlatform": "По типу платформы",
     "multiRotor": "Мультироторные БПЛА",
+    "multiRotor3kgPayload": "Мультироторный БПЛА с нагрузкой 3 кг",
+    "multiRotor8kgPayload": "Мультироторный БПЛА с нагрузкой 8 кг",
+    "multiRotor20kgPayload": "Мультироторный БПЛА с нагрузкой 20 кг",
+    "multiRotor50kgPayload": "Мультироторный БПЛА с нагрузкой 50 кг",
     "vtol": "VTOL БПЛА с фиксированным крылом",
+    "vtol14kgMtow": "VTOL БПЛА, взлетная масса 14 кг",
+    "vtol26kgMtow": "VTOL БПЛА, взлетная масса 26 кг",
+    "vtol40kgMtow": "VTOL БПЛА, взлетная масса 40 кг",
+    "vtol64kgMtow": "VTOL БПЛА, взлетная масса 64 кг",
+    "vtol135kgMtow": "VTOL БПЛА, взлетная масса 135 кг",
     "tethered": "Привязные БПЛА",
+    "tetheredEmergencyCommunication": "Привязной БПЛА для аварийной связи",
+    "tetheredEmergencyLighting": "Привязной БПЛА для аварийного освещения",
+    "tetheredFirefighting": "Привязной БПЛА для тушения высотных пожаров",
     "byMission": "По задаче и применению",
+    "inspectionMonitoring": "Инспекция и мониторинг",
+    "smartSubstationInspection": "Автономная инспекция умной подстанции",
+    "powerTowerInspection": "БПЛА для инспекции опор ЛЭП",
+    "waterConservancyMonitoring": "БПЛА для мониторинга водного хозяйства",
+    "emergencyResponse": "Аварийное реагирование",
+    "emergencySearchRescue": "БПЛА для поиска и спасения",
+    "emergencyCommunicationUav": "БПЛА для аварийной связи",
+    "tetheredLightingUav": "Привязной БПЛА для освещения",
+    "highRiseFirefightingUav": "БПЛА для тушения высотных пожаров",
     "emergencyRescue": "Аварийно-спасательные",
     "aerialFirefighting": "Пожаротушение с воздуха",
     "utilityInspection": "Инспекция ЛЭП и трубопроводов",
@@ -309,13 +329,32 @@
     "judicialSectorSecurity": "Безопасность судебных учреждений",
     "sportsEventSecurity": "Безопасность крупных спортивных мероприятий",
     "airportSecurityProtection": "Защита аэропортов",
-    "emergencyLightingUAV": "БПЛА аварийного освещения"
+    "emergencyLightingUAV": "БПЛА аварийного освещения",
+    "uavIndustryApplications": "Отраслевые применения БПЛА",
+    "borderCoastalDefense": "Пограничная и прибрежная охрана",
+    "powerLineUavInspection": "Интеллектуальная инспекция ЛЭП с БПЛА",
+    "smartSubstationUnattendedInspection": "Автономная инспекция подстанций",
+    "waterConservancyRiverLakeMonitoring": "Мониторинг водных объектов и рек",
+    "urbanHighRiseFirefightingRescue": "Пожаротушение высотных зданий и спасение",
+    "disasterSiteSearchRescueRecon": "Поиск, спасение и разведка в зоне ЧС",
+    "postDisasterEmergencyCommunication": "Аварийная связь после ЧС",
+    "nightEmergencyLightingSupport": "Ночное аварийное освещение"
   },
   "solutionCategories": {
     "borderPatrol": "Охрана границ",
     "infrastructureProtection": "Защита инфраструктуры",
     "keyAreaSecurity": "Безопасность важных объектов",
     "emergencyRescue": "Аварийно-спасательные операции"
+  },
+  "solutionCenterGroups": {
+    "uavInspectionPatrol": "Инспекция и патрулирование БПЛА",
+    "uavInspectionPatrolDesc": "Регулярное воздушное патрулирование, инспекция протяженных коридоров и полевой мониторинг для энергетики, водных ресурсов и прибрежных операций.",
+    "uavEmergencyResponse": "Экстренное реагирование БПЛА",
+    "uavEmergencyResponseDesc": "Быстрое воздушное реагирование для поддержки пожаротушения, поиска и спасения, связи после ЧС и ночного аварийного освещения.",
+    "criticalInfrastructure": "Защита критической инфраструктуры",
+    "criticalInfrastructureDesc": "Мониторинг воздушного пространства и периметра для энергетических, нефтехимических и водохозяйственных объектов.",
+    "keyAreaSecurity": "Безопасность важных объектов",
+    "keyAreaSecurityDesc": "Комплексные сценарии безопасности для судебных объектов, крупных мероприятий, аэропортовых пунктов контроля и транспортных узлов."
   },
   "regions": {
     "all": "Все",

@@ -2,14 +2,16 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface UniversalGalleryProps {
   images: string[];
   fit?: 'cover' | 'contain';
   alt?: string;
+  aspectRatio?: string;
 }
 
-export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET image' }: UniversalGalleryProps) {
+export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET image', aspectRatio = '4 / 3' }: UniversalGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = (e: React.MouseEvent) => {
@@ -30,7 +32,7 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
   return (
     <div className="gallery-container">
       {/* 1. Main Display Area */}
-      <div className="gallery-main" style={{ position: 'relative' }}>
+      <div className="gallery-main" style={{ position: 'relative', aspectRatio }}>
         <Image 
             src={displayImages[activeIndex] || '/logo1-small.webp'} 
             alt={alt} 
@@ -44,80 +46,87 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
         {displayImages.length > 1 && (
           <>
             <button 
+              type="button"
+              aria-label="Previous image"
               onClick={handlePrev} 
               className="gallery-nav-btn prev"
               style={{
                 position: 'absolute',
-                left: '15px',
+                left: 0,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                width: '40px',
-                height: '110px',
-                background: 'rgba(235, 244, 255, 0.92)',
-                border: 'none',
+                width: '44px',
+                height: '118px',
+                background: 'linear-gradient(180deg, rgba(9, 22, 42, 0.72), rgba(49, 91, 164, 0.62))',
+                border: '1px solid rgba(255,255,255,0.28)',
+                borderLeft: '0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 10,
-                transition: 'all 0.3s',
-                borderRadius: '8px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.05)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                borderRadius: 0,
+                boxShadow: '8px 0 24px rgba(0,0,0,0.18)',
+                color: '#fff'
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
+              <span className="gallery-nav-accent" aria-hidden="true" />
+              <ChevronLeft size={28} strokeWidth={2.8} />
             </button>
             <button 
+              type="button"
+              aria-label="Next image"
               onClick={handleNext} 
               className="gallery-nav-btn next"
               style={{
                 position: 'absolute',
-                right: '15px',
+                right: 0,
                 top: '50%',
                 transform: 'translateY(-50%)',
-                width: '40px',
-                height: '110px',
-                background: 'rgba(235, 244, 255, 0.92)',
-                border: 'none',
+                width: '44px',
+                height: '118px',
+                background: 'linear-gradient(180deg, rgba(9, 22, 42, 0.72), rgba(49, 91, 164, 0.62))',
+                border: '1px solid rgba(255,255,255,0.28)',
+                borderRight: '0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 10,
-                transition: 'all 0.3s',
-                borderRadius: '8px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.05)'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                borderRadius: 0,
+                boxShadow: '-8px 0 24px rgba(0,0,0,0.18)',
+                color: '#fff'
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
+              <span className="gallery-nav-accent" aria-hidden="true" />
+              <ChevronRight size={28} strokeWidth={2.8} />
             </button>
           </>
         )}
       </div>
 
-      {/* 2. Thumbnails Rail (Always show) */}
-      <div className="gallery-thumbs">
-        {displayImages.map((img, index) => (
-          <div
-            key={index}
-            className={`thumb-item ${activeIndex === index ? 'active' : ''}`}
-            onClick={() => setActiveIndex(index)}
-            style={{ position: 'relative' }}
-          >
-            <Image 
-              src={img || '/logo1-small.webp'} 
-              alt={`${alt} thumbnail ${index + 1}`} 
-              fill 
-              style={{ objectFit: 'cover' }}
-              sizes="120px"
-            />
-          </div>
-        ))}
-      </div>
+      {displayImages.length > 1 && (
+        <div className="gallery-thumbs">
+          {displayImages.map((img, index) => (
+            <div
+              key={index}
+              className={`thumb-item ${activeIndex === index ? 'active' : ''}`}
+              onClick={() => setActiveIndex(index)}
+              style={{ position: 'relative' }}
+            >
+              <Image
+                src={img || '/logo1-small.webp'}
+                alt={`${alt} thumbnail ${index + 1}`}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="120px"
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Internal styles to guarantee consistency even if CSS changes */}
       <style jsx>{`
@@ -145,8 +154,42 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
             border-color: #ff9800 !important;
         }
         .thumb-item img { width: 100%; height: 100%; object-fit: cover; }
-        .gallery-nav-btn:hover { background: #315ba4 !important; }
-        .gallery-nav-btn:hover stroke { stroke: #fff !important; }
+        .gallery-nav-btn {
+            isolation: isolate;
+        }
+        .gallery-nav-btn::after {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border-top: 1px solid rgba(255,255,255,0.36);
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+            pointer-events: none;
+        }
+        .gallery-nav-accent {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #315ba4;
+            box-shadow: 0 0 18px rgba(49, 91, 164, 0.8);
+        }
+        .gallery-nav-btn.prev .gallery-nav-accent { left: 0; }
+        .gallery-nav-btn.next .gallery-nav-accent { right: 0; }
+        .gallery-nav-btn :global(svg) {
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-nav-btn:hover {
+            background: linear-gradient(180deg, rgba(49, 91, 164, 0.92), rgba(20, 43, 84, 0.88)) !important;
+        }
+        .gallery-nav-btn.prev:hover :global(svg) { transform: translateX(-3px); }
+        .gallery-nav-btn.next:hover :global(svg) { transform: translateX(3px); }
+        .gallery-nav-btn:focus-visible {
+            outline: 2px solid #ff9800;
+            outline-offset: 3px;
+        }
       `}</style>
     </div>
   );

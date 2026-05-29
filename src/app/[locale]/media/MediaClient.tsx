@@ -4,6 +4,8 @@ import MobileMediaCenter from '@/components/mobile/MobileMediaCenter';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 
 export default function MediaClient({ 
     newsData,
@@ -57,11 +59,17 @@ export default function MediaClient({
                         overflow: 'hidden',
                         borderBottom: '1px solid #e1e8f0'
                     }}>
-                        <Image src="/media/media_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.media.bannerTitle} />
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
+                        <Image
+                            src="/media/news-center-expo-banner.webp"
+                            fill
+                            style={{ objectFit: 'cover', objectPosition: 'center' }}
+                            priority
+                            alt={dict.media.bannerTitle}
+                        />
+                        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(2, 10, 24, 0.82) 0%, rgba(13, 36, 75, 0.58) 42%, rgba(49, 91, 164, 0.12) 72%, rgba(1, 8, 18, 0.18) 100%)', zIndex: 1 }}></div>
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                            <div style={{ maxWidth: '800px' }}>
+                            <div style={{ maxWidth: '700px', textShadow: '0 10px 28px rgba(0, 0, 0, 0.34)' }}>
                                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</h1>
                                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.media.bannerSubtitle}</p>
                             </div>
@@ -125,9 +133,10 @@ export default function MediaClient({
                                 gap: '40px' 
                             }}>
                                 {paginatedNews.map((news) => {
-                                    const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+                                    const newsTitle = getLocalizedMediaTitle(news, locale);
+                                    const newsDate = getLocalizedMediaDate(news.date, locale);
                                     return (
-                                        <Link href={`/${locale}/media/${news.id}`} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
+                                        <Link prefetch={false} href={localePath(locale, `/media/${news.id}`)} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
                                             <div className="news-image-wrapper" style={{ 
                                                 height: '350px', 
                                                 overflow: 'hidden', 
@@ -158,7 +167,7 @@ export default function MediaClient({
                                                     color: '#315ba4', 
                                                     fontWeight: 600, 
                                                     marginBottom: '15px' 
-                                                }}>{news.date}</div>
+                                                }}>{newsDate}</div>
                                                 <h3 style={{ 
                                                     fontSize: '2.2rem', 
                                                     fontWeight: 700, 

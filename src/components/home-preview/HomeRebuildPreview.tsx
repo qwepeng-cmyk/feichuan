@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import NEWS_DATA from "../../../public/media/news_data.json";
 import { homeCases, products, solutions } from "@/constants/homeData";
+import { localePath } from "@/lib/localePath";
 import styles from "./HomeRebuildPreview.module.css";
 
 type PreviewDict = Record<string, any>;
@@ -65,7 +66,7 @@ export default function HomeRebuildPreview({
           playsInline
           preload="metadata"
         >
-          <source src="/index_banner_bg_3.mp4" type="video/mp4" />
+          <source src="/index_banner_bg_4.mp4" type="video/mp4" />
         </video>
         <div className={styles.heroShade} />
         <div className={styles.heroGrid} />
@@ -82,11 +83,11 @@ export default function HomeRebuildPreview({
             />
             <p className={styles.heroText}>{dict.home.hero.subtitle}</p>
             <div className={styles.heroActions}>
-              <Link className={styles.primaryButton} href={`/${locale}/solutions`}>
+              <Link className={styles.primaryButton} href={localePath(locale, "/solutions")}>
                 {dict.home.hero.button}
                 <ArrowUpRight size={18} />
               </Link>
-              <Link className={styles.ghostButton} href={`/${locale}/products`}>
+              <Link className={styles.ghostButton} href={localePath(locale, "/products")}>
                 {dict.home.sections.products}
                 <ChevronRight size={18} />
               </Link>
@@ -177,11 +178,11 @@ export default function HomeRebuildPreview({
             <h3>{localizedProduct.main}</h3>
             <p>{localizedProduct.desc}</p>
             <div className={styles.productActions}>
-              <Link href={`/${locale}/products/${product.handle}`}>
+              <Link href={localePath(locale, `/products/${product.handle}`)}>
                 {dict.products.viewSpecs}
                 <ArrowUpRight size={17} />
               </Link>
-              <Link href={`/${locale}/contact`}>{dict.products.getQuote}</Link>
+              <Link href={localePath(locale, "/contact")}>{dict.products.getQuote}</Link>
             </div>
           </div>
         </div>
@@ -199,7 +200,7 @@ export default function HomeRebuildPreview({
             return (
               <Link
                 className={styles.solutionCard}
-                href={`/${locale}${solution.link}`}
+                href={localePath(locale, solution.link)}
                 key={solution.id}
               >
                 <Image
@@ -229,7 +230,7 @@ export default function HomeRebuildPreview({
             <span className={styles.sectionKicker}>Deployment Evidence</span>
             <h2>{dict.home.sections.cases}</h2>
           </div>
-          <Link href={`/${locale}/cases`} className={styles.textLink}>
+          <Link href={localePath(locale, "/cases")} className={styles.textLink}>
             {dict.home.buttons.viewAllCases}
             <ArrowUpRight size={17} />
           </Link>
@@ -240,7 +241,7 @@ export default function HomeRebuildPreview({
             return (
               <Link
                 className={styles.caseCard}
-                href={`/${locale}/cases/${item.handle}`}
+                href={localePath(locale, `/cases/${item.handle}`)}
                 key={item.handle}
               >
                 <Image src={item.img} alt={title} fill sizes="(max-width: 900px) 100vw, 33vw" />
@@ -284,7 +285,7 @@ export default function HomeRebuildPreview({
             <span className={styles.sectionKicker}>Intelligence Feed</span>
             <h2>{dict.home.sections.news}</h2>
           </div>
-          <Link href={`/${locale}/media`} className={styles.textLink}>
+          <Link href={localePath(locale, "/media")} className={styles.textLink}>
             {dict.home.buttons.viewAllNews}
             <ArrowUpRight size={17} />
           </Link>
@@ -297,7 +298,7 @@ export default function HomeRebuildPreview({
                 ? newsItem.title_ru || newsItem.title
                 : newsItem.title_en || newsItem.title;
             return (
-              <Link className={styles.newsCard} href={`/${locale}/media/${item.id}`} key={item.id}>
+              <Link className={styles.newsCard} href={localePath(locale, `/media/${item.id}`)} key={item.id}>
                 <Image src={item.image} alt={title} fill sizes="(max-width: 900px) 100vw, 33vw" />
                 <div>
                   <span>{item.date}</span>

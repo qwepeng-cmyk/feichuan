@@ -1,21 +1,13 @@
-import { Inter, Outfit } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
 
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-inter",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-});
-
 export const metadata: Metadata = {
   title: "N-TET - Industrial Security & Monitoring Solutions",
   description: "Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.",
+  icons: {
+    icon: '/logo-header.webp',
+  },
 };
 
 export const viewport = {
@@ -30,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <NextTopLoader
           color="#315ba4"
           initialPosition={0.08}

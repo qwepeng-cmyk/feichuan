@@ -5,6 +5,8 @@ import styles from './MobileMediaCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 
 interface NewsItem {
     id: string;
@@ -90,14 +92,15 @@ export default function MobileMediaCenter({
             <div id="news-grid-top" className={styles.listContainer}>
                 <div className={styles.grid}>
                     {paginatedNews.map((news) => {
-                        const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+                        const newsTitle = getLocalizedMediaTitle(news, locale);
+                        const newsDate = getLocalizedMediaDate(news.date, locale);
                         return (
-                            <Link href={`/${locale}/media/${news.id}`} key={news.id} className={styles.card}>
+                            <Link prefetch={false} href={localePath(locale, `/media/${news.id}`)} key={news.id} className={styles.card}>
                                 <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                     <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                 </div>
                                 <div className={styles.cardContent}>
-                                    <div className={styles.date}>{news.date}</div>
+                                    <div className={styles.date}>{newsDate}</div>
                                     <h3>{newsTitle}</h3>
                                 </div>
                             </Link>

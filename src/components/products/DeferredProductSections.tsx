@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { fetchProductsForClient } from '@/lib/clientProducts';
+import { localePath } from '@/lib/localePath';
 
 interface CategoryMeta {
     id: string;
@@ -16,12 +17,23 @@ interface Product {
     image: string;
 }
 
+function shouldBlendImageBackground(image?: string) {
+    return Boolean(image?.includes('/products/uav-systems/'));
+}
+
 function ProductCard({ product, locale }: { product: Product; locale: string }) {
+    const [hovered, setHovered] = useState(false);
+    const blendImageBackground = shouldBlendImageBackground(product.image);
+    const imagePadding = blendImageBackground ? '15px' : '5px';
+    const imageTransform = hovered && !blendImageBackground ? 'scale(1.05)' : 'scale(1)';
+
     return (
         <Link
             prefetch={false}
-            href={`/${locale}/products/${product.handle}`}
+            href={localePath(locale, `/products/${product.handle}`)}
             className="p-card-sbm"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             style={{
                 display: 'block',
                 background: '#fff',
@@ -36,21 +48,24 @@ function ProductCard({ product, locale }: { product: Product; locale: string }) 
                 width: '100%',
                 aspectRatio: '1.618 / 1',
                 background: '#f8f9fa',
-                padding: '15px',
+                padding: '0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                position: 'relative'
+                position: 'relative',
+                isolation: 'isolate'
             }}>
                 <Image
                     src={product.image || '/logo1-small.webp'}
                     alt={product.name}
                     fill
                     style={{
-                        padding: '15px',
+                        padding: imagePadding,
                         objectFit: 'contain',
-                        transition: 'transform 0.5s ease'
+                        transition: 'transform 0.5s ease',
+                        transform: imageTransform,
+                        mixBlendMode: blendImageBackground ? 'multiply' : 'normal'
                     }}
                     sizes="(max-width: 1200px) 33vw, 25vw"
                 />

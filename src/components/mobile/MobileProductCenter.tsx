@@ -5,6 +5,7 @@ import styles from './MobileProductCenter.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import MobileInquiryForm from './MobileInquiryForm';
+import { localePath } from '@/lib/localePath';
 
 interface Product {
     name: string;
@@ -12,6 +13,193 @@ interface Product {
     image: string;
     specs?: Record<string, string>;
     handle: string;
+    flightPlatform?: string;
+    missionApplication?: string;
+    catalogOrder?: number;
+}
+
+const FLIGHT_GROUP_ORDER = ['Multi-Rotor UAVs', 'VTOL Fixed-Wing UAVs', 'Tethered UAVs'];
+const FLIGHT_PLATFORM_HANDLES = new Set([
+    'multi-rotor-3kg-payload-uav',
+    'multi-rotor-8kg-payload-uav',
+    'multi-rotor-20kg-payload-uav',
+    'multi-rotor-50kg-payload-uav',
+    'vtol-14kg-mtow-uav',
+    'vtol-26kg-mtow-uav',
+    'vtol-40kg-mtow-uav',
+    'vtol-64kg-mtow-uav',
+    'vtol-135kg-mtow-uav',
+    'fc-yjtx-01-emergency-communication-drone',
+    'fc-yjzm-01-emergency-lighting-drone',
+    'fc-yjxf-01-aerial-firefighting-drone',
+]);
+const MISSION_APPLICATION_ORDER = [
+    'smart-substation-autonomous-inspection-system',
+    'power-tower-inspection-drone',
+    'fc-sljc-01-water-conservancy-monitoring-drone',
+    'emergency-search-rescue-drone',
+    'fc-yjtx-01-emergency-communication-drone',
+    'fc-yjzm-01-emergency-lighting-drone',
+    'fc-yjxf-01-aerial-firefighting-drone',
+];
+const MISSION_APPLICATION_HANDLES = new Set(MISSION_APPLICATION_ORDER);
+
+function shouldBlendImageBackground(image?: string) {
+    return Boolean(image?.includes('/products/uav-systems/'));
+}
+
+function getMissionDisplayName(product: Product, dict: any) {
+    const labels: Record<string, string | undefined> = {
+        'smart-substation-autonomous-inspection-system': dict?.megaMenu?.smartSubstationInspection,
+        'power-tower-inspection-drone': dict?.megaMenu?.powerTowerInspection,
+        'fc-sljc-01-water-conservancy-monitoring-drone': dict?.megaMenu?.waterConservancyMonitoring,
+        'emergency-search-rescue-drone': dict?.megaMenu?.emergencySearchRescue,
+        'fc-yjtx-01-emergency-communication-drone': dict?.megaMenu?.emergencyCommunicationUav,
+        'fc-yjzm-01-emergency-lighting-drone': dict?.megaMenu?.tetheredLightingUav,
+        'fc-yjxf-01-aerial-firefighting-drone': dict?.megaMenu?.highRiseFirefightingUav,
+    };
+    return labels[product.handle] || product.name;
+}
+
+function groupProducts(
+    products: Product[],
+    field: 'flightPlatform' | 'missionApplication',
+    groupOrder: string[],
+    allowedHandles: Set<string>
+) {
+    const grouped = products.reduce<Record<string, Product[]>>((acc, product) => {
+        if (!allowedHandles.has(product.handle)) return acc;
+        const groupName = product[field] || 'Other UAV Systems';
+        if (!groupOrder.includes(groupName)) return acc;
+        acc[groupName] = acc[groupName] || [];
+        acc[groupName].push(product);
+        return acc;
+    }, {});
+
+    return Object.entries(grouped)
+        .map(([name, items]) => ({
+            name,
+            items: [...items].sort((a, b) => (a.catalogOrder ?? 9999) - (b.catalogOrder ?? 9999) || a.name.localeCompare(b.name))
+        }))
+        .sort((a, b) => {
+            const orderA = groupOrder.indexOf(a.name);
+            const orderB = groupOrder.indexOf(b.name);
+            const normalizedA = orderA === -1 ? 999 : orderA;
+            const normalizedB = orderB === -1 ? 999 : orderB;
+            return normalizedA - normalizedB || a.name.localeCompare(b.name);
+        });
+}
+
+function MobileProductCard({
+    product,
+    locale,
+    priority
+}: {
+    product: Product;
+    locale: string;
+    priority?: boolean;
+}) {
+    const blendImageBackground = shouldBlendImageBackground(product.image);
+
+    return (
+        <Link prefetch={false} href={localePath(locale, `/products/${product.handle}`)} className={styles.productCard}>
+            <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5', isolation: 'isolate' }}>
+                <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    style={{ objectFit: 'contain', padding: '10px', mixBlendMode: blendImageBackground ? 'multiply' : 'normal' }}
+                    sizes="45vw"
+                    priority={priority}
+                />
+            </div>
+            <div className={styles.cardInfo}>
+                <h3>{product.name}</h3>
+            </div>
+        </Link>
+    );
+}
+
+function MobileUavGroupedCatalog({
+    title,
+    products,
+    field,
+    groupOrder,
+    allowedHandles,
+    locale,
+}: {
+    title: string;
+    products: Product[];
+    field: 'flightPlatform' | 'missionApplication';
+    groupOrder: string[];
+    allowedHandles: Set<string>;
+    locale: string;
+}) {
+    const groups = groupProducts(products, field, groupOrder, allowedHandles);
+
+    return (
+        <div style={{ marginBottom: '36px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+                <h3 style={{ margin: 0, color: '#1f2a44', fontSize: '16px', fontWeight: 900 }}>{title}</h3>
+                <div style={{ height: '1px', background: '#d9e2ef', flex: 1 }} />
+            </div>
+            <div style={{ display: 'grid', gap: '26px' }}>
+                {groups.map((group, groupIndex) => (
+                    <div key={`${field}-${group.name}`}>
+                        <h4 style={{ margin: '0 0 12px', fontSize: '12px', fontWeight: 900, color: '#315ba4', textTransform: 'uppercase' }}>
+                            {group.name}
+                        </h4>
+                        <div className={styles.grid}>
+                            {group.items.map((product, idx) => (
+                                <MobileProductCard
+                                    key={`${field}-${group.name}-${product.handle}`}
+                                    product={product}
+                                    locale={locale}
+                                    priority={field === 'missionApplication' && groupIndex === 0 && idx < 2}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function MobileMissionApplicationCatalog({
+    title,
+    products,
+    locale,
+    dict
+}: {
+    title: string;
+    products: Product[];
+    locale: string;
+    dict: any;
+}) {
+    const missionProducts = products
+        .filter(product => MISSION_APPLICATION_HANDLES.has(product.handle))
+        .map(product => ({ ...product, name: getMissionDisplayName(product, dict) }))
+        .sort((a, b) => MISSION_APPLICATION_ORDER.indexOf(a.handle) - MISSION_APPLICATION_ORDER.indexOf(b.handle));
+
+    return (
+        <div style={{ marginBottom: '36px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+                <h3 style={{ margin: 0, color: '#1f2a44', fontSize: '16px', fontWeight: 900 }}>{title}</h3>
+                <div style={{ height: '1px', background: '#d9e2ef', flex: 1 }} />
+            </div>
+            <div className={styles.grid}>
+                {missionProducts.map((product, idx) => (
+                    <MobileProductCard
+                        key={`mission-${product.handle}`}
+                        product={product}
+                        locale={locale}
+                        priority={idx < 2}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default function MobileProductCenter({ 
@@ -168,25 +356,35 @@ export default function MobileProductCenter({
                             <div className={styles.accentLine}></div>
                         </div>
 
-                        <div className={styles.grid}>
-                            {categoriesData[category.id]?.map((product: Product, idx: number) => (
-                                <Link prefetch={false} href={`/${locale}/products/${product.handle}`} key={idx} className={styles.productCard}>
-                                    <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
-                                        <Image
-                                            src={product.image}
-                                            alt={product.name}
-                                            fill
-                                            style={{ objectFit: 'contain', padding: '10px' }}
-                                            sizes="45vw"
-                                            priority={category.id === categoryList[0].id && idx < 2}
-                                        />
-                                    </div>
-                                    <div className={styles.cardInfo}>
-                                        <h3>{product.name}</h3>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
+                        {category.id === 'uav-drone-systems' ? (
+                            <>
+                                <MobileMissionApplicationCatalog
+                                    title={dict.megaMenu?.byMission || 'By Mission & Application'}
+                                    products={categoriesData[category.id] || []}
+                                    locale={locale}
+                                    dict={dict}
+                                />
+                                <MobileUavGroupedCatalog
+                                    title={dict.megaMenu?.byFlightPlatform || 'By Flight Platform'}
+                                    products={categoriesData[category.id] || []}
+                                    field="flightPlatform"
+                                    groupOrder={FLIGHT_GROUP_ORDER}
+                                    allowedHandles={FLIGHT_PLATFORM_HANDLES}
+                                    locale={locale}
+                                />
+                            </>
+                        ) : (
+                            <div className={styles.grid}>
+                                {categoriesData[category.id]?.map((product: Product, idx: number) => (
+                                    <MobileProductCard
+                                        key={idx}
+                                        product={product}
+                                        locale={locale}
+                                        priority={category.id === categoryList[0].id && idx < 2}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </section>
                 ))}
             </div>

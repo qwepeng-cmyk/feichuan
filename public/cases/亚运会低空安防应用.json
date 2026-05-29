@@ -13,11 +13,11 @@
     "Directional RF RF Scanner",
     "Low-Altitude Detection Radar (X-Band)"
   ],
-  "main_image": "/cases/亚运会低空安防应用/main.png",
+  "main_image": "/cases/asian-games-security/main.webp",
   "case_images": [
-    "/cases/亚运会低空安防应用/亚运场馆内低空安保.png",
-    "/cases/亚运会低空安防应用/温州龙湾奥体中心低空安保.png",
-    "/cases/亚运会低空安防应用/湖州德清亚运场馆安保.png"
+    "/cases/asian-games-security/亚运场馆内低空安保.webp",
+    "/cases/asian-games-security/温州龙湾奥体中心低空安保.webp",
+    "/cases/asian-games-security/湖州德清亚运场馆安保.webp"
   ],
   "recommendedProductHandles": [
     "stationary-rf-detection-system",

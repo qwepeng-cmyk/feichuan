@@ -8,6 +8,7 @@ interface ProductSummary {
 }
 
 type ProductCategories = Record<string, ProductSummary[]>;
+const PRODUCTS_API_VERSION = 'path-safe-v3';
 
 declare global {
   interface Window {
@@ -28,7 +29,8 @@ function getProductsRequestCache() {
 }
 
 export function fetchProductsForClient(locale: string) {
-  const cacheKey = locale || 'en';
+  const cacheKey = `${locale || 'en'}:${PRODUCTS_API_VERSION}`;
+  const localeParam = locale || 'en';
   const productsRequestCache = getProductsRequestCache();
   const cached = productsRequestCache.get(cacheKey);
 
@@ -36,7 +38,9 @@ export function fetchProductsForClient(locale: string) {
     return cached;
   }
 
-  const request = fetch(`/api/products?locale=${encodeURIComponent(cacheKey)}`)
+  const request = fetch(`/api/products?locale=${encodeURIComponent(localeParam)}&v=${PRODUCTS_API_VERSION}`, {
+    cache: 'no-store',
+  })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Failed to load products: ${response.status}`);
