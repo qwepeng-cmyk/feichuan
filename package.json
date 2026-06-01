@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "audit:public-risk": "node scripts/audit-public-site-risk.mjs"
+    "audit:public-risk": "node scripts/audit-public-site-risk.mjs",
+    "deploy:check-public": "node scripts/check-public-sync.mjs",
+    "cf:purge": "node scripts/cloudflare-purge-cache.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.2",
