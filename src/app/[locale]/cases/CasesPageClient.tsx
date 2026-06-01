@@ -5,6 +5,9 @@ import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface CaseItem {
     handle: string;
@@ -32,10 +35,10 @@ export default function CasesPageClient({
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.all },
-        { id: '01_BorderPatrol', name: dict.solutions.categories.border },
-        { id: '02_InfrastructureProtection', name: dict.solutions.categories.infrastructure },
-        { id: '03_KeyAreaSecurity', name: dict.solutions.categories.security },
-        { id: '04_EmergencyRescue', name: dict.solutions.categories.emergency }
+        ...caseSolutionGroups.map((group) => ({
+            id: group.id,
+            name: dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel
+        }))
     ];
 
     const REGIONS = [
@@ -51,7 +54,7 @@ export default function CasesPageClient({
 
     const filteredCases = useMemo(() => {
         return allCases.filter(item => {
-            const matchesSolution = selectedSolution === 'all' || item.solution_category_id === selectedSolution;
+            const matchesSolution = selectedSolution === 'all' || getCaseSolutionGroupId(item) === selectedSolution;
 
             let matchesRegion = true;
             if (selectedRegionId === 'all') {
@@ -176,15 +179,15 @@ export default function CasesPageClient({
 
             <div className="pc_only product-page-new" style={{ paddingTop: '112px' }}>
                 <section className="product-banner" style={{
-                    height: '40vh',
-                    minHeight: '320px',
-                    maxHeight: '450px',
+                    height: '400px',
+                    minHeight: '400px',
+                    maxHeight: '400px',
                     position: 'relative',
                     overflow: 'hidden',
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Image src="/cases/case_banner_final_副本2.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.cases.bannerTitle} />
+                    <Image src={withStaticAssetVersion('/cases/case_banner_center_collage_v2.webp')} fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={dict.cases.bannerTitle} />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>
@@ -220,10 +223,10 @@ export default function CasesPageClient({
                                         {paginatedCases.map((item, idx) => {
                                             const caseTitle = item[`title_${locale}`] || item.title_en;
                                             return (
-                                                <Link prefetch={false} href={`/${locale}/cases/${item.handle}`} key={idx} className="catalog-card-item">
+                                                <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={idx} className="catalog-card-item">
                                                     <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden', position: 'relative', height: '240px' }}>
                                                         <Image
-                                                            src={item.main_image || '/images/solutions/placeholder.jpg'}
+                                                            src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')}
                                                             alt={caseTitle}
                                                             fill
                                                             style={{ objectFit: 'cover' }}
@@ -300,5 +303,3 @@ export default function CasesPageClient({
         </>
     );
 }
-
-

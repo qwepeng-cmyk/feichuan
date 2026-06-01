@@ -1,6 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { localePath } from '@/lib/localePath';
+import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface MobileNewsProps {
     locale: string;
@@ -21,9 +24,10 @@ export default function MobileNews({ locale, dict, latestNews }: MobileNewsProps
                 scrollbarWidth: 'none'
             }} className="no-scrollbar">
                 {latestNews.map((news: any, idx: number) => {
-                    const newsTitle = news[`title_${locale}`] || news.title_en || news.title;
+                    const newsTitle = getLocalizedMediaTitle(news, locale);
+                    const newsDate = getLocalizedMediaDate(news.date, locale);
                     return (
-                        <Link key={idx} href={`/${locale}/media/${news.id}`} style={{
+                        <Link key={idx} href={localePath(locale, `/media/${news.id}`)} style={{
                             flex: '0 0 75%',
                             background: '#fff',
                             overflow: 'hidden',
@@ -32,7 +36,7 @@ export default function MobileNews({ locale, dict, latestNews }: MobileNewsProps
                         }}>
                             <div style={{ aspectRatio: '1.6 / 1', overflow: 'hidden', position: 'relative' }}>
                                 <Image 
-                                    src={news.image} 
+                                    src={withStaticAssetVersion(news.image)} 
                                     alt={newsTitle} 
                                     fill 
                                     style={{ objectFit: 'cover' }}
@@ -41,7 +45,7 @@ export default function MobileNews({ locale, dict, latestNews }: MobileNewsProps
                             </div>
                             <div style={{ padding: '15px' }}>
                                 <h3 style={{ fontSize: '14px', color: '#333', fontWeight: 700, marginBottom: '8px', height: '36px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>{newsTitle}</h3>
-                                <span style={{ fontSize: '12px', color: '#666' }}>{news.date}</span>
+                                <span style={{ fontSize: '12px', color: '#666' }}>{newsDate}</span>
                             </div>
                         </Link>
                     );

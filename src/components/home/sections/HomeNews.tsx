@@ -1,6 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { localePath } from '@/lib/localePath';
+import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface HomeNewsProps {
     locale: string;
@@ -17,12 +20,10 @@ export default function HomeNews({ locale, dict, latestNews }: HomeNewsProps) {
                 </div>
                 <div className="news-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                     {latestNews.map((item, i) => {
-                        const localizedNewsTitle =
-                            locale === 'ru'
-                                ? item.title_ru || item.title
-                                : (item as { title_en?: string }).title_en || item.title;
+                        const localizedNewsTitle = getLocalizedMediaTitle(item, locale);
+                        const localizedDate = getLocalizedMediaDate(item.date, locale);
                         return (
-                            <Link key={i} href={`/${locale}/media/${item.id}`} className="news-card" style={{
+                            <Link key={i} href={localePath(locale, `/media/${item.id}`)} className="news-card" style={{
                                 background: '#f8f8f8',
                                 border: '1px solid #eee',
                                 overflow: 'hidden',
@@ -33,7 +34,7 @@ export default function HomeNews({ locale, dict, latestNews }: HomeNewsProps) {
                             }}>
                                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
                                     <Image 
-                                        src={item.image} 
+                                        src={withStaticAssetVersion(item.image)} 
                                         alt={localizedNewsTitle} 
                                         fill 
                                         style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 
@@ -53,14 +54,14 @@ export default function HomeNews({ locale, dict, latestNews }: HomeNewsProps) {
                                         overflow: 'hidden',
                                         transition: 'color 0.3s ease'
                                     }}>{localizedNewsTitle}</h3>
-                                    <p style={{ color: '#999', fontSize: '1.4rem', transition: 'color 0.3s ease' }}>{item.date}</p>
+                                    <p style={{ color: '#999', fontSize: '1.4rem', transition: 'color 0.3s ease' }}>{localizedDate}</p>
                                 </div>
                             </Link>
                         );
                     })}
                 </div>
                 <div style={{ textAlign: 'center', marginTop: '60px' }}>
-                    <Link href={`/${locale}/media`} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllNews}</Link>
+                    <Link href={localePath(locale, '/media')} className="btn btn-orange" style={{ padding: '15px 40px' }}>{dict.home.buttons.viewAllNews}</Link>
                 </div>
             </div>
             <style jsx>{`

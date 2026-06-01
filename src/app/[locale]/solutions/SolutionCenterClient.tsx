@@ -1,36 +1,43 @@
-﻿'use client';
+'use client';
 
+import type { ReactNode } from 'react';
 import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
 import CategoryNav from '@/components/products/CategoryNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { solutionCenterGroups, solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 
 interface Solution {
     id: string;
     title_en: string;
+    product_name_en?: string;
+    product_name_ru?: string;
+    summary_en?: string;
+    summary_ru?: string;
     main_image?: string;
     category_id: string;
     [key: string]: any;
 }
 
-export default function SolutionCenterClient({ 
+interface DisplayGroup {
+    id: string;
+    name: string;
+    categoryHref?: string;
+    icon: ReactNode;
+    solutions: Solution[];
+}
+
+export default function SolutionCenterClient({
     allSolutions,
     locale,
     dict
-}: { 
+}: {
     allSolutions: Solution[],
     locale: string,
     dict: any
 }) {
-    const CATEGORY_NAMES: Record<string, string> = {
-        '01_BorderPatrol': dict.solutions.categories.border,
-        '02_InfrastructureProtection': dict.solutions.categories.infrastructure,
-        '03_KeyAreaSecurity': dict.solutions.categories.security,
-        '04_EmergencyRescue': dict.solutions.categories.emergency
-    };
-
-    // Define common equipment components
     const ICON_CAMERA = (
         <g>
             <path d="M14 12h20l2 10H12l2-10z" fill="rgba(49, 91, 164, 0.05)" />
@@ -51,8 +58,8 @@ export default function SolutionCenterClient({
         </g>
     );
 
-    const CATEGORY_ICONS: Record<string, React.ReactNode> = {
-        '01_BorderPatrol': (
+    const GROUP_ICONS: Record<string, ReactNode> = {
+        'uav-inspection-patrol': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
                 <g transform="translate(0, 0)">
                     <path d="M24 10l2 24-2 4-2-4 2-24z" fill="rgba(49, 91, 164, 0.05)" />
@@ -67,27 +74,7 @@ export default function SolutionCenterClient({
                 <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
-        '02_InfrastructureProtection': (
-            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
-                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
-                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
-                <g transform="translate(62, 0)">{ICON_CAMERA}</g>
-            </svg>
-        ),
-        '03_KeyAreaSecurity': (
-            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
-                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
-                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
-                <g transform="translate(62, 0)">
-                    <rect x="12" y="6" width="24" height="36" />
-                    <path d="M16 6v36M32 6v36" strokeWidth="2" />
-                    <rect x="18" y="8" width="12" height="6" fill="rgba(49, 91, 164, 0.1)" />
-                    <path d="M12 18h24M12 24h24M12 30h24M12 36h24" strokeOpacity="0.3" />
-                    <circle cx="24" cy="11" r="1.5" fill="#315ba4" stroke="none" />
-                </g>
-            </svg>
-        ),
-        '04_EmergencyRescue': (
+        'uav-emergency-response': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.2" style={{ height: '48px', width: 'auto' }}>
                 <g transform="translate(0, 0)">
                     <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
@@ -124,19 +111,65 @@ export default function SolutionCenterClient({
                     </g>
                 </g>
             </svg>
+        ),
+        'critical-infrastructure-protection': (
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
+                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(62, 0)">{ICON_CAMERA}</g>
+            </svg>
+        ),
+        'key-area-security': (
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
+                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(62, 0)">
+                    <rect x="12" y="6" width="24" height="36" />
+                    <path d="M16 6v36M32 6v36" strokeWidth="2" />
+                    <rect x="18" y="8" width="12" height="6" fill="rgba(49, 91, 164, 0.1)" />
+                    <path d="M12 18h24M12 24h24M12 30h24M12 36h24" strokeOpacity="0.3" />
+                    <circle cx="24" cy="11" r="1.5" fill="#315ba4" stroke="none" />
+                </g>
+            </svg>
         )
     };
 
-    const groupedSolutions: Record<string, any[]> = {};
-    Object.keys(CATEGORY_NAMES).forEach(catId => {
-        groupedSolutions[catId] = allSolutions.filter(s => s.category_id === catId);
-    });
+    const t = (group: typeof solutionCenterGroups[number], field: 'label' | 'eyebrow' | 'description') => {
+        if (field === 'label') {
+            return dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel;
+        }
+        if (field === 'eyebrow') {
+            return dict?.megaMenu?.[group.eyebrowKey] || group.fallbackEyebrow;
+        }
+        return dict?.solutionCenterGroups?.[group.descriptionKey] || group.fallbackDescription;
+    };
 
-    const categoryList = Object.keys(CATEGORY_NAMES).map(key => ({
-        id: key,
-        name: CATEGORY_NAMES[key],
-        icon: CATEGORY_ICONS[key]
+    const solutionsById = new Map(allSolutions.map((solution) => [solution.id, solution]));
+    const displayGroups: DisplayGroup[] = solutionCenterGroups.map((group) => ({
+        id: group.id,
+        name: t(group, 'label'),
+        categoryHref: group.categoryHref,
+        icon: GROUP_ICONS[group.id],
+        solutions: group.handles
+            .map((handle) => solutionsById.get(handle))
+            .filter(Boolean) as Solution[],
     }));
+
+    const categoryList = displayGroups.map((group) => ({
+        id: group.id,
+        name: group.name,
+        icon: group.icon
+    }));
+
+    const getSolutionTitle = (solution: Solution) => (
+        locale === 'ru'
+            ? (solution.product_name_ru || solution.product_name_en || solution.title_en)
+            : (solution.product_name_en || solution.title_en)
+    );
+
+    const shouldUseProductImageTreatment = (image?: string) => (
+        Boolean(image?.includes('/products/uav-systems/'))
+    );
 
     return (
         <>
@@ -147,6 +180,99 @@ export default function SolutionCenterClient({
                 @media (max-width: 991px) {
                     .mobile_only { display: block !important; }
                     .pc_only { display: none !important; }
+                }
+                .solution-center-page {
+                    background: #fff;
+                }
+                .solution-center-section {
+                    position: relative;
+                    scroll-margin-top: 300px;
+                    margin-bottom: 100px;
+                }
+                .solution-center-section.priority {
+                    padding: 8px 0 4px;
+                }
+                .solution-center-section-title {
+                    text-align: center;
+                    margin-bottom: 40px;
+                }
+                .solution-center-title {
+                    color: #333;
+                    font-size: 3.4rem;
+                    line-height: 1.2;
+                    font-weight: 800;
+                    margin: 0;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
+                .solution-center-accent {
+                    width: 60px;
+                    height: 4px;
+                    background: #315ba4;
+                    margin: 20px auto 0;
+                }
+                .solution-center-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 30px;
+                }
+                .solution-center-card {
+                    min-width: 0;
+                    display: block;
+                    text-decoration: none;
+                    color: inherit;
+                    background: #fff;
+                    border: 1px solid #f0f0f0;
+                    overflow: hidden;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                .solution-center-card-media {
+                    position: relative;
+                    width: 100%;
+                    aspect-ratio: 1.618 / 1;
+                    overflow: hidden;
+                    background: #f8f9fa;
+                    isolation: isolate;
+                }
+                .solution-center-card-media img {
+                    transition: transform 0.5s ease;
+                }
+                .solution-center-card-body {
+                    padding: 25px;
+                    text-align: center;
+                    border-top: 1px solid #eee;
+                }
+                .solution-center-card h3 {
+                    color: #333;
+                    font-size: 1.8rem;
+                    line-height: 1.35;
+                    font-weight: 700;
+                    margin: 0;
+                    transition: color 0.3s;
+                }
+                .solution-center-more-wrap {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 32px;
+                }
+                .solution-center-more {
+                    color: #315ba4;
+                    border: 1px solid #315ba4;
+                    padding: 12px 26px;
+                    text-decoration: none;
+                    font-size: 1.4rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                .solution-center-more:hover {
+                    background: #315ba4;
+                    color: #fff;
+                }
+                @media (max-width: 1200px) {
+                    .solution-center-grid {
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                    }
                 }
             `}} />
 
@@ -159,60 +285,74 @@ export default function SolutionCenterClient({
                         position: 'relative',
                         overflow: 'hidden',
                         display: 'flex',
-                        alignItems: 'center',
-                        borderBottom: '1px solid #e1e8f0'
+                        alignItems: 'center'
                     }}>
-                        <Image src="/solutions/solution_center_banner_01.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.solutions.bannerTitle} />
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
+                        <Image src="/solutions/solution_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.solutions.bannerTitle} />
+                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.22)', zIndex: 1 }} />
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                            <div style={{ maxWidth: '800px' }}>
+                            <div style={{ maxWidth: '750px' }}>
                                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.solutions.bannerTitle}</h1>
-                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.solutions.bannerSubtitle}</p>
+                                <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.55, opacity: 0.94, maxWidth: '690px' }}>{dict.solutions.bannerSubtitle}</p>
                             </div>
+                        </div>
+                        <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
+                            <Image src="/logo1-small.webp" alt="" fill style={{ objectFit: 'contain' }} />
                         </div>
                     </section>
 
                     <CategoryNav categories={categoryList} />
 
-                    <div className="solution-lists-wrap" style={{ padding: '80px 0' }}>
-                        {categoryList.map((category) => (
-                            <section key={category.id} id={category.id} style={{ marginBottom: '120px', scrollMarginTop: '300px' }}>
+                    <div className="solution-lists-wrap" style={{ padding: '60px 0 20px' }}>
+                        {displayGroups.map((group, groupIndex) => (
+                            <section key={group.id} id={group.id} className={`solution-center-section ${groupIndex < 2 ? 'priority' : ''}`}>
                                 <div className="container">
-                                    <div className="section-title-wrap" style={{ textAlign: 'center', marginBottom: '40px' }}>
-                                        <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px' }}>{category.name}</h2>
-                                        <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
-                                        <Link prefetch={false} href={`/${locale}/solutions/category/${category.id}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginTop: '16px', fontSize: '1.6rem', fontWeight: 700, color: '#fff', backgroundColor: '#315ba4', textDecoration: 'none', padding: '12px 32px', borderRadius: '4px', transition: 'all 0.3s ease' }}>
-                                            {dict.solutions.exploreAll}
-                                        </Link>
+                                    <div className="solution-center-section-title">
+                                        <h2 className="solution-center-title">{group.name}</h2>
+                                        <div className="solution-center-accent"></div>
                                     </div>
 
-                                    <div className="solution-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
-                                        {groupedSolutions[category.id]?.map((sol, idx) => {
-                                            const solTitle = sol[`product_name_${locale}`] || sol.product_name_en || sol.title_en;
+                                    <div className="solution-center-grid">
+                                        {group.solutions.map((sol, idx) => {
+                                            const solTitle = getSolutionTitle(sol);
+                                            const centerImage = solutionCenterImageByHandle[sol.id] || sol.main_image;
+                                            const productImageTreatment = shouldUseProductImageTreatment(centerImage);
+
                                             return (
-                                                <Link prefetch={false} href={`/${locale}/solutions/${sol.id}`} key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                                    <div style={{ height: '240px', overflow: 'hidden', marginBottom: '15px', position: 'relative' }}>
+                                                <Link prefetch={false} href={localePath(locale, `/solutions/${sol.id}`)} key={sol.id} className="solution-center-card p-card-sbm">
+                                                    <div className="solution-center-card-media p-card-img">
                                                         <Image
-                                                            src={sol.main_image || '/images/solutions/placeholder.jpg'}
+                                                            src={centerImage || '/images/solutions/placeholder.jpg'}
                                                             alt={solTitle}
                                                             fill
-                                                            style={{ objectFit: 'cover' }}
-                                                            sizes="(max-width: 1200px) 33vw, 400px"
-                                                            priority={category.id === categoryList[0].id && idx < 3}
+                                                            style={{
+                                                                objectFit: productImageTreatment ? 'contain' : 'cover',
+                                                                padding: productImageTreatment ? '5px' : 0,
+                                                                mixBlendMode: productImageTreatment ? 'multiply' : 'normal'
+                                                            }}
+                                                            sizes="(max-width: 1200px) 50vw, 33vw"
+                                                            priority={groupIndex === 0 && idx < 4}
                                                         />
                                                     </div>
-                                                    <h3 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{solTitle}</h3>
+                                                    <div className="solution-center-card-body p-card-content">
+                                                        <h3>{solTitle}</h3>
+                                                    </div>
                                                 </Link>
                                             );
                                         })}
                                     </div>
+                                    {group.categoryHref && (
+                                        <div className="solution-center-more-wrap">
+                                            <Link prefetch={false} href={localePath(locale, group.categoryHref)} className="solution-center-more">
+                                                {dict.solutions.exploreAll}
+                                            </Link>
+                                        </div>
+                                    )}
                                 </div>
                             </section>
                         ))}
                     </div>
 
-                    {/* INQUIRY FORM */}
-                    <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
+                    <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #e2e8f0' }}>
                         <div className="container" style={{ maxWidth: '1200px' }}>
                             <InquiryForm dict={dict} />
                         </div>
@@ -226,4 +366,3 @@ export default function SolutionCenterClient({
         </>
     );
 }
-

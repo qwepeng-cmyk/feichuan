@@ -9,8 +9,8 @@
 .banner {
     height: 120px;
     width: 100%;
-    background-image: url('/cases/case_banner_final_副本2.webp');
-    background-size: cover;
+    background-image: url('/cases/case_banner_center_collage_v2.webp?v=20260601');
+    background-size: auto 100%;
     background-position: center;
     position: relative;
     display: flex;

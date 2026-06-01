@@ -3,9 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { solutions as homeSolutions } from '@/constants/homeData';
 
 export default function MobileFooter({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const footerSolutions = homeSolutions.slice(0, 6);
+
     return (
         <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
@@ -47,10 +50,14 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        <Link prefetch={false} href={l("/solutions/category/01_BorderPatrol")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.borderPatrol}</Link>
-                        <Link prefetch={false} href={l("/solutions/category/02_InfrastructureProtection")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.infrastructureProtection}</Link>
-                        <Link prefetch={false} href={l("/solutions/category/03_KeyAreaSecurity")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.keyAreaSecurity}</Link>
-                        <Link prefetch={false} href={l("/solutions/category/04_EmergencyRescue")} style={{ color: '#888', fontSize: '16px' }}>{dict.solutionCategories.emergencyRescue}</Link>
+                        {footerSolutions.map((solution) => {
+                            const title = locale === 'ru' ? (solution.title_ru || solution.title) : solution.title;
+                            return (
+                                <Link key={solution.id} prefetch={false} href={l(solution.link)} style={{ color: '#888', fontSize: '16px' }}>
+                                    {title}
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
 

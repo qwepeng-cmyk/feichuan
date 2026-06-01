@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
-    "dev:share": "next dev -H 0.0.0.0",
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "dev:share": "next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,7 +14,11 @@
     "audit:geo": "node scripts/geo-audit.mjs",
     "audit:schema": "node scripts/schema-audit.mjs",
     "audit:links": "node scripts/internal-link-audit.mjs",
-    "audit:eeat": "node scripts/eeat-audit.mjs"
+    "audit:eeat": "node scripts/eeat-audit.mjs",
+    "monitor:seo": "node scripts/seo-monitoring-snapshot.mjs",
+    "deploy:check-public": "node scripts/check-public-sync.mjs",
+    "deploy:production": "node scripts/deploy-production.mjs",
+    "cf:purge": "node scripts/cloudflare-purge-cache.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.2",

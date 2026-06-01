@@ -136,6 +136,45 @@
 .adminRoot table {
     table-layout: fixed;
     width: 100%;
+    --admin-table-hover-bg: #eef5ff;
+    --admin-table-hover-accent: #315ba4;
+    --admin-table-hover-text: #0f2f68;
+}
+
+.adminRoot tbody tr {
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.adminRoot tbody td {
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .adminRoot tbody tr:hover td {
+        background-color: var(--admin-table-hover-bg);
+        color: var(--admin-table-hover-text);
+        box-shadow: inset 0 1px 0 rgba(49, 91, 164, 0.08),
+            inset 0 -1px 0 rgba(49, 91, 164, 0.08);
+    }
+
+    .adminRoot tbody tr:hover td:first-child {
+        box-shadow: inset 4px 0 0 var(--admin-table-hover-accent),
+            inset 0 1px 0 rgba(49, 91, 164, 0.08),
+            inset 0 -1px 0 rgba(49, 91, 164, 0.08);
+    }
+}
+
+.adminRoot tbody tr:focus-within td {
+    background-color: #f8fbff;
+    box-shadow: inset 0 0 0 1px rgba(49, 91, 164, 0.08);
+}
+
+.adminRoot tbody tr:focus-within td:first-child {
+    box-shadow: inset 4px 0 0 var(--admin-table-hover-accent),
+        inset 0 0 0 1px rgba(49, 91, 164, 0.08);
 }
 
 .adminRoot th {
@@ -156,4 +195,11 @@
     background-color: rgba(0, 0, 0, 0.04);
     cursor: col-resize;
     pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adminRoot tbody tr,
+    .adminRoot tbody td {
+        transition: none;
+    }
 }

@@ -5,11 +5,11 @@
 }
 
 .banner {
-    height: 120px;
+    height: 136px;
     width: 100%;
-    background-image: url('/media/media_banner.jpg');
+    background-image: url('/media/news-center-expo-banner.webp');
     background-size: cover;
-    background-position: center;
+    background-position: 62% center;
     position: relative;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 .bannerOverlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.3);
+    background: linear-gradient(90deg, rgba(3, 12, 28, 0.82), rgba(49, 91, 164, 0.28), rgba(3, 12, 28, 0.48));
 }
 
 .bannerContent {

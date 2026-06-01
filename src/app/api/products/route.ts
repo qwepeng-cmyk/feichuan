@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(products, {
         headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=3600'
+            'Cache-Control': 'no-store, max-age=0'
         }
     });
 }

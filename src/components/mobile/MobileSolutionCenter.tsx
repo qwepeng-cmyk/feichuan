@@ -1,37 +1,33 @@
-﻿'use client';
+'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styles from './MobileSolutionCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { solutionCenterGroups, solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 
 interface Solution {
     id: string;
     title_en: string;
     product_name_en?: string;
     product_name_ru?: string;
+    summary_en?: string;
+    summary_ru?: string;
     main_image?: string;
     category_id: string;
 }
 
-export default function MobileSolutionCenter({ 
+export default function MobileSolutionCenter({
     allSolutions,
     locale,
     dict
-}: { 
+}: {
     allSolutions: Solution[],
     locale: string,
     dict: any
 }) {
-    const CATEGORY_NAMES: Record<string, string> = {
-        '01_BorderPatrol': dict.solutions.categories.border,
-        '02_InfrastructureProtection': dict.solutions.categories.infrastructure,
-        '03_KeyAreaSecurity': dict.solutions.categories.security,
-        '04_EmergencyRescue': dict.solutions.categories.emergency
-    };
-
-    // Replicating PC Icon Components
     const ICON_CAMERA = (
         <g>
             <path d="M14 12h20l2 10H12l2-10z" fill="rgba(49, 91, 164, 0.05)" />
@@ -52,8 +48,8 @@ export default function MobileSolutionCenter({
         </g>
     );
 
-    const CATEGORY_ICONS: Record<string, React.ReactNode> = {
-        '01_BorderPatrol': (
+    const GROUP_ICONS: Record<string, React.ReactNode> = {
+        'uav-inspection-patrol': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
                 <g transform="translate(0, 0)">
                     <path d="M24 10l2 24-2 4-2-4 2-24z" fill="rgba(49, 91, 164, 0.05)" />
@@ -68,27 +64,7 @@ export default function MobileSolutionCenter({
                 <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
-        '02_InfrastructureProtection': (
-            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
-                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
-                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
-                <g transform="translate(62, 0)">{ICON_CAMERA}</g>
-            </svg>
-        ),
-        '03_KeyAreaSecurity': (
-            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
-                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
-                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
-                <g transform="translate(62, 0)">
-                    <rect x="12" y="6" width="24" height="36" />
-                    <path d="M16 6v36M32 6v36" strokeWidth="2" />
-                    <rect x="18" y="8" width="12" height="6" fill="rgba(49, 91, 164, 0.1)" />
-                    <path d="M12 18h24M12 24h24M12 30h24M12 36h24" strokeOpacity="0.3" />
-                    <circle cx="24" cy="11" r="1.5" fill="#315ba4" stroke="none" />
-                </g>
-            </svg>
-        ),
-        '04_EmergencyRescue': (
+        'uav-emergency-response': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.2">
                 <g transform="translate(0, 0)">
                     <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
@@ -125,16 +101,59 @@ export default function MobileSolutionCenter({
                     </g>
                 </g>
             </svg>
+        ),
+        'critical-infrastructure-protection': (
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
+                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(62, 0)">{ICON_CAMERA}</g>
+            </svg>
+        ),
+        'key-area-security': (
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
+                <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
+                <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(62, 0)">
+                    <rect x="12" y="6" width="24" height="36" />
+                    <path d="M16 6v36M32 6v36" strokeWidth="2" />
+                    <rect x="18" y="8" width="12" height="6" fill="rgba(49, 91, 164, 0.1)" />
+                    <path d="M12 18h24M12 24h24M12 30h24M12 36h24" strokeOpacity="0.3" />
+                    <circle cx="24" cy="11" r="1.5" fill="#315ba4" stroke="none" />
+                </g>
+            </svg>
         )
     };
 
-    const categoryList = Object.keys(CATEGORY_NAMES).map(key => ({
-        id: key,
-        name: CATEGORY_NAMES[key],
-        icon: CATEGORY_ICONS[key]
-    }));
+    const t = (group: typeof solutionCenterGroups[number], field: 'label' | 'eyebrow' | 'description') => {
+        if (field === 'label') {
+            return dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel;
+        }
+        if (field === 'eyebrow') {
+            return dict?.megaMenu?.[group.eyebrowKey] || group.fallbackEyebrow;
+        }
+        return dict?.solutionCenterGroups?.[group.descriptionKey] || group.fallbackDescription;
+    };
 
-    const [activeCategory, setActiveCategory] = useState(categoryList[0].id);
+    const displayGroups = useMemo(() => {
+        const solutionsById = new Map(allSolutions.map((solution) => [solution.id, solution]));
+        return solutionCenterGroups.map((group) => ({
+            id: group.id,
+            name: t(group, 'label'),
+            categoryHref: group.categoryHref,
+            icon: GROUP_ICONS[group.id],
+            solutions: group.handles
+                .map((handle) => solutionsById.get(handle))
+                .filter(Boolean) as Solution[],
+        }));
+    }, [allSolutions, dict]);
+
+    const categoryList = useMemo(() => displayGroups.map((group) => ({
+        id: group.id,
+        name: group.name,
+        icon: group.icon
+    })), [displayGroups]);
+
+    const [activeCategory, setActiveCategory] = useState<string>(categoryList[0]?.id || '');
     const [isFixed, setIsFixed] = useState(false);
     const bannerRef = useRef<HTMLDivElement>(null);
 
@@ -179,6 +198,16 @@ export default function MobileSolutionCenter({
         }
     };
 
+    const getSolutionTitle = (solution: Solution) => (
+        locale === 'ru'
+            ? (solution.product_name_ru || solution.product_name_en || solution.title_en)
+            : (solution.product_name_en || solution.title_en)
+    );
+
+    const shouldUseProductImageTreatment = (image?: string) => (
+        Boolean(image?.includes('/products/uav-systems/'))
+    );
+
     return (
         <div className={styles.wrapper}>
             <section className={styles.banner} ref={bannerRef}>
@@ -195,6 +224,7 @@ export default function MobileSolutionCenter({
                     {categoryList.map((cat) => (
                         <button
                             key={cat.id}
+                            type="button"
                             className={`${styles.tabItem} ${activeCategory === cat.id ? styles.active : ''}`}
                             onClick={() => scrollToCategory(cat.id)}
                         >
@@ -206,42 +236,46 @@ export default function MobileSolutionCenter({
             </div>
 
             <div className={styles.listContainer}>
-                {categoryList.map((category) => (
-                    <section key={category.id} id={`mobile-sol-${category.id}`} className={styles.categorySection}>
+                {displayGroups.map((group, groupIndex) => (
+                    <section key={group.id} id={`mobile-sol-${group.id}`} className={`${styles.categorySection} ${groupIndex < 2 ? styles.priority : ''}`}>
                         <div className={styles.sectionHeader}>
-                            <h2>{CATEGORY_NAMES[category.id]}</h2>
+                            <h2>{group.name}</h2>
+                            <div className={styles.accentLine}></div>
                         </div>
 
                         <div className={styles.grid}>
-                            {allSolutions
-                                .filter(s => s.category_id === category.id)
-                                .map((sol, idx) => {
-                                    const solTitle =
-                                        locale === 'ru'
-                                            ? (sol.product_name_ru || sol.product_name_en || sol.title_en)
-                                            : (sol.product_name_en || sol.title_en);
-                                    return (
-                                        <Link prefetch={false} href={`/${locale}/solutions/${sol.id}`} key={idx} className={styles.card}>
-                                            <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
-                                                <Image
-                                                    src={sol.main_image || '/images/solutions/placeholder.jpg'}
-                                                    alt={solTitle}
-                                                    fill
-                                                    style={{ objectFit: 'cover' }}
-                                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                                    priority={category.id === categoryList[0].id && idx < 2}
-                                                />
-                                            </div>
-                                            <div className={styles.cardInfo}>
-                                                <h3>{solTitle}</h3>
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
+                            {group.solutions.map((sol, idx) => {
+                                const solTitle = getSolutionTitle(sol);
+                                const centerImage = solutionCenterImageByHandle[sol.id] || sol.main_image;
+                                const productImageTreatment = shouldUseProductImageTreatment(centerImage);
+                                return (
+                                    <Link prefetch={false} href={localePath(locale, `/solutions/${sol.id}`)} key={sol.id} className={styles.card}>
+                                        <div className={styles.imageBox}>
+                                            <Image
+                                                src={centerImage || '/images/solutions/placeholder.jpg'}
+                                                alt={solTitle}
+                                                fill
+                                                style={{
+                                                    objectFit: productImageTreatment ? 'contain' : 'cover',
+                                                    padding: productImageTreatment ? '5px' : 0,
+                                                    mixBlendMode: productImageTreatment ? 'multiply' : 'normal'
+                                                }}
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                                priority={groupIndex === 0 && idx < 2}
+                                            />
+                                        </div>
+                                        <div className={styles.cardInfo}>
+                                            <h3>{solTitle}</h3>
+                                        </div>
+                                    </Link>
+                                );
+                            })}
                         </div>
-                        <Link prefetch={false} href={`/${locale}/solutions/category/${category.id}`} className={styles.viewMoreButton}>
-                            {dict.solutions.viewDetails}
-                        </Link>
+                        {group.categoryHref && (
+                            <Link prefetch={false} href={localePath(locale, group.categoryHref)} className={styles.viewMoreButton}>
+                                {dict.solutions.exploreAll}
+                            </Link>
+                        )}
                     </section>
                 ))}
             </div>
@@ -250,4 +284,3 @@ export default function MobileSolutionCenter({
         </div>
     );
 }
-

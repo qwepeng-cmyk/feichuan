@@ -172,18 +172,40 @@ export function sanitizeComplianceText(value: string): string {
   );
 }
 
-export function sanitizeComplianceValue<T>(value: T): T {
+const STRUCTURAL_VALUE_KEY_PATTERN = /(^|_)(id|handle|slug|path|url|href|src|image|images|thumbnail|icon|file|files)($|_)/i;
+
+function shouldPreserveStructuralValue(key?: string, value?: unknown) {
+  if (key && STRUCTURAL_VALUE_KEY_PATTERN.test(key)) {
+    return true;
+  }
+
+  if (typeof value !== 'string') {
+    return false;
+  }
+
+  return (
+    value.startsWith('/') ||
+    /^https?:\/\//i.test(value) ||
+    /\.(?:avif|gif|jpe?g|json|pdf|png|svg|webp)(?:[?#].*)?$/i.test(value)
+  );
+}
+
+export function sanitizeComplianceValue<T>(value: T, key?: string): T {
+  if (shouldPreserveStructuralValue(key, value)) {
+    return value;
+  }
+
   if (typeof value === 'string') {
     return sanitizeComplianceText(value) as T;
   }
 
   if (Array.isArray(value)) {
-    return value.map(item => sanitizeComplianceValue(item)) as T;
+    return value.map(item => sanitizeComplianceValue(item, key)) as T;
   }
 
   if (value && typeof value === 'object') {
     return Object.fromEntries(
-      Object.entries(value).map(([key, item]) => [key, sanitizeComplianceValue(item)])
+      Object.entries(value).map(([itemKey, item]) => [itemKey, sanitizeComplianceValue(item, itemKey)])
     ) as T;
   }
 

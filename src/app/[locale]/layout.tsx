@@ -6,7 +6,6 @@ import { Metadata } from "next";
 import { getDictionary } from "@/i18n/getDictionary";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { getTrackingSettings } from "@/lib/siteSettings";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteGraphSchema } from "@/lib/structuredData";
 
@@ -18,6 +17,23 @@ function cleanTrackingId(value: string) {
   return value.replace(/[^A-Z0-9-]/gi, '');
 }
 
+const fallbackTracking = {
+  gaMeasurementId: 'G-ZS6XC2TFCG',
+  gaEnabled: true,
+  gtmContainerId: 'GTM-PJN9QQWN',
+  gtmEnabled: true,
+};
+
+async function loadTrackingSettings() {
+  try {
+    const { getTrackingSettings } = await import("@/lib/siteSettings");
+    return getTrackingSettings();
+  } catch (error) {
+    console.warn('Using fallback tracking settings:', error);
+    return fallbackTracking;
+  }
+}
+
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {
   const { locale } = params;
   if (!isValidLocale(locale)) {
@@ -27,6 +43,12 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   const baseUrl = 'https://n-tet.com';
   
   return {
+    title: locale === 'ru'
+      ? 'N-TET - промышленные решения безопасности и мониторинга'
+      : 'N-TET - Industrial Security & Monitoring Solutions',
+    description: locale === 'ru'
+      ? 'Промышленные беспилотные системы, оборудование мониторинга и технологии безопасности для критической инфраструктуры.'
+      : 'Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.',
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
@@ -58,12 +80,18 @@ export default async function LocaleLayout({
   }
 
   const dict = await getDictionary(locale);
-  const tracking = locale === i18n.defaultLocale ? getTrackingSettings() : null;
+  const tracking = locale === i18n.defaultLocale ? await loadTrackingSettings() : null;
   const gaMeasurementId = tracking?.gaEnabled ? cleanTrackingId(tracking.gaMeasurementId) : '';
   const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
 
   return (
     <>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.lang=${JSON.stringify(locale)};`,
+          }}
+        />
+
         {gtmContainerId && (
           <Script
             id="google-tag-manager"

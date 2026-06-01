@@ -71,7 +71,10 @@ export function middleware(request: NextRequest) {
 
     // 3. If no locale prefix, it's the default locale (English).
     // We REWRITE internally so the URL stays clean (no /en) but App Router sees /[locale]
-    const defaultLocaleUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+    const defaultLocalePathname = pathname === '/'
+        ? `/${defaultLocale}`
+        : `/${defaultLocale}${pathname}`;
+    const defaultLocaleUrl = new URL(defaultLocalePathname, request.url);
     request.nextUrl.searchParams.forEach((value, key) => {
         defaultLocaleUrl.searchParams.set(key, value);
     });

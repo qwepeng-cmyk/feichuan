@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <video 
-        src="/index_banner_bg_3.mp4" 
+        src="/index_banner_bg_4.mp4"
         autoPlay 
         loop 
         muted 

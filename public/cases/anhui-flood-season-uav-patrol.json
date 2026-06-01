@@ -1,0 +1,68 @@
+{
+  "title": "安徽汛期应急巡视",
+  "title_en": "Anhui Flood-Season Emergency UAV Patrol",
+  "description": "安徽汛期应急巡视\n为应对夏季汛期电力线路安全保障需求，国家电网采用我司复合翼无人机，对池州九华电力密集通道开展防汛应急专项巡查，累计作业飞行150余架次，实现作业信号超远距离传输，按期保质完成汛期专项巡检任务，筑牢汛期电力通道安全防线。",
+  "description_en": "Anhui Flood-Season Emergency UAV Patrol\nTo meet power-line safety requirements during the summer flood season, State Grid used our VTOL fixed-wing UAVs to conduct special flood-control emergency patrols across the Chizhou Jiuhua dense power corridor. The operation completed more than 150 sorties, achieved ultra-long-distance transmission of mission signals, and finished the flood-season inspection task on schedule with reliable quality, reinforcing the safety line for power corridors during flood periods.",
+  "main_image": "/cases/anhui-flood-season-uav-patrol/01.webp",
+  "case_images": [
+    "/cases/anhui-flood-season-uav-patrol/01.webp"
+  ],
+  "recommendedProductHandles": [
+    "fc-dlxj-01-power-grid-inspection-drone",
+    "power-tower-inspection-drone"
+  ],
+  "handle": "anhui-flood-season-uav-patrol",
+  "title_ru": "Аварийный паводковый патруль БПЛА в Аньхое",
+  "description_ru": "Аварийный паводковый патруль БПЛА в Аньхое\nДля обеспечения безопасности линий электропередачи в летний паводковый сезон State Grid использовала наши VTOL-БПЛА самолетного типа для специального аварийного обследования плотного энергетического коридора Чичжоу Цзюхуа. Было выполнено более 150 вылетов, обеспечена сверхдальняя передача рабочих сигналов, а задача паводковой инспекции завершена в срок и с требуемым качеством, что усилило защиту энергетического коридора в период паводков.",
+  "region_ru": "Азия",
+  "country_ru": "Китай",
+  "region_en": "Asia",
+  "country_en": "China",
+  "solution_category_id": "02_InfrastructureProtection",
+  "related_products": [],
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Flood-season emergency power corridor patrol"
+    },
+    {
+      "label": "Location",
+      "value": "Chizhou Jiuhua, Anhui, China"
+    },
+    {
+      "label": "Mission Scale",
+      "value": "150+ sorties"
+    },
+    {
+      "label": "Key Capability",
+      "value": "Ultra-long-distance signal transmission"
+    },
+    {
+      "label": "Result",
+      "value": "Completed flood-season patrol task on schedule"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "??????????",
+      "value": "????????? ?????????? ??????? ??????????????? ????????"
+    },
+    {
+      "label": "???????",
+      "value": "?????? ??????, ??????, ?????"
+    },
+    {
+      "label": "???????",
+      "value": "????? 150 ???????"
+    },
+    {
+      "label": "???????? ???????????",
+      "value": "???????????? ???????? ??????? ????????"
+    },
+    {
+      "label": "?????????",
+      "value": "?????????? ????????? ????????? ? ????"
+    }
+  ]
+}

@@ -19,10 +19,11 @@ export const products = [
         main_ru: "Стационарная система радиочастотного обнаружения",
         desc: "Provides low-altitude RF awareness, drone detection alerts, and event logging for industrial airspace monitoring.",
         desc_ru: "Обеспечивает радиочастотный анализ, раннее предупреждение и быстрый обзор воздушного пространства для промышленных объектов.",
-        img: "/products/02-drone-detection/drone-detection-home.webp",
-        mobileImg: "/products/02-drone-detection/drone-detection-mobile.webp",
-        scale: 1.16,
-        offsetY: 2,
+        img: "/products/02-drone-detection/stationary-rf-detection-system.webp",
+        mobileImg: "/products/02-drone-detection/stationary-rf-detection-system.webp",
+        scale: 1.28,
+        offsetY: 0,
+        imagePadding: "34px",
         handle: "stationary-rf-detection-system"
     },
     {
@@ -79,35 +80,270 @@ export const products = [
     }
 ];
 
+Object.assign(products[0], {
+    top_ru: "БПЛА и беспилотные системы",
+    main_ru: "Дрон для мониторинга водных ресурсов",
+    desc_ru: "Интеллектуальная система для управления водной средой и гидротехническими объектами на базе мультироторной платформы и высокоточных полезных нагрузок."
+});
+
+Object.assign(products[1], {
+    top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
+    main_ru: "Стационарная система радиочастотного обнаружения",
+    desc_ru: "Обеспечивает радиочастотную осведомленность на малых высотах, предупреждения об обнаружении дронов и журналирование событий для промышленных объектов."
+});
+
+Object.assign(products[2], {
+    top_ru: "Досмотр и безопасность",
+    main_ru: "Интеллектуальная рамка обнаружения телефонов FC-H",
+    desc_ru: "Использует передовую технологию обнаружения электромагнитных сигналов для распознавания мобильных телефонов в режиме ожидания, выключенном и включенном состоянии."
+});
+
+Object.assign(products[3], {
+    top_ru: "Инженерные материалы",
+    main_ru: "Стальной мост Бейли",
+    desc_ru: "Модульная стальная ферменная система с высокой несущей способностью и быстрым монтажом для инфраструктурных и аварийно-спасательных задач."
+});
+
+Object.assign(products[4], {
+    top_ru: "Полевые и мобильные госпитали",
+    main_ru: "Контейнерная система медицинского спасения",
+    desc_ru: "Высокоинтегрированная модульная система для быстрого развертывания полноценного полевого госпиталя в сложных условиях."
+});
+
+Object.assign(products[5], {
+    top_ru: "Периметральное наблюдение",
+    main_ru: "Система слияния радара и оптики",
+    desc_ru: "Панорамная система наблюдения, объединяющая радарный массив и PTZ-камеру для надежного мониторинга сложных территорий."
+});
+
 export const solutions = [
     {
-        id: "01_BorderPatrol",
-        title: "Drone Border Patrol",
-        img: "/solutions/01/Drone Border Patrol-home.webp",
-        mobileImg: "/solutions/01/Drone Border Patrol-mobile.webp",
-        link: "/solutions/category/01_BorderPatrol"
+        id: "uav-maritime-patrol",
+        title: "Border Patrol & Coastal Defense",
+        title_ru: "袩芯谐褉邪薪懈褔薪芯械 锌邪褌褉褍谢懈褉芯胁邪薪懈械 懈 斜械褉械谐芯胁邪褟 芯褏褉邪薪邪",
+        desc: "Wide-area UAV patrol for border corridors, coastlines, ports, and shoreline incidents.",
+        desc_ru: "楔懈褉芯泻芯蟹芯薪薪芯械 锌邪褌褉褍谢懈褉芯胁邪薪懈械 袘袩袥袗 写谢褟 谐褉邪薪懈褑, 锌芯斜械褉械卸懈泄, 锌芯褉褌芯胁 懈 斜械褉械谐芯胁褘褏 懈薪褑懈写械薪褌芯胁.",
+        img: "/solutions/index_solution/Border%20Patrol%20%26%20Coastal%20Defense.webp",
+        mobileImg: "/solutions/index_solution/mobile/Border%20Patrol%20%26%20Coastal%20Defense.webp",
+        link: "/solutions/uav-maritime-patrol",
+        objectPosition: "50% 50%",
+        imageScale: 1
+    },
+    {
+        id: "power-line-uav-intelligent-inspection-solution",
+        title: "Power Line UAV Intelligent Inspection",
+        title_ru: "Интеллектуальная инспекция ЛЭП с БПЛА",
+        desc: "Transmission-line patrol, tower inspection, LiDAR corridor mapping, and disaster checks.",
+        desc_ru: "Патрулирование ЛЭП, инспекция опор, LiDAR-картирование коридоров и аварийные проверки.",
+        img: "/solutions/index_solution/Power%20Line%20UAV%20Intelligent%20Inspection.webp",
+        mobileImg: "/solutions/index_solution/mobile/Power%20Line%20UAV%20Intelligent%20Inspection.webp",
+        link: "/solutions/power-line-uav-intelligent-inspection-solution",
+        objectPosition: "50% 46%",
+        imageScale: 1
+    },
+    {
+        id: "smart-substation-unattended-uav-inspection-solution",
+        title: "Smart Substation Unattended Inspection",
+        title_ru: "Безлюдная инспекция умной подстанции с БПЛА",
+        desc: "Autonomous dock inspection, thermal measurement, AI defect recognition, and work-order closure.",
+        desc_ru: "Автономная инспекция доком, ИК-контроль, AI-дефекты и закрытие нарядов.",
+        img: "/solutions/index_solution/Smart%20Substation%20Unattended%20Inspection.webp",
+        mobileImg: "/solutions/index_solution/mobile/Smart%20Substation%20Unattended%20Inspection.webp",
+        link: "/solutions/smart-substation-unattended-uav-inspection-solution",
+        objectPosition: "50% 42%",
+        imageScale: 1
+    },
+    {
+        id: "water-conservancy-river-lake-uav-monitoring-solution",
+        title: "Water Conservancy & River-Lake Monitoring",
+        title_ru: "Мониторинг водного хозяйства, рек и озер с БПЛА",
+        desc: "River-lake patrol, flood-season inspection, water-quality sampling, and pollution tracing.",
+        desc_ru: "Патрулирование рек и озер, паводковые инспекции, пробы воды и поиск загрязнений.",
+        img: "/solutions/index_solution/Water%20Conservancy%20%26%20River-Lake%20Monitoring.webp",
+        mobileImg: "/solutions/index_solution/mobile/Water%20Conservancy%20%26%20River-Lake%20Monitoring.webp",
+        link: "/solutions/water-conservancy-river-lake-uav-monitoring-solution",
+        objectPosition: "50% 52%",
+        imageScale: 1
+    },
+    {
+        id: "urban-high-rise-firefighting-emergency-uav-solution",
+        title: "Urban High-Rise Firefighting & Rescue",
+        title_ru: "Пожаротушение и спасение в высотной городской застройке с БПЛА",
+        desc: "Tethered aerial support for elevated suppression, smoke exhaust, lighting, and command visibility.",
+        desc_ru: "Привязная воздушная поддержка тушения, дымоудаления, освещения и командного обзора.",
+        img: "/solutions/index_solution/Urban%20High-Rise%20Firefighting%20%26%20Rescue.webp",
+        mobileImg: "/solutions/index_solution/mobile/Urban%20High-Rise%20Firefighting%20%26%20Rescue.webp",
+        link: "/solutions/urban-high-rise-firefighting-emergency-uav-solution",
+        objectPosition: "50% 45%",
+        imageScale: 1
+    },
+    {
+        id: "disaster-site-search-rescue-reconnaissance-uav-solution",
+        title: "Disaster-Site Search, Rescue & Reconnaissance",
+        title_ru: "Поиск, спасение и разведка на месте ЧС с БПЛА",
+        desc: "Rapid aerial reconnaissance, target search, thermal observation, and lightweight delivery.",
+        desc_ru: "Быстрая воздушная разведка, поиск целей, тепловизионное наблюдение и легкая доставка.",
+        img: "/solutions/index_solution/Disaster-Site%20Search,%20Rescue%20%26%20Reconnaissance.webp",
+        mobileImg: "/solutions/index_solution/mobile/Disaster-Site%20Search,%20Rescue%20%26%20Reconnaissance.webp",
+        link: "/solutions/disaster-site-search-rescue-reconnaissance-uav-solution",
+        objectPosition: "50% 48%",
+        imageScale: 1
+    },
+    {
+        id: "post-disaster-emergency-communication-support-uav-solution",
+        title: "Post-Disaster Emergency Communication Support",
+        title_ru: "Аварийная связь после ЧС с БПЛА",
+        desc: "Elevated communication nodes for temporary public-network and rescue-team coverage.",
+        desc_ru: "Высотные узлы связи для временного покрытия публичной сети и спасательных команд.",
+        img: "/solutions/index_solution/Post-Disaster%20Emergency%20Communication%20Support.webp",
+        mobileImg: "/solutions/index_solution/mobile/Post-Disaster%20Emergency%20Communication%20Support.webp",
+        link: "/solutions/post-disaster-emergency-communication-support-uav-solution",
+        objectPosition: "50% 45%",
+        imageScale: 1
+    },
+    {
+        id: "night-emergency-lighting-support-uav-solution",
+        title: "Night Emergency Lighting Support",
+        title_ru: "Ночное аварийное освещение с БПЛА",
+        desc: "Persistent aerial lighting for night rescue, flood response, road repair, and command sites.",
+        desc_ru: "Длительное воздушное освещение для ночного спасения, паводков, ремонта дорог и командных зон.",
+        img: "/solutions/index_solution/Night%20Emergency%20Lighting%20Support.webp",
+        mobileImg: "/solutions/index_solution/mobile/Night%20Emergency%20Lighting%20Support.webp",
+        link: "/solutions/night-emergency-lighting-support-uav-solution",
+        objectPosition: "50% 45%",
+        imageScale: 1
     },
     {
         id: "02_InfrastructureProtection",
-        title: "Infrastructure Protection",
-        img: "/solutions/02/Protection of Critical Facilities-home.webp",
-        mobileImg: "/solutions/02/Protection of Critical Facilities-mobile.webp",
-        link: "/solutions/category/02_InfrastructureProtection"
+        title: "Critical Infrastructure Protection",
+        title_ru: "Защита критической инфраструктуры",
+        desc: "Airspace monitoring and perimeter intelligence for energy, petrochemical, water-conservancy, and industrial facilities.",
+        desc_ru: "Мониторинг воздушного пространства и периметра для энергетических, нефтехимических, водохозяйственных и промышленных объектов.",
+        img: "/solutions/index_solution/Critical%20Infrastructure%20Protection.webp",
+        mobileImg: "/solutions/index_solution/mobile/Critical%20Infrastructure%20Protection.webp",
+        link: "/solutions/category/02_InfrastructureProtection",
+        objectPosition: "50% 50%",
+        imageScale: 1
     },
     {
         id: "03_KeyAreaSecurity",
         title: "Key Area Security",
-        img: "/solutions/03/Security of important places 01-home.webp",
-        mobileImg: "/solutions/03/Security of important places 01-mobile.webp",
-        link: "/solutions/category/03_KeyAreaSecurity"
-    },
-    {
-        id: "04_EmergencyRescue",
-        title: "Emergency and Disaster Rescue",
-        img: "/solutions/04/Emergency Relief-home.webp",
-        mobileImg: "/solutions/04/Emergency Relief-mobile.webp",
-        link: "/solutions/category/04_EmergencyRescue"
+        title_ru: "Key Area Security",
+        desc: "Integrated security workflows for airports, major events, judicial sites, and high-value facilities.",
+        desc_ru: "Integrated security workflows for airports, major events, judicial sites, and high-value facilities.",
+        img: "/solutions/index_solution/Key%20Area%20Security.webp",
+        mobileImg: "/solutions/index_solution/mobile/Key%20Area%20Security.webp",
+        link: "/solutions/category/03_KeyAreaSecurity",
+        objectPosition: "50% 50%",
+        imageScale: 1
     }
 ];
 
-export const homeCases: any[] = [];
+Object.assign(solutions[0], {
+    title_ru: "Охрана границ и побережья",
+    desc_ru: "Широкозонное патрулирование БПЛА для пограничных коридоров, побережий, портов и береговых инцидентов.",
+    img: "/solutions/index_solution/border-patrol-coastal-defense.webp",
+    mobileImg: "/solutions/index_solution/mobile/border-patrol-coastal-defense.webp"
+});
+
+Object.assign(solutions[1], {
+    title_ru: "Интеллектуальная инспекция ЛЭП с БПЛА",
+    desc_ru: "Патрулирование линий электропередачи, инспекция опор, LiDAR-картирование коридоров и аварийные проверки.",
+    img: "/solutions/index_solution/power-line-uav-intelligent-inspection.webp",
+    mobileImg: "/solutions/index_solution/mobile/power-line-uav-intelligent-inspection.webp"
+});
+
+Object.assign(solutions[2], {
+    title_ru: "Безлюдная инспекция умной подстанции",
+    desc_ru: "Автономная инспекция док-станциями, тепловой контроль, AI-распознавание дефектов и закрытие нарядов.",
+    img: "/solutions/index_solution/smart-substation-unattended-inspection.webp",
+    mobileImg: "/solutions/index_solution/mobile/smart-substation-unattended-inspection.webp"
+});
+
+Object.assign(solutions[3], {
+    title_ru: "Мониторинг водного хозяйства, рек и озер",
+    desc_ru: "Патрулирование рек и озер, паводковые инспекции, отбор проб воды и отслеживание загрязнений.",
+    img: "/solutions/index_solution/water-conservancy-river-lake-monitoring.webp",
+    mobileImg: "/solutions/index_solution/mobile/water-conservancy-river-lake-monitoring.webp"
+});
+
+Object.assign(solutions[4], {
+    title_ru: "Тушение и спасение в высотной городской застройке",
+    desc_ru: "Привязная воздушная поддержка для тушения, дымоудаления, освещения и командного обзора.",
+    img: "/solutions/index_solution/urban-high-rise-firefighting-rescue.webp",
+    mobileImg: "/solutions/index_solution/mobile/urban-high-rise-firefighting-rescue.webp"
+});
+
+Object.assign(solutions[5], {
+    title_ru: "Поиск, спасение и разведка в зоне ЧС",
+    desc_ru: "Быстрая воздушная разведка, поиск целей, тепловизионное наблюдение и легкая доставка.",
+    img: "/solutions/index_solution/disaster-site-search-rescue-reconnaissance.webp",
+    mobileImg: "/solutions/index_solution/mobile/disaster-site-search-rescue-reconnaissance.webp"
+});
+
+Object.assign(solutions[6], {
+    title_ru: "Аварийная связь после ЧС",
+    desc_ru: "Высотные узлы связи для временного покрытия общественной сети и спасательных команд.",
+    img: "/solutions/index_solution/post-disaster-emergency-communication-support.webp",
+    mobileImg: "/solutions/index_solution/mobile/post-disaster-emergency-communication-support.webp"
+});
+
+Object.assign(solutions[7], {
+    title_ru: "Ночное аварийное освещение",
+    desc_ru: "Длительное воздушное освещение для ночного спасения, паводков, ремонта дорог и командных зон.",
+    img: "/solutions/index_solution/night-emergency-lighting-support.webp",
+    mobileImg: "/solutions/index_solution/mobile/night-emergency-lighting-support.webp"
+});
+
+Object.assign(solutions[8], {
+    title_ru: "Защита критической инфраструктуры",
+    desc_ru: "Мониторинг воздушного пространства и периметра для энергетических, нефтехимических, водохозяйственных и промышленных объектов.",
+    img: "/solutions/index_solution/critical-infrastructure-protection.webp",
+    mobileImg: "/solutions/index_solution/mobile/critical-infrastructure-protection.webp"
+});
+
+Object.assign(solutions[9], {
+    title_ru: "Безопасность важных объектов",
+    desc_ru: "Интегрированные рабочие процессы безопасности для аэропортов, крупных мероприятий, судебных объектов и ценных активов.",
+    img: "/solutions/index_solution/key-area-security.webp",
+    mobileImg: "/solutions/index_solution/mobile/key-area-security.webp"
+});
+
+export const homeCases: any[] = [
+    {
+        title: "Anhui Flood-Season Emergency UAV Patrol",
+        title_ru: "Anhui Flood-Season Emergency UAV Patrol",
+        img: "/cases/anhui-flood-season-uav-patrol/01.webp",
+        handle: "anhui-flood-season-uav-patrol"
+    },
+    {
+        title: "Ice and Snow Disaster Emergency UAV Inspection",
+        title_ru: "Ice and Snow Disaster Emergency UAV Inspection",
+        img: "/cases/ice-snow-emergency-uav-inspection/01.webp",
+        handle: "ice-snow-emergency-uav-inspection"
+    },
+    {
+        title: "LiDAR Tree-Obstruction UAV Inspection",
+        title_ru: "LiDAR Tree-Obstruction UAV Inspection",
+        img: "/cases/lidar-tree-obstruction-uav-inspection/01.webp",
+        handle: "lidar-tree-obstruction-uav-inspection"
+    },
+    {
+        title: "Southern Grid Wildfire Prevention UAV Inspection",
+        title_ru: "Southern Grid Wildfire Prevention UAV Inspection",
+        img: "/cases/southern-grid-wildfire-uav-inspection/01.webp",
+        handle: "southern-grid-wildfire-uav-inspection"
+    },
+    {
+        title: "Wildfire Emergency Transmission-Line UAV Patrol",
+        title_ru: "Wildfire Emergency Transmission-Line UAV Patrol",
+        img: "/cases/wildfire-emergency-transmission-line-uav-patrol/01.webp",
+        handle: "wildfire-emergency-transmission-line-uav-patrol"
+    },
+    {
+        title: "Zhaoqing Long-Distance Power-Line UAV Inspection",
+        title_ru: "Zhaoqing Long-Distance Power-Line UAV Inspection",
+        img: "/cases/zhaoqing-long-distance-power-line-uav-inspection/01.webp",
+        handle: "zhaoqing-long-distance-power-line-uav-inspection"
+    }
+];

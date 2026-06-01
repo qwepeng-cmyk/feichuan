@@ -1,0 +1,68 @@
+{
+  "title": "山火应急巡检输电线路",
+  "title_en": "Wildfire Emergency Transmission-Line UAV Patrol",
+  "description": "山火应急巡检输电线路\n2025年，我司复合翼无人机电力业务组成功承接国家电网巡检任务，负责对湖南、山东、山西、河北、安徽等13个地区的输电通道，开展每日常态化巡检作业。高质量完成数万公里输电线路的巡视工作，圆满达成阶段性巡检目标。\n为提升巡检效率与精准度，我们将巡检路径、输电杆塔重点关注项目等核心信息，实时叠加至视频巡检画面中。直观呈现巡检轨迹，让输电杆塔的各项基础信息清晰可辨，帮助工作人员快速定位故障及隐患的详细位置，同步直观掌握当前巡检工作的实际效果与推进进度，为高效完成巡检任务提供了有力支撑。",
+  "description_en": "Wildfire Emergency Transmission-Line UAV Patrol\nIn 2025, our VTOL fixed-wing UAV power-business team successfully undertook a State Grid inspection task covering transmission corridors in 13 regions, including Hunan, Shandong, Shanxi, Hebei, and Anhui. The team carried out daily routine patrol operations and completed tens of thousands of kilometers of transmission-line inspection work with high quality, meeting the phased inspection targets.\nTo improve inspection efficiency and accuracy, core information such as flight routes and key tower attention points was overlaid onto the video inspection feed in real time. This made inspection tracks intuitive, presented basic tower information clearly, helped staff quickly locate faults and hidden risks, and provided visual progress awareness for efficient task completion.",
+  "main_image": "/cases/wildfire-emergency-transmission-line-uav-patrol/01.webp",
+  "case_images": [
+    "/cases/wildfire-emergency-transmission-line-uav-patrol/01.webp"
+  ],
+  "recommendedProductHandles": [
+    "fc-dlxj-01-power-grid-inspection-drone",
+    "power-tower-inspection-drone"
+  ],
+  "handle": "wildfire-emergency-transmission-line-uav-patrol",
+  "title_ru": "Аварийный пожарный патруль ЛЭП с БПЛА",
+  "description_ru": "Аварийный пожарный патруль ЛЭП с БПЛА\nВ 2025 году наша команда по энергетическим проектам VTOL-БПЛА успешно выполнила инспекционную задачу State Grid по коридорам ЛЭП в 13 регионах, включая Хунань, Шаньдун, Шаньси, Хэбэй и Аньхой. Команда проводила ежедневные регулярные патрули и качественно завершила обследование десятков тысяч километров линий электропередачи, достигнув этапных целей инспекции.\nДля повышения эффективности и точности ключевая информация, включая маршрут инспекции и важные точки контроля опор, накладывалась на видеопоток в реальном времени. Это наглядно показывало траектории, делало базовую информацию по опорам понятной, помогало специалистам быстро определять местоположение неисправностей и рисков, а также отслеживать фактический ход работ.",
+  "region_ru": "Азия",
+  "country_ru": "Китай",
+  "region_en": "Asia",
+  "country_en": "China",
+  "solution_category_id": "02_InfrastructureProtection",
+  "related_products": [],
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Daily transmission-corridor patrol for wildfire emergency inspection"
+    },
+    {
+      "label": "Location",
+      "value": "Hunan, Shandong, Shanxi, Hebei, Anhui and 13 regions in China"
+    },
+    {
+      "label": "Mission Scale",
+      "value": "Tens of thousands of kilometers across 13 regions"
+    },
+    {
+      "label": "Key Capability",
+      "value": "Real-time overlay of patrol routes and tower attention points on inspection video"
+    },
+    {
+      "label": "Result",
+      "value": "Phased inspection targets completed"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "??????????",
+      "value": "?????????? ??????? ????????? ??? ??? ???????? ????????? ?????????"
+    },
+    {
+      "label": "???????",
+      "value": "??????, ???????, ??????, ?????, ?????? ? 13 ???????? ?????"
+    },
+    {
+      "label": "???????",
+      "value": "??????? ????? ?????????? ? 13 ????????"
+    },
+    {
+      "label": "???????? ???????????",
+      "value": "????????? ????????? ? ?????? ????? ???? ?? ????????????? ????? ? ???????? ???????"
+    },
+    {
+      "label": "?????????",
+      "value": "??????? ???? ????????? ?????????"
+    }
+  ]
+}

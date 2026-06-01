@@ -5,6 +5,9 @@ import styles from './MobileCaseCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface CaseItem {
     handle: string;
@@ -34,10 +37,10 @@ export default function MobileCaseCenter({
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.allSolutions || 'All Solutions' },
-        { id: '01_BorderPatrol', name: dict.solutions.categories.border },
-        { id: '02_InfrastructureProtection', name: dict.solutions.categories.infrastructure },
-        { id: '03_KeyAreaSecurity', name: dict.solutions.categories.security },
-        { id: '04_EmergencyRescue', name: dict.solutions.categories.emergency }
+        ...caseSolutionGroups.map((group) => ({
+            id: group.id,
+            name: dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel
+        }))
     ];
 
     const REGIONS = [
@@ -53,7 +56,7 @@ export default function MobileCaseCenter({
 
     const filteredCases = useMemo(() => {
         return allCases.filter(item => {
-            const matchesSolution = selectedSolution === 'all' || item.solution_category_id === selectedSolution;
+            const matchesSolution = selectedSolution === 'all' || getCaseSolutionGroupId(item) === selectedSolution;
             
             let matchesRegion = true;
             if (selectedRegionId === 'all') {
@@ -181,9 +184,9 @@ export default function MobileCaseCenter({
                             {paginatedCases.map((item, idx) => {
                                 const caseTitle = item[`title_${locale}`] || item.title_en;
                                 return (
-                                    <Link prefetch={false} href={`/${locale}/cases/${item.handle}`} key={idx} className={styles.card}>
+                                    <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={idx} className={styles.card}>
                                         <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
-                                            <Image src={item.main_image || '/images/solutions/placeholder.jpg'} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 4} />
+                                            <Image src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 4} />
                                         </div>
                                         <div className={styles.cardContent}>
                                             <h3>{caseTitle}</h3>
@@ -219,5 +222,3 @@ export default function MobileCaseCenter({
         </div>
     );
 }
-
-

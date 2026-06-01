@@ -3,12 +3,14 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getSolutionById, getAllSolutionHandles } from '@/lib/solutions';
 import { getAllProducts } from '@/lib/products';
+import { getCaseByHandle } from '@/lib/cases';
 import SolutionDetailClient from './SolutionDetailClient';
 import MobileSolutionDetail from '@/components/mobile/MobileSolutionDetail';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
+import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
@@ -24,7 +26,8 @@ export async function generateMetadata({ params }: { params: { id: string; local
   const title = solution[`product_name_${params.locale}`] || solution.product_name_en || solution.title_en;
   const description = solution[`summary_${params.locale}`] || solution.summary_en || undefined;
   const canonical = params.locale === 'en' ? `/solutions/${params.id}` : `/${params.locale}/solutions/${params.id}`;
-  const image = solution.main_image ? new URL(solution.main_image, 'https://n-tet.com').toString() : undefined;
+  const mainImage = solutionCenterImageByHandle[solution.handle || params.id] || solution.main_image;
+  const image = mainImage ? new URL(mainImage, 'https://n-tet.com').toString() : undefined;
 
   return {
     title,
@@ -52,6 +55,11 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
   if (!solution) {
     notFound();
   }
+
+  const displaySolution = {
+    ...solution,
+    main_image: solutionCenterImageByHandle[solution.handle || id] || solution.main_image,
+  };
 
   // Fetch Recommended Products
   const productsByCategory = await getAllProducts(locale);
@@ -83,23 +91,48 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 
   const recommendedProducts = allProducts.filter(p => recommendedHandles.includes(p.handle));
 
+  let recommendedCaseHandles: string[] = [];
+  try {
+      const rawJson = typeof solution.raw_json === 'string' ? JSON.parse(solution.raw_json) : (solution.raw_json || {});
+      const rawCases = solution.recommended_cases || rawJson.recommended_cases || rawJson.detail_sections?.related_cases || [];
+      recommendedCaseHandles = Array.isArray(rawCases)
+        ? rawCases.filter((item: unknown): item is string => typeof item === 'string')
+        : [];
+  } catch(e) {
+      recommendedCaseHandles = [];
+  }
+
+  const recommendedCases = [];
+  for (const caseHandle of Array.from(new Set(recommendedCaseHandles))) {
+    const item = await getCaseByHandle(caseHandle);
+    if (item) {
+      recommendedCases.push({
+        ...item,
+        title: item[`title_${locale}`] || item.title_en || item.title || caseHandle,
+        image: item.main_image || item.image || '/images/solutions/placeholder.jpg',
+      });
+    }
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
 
       <div className="pc_only">
-        <SolutionDetailClient 
-            solution={solution} 
+            <SolutionDetailClient
+            solution={displaySolution}
             recommendedProducts={recommendedProducts} 
+            recommendedCases={recommendedCases}
             locale={locale}
             dict={dict}
         />
       </div>
 
       <div className="mobile_only">
-        <MobileSolutionDetail 
-            solution={solution} 
+        <MobileSolutionDetail
+            solution={displaySolution}
             recommendedProducts={recommendedProducts} 
+            recommendedCases={recommendedCases}
             locale={locale}
             dict={dict}
         />

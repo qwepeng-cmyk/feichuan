@@ -5,6 +5,8 @@ import styles from './MobileCategoryLanding.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface SubSolution {
     product_name: string;
@@ -37,13 +39,13 @@ export default function MobileCategoryLanding({
     locale,
     dict
 }: Props) {
-    const l = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+    const l = (path: string) => localePath(locale, path);
 
     return (
         <div className={styles.wrapper}>
             {/* 1. Banner - Consistent with Product Center */}
             <section className={styles.banner} style={{ position: 'relative', overflow: 'hidden' }}>
-                <Image src={bannerImage} fill style={{ objectFit: 'cover' }} priority alt={categoryName} />
+                <Image src={withStaticAssetVersion(bannerImage)} fill style={{ objectFit: 'cover' }} priority alt={categoryName} />
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
                     <h1>{categoryName}</h1>
@@ -77,7 +79,7 @@ export default function MobileCategoryLanding({
                         return (
                             <div key={sol.handle} className={styles.solutionItem}>
                                 <Link prefetch={false} href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '56.25%', overflow: 'hidden' }}>
-                                    <Image src={sol.main_image || '/images/solutions/placeholder.jpg'} alt={solName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
+                                    <Image src={withStaticAssetVersion(sol.main_image || '/images/solutions/placeholder.jpg')} alt={solName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                 </Link>
                                 <div className={styles.solutionInfo}>
                                     <h3>{solName}</h3>
@@ -103,7 +105,7 @@ export default function MobileCategoryLanding({
                              return (
                                 <Link prefetch={false} href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>
                                     <div className={styles.productImageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
-                                        <Image src={prodImage} alt={prodName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
+                                        <Image src={withStaticAssetVersion(prodImage)} alt={prodName} fill style={{ objectFit: 'cover' }} sizes="40vw" />
                                     </div>
                                     <div className={styles.productInfo}>
                                         <h3>{prodName}</h3>

@@ -1,0 +1,47 @@
+[
+  {
+    "module": "Multi-Source Low-Altitude Awareness",
+    "path": "/solutions/infrastructure protection/Oil Production Base Protection/solution-module-01-refinery-overview.webp",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Petrochemical_Refineries_in_Metro_Houston,_Texas_(16294430247).jpg",
+    "credit": "Ken Lund, CC BY-SA 2.0, via Wikimedia Commons",
+    "width": 1400,
+    "height": 788,
+    "bytes": 73726
+  },
+  {
+    "module": "Industrial Visual Confirmation",
+    "path": "/solutions/infrastructure protection/Oil Production Base Protection/solution-module-02-refinery-tanks.webp",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Refinery_Tanks_2.jpg",
+    "credit": "Carl Young, CC BY-SA 4.0, via Wikimedia Commons",
+    "width": 1400,
+    "height": 788,
+    "bytes": 139700
+  },
+  {
+    "module": "Security Command-Room Linkage",
+    "path": "/solutions/infrastructure protection/Oil Production Base Protection/solution-module-03-petrochemical-plant.webp",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Petrochemical_plant_-_geograph.org.uk_-_479044.jpg",
+    "credit": "Paul McIlroy, CC BY-SA 2.0, via Wikimedia Commons",
+    "width": 1400,
+    "height": 788,
+    "bytes": 74174
+  },
+  {
+    "module": "Perimeter and Access-Area Coordination",
+    "path": "/solutions/infrastructure protection/Oil Production Base Protection/solution-module-04-pipeline-pumping-station.webp",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Oil_pipeline_pumping_station,_northeast_Colorado.jpg",
+    "credit": "Greg Goebel, CC BY-SA 2.0, via Wikimedia Commons",
+    "width": 1400,
+    "height": 788,
+    "bytes": 86166
+  },
+  {
+    "module": "Traceable Event Archive",
+    "path": "/solutions/infrastructure protection/Oil Production Base Protection/solution-module-05-trans-alaska-pipeline.webp",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Trans-Alaska_Pipeline_System_Luca_Galuzzi_2005.jpg",
+    "credit": "Luca Galuzzi, CC BY-SA 2.5, via Wikimedia Commons",
+    "width": 1400,
+    "height": 788,
+    "bytes": 171002
+  }
+]

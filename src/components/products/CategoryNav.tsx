@@ -11,15 +11,21 @@ interface Category {
 export default function CategoryNav({ categories }: { categories: Category[] }) {
     const [activeTab, setActiveTab] = useState(categories[0].id);
 
+    const getStickyOffset = () => {
+        const nav = document.querySelector('.sticky-category-nav') as HTMLElement | null;
+        const navTop = nav ? parseFloat(window.getComputedStyle(nav).top || '0') : 112;
+        const navHeight = nav?.offsetHeight || 140;
+        return navTop + navHeight + 48;
+    };
+
     const scrollToSection = (id: string) => {
         setActiveTab(id);
         const element = document.getElementById(id);
         if (element) {
-            const offset = 300; // Header(114) + Nav(~100) + breathing space (Balanced for top/bottom symmetry)
             const bodyRect = document.body.getBoundingClientRect().top;
             const elementRect = element.getBoundingClientRect().top;
             const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
+            const offsetPosition = elementPosition - getStickyOffset();
 
             window.scrollTo({
                 top: offsetPosition,
@@ -32,7 +38,7 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
     useEffect(() => {
         const handleScroll = () => {
             const sections = categories.map(cat => document.getElementById(cat.id));
-            const scrollPos = window.scrollY + 310;
+            const scrollPos = window.scrollY + getStickyOffset();
 
             for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];
@@ -43,14 +49,30 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
             }
         };
 
+        let frame = 0;
+        let timer = 0;
+
+        if (!window.location.hash) {
+            window.history.scrollRestoration = 'manual';
+            const resetScroll = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+            resetScroll();
+            frame = window.requestAnimationFrame(resetScroll);
+            timer = window.setTimeout(resetScroll, 250);
+        }
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            if (frame) window.cancelAnimationFrame(frame);
+            if (timer) window.clearTimeout(timer);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [categories]);
 
     return (
         <nav className="sticky-category-nav" style={{ 
             position: 'sticky', 
-            top: '114px', 
+            top: '112px', 
             zIndex: 90, 
             background: '#f2f6ff', // SBM light blue background
             boxShadow: '0 4px 15px rgba(0,0,0,0.05)',

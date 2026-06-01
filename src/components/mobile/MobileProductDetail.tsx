@@ -6,11 +6,30 @@ import Image from 'next/image';
 import styles from './MobileProductDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import OptimizedRichText from '../common/OptimizedRichText';
+import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface ProductProps {
     product: any;
     locale: string;
     dict: any;
+}
+
+function formatSpecLine(value?: string | null, fallbackLabel?: string) {
+    const text = value?.trim();
+    if (!text) return null;
+
+    const normalized = fallbackLabel && !/[:：]/.test(text) ? `${fallbackLabel}: ${text}` : text;
+    const match = normalized.match(/^([^:：]+[:：])\s*(.*)$/);
+
+    if (!match) return normalized;
+
+    return (
+        <>
+            <strong>{match[1]}</strong>
+            {match[2] ? ` ${match[2]}` : ''}
+        </>
+    );
 }
 
 export default function MobileProductDetail({ product, locale, dict }: ProductProps) {
@@ -93,9 +112,9 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
         <div className={styles.wrapper}>
             {/* 1. Breadcrumb - Clean Text Style */}
             <div className={styles.breadcrumb}>
-                <Link href={`/${locale}`}>{dict.nav.home}</Link>
+                <Link href={localePath(locale)}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <Link href={`/${locale}/products`}>{dict.nav.products}</Link>
+                <Link href={localePath(locale, '/products')}>{dict.nav.products}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {name}
@@ -113,9 +132,9 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <Image src={displayImages[activeIndex]} alt={name} fill style={{ objectFit: 'contain' }} priority sizes="100vw" />
+                        <Image src={withStaticAssetVersion(displayImages[activeIndex])} alt={name} fill style={{ objectFit: 'contain' }} priority sizes="100vw" />
                     </div>
-                    {displayImages.length >= 1 && (
+                    {displayImages.length > 1 && (
                         <div className={styles.thumbTrack}>
                             {displayImages.map((img, idx) => (
                                 <div 
@@ -124,7 +143,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                                     style={{ position: 'relative', flex: '0 0 70px', height: '52px' }}
                                     onClick={() => setActiveIndex(idx)}
                                 >
-                                    <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
+                                    <Image src={withStaticAssetVersion(img)} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
                                 </div>
                             ))}
                         </div>
@@ -138,9 +157,9 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                 <div className={styles.infoContent}>
                     {/* Key Parameters */}
                     <div className={styles.keyParams}>
-                        {keyParam1 && <div className={styles.paramItem}>{keyParam1}</div>}
-                        {keyParam2 && <div className={styles.paramItem}>{keyParam2}</div>}
-                        {keyApp && <div className={styles.paramItem}>{keyApp}</div>}
+                        {keyParam1 && <div className={styles.paramItem}>{formatSpecLine(keyParam1)}</div>}
+                        {keyParam2 && <div className={styles.paramItem}>{formatSpecLine(keyParam2)}</div>}
+                        {keyApp && <div className={styles.paramItem}>{formatSpecLine(keyApp, 'Applications')}</div>}
                     </div>
                 </div>
 

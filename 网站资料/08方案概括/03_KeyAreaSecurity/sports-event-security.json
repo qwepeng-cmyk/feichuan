@@ -2,13 +2,13 @@
   "product_name": "大型体育赛事安全防护",
   "product_name_en": "Large Sports Event Security Protection",
   "summary": "针对万人以上集结的赛事、展览会，解决人员密集、流控复杂、低空安全盲区等痛点。融合反无预警与智能安检终端，实现场馆全天候全域监测，并高效拦截危禁品，守护赛事有序安全举办。",
-  "summary_en": "Targeted at events and exhibitions with over 10,000 people, addressing pain points such as high personnel density, complex flow control, and low-altitude security blind spots. It integrates anti-UAV early warning with intelligent security terminals to achieve 24/7 panoramic monitoring of venues and efficiently intercept dangerous goods, ensuring the orderly and safe holding of events.",
+  "summary_en": "An integrated large-event security solution for stadium entrances, arenas, exhibition centers, fan zones, media areas, logistics gates, VIP routes, and surrounding public spaces. It references the same security workflow used for airport-style checkpoints: low-altitude awareness, high-throughput entrance screening, baggage and materials inspection, command-center linkage, and traceable event records.",
   "key_application": "Event / Exhibition Security Guarantee (赛事/大型展会保障)",
-  "key_application_en": "Event / Exhibition Security Guarantee",
+  "key_application_en": "Large sports events, stadiums, arenas, exhibition centers, fan zones, media entrances, VIP routes, temporary logistics gates, and surrounding transport hubs.",
   "key_parameter_1": "高并发智能查验: 解决千万级人群集聚下的高效安检与危禁品快速拦截",
-  "key_parameter_1_en": "High-concurrency Screening: Efficient security and rapid contraband interception for large crowds",
+  "key_parameter_1_en": "High-throughput Event Screening: coordinated handheld, gate, X-ray, and trace-detection checks for spectators, staff, media equipment, and delivered materials",
   "key_parameter_2": "无死角低空监测: 融合全向探测与视频追踪，实时防范“黑飞”无人机风险",
-  "key_parameter_2_en": "Omni-directional Monitoring: Integrated radar and video tracking to prevent illegal drone risks",
+  "key_parameter_2_en": "Venue Airspace Awareness: monitoring and visual verification around stadiums, fan zones, broadcast areas, parking zones, and logistics routes",
   "parameters": {
     "设备机动性": "便携式单兵或车载部署",
     "监测范围": "场馆核心区及周边 360° 无死角",
@@ -16,13 +16,42 @@
     "数据同步": "现场指挥中心 5G 实时视频"
   },
   "parameters_en": {
-    "Mobility": "Portable individual or vehicle-mounted",
-    "Range": "360° no-dead-angle coverage area",
-    "Throughput": "> 20 persons/min",
-    "Data Sync": "Real-time 5G video to command center"
+    "operation_upgrade_eyebrow": "Security Operation Upgrade",
+    "operation_upgrade_title": "How Integrated Monitoring and Screening Support Large Events",
+    "solution_modules_intro": "The solution follows the airport-security page structure but adapts it to temporary event operations, combining low-altitude awareness, entrance screening, baggage inspection, command-center coordination, and post-event review.",
+    "industry_pain_points_image": "/solutions/solutions/Large Sports Event Security.webp",
+    "industry_pain_points": [
+      "Large sports events concentrate spectators, athletes, staff, media teams, vendors, logistics vehicles, VIP routes, and temporary structures into a short operating window with little tolerance for delay.",
+      "Venue operators must coordinate low-altitude awareness, entrance screening, baggage checks, staff access, and emergency communication while keeping visitor movement smooth.",
+      "Temporary deployments need airport-style checkpoint discipline: equipment that can be installed quickly, operated consistently, logged clearly, and removed after the event without losing review records."
+    ],
+    "uav_industry_upgrade": [
+      "Airspace monitoring helps event command teams maintain awareness around stadium roofs, fan zones, broadcast areas, parking zones, and surrounding public spaces.",
+      "Walk-through, handheld, X-ray, and trace-detection screening equipment supports high-throughput checks for spectators, staff, media teams, and delivered materials.",
+      "A shared command workflow connects low-altitude alerts, checkpoint exceptions, bag-inspection results, operator notes, and handling status for live coordination and post-event review."
+    ],
+    "solution_modules": [
+      {
+        "name": "Temporary Airspace Awareness",
+        "description": "Monitor low-altitude activity around venues, fan zones, broadcast areas, team routes, parking areas, and logistics yards during event windows."
+      },
+      {
+        "name": "High-Throughput Entrance Screening",
+        "description": "Use handheld metal detectors, phone-detection gates where required, and checkpoint procedures to keep spectator, staff, and media access organized."
+      },
+      {
+        "name": "Baggage and Materials Inspection",
+        "description": "Deploy X-ray baggage scanning and trace inspection for bags, parcels, broadcast equipment, vendor materials, and service deliveries."
+      },
+      {
+        "name": "Command Center and Event Review",
+        "description": "Connect alerts, screening exceptions, operator notes, timestamps, and handling status to the event command center for live coordination and review reports."
+      }
+    ],
+    "typical_outputs": "Venue airspace alerts, checkpoint exception records, baggage inspection logs, command-center event timelines, and post-event review materials"
   },
   "detail_html": "<h4>赛事保障详解</h4><p>面对千万级人群集聚的现场，方案强调快速部署与高压拦截能力。利用便携式反制设备建立临时禁飞区，配合快速安检门，实现平稳有序的流控与防卫。</p><ul><li>融合监控、反无、安检三大核心板块</li><li>高效拦截打火机、火药、毒品等危禁品</li><li>场馆全域全天候监测</li></ul>",
-  "detail_html_en": "<h4>Event Protection Details</h4><p>Facing massive crowds, the solution emphasizes rapid deployment and high-pressure interception capabilities. Temporary no-fly zones are established using portable devices, complemented by rapid screening gates for orderly flow control and defense.</p><ul><li>Integrates monitoring, anti-UAV, and security screening</li><li>Efficiently intercepts lighters, gunpowder, drugs, etc.</li><li>Panoramic 24/7 venue monitoring</li></ul>",
+  "detail_html_en": "<h2>Industry Pain Points</h2><ul><li>Large sports events concentrate spectators, athletes, staff, media teams, vendors, logistics vehicles, VIP routes, and temporary structures into a short operating window with little tolerance for delay.</li><li>Venue operators must coordinate low-altitude awareness, entrance screening, baggage checks, staff access, and emergency communication while keeping visitor movement smooth.</li><li>Temporary deployments need airport-style checkpoint discipline: equipment that can be installed quickly, operated consistently, logged clearly, and removed after the event without losing review records.</li></ul><h2>Security Operation Upgrade</h2><ul><li>Airspace monitoring helps event command teams maintain awareness around stadium roofs, fan zones, broadcast areas, parking zones, and surrounding public spaces.</li><li>Walk-through, handheld, X-ray, and trace-detection screening equipment supports high-throughput checks for spectators, staff, media teams, and delivered materials.</li><li>A shared command workflow connects low-altitude alerts, checkpoint exceptions, bag-inspection results, operator notes, and handling status for live coordination and post-event review.</li></ul><h2>Solution Modules</h2><ul><li><strong>Temporary Airspace Awareness</strong>: Monitor low-altitude activity around venues, fan zones, broadcast areas, team routes, parking areas, and logistics yards during event windows.</li><li><strong>High-Throughput Entrance Screening</strong>: Use handheld metal detectors, phone-detection gates where required, and checkpoint procedures to keep spectator, staff, and media access organized.</li><li><strong>Baggage and Materials Inspection</strong>: Deploy X-ray baggage scanning and trace inspection for bags, parcels, broadcast equipment, vendor materials, and service deliveries.</li><li><strong>Command Center and Event Review</strong>: Connect alerts, screening exceptions, operator notes, timestamps, and handling status to the event command center for live coordination and review reports.</li></ul>",
   "main_image": "/solutions/key area security/Sports event security/Sports event security.jpg",
   "handle": "sports-event-security",
   "category_primary": "Key Area Security (要地安保)",
@@ -47,5 +76,54 @@
     "Пропускная способность": "> 20 чел/мин (через канал досмотра)",
     "Синхронизация данных": "Передача HD-видео в реальном времени через 5G в центр управления"
   },
-  "detail_html_ru": "<h4>Детали обеспечения безопасности мероприятий</h4><p>При огромном скоплении людей решение делает упор на скорость развертывания и высокую эффективность перехвата. Временные бесполетные зоны создаются переносными устройствами в сочетании со скоростными рамками досмотра.</p><ul><li>Интеграция видеонаблюдения, защиты от БПЛА и досмотра</li><li>Эффективный перехват зажигалок, пороха, наркотиков и др.</li><li>Круглосуточный панорамный мониторинг всей территории объекта</li></ul>"
+  "detail_html_ru": "<h4>Детали обеспечения безопасности мероприятий</h4><p>При огромном скоплении людей решение делает упор на скорость развертывания и высокую эффективность перехвата. Временные бесполетные зоны создаются переносными устройствами в сочетании со скоростными рамками досмотра.</p><ul><li>Интеграция видеонаблюдения, защиты от БПЛА и досмотра</li><li>Эффективный перехват зажигалок, пороха, наркотиков и др.</li><li>Круглосуточный панорамный мониторинг всей территории объекта</li></ul>",
+  "detail_sections": {
+    "operation_upgrade_eyebrow": "Security Operation Upgrade",
+    "operation_upgrade_title": "How Integrated Monitoring and Screening Support Large Events",
+    "solution_modules_intro": "The solution follows the airport-security page structure but adapts it to temporary event operations, combining low-altitude awareness, entrance screening, baggage inspection, command-center coordination, and post-event review.",
+    "industry_pain_points_image": "/solutions/solutions/Large Sports Event Security.webp",
+    "industry_pain_points": [
+      "Large sports events concentrate spectators, athletes, staff, media teams, vendors, logistics vehicles, VIP routes, and temporary structures into a short operating window with little tolerance for delay.",
+      "Venue operators must coordinate low-altitude awareness, entrance screening, baggage checks, staff access, and emergency communication while keeping visitor movement smooth.",
+      "Temporary deployments need airport-style checkpoint discipline: equipment that can be installed quickly, operated consistently, logged clearly, and removed after the event without losing review records."
+    ],
+    "uav_industry_upgrade": [
+      "Airspace monitoring helps event command teams maintain awareness around stadium roofs, fan zones, broadcast areas, parking zones, and surrounding public spaces.",
+      "Walk-through, handheld, X-ray, and trace-detection screening equipment supports high-throughput checks for spectators, staff, media teams, and delivered materials.",
+      "A shared command workflow connects low-altitude alerts, checkpoint exceptions, bag-inspection results, operator notes, and handling status for live coordination and post-event review."
+    ],
+    "solution_modules": [
+      {
+        "name": "Temporary Airspace Awareness",
+        "description": "Monitor low-altitude activity around venues, fan zones, broadcast areas, team routes, parking areas, and logistics yards during event windows."
+      },
+      {
+        "name": "High-Throughput Entrance Screening",
+        "description": "Use handheld metal detectors, phone-detection gates where required, and checkpoint procedures to keep spectator, staff, and media access organized."
+      },
+      {
+        "name": "Baggage and Materials Inspection",
+        "description": "Deploy X-ray baggage scanning and trace inspection for bags, parcels, broadcast equipment, vendor materials, and service deliveries."
+      },
+      {
+        "name": "Command Center and Event Review",
+        "description": "Connect alerts, screening exceptions, operator notes, timestamps, and handling status to the event command center for live coordination and review reports."
+      }
+    ],
+    "typical_outputs": "Venue airspace alerts, checkpoint exception records, baggage inspection logs, command-center event timelines, and post-event review materials"
+  },
+  "solution_images": [
+    "/solutions/solutions/Large Sports Event Security.webp",
+    "/products/02-drone-detection/stationary-rf-detection-system.webp",
+    "/products/security/FC-H-Smart-Phone-Detection-Gate.webp",
+    "/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp",
+    "/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp"
+  ],
+  "Solution_Images": [
+    "/solutions/solutions/Large Sports Event Security.webp",
+    "/products/02-drone-detection/stationary-rf-detection-system.webp",
+    "/products/security/FC-H-Smart-Phone-Detection-Gate.webp",
+    "/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp",
+    "/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp"
+  ]
 }
