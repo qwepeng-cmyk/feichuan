@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface UniversalGalleryProps {
   images: string[];
@@ -34,7 +35,7 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
       {/* 1. Main Display Area */}
       <div className="gallery-main" style={{ position: 'relative', aspectRatio }}>
         <Image 
-            src={displayImages[activeIndex] || '/logo1-small.webp'} 
+            src={withStaticAssetVersion(displayImages[activeIndex] || '/logo1-small.webp')} 
             alt={alt} 
             fill
             priority
@@ -117,7 +118,7 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
               style={{ position: 'relative' }}
             >
               <Image
-                src={img || '/logo1-small.webp'}
+                src={withStaticAssetVersion(img || '/logo1-small.webp')}
                 alt={`${alt} thumbnail ${index + 1}`}
                 fill
                 style={{ objectFit: 'cover' }}

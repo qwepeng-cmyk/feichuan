@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 export default function Header({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const logoSrc = withStaticAssetVersion('/logo-header.webp');
 
     const pathname = usePathname();
     const isHome = pathname === '/' || ['/en', '/ru'].some(locale => pathname === locale || pathname === `${locale}/`);
@@ -171,7 +173,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                 }}>
                     <Link prefetch={false} href={l("/")} className="logo" style={{ display: 'flex', alignItems: 'center' }}>
                         <Image
-                            src="/logo-header.webp"
+                            src={logoSrc}
                             alt="N-TET Logo"
                             width={107}
                             height={64}
@@ -180,7 +182,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                             style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)' }}
                         />
                         <Image
-                            src="/logo-header.webp"
+                            src={logoSrc}
                             alt="N-TET Logo"
                             width={107}
                             height={64}

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "N-TET - Industrial Security & Monitoring Solutions",
   description: "Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.",
   icons: {
-    icon: '/logo-header.webp',
+    icon: '/logo-header.webp?v=20260601',
   },
 };
 

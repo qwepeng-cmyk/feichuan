@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface CaseItem {
     handle: string;
@@ -186,7 +187,7 @@ export default function CasesPageClient({
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Image src="/cases/case_banner_center_collage_v2.webp" fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={dict.cases.bannerTitle} />
+                    <Image src={withStaticAssetVersion('/cases/case_banner_center_collage_v2.webp')} fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={dict.cases.bannerTitle} />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>
@@ -225,7 +226,7 @@ export default function CasesPageClient({
                                                 <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={idx} className="catalog-card-item">
                                                     <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden', position: 'relative', height: '240px' }}>
                                                         <Image
-                                                            src={item.main_image || '/images/solutions/placeholder.jpg'}
+                                                            src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')}
                                                             alt={caseTitle}
                                                             fill
                                                             style={{ objectFit: 'cover' }}

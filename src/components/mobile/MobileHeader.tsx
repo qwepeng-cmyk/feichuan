@@ -5,11 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './MobileHeader.module.css';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 export default function MobileHeader({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
+    const logoSrc = withStaticAssetVersion('/logo-header.webp');
 
     // Prevent scrolling when drawer is open
     useEffect(() => {
@@ -31,7 +33,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link prefetch={false} href={l("/")} className={styles.logo}>
-                    <Image src="/logo-header.webp" alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto' }} />
+                    <Image src={logoSrc} alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto' }} />
                 </Link>
                 <button
                     className={styles.burger}

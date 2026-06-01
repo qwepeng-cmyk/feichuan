@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './MobileCaseDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface CaseProps {
     caseData: any;
@@ -117,7 +118,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <Image src={displayImages[activeIndex]} alt={title} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
+                        <Image src={withStaticAssetVersion(displayImages[activeIndex])} alt={title} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
                     </div>
                     {displayImages.length > 1 && (
                         <div className={styles.thumbTrack}>
@@ -128,7 +129,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                                     style={{ position: 'relative', flex: '0 0 70px', height: '52px' }}
                                     onClick={() => setActiveIndex(idx)}
                                 >
-                                    <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
+                                    <Image src={withStaticAssetVersion(img)} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
                                 </div>
                             ))}
                         </div>
