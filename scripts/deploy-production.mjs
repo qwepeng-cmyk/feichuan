@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
-const root = process.cwd();
+const sourceRoot = process.cwd();
 const legacyBuildRoot = '/Users/mattchyi/Documents/Project/fc';
 
 if (process.platform === 'win32') {
@@ -23,13 +23,14 @@ function loadEnvFile(file) {
   }
 }
 
-loadEnvFile(join(root, '.env.deploy.local'));
+loadEnvFile(join(sourceRoot, '.env.deploy.local'));
 
 const deployUser = process.env.DEPLOY_USER || 'root';
 const deployHost = process.env.DEPLOY_HOST || '43.129.170.171';
 const deployPath = process.env.DEPLOY_PATH || '/www/wwwroot/n-tet.com';
 const remote = `${deployUser}@${deployHost}`;
-const localTar = process.env.DEPLOY_TAR || join(root, 'scratch', 'next-deploy.tar.gz');
+const buildRoot = process.env.DEPLOY_BUILD_ROOT || (sourceRoot.startsWith('/mnt/') ? legacyBuildRoot : sourceRoot);
+const localTar = process.env.DEPLOY_TAR || join(sourceRoot, 'scratch', 'next-deploy.tar.gz');
 const remoteTar = '/tmp/next-deploy.tar.gz';
 const zoneName = process.env.ZONE_NAME || 'n-tet.com';
 const skipCloudflarePurge = process.env.SKIP_CF_PURGE === '1';
@@ -41,19 +42,17 @@ function step(title) {
 function run(command, args, options = {}) {
   console.log(`$ ${[command, ...args].map((part) => (/\s/.test(part) ? JSON.stringify(part) : part)).join(' ')}`);
   return execFileSync(command, args, {
-    cwd: root,
+    cwd: options.cwd || sourceRoot,
     stdio: 'inherit',
     encoding: 'utf8',
-    ...options,
   });
 }
 
 function output(command, args, options = {}) {
   return execFileSync(command, args, {
-    cwd: root,
+    cwd: options.cwd || sourceRoot,
     stdio: ['ignore', 'pipe', 'pipe'],
     encoding: 'utf8',
-    ...options,
   }).trim();
 }
 
@@ -93,6 +92,43 @@ function rsyncPublic() {
   run(command, args);
 }
 
+function prepareBuildRoot() {
+  if (buildRoot === sourceRoot) {
+    return;
+  }
+
+  step('Prepare WSL build directory');
+  run('mkdir', ['-p', buildRoot]);
+  run('rsync', [
+    '-a',
+    '--delete',
+    '--exclude',
+    '.git',
+    '--exclude',
+    '.next',
+    '--exclude',
+    'node_modules',
+    '--exclude',
+    'scratch',
+    '--exclude',
+    '.env*',
+    '--exclude',
+    '.chrome-debug-profile',
+    '--exclude',
+    '.vscode',
+    '--exclude',
+    '*.log',
+    '--exclude',
+    '*.pid',
+    `${sourceRoot}/`,
+    `${buildRoot}/`,
+  ]);
+
+  if (!existsSync(join(buildRoot, 'node_modules'))) {
+    run('npm', ['ci', '--no-audit', '--no-fund'], { cwd: buildRoot });
+  }
+}
+
 function sha256(file) {
   return output('sha256sum', [file]).split(/\s+/)[0];
 }
@@ -106,15 +142,15 @@ function shellQuote(value) {
 }
 
 function remoteSymlinkCommand() {
-  const buildRoot = root.replace(/\\/g, '/');
-  const links = Array.from(new Set([legacyBuildRoot, buildRoot]));
+  const normalizedBuildRoot = buildRoot.replace(/\\/g, '/');
+  const links = Array.from(new Set([legacyBuildRoot, normalizedBuildRoot]));
   return links
     .map((link) => `mkdir -p ${shellQuote(dirname(link))} && ln -sfn ${shellQuote(deployPath)} ${shellQuote(link)}`)
     .join(' && ');
 }
 
 function syncDatabaseIfChanged() {
-  const localDb = join(root, 'data', 'ntet.db');
+  const localDb = join(sourceRoot, 'data', 'ntet.db');
   if (!existsSync(localDb)) {
     console.log('No data/ntet.db found locally; skipped database sync.');
     return;
@@ -169,11 +205,12 @@ step('Check and sync database');
 syncDatabaseIfChanged();
 
 step('Build locally');
-run('npm', ['run', 'build']);
+prepareBuildRoot();
+run('npm', ['run', 'build'], { cwd: buildRoot });
 
 step('Package .next');
 mkdirSync(dirname(localTar), { recursive: true });
-run('tar', ['-czf', localTar, '.next']);
+run('tar', ['-czf', localTar, '.next'], { cwd: buildRoot });
 const localTarHash = sha256(localTar);
 console.log(`Local tar sha256: ${localTarHash}`);
 
