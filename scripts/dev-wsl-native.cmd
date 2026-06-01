@@ -1,6 +1,9 @@
 @echo off
 setlocal
 
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'D:\\fc\\node_modules\\next|D:\\fc\\\\node_modules\\\\next|D:/fc/node_modules/next' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+if errorlevel 1 exit /b %ERRORLEVEL%
+
 wsl.exe bash /mnt/d/fc/scripts/dev-wsl-native.sh /mnt/d/fc /root/fc-wsl prepare
 if errorlevel 1 exit /b %ERRORLEVEL%
 
