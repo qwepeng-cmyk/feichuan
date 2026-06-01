@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface Product {
     name: string;
@@ -105,7 +106,7 @@ function MobileProductCard({
         <Link prefetch={false} href={localePath(locale, `/products/${product.handle}`)} className={styles.productCard}>
             <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5', isolation: 'isolate' }}>
                 <Image
-                    src={product.image}
+                    src={withStaticAssetVersion(product.image)}
                     alt={product.name}
                     fill
                     style={{ objectFit: 'contain', padding: '10px', mixBlendMode: blendImageBackground ? 'multiply' : 'normal' }}

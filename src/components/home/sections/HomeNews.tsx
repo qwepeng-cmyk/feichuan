@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface HomeNewsProps {
     locale: string;
@@ -33,7 +34,7 @@ export default function HomeNews({ locale, dict, latestNews }: HomeNewsProps) {
                             }}>
                                 <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
                                     <Image 
-                                        src={item.image} 
+                                        src={withStaticAssetVersion(item.image)} 
                                         alt={localizedNewsTitle} 
                                         fill 
                                         style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }} 

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface MobileNewsProps {
     locale: string;
@@ -35,7 +36,7 @@ export default function MobileNews({ locale, dict, latestNews }: MobileNewsProps
                         }}>
                             <div style={{ aspectRatio: '1.6 / 1', overflow: 'hidden', position: 'relative' }}>
                                 <Image 
-                                    src={news.image} 
+                                    src={withStaticAssetVersion(news.image)} 
                                     alt={newsTitle} 
                                     fill 
                                     style={{ objectFit: 'cover' }}

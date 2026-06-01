@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface MobileCasesProps {
     locale: string;
@@ -29,7 +30,7 @@ export default function MobileCases({ locale, dict, homeCases }: MobileCasesProp
                             boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
                         }}>
                             <Image
-                                src={item.img}
+                                src={withStaticAssetVersion(item.img)}
                                 alt={caseTitle}
                                 fill
                                 style={{ objectFit: 'cover' }}

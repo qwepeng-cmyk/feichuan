@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface Product {
     name: string;
@@ -55,7 +56,7 @@ export default function ProductGridCard({ product, locale, dict, priority = fals
                 isolation: 'isolate'
             }}>
                 <Image
-                    src={product.image || '/logo1-small.webp'}
+                    src={withStaticAssetVersion(product.image || '/logo1-small.webp')}
                     alt={prodName}
                     fill
                     style={{ 

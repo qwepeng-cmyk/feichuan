@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface OptimizedRichTextProps {
   html: string;
@@ -23,7 +24,7 @@ export default function OptimizedRichText({ html, className }: OptimizedRichText
         return match;
       }
 
-      return `<img${before}src="${src}"${after} loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" />`;
+      return `<img${before}src="${withStaticAssetVersion(src)}"${after} loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);" />`;
     });
 
   return (

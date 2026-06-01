@@ -7,6 +7,7 @@ import styles from './MobileProductDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import OptimizedRichText from '../common/OptimizedRichText';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface ProductProps {
     product: any;
@@ -131,7 +132,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <Image src={displayImages[activeIndex]} alt={name} fill style={{ objectFit: 'contain' }} priority sizes="100vw" />
+                        <Image src={withStaticAssetVersion(displayImages[activeIndex])} alt={name} fill style={{ objectFit: 'contain' }} priority sizes="100vw" />
                     </div>
                     {displayImages.length > 1 && (
                         <div className={styles.thumbTrack}>
@@ -142,7 +143,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                                     style={{ position: 'relative', flex: '0 0 70px', height: '52px' }}
                                     onClick={() => setActiveIndex(idx)}
                                 >
-                                    <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
+                                    <Image src={withStaticAssetVersion(img)} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
                                 </div>
                             ))}
                         </div>

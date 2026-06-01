@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { fetchProductsForClient } from '@/lib/clientProducts';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface CategoryMeta {
     id: string;
@@ -57,7 +58,7 @@ function ProductCard({ product, locale }: { product: Product; locale: string }) 
                 isolation: 'isolate'
             }}>
                 <Image
-                    src={product.image || '/logo1-small.webp'}
+                    src={withStaticAssetVersion(product.image || '/logo1-small.webp')}
                     alt={product.name}
                     fill
                     style={{

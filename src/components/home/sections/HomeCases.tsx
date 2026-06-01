@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface HomeCasesProps {
     locale: string;
@@ -41,7 +42,7 @@ export default function HomeCases({ locale, dict, homeCases }: HomeCasesProps) {
                                 }}
                             >
                                 <Image 
-                                    src={item.img} 
+                                    src={withStaticAssetVersion(item.img)} 
                                     alt={localizedCaseTitle} 
                                     fill 
                                     style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }} 
