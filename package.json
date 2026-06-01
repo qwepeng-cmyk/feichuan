@@ -10,6 +10,7 @@
     "lint": "next lint",
     "audit:public-risk": "node scripts/audit-public-site-risk.mjs",
     "deploy:check-public": "node scripts/check-public-sync.mjs",
+    "deploy:production": "node scripts/deploy-production.mjs",
     "cf:purge": "node scripts/cloudflare-purge-cache.mjs"
   },
   "dependencies": {

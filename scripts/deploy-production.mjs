@@ -1,0 +1,204 @@
+import { execFileSync } from 'node:child_process';
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+
+const root = process.cwd();
+const legacyBuildRoot = '/Users/mattchyi/Documents/Project/fc';
+
+if (process.platform === 'win32') {
+  throw new Error('Run this deploy script from WSL/Linux, for example: wsl.exe bash -lc "cd /mnt/d/fc && npm run deploy:production"');
+}
+
+function loadEnvFile(file) {
+  if (!existsSync(file)) return;
+  const content = readFileSync(file, 'utf8');
+  for (const line of content.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
+    if (!match) continue;
+    const [, key, rawValue] = match;
+    if (process.env[key]) continue;
+    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '');
+  }
+}
+
+loadEnvFile(join(root, '.env.deploy.local'));
+
+const deployUser = process.env.DEPLOY_USER || 'root';
+const deployHost = process.env.DEPLOY_HOST || '43.129.170.171';
+const deployPath = process.env.DEPLOY_PATH || '/www/wwwroot/n-tet.com';
+const remote = `${deployUser}@${deployHost}`;
+const localTar = process.env.DEPLOY_TAR || join(root, 'scratch', 'next-deploy.tar.gz');
+const remoteTar = '/tmp/next-deploy.tar.gz';
+const zoneName = process.env.ZONE_NAME || 'n-tet.com';
+const skipCloudflarePurge = process.env.SKIP_CF_PURGE === '1';
+
+function step(title) {
+  console.log(`\n==> ${title}`);
+}
+
+function run(command, args, options = {}) {
+  console.log(`$ ${[command, ...args].map((part) => (/\s/.test(part) ? JSON.stringify(part) : part)).join(' ')}`);
+  return execFileSync(command, args, {
+    cwd: root,
+    stdio: 'inherit',
+    encoding: 'utf8',
+    ...options,
+  });
+}
+
+function output(command, args, options = {}) {
+  return execFileSync(command, args, {
+    cwd: root,
+    stdio: ['ignore', 'pipe', 'pipe'],
+    encoding: 'utf8',
+    ...options,
+  }).trim();
+}
+
+function withSshpass(command, args) {
+  return process.env.SSHPASS ? ['sshpass', ['-e', command, ...args]] : [command, args];
+}
+
+function ssh(remoteCommand, options = {}) {
+  const [command, args] = withSshpass('ssh', [
+    '-o',
+    'StrictHostKeyChecking=accept-new',
+    remote,
+    remoteCommand,
+  ]);
+  return options.capture ? output(command, args) : run(command, args);
+}
+
+function scp(local, remotePath) {
+  const [command, args] = withSshpass('scp', [
+    '-o',
+    'StrictHostKeyChecking=accept-new',
+    local,
+    `${remote}:${remotePath}`,
+  ]);
+  run(command, args);
+}
+
+function rsyncPublic() {
+  const [command, args] = withSshpass('rsync', [
+    '-az',
+    '--checksum',
+    '-e',
+    'ssh -o StrictHostKeyChecking=accept-new',
+    'public/',
+    `${remote}:${deployPath}/public/`,
+  ]);
+  run(command, args);
+}
+
+function sha256(file) {
+  return output('sha256sum', [file]).split(/\s+/)[0];
+}
+
+function remoteSha256(file) {
+  return ssh(`sha256sum ${file} | awk '{print $1}'`, { capture: true });
+}
+
+function shellQuote(value) {
+  return `'${String(value).replace(/'/g, `'\\''`)}'`;
+}
+
+function remoteSymlinkCommand() {
+  const buildRoot = root.replace(/\\/g, '/');
+  const links = Array.from(new Set([legacyBuildRoot, buildRoot]));
+  return links
+    .map((link) => `mkdir -p ${shellQuote(dirname(link))} && ln -sfn ${shellQuote(deployPath)} ${shellQuote(link)}`)
+    .join(' && ');
+}
+
+function syncDatabaseIfChanged() {
+  const localDb = join(root, 'data', 'ntet.db');
+  if (!existsSync(localDb)) {
+    console.log('No data/ntet.db found locally; skipped database sync.');
+    return;
+  }
+
+  const localHash = sha256(localDb);
+  let remoteHash = '';
+  try {
+    remoteHash = remoteSha256(`${deployPath}/data/ntet.db`);
+  } catch {
+    remoteHash = '';
+  }
+
+  if (localHash === remoteHash) {
+    console.log(`Database already in sync: ${localHash}`);
+    return;
+  }
+
+  step('Sync database');
+  scp(localDb, '/tmp/ntet.db.deploy');
+  ssh(`cd ${deployPath} && mkdir -p data && if [ -f data/ntet.db ]; then cp data/ntet.db data/ntet.db.bak.deploy-$(date +%Y%m%d%H%M%S); fi && mv /tmp/ntet.db.deploy data/ntet.db`);
+  const uploadedHash = remoteSha256(`${deployPath}/data/ntet.db`);
+  if (uploadedHash !== localHash) {
+    throw new Error(`Database hash mismatch. local=${localHash} remote=${uploadedHash}`);
+  }
+  console.log(`Database synced: ${uploadedHash}`);
+}
+
+async function verifyLiveUrls() {
+  const urls = [
+    `https://${zoneName}/en/products?deploycheck=${Date.now()}`,
+    `https://${zoneName}/en/cases?deploycheck=${Date.now()}`,
+    `https://${zoneName}/logo-header.webp?deploycheck=${Date.now()}`,
+  ];
+
+  for (const url of urls) {
+    const response = await fetch(url, { redirect: 'follow' });
+    if (!response.ok) {
+      throw new Error(`Live check failed: ${response.status} ${url}`);
+    }
+    console.log(`${response.status} ${url}`);
+  }
+}
+
+step('Sync public assets');
+rsyncPublic();
+
+step('Check public assets');
+run('node', ['scripts/check-public-sync.mjs']);
+
+step('Check and sync database');
+syncDatabaseIfChanged();
+
+step('Build locally');
+run('npm', ['run', 'build']);
+
+step('Package .next');
+mkdirSync(dirname(localTar), { recursive: true });
+run('tar', ['-czf', localTar, '.next']);
+const localTarHash = sha256(localTar);
+console.log(`Local tar sha256: ${localTarHash}`);
+
+step('Upload .next package');
+scp(localTar, remoteTar);
+const remoteTarHash = remoteSha256(remoteTar);
+if (remoteTarHash !== localTarHash) {
+  throw new Error(`Deploy tar hash mismatch. local=${localTarHash} remote=${remoteTarHash}`);
+}
+console.log(`Remote tar sha256: ${remoteTarHash}`);
+
+step('Extract and restart PM2');
+ssh(`${remoteSymlinkCommand()} && cd ${shellQuote(deployPath)} && tar -xzf ${shellQuote(remoteTar)} && pm2 restart n-tet`);
+
+if (skipCloudflarePurge) {
+  console.log('Skipped Cloudflare purge because SKIP_CF_PURGE=1.');
+} else {
+  if (!process.env.CLOUDFLARE_API_TOKEN) {
+    throw new Error('Missing CLOUDFLARE_API_TOKEN. Set it in .env.deploy.local or export it before deploy.');
+  }
+  step('Purge Cloudflare cache');
+  run('node', ['scripts/cloudflare-purge-cache.mjs', '--everything']);
+}
+
+step('Verify live site');
+await verifyLiveUrls();
+
+console.log('\nProduction deploy completed.');
