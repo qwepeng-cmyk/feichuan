@@ -7,6 +7,7 @@ import styles from './MobileSolutionDetail.module.css';
 import OptimizedRichText from '../common/OptimizedRichText';
 import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface SolutionProps {
     solution: any;
@@ -320,7 +321,7 @@ function MobileSceneSection({ title, items, image }: { title: string; items: str
         <section className={styles.section}>
             <h2 id="solution-details-title" className={styles.sectionTitleCenter}>{title}</h2>
             <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 10', overflow: 'hidden', background: '#e5edf7', marginBottom: '18px' }}>
-                <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} sizes="100vw" />
+                <Image src={withStaticAssetVersion(image)} alt={title} fill style={{ objectFit: 'cover' }} sizes="100vw" />
             </div>
             <MobileNumberList items={items} />
         </section>
@@ -367,7 +368,7 @@ function MobileModuleRows({
                     return (
                         <article key={index} style={{ background: '#fff', border: '1px solid #e5edf7', boxShadow: '0 10px 24px rgba(15, 23, 42, 0.06)' }}>
                             <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 10', overflow: 'hidden', background: '#e5edf7' }}>
-                                <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} sizes="100vw" />
+                                <Image src={withStaticAssetVersion(image)} alt={title} fill style={{ objectFit: 'cover' }} sizes="100vw" />
                             </div>
                             <div style={{ padding: '18px' }}>
                                 <div style={{ color: '#315ba4', fontSize: '13px', fontWeight: 900, marginBottom: '8px' }}>{String(index + 1).padStart(2, '0')}</div>
@@ -389,7 +390,7 @@ function MobileCaseCard({ item, locale }: { item: any; locale: string }) {
     return (
         <Link href={localePath(locale, `/cases/${item.handle}`)} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
             <div style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
-                <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} sizes="45vw" />
+                <Image src={withStaticAssetVersion(image)} alt={title} fill style={{ objectFit: 'cover' }} sizes="45vw" />
             </div>
             <div style={{ padding: '12px', textAlign: 'center' }}>
                 <h3 style={{ fontSize: '12px', fontWeight: '800', color: '#333', margin: 0, lineHeight: 1.35 }}>{title}</h3>
@@ -517,7 +518,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEndHandler}
                     >
-                        <Image src={displayImages[activeIndex]} alt={name} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
+                        <Image src={withStaticAssetVersion(displayImages[activeIndex])} alt={name} fill style={{ objectFit: 'cover' }} priority sizes="100vw" />
                     </div>
                     {displayImages.length > 1 && (
                         <div className={styles.thumbTrack}>
@@ -528,7 +529,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
                                     style={{ position: 'relative', flex: '0 0 70px', height: '52px' }}
                                     onClick={() => setActiveIndex(idx)}
                                 >
-                                    <Image src={img} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
+                                    <Image src={withStaticAssetVersion(img)} alt={`Thumb ${idx}`} fill style={{ objectFit: 'cover' }} sizes="20vw" />
                                 </div>
                             ))}
                         </div>
@@ -665,7 +666,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
                         {recommendedProducts.map((prod, idx) => (
                             <Link href={localePath(locale, `/products/${prod.handle}`)} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
-                                    <Image src={prod.image} alt={prod.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
+                                    <Image src={withStaticAssetVersion(prod.image)} alt={prod.name} fill style={{ objectFit: 'contain', padding: '10px' }} sizes="45vw" />
                                 </div>
                                 <div style={{ padding: '12px', textAlign: 'center' }}>
                                     <h3 style={{ fontSize: '12px', fontWeight: '800', color: '#333', margin: 0 }}>{prod.name}</h3>

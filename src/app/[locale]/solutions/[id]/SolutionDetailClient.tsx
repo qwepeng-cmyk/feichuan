@@ -9,6 +9,7 @@ import UniversalGallery from '@/components/common/UniversalGallery';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
 import { localePath } from '@/lib/localePath';
+import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 function renderParameterValue(value: unknown): React.ReactNode {
   if (value === null || value === undefined || value === '') return '-';
@@ -366,7 +367,7 @@ function SolutionVisualSection({
             <SectionList items={items} />
           </div>
           <div style={{ order: reverse ? 1 : 2, position: 'relative', aspectRatio: '16 / 10', overflow: 'hidden', background: '#e5edf7' }}>
-            <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} sizes="42vw" />
+            <Image src={withStaticAssetVersion(image)} alt={title} fill style={{ objectFit: 'cover' }} sizes="42vw" />
           </div>
         </div>
       </div>
@@ -431,7 +432,7 @@ function SolutionModuleRows({
             return (
               <article key={index} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: '#fff', border: '1px solid #e5edf7', boxShadow: '0 18px 42px rgba(15, 23, 42, 0.08)' }}>
                 <div style={{ order: reverse ? 2 : 1, position: 'relative', minHeight: '340px', background: '#e5edf7' }}>
-                  <Image src={image} alt={title} fill style={{ objectFit: 'cover' }} sizes="48vw" />
+                  <Image src={withStaticAssetVersion(image)} alt={title} fill style={{ objectFit: 'cover' }} sizes="48vw" />
                 </div>
                 <div style={{ order: reverse ? 1 : 2, padding: '44px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <div style={{ color: '#315ba4', fontSize: '1.35rem', fontWeight: 850, marginBottom: '14px' }}>{String(index + 1).padStart(2, '0')}</div>
@@ -477,7 +478,7 @@ function RelatedCaseCard({ item, locale }: { item: any; locale: string }) {
         isolation: 'isolate'
       }}>
         <Image
-          src={image}
+          src={withStaticAssetVersion(image)}
           alt={title}
           fill
           style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
