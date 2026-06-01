@@ -3,6 +3,7 @@ set -euo pipefail
 
 SOURCE_PATH="${1:-/mnt/d/fc}"
 TARGET_PATH="${2:-/root/fc-wsl}"
+MODE="${3:-start}"
 PORT="${PORT:-3000}"
 
 case "$TARGET_PATH" in
@@ -18,7 +19,10 @@ touch "$TARGET_PATH/.wsl-native-mirror"
 
 echo "Stopping existing Next dev processes on port $PORT..."
 ps -eo pid=,args= |
-  awk -v port="$PORT" '$0 ~ /node .*node_modules\/\.bin\/next dev/ && $0 ~ (" -p " port) { print $1 }' |
+  awk -v port="$PORT" '
+    $0 ~ /node .*node_modules\/\.bin\/next dev/ && $0 ~ (" -p " port) { print $1 }
+    $0 ~ /next-server/ && $0 ~ (":" port) { print $1 }
+  ' |
   xargs -r kill || true
 sleep 1
 
@@ -41,8 +45,13 @@ fi
 mkdir -p scratch
 rm -f "scratch/wsl-native-dev-$PORT.out.log" "scratch/wsl-native-dev-$PORT.err.log"
 
+if [ "$MODE" = "prepare" ]; then
+  echo "Prepared WSL native workspace: $TARGET_PATH"
+  exit 0
+fi
+
 echo "Starting Next dev from $TARGET_PATH on port $PORT..."
-setsid -f sh -c "npm run dev > scratch/wsl-native-dev-$PORT.out.log 2> scratch/wsl-native-dev-$PORT.err.log < /dev/null"
+npm run dev > "scratch/wsl-native-dev-$PORT.out.log" 2> "scratch/wsl-native-dev-$PORT.err.log" &
 
 for _ in $(seq 1 60); do
   if grep -q 'Ready in' "scratch/wsl-native-dev-$PORT.out.log" 2>/dev/null; then

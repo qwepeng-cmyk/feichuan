@@ -1,49 +1,181 @@
 {
-  "product_name": "化工企业厂区防护",
+  "product_name": "Chemical Plant Protection",
   "product_name_en": "Chemical Plant Protection",
-  "summary": "化工企业厂区属于高风险区域，遍布易燃易爆设施，低空安防核心是实现无人机的预警与精准处置，严防无人机侵入引发安全或窃密事故。系统以防爆为首要原则，在核心区域划定电子围栏、部署智能光电转台，借助红外热成像实现24小时监测。通过AI算法识别无人机后，立即发出最高级别告警并追踪轨迹，保障厂区安全。",
-  "summary_en": "Chemical plants are high-risk areas filled with flammable and explosive facilities. The core of low-altitude security is achieving early warning and precise disposal of UAVs to prevent accidents or theft. Following explosion-proof principles, the system establishes electronic fences and deploys intelligent optoelectronic turntables for 24/7 monitoring using infrared thermal imaging. Once AI algorithms identify a drone, highest-level alerts are issued and trajectories tracked to ensure plant safety.",
-  "key_application": "",
-  "key_application_en": "",
-  "key_parameter_1": "防爆安防策略: 在核心高风险区域划定电子围栏，确保24小时探测",
-  "key_parameter_1_en": "Explosion-proof Policy: Establishing electronic fences in core areas for 24/7 detection",
-  "key_parameter_2": "安全反制手段: 优先采用导航欺骗、定向压制等非接触式处置方式",
-  "key_parameter_2_en": "Safe Countermeasures: Preferential use of non-contact disposal like nav-decoy and directional suppression",
+  "summary": "Public-facing chemical plant low-altitude security content, desensitized from the petrochemical industry proposal.",
+  "summary_en": "A desensitized low-altitude security management solution for chemical plants, tank farms, loading areas, hazardous-material storage zones, and industrial park perimeters. The public version combines critical-infrastructure monitoring with key-area security workflows: low-altitude awareness, multi-source visual verification, entrance screening coordination, command-center linkage, and traceable event records.",
+  "key_application": "Chemical plants, petrochemical parks, storage tank areas, loading zones, hazardous-material warehouses, and industrial perimeter security.",
+  "key_application_en": "Chemical plants, petrochemical parks, storage tank areas, loading zones, hazardous-material warehouses, and industrial perimeter security.",
+  "key_parameter_1": "Monitoring layer: RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal verification can be combined according to site conditions.",
+  "key_parameter_1_en": "Monitoring layer: RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal verification can be combined according to site conditions.",
+  "key_parameter_2": "Integrated workflow: consolidate alarms, visual evidence, checkpoint exceptions, device status, authorization context, operator notes, and event review records.",
+  "key_parameter_2_en": "Integrated workflow: consolidate alarms, visual evidence, checkpoint exceptions, device status, authorization context, operator notes, and event review records.",
   "parameters": {
-    "防爆等级": "Ex d IIC T6 Gb",
-    "监测模式": "AI智能识别-追踪",
-    "处置手段": "导航欺骗、定向压制",
-    "防护策略": "分层立体防御"
+    "operation_upgrade_eyebrow": "Petrochemical Security Upgrade",
+    "operation_upgrade_title": "How Low-Altitude Monitoring Supports Chemical Site Security",
+    "solution_modules_intro": "The solution follows a monitor, verify, screen, alert, coordinate, and review workflow for hazardous industrial environments. It keeps the public page at an operational level and leaves sensitive engineering parameters for controlled project documentation.",
+    "industry_pain_points_image": "/solutions/chemical-plant-protection/industry-pain-points-tank-drone.webp",
+    "industry_pain_points": [
+      "Chemical and petrochemical sites include storage tanks, loading areas, pipe corridors, control rooms, and restricted process zones where unauthorized low-altitude activity can create safety, privacy, and continuity risks.",
+      "Large plant footprints, night operations, steam, dust, high structures, and complex perimeter roads make it difficult for manual patrols and fixed cameras to maintain complete visibility.",
+      "Regulated operators must coordinate low-altitude awareness, perimeter patrols, visitor access, material checks, alarm escalation, and event review without exposing sensitive site details."
+    ],
+    "uav_industry_upgrade": [
+      "RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal observation can be fused to provide a broader picture of aerial activity around plant boundaries and key operating zones.",
+      "The command platform consolidates target alerts, visual evidence, device status, authorization context, and operator notes so security teams can work from one shared situational view.",
+      "Entrance screening, material inspection, event timelines, track snapshots, alarm records, and handling notes support compliance review, internal training, and continuous improvement of site procedures."
+    ],
+    "solution_modules": [
+      {
+        "name": "Perimeter Airspace Awareness",
+        "description": "Monitor low-altitude activity around plant boundaries, tank areas, loading points, and restricted industrial zones with a public description that avoids sensitive layouts and technical thresholds.",
+        "image": "/solutions/chemical-plant-protection/module-perimeter-refinery-wide.webp"
+      },
+      {
+        "name": "Multi-Source Verification",
+        "description": "Combine RF, Remote ID, radar, visible-light, and thermal observations to help operators confirm abnormal aerial activity in complex industrial backgrounds.",
+        "image": "/solutions/chemical-plant-protection/module-multisource-smokestacks.webp"
+      },
+      {
+        "name": "Command Platform Linkage",
+        "description": "Aggregate alarms, device status, electronic map context, whitelist or authorization information, and operator actions into a unified security-room workflow.",
+        "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
+      },
+      {
+        "name": "Checkpoint and Materials Screening",
+        "description": "Coordinate visitor, staff, vehicle, parcel, and maintenance-material checks with the same event workflow used for perimeter and low-altitude alerts.",
+        "image": "/solutions/chemical-plant-protection/module-checkpoint-loading-pier.webp"
+      },
+      {
+        "name": "Regulation-Aware Response Workflow",
+        "description": "Support policy-based escalation, on-site verification, security coordination, and authorized handling while keeping controlled settings out of public materials.",
+        "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
+      },
+      {
+        "name": "Traceable Review",
+        "description": "Preserve event logs, visual snapshots, track records, and handling notes for audit, training, and post-event improvement.",
+        "image": "/solutions/chemical-plant-protection/module-review-refinery-sea.webp"
+      }
+    ],
+    "public_scope_notes": [
+      "Public text keeps project-specific engineering and acceptance details out of the page.",
+      "Detailed design is handled only through controlled project documentation and project-specific compliance review."
+    ],
+    "typical_outputs": "Low-altitude event alerts, verified visual snapshots, track timelines, operator notes, device-status records, and security review reports."
   },
   "parameters_en": {
-    "Explosion-proof": "Ex d IIC T6 Gb",
-    "Monitoring": "AI intelligent recognition & tracking",
-    "Disposal": "Navigation deception, directional suppression",
-    "Defense Policy": "Layered three-dimensional defense"
+    "operation_upgrade_eyebrow": "Petrochemical Security Upgrade",
+    "operation_upgrade_title": "How Low-Altitude Monitoring Supports Chemical Site Security",
+    "solution_modules_intro": "The solution follows a monitor, verify, screen, alert, coordinate, and review workflow for hazardous industrial environments. It keeps the public page at an operational level and leaves sensitive engineering parameters for controlled project documentation.",
+    "industry_pain_points_image": "/solutions/chemical-plant-protection/industry-pain-points-tank-drone.webp",
+    "industry_pain_points": [
+      "Chemical and petrochemical sites include storage tanks, loading areas, pipe corridors, control rooms, and restricted process zones where unauthorized low-altitude activity can create safety, privacy, and continuity risks.",
+      "Large plant footprints, night operations, steam, dust, high structures, and complex perimeter roads make it difficult for manual patrols and fixed cameras to maintain complete visibility.",
+      "Regulated operators must coordinate low-altitude awareness, perimeter patrols, visitor access, material checks, alarm escalation, and event review without exposing sensitive site details."
+    ],
+    "uav_industry_upgrade": [
+      "RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal observation can be fused to provide a broader picture of aerial activity around plant boundaries and key operating zones.",
+      "The command platform consolidates target alerts, visual evidence, device status, authorization context, and operator notes so security teams can work from one shared situational view.",
+      "Entrance screening, material inspection, event timelines, track snapshots, alarm records, and handling notes support compliance review, internal training, and continuous improvement of site procedures."
+    ],
+    "solution_modules": [
+      {
+        "name": "Perimeter Airspace Awareness",
+        "description": "Monitor low-altitude activity around plant boundaries, tank areas, loading points, and restricted industrial zones with a public description that avoids sensitive layouts and technical thresholds.",
+        "image": "/solutions/chemical-plant-protection/module-perimeter-refinery-wide.webp"
+      },
+      {
+        "name": "Multi-Source Verification",
+        "description": "Combine RF, Remote ID, radar, visible-light, and thermal observations to help operators confirm abnormal aerial activity in complex industrial backgrounds.",
+        "image": "/solutions/chemical-plant-protection/module-multisource-smokestacks.webp"
+      },
+      {
+        "name": "Command Platform Linkage",
+        "description": "Aggregate alarms, device status, electronic map context, whitelist or authorization information, and operator actions into a unified security-room workflow.",
+        "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
+      },
+      {
+        "name": "Checkpoint and Materials Screening",
+        "description": "Coordinate visitor, staff, vehicle, parcel, and maintenance-material checks with the same event workflow used for perimeter and low-altitude alerts.",
+        "image": "/solutions/chemical-plant-protection/module-checkpoint-loading-pier.webp"
+      },
+      {
+        "name": "Regulation-Aware Response Workflow",
+        "description": "Support policy-based escalation, on-site verification, security coordination, and authorized handling while keeping controlled settings out of public materials.",
+        "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
+      },
+      {
+        "name": "Traceable Review",
+        "description": "Preserve event logs, visual snapshots, track records, and handling notes for audit, training, and post-event improvement.",
+        "image": "/solutions/chemical-plant-protection/module-review-refinery-sea.webp"
+      }
+    ],
+    "public_scope_notes": [
+      "Public text keeps project-specific engineering and acceptance details out of the page.",
+      "Detailed design is handled only through controlled project documentation and project-specific compliance review."
+    ],
+    "typical_outputs": "Low-altitude event alerts, verified visual snapshots, track timelines, operator notes, device-status records, and security review reports."
   },
-  "detail_html": "<h4>方案详解</h4><p>系统协同实现全流程自动化运行，能够适配全天候复杂场景，高效抵御各类低空非法无人机威胁。采用分层应用策略，外围部署无线电侦测设备定位无人机操控者，预警区启用导航欺骗驱离无人机。</p><ul><li>全流程自动化预警处置</li><li>防爆外壳设计，适应危化环境</li><li>AI算法自动捕捉追踪</li></ul>",
-  "detail_html_en": "<h4>Detailed Solution</h4><p>The system collaborates for fully automated operation, adapting to all-weather complex scenarios and efficiently resisting low-altitude illegal UAV threats. Using a layered strategy, wireless sensors locate pilots at the periphery, while decoy systems drive away drones in the warning zone.</p><ul><li>Fully automated alerting and disposal</li><li>Explosion-proof casing for hazardous environments</li><li>AI algorithms for auto capture and tracking</li></ul>",
-  "main_image": "/solutions/infrastructure protection/Chemical Plant Area Protection/Chemical Plant Area Protection.png",
+  "detail_sections": {
+    "operation_upgrade_eyebrow": "Petrochemical Security Upgrade",
+    "operation_upgrade_title": "How Low-Altitude Monitoring Supports Chemical Site Security",
+    "solution_modules_intro": "The solution follows a monitor, verify, screen, alert, coordinate, and review workflow for hazardous industrial environments. It keeps the public page at an operational level and leaves sensitive engineering parameters for controlled project documentation.",
+    "industry_pain_points_image": "/solutions/chemical-plant-protection/industry-pain-points-tank-drone.webp",
+    "industry_pain_points": [
+      "Chemical and petrochemical sites include storage tanks, loading areas, pipe corridors, control rooms, and restricted process zones where unauthorized low-altitude activity can create safety, privacy, and continuity risks.",
+      "Large plant footprints, night operations, steam, dust, high structures, and complex perimeter roads make it difficult for manual patrols and fixed cameras to maintain complete visibility.",
+      "Regulated operators must coordinate low-altitude awareness, perimeter patrols, visitor access, material checks, alarm escalation, and event review without exposing sensitive site details."
+    ],
+    "uav_industry_upgrade": [
+      "RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal observation can be fused to provide a broader picture of aerial activity around plant boundaries and key operating zones.",
+      "The command platform consolidates target alerts, visual evidence, device status, authorization context, and operator notes so security teams can work from one shared situational view.",
+      "Entrance screening, material inspection, event timelines, track snapshots, alarm records, and handling notes support compliance review, internal training, and continuous improvement of site procedures."
+    ],
+    "solution_modules": [
+      {
+        "name": "Perimeter Airspace Awareness",
+        "description": "Monitor low-altitude activity around plant boundaries, tank areas, loading points, and restricted industrial zones with a public description that avoids sensitive layouts and technical thresholds.",
+        "image": "/solutions/chemical-plant-protection/module-perimeter-refinery-wide.webp"
+      },
+      {
+        "name": "Multi-Source Verification",
+        "description": "Combine RF, Remote ID, radar, visible-light, and thermal observations to help operators confirm abnormal aerial activity in complex industrial backgrounds.",
+        "image": "/solutions/chemical-plant-protection/module-multisource-smokestacks.webp"
+      },
+      {
+        "name": "Command Platform Linkage",
+        "description": "Aggregate alarms, device status, electronic map context, whitelist or authorization information, and operator actions into a unified security-room workflow.",
+        "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
+      },
+      {
+        "name": "Checkpoint and Materials Screening",
+        "description": "Coordinate visitor, staff, vehicle, parcel, and maintenance-material checks with the same event workflow used for perimeter and low-altitude alerts.",
+        "image": "/solutions/chemical-plant-protection/module-checkpoint-loading-pier.webp"
+      },
+      {
+        "name": "Regulation-Aware Response Workflow",
+        "description": "Support policy-based escalation, on-site verification, security coordination, and authorized handling while keeping controlled settings out of public materials.",
+        "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
+      },
+      {
+        "name": "Traceable Review",
+        "description": "Preserve event logs, visual snapshots, track records, and handling notes for audit, training, and post-event improvement.",
+        "image": "/solutions/chemical-plant-protection/module-review-refinery-sea.webp"
+      }
+    ]
+  },
+  "detail_html": "<h2>Industry Pain Points</h2><ul><li>Chemical and petrochemical sites include storage tanks, loading areas, pipe corridors, control rooms, and restricted process zones where unauthorized low-altitude activity can create safety, privacy, and continuity risks.</li><li>Large plant footprints, night operations, steam, dust, high structures, and complex perimeter roads make it difficult for manual patrols and fixed cameras to maintain complete visibility.</li><li>Regulated operators must coordinate low-altitude awareness, perimeter patrols, visitor access, material checks, alarm escalation, and event review without exposing sensitive site details.</li></ul><h2>Petrochemical Security Upgrade</h2><ul><li>RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal observation can be fused to provide a broader picture of aerial activity around plant boundaries and key operating zones.</li><li>The command platform consolidates target alerts, visual evidence, device status, authorization context, and operator notes so security teams can work from one shared situational view.</li><li>Entrance screening, material inspection, event timelines, track snapshots, alarm records, and handling notes support compliance review, internal training, and continuous improvement of site procedures.</li></ul><h2>Solution Modules</h2><ul><li><strong>Perimeter Airspace Awareness</strong>: Monitor low-altitude activity around plant boundaries, tank areas, loading points, and restricted industrial zones with a public description that avoids sensitive layouts and technical thresholds.</li><li><strong>Multi-Source Verification</strong>: Combine RF, Remote ID, radar, visible-light, and thermal observations to help operators confirm abnormal aerial activity in complex industrial backgrounds.</li><li><strong>Command Platform Linkage</strong>: Aggregate alarms, device status, electronic map context, whitelist or authorization information, and operator actions into a unified security-room workflow.</li><li><strong>Checkpoint and Materials Screening</strong>: Coordinate visitor, staff, vehicle, parcel, and maintenance-material checks with the same event workflow used for perimeter and low-altitude alerts.</li><li><strong>Regulation-Aware Response Workflow</strong>: Support policy-based escalation, on-site verification, security coordination, and authorized handling while keeping controlled settings out of public materials.</li><li><strong>Traceable Review</strong>: Preserve event logs, visual snapshots, track records, and handling notes for audit, training, and post-event improvement.</li></ul>",
+  "detail_html_en": "<h2>Industry Pain Points</h2><ul><li>Chemical and petrochemical sites include storage tanks, loading areas, pipe corridors, control rooms, and restricted process zones where unauthorized low-altitude activity can create safety, privacy, and continuity risks.</li><li>Large plant footprints, night operations, steam, dust, high structures, and complex perimeter roads make it difficult for manual patrols and fixed cameras to maintain complete visibility.</li><li>Regulated operators must coordinate low-altitude awareness, perimeter patrols, visitor access, material checks, alarm escalation, and event review without exposing sensitive site details.</li></ul><h2>Petrochemical Security Upgrade</h2><ul><li>RF detection, Remote ID monitoring, low-altitude radar, and EO/thermal observation can be fused to provide a broader picture of aerial activity around plant boundaries and key operating zones.</li><li>The command platform consolidates target alerts, visual evidence, device status, authorization context, and operator notes so security teams can work from one shared situational view.</li><li>Entrance screening, material inspection, event timelines, track snapshots, alarm records, and handling notes support compliance review, internal training, and continuous improvement of site procedures.</li></ul><h2>Solution Modules</h2><ul><li><strong>Perimeter Airspace Awareness</strong>: Monitor low-altitude activity around plant boundaries, tank areas, loading points, and restricted industrial zones with a public description that avoids sensitive layouts and technical thresholds.</li><li><strong>Multi-Source Verification</strong>: Combine RF, Remote ID, radar, visible-light, and thermal observations to help operators confirm abnormal aerial activity in complex industrial backgrounds.</li><li><strong>Command Platform Linkage</strong>: Aggregate alarms, device status, electronic map context, whitelist or authorization information, and operator actions into a unified security-room workflow.</li><li><strong>Checkpoint and Materials Screening</strong>: Coordinate visitor, staff, vehicle, parcel, and maintenance-material checks with the same event workflow used for perimeter and low-altitude alerts.</li><li><strong>Regulation-Aware Response Workflow</strong>: Support policy-based escalation, on-site verification, security coordination, and authorized handling while keeping controlled settings out of public materials.</li><li><strong>Traceable Review</strong>: Preserve event logs, visual snapshots, track records, and handling notes for audit, training, and post-event improvement.</li></ul>",
+  "main_image": "/solutions/infrastructure protection/Chemical Plant Area Protection/Chemical Plant Area Protection.webp",
   "handle": "chemical-plant-protection",
-  "category_primary": "Infrastructure Protection (关键设施防护)",
+  "category_primary": "Infrastructure Protection",
   "recommended_products": [
     "stationary-rf-detection-system",
-    "stationary-active-rf-defense-system",
-    "uav-navigation-spoofing-system",
+    "uav-remote-id-monitoring-system",
     "composite-electro-optical-tracking-system",
-    "handheld-integrated-sdr-c-uas",
-    "portable-anti-drone-jammer-shield"
+    "low-altitude-detection-radar-ku-band",
+    "fc2088-handheld-metal-detector",
+    "fc-h-smart-phone-detection-gate",
+    "fc6550d-dual-view-baggage-scanner"
   ],
-  "product_name_ru": "Защита химических предприятий",
-  "summary_ru": "Химические заводы — это зоны высокого риска с взрывопожароопасными объектами. Система обеспечивает раннее предупреждение и точную нейтрализацию БПЛА для предотвращения аварий и кражи данных. Основной принцип — взрывозащищенное исполнение оборудования и 24/7 тепловизионный мониторинг.",
-  "key_application_ru": "Химические заводы, зоны хранения опасных веществ",
-  "key_parameter_1_ru": "Стратегия безопасности: Создание электронных ограждений в критических зонах для круглосуточного обнаружения",
-  "key_parameter_2_ru": "Безопасные контрмеры: Приоритет бесконтактных методов (имитация навигации и направленное подавление)",
-  "parameters_ru": {
-    "Класс взрывозащиты": "Ex d IIC T6 Gb",
-    "Режим мониторинга": "ИИ-распознавание и сопровождение",
-    "Методы нейтрализации": "Навигационная десепция, направленное подавление",
-    "Политика обороны": "Многоуровневая эшелонированная защита"
-  },
-  "detail_html_ru": "<h4>Детальное решение</h4><p>Система работает в автоматическом режиме, адаптируясь к сложным погодным условиям и эффективно отражая угрозы. Используется стратегия эшелонирования: обнаружение оператора на периферии и имитация сигнала в зоне предупреждения.</p><ul><li>Полностью автоматизированное оповещение и нейтрализация</li><li>Взрывозащищенный корпус для работы в опасных средах</li><li>ИИ-алгоритмы для автоматического захвата и сопровождения</li></ul>"
+  "recommended_cases": []
 }

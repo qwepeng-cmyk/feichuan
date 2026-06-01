@@ -1094,6 +1094,23 @@ header#site-header.scrolled {
     object-fit: contain;
 }
 
+.solution-hero-gallery .gallery-main {
+    width: 100%;
+    background: #fff;
+    border-color: #dfe8f4;
+    box-sizing: border-box;
+}
+
+.solution-hero-gallery .gallery-main img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 /* PRODUCT INFO */
 .product-info {
     display: flex;

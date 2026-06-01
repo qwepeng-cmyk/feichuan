@@ -116,6 +116,11 @@ const uavSolutionScenes = {
   powerLineDocHardware: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-05.webp',
   powerLineDocWire: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-06.webp',
   powerLineDocInsulator: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-07.webp',
+  firefightingPainPoint: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/high-rise-fire-drill.webp',
+  firefightingSpray: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/high-rise-water-spray.webp',
+  firefightingForest: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/forest-fire-support.webp',
+  firefightingBuilding: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/building-fire-rescue.webp',
+  firefightingWindow: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/high-rise-window-breaking.webp',
 };
 
 const waterSolutionImages = [
@@ -134,17 +139,21 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
   {
     match: 'urban-high-rise-firefighting',
     images: [
-      uavSolutionScenes.highRiseFirefighting,
-      uavSolutionScenes.searchRescue,
-      uavSolutionScenes.nightLighting,
+      uavSolutionScenes.firefightingPainPoint,
+      uavSolutionScenes.firefightingSpray,
+      uavSolutionScenes.firefightingForest,
+      uavSolutionScenes.firefightingBuilding,
+      uavSolutionScenes.firefightingWindow,
     ],
   },
   {
     match: 'high-rise-firefighting',
     images: [
-      uavSolutionScenes.highRiseFirefighting,
-      uavSolutionScenes.searchRescue,
-      uavSolutionScenes.nightLighting,
+      uavSolutionScenes.firefightingPainPoint,
+      uavSolutionScenes.firefightingSpray,
+      uavSolutionScenes.firefightingForest,
+      uavSolutionScenes.firefightingBuilding,
+      uavSolutionScenes.firefightingWindow,
     ],
   },
   {
@@ -235,9 +244,39 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
     ],
   },
   {
+    match: 'oil-production-base-protection',
+    images: [
+      '/products/02-drone-detection/drone-detection-home.webp',
+      '/products/02-drone-detection/stationary-rf-detection-system.webp',
+      '/products/02-drone-detection/electro-optical-tracking-system.webp',
+      '/products/02-drone-detection/low-altitude-detection-radar.webp',
+      '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp',
+    ],
+  },
+  {
     match: 'airport-security-protection',
     images: [
-      '/solutions/key area security/Airport Security Protection/Airport Security Protection.jpg',
+      '/solutions/solutions/Airport Security Protection.webp',
+      '/products/02-drone-detection/stationary-rf-detection-system.webp',
+      '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
+      '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
+      '/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp',
+    ],
+  },
+  {
+    match: 'judicial-sector-security',
+    images: [
+      '/solutions/solutions/Judicial Sector Security.webp',
+      '/products/02-drone-detection/stationary-rf-detection-system.webp',
+      '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
+      '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
+      '/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp',
+    ],
+  },
+  {
+    match: 'sports-event-security',
+    images: [
+      '/solutions/solutions/Large Sports Event Security.webp',
       '/products/02-drone-detection/stationary-rf-detection-system.webp',
       '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
       '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
@@ -572,8 +611,8 @@ export default function SolutionDetailClient({
             <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 0.98fr) minmax(380px, 0.72fr)', gap: '56px', alignItems: 'start' }}>
 
               {/* Image Gallery Area */}
-              <div className="gallery-main-area">
-                <UniversalGallery images={heroImages} alt={name} fit="contain" aspectRatio="16 / 10" />
+              <div className="gallery-main-area solution-hero-gallery">
+                <UniversalGallery images={heroImages} alt={name} fit="cover" aspectRatio="16 / 10" />
               </div>
 
               {/* Info Area */}
