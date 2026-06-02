@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function InquiryForm({ dict }: { dict?: any }) {
+    const router = useRouter();
+    const pathname = usePathname();
     const d = dict?.inquiry || {
         title: "Get Solution & Quotation",
         subtitle: "Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.",
@@ -117,7 +120,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
             });
 
             if (response.ok) {
-                setIsSubmitted(true);
+                router.push(pathname?.startsWith('/ru') ? '/ru/thank-you' : '/thank-you');
                 // Reset form
                 setFormData({
                     name: '',

@@ -47,8 +47,21 @@ export async function POST(request: Request) {
         body.id = handle;
         body.is_published = isPublished;
 
-        db.prepare('INSERT INTO media (id, title, image, category, date, is_published, raw_json) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
-            handle, body.title, body.image || '', body.category || '', body.date || '', isPublished, JSON.stringify(body)
+        db.prepare(`
+            INSERT INTO media (
+                id, title, title_ru, image, category, date, content, content_ru, is_published, raw_json
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `).run(
+            handle,
+            body.title,
+            body.title_ru || '',
+            body.image || '',
+            body.category || '',
+            body.date || '',
+            body.content || '',
+            body.content_ru || '',
+            isPublished,
+            JSON.stringify(body)
         );
         
         syncMediaToJson();

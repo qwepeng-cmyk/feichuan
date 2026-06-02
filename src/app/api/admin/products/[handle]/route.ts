@@ -4,10 +4,31 @@ import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { handle: string } }) {
     try {
-        const row = db.prepare('SELECT raw_json, COALESCE(is_published, 1) AS is_published FROM products WHERE handle = ?').get(params.handle) as any;
+        const row = db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
 
-        return NextResponse.json({ success: true, data: { ...JSON.parse(row.raw_json), is_published: row.is_published } });
+        return NextResponse.json({
+            success: true,
+            data: {
+                ...JSON.parse(row.raw_json || '{}'),
+                handle: row.handle,
+                product_name_en: row.product_name_en,
+                product_name_ru: row.product_name_ru,
+                category_primary: row.category_primary,
+                summary_en: row.summary_en,
+                summary_ru: row.summary_ru,
+                key_application_en: row.key_application_en,
+                key_application_ru: row.key_application_ru,
+                key_parameter_1_en: row.key_parameter_1_en,
+                key_parameter_1_ru: row.key_parameter_1_ru,
+                key_parameter_2_en: row.key_parameter_2_en,
+                key_parameter_2_ru: row.key_parameter_2_ru,
+                detail_html_en: row.detail_html_en,
+                detail_html_ru: row.detail_html_ru,
+                main_image: row.main_image,
+                is_published: row.is_published,
+            },
+        });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
     }

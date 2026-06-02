@@ -39,7 +39,7 @@
 
 /* 2. Filter Section */
 .filterSection {
-    padding: 0 15px 20px; /* Removed top padding to eliminate gap */
+    padding: 16px 15px 20px;
     background: #fff;
     border-bottom: 1px solid #eee;
     display: flex;

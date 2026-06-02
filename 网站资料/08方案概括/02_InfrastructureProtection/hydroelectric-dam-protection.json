@@ -2,60 +2,54 @@
   "product_name": "水电大坝低空安全防护",
   "product_name_en": "Hydroelectric Dam Protection",
   "product_name_ru": "Защита гидроэлектрических плотин",
-  "summary": "面向水电大坝、库区、厂房、溢洪道和巡检通道的低空安全流程方案。方案围绕异常发现、目标确认、轨迹跟踪、风险上报和事件复盘展开，公开内容仅保留管理流程和记录要求，不呈现现场点位、具体执行手段或受控技术信息。",
-  "summary_en": "A desensitized low-altitude security workflow for hydroelectric dams, reservoirs, powerhouses, spillways, and inspection routes. It focuses on anomaly discovery, target confirmation, track following, risk alert reporting, and closed-loop event review while excluding site layouts, execution methods, and controlled technical details from public content.",
-  "summary_ru": "Обезличенный процесс низковысотной безопасности для гидроэлектрических плотин, водохранилищ, машинных залов, водосбросов и инспекционных маршрутов. Он охватывает обнаружение аномалий, подтверждение цели, сопровождение, уведомление о риске и разбор события без публикации схем площадки, методов исполнения и контролируемых технических деталей.",
+  "summary": "????????????????????????????????????????????????????????????????????????????????????????????????????????????",
+  "summary_en": "A low-altitude security workflow for hydroelectric dams, reservoirs, powerhouses, spillways, and inspection routes. Based on critical infrastructure protection requirements, it focuses on low-altitude awareness, target confirmation, track following, alert linkage, and dispatch coordination for complex terrain, water reflection, and fog-prone dam environments.",
+  "summary_ru": "Процесс низковысотной безопасности для гидроэлектрических плотин, водохранилищ, машинных залов, водосбросов и инспекционных маршрутов. Он основан на логике защиты критической инфраструктуры и охватывает наблюдение, подтверждение цели, сопровождение, согласование тревог и разбор событий в сложном рельефе, при бликах воды и тумане.",
   "key_application": "水电大坝、库区岸线、厂房周界、溢洪道、取水口、闸口、巡检道路、输变电接口和运行调度值守场景。",
   "key_application_en": "Hydroelectric dams, reservoir shorelines, powerhouse perimeters, spillways, intake areas, gates, inspection roads, grid-interface zones, and operations duty rooms.",
   "key_application_ru": "Гидроэлектрические плотины, берега водохранилищ, периметры машинных залов, водосбросы, водозаборы, ворота, инспекционные дороги, узлы подключения к энергосети и дежурные диспетчерские.",
-  "key_parameter_1": "流程链路：低空异常发现、目标识别确认、轨迹持续跟踪、风险告警上报、事件闭环复盘。",
-  "key_parameter_1_en": "Workflow Chain: low-altitude anomaly discovery, target identification confirmation, continuous track following, risk alert reporting, and closed-loop event review.",
+  "key_parameter_1": "????????????????????????????????????",
+  "key_parameter_1_en": "Workflow Chain: low-altitude anomaly discovery, target identification confirmation, continuous track following, alert linkage, and dispatch coordination.",
   "key_parameter_1_ru": "Цепочка процесса: обнаружение низковысотной аномалии, подтверждение цели, непрерывное сопровождение, уведомление о риске и замкнутый разбор события.",
-  "key_parameter_2": "公开边界：不展示现场点位、执行细节、受控技术信息或项目专属配置。",
-  "key_parameter_2_en": "Public Boundary: site layouts, execution details, controlled technical information, and project-specific configurations are not displayed.",
-  "key_parameter_2_ru": "Публичные границы: схемы площадки, исполнительные детали, контролируемые технические сведения и проектные конфигурации не отображаются.",
+  "key_parameter_2": "环境适配：结合可视化画面、热成像辅助与人工复核，降低水面反光、雾气、鸟类活动和复杂地形带来的影响。",
+  "key_parameter_2_en": "Dam-Environment Adaptation: visual review, thermal assistance, and operator confirmation help reduce the impact of water reflection, fog, bird activity, and complex terrain.",
+  "key_parameter_2_ru": "Адаптация к среде плотины: визуальная проверка, тепловизионная поддержка и подтверждение оператором помогают снизить влияние бликов воды, тумана, птиц и сложного рельефа.",
   "parameters": {
     "industry_pain_points": [
-      "坝体、厂房、溢洪道、取水口与输变电接口属于连续运行关键区域，低空异常靠近会影响值守判断和运行秩序。",
-      "库区山谷、水面反光、雾气、雨雪和鸟类活动交织，单一视频或人工巡查容易出现漏看、误判和响应滞后。",
-      "库岸、道路、闸口和巡检通道跨度大，值守人员需要看到目标出现、移动方向、风险区域和事件状态的完整链路。",
-      "公开方案只说明管理流程和留痕要求，不呈现现场点位、执行细节或受控技术信息。"
+      "?????????????????????????????????????????????????",
+      "???????????????????????????????????????????????",
+      "??????????????????????????????????????????????????",
+      "???????????????????????????????????????????????????"
     ],
     "uav_industry_upgrade": [
-      "发现：围绕坝体、厂房、库区岸线、闸口和巡检通道进行低空异常值守，及时形成事件线索。",
-      "确认：通过可视化画面、热成像辅助和人工复核确认目标属性，过滤水面反光、鸟类和复杂地形带来的噪声。",
-      "跟踪：记录目标轨迹、靠近方向、停留位置和关联区域，让值守人员掌握事件变化。",
-      "上报：按风险区域和预案等级推送给安保、运行调度和现场巡查岗位，统一事件口径。",
-      "复盘：沉淀图像、轨迹、时间线、值守记录和处理结果，用于事后追溯、培训和流程优化。"
+      "?????????????????????????????????????????",
+      "????????????????????????????????????????????????",
+      "?????????????????????????????????????",
+      "???????????????????????????????????????????"
     ],
-    "solution_modules_intro": "方案按低空安全事件的工作链路组织：先发现异常，再确认目标、持续跟踪、分级上报，最后形成可复盘的事件记录。公开内容保留流程逻辑，去掉具体执行手段、技术参数和现场敏感信息。",
+    "solution_modules_intro": "????????????????????????????????????????????????????????????????????????????????",
     "operation_upgrade_eyebrow": "流程升级",
-    "operation_upgrade_title": "低空安全事件流程",
+    "operation_upgrade_title": "????????",
     "solution_modules": [
       {
-        "name": "低空异常发现",
-        "description": "面向坝体、库区岸线、厂房周界和巡检道路建立连续值守入口，尽早捕捉异常低空活动线索。",
+        "name": "??????",
+        "description": "?????????????????????????????????????????",
         "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
       },
       {
-        "name": "目标识别确认",
-        "description": "结合清晰画面、热成像辅助和人工复核，确认目标类型、位置和可疑程度，减少环境因素造成的误判。",
+        "name": "??????",
+        "description": "?????????????????????????????????????????????",
         "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
       },
       {
-        "name": "轨迹持续跟踪",
-        "description": "围绕目标移动方向、靠近区域和停留状态形成连续轨迹，为值守判断提供可视依据。",
+        "name": "??????",
+        "description": "?????????????????????????????????????",
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "风险告警上报",
-        "description": "根据坝体、厂房、闸口、输变电接口等区域等级推送告警，让安保、运行和巡查岗位共享同一事件状态。",
-        "image": "/solutions/hydroelectric-dam-protection/module-risk-alert-powerhouse.webp"
-      },
-      {
-        "name": "事件闭环复盘",
-        "description": "将图像、轨迹、告警、人工确认和处理结论归档，支持责任追溯、流程优化和后续培训。",
-        "image": "/solutions/hydroelectric-dam-protection/module-event-review-dam-site.webp"
+        "name": "?????????",
+        "description": "??????????????????????????????????????????????",
+        "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
     ],
     "industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
@@ -64,19 +58,18 @@
     "industry_pain_points": [
       "Dam bodies, powerhouses, spillways, intake areas, and grid-interface zones operate continuously, so abnormal low-altitude activity nearby can disrupt duty-room judgment and operational order.",
       "Reservoir valleys, water reflection, fog, rain, and bird activity make single-camera observation or manual patrols prone to missed events, false alarms, and delayed confirmation.",
-      "Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the event status changes.",
-      "The public solution explains the management workflow and record requirements only; site layouts, execution details, and controlled technical information are not published."
+      "Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the alert status changes.",
+      "Dam low-altitude security needs awareness, confirmation, tracking, alert circulation, and dispatch coordination in one workflow so abnormal target information does not remain fragmented between duty roles."
     ],
     "uav_industry_upgrade": [
-      "Discover: maintain low-altitude event awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal activity early.",
+      "Discover: maintain low-altitude awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal target clues early.",
       "Confirm: use visual review, thermal assistance, and operator verification to identify the target context while filtering reflection, birds, and terrain noise.",
-      "Track: record movement direction, approach area, dwell position, and event changes so the duty team can follow the complete timeline.",
-      "Report: route alerts by risk area and response plan level to security, operations dispatch, and field patrol roles with a shared event status.",
-      "Review: archive imagery, tracks, timestamps, operator notes, and final handling records for traceability, training, and workflow improvement."
+      "Track: record movement direction, approach area, dwell position, and related zones so the duty team can follow target changes.",
+      "Link: route alerts by risk area and synchronize target imagery, tracks, and alert status to support operations dispatch and field patrol coordination."
     ],
-    "solution_modules_intro": "The solution is organized around the low-altitude security event chain: discover abnormal activity, confirm the target, track movement, report by risk level, and retain a reviewable record. Public copy keeps the workflow logic while removing execution methods, technical parameters, and site-sensitive details.",
+    "solution_modules_intro": "The solution is organized around a concise low-altitude security chain: discover abnormal activity, confirm the target, track movement, and link alerts with operations dispatch and field patrol roles. It focuses on duty-room workflow, data synchronization, and dispatch coordination.",
     "operation_upgrade_eyebrow": "Operational Flow",
-    "operation_upgrade_title": "Desensitized Low-Altitude Security Workflow",
+    "operation_upgrade_title": "Low-Altitude Security Workflow for Dam Operations",
     "solution_modules": [
       {
         "name": "Low-Altitude Anomaly Discovery",
@@ -94,14 +87,9 @@
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Risk Alert Reporting",
-        "description": "Routes alerts according to protected-zone priority so security, operations dispatch, and field patrol teams share the same event status.",
-        "image": "/solutions/hydroelectric-dam-protection/module-risk-alert-powerhouse.webp"
-      },
-      {
-        "name": "Closed-Loop Event Review",
-        "description": "Archives images, tracks, timestamps, operator notes, and final records for traceability, training, and workflow improvement.",
-        "image": "/solutions/hydroelectric-dam-protection/module-event-review-dam-site.webp"
+        "name": "Alert Linkage and Dispatch Coordination",
+        "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
+        "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
     ],
     "industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
@@ -111,43 +99,37 @@
       "Тело плотины, машинный зал, водосбросы, водозаборы и узлы подключения к энергосети работают непрерывно, поэтому низковысотная активность рядом с ними влияет на дежурную оценку и порядок эксплуатации.",
       "Горный рельеф водохранилища, отражение от воды, туман, осадки и птицы усложняют наблюдение: одного видеоканала или ручного обхода часто недостаточно.",
       "Протяженные берега, подъездные дороги, посты и инспекционные маршруты требуют единой картины: где появился объект, куда он движется, к какой зоне приближается и как меняется статус события.",
-      "Публичное описание раскрывает только управленческий процесс и требования к фиксации событий; схемы площадки, исполнительные детали и контролируемые технические сведения не публикуются."
+      "Низковысотная безопасность плотины требует единого процесса для наблюдения, подтверждения, сопровождения, передачи тревог и координации с диспетчерскими ролями, чтобы информация о событии не оставалась разрозненной."
     ],
     "uav_industry_upgrade": [
-      "Обнаружение: постоянное наблюдение за низковысотными событиями вокруг плотины, машинного зала, береговой линии, ворот и инспекционных маршрутов.",
-      "Подтверждение: визуальная проверка, тепловизионная поддержка и оценка оператором помогают отделять реальные события от отражений, птиц и рельефа.",
-      "Сопровождение: фиксируются направление движения, зона приближения, место зависания или остановки и изменение статуса события.",
-      "Уведомление: сообщения направляются по уровню зоны риска дежурной охране, диспетчеру эксплуатации и полевым группам с единым статусом события.",
-      "Разбор: изображения, траектории, отметки времени, записи оператора и итоговые решения сохраняются для проверки, обучения и улучшения процесса."
+      "???????????: ?????????? ?????????? ?? ?????????????? ????????? ?????? ???????, ????????? ????, ????????? ?????, ????? ? ????????????? ?????????.",
+      "?????????????: ?????????? ????????, ?????????????? ????????? ? ?????? ?????????? ???????? ???????? ???????? ??????? ?? ?????????, ???? ? ???????.",
+      "?????????????: ??????????? ??????????? ????????, ???? ??????????? ? ????????? ??????? ???????.",
+      "?????: ??????? ?????????? ?? ???? ?????, ? ??????????? ????, ?????????? ? ?????? ???????????????? ??? ?????????? ? ??????? ?????."
     ],
-    "solution_modules_intro": "Решение выстроено как цепочка низковысотного события: обнаружить аномалию, подтвердить объект, сопровождать движение, уведомить по уровню риска и сохранить проверяемую запись. Публичный текст сохраняет логику процесса, но исключает методы исполнения, технические параметры и чувствительные сведения площадки.",
+    "solution_modules_intro": "??????? ????????? ??? ???????? ??????? ?????????????? ???????: ?????????? ????????, ??????????? ??????, ???????????? ???????? ? ??????? ??????? ? ?????????????? ? ???????? ??????.",
     "operation_upgrade_eyebrow": "Операционный процесс",
-    "operation_upgrade_title": "Обезличенный процесс низковысотной безопасности",
+    "operation_upgrade_title": "??????? ????????????? ???????????? ??? ???????",
     "solution_modules": [
       {
-        "name": "Обнаружение низковысотной аномалии",
-        "description": "Формирует ранний вход события вокруг плотины, берега водохранилища, периметра машинного зала и инспекционных дорог.",
+        "name": "??????????? ????????????? ????????",
+        "description": "????????? ?????? ???? ??????? ?????? ???????, ?????? ?????????????, ????????? ????????? ???? ? ????????????? ?????.",
         "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
       },
       {
-        "name": "Подтверждение цели",
-        "description": "Совмещает четкое изображение, тепловизионную поддержку и проверку оператором для снижения ошибок из-за среды.",
+        "name": "????????????? ????",
+        "description": "????????? ?????? ???????????, ?????????????? ????????? ? ???????? ?????????? ??? ???????? ?????? ??-?? ?????.",
         "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
       },
       {
-        "name": "Непрерывное сопровождение",
-        "description": "Сохраняет маршрут движения, направление приближения, место пребывания и связанную зону риска как наглядную временную линию.",
+        "name": "??????????? ?????????????",
+        "description": "????????? ??????? ????????, ??????????? ??????????? ? ????????? ???? ????? ??? ????????? ????????? ?????.",
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Уведомление о риске",
-        "description": "Передает сообщения по приоритету защищенной зоны, чтобы охрана, диспетчер и полевые группы видели единый статус события.",
-        "image": "/solutions/hydroelectric-dam-protection/module-risk-alert-powerhouse.webp"
-      },
-      {
-        "name": "Замкнутый разбор события",
-        "description": "Архивирует изображения, траектории, время, записи оператора и итоговые материалы для проверки и обучения.",
-        "image": "/solutions/hydroelectric-dam-protection/module-event-review-dam-site.webp"
+        "name": "????? ?????? ? ????????????? ???????????",
+        "description": "???????? ??????? ?? ???? ????? ? ?????????????? ???????????, ?????????? ? ?????? ??? ???????? ? ??????? ?????.",
+        "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
     ],
     "industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
@@ -156,19 +138,18 @@
     "industry_pain_points": [
       "Dam bodies, powerhouses, spillways, intake areas, and grid-interface zones operate continuously, so abnormal low-altitude activity nearby can disrupt duty-room judgment and operational order.",
       "Reservoir valleys, water reflection, fog, rain, and bird activity make single-camera observation or manual patrols prone to missed events, false alarms, and delayed confirmation.",
-      "Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the event status changes.",
-      "The public solution explains the management workflow and record requirements only; site layouts, execution details, and controlled technical information are not published."
+      "Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the alert status changes.",
+      "Dam low-altitude security needs awareness, confirmation, tracking, alert circulation, and dispatch coordination in one workflow so abnormal target information does not remain fragmented between duty roles."
     ],
     "uav_industry_upgrade": [
-      "Discover: maintain low-altitude event awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal activity early.",
+      "Discover: maintain low-altitude awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal target clues early.",
       "Confirm: use visual review, thermal assistance, and operator verification to identify the target context while filtering reflection, birds, and terrain noise.",
-      "Track: record movement direction, approach area, dwell position, and event changes so the duty team can follow the complete timeline.",
-      "Report: route alerts by risk area and response plan level to security, operations dispatch, and field patrol roles with a shared event status.",
-      "Review: archive imagery, tracks, timestamps, operator notes, and final handling records for traceability, training, and workflow improvement."
+      "Track: record movement direction, approach area, dwell position, and related zones so the duty team can follow target changes.",
+      "Link: route alerts by risk area and synchronize target imagery, tracks, and alert status to support operations dispatch and field patrol coordination."
     ],
-    "solution_modules_intro": "The solution is organized around the low-altitude security event chain: discover abnormal activity, confirm the target, track movement, report by risk level, and retain a reviewable record. Public copy keeps the workflow logic while removing execution methods, technical parameters, and site-sensitive details.",
+    "solution_modules_intro": "The solution is organized around a concise low-altitude security chain: discover abnormal activity, confirm the target, track movement, and link alerts with operations dispatch and field patrol roles. It focuses on duty-room workflow, data synchronization, and dispatch coordination.",
     "operation_upgrade_eyebrow": "Operational Flow",
-    "operation_upgrade_title": "Desensitized Low-Altitude Security Workflow",
+    "operation_upgrade_title": "Low-Altitude Security Workflow for Dam Operations",
     "solution_modules": [
       {
         "name": "Low-Altitude Anomaly Discovery",
@@ -186,21 +167,16 @@
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Risk Alert Reporting",
-        "description": "Routes alerts according to protected-zone priority so security, operations dispatch, and field patrol teams share the same event status.",
-        "image": "/solutions/hydroelectric-dam-protection/module-risk-alert-powerhouse.webp"
-      },
-      {
-        "name": "Closed-Loop Event Review",
-        "description": "Archives images, tracks, timestamps, operator notes, and final records for traceability, training, and workflow improvement.",
-        "image": "/solutions/hydroelectric-dam-protection/module-event-review-dam-site.webp"
+        "name": "Alert Linkage and Dispatch Coordination",
+        "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
+        "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
     ],
     "industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
   },
-  "detail_html": "<h2>行业痛点</h2><ul><li>坝体、厂房、溢洪道、取水口与输变电接口属于连续运行关键区域，低空异常靠近会影响值守判断和运行秩序。</li><li>库区山谷、水面反光、雾气、雨雪和鸟类活动交织，单一视频或人工巡查容易出现漏看、误判和响应滞后。</li><li>库岸、道路、闸口和巡检通道跨度大，值守人员需要看到目标出现、移动方向、风险区域和事件状态的完整链路。</li><li>公开方案只说明管理流程和留痕要求，不呈现现场点位、执行细节或受控技术信息。</li></ul><h2>流程升级</h2><ul><li>发现：围绕坝体、厂房、库区岸线、闸口和巡检通道进行低空异常值守，及时形成事件线索。</li><li>确认：通过可视化画面、热成像辅助和人工复核确认目标属性，过滤水面反光、鸟类和复杂地形带来的噪声。</li><li>跟踪：记录目标轨迹、靠近方向、停留位置和关联区域，让值守人员掌握事件变化。</li><li>上报：按风险区域和预案等级推送给安保、运行调度和现场巡查岗位，统一事件口径。</li><li>复盘：沉淀图像、轨迹、时间线、值守记录和处理结果，用于事后追溯、培训和流程优化。</li></ul>",
-  "detail_html_en": "<h2>Industry Pain Points</h2><ul><li>Dam bodies, powerhouses, spillways, intake areas, and grid-interface zones operate continuously, so abnormal low-altitude activity nearby can disrupt duty-room judgment and operational order.</li><li>Reservoir valleys, water reflection, fog, rain, and bird activity make single-camera observation or manual patrols prone to missed events, false alarms, and delayed confirmation.</li><li>Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the event status changes.</li><li>The public solution explains the management workflow and record requirements only; site layouts, execution details, and controlled technical information are not published.</li></ul><h2>Operational Flow</h2><ul><li>Discover: maintain low-altitude event awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal activity early.</li><li>Confirm: use visual review, thermal assistance, and operator verification to identify the target context while filtering reflection, birds, and terrain noise.</li><li>Track: record movement direction, approach area, dwell position, and event changes so the duty team can follow the complete timeline.</li><li>Report: route alerts by risk area and response plan level to security, operations dispatch, and field patrol roles with a shared event status.</li><li>Review: archive imagery, tracks, timestamps, operator notes, and final handling records for traceability, training, and workflow improvement.</li></ul>",
-  "detail_html_ru": "<h2>Отраслевые задачи</h2><ul><li>Тело плотины, машинный зал, водосбросы, водозаборы и узлы подключения к энергосети работают непрерывно, поэтому низковысотная активность рядом с ними влияет на дежурную оценку и порядок эксплуатации.</li><li>Горный рельеф водохранилища, отражение от воды, туман, осадки и птицы усложняют наблюдение: одного видеоканала или ручного обхода часто недостаточно.</li><li>Протяженные берега, подъездные дороги, посты и инспекционные маршруты требуют единой картины: где появился объект, куда он движется, к какой зоне приближается и как меняется статус события.</li><li>Публичное описание раскрывает только управленческий процесс и требования к фиксации событий; схемы площадки, исполнительные детали и контролируемые технические сведения не публикуются.</li></ul><h2>Операционный процесс</h2><ul><li>Обнаружение: постоянное наблюдение за низковысотными событиями вокруг плотины, машинного зала, береговой линии, ворот и инспекционных маршрутов.</li><li>Подтверждение: визуальная проверка, тепловизионная поддержка и оценка оператором помогают отделять реальные события от отражений, птиц и рельефа.</li><li>Сопровождение: фиксируются направление движения, зона приближения, место зависания или остановки и изменение статуса события.</li><li>Уведомление: сообщения направляются по уровню зоны риска дежурной охране, диспетчеру эксплуатации и полевым группам с единым статусом события.</li><li>Разбор: изображения, траектории, отметки времени, записи оператора и итоговые решения сохраняются для проверки, обучения и улучшения процесса.</li></ul>",
+  "detail_html": "<h2>????</h2><ul><li>?????????????????????????????????????????????????</li><li>???????????????????????????????????????????????</li><li>??????????????????????????????????????????????????</li><li>???????????????????????????????????????????????????</li></ul><h2>????</h2><ul><li>?????????????????????????????????????????</li><li>????????????????????????????????????????????????</li><li>?????????????????????????????????????</li><li>???????????????????????????????????????????</li></ul>",
+  "detail_html_en": "<h2>Industry Pain Points</h2><ul><li>Dam bodies, powerhouses, spillways, intake areas, and grid-interface zones operate continuously, so abnormal low-altitude activity nearby can disrupt duty-room judgment and operational order.</li><li>Reservoir valleys, water reflection, fog, rain, and bird activity make single-camera observation or manual patrols prone to missed events, false alarms, and delayed confirmation.</li><li>Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the alert status changes.</li><li>Dam low-altitude security needs awareness, confirmation, tracking, alert circulation, and dispatch coordination in one workflow so abnormal target information does not remain fragmented between duty roles.</li></ul><h2>Operational Flow</h2><ul><li>Discover: maintain low-altitude awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal target clues early.</li><li>Confirm: use visual review, thermal assistance, and operator verification to identify the target context while filtering reflection, birds, and terrain noise.</li><li>Track: record movement direction, approach area, dwell position, and related zones so the duty team can follow target changes.</li><li>Link: route alerts by risk area and synchronize target imagery, tracks, and alert status to support operations dispatch and field patrol coordination.</li></ul>",
+  "detail_html_ru": "<h2>?????????? ??????</h2><ul><li>Тело плотины, машинный зал, водосбросы, водозаборы и узлы подключения к энергосети работают непрерывно, поэтому низковысотная активность рядом с ними влияет на дежурную оценку и порядок эксплуатации.</li><li>Горный рельеф водохранилища, отражение от воды, туман, осадки и птицы усложняют наблюдение: одного видеоканала или ручного обхода часто недостаточно.</li><li>Протяженные берега, подъездные дороги, посты и инспекционные маршруты требуют единой картины: где появился объект, куда он движется, к какой зоне приближается и как меняется статус события.</li><li>Низковысотная безопасность плотины требует единого процесса для наблюдения, подтверждения, сопровождения, передачи тревог и координации с диспетчерскими ролями, чтобы информация о событии не оставалась разрозненной.</li></ul><h2>???????????? ???????</h2><ul><li>???????????: ?????????? ?????????? ?? ?????????????? ????????? ?????? ???????, ????????? ????, ????????? ?????, ????? ? ????????????? ?????????.</li><li>?????????????: ?????????? ????????, ?????????????? ????????? ? ?????? ?????????? ???????? ???????? ???????? ??????? ?? ?????????, ???? ? ???????.</li><li>?????????????: ??????????? ??????????? ????????, ???? ??????????? ? ????????? ??????? ???????.</li><li>?????: ??????? ?????????? ?? ???? ?????, ? ??????????? ????, ?????????? ? ?????? ???????????????? ??? ?????????? ? ??????? ?????.</li></ul>",
   "main_image": "/solutions/infrastructure protection/Hydroelectric Dam Protection/Hydroelectric Dam Protectio.webp",
   "handle": "hydroelectric-dam-protection",
   "category_primary": "Infrastructure Protection",

@@ -1,7 +1,26 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Save, Settings } from 'lucide-react';
+import { Mail, Save, Settings } from 'lucide-react';
+
+type TrackingForm = {
+    gaMeasurementId: string;
+    gaEnabled: boolean;
+    gtmContainerId: string;
+    gtmEnabled: boolean;
+};
+
+type EmailForm = {
+    enabled: boolean;
+    smtpHost: string;
+    smtpPort: number;
+    smtpSecure: boolean;
+    smtpUser: string;
+    smtpPass: string;
+    hasSmtpPass: boolean;
+    fromEmail: string;
+    receiverEmail: string;
+};
 
 const card: React.CSSProperties = {
     backgroundColor: '#fff',
@@ -9,7 +28,6 @@ const card: React.CSSProperties = {
     borderRadius: '12px',
     boxShadow: '0 1px 8px rgba(0,0,0,0.04)',
     border: '1px solid #e8ecf1',
-    maxWidth: '860px',
 };
 
 const label: React.CSSProperties = {
@@ -30,134 +48,346 @@ const input: React.CSSProperties = {
     boxSizing: 'border-box',
 };
 
+const helper: React.CSSProperties = {
+    marginTop: '7px',
+    color: '#64748b',
+    fontSize: '1.15rem',
+    lineHeight: 1.5,
+};
+
+const checkboxLabel: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    color: '#334155',
+    fontSize: '1.3rem',
+    fontWeight: 700,
+};
+
+const emptyTracking: TrackingForm = {
+    gaMeasurementId: '',
+    gaEnabled: true,
+    gtmContainerId: '',
+    gtmEnabled: true,
+};
+
+const emptyEmail: EmailForm = {
+    enabled: false,
+    smtpHost: '',
+    smtpPort: 587,
+    smtpSecure: false,
+    smtpUser: '',
+    smtpPass: '',
+    hasSmtpPass: false,
+    fromEmail: '',
+    receiverEmail: '',
+};
+
 export default function AdminSettingsPage() {
-    const [form, setForm] = useState({
-        gaMeasurementId: '',
-        gaEnabled: true,
-        gtmContainerId: '',
-        gtmEnabled: true,
-    });
+    const [trackingForm, setTrackingForm] = useState<TrackingForm>(emptyTracking);
+    const [emailForm, setEmailForm] = useState<EmailForm>(emptyEmail);
     const [loading, setLoading] = useState(true);
-    const [saving, setSaving] = useState(false);
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
+    const [savingTracking, setSavingTracking] = useState(false);
+    const [savingEmail, setSavingEmail] = useState(false);
+    const [trackingMessage, setTrackingMessage] = useState('');
+    const [emailMessage, setEmailMessage] = useState('');
+    const [trackingError, setTrackingError] = useState('');
+    const [emailError, setEmailError] = useState('');
 
     useEffect(() => {
-        fetch('/api/admin/settings/tracking')
-            .then((res) => res.json())
-            .then((json) => {
-                if (json.success) setForm(json.data);
-                else setError(json.error || '加载设置失败');
+        let isMounted = true;
+
+        Promise.all([
+            fetch('/api/admin/settings/tracking').then((res) => res.json()),
+            fetch('/api/admin/settings/email').then((res) => res.json()),
+        ])
+            .then(([trackingJson, emailJson]) => {
+                if (!isMounted) return;
+
+                if (trackingJson.success) {
+                    setTrackingForm(trackingJson.data);
+                } else {
+                    setTrackingError(trackingJson.error || 'Failed to load tracking settings.');
+                }
+
+                if (emailJson.success) {
+                    setEmailForm(emailJson.data);
+                } else {
+                    setEmailError(emailJson.error || 'Failed to load email settings.');
+                }
             })
-            .catch(() => setError('无法连接设置接口'))
-            .finally(() => setLoading(false));
+            .catch(() => {
+                if (!isMounted) return;
+                setTrackingError('Failed to connect to settings APIs.');
+                setEmailError('Failed to connect to settings APIs.');
+            })
+            .finally(() => {
+                if (isMounted) setLoading(false);
+            });
+
+        return () => {
+            isMounted = false;
+        };
     }, []);
 
-    const save = async () => {
-        setSaving(true);
-        setMessage('');
-        setError('');
+    const saveTracking = async () => {
+        setSavingTracking(true);
+        setTrackingMessage('');
+        setTrackingError('');
 
         try {
             const res = await fetch('/api/admin/settings/tracking', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form),
+                body: JSON.stringify(trackingForm),
             });
             const json = await res.json();
             if (json.success) {
-                setForm(json.data);
-                setMessage('跟踪代码设置已保存');
+                setTrackingForm(json.data);
+                setTrackingMessage('Tracking settings saved.');
             } else {
-                setError(json.error || '保存失败');
+                setTrackingError(json.error || 'Failed to save tracking settings.');
             }
         } catch {
-            setError('无法保存设置');
+            setTrackingError('Failed to save tracking settings.');
         } finally {
-            setSaving(false);
+            setSavingTracking(false);
+        }
+    };
+
+    const saveEmail = async () => {
+        setSavingEmail(true);
+        setEmailMessage('');
+        setEmailError('');
+
+        try {
+            const res = await fetch('/api/admin/settings/email', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(emailForm),
+            });
+            const json = await res.json();
+            if (json.success) {
+                setEmailForm(json.data);
+                setEmailMessage('Email notification settings saved.');
+            } else {
+                setEmailError(json.error || 'Failed to save email settings.');
+            }
+        } catch {
+            setEmailError('Failed to save email settings.');
+        } finally {
+            setSavingEmail(false);
         }
     };
 
     if (loading) {
-        return <div style={{ padding: '48px', color: '#94a3b8', fontSize: '1.4rem' }}>加载中...</div>;
+        return <div style={{ padding: '48px', color: '#94a3b8', fontSize: '1.4rem' }}>Loading settings...</div>;
     }
 
     return (
         <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
                 <Settings size={24} color="#315ba4" />
-                <h1 style={{ margin: 0, color: '#1e293b', fontSize: '2.2rem', fontWeight: 800 }}>网站跟踪代码</h1>
+                <h1 style={{ margin: 0, color: '#1e293b', fontSize: '2.2rem', fontWeight: 800 }}>Website Settings</h1>
             </div>
 
-            <div style={card}>
-                {message && <div style={{ marginBottom: '18px', color: '#047857', fontSize: '1.3rem', fontWeight: 700 }}>{message}</div>}
-                {error && <div style={{ marginBottom: '18px', color: '#be123c', fontSize: '1.3rem', fontWeight: 700 }}>{error}</div>}
+            <div style={{ display: 'grid', gap: '24px', maxWidth: '960px' }}>
+                <section style={card}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '22px' }}>
+                        <Settings size={20} color="#315ba4" />
+                        <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.7rem', fontWeight: 800 }}>Google Tracking</h2>
+                    </div>
 
-                <div style={{ display: 'grid', gap: '22px' }}>
-                    <label>
-                        <span style={label}>GA4 Measurement ID</span>
-                        <input
-                            style={input}
-                            value={form.gaMeasurementId}
-                            onChange={(e) => setForm((prev) => ({ ...prev, gaMeasurementId: e.target.value }))}
-                            placeholder="G-ZS6XC2TFCG"
-                        />
-                    </label>
+                    {trackingMessage && <div style={{ marginBottom: '18px', color: '#047857', fontSize: '1.3rem', fontWeight: 700 }}>{trackingMessage}</div>}
+                    {trackingError && <div style={{ marginBottom: '18px', color: '#be123c', fontSize: '1.3rem', fontWeight: 700 }}>{trackingError}</div>}
 
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#334155', fontSize: '1.3rem', fontWeight: 700 }}>
-                        <input
-                            type="checkbox"
-                            checked={form.gaEnabled}
-                            onChange={(e) => setForm((prev) => ({ ...prev, gaEnabled: e.target.checked }))}
-                        />
-                        启用 GA4 Google tag
-                    </label>
+                    <div style={{ display: 'grid', gap: '22px' }}>
+                        <label>
+                            <span style={label}>GA4 Measurement ID</span>
+                            <input
+                                style={input}
+                                value={trackingForm.gaMeasurementId}
+                                onChange={(e) => setTrackingForm((prev) => ({ ...prev, gaMeasurementId: e.target.value }))}
+                                placeholder="G-ZS6XC2TFCG"
+                            />
+                        </label>
 
-                    <label>
-                        <span style={label}>Google Tag Manager Container ID</span>
-                        <input
-                            style={input}
-                            value={form.gtmContainerId}
-                            onChange={(e) => setForm((prev) => ({ ...prev, gtmContainerId: e.target.value }))}
-                            placeholder="GTM-PJN9QQWN"
-                        />
-                    </label>
+                        <label style={checkboxLabel}>
+                            <input
+                                type="checkbox"
+                                checked={trackingForm.gaEnabled}
+                                onChange={(e) => setTrackingForm((prev) => ({ ...prev, gaEnabled: e.target.checked }))}
+                            />
+                            Enable GA4 Google tag
+                        </label>
 
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#334155', fontSize: '1.3rem', fontWeight: 700 }}>
-                        <input
-                            type="checkbox"
-                            checked={form.gtmEnabled}
-                            onChange={(e) => setForm((prev) => ({ ...prev, gtmEnabled: e.target.checked }))}
-                        />
-                        启用 Google Tag Manager
-                    </label>
-                </div>
+                        <label>
+                            <span style={label}>Google Tag Manager Container ID</span>
+                            <input
+                                style={input}
+                                value={trackingForm.gtmContainerId}
+                                onChange={(e) => setTrackingForm((prev) => ({ ...prev, gtmContainerId: e.target.value }))}
+                                placeholder="GTM-PJN9QQWN"
+                            />
+                        </label>
 
-                <div style={{ marginTop: '28px', padding: '16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
-                    当前设置只注入英文前台页面，不注入后台管理页。若 GTM 容器里也配置了 GA4，请关闭上面的 GA4 Google tag，避免统计重复。
-                </div>
+                        <label style={checkboxLabel}>
+                            <input
+                                type="checkbox"
+                                checked={trackingForm.gtmEnabled}
+                                onChange={(e) => setTrackingForm((prev) => ({ ...prev, gtmEnabled: e.target.checked }))}
+                            />
+                            Enable Google Tag Manager
+                        </label>
+                    </div>
 
-                <button
-                    onClick={save}
-                    disabled={saving}
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        marginTop: '24px',
-                        padding: '12px 24px',
-                        border: 0,
-                        borderRadius: '8px',
-                        background: saving ? '#94a3b8' : '#315ba4',
-                        color: '#fff',
-                        fontSize: '1.35rem',
-                        fontWeight: 800,
-                        cursor: saving ? 'not-allowed' : 'pointer',
-                    }}
-                >
-                    <Save size={18} />
-                    {saving ? '保存中...' : '保存设置'}
-                </button>
+                    <div style={{ marginTop: '22px', padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
+                        Conversion tracking is fired from the public Thank You page as a dataLayer event named <strong>ntet_form_submit</strong>.
+                    </div>
+
+                    <button
+                        onClick={saveTracking}
+                        disabled={savingTracking}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            marginTop: '24px',
+                            padding: '12px 24px',
+                            border: 0,
+                            borderRadius: '8px',
+                            background: savingTracking ? '#94a3b8' : '#315ba4',
+                            color: '#fff',
+                            fontSize: '1.35rem',
+                            fontWeight: 800,
+                            cursor: savingTracking ? 'not-allowed' : 'pointer',
+                        }}
+                    >
+                        <Save size={18} />
+                        {savingTracking ? 'Saving...' : 'Save Tracking'}
+                    </button>
+                </section>
+
+                <section style={card}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '22px' }}>
+                        <Mail size={20} color="#315ba4" />
+                        <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.7rem', fontWeight: 800 }}>Email Notifications</h2>
+                    </div>
+
+                    {emailMessage && <div style={{ marginBottom: '18px', color: '#047857', fontSize: '1.3rem', fontWeight: 700 }}>{emailMessage}</div>}
+                    {emailError && <div style={{ marginBottom: '18px', color: '#be123c', fontSize: '1.3rem', fontWeight: 700 }}>{emailError}</div>}
+
+                    <div style={{ display: 'grid', gap: '22px' }}>
+                        <label style={checkboxLabel}>
+                            <input
+                                type="checkbox"
+                                checked={emailForm.enabled}
+                                onChange={(e) => setEmailForm((prev) => ({ ...prev, enabled: e.target.checked }))}
+                            />
+                            Send an email when a public inquiry is submitted
+                        </label>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '16px' }}>
+                            <label>
+                                <span style={label}>SMTP Host</span>
+                                <input
+                                    style={input}
+                                    value={emailForm.smtpHost}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, smtpHost: e.target.value }))}
+                                    placeholder="smtp.example.com"
+                                />
+                            </label>
+
+                            <label>
+                                <span style={label}>Port</span>
+                                <input
+                                    type="number"
+                                    style={input}
+                                    value={emailForm.smtpPort}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, smtpPort: Number(e.target.value) }))}
+                                    placeholder="587"
+                                />
+                            </label>
+
+                            <label style={{ ...checkboxLabel, alignSelf: 'end', minHeight: '46px' }}>
+                                <input
+                                    type="checkbox"
+                                    checked={emailForm.smtpSecure}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, smtpSecure: e.target.checked }))}
+                                />
+                                SSL/TLS
+                            </label>
+                        </div>
+
+                        <label>
+                            <span style={label}>SMTP Username</span>
+                            <input
+                                style={input}
+                                value={emailForm.smtpUser}
+                                onChange={(e) => setEmailForm((prev) => ({ ...prev, smtpUser: e.target.value }))}
+                                placeholder="notice@example.com"
+                            />
+                        </label>
+
+                        <label>
+                            <span style={label}>SMTP Password</span>
+                            <input
+                                type="password"
+                                style={input}
+                                value={emailForm.smtpPass}
+                                onChange={(e) => setEmailForm((prev) => ({ ...prev, smtpPass: e.target.value }))}
+                                placeholder={emailForm.hasSmtpPass ? 'Password already saved. Leave blank to keep it.' : 'SMTP password or app password'}
+                            />
+                            <div style={helper}>The saved password is never shown in the browser.</div>
+                        </label>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                            <label>
+                                <span style={label}>From Email</span>
+                                <input
+                                    style={input}
+                                    value={emailForm.fromEmail}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, fromEmail: e.target.value }))}
+                                    placeholder="notice@example.com"
+                                />
+                                <div style={helper}>Usually the same mailbox as the SMTP username.</div>
+                            </label>
+
+                            <label>
+                                <span style={label}>Receiver Email</span>
+                                <input
+                                    style={input}
+                                    value={emailForm.receiverEmail}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, receiverEmail: e.target.value }))}
+                                    placeholder="sales@example.com"
+                                />
+                                <div style={helper}>New inquiries are sent here and still remain in the admin inquiry list.</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button
+                        onClick={saveEmail}
+                        disabled={savingEmail}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            marginTop: '24px',
+                            padding: '12px 24px',
+                            border: 0,
+                            borderRadius: '8px',
+                            background: savingEmail ? '#94a3b8' : '#315ba4',
+                            color: '#fff',
+                            fontSize: '1.35rem',
+                            fontWeight: 800,
+                            cursor: savingEmail ? 'not-allowed' : 'pointer',
+                        }}
+                    >
+                        <Save size={18} />
+                        {savingEmail ? 'Saving...' : 'Save Email Settings'}
+                    </button>
+                </section>
             </div>
         </div>
     );

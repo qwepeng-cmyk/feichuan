@@ -1,0 +1,62 @@
+{
+  "title": "Airspace Monitoring Case of a Group Factory in Nigeria",
+  "title_en": "Airspace Monitoring Case of a Group Factory in Nigeria",
+  "description": "2025 Airspace Monitoring Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile low-altitude monitoring workflow for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum detection equipment supports flexible coverage across large sites, while navigation-signal analysis and the command platform help operators review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to monitoring, situational awareness, event records, and workflow coordination.",
+  "description_en": "2025 Airspace Monitoring Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile low-altitude monitoring workflow for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum detection equipment supports flexible coverage across large sites, while navigation-signal analysis and the command platform help operators review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to monitoring, situational awareness, event records, and workflow coordination.",
+  "devices": [
+    "Mobile Spectrum Detection Equipment",
+    "Navigation-Signal Analysis Equipment",
+    "Command and Control Platform"
+  ],
+  "devices_en": [
+    "Mobile Spectrum Detection Equipment",
+    "Navigation-Signal Analysis Equipment",
+    "Command and Control Platform"
+  ],
+  "main_image": "/cases/nigeria-factory-airspace-monitoring/main.webp",
+  "case_images": [],
+  "recommendedProductHandles": [],
+  "handle": "nigeria-factory-airspace-monitoring",
+  "title_ru": "Airspace Monitoring Case of a Group Factory in Nigeria",
+  "description_ru": "2025 Airspace Monitoring Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile low-altitude monitoring workflow for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum detection equipment supports flexible coverage across large sites, while navigation-signal analysis and the command platform help operators review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to monitoring, situational awareness, event records, and workflow coordination.",
+  "devices_ru": [
+    "Mobile Spectrum Detection Equipment",
+    "Navigation-Signal Analysis Equipment",
+    "Command and Control Platform"
+  ],
+  "region_ru": "Africa",
+  "country_ru": "Nigeria",
+  "region_en": "Africa",
+  "country_en": "Nigeria",
+  "solution_category_id": "02_InfrastructureProtection",
+  "related_products": [],
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ]
+}

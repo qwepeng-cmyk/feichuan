@@ -13,10 +13,24 @@ function syncMediaToJson() {
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
     try {
-        const row = db.prepare('SELECT raw_json, COALESCE(is_published, 1) AS is_published FROM media WHERE id = ?').get(params.id) as any;
+        const row = db.prepare('SELECT * FROM media WHERE id = ?').get(params.id) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
         
-        return NextResponse.json({ success: true, data: { ...JSON.parse(row.raw_json), is_published: row.is_published } });
+        return NextResponse.json({
+            success: true,
+            data: {
+                ...JSON.parse(row.raw_json || '{}'),
+                id: row.id,
+                title: row.title,
+                title_ru: row.title_ru,
+                image: row.image,
+                category: row.category,
+                date: row.date,
+                content: row.content,
+                content_ru: row.content_ru,
+                is_published: row.is_published,
+            },
+        });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
     }
@@ -31,14 +45,19 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         const raw_json = JSON.stringify(body);
         
         db.prepare(`
-            UPDATE media 
-            SET title = ?, image = ?, category = ?, date = ?, is_published = ?, raw_json = ? 
+            UPDATE media
+            SET title = ?, title_ru = ?, image = ?, category = ?, date = ?,
+                content = ?, content_ru = ?, is_published = ?, raw_json = ?,
+                updated_at = CURRENT_TIMESTAMP
             WHERE id = ?
         `).run(
             body.title, 
+            body.title_ru || '',
             body.image || '', 
             body.category || '',
             body.date || '',
+            body.content || '',
+            body.content_ru || '',
             isPublished,
             raw_json, 
             params.id

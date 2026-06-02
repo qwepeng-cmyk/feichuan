@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { getAllMedia } from '@/lib/media';
-import { getAllCases } from '@/lib/cases';
+import { homeCases } from '@/constants/homeData';
 
 // Use dynamic imports
 const DesktopHome = dynamic(() => import('@/components/pc/DesktopHome'), { 
@@ -19,12 +19,6 @@ const MobileHome = dynamic(() => import('@/components/mobile/MobileHome'), {
 async function HomeContent({ locale }: { locale: Locale }) {
     const dict = await getDictionary(locale);
     const latestNews = (await getAllMedia()).slice(0, 5);
-    const homeCases = (await getAllCases()).slice(0, 6).map((item: any) => ({
-        handle: item.handle,
-        title: item.title_en,
-        title_ru: item.title_en,
-        img: item.main_image,
-    }));
 
     return (
         <>

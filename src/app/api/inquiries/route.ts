@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';
+import { sendInquiryNotification } from '@/lib/inquiryEmail';
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
         const referer = request.headers.get('referer') || 'Direct';
+        const demands = Array.isArray(body.demands) ? body.demands : [];
 
         const insert = db.prepare(`
             INSERT INTO inquiries (
@@ -20,10 +22,26 @@ export async function POST(request: Request) {
             body.contactMethod || '',
             body.countryCode || '',
             body.phone || '',
-            JSON.stringify(body.demands || []),
+            JSON.stringify(demands),
             body.message || '',
             referer
         );
+
+        try {
+            await sendInquiryNotification({
+                name: body.name,
+                company: body.company || '',
+                email: body.email,
+                contactMethod: body.contactMethod || '',
+                countryCode: body.countryCode || '',
+                phone: body.phone || '',
+                demands,
+                message: body.message || '',
+                sourcePage: referer,
+            });
+        } catch (emailError) {
+            console.error('Inquiry saved, but email notification failed:', emailError);
+        }
 
         return NextResponse.json({ success: true, message: 'Inquiry submitted successfully' });
     } catch (e) {

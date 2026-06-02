@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, ToggleLeft, ToggleRight } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 import MainImageUploader from '@/components/admin/MainImageUploader';
+import { ParamGrid, gridToParams, paramsToGrid } from '@/lib/adminParamGrid';
 
 const CATEGORIES = [
     { value: 'uav-drone-systems', label: 'UAV Drone Systems (无人机系统)' },
@@ -43,8 +44,8 @@ const twoCol: React.CSSProperties = {
 
 /* ─── Grid Parameter Editor ─── */
 function GridParamEditor({ data, onChange }: { 
-    data: string[][]; 
-    onChange: (newData: string[][]) => void 
+    data: ParamGrid; 
+    onChange: (newData: ParamGrid) => void 
 }) {
     // Ensure data is at least a 2x2 grid if empty
     const grid = data && data.length > 0 ? data : [['Parameter', 'Value'], ['', '']];
@@ -145,9 +146,9 @@ export default function ProductEditPage({ params }: { params: { handle: string }
     const [detailHtmlRu, setDetailHtmlRu] = useState('');
 
     /* Parameters - Array of Arrays for Grid */
-    const [paramsEn, setParamsEn] = useState<string[][]>([['Parameter', 'Value'], ['', '']]);
-    const [paramsCn, setParamsCn] = useState<string[][]>([['参数', '值'], ['', '']]);
-    const [paramsRu, setParamsRu] = useState<string[][]>([['Параметр', 'Значение'], ['', '']]);
+    const [paramsEn, setParamsEn] = useState<ParamGrid>([['Parameter', 'Value'], ['', '']]);
+    const [paramsCn, setParamsCn] = useState<ParamGrid>([['参数', '值'], ['', '']]);
+    const [paramsRu, setParamsRu] = useState<ParamGrid>([['Параметр', 'Значение'], ['', '']]);
 
     /* Advanced JSON (collapsible) */
     const [showAdvanced, setShowAdvanced] = useState(false);
@@ -189,27 +190,9 @@ export default function ProductEditPage({ params }: { params: { handle: string }
                     setDetailHtmlCn(data.detail_html || '');
                     setDetailHtmlRu(data.detail_html_ru || '');
                     
-                    // Convert old object format to new array grid format if needed
-                    const pEn = data.parameters_en;
-                    if (pEn && !Array.isArray(pEn)) {
-                        setParamsEn([['Parameter', 'Value'], ...(Object.entries(pEn) as string[][])]);
-                    } else if (Array.isArray(pEn)) {
-                        setParamsEn(pEn);
-                    }
-
-                    const pCn = data.parameters;
-                    if (pCn && !Array.isArray(pCn)) {
-                        setParamsCn([['参数', '值'], ...(Object.entries(pCn) as string[][])]);
-                    } else if (Array.isArray(pCn)) {
-                        setParamsCn(pCn);
-                    }
-
-                    const pRu = data.parameters_ru;
-                    if (pRu && !Array.isArray(pRu)) {
-                        setParamsRu([['Параметр', 'Значение'], ...(Object.entries(pRu) as string[][])]);
-                    } else if (Array.isArray(pRu)) {
-                        setParamsRu(pRu);
-                    }
+                    setParamsEn(paramsToGrid(data.parameters_en, ['Parameter', 'Value']));
+                    setParamsCn(paramsToGrid(data.parameters, ['参数', '值']));
+                    setParamsRu(paramsToGrid(data.parameters_ru, ['Параметр', 'Значение']));
 
                     setRawJsonStr(JSON.stringify(data, null, 2));
                     setLoading(false);
@@ -242,9 +225,9 @@ export default function ProductEditPage({ params }: { params: { handle: string }
         detail_html: detailHtmlCn,
         detail_html_en: detailHtmlEn,
         detail_html_ru: detailHtmlRu,
-        parameters: paramsCn,
-        parameters_en: paramsEn,
-        parameters_ru: paramsRu,
+        parameters: gridToParams(paramsCn),
+        parameters_en: gridToParams(paramsEn),
+        parameters_ru: gridToParams(paramsRu),
     });
 
     /* ── Save ── */

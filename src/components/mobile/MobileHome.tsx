@@ -73,14 +73,14 @@ export default function MobileHome({
                     muted 
                     playsInline 
                     preload="metadata"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000', filter: 'brightness(1.18) saturate(1.08)' }}
                 >
                     <source src="/index_banner_bg_4.mp4" type="video/mp4" />
                 </video>
                 <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'rgba(0,0,0,0.4)',
+                    background: 'linear-gradient(90deg, rgba(3, 10, 24, 0.34) 0%, rgba(3, 10, 24, 0.16) 52%, rgba(3, 10, 24, 0.08) 100%)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
