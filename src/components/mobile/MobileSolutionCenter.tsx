@@ -213,7 +213,7 @@ export default function MobileSolutionCenter({
             <section className={styles.banner} ref={bannerRef}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>{dict.solutions.bannerTitle}</h1>
+                    <div className={styles.bannerTitle}>{dict.solutions.bannerTitle}</div>
                 </div>
             </section>
 

@@ -81,7 +81,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '700px', textShadow: '0 10px 28px rgba(0, 0, 0, 0.34)' }}>
-                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</h1>
+                                <div style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</div>
                                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.media.bannerSubtitle}</p>
                             </div>
                         </div>

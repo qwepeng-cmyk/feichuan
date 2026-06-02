@@ -27,7 +27,8 @@
     text-align: center;
 }
 
-.bannerContent h1 {
+.bannerContent h1,
+.bannerTitle {
     color: #ffffff !important;
     font-size: 22px;
     font-weight: 900;

@@ -151,7 +151,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                 </div>
 
                 {/* Title Second */}
-                <h1 className={styles.title}>{name}</h1>
+                <div className={styles.title}>{name}</div>
 
                 {/* Info Content */}
                 <div className={styles.infoContent}>

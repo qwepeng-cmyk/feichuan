@@ -183,6 +183,10 @@ async function verifyLiveUrls() {
   const urls = [
     `https://${zoneName}/en/products?deploycheck=${Date.now()}`,
     `https://${zoneName}/en/cases?deploycheck=${Date.now()}`,
+    `https://${zoneName}/robots.txt?deploycheck=${Date.now()}`,
+    `https://${zoneName}/llms.txt?deploycheck=${Date.now()}`,
+    `https://${zoneName}/sitemap.xml?deploycheck=${Date.now()}`,
+    `https://${zoneName}/google6a8aa13ca5c851c0.html?deploycheck=${Date.now()}`,
     `https://${zoneName}/logo-header.webp?deploycheck=${Date.now()}`,
   ];
 
@@ -190,6 +194,12 @@ async function verifyLiveUrls() {
     const response = await fetch(url, { redirect: 'follow' });
     if (!response.ok) {
       throw new Error(`Live check failed: ${response.status} ${url}`);
+    }
+    if (url.includes('/sitemap.xml')) {
+      const contentType = response.headers.get('content-type') || '';
+      if (!/xml/i.test(contentType)) {
+        throw new Error(`Live sitemap returned unexpected content-type: ${contentType || 'none'}`);
+      }
     }
     console.log(`${response.status} ${url}`);
   }

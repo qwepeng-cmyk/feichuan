@@ -23,7 +23,8 @@
     background: linear-gradient(90deg, rgba(3, 12, 28, 0.82), rgba(49, 91, 164, 0.28), rgba(3, 12, 28, 0.48));
 }
 
-.bannerContent h1 {
+.bannerContent h1,
+.bannerTitle {
     color: #ffffff !important;
     font-size: 22px;
     font-weight: 900;

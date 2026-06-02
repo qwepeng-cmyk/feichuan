@@ -26,7 +26,7 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>{dict.nav.media.toUpperCase()}</h1>
+                    <div className={styles.bannerTitle}>{dict.nav.media.toUpperCase()}</div>
                 </div>
             </section>
 
@@ -43,7 +43,7 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
 
             {/* 3. News Content */}
             <article className={styles.articleContainer}>
-                <h1 className={styles.newsTitle}>{newsTitle}</h1>
+                <div className={styles.newsTitle}>{newsTitle}</div>
                 <div className={styles.newsMeta}>{newsDate}</div>
 
                 {news.image && (

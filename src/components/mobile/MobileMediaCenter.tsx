@@ -71,7 +71,7 @@ export default function MobileMediaCenter({
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>{dict.media.bannerTitle}</h1>
+                    <div className={styles.bannerTitle}>{dict.media.bannerTitle}</div>
                 </div>
             </section>
 

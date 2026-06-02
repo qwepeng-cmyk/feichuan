@@ -137,7 +137,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                 </div>
 
                 {/* Title */}
-                <h1 className={styles.title}>{title}</h1>
+                <div className={styles.title}>{title}</div>
 
                 {/* Info Content - Project Overview */}
                 {caseSnapshot.length > 0 && (

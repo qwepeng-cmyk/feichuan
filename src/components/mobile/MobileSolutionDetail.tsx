@@ -537,7 +537,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
                 </div>
 
                 {/* Title Second */}
-                <h1 className={styles.title}>{name}</h1>
+                <div className={styles.title}>{name}</div>
 
                 {/* Info Content */}
                 <div className={styles.infoContent}>

@@ -46,9 +46,9 @@
         "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
       },
       {
-        "name": "Medium/Long-Range UAV Inspection System",
-        "handle": "medium-long-range-uav-inspection-system",
-        "role": "Long-distance shoreline and border-corridor patrol"
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
       }
     ],
     "related_cases": [
@@ -93,9 +93,9 @@
         "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
       },
       {
-        "name": "Medium/Long-Range UAV Inspection System",
-        "handle": "medium-long-range-uav-inspection-system",
-        "role": "Long-distance shoreline and border-corridor patrol"
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
       }
     ],
     "related_cases": [
@@ -103,15 +103,15 @@
       "ice-snow-emergency-uav-inspection"
     ]
   },
-  "detail_html": "<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp\" alt=\"Illegal vessel supervision by UAV\" /></figure><h2>Industry Pain Points</h2><ul><li>Border corridors, coastlines, islands, ports, and estuary zones cover long and complex frontlines where fixed cameras, boat patrols, and foot patrols still leave blind spots.</li><li>Frontline teams face sustained pressure from infiltration prevention, illegal crossing, smuggling, suspicious vessels, and shoreline intrusion, while night operations and severe weather raise safety risks.</li><li>When abnormal vessels or emergency incidents appear, command teams need fast positioning, clear evidence, warning broadcast, and coordinated dispatch, but scattered sensors and delayed reporting weaken situational awareness.</li></ul><h2>How UAVs Upgrade Operations</h2><ul><li>UAVs can launch quickly on planned routes, cover fixed patrol zones and shorelines from the air, and return live video, coordinates, and flight tracks to the command platform.</li><li>EO/IR pods, zoom cameras, loudspeakers, and long-range links support day-night observation, target confirmation, evidence capture, legal notice broadcast, and on-site deterrence.</li><li>AI-assisted recognition and multi-source linkage connect UAV video with coastal radar/EO monitoring, pushing alerts and task instructions so air, ground, and maritime teams act from the same picture.</li></ul><h2>Solution Modules</h2><ul><li><strong>Routine Border and Coastal Patrol</strong><br>Fly scheduled or one-click task routes over border corridors, coastlines, islands, river mouths, and ports to replace or assist routine patrols and reduce frontline duty pressure.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/border-routine-patrol.webp\" alt=\"Routine Border and Coastal Patrol\" /></figure></li><li><strong>24-Hour Coastline Monitoring and Emergency Response</strong><br>Combine coastal monitoring, UAV dispatch, warning broadcast, target search, personnel positioning, and emergency supply delivery to support rapid response during maritime incidents.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp\" alt=\"24-Hour Coastline Monitoring and Emergency Response\" /></figure></li></ul><h2>Related Equipment</h2><ul><li><strong>Emergency Response Drone</strong><br>Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response</li><li><strong>FC-RDS500-4R Radar-Vision Fusion System</strong><br>Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning</li><li><strong>Medium/Long-Range UAV Inspection System</strong><br>Long-distance shoreline and border-corridor patrol</li></ul><h2>Related Cases</h2><ul><li>anhui-flood-season-uav-patrol</li><li>ice-snow-emergency-uav-inspection</li></ul>",
-  "detail_html_en": "<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp\" alt=\"Illegal vessel supervision by UAV\" /></figure><h2>Industry Pain Points</h2><ul><li>Border corridors, coastlines, islands, ports, and estuary zones cover long and complex frontlines where fixed cameras, boat patrols, and foot patrols still leave blind spots.</li><li>Frontline teams face sustained pressure from infiltration prevention, illegal crossing, smuggling, suspicious vessels, and shoreline intrusion, while night operations and severe weather raise safety risks.</li><li>When abnormal vessels or emergency incidents appear, command teams need fast positioning, clear evidence, warning broadcast, and coordinated dispatch, but scattered sensors and delayed reporting weaken situational awareness.</li></ul><h2>How UAVs Upgrade Operations</h2><ul><li>UAVs can launch quickly on planned routes, cover fixed patrol zones and shorelines from the air, and return live video, coordinates, and flight tracks to the command platform.</li><li>EO/IR pods, zoom cameras, loudspeakers, and long-range links support day-night observation, target confirmation, evidence capture, legal notice broadcast, and on-site deterrence.</li><li>AI-assisted recognition and multi-source linkage connect UAV video with coastal radar/EO monitoring, pushing alerts and task instructions so air, ground, and maritime teams act from the same picture.</li></ul><h2>Solution Modules</h2><ul><li><strong>Routine Border and Coastal Patrol</strong><br>Fly scheduled or one-click task routes over border corridors, coastlines, islands, river mouths, and ports to replace or assist routine patrols and reduce frontline duty pressure.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/border-routine-patrol.webp\" alt=\"Routine Border and Coastal Patrol\" /></figure></li><li><strong>24-Hour Coastline Monitoring and Emergency Response</strong><br>Combine coastal monitoring, UAV dispatch, warning broadcast, target search, personnel positioning, and emergency supply delivery to support rapid response during maritime incidents.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp\" alt=\"24-Hour Coastline Monitoring and Emergency Response\" /></figure></li></ul><h2>Related Equipment</h2><ul><li><strong>Emergency Response Drone</strong><br>Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response</li><li><strong>FC-RDS500-4R Radar-Vision Fusion System</strong><br>Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning</li><li><strong>Medium/Long-Range UAV Inspection System</strong><br>Long-distance shoreline and border-corridor patrol</li></ul><h2>Related Cases</h2><ul><li>anhui-flood-season-uav-patrol</li><li>ice-snow-emergency-uav-inspection</li></ul>",
+  "detail_html": "<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp\" alt=\"Illegal vessel supervision by UAV\" /></figure><h2>Industry Pain Points</h2><ul><li>Border corridors, coastlines, islands, ports, and estuary zones cover long and complex frontlines where fixed cameras, boat patrols, and foot patrols still leave blind spots.</li><li>Frontline teams face sustained pressure from infiltration prevention, illegal crossing, smuggling, suspicious vessels, and shoreline intrusion, while night operations and severe weather raise safety risks.</li><li>When abnormal vessels or emergency incidents appear, command teams need fast positioning, clear evidence, warning broadcast, and coordinated dispatch, but scattered sensors and delayed reporting weaken situational awareness.</li></ul><h2>How UAVs Upgrade Operations</h2><ul><li>UAVs can launch quickly on planned routes, cover fixed patrol zones and shorelines from the air, and return live video, coordinates, and flight tracks to the command platform.</li><li>EO/IR pods, zoom cameras, loudspeakers, and long-range links support day-night observation, target confirmation, evidence capture, legal notice broadcast, and on-site deterrence.</li><li>AI-assisted recognition and multi-source linkage connect UAV video with coastal radar/EO monitoring, pushing alerts and task instructions so air, ground, and maritime teams act from the same picture.</li></ul><h2>Solution Modules</h2><ul><li><strong>Routine Border and Coastal Patrol</strong><br>Fly scheduled or one-click task routes over border corridors, coastlines, islands, river mouths, and ports to replace or assist routine patrols and reduce frontline duty pressure.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/border-routine-patrol.webp\" alt=\"Routine Border and Coastal Patrol\" /></figure></li><li><strong>24-Hour Coastline Monitoring and Emergency Response</strong><br>Combine coastal monitoring, UAV dispatch, warning broadcast, target search, personnel positioning, and emergency supply delivery to support rapid response during maritime incidents.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp\" alt=\"24-Hour Coastline Monitoring and Emergency Response\" /></figure></li></ul><h2>Related Equipment</h2><ul><li><strong>Emergency Response Drone</strong><br>Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response</li><li><strong>FC-RDS500-4R Radar-Vision Fusion System</strong><br>Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning</li><li><strong>26kg MTOW VTOL Fixed-Wing UAV</strong><br>Long-endurance shoreline and border-corridor patrol</li></ul><h2>Related Cases</h2><ul><li>anhui-flood-season-uav-patrol</li><li>ice-snow-emergency-uav-inspection</li></ul>",
+  "detail_html_en": "<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp\" alt=\"Illegal vessel supervision by UAV\" /></figure><h2>Industry Pain Points</h2><ul><li>Border corridors, coastlines, islands, ports, and estuary zones cover long and complex frontlines where fixed cameras, boat patrols, and foot patrols still leave blind spots.</li><li>Frontline teams face sustained pressure from infiltration prevention, illegal crossing, smuggling, suspicious vessels, and shoreline intrusion, while night operations and severe weather raise safety risks.</li><li>When abnormal vessels or emergency incidents appear, command teams need fast positioning, clear evidence, warning broadcast, and coordinated dispatch, but scattered sensors and delayed reporting weaken situational awareness.</li></ul><h2>How UAVs Upgrade Operations</h2><ul><li>UAVs can launch quickly on planned routes, cover fixed patrol zones and shorelines from the air, and return live video, coordinates, and flight tracks to the command platform.</li><li>EO/IR pods, zoom cameras, loudspeakers, and long-range links support day-night observation, target confirmation, evidence capture, legal notice broadcast, and on-site deterrence.</li><li>AI-assisted recognition and multi-source linkage connect UAV video with coastal radar/EO monitoring, pushing alerts and task instructions so air, ground, and maritime teams act from the same picture.</li></ul><h2>Solution Modules</h2><ul><li><strong>Routine Border and Coastal Patrol</strong><br>Fly scheduled or one-click task routes over border corridors, coastlines, islands, river mouths, and ports to replace or assist routine patrols and reduce frontline duty pressure.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/border-routine-patrol.webp\" alt=\"Routine Border and Coastal Patrol\" /></figure></li><li><strong>24-Hour Coastline Monitoring and Emergency Response</strong><br>Combine coastal monitoring, UAV dispatch, warning broadcast, target search, personnel positioning, and emergency supply delivery to support rapid response during maritime incidents.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp\" alt=\"24-Hour Coastline Monitoring and Emergency Response\" /></figure></li></ul><h2>Related Equipment</h2><ul><li><strong>Emergency Response Drone</strong><br>Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response</li><li><strong>FC-RDS500-4R Radar-Vision Fusion System</strong><br>Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning</li><li><strong>26kg MTOW VTOL Fixed-Wing UAV</strong><br>Long-endurance shoreline and border-corridor patrol</li></ul><h2>Related Cases</h2><ul><li>anhui-flood-season-uav-patrol</li><li>ice-snow-emergency-uav-inspection</li></ul>",
   "main_image": "/solutions/border patrol/Drone Maritime Patrol/Drone Maritime Patrol.jpg",
   "handle": "uav-maritime-patrol",
   "category_primary": "",
   "recommended_products": [
     "fc-yjzc-01-emergency-reconnaissance-drone",
     "fc-rds500-4r-radar-vision-sentinel",
-    "medium-long-range-uav-inspection-system"
+    "vtol-26kg-mtow-uav"
   ],
   "product_name_ru": "Пограничное патрулирование и береговая охрана",
   "summary_ru": "Решение на базе БПЛА для пограничного патрулирования, береговой охраны, поддержки морского контроля, инспекции береговой линии и реагирования в заданных зонах.",
@@ -150,9 +150,9 @@
         "role": "Быстрое патрулирование, разведка, голосовое предупреждение и полевое реагирование"
       },
       {
-        "name": "Система средне- и дальнедистанционной инспекции БПЛА",
-        "handle": "medium-long-range-uav-inspection-system",
-        "role": "Дальнее патрулирование береговой линии и пограничных коридоров"
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
       }
     ],
     "related_cases": [
@@ -202,9 +202,9 @@
         "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
       },
       {
-        "name": "Medium/Long-Range UAV Inspection System",
-        "handle": "medium-long-range-uav-inspection-system",
-        "role": "Long-distance shoreline and border-corridor patrol"
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
       }
     ],
     "related_cases": [
@@ -249,9 +249,9 @@
         "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
       },
       {
-        "name": "Medium/Long-Range UAV Inspection System",
-        "handle": "medium-long-range-uav-inspection-system",
-        "role": "Long-distance shoreline and border-corridor patrol"
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
       }
     ],
     "related_cases": [
@@ -291,9 +291,9 @@
         "role": "Быстрое патрулирование, разведка, голосовое предупреждение и полевое реагирование"
       },
       {
-        "name": "Система средне- и дальнедистанционной инспекции БПЛА",
-        "handle": "medium-long-range-uav-inspection-system",
-        "role": "Дальнее патрулирование береговой линии и пограничных коридоров"
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
       }
     ],
     "related_cases": [

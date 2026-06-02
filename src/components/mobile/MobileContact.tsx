@@ -21,7 +21,7 @@ export default function MobileContact({ dict }: { dict?: any }) {
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>{d.bannerTitle}</h1>
+                    <div className={styles.bannerTitle}>{d.bannerTitle}</div>
                 </div>
             </section>
 

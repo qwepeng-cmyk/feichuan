@@ -104,7 +104,7 @@ export default function MobileHome({
                     padding: '0 20px',
                     color: '#ffffff'
                 }}>
-                    <h1 style={{ 
+                    <div style={{ 
                         fontSize: '18px', 
                         fontWeight: 700, 
                         marginBottom: '15px',
@@ -112,7 +112,7 @@ export default function MobileHome({
                         color: '#ffffff',
                         textShadow: '0 2px 4px rgba(0,0,0,0.5)'
                     }} dangerouslySetInnerHTML={{ __html: dict.home.hero.title }}>
-                    </h1>
+                    </div>
                     <Link href={localePath(locale, '/solutions')} style={{
                         display: 'inline-block',
                         background: '#b65f00',

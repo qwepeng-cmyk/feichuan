@@ -109,7 +109,7 @@ export default function MobileCaseCenter({
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>{dict.cases.bannerTitle}</h1>
+                    <div className={styles.bannerTitle}>{dict.cases.bannerTitle}</div>
                 </div>
             </section>
 

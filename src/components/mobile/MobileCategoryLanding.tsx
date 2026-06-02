@@ -48,7 +48,7 @@ export default function MobileCategoryLanding({
                 <Image src={withStaticAssetVersion(bannerImage)} fill style={{ objectFit: 'cover' }} priority alt={categoryName} />
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <h1>{categoryName}</h1>
+                    <div className={styles.bannerTitle}>{categoryName}</div>
                 </div>
             </section>
  

@@ -206,11 +206,15 @@ export function sanitizeComplianceText(value: string): string {
   );
 }
 
-const STRUCTURAL_VALUE_KEY_PATTERN = /(^|_)(id|handle|slug|path|url|href|src|image|images|thumbnail|icon|file|files)($|_)/i;
+const STRUCTURAL_VALUE_KEY_PATTERN = /(^|_)(id|handle|handles|slug|path|url|href|src|image|images|thumbnail|icon|file|files)($|_)/i;
+const STRUCTURAL_LIST_KEY_PATTERN = /(^|_)(recommended_products|recommended_product_handles|recommended_cases|related_cases)($|_)/i;
 
 function shouldPreserveStructuralValue(key?: string, value?: unknown) {
-  if (key && STRUCTURAL_VALUE_KEY_PATTERN.test(key)) {
-    return true;
+  if (key) {
+    const normalizedKey = key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase();
+    if (STRUCTURAL_VALUE_KEY_PATTERN.test(normalizedKey) || STRUCTURAL_LIST_KEY_PATTERN.test(normalizedKey)) {
+      return true;
+    }
   }
 
   if (typeof value !== 'string') {

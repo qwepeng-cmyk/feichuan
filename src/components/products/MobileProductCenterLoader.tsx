@@ -25,7 +25,7 @@ function MobileProductFallback({ dict }: { dict?: any }) {
                 }}
             >
                 {dict?.products?.bannerTitle && (
-                    <h1
+                    <div
                         style={{
                             color: '#fff',
                             fontSize: '22px',
@@ -37,7 +37,7 @@ function MobileProductFallback({ dict }: { dict?: any }) {
                         }}
                     >
                         {dict.products.bannerTitle}
-                    </h1>
+                    </div>
                 )}
             </section>
             <div style={{ height: '80px', borderBottom: '1px solid #eee', background: '#fff', overflow: 'hidden' }}>
