@@ -45,6 +45,9 @@ export default function InquiryDetailPage({ params }: { params: { id: string } }
     try {
         demands = JSON.parse(inquiry.demands);
     } catch(e) {}
+    const contactMethod = inquiry.contact_method && inquiry.contact_method.toLowerCase() !== 'phone'
+        ? inquiry.contact_method
+        : '';
 
     return (
         <div>
@@ -108,7 +111,7 @@ export default function InquiryDetailPage({ params }: { params: { id: string } }
                                 <Phone size={20} color="#94a3b8" style={{ marginTop: '2px' }} />
                                 <div>
                                     <div style={{ fontSize: '1.2rem', color: '#64748b', marginBottom: '2px' }}>
-                                        Phone ({inquiry.contact_method || 'Phone'})
+                                        Phone{contactMethod ? ` (${contactMethod})` : ''}
                                     </div>
                                     <div style={{ fontSize: '1.4rem', color: '#1e293b', fontWeight: 500 }}>
                                         {inquiry.country_code} {inquiry.phone}

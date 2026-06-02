@@ -11,18 +11,18 @@ export interface ProductMetadata {
 const DATA_DIR = path.join(process.cwd(), '网站资料');
 const DIR_MAP: Record<string, string> = {
   '01大无人机': 'uav-drone-systems',
-  '02反无设备': 'anti-drone-cuas',
+  '02反无设备': 'drone-detection',
   '03智慧警务': 'security-screening',
-  '04工程补给': 'defense-engineering',
+  '04工程补给': 'engineering-materials',
   '05野战医院': 'field-hospitals',
   '06要地防护': 'perimeter-intelligence'
 };
 
 const CATEGORY_NAMES: Record<string, string> = {
   'uav-drone-systems': 'UAV & Drone Systems',
-  'anti-drone-cuas': 'Anti-Drone / C-UAS Systems',
+  'drone-detection': 'Drone Detection & Airspace Monitoring',
   'security-screening': 'Security Screening & Policing',
-  'defense-engineering': 'Defense Engineering & Logistics',
+  'engineering-materials': 'Engineering Materials & Logistics',
   'field-hospitals': 'Field & Mobile Hospitals',
   'perimeter-intelligence': 'Perimeter & Area Surveillance'
 };
@@ -30,9 +30,9 @@ const CATEGORY_NAMES: Record<string, string> = {
 export async function getAllProducts() {
   const categories: Record<string, ProductMetadata[]> = {
     'uav-drone-systems': [],
-    'anti-drone-cuas': [],
+    'drone-detection': [],
     'security-screening': [],
-    'defense-engineering': [],
+    'engineering-materials': [],
     'field-hospitals': [],
     'perimeter-intelligence': []
   };

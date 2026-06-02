@@ -51,7 +51,11 @@ export default function RichTextEditor({ value, onChange, placeholder, height = 
 
     const editor = useEditor({
         extensions: [
-            StarterKit,
+            StarterKit.configure({
+                link: false,
+                gapcursor: false,
+                dropcursor: false,
+            }),
             Image.configure({
                 HTMLAttributes: {
                     class: 'editor-image',

@@ -25,12 +25,25 @@
     background: transparent;
 }
 
+.bannerContent {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0 18px;
+}
+
 .bannerContent h1 {
     color: #ffffff !important;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: 0.3px;
+    line-height: 1.15;
+    max-width: calc(100vw - 36px);
+    margin: 0 auto;
+    text-align: center;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    white-space: normal !important;
+    overflow-wrap: anywhere;
 }
 
 /* 2. Sticky Sub-Nav */
@@ -41,6 +54,7 @@
     background: #ffffff;
     border-bottom: 1px solid #eee;
     height: 80px;
+    overflow: hidden;
 }
 
 .stickyNav.fixed {
@@ -50,10 +64,21 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.stickyNav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 34px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0), #ffffff 82%);
+}
+
 .tabTrack {
     display: flex;
     overflow-x: auto;
-    padding: 10px 5px;
+    padding: 10px 8px 10px 10px;
     gap: 8px;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -72,9 +97,10 @@
     background: transparent;
     border: none;
     padding: 0;
-    width: 112px;
+    width: 102px;
+    min-width: 102px;
     flex: 0 0 auto;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #315ba4;
 }
 
@@ -100,7 +126,7 @@
     white-space: normal;
     text-align: center;
     line-height: 1.1;
-    max-width: 104px;
+    max-width: 96px;
     overflow-wrap: anywhere;
     hyphens: auto;
 }

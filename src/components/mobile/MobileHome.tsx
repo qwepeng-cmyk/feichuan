@@ -28,6 +28,7 @@ export default function MobileHome({
     latestNews: any[],
     homeCases: any[]
 }) {
+    const mobileSolutionsSectionRef = React.useRef<HTMLElement>(null);
     const mobileSolutionsRef = React.useRef<HTMLDivElement>(null);
     const [mobileSolutionProgress, setMobileSolutionProgress] = React.useState(0);
 
@@ -52,6 +53,22 @@ export default function MobileHome({
         return () => window.removeEventListener('resize', updateMobileSolutionProgress);
     }, []);
 
+    React.useEffect(() => {
+        const scrollToSolutionsHash = () => {
+            if (window.location.hash !== '#solutions' || window.innerWidth > 991) return;
+            mobileSolutionsSectionRef.current?.scrollIntoView({ block: 'start' });
+        };
+
+        scrollToSolutionsHash();
+        window.requestAnimationFrame(scrollToSolutionsHash);
+        const hashScrollTimer = window.setTimeout(scrollToSolutionsHash, 300);
+        window.addEventListener('hashchange', scrollToSolutionsHash);
+        return () => {
+            window.clearTimeout(hashScrollTimer);
+            window.removeEventListener('hashchange', scrollToSolutionsHash);
+        };
+    }, []);
+
     return (
         <main style={{ 
             overflowX: 'hidden', 
@@ -73,14 +90,14 @@ export default function MobileHome({
                     muted 
                     playsInline 
                     preload="metadata"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000', filter: 'brightness(1.18) saturate(1.08)' }}
                 >
                     <source src="/index_banner_bg_4.mp4" type="video/mp4" />
                 </video>
                 <div style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'rgba(0,0,0,0.4)',
+                    background: 'linear-gradient(90deg, rgba(3, 10, 24, 0.34) 0%, rgba(3, 10, 24, 0.16) 52%, rgba(3, 10, 24, 0.08) 100%)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
@@ -111,7 +128,7 @@ export default function MobileHome({
             </section>
 
             {/* 2. Solutions */}
-            <section style={{ padding: '42px 0', background: '#f7f9fd' }}>
+            <section ref={mobileSolutionsSectionRef} style={{ padding: '42px 0', background: '#f7f9fd' }}>
                 <div style={{ padding: '0 20px', marginBottom: '20px', textAlign: 'center' }}>
                     <h2 style={{ fontSize: '24px', margin: 0, color: '#0f172a', fontWeight: 900, lineHeight: 1.15 }}>{dict.home.sections.solutions}</h2>
                 </div>

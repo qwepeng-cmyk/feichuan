@@ -1,49 +1,49 @@
 {
-  "product_name": "石油生产基地防护",
+  "product_name": "Oil Production Base Protection",
   "product_name_en": "Oil Production Base Protection",
-  "summary": "光电转台部署于厂区高耸设施顶端，选用超远距型号，实现生产区、储油罐区及周边区域的无缝全覆盖监控。反无设备采用分层应用策略，外围侦测定位，预警区诱骗驱离，核心区域迫降，全方位防范安全风险。",
-  "summary_en": "Optoelectronic turntables are deployed atop high structures in the plant area, using ultra-long-range models to achieve seamless coverage of production areas, tank farms, and surrounding zones. Counter-UAV equipment uses layered strategies: peripheral detection, warning zone decoy-eviction, and core zone forced landing to fully mitigate security risks.",
-  "key_application": "Anti-drone Application for Natural Gas Facilities (天然气设施反无应用)",
-  "key_application_en": "Anti-drone Application for Natural Gas Facilities",
-  "key_parameter_1": "全域覆盖监测: 利用高位部署实现生产区、储油罐区及周边无缝监控",
+  "summary": "Optoelectronic turntables are deployed atop high structures in the plant area, using ultra-long-range models to achieve seamless coverage of production areas, tank farms, and surrounding zones. airspace monitoring equipment uses layered strategies: peripheral detection, warning zone alert review, and core zone incident response to fully mitigate security risks.",
+  "summary_en": "Optoelectronic turntables are deployed atop high structures in the plant area, using ultra-long-range models to achieve seamless coverage of production areas, tank farms, and surrounding zones. airspace monitoring equipment uses layered strategies: peripheral detection, warning zone alert review, and core zone incident response to fully mitigate security risks.",
+  "key_application": "Airspace Monitoring Application for Natural Gas Facilities",
+  "key_application_en": "Airspace Monitoring Application for Natural Gas Facilities",
+  "key_parameter_1": "Wide-area Coverage: Strategic high-altitude deployment for seamless monitoring of tanks and production zones",
   "key_parameter_1_en": "Wide-area Coverage: Strategic high-altitude deployment for seamless monitoring of tanks and production zones",
-  "key_parameter_2": "分层防御体系: 整合无线电侦测、导航欺骗与定向干扰实施联动反制",
-  "key_parameter_2_en": "Layered Defense: Integrated link of radio detection, nav-decoy, and directional jamming",
+  "key_parameter_2": "Layered Defense: Integrated link of radio detection, navigation-signal analysis, and directional RF signal analysis",
+  "key_parameter_2_en": "Layered Defense: Integrated link of radio detection, navigation-signal analysis, and directional RF signal analysis",
   "parameters": {
-    "覆盖距离": "5km - 10km (视型号)",
-    "反制手段": "全频段压制 + 导航欺骗",
-    "跟踪能力": "支持多目标同时跟踪",
-    "系统集成": "与厂区安防中控联动"
-  },
-  "parameters_en": {
     "Range": "5km - 10km (depending on model)",
-    "Countermeasure": "Full-band suppression + Nav-decoy",
+    "Response Workflow": "Full-band event management + navigation-signal analysis",
     "Tracking": "Supports multi-target tracking",
     "Integration": "Integrated with plant central security"
   },
-  "detail_html": "<h4>立体防控体系</h4><p>石油生产基地不仅需要广域监控，更需要精准的反制。利用高位部署，系统可以提前发现数公里外的威胁并采取分层拦截。</p><ul><li>分层立体防御（侦、打结合）</li><li>超远距离红外热成像</li><li>实时定位飞控手位置</li></ul>",
-  "detail_html_en": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise countermeasures. Strategic high deployment allows the system to detect threats kilometers away and conduct layered interception.</p><ul><li>Layered defense (Detection + Neutralization)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
+  "parameters_en": {
+    "Range": "5km - 10km (depending on model)",
+    "Response Workflow": "Full-band event management + navigation-signal analysis",
+    "Tracking": "Supports multi-target tracking",
+    "Integration": "Integrated with plant central security"
+  },
+  "detail_html": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise response workflows. Strategic high deployment allows the system to detect threats kilometers away and conduct layered event review.</p><ul><li>Layered defense (Detection + coordinated response)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
+  "detail_html_en": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise response workflows. Strategic high deployment allows the system to detect threats kilometers away and conduct layered event review.</p><ul><li>Layered defense (Detection + coordinated response)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
   "main_image": "/solutions/infrastructure protection/Oil Production Base Protection/Oil Production Base Protection.png",
   "handle": "oil-production-base-protection",
-  "category_primary": "Infrastructure Protection (关键设施防护)",
+  "category_primary": "",
   "recommended_products": [
     "stationary-rf-detection-system",
     "stationary-active-rf-defense-system",
-    "uav-navigation-spoofing-system",
+    "uav-navigation-navigation-signal analysis-system",
     "composite-electro-optical-tracking-system",
-    "handheld-integrated-sdr-c-uas",
-    "portable-anti-drone-jammer-shield"
+    "handheld-integrated-sdr-Airspace Monitoring",
+    "portable-airspace monitoring-RF scanners-shield"
   ],
   "product_name_ru": "Охрана нефтедобывающих баз",
-  "summary_ru": "Оптико-электронные платформы дальнего действия, размещенные на высоких точках, обеспечивают бесшовный мониторинг производственных зон и парков резервуаров. Стратегия защиты включает обнаружение на дальних подступах, имитацию в зоне предупреждения и принудительную посадку в основной зоне.",
+  "summary_ru": "Оптико-электронные платформы дальнего действия, размещенные на высоких точках, обеспечивают бесшовный мониторинг производственных зон и парков резервуаров. Стратегия защиты включает обнаружение на дальних подступах, проверка данных в зоне предупреждения и передачу события ответственным службам в основной зоне.",
   "key_application_ru": "Объекты добычи нефти и газа, терминалы хранения",
   "key_parameter_1_ru": "Сплошной мониторинг: Использование высотных точек для бесшовного контроля резервуаров и зон добычи",
-  "key_parameter_2_ru": "Эшелонированная оборона: Связка радиоразведки, навигационной десепции и направленного подавления",
+  "key_parameter_2_ru": "Эшелонированная оборона: Связка радиоразведки, проверки данных воздушной обстановки и направленного согласованного реагирования",
   "parameters_ru": {
     "Дистанция охвата": "5 км – 10 км (зависит от модели)",
-    "Методы защиты": "Полнодиапазонное подавление + навигационная имитация",
+    "Методы защиты": "Полнодиапазонное согласованное реагирование + проверка данных воздушной обстановки",
     "Сопровождение": "Поддержка одновременного отслеживания нескольких целей",
     "Интеграция": "Сопряжение с центральным пультом охраны предприятия"
   },
-  "detail_html_ru": "<h4>Трехмерная архитектура защиты</h4><p>Нефтебазам требуется как широкомасштабный мониторинг, так и высокоточные контрмеры. Стратегическое размещение оборудования позволяет обнаруживать угрозы за несколько километров.</p><ul><li>Многоуровневая защита (Обнаружение + Нейтрализация)</li><li>ИК-тепловизоры сверхдальнего действия</li><li>Определение местоположения оператора дрона в реальном времени</li></ul>"
+  "detail_html_ru": "<h4>Трехмерная архитектура защиты</h4><p>Нефтебазам требуется как широкомасштабный мониторинг, так и высокоточные процедуры реагирования. Стратегическое размещение оборудования позволяет обнаруживать угрозы за несколько километров.</p><ul><li>Многоуровневая защита (Обнаружение + Документированное реагирование)</li><li>ИК-тепловизоры сверхдальнего действия</li><li>Определение местоположения оператора дрона в реальном времени</li></ul>"
 }

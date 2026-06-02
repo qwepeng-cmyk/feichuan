@@ -1,19 +1,19 @@
 {
-  "product_name": "无人机海防应急救援",
+  "product_name": "UAV Maritime Emergency Rescue",
   "product_name_en": "UAV Maritime Emergency Rescue",
-  "summary": "在海上突发险情、事故及各类应急事件时，无人机可快速响应、第一时间飞抵事发海域，实时回传现场全景画面与态势信息，实现高效辅助决策与远程调度。同时可开展目标搜寻、人员定位，并搭载应急投放装置，精准投递救生物资。",
+  "summary": "In case of maritime emergencies, accidents, and various incidents, UAVs can respond quickly and fly to the scene immediately, providing real-time panoramic views and situational information for efficient auxiliary decision-making and remote dispatch. They also conduct target searching and personnel positioning, and can be equipped with emergency delivery devices to accurately drop life-saving supplies.",
   "summary_en": "In case of maritime emergencies, accidents, and various incidents, UAVs can respond quickly and fly to the scene immediately, providing real-time panoramic views and situational information for efficient auxiliary decision-making and remote dispatch. They also conduct target searching and personnel positioning, and can be equipped with emergency delivery devices to accurately drop life-saving supplies.",
-  "key_application": "海上搜救、物资投送、应急响应",
+  "key_application": "Maritime SAR, Material delivery, Emergency response",
   "key_application_en": "Maritime SAR, Material delivery, Emergency response",
-  "key_parameter_1": "响应速度: 第一时间到达现场",
+  "key_parameter_1": "Response speed: Arrive at the scene immediately",
   "key_parameter_1_en": "Response speed: Arrive at the scene immediately",
-  "key_parameter_2": "载酬能力: 挂载救生圈/应急包/通信基站",
+  "key_parameter_2": "Payload capability: Mount lifebuoys/emergency kits/comm base stations",
   "key_parameter_2_en": "Payload capability: Mount lifebuoys/emergency kits/comm base stations",
   "parameters": {
-    "搜寻技术": "红外热成像人员定位",
-    "投放精度": "高精度定点投放",
-    "通信链路": "超长距离实时图传",
-    "抗风等级": "6-7级抗风"
+    "Search Tech": "IR thermal imaging for personnel positioning",
+    "Delivery Precision": "High-precision fixed-point dropping",
+    "Comm Link": "Extra-long distance real-time image transmission",
+    "Wind Resistance": "Level 6-7 wind resistance"
   },
   "parameters_en": {
     "Search Tech": "IR thermal imaging for personnel positioning",
@@ -21,11 +21,11 @@
     "Comm Link": "Extra-long distance real-time image transmission",
     "Wind Resistance": "Level 6-7 wind resistance"
   },
-  "detail_html": "<h4>方案深度解析</h4><p>海边突发险情时，传统救援船只到达速度受限。无人机可无视地形障碍，第一时间送达救生物资，为生命争取时间。</p><ul><li>实时回传全景态势</li><li>高清光电红外全方位搜寻</li><li>精准投递救生物资</li></ul>",
+  "detail_html": "<h4>Solution Deep Dive</h4><p>Traditional rescue vessels are limited by speed during coastal emergencies. UAVs can bypass terrain obstacles and deliver life-saving supplies immediately to buy time for survival.</p><ul><li>Real-time situational feedback</li><li>HD EO/IR all-round searching</li><li>Precision delivery of rescue materials</li></ul>",
   "detail_html_en": "<h4>Solution Deep Dive</h4><p>Traditional rescue vessels are limited by speed during coastal emergencies. UAVs can bypass terrain obstacles and deliver life-saving supplies immediately to buy time for survival.</p><ul><li>Real-time situational feedback</li><li>HD EO/IR all-round searching</li><li>Precision delivery of rescue materials</li></ul>",
   "main_image": "/solutions/border patrol/Drone Maritime Emergency Rescue/Drone Maritime Emergency Rescue.jpg",
   "handle": "uav-maritime-emergency-rescue",
-  "category_primary": "Border Patrol (边境巡逻)",
+  "category_primary": "",
   "recommended_products": [
     "fc-yjzc-01-emergency-reconnaissance-drone",
     "fc-rds500-4r-radar-vision-sentinel",

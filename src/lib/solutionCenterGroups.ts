@@ -69,7 +69,7 @@ export const solutionCenterImageByHandle: Record<string, string> = {
   'power-line-uav-intelligent-inspection-solution': '/solutions/solutions/Power Line UAV Intelligent Inspection.webp',
   'smart-substation-unattended-uav-inspection-solution': '/solutions/solutions/Smart Substation Unattended Inspection.webp',
   'water-conservancy-river-lake-uav-monitoring-solution': '/solutions/solutions/Water Conservancy & River-Lake Monitoring.webp',
-  'uav-maritime-patrol': '/solutions/solutions/Border Patrol & Coastal Defense.webp',
+  'uav-maritime-patrol': '/solutions/solutions/border-patrol-coastal-monitoring.webp',
   'urban-high-rise-firefighting-emergency-uav-solution': '/solutions/solutions/Urban High-Rise Firefighting & Rescue.webp',
   'disaster-site-search-rescue-reconnaissance-uav-solution': '/solutions/solutions/Disaster-Site Search, Rescue & Reconnaissance.webp',
   'post-disaster-emergency-communication-support-uav-solution': '/solutions/solutions/Post-Disaster Emergency Communication Support.webp',

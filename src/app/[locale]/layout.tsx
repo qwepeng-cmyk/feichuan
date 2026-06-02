@@ -24,6 +24,10 @@ const fallbackTracking = {
   gtmEnabled: true,
 };
 
+const tawkPropertyId = '6a1e6979734ebd1c2f45a821';
+const tawkWidgetId = '1jq3co0p8';
+const shouldLoadTawk = process.env.NODE_ENV === 'production';
+
 async function loadTrackingSettings() {
   try {
     const { getTrackingSettings } = await import("@/lib/siteSettings");
@@ -44,11 +48,11 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   
   return {
     title: locale === 'ru'
-      ? 'N-TET - промышленные решения безопасности и мониторинга'
-      : 'N-TET - Industrial Security & Monitoring Solutions',
+      ? 'N-TET - Промышленные БПЛА и мониторинг низковысотного пространства'
+      : 'N-TET - Industrial UAV Systems & Low-Altitude Monitoring',
     description: locale === 'ru'
-      ? 'Промышленные беспилотные системы, оборудование мониторинга и технологии безопасности для критической инфраструктуры.'
-      : 'Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.',
+      ? 'Промышленные платформы БПЛА, оборудование мониторинга воздушного пространства, журналы событий и регламентированные рабочие процессы для инфраструктурных операторов.'
+      : 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
@@ -126,6 +130,23 @@ gtag('config', '${gaMeasurementId}');`,
           </>
         )}
 
+        {shouldLoadTawk && (
+          <Script
+            id="tawk-to"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}';
+s1.charset='UTF-8';
+s0.parentNode.insertBefore(s1,s0);
+})();`,
+            }}
+          />
+        )}
+
         {gtmContainerId && (
           <noscript>
             <iframe
@@ -146,16 +167,6 @@ gtag('config', '${gaMeasurementId}');`,
         <div className="mobile_only">
             <MobileStickyBar locale={locale} dict={dict} />
         </div>
-
-        {/* STICKY INQUIRY (CRISP STYLE) */}
-        <a href="#inquiry" className="pc_only crisp-inquiry-trigger">
-            <div className="crisp-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </div>
-            <span className="crisp-label">{dict.products.getQuotation}</span>
-        </a>
     </>
   );
 }

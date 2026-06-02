@@ -1,36 +1,37 @@
 {
-  "product_name": "司法部门安全保护",
+  "product_name": "Judicial Sector Security Protection",
   "product_name_en": "Judicial Sector Security Protection",
-  "summary": "司法部门涉及大量涉密信息与高风险人员管控，面临无人机非法闯入窃密、违禁品空投等隐患。本方案构建全方位立体防控体系，统筹部署光电监控、反无人机预防及智能安检终端，保障司法场所核心安全。",
+  "summary": "The judicial sector involves a large amount of classified information and high-risk personnel management, facing hidden dangers such as illegal UAV intrusions for spying or contraband dropping. This solution constructs an all-round three-dimensional prevention and control system, coordinating the deployment of optoelectronic monitoring, UAV prevention, and intelligent security screening terminals to safeguard the core security of judicial premises.",
   "summary_en": "The judicial sector involves a large amount of classified information and high-risk personnel management, facing hidden dangers such as illegal UAV intrusions for spying or contraband dropping. This solution constructs an all-round three-dimensional prevention and control system, coordinating the deployment of optoelectronic monitoring, UAV prevention, and intelligent security screening terminals to safeguard the core security of judicial premises.",
-  "key_application": "Key Area Security (要地（公检法司/军队政府）安保)",
+  "key_application": "Key Area Security (Judicial/Military/Government)",
   "key_application_en": "Key Area Security (Judicial/Military/Government)",
-  "key_parameter_1": "多维立体防御: 统筹部署监控、反制与安检，严防窃密、设施损毁与物品空投",
-  "key_parameter_1_en": "Multi-dimensional Defense: Integrated monitoring, anti-UAV, and screening against spying and drops",
-  "key_parameter_2": "全域全天候监测: 依托多光谱成像与智能识别技术，精准核实人、货、机目标",
+  "key_parameter_1": "Multi-dimensional Defense: Integrated monitoring, Airspace Monitoring, and screening against spying and drops",
+  "key_parameter_1_en": "Multi-dimensional Defense: Integrated monitoring, Airspace Monitoring, and screening against spying and drops",
+  "key_parameter_2": "24/7 Monitoring: Multi-spectral imaging and smart ID for precision tracking of people, goods, and UAVs",
   "key_parameter_2_en": "24/7 Monitoring: Multi-spectral imaging and smart ID for precision tracking of people, goods, and UAVs",
   "parameters": {
-    "安防深度": "室内外一体化联动",
-    "反击手段": "全波段屏蔽保护",
-    "安检精度": "毫米波/X光多重检查",
-    "预警响应": "< 2s 自动抓拍识别"
-  },
-  "parameters_en": {
     "Depth": "Outdoor-Indoor integrated linkage",
-    "Countermeasure": "Full-band shielding protection",
+    "Response Workflow": "Full-band screening protection",
     "Accuracy": "Multi-layered MMW/X-ray inspection",
     "Response": "< 2s auto-capture & recognition",
     "industry_pain_points_image": "/solutions/solutions/Judicial Sector Security.webp"
   },
-  "detail_html": "<h4>司法安防立体防线</h4><p>针对收押、审讯等高度敏感区域，方案不仅防范外部无人机的“黑飞”干扰，同时也提升了物理卡口人员出入的数字化管控能力。</p><ul><li>阻断违规无人机信号，防范窃密</li><li>FC-H探测门实现涉密手机精准拦截</li><li>智能X光机快速查验入场物资</li></ul>",
-  "detail_html_en": "<h4>Judicial Security Defense</h4><p>Focusing on highly sensitive areas like detention and interrogation rooms, this solution prevents 'black-flight' drone interference while enhancing digitized entry control at physical checkpoints.</p><ul><li>Blocking illegal UAV signals to prevent information leakage</li><li>FC-H detector for precise interception of classified phones</li><li>Smart X-ray machines for rapid inspection of incoming goods</li></ul>",
+  "parameters_en": {
+    "Depth": "Outdoor-Indoor integrated linkage",
+    "Response Workflow": "Full-band screening protection",
+    "Accuracy": "Multi-layered MMW/X-ray inspection",
+    "Response": "< 2s auto-capture & recognition",
+    "industry_pain_points_image": "/solutions/solutions/Judicial Sector Security.webp"
+  },
+  "detail_html": "<h4>Judicial Security Defense</h4><p>Focusing on highly sensitive areas like detention and interrogation rooms, this solution prevents 'black-flight' drone interference while enhancing digitized entry control at physical checkpoints.</p><ul><li>Blocking illegal UAV signals to prevent information leakage</li><li>FC-H detector for precise event review of classified phones</li><li>Smart X-ray machines for rapid inspection of incoming goods</li></ul>",
+  "detail_html_en": "<h4>Judicial Security Defense</h4><p>Focusing on highly sensitive areas like detention and interrogation rooms, this solution prevents 'black-flight' drone interference while enhancing digitized entry control at physical checkpoints.</p><ul><li>Blocking illegal UAV signals to prevent information leakage</li><li>FC-H detector for precise event review of classified phones</li><li>Smart X-ray machines for rapid inspection of incoming goods</li></ul>",
   "main_image": "/solutions/key area security/Judicial Sector Security/Judicial Sector Security.jpg",
   "handle": "judicial-sector-security",
-  "category_primary": "Key Area Security (要地安保)",
+  "category_primary": "",
   "recommended_products": [
     "stationary-rf-detection-system",
     "stationary-active-rf-defense-system",
-    "uav-navigation-spoofing-system",
+    "uav-navigation-navigation-signal analysis-system",
     "composite-electro-optical-tracking-system",
     "fc2088-handheld-metal-detector",
     "fc-h-smart-phone-detection-gate",
@@ -38,9 +39,9 @@
     "fc6550d-dual-source-dual-view-x-ray-baggage-scanner"
   ],
   "product_name_ru": "Безопасность судебного и пенитенциарного сектора",
-  "summary_ru": "Судебный сектор связан с управлением секретной информацией и лицами высокого риска. Наше решение строит комплексную систему защиты, объединяя оптико-электронный мониторинг, противодействие БПЛА и интеллектуальные терминалы досмотра для защиты режимных объектов.",
+  "summary_ru": "Судебный сектор связан с управлением секретной информацией и лицами высокого риска. Наше решение строит комплексную систему защиты, объединяя оптико-электронный мониторинг, мониторинг низковысотной активности и интеллектуальные терминалы досмотра для защиты режимных объектов.",
   "key_application_ru": "Безопасность особо важных объектов (суды, тюрьмы, правительственные здания)",
-  "key_parameter_1_ru": "Многомерная защита: Координация наблюдения, подавления и досмотра против шпионажа и сброса предметов",
+  "key_parameter_1_ru": "Многомерная защита: Координация наблюдения, согласованного реагирования и досмотра против шпионажа и сброса предметов",
   "key_parameter_2_ru": "Круглосуточный мониторинг: Мультиспектральная визуализация и ИИ-идентификация людей, грузов и дронов",
   "parameters_ru": {
     "Глубина охраны": "Интеграция внутренних и внешних рубежей",
@@ -48,5 +49,5 @@
     "Точность досмотра": "Многоуровневая проверка (миллиметровые волны / X-ray)",
     "Время реакции": "< 2 с (автоматический захват и распознавание)"
   },
-  "detail_html_ru": "<h4>Трехмерная линия обороны судебных органов</h4><p>Для зон строгого контроля решение не только предотвращает вмешательство внешних БПЛА, но и повышает уровень цифрового контроля на физических КПП.</p><ul><li>Блокировка сигналов нелегальных БПЛА для предотвращения утечек информации</li><li>Детекторы FC-H для перехвата запрещенных мобильных телефонов</li><li>Интеллектуальные рентгеновские сканеры для быстрой проверки входящих грузов</li></ul>"
+  "detail_html_ru": "<h4>Трехмерная линия обороны судебных органов</h4><p>Для зон строгого контроля решение не только предотвращает вмешательство внешних БПЛА, но и повышает уровень цифрового контроля на физических КПП.</p><ul><li>регистрация и проверка низковысотных событий нелегальных БПЛА для предотвращения утечек информации</li><li>Детекторы FC-H для перехвата запрещенных мобильных телефонов</li><li>Интеллектуальные рентгеновские сканеры для быстрой проверки входящих грузов</li></ul>"
 }

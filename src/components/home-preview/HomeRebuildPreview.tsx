@@ -75,7 +75,7 @@ export default function HomeRebuildPreview({
           <div className={styles.heroCopy}>
             <div className={styles.eyebrow}>
               <span className={styles.signalDot} />
-              N-TET Integrated Security Systems
+              N-TET Industrial UAV Systems
             </div>
             <h1
               className={styles.heroTitle}
@@ -108,11 +108,11 @@ export default function HomeRebuildPreview({
             <div className={styles.panelRows}>
               <div>
                 <strong>Airspace Monitoring</strong>
-                <span>Detection, tracking, suppression</span>
+                <span>Situational awareness, records, response support</span>
               </div>
               <div>
                 <strong>Critical Sites</strong>
-                <span>Airport, energy, border, events</span>
+                <span>Utilities, airports, borders, public venues</span>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function HomeRebuildPreview({
 
       <section className={styles.productLab}>
         <div className={styles.sectionIntro}>
-          <span className={styles.sectionKicker}>Mission Hardware</span>
+          <span className={styles.sectionKicker}>Mission Equipment</span>
           <h2>{dict.home.sections.products}</h2>
           <p>
             A tighter preview flow: category selection, product proof, and
@@ -259,7 +259,7 @@ export default function HomeRebuildPreview({
       <section className={styles.aboutBand}>
         <Image src="/index/about_bg.webp" alt={dict.home.sections.about} fill sizes="100vw" />
         <div className={styles.aboutContent}>
-          <span className={styles.sectionKicker}>Industrial Ecosystem</span>
+          <span className={styles.sectionKicker}>Operational Ecosystem</span>
           <h2>{dict.home.sections.about}</h2>
           <p>{dict.home.about.content}</p>
           <div className={styles.aboutFacts}>

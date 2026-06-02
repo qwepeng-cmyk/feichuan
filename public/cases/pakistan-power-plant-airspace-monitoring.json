@@ -1,0 +1,62 @@
+{
+  "title": "Airspace Monitoring Case of a Power Plant in Pakistan",
+  "title_en": "Airspace Monitoring Case of a Power Plant in Pakistan",
+  "description": "2024 Airspace Monitoring Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a low-altitude airspace monitoring workflow for the facility perimeter and core operation zones. Stationary spectrum detection equipment supports continuous awareness of nearby aerial activity, while navigation-signal analysis provides reference data for authorized review. The command platform links alerts, map views, operator notes, and response status so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "description_en": "2024 Airspace Monitoring Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a low-altitude airspace monitoring workflow for the facility perimeter and core operation zones. Stationary spectrum detection equipment supports continuous awareness of nearby aerial activity, while navigation-signal analysis provides reference data for authorized review. The command platform links alerts, map views, operator notes, and response status so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "devices": [
+    "Stationary Spectrum Detection Equipment",
+    "Navigation-Signal Analysis Equipment",
+    "Command and Control Platform Software"
+  ],
+  "devices_en": [
+    "Stationary Spectrum Detection Equipment",
+    "Navigation-Signal Analysis Equipment",
+    "Command and Control Platform Software"
+  ],
+  "main_image": "/cases/pakistan-power-plant-airspace-monitoring/main.webp",
+  "case_images": [],
+  "recommendedProductHandles": [],
+  "handle": "pakistan-power-plant-airspace-monitoring",
+  "title_ru": "Airspace Monitoring Case of a Power Plant in Pakistan",
+  "description_ru": "2024 Airspace Monitoring Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a low-altitude airspace monitoring workflow for the facility perimeter and core operation zones. Stationary spectrum detection equipment supports continuous awareness of nearby aerial activity, while navigation-signal analysis provides reference data for authorized review. The command platform links alerts, map views, operator notes, and response status so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "devices_ru": [
+    "Stationary Spectrum Detection Equipment",
+    "Navigation-Signal Analysis Equipment",
+    "Command and Control Platform Software"
+  ],
+  "region_ru": "Asia",
+  "country_ru": "Pakistan",
+  "region_en": "Asia",
+  "country_en": "Pakistan",
+  "solution_category_id": "02_InfrastructureProtection",
+  "related_products": [],
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ]
+}

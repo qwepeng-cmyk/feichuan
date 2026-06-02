@@ -76,7 +76,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
     const productMegaImages = {
         mission: "/products/uav-systems/FC-SLJC-01-Water-Conservancy-Monitoring-Drone.webp",
         security: "/products/security/Deluxe-Smart-Turnstile.webp",
-        engineering: "/products/defense-eng/Bailey-Bridge-Steel-Prefab.webp",
+        engineering: "/products/04-engineering-materials/bailey-bridge-steel-prefab.webp",
         perimeter: "/products/surveillance/FC-DMS10-Series-Smart-Electronic-Sentinel.webp",
     };
     const renderMegaImage = (src: string, alt: string, variant = "standard") => (

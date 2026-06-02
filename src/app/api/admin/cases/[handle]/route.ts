@@ -4,10 +4,41 @@ import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { handle: string } }) {
     try {
-        const row = db.prepare('SELECT raw_json, COALESCE(is_published, 1) AS is_published FROM cases WHERE handle = ?').get(params.handle) as any;
+        const row = db.prepare('SELECT * FROM cases WHERE handle = ?').get(params.handle) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
         
-        return NextResponse.json({ success: true, data: { ...JSON.parse(row.raw_json), is_published: row.is_published } });
+        let caseImages: any = row.case_images;
+        let recommendedProductHandles: any = row.recommended_product_handles;
+        try {
+            caseImages = row.case_images ? JSON.parse(row.case_images) : [];
+        } catch {}
+        try {
+            recommendedProductHandles = row.recommended_product_handles ? JSON.parse(row.recommended_product_handles) : [];
+        } catch {}
+
+        return NextResponse.json({
+            success: true,
+            data: {
+                ...JSON.parse(row.raw_json || '{}'),
+                handle: row.handle,
+                title_en: row.title_en,
+                title_ru: row.title_ru,
+                region_en: row.region_en,
+                region_ru: row.region_ru,
+                country_en: row.country_en,
+                country_ru: row.country_ru,
+                solution_category_id: row.solution_category_id,
+                main_image: row.main_image,
+                case_images: caseImages,
+                description_en: row.description_en,
+                description_ru: row.description_ru,
+                devices_en: row.devices_en,
+                devices_ru: row.devices_ru,
+                recommendedProductHandles,
+                recommended_product_handles: recommendedProductHandles,
+                is_published: row.is_published,
+            },
+        });
     } catch (e) {
         return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
     }

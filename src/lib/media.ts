@@ -21,7 +21,7 @@ const MEDIA_IMAGE_BY_ID: Record<string, string> = {
   'border-surveillance-uav-network-2026': '/solutions/01/Drone Border Patrol-home.webp',
   'low-altitude-economy-2026-outlook': '/media/news/low-altitude-economy-2026-card.webp',
   'multi-sensor-cuas-architecture-2026': '/cases/airport-security-application/main-home.webp',
-  'cuas-critical-infrastructure-deployment-2026': '/cases/pakistan-power-plant-anti-uav/main-home.webp',
+  'cuas-critical-infrastructure-deployment-2026': '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
 };
 
 function normalizeMediaItem(item: any) {

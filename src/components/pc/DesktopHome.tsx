@@ -31,6 +31,7 @@ export default function DesktopHome({
 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [solutionProgress, setSolutionProgress] = useState(0);
+    const solutionSectionRef = useRef<HTMLElement>(null);
     const solutionTrackRef = useRef<HTMLDivElement>(null);
 
     const switchProduct = (index: number) => {
@@ -62,33 +63,59 @@ export default function DesktopHome({
         if (!track) return;
 
         let dragging = false;
+        let pendingDrag = false;
         let startX = 0;
         let startLeft = 0;
+        let activePointerId: number | null = null;
+        let suppressNextClick = false;
 
         const startDrag = (event: PointerEvent) => {
             if (track.scrollWidth <= track.clientWidth) return;
-            dragging = true;
+            pendingDrag = true;
+            dragging = false;
             startX = event.clientX;
             startLeft = track.scrollLeft;
-            track.classList.add("is-dragging");
-            track.setPointerCapture(event.pointerId);
+            activePointerId = event.pointerId;
         };
 
         const dragMove = (event: PointerEvent) => {
-            if (!dragging) return;
+            if (!pendingDrag || activePointerId !== event.pointerId) return;
             const delta = event.clientX - startX;
+            if (!dragging && Math.abs(delta) < 8) return;
+            if (!dragging) {
+                dragging = true;
+                track.classList.add("is-dragging");
+                track.setPointerCapture(event.pointerId);
+            }
+            event.preventDefault();
             track.scrollLeft = startLeft - delta;
         };
 
         const stopDrag = () => {
+            if (dragging) {
+                suppressNextClick = true;
+            }
+            if (activePointerId !== null && track.hasPointerCapture(activePointerId)) {
+                track.releasePointerCapture(activePointerId);
+            }
+            pendingDrag = false;
             dragging = false;
+            activePointerId = null;
             track.classList.remove("is-dragging");
+        };
+
+        const cancelClickAfterDrag = (event: MouseEvent) => {
+            if (!suppressNextClick) return;
+            suppressNextClick = false;
+            event.preventDefault();
+            event.stopPropagation();
         };
 
         track.addEventListener("pointerdown", startDrag as any);
         track.addEventListener("pointermove", dragMove as any);
         track.addEventListener("pointerup", stopDrag as any);
         track.addEventListener("pointercancel", stopDrag as any);
+        track.addEventListener("click", cancelClickAfterDrag, true);
         track.addEventListener("scroll", updateSolutionProgress, { passive: true });
         window.addEventListener("resize", updateSolutionProgress);
         updateSolutionProgress();
@@ -98,8 +125,25 @@ export default function DesktopHome({
             track.removeEventListener("pointermove", dragMove as any);
             track.removeEventListener("pointerup", stopDrag as any);
             track.removeEventListener("pointercancel", stopDrag as any);
+            track.removeEventListener("click", cancelClickAfterDrag, true);
             track.removeEventListener("scroll", updateSolutionProgress);
             window.removeEventListener("resize", updateSolutionProgress);
+        };
+    }, []);
+
+    useEffect(() => {
+        const scrollToSolutionsHash = () => {
+            if (window.location.hash !== '#solutions' || window.innerWidth <= 991) return;
+            solutionSectionRef.current?.scrollIntoView({ block: 'start' });
+        };
+
+        scrollToSolutionsHash();
+        window.requestAnimationFrame(scrollToSolutionsHash);
+        const hashScrollTimer = window.setTimeout(scrollToSolutionsHash, 300);
+        window.addEventListener('hashchange', scrollToSolutionsHash);
+        return () => {
+            window.clearTimeout(hashScrollTimer);
+            window.removeEventListener('hashchange', scrollToSolutionsHash);
         };
     }, []);
 
@@ -126,7 +170,7 @@ export default function DesktopHome({
             </section>
 
             {/* SCREEN 2: SOLUTIONS */}
-            <section className="section-solutions" id="solutions">
+            <section className="section-solutions" ref={solutionSectionRef}>
                 <div className="container-wide">
                     <div className="solutions-header-row">
                         <div>

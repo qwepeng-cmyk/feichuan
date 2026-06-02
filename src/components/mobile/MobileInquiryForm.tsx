@@ -1,9 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import styles from './MobileProductCenter.module.css';
 
 export default function MobileInquiryForm({ dict }: { dict?: any }) {
+    const router = useRouter();
+    const pathname = usePathname();
     const d = dict?.inquiry || {
         title: "Get Solution & Quotation",
         subtitle: "Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.",
@@ -68,7 +71,7 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                     name: '', company: '', email: '', contactMethod: 'WhatsApp',
                     countryCode: '', phone: '', demands: [], message: ''
                 });
-                setTimeout(() => setSubmitStatus('idle'), 5000);
+                router.push(pathname?.startsWith('/ru') ? '/ru/thank-you' : '/thank-you');
             } else {
                 setSubmitStatus('error');
             }

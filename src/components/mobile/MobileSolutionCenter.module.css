@@ -48,6 +48,11 @@
     background: #ffffff;
     border-bottom: 1px solid #eee;
     height: 80px;
+    overflow: hidden;
+}
+
+.stickyNav:not(.fixed) {
+    margin-top: 12px;
 }
 
 .stickyNav.fixed {
@@ -58,10 +63,21 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.stickyNav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 38px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0), #ffffff 82%);
+}
+
 .tabTrack {
     display: flex;
     gap: 8px;
-    padding: 10px 5px;
+    padding: 10px 8px 10px 10px;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     height: 100%;
@@ -82,8 +98,8 @@
     background: transparent;
     border: none;
     padding: 0;
-    width: 128px;
-    min-width: 128px;
+    width: 148px;
+    min-width: 148px;
     flex: 0 0 auto;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #315ba4;
@@ -115,7 +131,7 @@
     letter-spacing: 0;
     height: auto;
     display: block;
-    max-width: 122px;
+    max-width: 136px;
     word-break: normal;
     overflow-wrap: anywhere;
     hyphens: auto;

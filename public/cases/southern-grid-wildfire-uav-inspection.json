@@ -1,7 +1,7 @@
 {
-  "title": "南方电网防火巡检",
+  "title": "Southern Grid Wildfire Prevention UAV Inspection",
   "title_en": "Southern Grid Wildfire Prevention UAV Inspection",
-  "description": "南方电网防火巡检\n春季山火风险居高不下，对电网安全稳定运行及电力正常供应构成严重威胁。为切实筑牢输电线路安全防线，南方电网采用我司复合翼无人机，对山中280公里输电线路开展智能化巡检工作。此次巡检累计飞行4天、共计8个架次，成功排查并发现近10处山火险情，且所有险情均实现实时上报、快速处置，有效规避了山火对输电线路的破坏，切实保障了电力供应安全。",
+  "description": "Southern Grid Wildfire Prevention UAV Inspection\nDuring the high-risk spring wildfire season, wildfires pose a serious threat to stable grid operation and normal power supply. To strengthen the safety line for transmission corridors, Southern Grid adopted our VTOL fixed-wing UAVs to conduct intelligent inspection of 280 km of mountain transmission lines. The operation lasted 4 days and 8 sorties, identifying nearly 10 wildfire-risk points. All risks were reported in real time and handled quickly, helping prevent wildfire damage to transmission lines and protecting power-supply safety.",
   "description_en": "Southern Grid Wildfire Prevention UAV Inspection\nDuring the high-risk spring wildfire season, wildfires pose a serious threat to stable grid operation and normal power supply. To strengthen the safety line for transmission corridors, Southern Grid adopted our VTOL fixed-wing UAVs to conduct intelligent inspection of 280 km of mountain transmission lines. The operation lasted 4 days and 8 sorties, identifying nearly 10 wildfire-risk points. All risks were reported in real time and handled quickly, helping prevent wildfire damage to transmission lines and protecting power-supply safety.",
   "main_image": "/cases/southern-grid-wildfire-uav-inspection/01.webp",
   "case_images": [
@@ -12,10 +12,10 @@
     "power-tower-inspection-drone"
   ],
   "handle": "southern-grid-wildfire-uav-inspection",
-  "title_ru": "Пожарная инспекция Southern Grid с БПЛА",
-  "description_ru": "Пожарная инспекция Southern Grid с БПЛА\nВ весенний период повышенного риска лесных пожаров такие угрозы могут серьезно повлиять на устойчивую работу электросетей и нормальное электроснабжение. Для защиты коридоров ЛЭП Southern Grid применила наши VTOL-БПЛА самолетного типа для интеллектуальной инспекции 280 км горных линий электропередачи. Работы заняли 4 дня и 8 вылетов, было выявлено около 10 пожароопасных точек. Все риски передавались в режиме реального времени и оперативно обрабатывались, что помогло предотвратить повреждение ЛЭП и обеспечить безопасность электроснабжения.",
-  "region_ru": "Азия",
-  "country_ru": "Китай",
+  "title_ru": "Southern Grid Wildfire Prevention UAV Inspection",
+  "description_ru": "Southern Grid Wildfire Prevention UAV Inspection\nDuring the high-risk spring wildfire season, wildfires pose a serious threat to stable grid operation and normal power supply. To strengthen the safety line for transmission corridors, Southern Grid adopted our VTOL fixed-wing UAVs to conduct intelligent inspection of 280 km of mountain transmission lines. The operation lasted 4 days and 8 sorties, identifying nearly 10 wildfire-risk points. All risks were reported in real time and handled quickly, helping prevent wildfire damage to transmission lines and protecting power-supply safety.",
+  "region_ru": "Asia",
+  "country_ru": "China",
   "region_en": "Asia",
   "country_en": "China",
   "solution_category_id": "02_InfrastructureProtection",
@@ -45,24 +45,25 @@
   ],
   "case_snapshot_ru": [
     {
-      "label": "??????????",
-      "value": "???????? ????????? ?????? ????? ???????????????"
+      "label": "Application",
+      "value": "Wildfire prevention inspection for mountain transmission lines"
     },
     {
-      "label": "???????",
-      "value": "?????? ??????? ??? Southern Grid, ?????"
+      "label": "Location",
+      "value": "Southern Grid mountain transmission corridor, China"
     },
     {
-      "label": "???????",
-      "value": "280 ??, 4 ???, 8 ???????"
+      "label": "Mission Scale",
+      "value": "280 km, 4 days, 8 sorties"
     },
     {
-      "label": "???????? ???????????",
-      "value": "???????? ?????? ? ???????? ??????? ? ??????? ?????????"
+      "label": "Key Capability",
+      "value": "Real-time risk reporting and rapid handling"
     },
     {
-      "label": "?????????",
-      "value": "???????? ? ?????????? ????? 10 ????????????? ?????"
+      "label": "Result",
+      "value": "Nearly 10 wildfire-risk points identified and handled"
     }
-  ]
+  ],
+  "devices_ru": []
 }

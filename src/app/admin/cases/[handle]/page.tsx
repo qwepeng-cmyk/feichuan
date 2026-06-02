@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Plus, Trash2, ChevronDown, ChevronUp, ToggleLeft, ToggleRight } from 'lucide-react';
 import MainImageUploader from '@/components/admin/MainImageUploader';
+import { ParamGrid, gridToParams, paramsToGrid } from '@/lib/adminParamGrid';
 
 const s: Record<string, React.CSSProperties> = {
     card: { backgroundColor: '#fff', padding: '28px', borderRadius: '12px', boxShadow: '0 1px 8px rgba(0,0,0,0.04)', border: '1px solid #e8ecf1', marginBottom: '20px' },
@@ -15,8 +16,8 @@ const s: Record<string, React.CSSProperties> = {
 
 /* ─── Grid Parameter Editor ─── */
 function GridParamEditor({ data, onChange }: { 
-    data: string[][]; 
-    onChange: (newData: string[][]) => void 
+    data: ParamGrid; 
+    onChange: (newData: ParamGrid) => void 
 }) {
     const grid = data && data.length > 0 ? data : [['Parameter', 'Value'], ['', '']];
     const updateCell = (ri: number, ci: number, val: string) => {
@@ -71,9 +72,9 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
     const router = useRouter();
     const [f, setF] = useState<any>({});
     const [caseImages, setCaseImages] = useState<string[]>([]);
-    const [paramsEn, setParamsEn] = useState<string[][]>([['Parameter', 'Value'], ['', '']]);
-    const [paramsCn, setParamsCn] = useState<string[][]>([['参数', '值'], ['', '']]);
-    const [paramsRu, setParamsRu] = useState<string[][]>([['Параметр', 'Значение'], ['', '']]);
+    const [paramsEn, setParamsEn] = useState<ParamGrid>([['Parameter', 'Value'], ['', '']]);
+    const [paramsCn, setParamsCn] = useState<ParamGrid>([['参数', '值'], ['', '']]);
+    const [paramsRu, setParamsRu] = useState<ParamGrid>([['Параметр', 'Значение'], ['', '']]);
     const [showAdv, setShowAdv] = useState(false);
     const [rawJson, setRawJson] = useState('{}');
     const [loading, setLoading] = useState(!isNew);
@@ -87,15 +88,9 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
                 if(!success){setLoading(false);return;}
                 setF(data);
                 setCaseImages(data.case_images||[]);
-                const pEn = data.parameters_en;
-                if (pEn && !Array.isArray(pEn)) setParamsEn([['Parameter', 'Value'], ...(Object.entries(pEn) as string[][])]);
-                else if (Array.isArray(pEn)) setParamsEn(pEn);
-                const pCn = data.parameters;
-                if (pCn && !Array.isArray(pCn)) setParamsCn([['参数', '值'], ...(Object.entries(pCn) as string[][])]);
-                else if (Array.isArray(pCn)) setParamsCn(pCn);
-                const pRu = data.parameters_ru;
-                if (pRu && !Array.isArray(pRu)) setParamsRu([['Параметр', 'Значение'], ...(Object.entries(pRu) as string[][])]);
-                else if (Array.isArray(pRu)) setParamsRu(pRu);
+                setParamsEn(paramsToGrid(data.parameters_en, ['Parameter', 'Value']));
+                setParamsCn(paramsToGrid(data.parameters, ['参数', '值']));
+                setParamsRu(paramsToGrid(data.parameters_ru, ['Параметр', 'Значение']));
 
                 setRawJson(JSON.stringify(data,null,2));
                 setLoading(false);
@@ -109,9 +104,9 @@ export default function CaseEditPage({ params }: { params: { handle: string } })
         ...f,
         is_published: f.is_published === false || f.is_published === 0 ? 0 : 1,
         case_images: caseImages.filter(Boolean),
-        parameters: paramsCn,
-        parameters_en: paramsEn,
-        parameters_ru: paramsRu,
+        parameters: gridToParams(paramsCn),
+        parameters_en: gridToParams(paramsEn),
+        parameters_ru: gridToParams(paramsRu),
         recommendedProductHandles: typeof f.recommendedProductHandles==='string'
             ? f.recommendedProductHandles.split(',').map((s:string)=>s.trim()).filter(Boolean)
             : (f.recommendedProductHandles||[]),
