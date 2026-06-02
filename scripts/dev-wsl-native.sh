@@ -20,6 +20,8 @@ touch "$TARGET_PATH/.wsl-native-mirror"
 echo "Stopping existing Next dev processes on port $PORT..."
 ps -eo pid=,args= |
   awk -v port="$PORT" '
+    $0 ~ /npm run dev/ { print $1 }
+    $0 ~ /sh -c next dev/ && $0 ~ (" -p " port) { print $1 }
     $0 ~ /node .*node_modules\/\.bin\/next dev/ && $0 ~ (" -p " port) { print $1 }
     $0 ~ /next-server/ && $0 ~ (":" port) { print $1 }
   ' |

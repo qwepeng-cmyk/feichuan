@@ -4,6 +4,9 @@ setlocal
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'D:\\fc\\node_modules\\next|D:\\fc\\\\node_modules\\\\next|D:/fc/node_modules/next' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
 if errorlevel 1 exit /b %ERRORLEVEL%
 
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'wsl-native-server\.sh' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+if errorlevel 1 exit /b %ERRORLEVEL%
+
 wsl.exe bash /mnt/d/fc/scripts/dev-wsl-native.sh /mnt/d/fc /root/fc-wsl prepare
 if errorlevel 1 exit /b %ERRORLEVEL%
 
@@ -38,7 +41,10 @@ for /f "tokens=1" %%I in ('wsl.exe hostname -I') do (
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'localhost-3000-proxy.js' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
 if errorlevel 1 exit /b %ERRORLEVEL%
 
-powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$node='C:\tmp\node-v22.21.1-win-x64\node-v22.21.1-win-x64\node.exe'; if (!(Test-Path $node)) { throw 'Windows Node runtime not found: ' + $node }; $env:WSL_TARGET_HOST='%WSL_NATIVE_IP%'; Start-Process -FilePath $node -ArgumentList @('D:\fc\scripts\localhost-3000-proxy.js') -WindowStyle Hidden"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$candidates=@('C:\tmp\node-v22.21.1-win-x64\node-v22.21.1-win-x64\node.exe'); $cmd=Get-Command node.exe -ErrorAction SilentlyContinue; if ($cmd) { $candidates += $cmd.Source }; $candidates += @(Get-ChildItem -Path 'C:\tmp' -Recurse -Filter node.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName); $node=$null; foreach ($candidate in ($candidates | Select-Object -Unique)) { if ((Test-Path $candidate) -and (& $candidate -v 2>$null)) { $node=$candidate; break } }; if (!$node) { throw 'Working Windows Node runtime not found.' }; $env:WSL_TARGET_HOST='%WSL_NATIVE_IP%'; Start-Process -FilePath $node -ArgumentList @('D:\fc\scripts\localhost-3000-proxy.js') -WindowStyle Hidden"
+if errorlevel 1 exit /b %ERRORLEVEL%
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$ok=$false; foreach ($i in 1..30) { try { $r=Invoke-WebRequest -Uri 'http://127.0.0.1:3000/' -UseBasicParsing -TimeoutSec 3; if ($r.StatusCode -eq 200) { $ok=$true; break } } catch { Start-Sleep -Seconds 1 } }; if (!$ok) { Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Format-Table -AutoSize; throw 'Localhost proxy started but http://127.0.0.1:3000/ did not return 200.' }"
 if errorlevel 1 exit /b %ERRORLEVEL%
 
 echo Ready: http://localhost:3000/
