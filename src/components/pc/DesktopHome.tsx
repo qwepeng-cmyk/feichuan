@@ -31,6 +31,7 @@ export default function DesktopHome({
 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [solutionProgress, setSolutionProgress] = useState(0);
+    const solutionSectionRef = useRef<HTMLElement>(null);
     const solutionTrackRef = useRef<HTMLDivElement>(null);
 
     const switchProduct = (index: number) => {
@@ -103,6 +104,22 @@ export default function DesktopHome({
         };
     }, []);
 
+    useEffect(() => {
+        const scrollToSolutionsHash = () => {
+            if (window.location.hash !== '#solutions' || window.innerWidth <= 991) return;
+            solutionSectionRef.current?.scrollIntoView({ block: 'start' });
+        };
+
+        scrollToSolutionsHash();
+        window.requestAnimationFrame(scrollToSolutionsHash);
+        const hashScrollTimer = window.setTimeout(scrollToSolutionsHash, 300);
+        window.addEventListener('hashchange', scrollToSolutionsHash);
+        return () => {
+            window.clearTimeout(hashScrollTimer);
+            window.removeEventListener('hashchange', scrollToSolutionsHash);
+        };
+    }, []);
+
     return (
         <main>
             {/* SCREEN 1: HERO */}
@@ -126,7 +143,7 @@ export default function DesktopHome({
             </section>
 
             {/* SCREEN 2: SOLUTIONS */}
-            <section className="section-solutions" id="solutions">
+            <section className="section-solutions" ref={solutionSectionRef}>
                 <div className="container-wide">
                     <div className="solutions-header-row">
                         <div>
