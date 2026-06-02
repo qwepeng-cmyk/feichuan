@@ -56,7 +56,7 @@ export const getAllSolutions = unstable_cache(
                 category_name: row.category_name,
             } as Solution, getComplianceTier('solution', row.handle)));
     },
-    ['all-solutions-uav-refresh-20260529-hydro-module-images-v2'],
+    ['all-solutions-uav-refresh-20260601-hydro-flow-desensitized-v1'],
     { revalidate: 3600, tags: ['solutions'] }
 );
 
@@ -82,7 +82,7 @@ export const getSolutionById = unstable_cache(
 
         return sanitizeRecordForTier(solution, getComplianceTier('solution', id));
     },
-    ['solution-detail-uav-refresh-20260529-hydro-module-images-v2'],
+    ['solution-detail-uav-refresh-20260601-hydro-flow-desensitized-v1'],
     { revalidate: 3600, tags: ['solutions'] }
 );
 
@@ -91,6 +91,6 @@ export const getAllSolutionHandles = unstable_cache(
         const rows = db.prepare('SELECT handle FROM solutions WHERE COALESCE(is_published, 1) = 1').all() as any[];
         return rows.map(r => r.handle).filter(handle => isPublicComplianceContent('solution', handle));
     },
-    ['solution-handles-uav-refresh-20260529-hydro-module-images-v2'],
+    ['solution-handles-uav-refresh-20260601-hydro-flow-desensitized-v1'],
     { revalidate: 3600, tags: ['solutions'] }
 );

@@ -1,19 +1,19 @@
 {
-  "product_name": "路基海域监控预警",
+  "product_name": "Land-based Maritime Surveillance & Early Warning",
   "product_name_en": "Land-based Maritime Surveillance & Early Warning",
-  "summary": "融合雷达、光电等多源信息，运用智能分析与联动跟踪技术，建成数字化、智能化海防管控体系。跨越“监控手段单一、感知不全”的传统痛点，实现全天候监控、自动预警与高效现场管控，严防海上非法活动威胁。",
+  "summary": "Integrating multi-source information such as radar and optoelectronics, and utilizing intelligent analysis and linkage tracking technology, a digital and intelligent maritime defense control system has been established. It overcomes traditional pain points such as single monitoring methods and incomplete perception, achieving all-weather monitoring, automatic early warning, and efficient on-site control to prevent maritime illegal threats.",
   "summary_en": "Integrating multi-source information such as radar and optoelectronics, and utilizing intelligent analysis and linkage tracking technology, a digital and intelligent maritime defense control system has been established. It overcomes traditional pain points such as single monitoring methods and incomplete perception, achieving all-weather monitoring, automatic early warning, and efficient on-site control to prevent maritime illegal threats.",
-  "key_application": "海防监管、全天候预警、数字化管控",
+  "key_application": "Maritime defense regulation, 24/7 early warning, digital control",
   "key_application_en": "Maritime defense regulation, 24/7 early warning, digital control",
-  "key_parameter_1": "核心设备: FC-RDS500-4R雷视融合系统",
+  "key_parameter_1": "Core Equipment: FC-RDS500-4R Radar-Vision Integration System",
   "key_parameter_1_en": "Core Equipment: FC-RDS500-4R Radar-Vision Integration System",
-  "key_parameter_2": "探测能力: 全天候探测+多目标跟踪",
+  "key_parameter_2": "Detection: All-weather detection + Multi-target tracking",
   "key_parameter_2_en": "Detection: All-weather detection + Multi-target tracking",
   "parameters": {
-    "融合技术": "雷达 + 智能光电",
-    "监测模式": "AI智能识别-追踪-预警",
-    "系统特性": "数字化可视化地理信息",
-    "防护等级": "IP67 工业级"
+    "Integration Tech": "Radar + Intelligent Optoelectronics",
+    "Monitoring Mode": "AI Identification-Tracking-Warning",
+    "System Features": "Digitized visual geographic information",
+    "Protection Level": "IP67 Industrial Grade"
   },
   "parameters_en": {
     "Integration Tech": "Radar + Intelligent Optoelectronics",
@@ -21,11 +21,11 @@
     "System Features": "Digitized visual geographic information",
     "Protection Level": "IP67 Industrial Grade"
   },
-  "detail_html": "<h4>核心优势</h4><p>当前海防监管存在监控手段单一、感知不全、数据整合共享不足等问题。本系统通过融合多源信息，构建数字化海防管控体系。</p><ul><li>全天候无死角监控</li><li>自动识别追踪移动目标</li><li>精准捕捉目标细节</li></ul>",
+  "detail_html": "<h4>Core Advantages</h4><p>Current maritime supervision faces issues like single monitoring methods and insufficient data sharing. This system builds a digital control architecture by integrating multi-source data.</p><ul><li>24/7 blind-spot-free monitoring</li><li>Automatic identification and tracking</li><li>Precision capture of target details</li></ul>",
   "detail_html_en": "<h4>Core Advantages</h4><p>Current maritime supervision faces issues like single monitoring methods and insufficient data sharing. This system builds a digital control architecture by integrating multi-source data.</p><ul><li>24/7 blind-spot-free monitoring</li><li>Automatic identification and tracking</li><li>Precision capture of target details</li></ul>",
   "main_image": "/solutions/border patrol/Land-Based Maritime Surveillance & Warning/Land-Based Maritime Surveillance & Warning.jpg",
   "handle": "land-based-maritime-surveillance",
-  "category_primary": "Border Patrol (边境巡逻)",
+  "category_primary": "",
   "recommended_products": [
     "fc-yjzc-01-emergency-reconnaissance-drone",
     "fc-rds500-4r-radar-vision-sentinel"

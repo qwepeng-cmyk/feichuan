@@ -1,7 +1,7 @@
 {
-  "title": "激光雷达树障巡查",
+  "title": "LiDAR Tree-Obstruction UAV Inspection",
   "title_en": "LiDAR Tree-Obstruction UAV Inspection",
-  "description": "激光雷达树障巡查\n2024年冬季，南方电网某公司在树障隐患排查专项任务中，采用复合翼无人机集成激光雷达系统开展航空扫描，获取高精度、高可靠性三维点云数据集，为后续隐患分析、成果报告输出提供核心数据支撑。",
+  "description": "LiDAR Tree-Obstruction UAV Inspection\nIn winter 2024, a Southern Grid company used VTOL fixed-wing UAVs integrated with a LiDAR system for aerial scanning during a special tree-obstruction risk inspection task. The mission acquired high-precision and highly reliable 3D point-cloud datasets, providing core data support for follow-up hidden-risk analysis and inspection-report output.",
   "description_en": "LiDAR Tree-Obstruction UAV Inspection\nIn winter 2024, a Southern Grid company used VTOL fixed-wing UAVs integrated with a LiDAR system for aerial scanning during a special tree-obstruction risk inspection task. The mission acquired high-precision and highly reliable 3D point-cloud datasets, providing core data support for follow-up hidden-risk analysis and inspection-report output.",
   "main_image": "/cases/lidar-tree-obstruction-uav-inspection/01.webp",
   "case_images": [
@@ -13,10 +13,10 @@
     "power-tower-inspection-drone"
   ],
   "handle": "lidar-tree-obstruction-uav-inspection",
-  "title_ru": "Инспекция древесных помех с LiDAR-БПЛА",
-  "description_ru": "Инспекция древесных помех с LiDAR-БПЛА\nЗимой 2024 года одна из компаний Southern Grid использовала VTOL-БПЛА самолетного типа с интегрированной LiDAR-системой для авиационного сканирования в рамках специальной задачи по выявлению древесных помех. Миссия получила высокоточные и надежные трехмерные облака точек, которые стали ключевой основой для последующего анализа рисков и подготовки отчетов.",
-  "region_ru": "Азия",
-  "country_ru": "Китай",
+  "title_ru": "LiDAR Tree-Obstruction UAV Inspection",
+  "description_ru": "LiDAR Tree-Obstruction UAV Inspection\nIn winter 2024, a Southern Grid company used VTOL fixed-wing UAVs integrated with a LiDAR system for aerial scanning during a special tree-obstruction risk inspection task. The mission acquired high-precision and highly reliable 3D point-cloud datasets, providing core data support for follow-up hidden-risk analysis and inspection-report output.",
+  "region_ru": "Asia",
+  "country_ru": "China",
   "region_en": "Asia",
   "country_en": "China",
   "solution_category_id": "02_InfrastructureProtection",
@@ -46,24 +46,25 @@
   ],
   "case_snapshot_ru": [
     {
-      "label": "??????????",
-      "value": "????????? ?????? ????????? ?????"
+      "label": "Application",
+      "value": "Tree-obstruction risk inspection"
     },
     {
-      "label": "???????",
-      "value": "???? ???????????? Southern Grid, ?????"
+      "label": "Location",
+      "value": "Southern Grid operating area, China"
     },
     {
-      "label": "???????",
-      "value": "??????????? ????????????? ?????? ????? 2024 ????"
+      "label": "Mission Scale",
+      "value": "Special inspection task in winter 2024"
     },
     {
-      "label": "???????? ???????????",
-      "value": "???????????? ????????? 3D-??????? ????? ? LiDAR"
+      "label": "Key Capability",
+      "value": "High-precision 3D point-cloud acquisition with LiDAR"
     },
     {
-      "label": "?????????",
-      "value": "?????? ????????????? ??? ??????? ??????? ?????? ? ??????????"
+      "label": "Result",
+      "value": "Core data delivered for hidden-risk analysis and reporting"
     }
-  ]
+  ],
+  "devices_ru": []
 }

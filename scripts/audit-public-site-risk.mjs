@@ -10,9 +10,15 @@ const publicPaths = [
   '/en/products',
   '/ru/products',
   '/en/products/stationary-rf-detection-system',
+  '/en/products/portable-rf-detection-case',
   '/en/products/low-altitude-detection-radar-ku-band',
+  '/en/products/composite-electro-optical-tracking-system',
+  '/en/products/uav-remote-id-monitoring-system',
   '/en/solutions',
   '/en/solutions/category/02_InfrastructureProtection',
+  '/en/solutions/category/03_KeyAreaSecurity',
+  '/en/solutions/airport-security-protection',
+  '/en/solutions/sports-event-security',
   '/en/cases',
   '/en/media',
   '/en/contact',
@@ -34,7 +40,14 @@ const restrictedPatterns = [
   /\bjamming\b/i,
   /\bsignal blocker\b/i,
   /\bspoofing\b/i,
+  /\bnavigation\s+deception\b/i,
   /\bintercept(?:ion|s|ed|ing)?\b/i,
+  /\bneutraliz(?:e|es|ed|ing|ation)\b/i,
+  /\bforced?\s+landing\b/i,
+  /\bemergency\s+landing\b/i,
+  /\breturn\s+to\s+home\b/i,
+  /\bprecision\s+strike\b/i,
+  /\bcountermeasures?\b/i,
   /\bweapon\b/i,
   /\bgun\b/i,
   /\bshoot\s+down\b/i,
@@ -44,15 +57,27 @@ const restrictedPatterns = [
   /\btactical\s+weapon\b/i,
   /\banti[-\s]?uav\b/i,
   /\banti[-\s]?drone\b/i,
+  /\bcounter[-\s]?uas\b/i,
+  /\bcounter[-\s]?uav\b/i,
   /\bc-uas\b/i,
   /\bcuas\b/i,
-  /подавлен/i,
-  /глуш/i,
-  /спуф/i,
-  /перехват/i,
-  /оруж/i,
-  /военн/i,
-  /тактич/i,
+  /\u53cd\u65e0\u4eba\u673a/i,
+  /\u53cd\u65e0/i,
+  /\u53cd\u5236\u67aa/i,
+  /\u53cd\u5236/i,
+  /\u5e72\u6270/i,
+  /\u538b\u5236/i,
+  /\u8bf1\u9a97/i,
+  /\u6b66\u5668/i,
+  /\u5bdf\u6253\u4e00\u4f53/i,
+  /\u65e0\u7ebf\u7535\u4e3b\u52a8\u9632\u5fa1/i,
+  /锌芯写邪胁谢械薪/i,
+  /谐谢褍褕/i,
+  /褋锌褍褎/i,
+  /锌械褉械褏胁邪褌/i,
+  /芯褉褍卸/i,
+  /胁芯械薪薪/i,
+  /褌邪泻褌懈褔/i,
 ];
 
 async function fetchText(path) {
@@ -65,9 +90,15 @@ async function fetchText(path) {
     return { status: 200, text: readFileSync(htmlPath, 'utf8') };
   }
 
-  const response = await fetch(`${baseUrl}${path}`);
-  const text = await response.text();
-  return { status: response.status, text };
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+  try {
+    const response = await fetch(`${baseUrl}${path}`, { signal: controller.signal });
+    const text = await response.text();
+    return { status: response.status, text };
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 function findMatches(text) {

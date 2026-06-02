@@ -1,7 +1,7 @@
 {
-  "title": "冰雪灾害应急巡视",
+  "title": "Ice and Snow Disaster Emergency UAV Inspection",
   "title_en": "Ice and Snow Disaster Emergency UAV Inspection",
-  "description": "冰雪灾害应急巡视\n国家电网在-15℃严寒环境下，采用我司复合翼无人机搭载激光雷达，对500kV延平线、平吉一二线开展400公里输电线路通道巡检。作业以延吉市、安图县等5地为驻扎节点，布设18处临时起降点，依托三维激光扫描完成全方位数据采集，共检出12处杆塔及金具严重覆冰缺陷，同步完成指定路段激光扫描并出具12份实时工况快速检测报告，为极寒天气下超高压线路运维处置提供精准数据依据。",
+  "description": "Ice and Snow Disaster Emergency UAV Inspection\nIn a -15 C severe-cold environment, State Grid used our VTOL fixed-wing UAVs carrying LiDAR to inspect 400 km of 500 kV transmission corridors, including the Yanping Line and Pingji Lines I and II. The operation used five staging areas such as Yanji City and Antu County, deployed 18 temporary takeoff and landing points, and completed comprehensive data acquisition through 3D laser scanning. It identified 12 severe icing defects on towers and fittings, completed LiDAR scanning of designated line sections, and generated 12 rapid real-time condition reports, providing accurate data for ultra-high-voltage line maintenance in extreme cold weather.",
   "description_en": "Ice and Snow Disaster Emergency UAV Inspection\nIn a -15 C severe-cold environment, State Grid used our VTOL fixed-wing UAVs carrying LiDAR to inspect 400 km of 500 kV transmission corridors, including the Yanping Line and Pingji Lines I and II. The operation used five staging areas such as Yanji City and Antu County, deployed 18 temporary takeoff and landing points, and completed comprehensive data acquisition through 3D laser scanning. It identified 12 severe icing defects on towers and fittings, completed LiDAR scanning of designated line sections, and generated 12 rapid real-time condition reports, providing accurate data for ultra-high-voltage line maintenance in extreme cold weather.",
   "main_image": "/cases/ice-snow-emergency-uav-inspection/01.webp",
   "case_images": [
@@ -12,10 +12,10 @@
     "power-tower-inspection-drone"
   ],
   "handle": "ice-snow-emergency-uav-inspection",
-  "title_ru": "Аварийная инспекция БПЛА при снеголедовых бедствиях",
-  "description_ru": "Аварийная инспекция БПЛА при снеголедовых бедствиях\nВ условиях сильного холода -15 C State Grid использовала наши VTOL-БПЛА самолетного типа с LiDAR для обследования 400 км коридоров ЛЭП 500 кВ, включая линию Яньпин и линии Пинцзи I и II. Работы велись с пяти пунктов базирования, включая город Яньцзи и уезд Анту, было развернуто 18 временных точек взлета и посадки. С помощью 3D-лазерного сканирования выполнен полный сбор данных, выявлено 12 серьезных дефектов обледенения опор и арматуры, а также подготовлено 12 быстрых отчетов о текущем состоянии. Эти данные обеспечили точную основу для обслуживания сверхвысоковольтных линий в экстремально холодную погоду.",
-  "region_ru": "Азия",
-  "country_ru": "Китай",
+  "title_ru": "Ice and Snow Disaster Emergency UAV Inspection",
+  "description_ru": "Ice and Snow Disaster Emergency UAV Inspection\nIn a -15 C severe-cold environment, State Grid used our VTOL fixed-wing UAVs carrying LiDAR to inspect 400 km of 500 kV transmission corridors, including the Yanping Line and Pingji Lines I and II. The operation used five staging areas such as Yanji City and Antu County, deployed 18 temporary takeoff and landing points, and completed comprehensive data acquisition through 3D laser scanning. It identified 12 severe icing defects on towers and fittings, completed LiDAR scanning of designated line sections, and generated 12 rapid real-time condition reports, providing accurate data for ultra-high-voltage line maintenance in extreme cold weather.",
+  "region_ru": "Asia",
+  "country_ru": "China",
   "region_en": "Asia",
   "country_en": "China",
   "solution_category_id": "02_InfrastructureProtection",
@@ -45,24 +45,25 @@
   ],
   "case_snapshot_ru": [
     {
-      "label": "??????????",
-      "value": "????????? ????????? ??????????? ????????? ??? 500 ??"
+      "label": "Application",
+      "value": "Emergency inspection of iced 500 kV transmission corridors"
     },
     {
-      "label": "???????",
-      "value": "??????, ???? ???? ? ????????? ?????? ???????????, ?????"
+      "label": "Location",
+      "value": "Yanji City, Antu County and nearby staging areas, China"
     },
     {
-      "label": "???????",
-      "value": "400 ??, 5 ??????? ???????????, 18 ????????? ????? ?????? ? ???????"
+      "label": "Mission Scale",
+      "value": "400 km, 5 staging areas, 18 temporary takeoff and landing points"
     },
     {
-      "label": "???????? ???????????",
-      "value": "3D-???????? ???????????? ??? -15 C"
+      "label": "Key Capability",
+      "value": "3D laser scanning in a -15 C environment"
     },
     {
-      "label": "?????????",
-      "value": "???????? 12 ????????? ???????? ??????????? ? ???????? 12 ??????? ???????"
+      "label": "Result",
+      "value": "12 severe icing defects identified and 12 rapid condition reports issued"
     }
-  ]
+  ],
+  "devices_ru": []
 }

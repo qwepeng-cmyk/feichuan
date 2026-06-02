@@ -1,42 +1,66 @@
 {
-  "title": "亚运会低空安防应用",
-  "title_en": "Asian Games Low-Altitude Security Application",
-  "description": "亚运会低空安防应用\n2023年杭州亚运会期间，为保障赛事安全，公司构建了一套覆盖多城市的智能化低空安防系统，整合无线电侦测、干扰设备及便携式反制盾，实现对无人机等低空威胁的精准防控。系统以统一指挥平台为核心，联动杭州、绍兴、金华等主办与协办城市，通过实时识别并拦截非法飞行器，确保开幕式、场馆周边等重点区域零安全事故。\n技术层面，系统创新性采用频谱动态分析与定向干扰技术，在压制黑飞无人机信号的同时，避免干扰赛事转播等合法无线电频段。针对临时场馆与交通枢纽，轻量化反制装备可快速部署，形成单点防护能力，如湖州分会场10分钟内完成布防，展现了高效的应急响应能力。\n此外，多城数据共享与协同指挥机制成为亮点。温州、衢州等地的监测数据实时回传至中心平台，提前预警潜在风险。该系统不仅为亚运会提供了全天候、立体化的安全保障，也为未来大型活动的低空安防树立了技术标杆。\n图20温州龙湾奥体中心低空安保\n图21湖州德清亚运场馆安保\n图22亚运场馆内低空安保",
-  "description_en": "Asian Games Low-Altitude Security Application\nDuring the 2023 Hangzhou Asian Games, to ensure event security, the company built an intelligent low-altitude security system covering multiple cities. Integrating radio detection, RF noise equipment, and portable countermeasure shields, it achieved precise prevention and control of low-altitude threats such as drones. With a unified command platform at its core, the system linked host and co-host cities including Hangzhou, Shaoxing, and Jinhua. By identifying and detecting illegal aircraft in real-time, it ensured zero security incidents during the opening ceremony and in key areas around the venues.\nOn the technical level, the system innovatively adopted dynamic spectrum analysis and directional RF noise technology, suppressing black-flight drone signals while avoiding RF noise with legal radio frequency bands such as event broadcasting. For temporary venues and transportation hubs, lightweight countermeasure equipment could be rapidly deployed to form a single-point protection capability. For example, the Huzhou sub-venue completed deployment within 10 minutes, demonstrating efficient emergency response capabilities.\nIn addition, the multi-city data sharing and coordinated command mechanism became a highlight. Monitoring data from Wenzhou, Quzhou, and other places were transmitted back to the central platform in real-time to warn of potential risks in advance. The system not only provided all-weather, multi-dimensional security guarantees for the Asian Games but also set a technological benchmark for low-altitude security at future large-scale events.\nFigure 20: Wenzhou Longwan Olympic Sports Center Low-Altitude Security\nFigure 21: Huzhou Deqing Asian Games Venue Security\nFigure 22: Low-Altitude Security Inside Asian Games Venues",
+  "title": "Asian Games Low-Altitude Airspace Monitoring Application",
+  "title_en": "Asian Games Low-Altitude Airspace Monitoring Application",
+  "description": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination workflow. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security workflows across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
+  "description_en": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination workflow. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security workflows across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
   "devices": [
-    "固定式无线电侦测设备",
-    "无线电干扰设备（定向）",
-    "低空探测雷达"
+    "Radio Detection Equipment",
+    "Airspace Situational Awareness Platform",
+    "Command and Control Platform"
   ],
   "devices_en": [
-    "Stationary RF Detection System",
-    "Directional RF RF Scanner",
-    "Low-Altitude Detection Radar (X-Band)"
+    "Radio Detection Equipment",
+    "Airspace Situational Awareness Platform",
+    "Command and Control Platform"
   ],
   "main_image": "/cases/asian-games-security/main.webp",
   "case_images": [
-    "/cases/asian-games-security/亚运场馆内低空安保.webp",
-    "/cases/asian-games-security/温州龙湾奥体中心低空安保.webp",
-    "/cases/asian-games-security/湖州德清亚运场馆安保.webp"
+    "/cases/asian-games-security/asian-games-venue-airspace-monitoring.webp",
+    "/cases/asian-games-security/wenzhou-longwan-stadium-airspace-monitoring.webp",
+    "/cases/asian-games-security/huzhou-deqing-venue-airspace-monitoring.webp"
   ],
-  "recommendedProductHandles": [
-    "stationary-rf-detection-system",
-    "directional-rf-RF scanner",
-    "low-altitude-3d-pulse-doppler-radar"
-  ],
+  "recommendedProductHandles": [],
   "handle": "asian-games-security",
-  "title_ru": "Обеспечение безопасности Азиатских игр",
-  "description_ru": "Защита Азиатских игр от БПЛА\nВо время Азиатских игр 2023 года в Ханчжоу компания развернула интеллектуальную систему защиты в нескольких городах. Интеграция радиообнаружения, систем радиочастотный анализ и переносных щитов обеспечила точный контроль воздушных угроз. Единая платформа связала Ханчжоу, Шаосин и Цзиньхуа, гарантируя отсутствие инцидентов на церемонии открытия и вокруг стадионов.\nТехнологически система использовала динамический анализ спектра и направленное анализ сигналовление, управление событиемуя «черные» дроны без радиочастотный анализ для телетрансляций. Для временных объектов оборудование развертывалось за 10 минут, демонстрируя высокую мобильность.\nВажным достижением стал механизм обмена данными между городами в реальном времени, что позволило заранее выявлять риски. Проект стал эталоном безопасности для будущих масштабных мероприятий.",
+  "title_ru": "Asian Games Low-Altitude Airspace Monitoring Application",
+  "description_ru": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination workflow. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security workflows across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
   "devices_ru": [
-    "Стационарная система радиочастотного обнаружения",
-    "Направленный анализ сигналовитель радиосигналов",
-    "Радар обнаружения маловысотных целей (X-диапазон)"
+    "Radio Detection Equipment",
+    "Airspace Situational Awareness Platform",
+    "Command and Control Platform"
   ],
-  "region_ru": "Азия",
-  "country_ru": "Китай",
+  "region_ru": "Asia",
+  "country_ru": "China",
   "region_en": "Asia",
   "country_en": "China",
   "solution_category_id": "03_KeyAreaSecurity",
   "related_products": [],
-  "relatedProducts": []
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ]
 }

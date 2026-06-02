@@ -42,11 +42,11 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   
   return {
     title: locale === 'ru'
-      ? 'N-TET - промышленные решения безопасности и мониторинга'
-      : 'N-TET - Industrial Security & Monitoring Solutions',
+      ? 'N-TET - Промышленные БПЛА и мониторинг низковысотного пространства'
+      : 'N-TET - Industrial UAV Systems & Low-Altitude Monitoring',
     description: locale === 'ru'
-      ? 'Промышленные беспилотные системы, оборудование мониторинга и технологии безопасности для критической инфраструктуры.'
-      : 'Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.',
+      ? 'Промышленные платформы БПЛА, оборудование мониторинга воздушного пространства, журналы событий и регламентированные рабочие процессы для инфраструктурных операторов.'
+      : 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,

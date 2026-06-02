@@ -1,19 +1,19 @@
 {
-  "product_name": "应急照明无人机",
+  "product_name": "Emergency Lighting UAV",
   "product_name_en": "Emergency Lighting UAV",
-  "summary": "配备大功率高亮 LED 照明模组，升空部署便捷，无惧多死角环境约束，可实现高空大范围、多角度无盲区持续补光。采用系留持续供电模式，支持长时间定点悬停作业。",
+  "summary": "Equipped with high-power high-brightness LED lighting modules, it is easy to deploy and can achieve large-scale, multi-angle continuous light supplementation at high altitudes without blind spots. It adopts a tethered continuous power supply mode and supports long-duration fixed-point hovering operations.",
   "summary_en": "Equipped with high-power high-brightness LED lighting modules, it is easy to deploy and can achieve large-scale, multi-angle continuous light supplementation at high altitudes without blind spots. It adopts a tethered continuous power supply mode and supports long-duration fixed-point hovering operations.",
-  "key_application": "Repair Site Emergency Lighting (抢修现场应急照明)",
+  "key_application": "Repair Site Emergency Lighting",
   "key_application_en": "Repair Site Emergency Lighting",
-  "key_parameter_1": "持续悬停保障: 采用系留式平台持续供电，支持12小时以上定点悬停作业",
+  "key_parameter_1": "Continuous Hovering: Tethered power platform supports 12h+ fixed-point operations",
   "key_parameter_1_en": "Continuous Hovering: Tethered power platform supports 12h+ fixed-point operations",
-  "key_parameter_2": "强光全覆盖照明: 配备大功率高亮防爆 LED 阵列，实现大面积无盲区补光",
+  "key_parameter_2": "High-intensity Lighting: High-power explosion-proof LED array for shadowless area illumination",
   "key_parameter_2_en": "High-intensity Lighting: High-power explosion-proof LED array for shadowless area illumination",
   "parameters": {
-    "光源类型": "大功率高亮防爆 LED 星光阵列",
-    "覆盖时间": ">= 12小时 (系留不间断供电)",
-    "照明面积": ">= 5000 平方米",
-    "悬停高度": "30m - 100m 可调"
+    "Light Source": "High-power explosion-proof LED star array",
+    "Duration": ">= 12 hours (uninterrupted tethered power)",
+    "Illumination Area": ">= 5000 square meters",
+    "Hovering Altitude": "30m - 100m adjustable"
   },
   "parameters_en": {
     "Light Source": "High-power explosion-proof LED star array",
@@ -21,11 +21,11 @@
     "Illumination Area": ">= 5000 square meters",
     "Hovering Altitude": "30m - 100m adjustable"
   },
-  "detail_html": "<h4>黑夜中的“人造太阳”</h4><p>有效解决传统地面照明照射范围小、移动不便、存在照明死角等痛点。广泛应用于夜间搜救、道路抢修、人群疏散等场景，强化夜间应急作业保障能力。</p><ul><li>高空全方位无死角照明</li><li>防爆 LED 高亮灯组，深穿透照明</li><li>强化夜间应急作业保障</li></ul>",
+  "detail_html": "<h4>'Artificial Sun' in the Black Night</h4><p>Effectively solves common pain points of traditional ground lighting such as small range, immobility, and blind spots. Widely used in night rescue, road repairs, and crowd evacuation to strengthen backup for nocturnal emergency operations.</p><ul><li>High-altitude omnidirectional lighting</li><li>Explosion-proof high-brightness LED with deep penetration</li><li>Strengthening nocturnal operation safeguards</li></ul>",
   "detail_html_en": "<h4>'Artificial Sun' in the Black Night</h4><p>Effectively solves common pain points of traditional ground lighting such as small range, immobility, and blind spots. Widely used in night rescue, road repairs, and crowd evacuation to strengthen backup for nocturnal emergency operations.</p><ul><li>High-altitude omnidirectional lighting</li><li>Explosion-proof high-brightness LED with deep penetration</li><li>Strengthening nocturnal operation safeguards</li></ul>",
   "main_image": "/solutions/emergency & disaster rescue/Emergency Lighting Drone/Emergency Lighting Drone.jpg",
   "handle": "emergency-lighting-uav",
-  "category_primary": "Emergency & Disaster Rescue (应急救灾)",
+  "category_primary": "",
   "recommended_products": [
     "fc-yjzm-01-emergency-lighting-drone",
     "bailey-bridge"

@@ -3,8 +3,8 @@ import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
-  title: "N-TET - Industrial Security & Monitoring Solutions",
-  description: "Industrial unmanned systems, monitoring equipment, and security technology for critical infrastructure.",
+  title: "N-TET - Industrial UAV Systems & Low-Altitude Monitoring",
+  description: "Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.",
   icons: {
     icon: '/logo-header.webp?v=20260601',
   },

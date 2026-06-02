@@ -13,11 +13,11 @@ export const products = [
         handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Drone Detection & Airspace Monitoring",
+        top: "Low-Altitude Airspace Monitoring",
         top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
         main: "Stationary RF Detection System",
         main_ru: "Стационарная система радиочастотного обнаружения",
-        desc: "Provides low-altitude RF awareness, drone detection alerts, and event logging for industrial airspace monitoring.",
+        desc: "Provides low-altitude RF awareness, airspace activity alerts, and event records for industrial site monitoring.",
         desc_ru: "Обеспечивает радиочастотный анализ, раннее предупреждение и быстрый обзор воздушного пространства для промышленных объектов.",
         img: "/products/02-drone-detection/stationary-rf-detection-system.webp",
         mobileImg: "/products/02-drone-detection/stationary-rf-detection-system.webp",
@@ -27,11 +27,11 @@ export const products = [
         handle: "stationary-rf-detection-system"
     },
     {
-        top: "Security Screening & Policing",
+        top: "Security Screening & Site Access",
         top_ru: "Досмотр и общественная безопасность",
         main: "Smart Phone Detection Gate FC-H",
         main_ru: "Интеллектуальный портал обнаружения телефонов FC-H",
-        desc: "Utilizes leading electromagnetic wave signal detection technology to effectively distinguish mobile phones in any state, including standby, power-off, and power-on.",
+        desc: "Utilizes advanced electromagnetic wave signal detection technology to effectively distinguish mobile phones in any state, including standby, power-off, and power-on.",
         desc_ru: "Использует передовую технологию обнаружения сигналов электромагнитных волн для эффективного распознавания мобильных телефонов в любом состоянии, включая режим ожидания, выключенное и включенное питание.",
         img: "/products/03-security-screening/security-policing-home.webp",
         mobileImg: "/products/03-security-screening/security-policing-mobile.webp",
@@ -119,12 +119,12 @@ Object.assign(products[5], {
 export const solutions = [
     {
         id: "uav-maritime-patrol",
-        title: "Border Patrol & Coastal Defense",
-        title_ru: "袩芯谐褉邪薪懈褔薪芯械 锌邪褌褉褍谢懈褉芯胁邪薪懈械 懈 斜械褉械谐芯胁邪褟 芯褏褉邪薪邪",
+        title: "Border Patrol & Coastal Monitoring",
+        title_ru: "Охрана границ и побережья",
         desc: "Wide-area UAV patrol for border corridors, coastlines, ports, and shoreline incidents.",
-        desc_ru: "楔懈褉芯泻芯蟹芯薪薪芯械 锌邪褌褉褍谢懈褉芯胁邪薪懈械 袘袩袥袗 写谢褟 谐褉邪薪懈褑, 锌芯斜械褉械卸懈泄, 锌芯褉褌芯胁 懈 斜械褉械谐芯胁褘褏 懈薪褑懈写械薪褌芯胁.",
-        img: "/solutions/index_solution/Border%20Patrol%20%26%20Coastal%20Defense.webp",
-        mobileImg: "/solutions/index_solution/mobile/Border%20Patrol%20%26%20Coastal%20Defense.webp",
+        desc_ru: "Широкозонное патрулирование БПЛА для пограничных коридоров, побережий, портов и береговых инцидентов.",
+        img: "/solutions/index_solution/border-patrol-coastal-monitoring.webp",
+        mobileImg: "/solutions/index_solution/mobile/border-patrol-coastal-monitoring.webp",
         link: "/solutions/uav-maritime-patrol",
         objectPosition: "50% 50%",
         imageScale: 1
@@ -169,7 +169,7 @@ export const solutions = [
         id: "urban-high-rise-firefighting-emergency-uav-solution",
         title: "Urban High-Rise Firefighting & Rescue",
         title_ru: "Пожаротушение и спасение в высотной городской застройке с БПЛА",
-        desc: "Tethered aerial support for elevated suppression, smoke exhaust, lighting, and command visibility.",
+        desc: "Tethered aerial support for elevated response support, smoke exhaust, lighting, and command visibility.",
         desc_ru: "Привязная воздушная поддержка тушения, дымоудаления, освещения и командного обзора.",
         img: "/solutions/index_solution/Urban%20High-Rise%20Firefighting%20%26%20Rescue.webp",
         mobileImg: "/solutions/index_solution/mobile/Urban%20High-Rise%20Firefighting%20%26%20Rescue.webp",
@@ -242,8 +242,8 @@ export const solutions = [
 Object.assign(solutions[0], {
     title_ru: "Охрана границ и побережья",
     desc_ru: "Широкозонное патрулирование БПЛА для пограничных коридоров, побережий, портов и береговых инцидентов.",
-    img: "/solutions/index_solution/border-patrol-coastal-defense.webp",
-    mobileImg: "/solutions/index_solution/mobile/border-patrol-coastal-defense.webp"
+    img: "/solutions/index_solution/border-patrol-coastal-monitoring.webp",
+    mobileImg: "/solutions/index_solution/mobile/border-patrol-coastal-monitoring.webp"
 });
 
 Object.assign(solutions[1], {

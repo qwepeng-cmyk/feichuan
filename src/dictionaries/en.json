@@ -12,8 +12,8 @@
   },
   "home": {
     "hero": {
-      "title": "Empowering Global Security<br/>with Intelligent Unmanned Systems",
-      "subtitle": "Providing advanced UAV platforms, drone detection systems, and integrated security solutions for critical infrastructure worldwide.",
+      "title": "Industrial UAV Systems<br/>for Low-Altitude Operations",
+      "subtitle": "Industrial UAV platforms, airspace situational awareness, event records, and compliant response workflows for infrastructure, utilities, and public operations.",
       "button": "Explore Solutions"
     },
     "sections": {
@@ -30,16 +30,16 @@
       "viewAllNews": "View All News"
     },
     "labels": {
-      "successCase": "Mission Success"
+      "successCase": "Deployment Evidence"
     },
     "about": {
-      "content": "Beijing Feichuan Equipment Technology Co., Ltd. is a high-tech enterprise focusing on unmanned systems and intelligent security. We integrate global resources to build an efficient industrial ecosystem."
+      "content": "Beijing Feichuan Equipment Technology Co., Ltd. develops industrial UAV platforms, airspace monitoring equipment, inspection workflows, and intelligent screening systems for infrastructure and public operations."
     }
   },
   "products": {
-    "pageTitle": "Product Center",
-    "bannerTitle": "Product Center",
-    "bannerDesc": "Browse our full catalog of industrial technology and security equipment.",
+    "pageTitle": "Technology & Equipment Center",
+    "bannerTitle": "Technology & Equipment Center",
+    "bannerDesc": "Browse industrial UAV platforms, airspace monitoring equipment, inspection systems, and screening tools for site operations.",
     "getPrice": "Get Price",
     "getQuotation": "Get quotation",
     "getQuote": "Get a Quote",
@@ -55,7 +55,7 @@
     "relatedEquipment": "Related Equipment",
     "categories": {
       "uav": "UAV & Drone Systems",
-      "droneDetection": "Drone Detection & Airspace Monitoring",
+      "droneDetection": "Low-Altitude Airspace Monitoring",
       "security": "Security Screening",
       "engineeringMaterials": "Engineering Materials",
       "medical": "Field Hospitals",
@@ -63,10 +63,10 @@
     }
   },
   "solutions": {
-    "pageTitle": "Solution Center",
-    "bannerTitle": "Solution Center",
-    "bannerDesc": "Comprehensive security solutions tailored to your specific operational requirements.",
-    "bannerSubtitle": "Comprehensive security solutions tailored to your specific operational requirements.",
+    "pageTitle": "Low-Altitude & Industrial Solutions",
+    "bannerTitle": "Low-Altitude & Industrial Solutions",
+    "bannerDesc": "Integrated workflows for airspace monitoring, infrastructure inspection, event records, and compliant response coordination.",
+    "bannerSubtitle": "Integrated workflows for airspace monitoring, infrastructure inspection, event records, and compliant response coordination.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
@@ -81,9 +81,9 @@
     }
   },
   "cases": {
-    "pageTitle": "Global Case Center",
-    "bannerTitle": "Global Case Center",
-    "bannerDesc": "A global track record of mission success across border patrol, critical facility protection, and emergency rescue operations.",
+    "pageTitle": "Deployment Case Center",
+    "bannerTitle": "Deployment Case Center",
+    "bannerDesc": "Reference deployments for airspace monitoring, infrastructure inspection, public-site workflows, and emergency support.",
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
@@ -104,13 +104,14 @@
         "europe": "Europe",
         "oceania": "Oceania"
       }
-    }
+    },
+    "bannerSubtitle": "Reference deployments for airspace monitoring, infrastructure inspection, public-site workflows, and emergency support."
   },
   "media": {
-    "pageTitle": "Insights & Global Feed",
-    "bannerTitle": "Insights & Global Feed",
-    "bannerDesc": "Stay updated with the latest technological breakthroughs and industry analysis from N-TET.",
-    "bannerSubtitle": "Stay updated with the latest technological breakthroughs and industry analysis from N-TET.",
+    "pageTitle": "Insights & Updates",
+    "bannerTitle": "Insights & Updates",
+    "bannerDesc": "Company updates, technical notes, and industry perspectives on UAV operations and airspace monitoring.",
+    "bannerSubtitle": "Company updates, technical notes, and industry perspectives on UAV operations and airspace monitoring.",
     "latest": "Latest",
     "corporate": "Corporate News",
     "productTech": "Product & Tech",
@@ -126,11 +127,11 @@
   "about": {
     "pageTitle": "Company Profile",
     "bannerTitle": "Company Profile",
-    "bannerDesc": "Engineering leading-edge unmanned and intelligent security systems for a safer world.",
+    "bannerDesc": "Engineering UAV, airspace monitoring, and intelligent inspection systems for infrastructure operators.",
     "companyProfile": "Company Profile",
-    "companyDesc1": "Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.",
-    "companyDesc2": "Based on technological innovation, the company integrates global high-quality resources and market networks, and is committed to building an efficient and collaborative industrial ecosystem. Adhering to the development concept of \"Connecting Technology with Applications, Integrating Domestic and International Markets\", the company continues to provide leading intelligent security solutions for global customers and strives to become a technology enterprise with international influence.",
-    "companyDesc3": "We uphold the development mission of \"Connecting Technology with Applications, Integrating Domestic and International Markets\" to provide top-tier integrated security services for global customers.",
+    "companyDesc1": "Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in Beijing and focuses on industrial UAV systems, airspace monitoring, intelligent inspection, and site-screening technologies.",
+    "companyDesc2": "The company connects engineering development, field deployment experience, and partner resources to support infrastructure operators, utilities, emergency teams, and public-site managers.",
+    "companyDesc3": "We help customers turn sensing, inspection, records, and response coordination into practical operating workflows.",
     "rdTeam": "R&D Team",
     "rdTeamDesc": "Driving innovation with technical expertise and deep industry experience.",
     "rdRatio": "R&D Team Ratio",
@@ -148,7 +149,7 @@
   "contact": {
     "pageTitle": "Contact Us",
     "bannerTitle": "Contact Us",
-    "bannerDesc": "We provide professional technical support and industrial security solutions worldwide. Reach out to our expert team today.",
+    "bannerDesc": "Talk with our team about UAV platforms, airspace monitoring equipment, inspection workflows, and project-specific deployment needs.",
     "directContact": "Direct Contact",
     "consultation": "Consultation",
     "whatsapp": "WhatsApp",
@@ -159,10 +160,10 @@
   },
   "footer": {
     "companyName": "N-TET",
-    "tagline": "Industrial UAV & Drone Detection Solutions",
+    "tagline": "Industrial UAV Systems & Airspace Monitoring",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
-    "copyright": "© 2026 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved."
+    "copyright": "(c) 2026 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved."
   },
   "inquiry": {
     "title": "Get Solution & Quotation",
@@ -178,7 +179,11 @@
     "messagePlaceholder": "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., drone detection, security screening).",
     "submit": "SUBMIT INQUIRY",
     "submitting": "SUBMITTING...",
-    "submitted": "SUBMITTED SUCCESSFULLY!",
+    "submitted": {
+      "title": "SUBMITTED SUCCESSFULLY!",
+      "subtitle": "Thank you for your inquiry. Our team will review your requirements and get back to you within 24 hours.",
+      "backButton": "Send Another Message"
+    },
     "failed": "Failed to submit. Please try again.",
     "types": [
       "Product Pricing & Quotation",
@@ -242,11 +247,6 @@
       "mexico": "Mexico",
       "australia": "Australia",
       "newZealand": "New Zealand"
-    },
-    "submitted": {
-      "title": "SUBMITTED SUCCESSFULLY!",
-      "subtitle": "Thank you for your inquiry. Our team will review your requirements and get back to you within 24 hours.",
-      "backButton": "Send Another Message"
     }
   },
   "common": {
@@ -257,7 +257,7 @@
   },
   "megaMenu": {
     "uavSystems": "UAV & Drone Systems",
-    "droneDetection": "Drone Detection & Airspace Monitoring",
+    "droneDetection": "Low-Altitude Airspace Monitoring",
     "securityScreening": "Security Screening & Policing",
     "engineeringMaterials": "Engineering Materials",
     "fieldHospitals": "Field & Mobile Hospitals",
@@ -332,7 +332,7 @@
     "airportSecurityProtection": "Airport Security Protection",
     "emergencyLightingUAV": "Emergency Lighting UAV",
     "uavIndustryApplications": "UAV Industry Applications",
-    "borderCoastalDefense": "Border Patrol & Coastal Defense",
+    "borderCoastalDefense": "Border Patrol & Coastal Monitoring",
     "powerLineUavInspection": "Power Line UAV Intelligent Inspection",
     "smartSubstationUnattendedInspection": "Smart Substation Unattended Inspection",
     "waterConservancyRiverLakeMonitoring": "Water Conservancy & River-Lake Monitoring",

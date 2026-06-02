@@ -1,36 +1,64 @@
 {
-  "title": "水利设施低空安保",
-  "title_en": "Water Conservancy Facility Low-Altitude Security",
-  "description": "水利设施低空安保\n对于水力发电站（含水坝、厂房及输电枢纽）等国家关键能源设施面临的低空安全威胁，本项目构建一套专业的无人机防御体系。本系统采用“无线电侦测+无线电干扰”相结合的主动防御技术，具备精准识别与高效拦截入侵无人机的能力。\n针对水电站特有的高湿度、多粉尘复杂环境，设备进行了专项适应性设计，确保全天候稳定工作。设备支持分级防护策略，可根据大坝核心区、库区等不同区域的风险等级定制防御手段，形成“侦测-识别-反制”的闭环管理。\n该方案已在国内多个大型水电站成功落地应用，实战效果显著，构建起了全天候、全自动的低空安全防护网。为水电站的安全提供坚实可靠的低空安全保障。\n图26水力发电站低空安保",
-  "description_en": "Water Conservancy Facility Low-Altitude Security\nTo counter the low-altitude security threats faced by key national energy facilities such as hydroelectric power stations (including dams, powerhouses, and power transmission hubs), this project built a professional drone security system. The system adopts an active security technology combining \"radio detection + radio RF noise,\" possessing the capability to accurately identify and efficiently detect intruding drones.\nTargeting the unique, complex environments of hydroelectric power stations, characterized by high humidity and dust, the equipment underwent specialized adaptability designs to ensure stable 24/7 operation. The equipment supports graded protection strategies and can customize security methods based on the risk levels of different areas, such as the core dam area and reservoir area, forming a closed-loop management of \"detection - identification - countermeasures.\"\nThis solution has been successfully implemented and applied in multiple large domestic hydroelectric power stations. The practical combat results are remarkable, building an all-weather, fully automated low-altitude security protection network. It provides a solid and reliable low-altitude security guarantee for the safety of hydroelectric power stations.\nFigure 26: Hydroelectric Power Station Low-Altitude Security",
+  "title": "Water Conservancy Facility Low-Altitude Airspace Monitoring",
+  "title_en": "Water Conservancy Facility Low-Altitude Airspace Monitoring",
+  "description": "Water Conservancy Facility Low-Altitude Airspace Monitoring\nFor reservoirs, hydropower stations, and water-conservancy facilities, the system supports low-altitude monitoring, airspace situational display, event records, and coordinated review workflows. Operations teams can use the platform to organize alerts, visual records, location information, and response status for routine security management and compliance documentation.",
+  "description_en": "Water Conservancy Facility Low-Altitude Airspace Monitoring\nFor reservoirs, hydropower stations, and water-conservancy facilities, the system supports low-altitude monitoring, airspace situational display, event records, and coordinated review workflows. Operations teams can use the platform to organize alerts, visual records, location information, and response status for routine security management and compliance documentation.",
   "devices": [
-    "固定式无线电侦测设备",
-    "固定式反无人机无线电主动防御设备"
+    "Stationary Spectrum Detection Equipment",
+    "Airspace Event Logging Platform",
+    "Command and Control Platform"
   ],
   "devices_en": [
-    "Stationary RF Detection System",
-    "Stationary Active RF Security System (Navigation-Signal Analysis)"
+    "Stationary Spectrum Detection Equipment",
+    "Airspace Event Logging Platform",
+    "Command and Control Platform"
   ],
   "main_image": "/cases/water-conservancy-security/main.webp",
   "case_images": [
-    "/cases/water-conservancy-security/水力发电站低空安保.webp"
+    "/cases/water-conservancy-security/hydropower-station-airspace-monitoring.webp"
   ],
-  "recommendedProductHandles": [
-    "stationary-rf-detection-system",
-    "stationary-active-rf-security-system"
-  ],
+  "recommendedProductHandles": [],
   "handle": "water-conservancy-security",
-  "title_ru": "Защита объектов водного хозяйства от БПЛА",
-  "description_ru": "Безопасность гидротехнических сооборудованиеений\nДля защиты ГЭС, дамб и узлов электропередач была внедрена профессиональная система безопасностьы от БПЛА, использующая сочетание радиообнаружения и активного анализ сигналовления. Оборудование адаптировано к высокой влажности и запыленности, обеспечивая стабильную работу 24/7.\nСистема поддерживает эшелонированную защиту, позволяя настраивать меры мониторинг воздушного пространстваия для различных зон (тело плотины, водохранилище). Данное решение успешно внедрено на нескольких крупнейших ГЭС Китая, создав надежную автоматизированную сеть защиты критически важной энергетической инфраструктуры.",
+  "title_ru": "Water Conservancy Facility Low-Altitude Airspace Monitoring",
+  "description_ru": "Water Conservancy Facility Low-Altitude Airspace Monitoring\nFor reservoirs, hydropower stations, and water-conservancy facilities, the system supports low-altitude monitoring, airspace situational display, event records, and coordinated review workflows. Operations teams can use the platform to organize alerts, visual records, location information, and response status for routine security management and compliance documentation.",
   "devices_ru": [
-    "Стационарная система радиочастотного обнаружения",
-    "Стационарная активная система защиты (навигационная имитация)"
+    "Stationary Spectrum Detection Equipment",
+    "Airspace Event Logging Platform",
+    "Command and Control Platform"
   ],
-  "region_ru": "Азия",
-  "country_ru": "Китай",
+  "region_ru": "Asia",
+  "country_ru": "China",
   "region_en": "Asia",
   "country_en": "China",
   "solution_category_id": "02_InfrastructureProtection",
   "related_products": [],
-  "relatedProducts": []
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ]
 }

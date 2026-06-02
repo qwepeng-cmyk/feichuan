@@ -3,41 +3,41 @@ import Image from 'next/image';
 
 const solutions = [
   {
-    title: "Border Patrol & Security",
-    titleCn: "边境巡逻",
-    mainImg: "/images/prod_04应急侦查无人机_10.png",
-    parts: ["/images/solution/01/01_parts_01.png", "/images/solution/01/01_parts_02.png"],
-    composition: "FC-YJZC UAV platform, multi-spectral gimbals, surveillance radars, and ground stations.",
-    functions: "24/7 autonomous patrol, long-range thermal detection, and integrated risk assessment.",
-    scenes: ["/images/sol_边境巡逻_8.png", "/images/solution/01/01_scene_01.png"]
+    title: 'Border Patrol & Security',
+    titleCn: 'Border Patrol',
+    mainImg: '/solutions/index_solution/border-patrol-coastal-monitoring.webp',
+    parts: ['/products/uav-systems/FC-YJZC-01-Emergency-Reconnaissance-Drone.webp', '/images/solution/01/01_parts_02.png'],
+    composition: 'FC-YJZC UAV platform, multi-spectral gimbals, surveillance radars, and ground stations.',
+    functions: '24/7 autonomous patrol, long-range thermal detection, and integrated risk assessment.',
+    scenes: ['/images/solution/01/01_scene_01.png', '/images/solution/01/01_scene_02.png'],
   },
   {
-    title: "Critical Infrastructure",
-    titleCn: "关键设施防护",
-    mainImg: "/images/solution/02/02_main.png",
-    parts: ["/images/solution/02/02_parts_01.png", "/images/solution/02/02_parts_02.png"],
-    composition: "RF detection arrays, phased array radars, high-speed EO trackers, and event logging modules.",
-    functions: "Multi-layer monitoring for oil plants and dams. Unauthorized drone identification and airspace event management.",
-    scenes: ["/images/sol_关键设施防护_1.png", "/images/solution/02/02_scene_01.png"]
+    title: 'Critical Infrastructure',
+    titleCn: 'Infrastructure Monitoring',
+    mainImg: '/solutions/index_solution/critical-infrastructure-protection.webp',
+    parts: ['/images/solution/02/02_parts_01.png', '/images/solution/02/02_parts_02.png'],
+    composition: 'RF detection arrays, phased array radars, high-speed EO trackers, and event logging modules.',
+    functions: 'Multi-layer monitoring for energy plants, dams, and industrial airspace event management.',
+    scenes: ['/images/solution/02/02_scene_01.png', '/images/solution/02/02_scene_02.png'],
   },
   {
-    title: "Key Area Security",
-    titleCn: "要地安保",
-    mainImg: "/images/prod_17携式察打一体反无人机设备_11.png",
-    parts: ["/images/prod_FCDMS10系列智能电子哨兵_13.jpeg", "/images/solution/01/01_parts_05.png"],
-    composition: "Mobile smart sentinels, X-ray baggage scanners, and intelligent metal detection gates.",
-    functions: "High-throughput screening for govt sites. Contraband detection and perimeter monitoring.",
-    scenes: ["/images/sol_要地安保_5.png", "/images/prod_17携式察打一体反无人机设备_11.png"]
+    title: 'Key Area Security',
+    titleCn: 'Key Area Security',
+    mainImg: '/solutions/index_solution/key-area-security.webp',
+    parts: ['/products/security/FC-H-Smart-Phone-Detection-Gate.webp', '/products/security/FC-3000-Intelligent-Ferromagnetic-Detection-System.webp'],
+    composition: 'Mobile smart sentinels, X-ray baggage scanners, and intelligent metal detection gates.',
+    functions: 'High-throughput screening for public-sector sites, contraband detection, and perimeter monitoring.',
+    scenes: ['/solutions/index_solution/key-area-security.webp', '/products/security/FC-H-Smart-Phone-Detection-Gate.webp'],
   },
   {
-    title: "Emergency & Rescue",
-    titleCn: "应急救灾",
-    mainImg: "/images/prod_02智能化可移动式多功能方舱医院_12.jpeg",
-    parts: ["/images/sol_应急救灾_3.png", "/images/solution/01/01_parts_04.png"],
-    composition: "Tethered communication drones, mobile field hospitals, and prefabricated steel bridges.",
-    functions: "Rapid network restoration and medical deployment in disaster zones. 24/7 site lighting.",
-    scenes: ["/images/sol_应急救灾_3.png", "/images/solution/01/01_scene_02.png"]
-  }
+    title: 'Emergency & Rescue',
+    titleCn: 'Emergency Response',
+    mainImg: '/solutions/index_solution/disaster-site-search-rescue-reconnaissance.webp',
+    parts: ['/products/uav-systems/FC-YJTX-01-Emergency-Communication-Drone.webp', '/images/solution/01/01_parts_04.png'],
+    composition: 'Tethered communication drones, mobile field hospitals, and prefabricated steel bridges.',
+    functions: 'Rapid network restoration and medical deployment in disaster zones with site lighting support.',
+    scenes: ['/solutions/index_solution/night-emergency-lighting-support.webp', '/images/solution/01/01_scene_02.png'],
+  },
 ];
 
 const Solutions = () => {

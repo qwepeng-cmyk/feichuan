@@ -1,46 +1,66 @@
 {
-  "title": "机场低空安防应用",
-  "title_en": "Airport Low-Altitude Security Application",
-  "description": "机场低空安防应用\n为应对无人机黑飞、恐怖袭击及非法窥探等威胁，我司研发的机场低空安全综合防控系统构建了智能化、多层次的无人机防御体系。该系统整合无线电频谱分析技术，实现机场周边3公里范围内的全天候监测，可精准区分无人机与鸟类等目标，定位飞手位置。\n系统采用动态频谱管控技术，通过定向射频干扰压制无人机导航（GPS/北斗）与遥控链路，迫使其迫降或返航，同时避免干扰机场塔台通信等关键频段。配备便携式反制装备，可在跑道、航站楼等重点区域快速部署，响应迅速，形成灵活的单点防护能力。\n以智能指挥平台为核心，系统实现监测数据、电子地图与应急预案的多维度融合，支持与空管、公安部门的实时联动。风险预测模型，可提前预警潜在威胁，并自动触发分级响应机制（如预警、驱离）。该系统已在杭州萧山国际机场等场景成功应用，为全球机场提供了可复用的低空安防解决方案。\n图23杭州萧山机场低空安保\n图24机场低空安保\n图25便携式反无设备低空安保",
-  "description_en": "Airport Low-Altitude Security Application\nTo address threats such as unauthorized drone flights, terrorist attacks, and illegal snooping, our company developed a comprehensive airport low-altitude security prevention and control system that builds an intelligent, multi-layered drone security framework. The system integrates radio spectrum analysis technology to achieve 24/7 monitoring within a 3-kilometer radius around the airport. It can accurately distinguish between targets like drones and birds, and locate the pilot's position.\nThe system utilizes dynamic spectrum control technology, suppressing drone navigation (GPS/BeiDou) and remote control links through directional RF RF noise. This forces the drone to make an emergency landing or return, while avoiding RF noise with critical frequency bands such as airport tower communications. Equipped with portable countermeasure gear, it can be rapidly deployed in key areas such as runways and terminals, responding swiftly to form flexible single-point protection capabilities.\nCentered around an intelligent command platform, the system achieves a multi-dimensional fusion of monitoring data, electronic maps, and emergency plans, supporting real-time linkage with air traffic control and public security departments. The risk prediction model can warn of potential threats in advance and automatically trigger graded response mechanisms (e.g., early warning, expulsion). The system has been successfully applied in scenarios such as Hangzhou Xiaoshan International Airport, providing a reusable low-altitude security solution for airports worldwide.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Security\nFigure 24: Airport Low-Altitude Security\nFigure 25: Portable Airspace Monitoring Equipment Low-Altitude Security",
+  "title": "Airport Low-Altitude Airspace Monitoring Application",
+  "title_en": "Airport Low-Altitude Airspace Monitoring Application",
+  "description": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response workflows for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
+  "description_en": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response workflows for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
   "devices": [
-    "固定式无线电侦测设备",
-    "便携式无人机察打一体设备",
-    "低空探测雷达",
-    "多频段侦干一体反制枪"
+    "Stationary Spectrum Detection Equipment",
+    "Portable Airspace Monitoring Equipment",
+    "Command and Control Platform"
   ],
   "devices_en": [
-    "Stationary RF Detection System",
-    "Integrated Detection & RF Signal Analysis Airspace Monitoring",
-    "Low-Altitude Detection Radar (X-Band)",
-    "Multi-band Detection & RF Signal Analysis Directional Antenna Unit"
+    "Stationary Spectrum Detection Equipment",
+    "Portable Airspace Monitoring Equipment",
+    "Command and Control Platform"
   ],
   "main_image": "/cases/airport-security-application/main.webp",
   "case_images": [
-    "/cases/airport-security-application/便携式反无设备低空安保.webp",
-    "/cases/airport-security-application/机场低空安保.webp",
-    "/cases/airport-security-application/杭州萧山机场低空安保.webp"
+    "/cases/airport-security-application/portable-airspace-monitoring-unit.webp",
+    "/cases/airport-security-application/airport-airspace-monitoring.webp",
+    "/cases/airport-security-application/hangzhou-xiaoshan-airport-airspace-monitoring.webp"
   ],
-  "recommendedProductHandles": [
-    "stationary-rf-detection-system",
-    "portable-integrated-detection-RF signal analysis-airspace monitoring-basic",
-    "low-altitude-3d-pulse-doppler-radar",
-    "handheld-integrated-multi-band-RF scanner-directional antenna unit"
-  ],
+  "recommendedProductHandles": [],
   "handle": "airport-security-application",
-  "title_ru": "Применение мониторинг воздушного пространства в аэропортах",
-  "description_ru": "Применение систем мониторинг воздушного пространства в аэропортах\nДля борьбы с несанкционированными полетами, террористическими угрозами и незаконным наблюдением наша компания разработала комплексную многоуровневую систему безопасностьы аэропортов. Система объединяет технологию анализа радиочастотного спектра для круглосуточного мониторинга в радиусе 3 км, точно отличая дроны от птиц и определяя местоположение оператора.\nИспользуя динамическое управление спектром, система анализ сигналовляет каналы навигации (GPS/Beidou) и управления БПЛА через направленные радиочастотный анализи, принуждая дрон к посадке или возврату, не нарушая работу диспетчерских вышек. Переносные комплексы позволяют быстро развертывать защиту на ВПП и в терминалах.\nИнтеллектуальная платформа управления объединяет данные мониторинга, электронные карты и планы реагирования в реальном времени. Модели прогнозирования рисков позволяют заранее выявлять угрозы и автоматически запускать протоколы реагирования. Система успешно внедрена в международном аэропорту Ханчжоу Сяошань.",
+  "title_ru": "Airport Low-Altitude Airspace Monitoring Application",
+  "description_ru": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response workflows for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
   "devices_ru": [
-    "Стационарная система радиочастотного обнаружения",
-    "Интегрированная система обнаружения и анализ сигналовления БПЛА",
-    "Радар обнаружения маловысотных целей (X-диапазон)",
-    "Многодиапазонное направленная антеннае-анализ сигналовитель"
+    "Stationary Spectrum Detection Equipment",
+    "Portable Airspace Monitoring Equipment",
+    "Command and Control Platform"
   ],
-  "region_ru": "Азия",
-  "country_ru": "Китай",
+  "region_ru": "Asia",
+  "country_ru": "China",
   "region_en": "Asia",
   "country_en": "China",
   "solution_category_id": "03_KeyAreaSecurity",
   "related_products": [],
-  "relatedProducts": []
+  "relatedProducts": [],
+  "case_snapshot_en": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ],
+  "case_snapshot_ru": [
+    {
+      "label": "Application",
+      "value": "Low-altitude monitoring and event records"
+    },
+    {
+      "label": "Workflow",
+      "value": "Airspace awareness, alert review, and compliant response coordination"
+    },
+    {
+      "label": "Output",
+      "value": "Operator notes, timestamps, map records, and review reports"
+    }
+  ]
 }
