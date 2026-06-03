@@ -1,8 +1,19 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { getAllCases } from '@/lib/cases';
 import CasesPageClient from './CasesPageClient';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
+
+export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: '/cases',
+        fallbackTitle: 'Industrial UAV & Low-Altitude Monitoring Cases',
+        fallbackDescription: 'Review public N-TET cases for power-line UAV patrol, flood-season emergency inspection, refinery monitoring, airport security, and infrastructure operations.',
+    });
+}
 
 // 1. Create a data fetching component
 async function CasesDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {

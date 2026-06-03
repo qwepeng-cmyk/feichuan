@@ -15,6 +15,7 @@ import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/JsonLd';
 import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -34,26 +35,14 @@ export async function generateMetadata({ params }: { params: { handle: string; l
 
   const title = caseData[`title_${params.locale}`] || caseData.title_en || caseData.title;
   const description = caseData[`description_${params.locale}`] || caseData.description_en || caseData.description || undefined;
-  const canonical = params.locale === 'en' ? `/cases/${params.handle}` : `/${params.locale}/cases/${params.handle}`;
-  const image = caseData.main_image ? new URL(caseData.main_image, 'https://n-tet.com').toString() : undefined;
 
-  return {
-    title,
-    description,
-    alternates: { canonical },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      images: image ? [{ url: image, alt: title }] : undefined,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: image ? [image] : undefined,
-    },
-  };
+  return buildSeoMetadata({
+    locale: params.locale,
+    path: `/cases/${params.handle}`,
+    fallbackTitle: title,
+    fallbackDescription: description,
+    image: caseData.main_image,
+  });
 }
 
 function parseList(value: unknown): string[] {

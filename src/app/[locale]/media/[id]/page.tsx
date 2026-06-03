@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,12 +13,29 @@ import JsonLd from '@/components/seo/JsonLd';
 import { articleJsonLd, pageUrl, stripHtml } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
     return ids.map((id) => ({
         id,
     }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
+    const news = await getMediaById(params.id);
+    if (!news) return {};
+
+    const newsTitle = getLocalizedMediaTitle(news, params.locale);
+    const newsContent = news[`content_${params.locale}`] || news.content_en || news.content;
+
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: `/media/${params.id}`,
+        fallbackTitle: newsTitle,
+        fallbackDescription: stripHtml(newsContent).slice(0, 240),
+        image: news.image,
+    });
 }
 
 // 1. Data Fetching Component (Streaming)

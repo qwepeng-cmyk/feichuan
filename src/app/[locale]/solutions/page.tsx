@@ -1,8 +1,19 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { getAllSolutions } from '@/lib/solutions';
 import SolutionCenterClient from './SolutionCenterClient';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
+
+export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: '/solutions',
+        fallbackTitle: 'Industrial UAV Inspection & Emergency Response Solutions',
+        fallbackDescription: 'UAV solutions for search and rescue, firefighting, power-line inspection, pipeline inspection, water monitoring, border patrol, and emergency lighting.',
+    });
+}
 
 async function SolutionsDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {
     const allSolutions = await getAllSolutions();

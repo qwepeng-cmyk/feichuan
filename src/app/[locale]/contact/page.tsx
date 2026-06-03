@@ -1,10 +1,22 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileContact from '@/components/mobile/MobileContact';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
+
+export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: '/contact',
+        fallbackTitle: 'Contact N-TET | Industrial UAV Systems & Monitoring Equipment',
+        fallbackDescription: 'Contact N-TET for industrial UAV systems, emergency response drones, inspection UAVs, low-altitude monitoring equipment, and security screening solutions.',
+        image: '/about/contact_banner.png',
+    });
+}
 
 async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
     return (

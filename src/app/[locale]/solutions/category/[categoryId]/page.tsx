@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import CategoryLandingClient from './CategoryLandingClient';
@@ -12,6 +13,7 @@ import {
   sanitizeRecordForTier,
   sanitizeComplianceValue,
 } from '@/lib/complianceTaxonomy';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
 
 interface SolutionJson {
   product_name: string;
@@ -43,6 +45,18 @@ const VALID_CATEGORIES = [
 
 export function generateStaticParams() {
   return VALID_CATEGORIES.map((id) => ({ categoryId: id }));
+}
+
+export function generateMetadata({ params }: { params: { categoryId: string; locale: Locale } }): Metadata {
+  const landingData = categoryLandingData[params.categoryId];
+  const title = landingData?.name_en || params.categoryId.replace(/^\d+_/, '').replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  return buildSeoMetadata({
+    locale: params.locale,
+    path: `/solutions/category/${params.categoryId}`,
+    fallbackTitle: title,
+    fallbackDescription: landingData?.industryNeeds_en,
+  });
 }
 
 async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId: string; locale: Locale; dict: any }) {
