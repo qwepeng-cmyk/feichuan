@@ -136,6 +136,6 @@ export const getProductByHandle = unstable_cache(
       return sanitizeRecordForTier(pruneProductDetailPayload(row), getComplianceTier('product', handle));
     }
   },
-  ['product-detail-uav-refresh-20260527-sljc-scenarios-v6'],
+  ['product-detail-uav-refresh-20260527-sljc-scenarios-v7'],
   { revalidate: 3600, tags: ['products'] }
 );
