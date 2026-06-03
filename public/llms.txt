@@ -3,7 +3,7 @@
 > N-TET provides UAV systems, low-altitude monitoring, industrial security, and engineering-material content for international buyers and project teams.
 
 Canonical site: https://n-tet.com
-Generated: 2026-06-02
+Generated: 2026-06-03
 
 Compliance boundary: this file excludes restricted C-tier content, admin routes, preview routes, and advertising-unsafe paths. B-tier neutral SEO content may appear only as informational public content.
 

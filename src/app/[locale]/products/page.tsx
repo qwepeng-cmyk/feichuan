@@ -1,9 +1,20 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { getAllProducts } from '@/lib/products';
 import DesktopProductCenter from '@/components/pc/DesktopProductCenter';
 import MobileProductCenterLoader from '@/components/products/MobileProductCenterLoader';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
+
+export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: '/products',
+        fallbackTitle: 'Industrial UAV Systems & Monitoring Equipment',
+        fallbackDescription: 'Explore N-TET industrial UAV systems, tethered emergency drones, inspection UAVs, low-altitude monitoring equipment, and security screening products.',
+    });
+}
 
 async function ProductsDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {
     const categoriesData = await getAllProducts(locale);

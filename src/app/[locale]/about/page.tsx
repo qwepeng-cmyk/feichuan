@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
@@ -6,6 +7,17 @@ import MobileAboutUs from '@/components/mobile/MobileAboutUs';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
+
+export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: '/about',
+        fallbackTitle: 'About N-TET | Industrial UAV & Monitoring Systems Manufacturer',
+        fallbackDescription: 'Learn about N-TET engineering, R&D, and manufacturing capabilities for industrial UAV systems, low-altitude monitoring equipment, and security technologies.',
+        image: '/about/about_banner.jpg',
+    });
+}
 
 async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
     return (

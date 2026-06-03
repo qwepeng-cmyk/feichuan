@@ -11,6 +11,7 @@ import { Locale } from '@/i18n/config';
 import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
@@ -25,27 +26,15 @@ export async function generateMetadata({ params }: { params: { id: string; local
 
   const title = solution[`product_name_${params.locale}`] || solution.product_name_en || solution.title_en;
   const description = solution[`summary_${params.locale}`] || solution.summary_en || undefined;
-  const canonical = params.locale === 'en' ? `/solutions/${params.id}` : `/${params.locale}/solutions/${params.id}`;
   const mainImage = solutionCenterImageByHandle[solution.handle || params.id] || solution.main_image;
-  const image = mainImage ? new URL(mainImage, 'https://n-tet.com').toString() : undefined;
 
-  return {
-    title,
-    description,
-    alternates: { canonical },
-    openGraph: {
-      title,
-      description,
-      url: canonical,
-      images: image ? [{ url: image, alt: title }] : undefined,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: image ? [image] : undefined,
-    },
-  };
+  return buildSeoMetadata({
+    locale: params.locale,
+    path: `/solutions/${params.id}`,
+    fallbackTitle: title,
+    fallbackDescription: description,
+    image: mainImage,
+  });
 }
 
 // 1. Data Fetching Component (Streaming)

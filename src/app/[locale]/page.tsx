@@ -1,9 +1,20 @@
 import React, { Suspense } from 'react';
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { getAllMedia } from '@/lib/media';
 import { homeCases } from '@/constants/homeData';
+import { buildSeoMetadata } from '@/lib/seoMetadata';
+
+export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
+    return buildSeoMetadata({
+        locale: params.locale,
+        path: '/',
+        fallbackTitle: 'Industrial UAV Systems & Low-Altitude Monitoring',
+        fallbackDescription: 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
+    });
+}
 
 // Use dynamic imports
 const DesktopHome = dynamic(() => import('@/components/pc/DesktopHome'), { 
