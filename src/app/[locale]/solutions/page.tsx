@@ -10,8 +10,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/solutions',
-        fallbackTitle: 'Industrial UAV Inspection & Emergency Response Solutions',
-        fallbackDescription: 'UAV solutions for search and rescue, firefighting, power-line inspection, pipeline inspection, water monitoring, border patrol, and emergency lighting.',
+        fallbackTitle: 'Industrial UAV Solutions',
+        fallbackDescription: 'UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.',
     });
 }
 

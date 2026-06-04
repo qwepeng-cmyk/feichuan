@@ -10,8 +10,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/cases',
-        fallbackTitle: 'Industrial UAV & Low-Altitude Monitoring Cases',
-        fallbackDescription: 'Review public N-TET cases for power-line UAV patrol, flood-season emergency inspection, refinery monitoring, airport security, and infrastructure operations.',
+        fallbackTitle: 'UAV Deployment Cases',
+        fallbackDescription: 'Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring.',
     });
 }
 

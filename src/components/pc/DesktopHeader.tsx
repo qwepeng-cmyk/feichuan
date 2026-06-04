@@ -90,6 +90,125 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
             />
         </span>
     );
+    const accessoryMegaGroups = [
+        {
+            id: 'flight-controllers',
+            title: dict.accessories?.categories?.['flight-controllers'] || 'Flight Controllers',
+            image: '/products/uav-accessories/flight-controllers/fc-u10-pro/fc-u10-pro-flight-controller.webp',
+            items: [
+                { label: 'FC-U10-PRO Flight Controller', href: '/accessories/fc-u10-pro' },
+                { label: 'FC-U12 Flight Controller', href: '/accessories/fc-u12' },
+                { label: 'FC-U9-AG Flight Controller', href: '/accessories/fc-u9-ag' },
+            ],
+        },
+        {
+            id: 'uav-motors',
+            title: dict.accessories?.categories?.['uav-motors'] || 'UAV Motors',
+            image: '/products/uav-accessories/uav-motors/fc-max-5330/fc-max-5330-uav-motor.webp',
+            items: [
+                { label: 'FC-MAX 5330 UAV Motor', href: '/accessories/fc-max-5330' },
+                { label: 'FC-RM10X UAV Motor', href: '/accessories/fc-rm10x' },
+                { label: 'FC-RM30 UAV Motor', href: '/accessories/fc-rm30' },
+                { label: 'FC-U110 UAV Motor', href: '/accessories/fc-u110' },
+                { label: 'FC-U8013 UAV Motor', href: '/accessories/fc-u8013' },
+                { label: 'FC-X8030 UAV Motor', href: '/accessories/fc-x8030' },
+                { label: 'FC-XH14 UAV Motor', href: '/accessories/fc-xh14' },
+            ],
+        },
+        {
+            id: 'uav-propellers',
+            title: dict.accessories?.categories?.['uav-propellers'] || 'UAV Propellers',
+            image: '/products/uav-accessories/uav-propellers/fc-c2d-propeller/fc-c2d-uav-propeller.webp',
+            items: [
+                { label: 'FC-C2D UAV Propeller', href: '/accessories/fc-c2d-propeller' },
+                { label: 'FC-C2E UAV Propeller', href: '/accessories/fc-c2e-propeller' },
+                { label: 'FC-C2T UAV Propeller', href: '/accessories/fc-c2t-propeller' },
+                { label: 'FC-C2U UAV Propeller', href: '/accessories/fc-c2u-propeller' },
+                { label: 'FC-C2UD UAV Propeller', href: '/accessories/fc-c2ud-propeller' },
+                { label: 'FC-PAB UAV Propeller', href: '/accessories/fc-pab-propeller' },
+                { label: 'FC-PAD UAV Propeller', href: '/accessories/fc-pad-propeller' },
+                { label: 'FC-PAE UAV Propeller', href: '/accessories/fc-pae-propeller' },
+                { label: 'FC-PBF UAV Propeller', href: '/accessories/fc-pbf-propeller' },
+                { label: 'FC-W2U UAV Propeller', href: '/accessories/fc-w2u-propeller' },
+            ],
+        },
+        {
+            id: 'uav-batteries',
+            title: dict.accessories?.categories?.['uav-batteries'] || 'UAV Batteries',
+            image: '/products/uav-accessories/uav-batteries/fc-bt1/fc-bt1-uav-battery.webp',
+            items: [
+                { label: 'FC-BT1 UAV Battery', href: '/accessories/fc-bt1' },
+                { label: 'FC-BT2 UAV Battery', href: '/accessories/fc-bt2' },
+                { label: 'FC-BT3 UAV Battery', href: '/accessories/fc-bt3' },
+                { label: 'FC-BT4 UAV Battery', href: '/accessories/fc-bt4' },
+                { label: 'FC-BTG UAV Battery', href: '/accessories/fc-btg' },
+            ],
+        },
+        {
+            id: 'electro-optical-gimbals',
+            title: dict.accessories?.categories?.['electro-optical-gimbals'] || 'Electro-Optical Gimbals',
+            image: '/products/uav-accessories/electro-optical-gimbals/fc-l10tr-three-light-gimbal/fc-l10tr-electro-optical-gimbal.webp',
+            items: [
+                { label: 'FC-L10TR Electro-Optical Gimbal', href: '/accessories/fc-l10tr-three-light-gimbal' },
+                { label: 'FC-L40 Electro-Optical Gimbal', href: '/accessories/fc-l40-smart-optical-pod' },
+                { label: 'FC-L40T Electro-Optical Gimbal', href: '/accessories/fc-l40t-dual-light-gimbal' },
+                { label: 'FC-L40TR Electro-Optical Gimbal', href: '/accessories/fc-l40tr-smart-optical-pod' },
+                { label: 'FC-L50 Electro-Optical Gimbal', href: '/accessories/fc-l50-smart-optical-pod' },
+                { label: 'FC-LN100 Electro-Optical Gimbal', href: '/accessories/fc-ln100-dual-light-gimbal' },
+                { label: 'FC-LN95 Electro-Optical Gimbal', href: '/accessories/fc-ln95-dual-light-gimbal' },
+                { label: 'FC-MiniL10TR Electro-Optical Gimbal', href: '/accessories/fc-mini-l10tr-smart-optical-pod' },
+            ],
+        },
+        {
+            id: 'uav-engines',
+            title: dict.accessories?.categories?.['uav-engines'] || 'UAV Engines',
+            image: '/products/uav-accessories/uav-engines/fc-fdj-111/fc-fdj-111-uav-engine.webp',
+            items: [
+                { label: 'FC-FDJ-111 UAV Engine', href: '/accessories/fc-fdj-111' },
+                { label: 'FC-FDJ-120 UAV Engine', href: '/accessories/fc-fdj-120' },
+                { label: 'FC-FDJ-120HD UAV Engine', href: '/accessories/fc-fdj-120hd' },
+                { label: 'FC-FDJ-170 UAV Engine', href: '/accessories/fc-fdj-170' },
+                { label: 'FC-FDJ-200 UAV Engine', href: '/accessories/fc-fdj-200' },
+                { label: 'FC-FDJ-222 UAV Engine', href: '/accessories/fc-fdj-222' },
+                { label: 'FC-FDJ-430 UAV Engine', href: '/accessories/fc-fdj-430' },
+                { label: 'FC-FDJ-55 UAV Engine', href: '/accessories/fc-fdj-55' },
+                { label: 'FC-FDJ-60 UAV Engine', href: '/accessories/fc-fdj-60' },
+                { label: 'FC-FDJ-61 UAV Engine', href: '/accessories/fc-fdj-61' },
+                { label: 'FC-FDJ-70HD UAV Engine', href: '/accessories/fc-fdj-70hd' },
+                { label: 'FC-FDJ-85 UAV Engine', href: '/accessories/fc-fdj-85' },
+            ],
+        },
+        {
+            id: 'uav-data-links',
+            title: dict.accessories?.categories?.['uav-data-links'] || 'UAV Data Links',
+            image: '/products/uav-accessories/uav-data-links/fc-mesh-100/fc-mesh-100-uav-data-link.webp',
+            items: [
+                { label: 'FC-Mesh-100 UAV Data Link', href: '/accessories/fc-mesh-100' },
+                { label: 'FC-SJL-100 UAV Data Link', href: '/accessories/fc-sjl-100' },
+                { label: 'FC-SJL-200 UAV Data Link', href: '/accessories/fc-sjl-200' },
+                { label: 'FC-SJL-30 UAV Data Link', href: '/accessories/fc-sjl-30' },
+                { label: 'FC-SJL-380 UAV Data Link', href: '/accessories/fc-sjl-380' },
+                { label: 'FC-SJL-50 UAV Data Link', href: '/accessories/fc-sjl-50' },
+            ],
+        },
+        {
+            id: 'uav-remote-controllers',
+            title: dict.accessories?.categories?.['uav-remote-controllers'] || 'UAV Remote Controllers',
+            image: '/products/uav-accessories/uav-remote-controllers/fc-yk15-remote-controller/fc-yk15-uav-remote-controller.webp',
+            items: [
+                { label: 'FC-YK15 UAV Remote Controller', href: '/accessories/fc-yk15-remote-controller' },
+                { label: 'FC-YK24 UAV Remote Controller', href: '/accessories/fc-yk24-remote-controller' },
+                { label: 'FC-YK32 UAV Remote Controller', href: '/accessories/fc-yk32-remote-controller' },
+                { label: 'FC-YKRC7 UAV Remote Controller', href: '/accessories/fc-ykrc7-remote-controller' },
+            ],
+        },
+    ];
+    const accessoryMegaColumns = [
+        [accessoryMegaGroups[0], accessoryMegaGroups[4]],
+        [accessoryMegaGroups[1], accessoryMegaGroups[5]],
+        [accessoryMegaGroups[2], accessoryMegaGroups[6]],
+        [accessoryMegaGroups[3], accessoryMegaGroups[7]],
+    ];
 
     return (
         <header id="site-header" className={headerClass} style={{
@@ -303,6 +422,35 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                             </ul>
                                         </div>
                                     </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={`nav-item ${pathname.startsWith(l('/accessories')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+                            <Link prefetch={false} href={l("/accessories")} className="nav-link">{dict?.nav?.accessories || 'Drone Accessories'}</Link>
+                            <div className="mega-menu">
+                                <div className="container product-mega-container">
+                                    <div className="product-mega-columns">
+                                        {accessoryMegaColumns.map((column, columnIndex) => (
+                                            <div className="mega-column" key={`accessory-column-${columnIndex}`}>
+                                                {column.map((group) => (
+                                                    <div className="mega-menu-group" key={group.id}>
+                                                        <h3 className="mega-title">
+                                                            <Link prefetch={false} href={l(`/accessories#${group.id}`)}>{group.title}</Link>
+                                                        </h3>
+                                                        {renderMegaImage(group.image, group.title)}
+                                                        <ul className="mega-list">
+                                                            {group.items.map((item) => (
+                                                                <li key={item.href}>
+                                                                    <Link prefetch={false} href={l(item.href)}>{item.label}</Link>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>

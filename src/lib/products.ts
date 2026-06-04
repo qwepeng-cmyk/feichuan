@@ -6,6 +6,7 @@ import {
   isPublicComplianceContent,
   sanitizeRecordForTier,
 } from './complianceTaxonomy';
+import { localizedField } from './localization';
 
 export interface ProductMetadata {
   name: string;
@@ -21,6 +22,8 @@ export interface ProductMetadata {
 const HIDDEN_PRODUCT_HANDLES = new Set([
   'medium-long-range-uav-inspection-system',
 ]);
+
+const ACCESSORY_CATEGORY = 'uav-accessories';
 
 function parseProductRawJson(rawJson?: string | null) {
   if (!rawJson) return {};
@@ -64,10 +67,11 @@ export const getAllProducts = unstable_cache(
     };
 
     const rows = db.prepare(`
-      SELECT handle, product_name_en, product_name_ru, main_image, category_primary, raw_json
+      SELECT handle, product_name_en, product_name_ru, product_name_es, main_image, category_primary, raw_json
       FROM products
       WHERE COALESCE(is_published, 1) = 1
-    `).all() as any[];
+        AND category_primary <> ?
+    `).all(ACCESSORY_CATEGORY) as any[];
 
     for (const row of rows) {
       if (HIDDEN_PRODUCT_HANDLES.has(row.handle)) {
@@ -84,7 +88,7 @@ export const getAllProducts = unstable_cache(
         const raw = parseProductRawJson(row.raw_json) as Record<string, unknown>;
         const tier = getComplianceTier('product', row.handle);
         const product = sanitizeRecordForTier({
-          name: locale === 'ru' && row.product_name_ru ? row.product_name_ru : row.product_name_en,
+          name: localizedField(row, 'product_name', locale),
           handle: row.handle,
           image: row.main_image,
           category: publicCategory,
@@ -109,7 +113,7 @@ export const getAllProducts = unstable_cache(
 
 export const getAllProductHandles = unstable_cache(
   async () => {
-    const rows = db.prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1').all() as any[];
+    const rows = db.prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1 AND category_primary <> ?').all(ACCESSORY_CATEGORY) as any[];
     return rows
       .map(r => r.handle)
       .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
@@ -120,7 +124,7 @@ export const getAllProductHandles = unstable_cache(
 
 export const getProductByHandle = unstable_cache(
   async (handle: string) => {
-    const row = db.prepare('SELECT * FROM products WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(handle) as any;
+    const row = db.prepare('SELECT * FROM products WHERE handle = ? AND COALESCE(is_published, 1) = 1 AND category_primary <> ?').get(handle, ACCESSORY_CATEGORY) as any;
     if (!row) return null;
     if (HIDDEN_PRODUCT_HANDLES.has(handle)) return null;
     if (!isPublicComplianceContent('product', handle)) return null;

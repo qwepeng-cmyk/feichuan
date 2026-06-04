@@ -57,10 +57,18 @@
     background: #f1f3f5;
     /* Light gray background */
     border-top: 1px solid #eee;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.subNav::-webkit-scrollbar {
+    display: none;
 }
 
 .navLink {
-    flex: 1;
+    flex: 0 0 auto;
+    min-width: 92px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,6 +78,8 @@
     text-decoration: none;
     transition: all 0.2s;
     letter-spacing: 0.5px;
+    padding: 0 12px;
+    white-space: nowrap;
 }
 
 .navLink.active {

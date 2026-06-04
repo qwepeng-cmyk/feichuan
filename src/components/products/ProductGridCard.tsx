@@ -20,7 +20,19 @@ function shouldBlendImageBackground(image?: string) {
     return Boolean(image?.includes('/products/uav-systems/'));
 }
 
-export default function ProductGridCard({ product, locale, dict, priority = false }: { product: Product; locale?: string; dict?: any; priority?: boolean }) {
+export default function ProductGridCard({
+    product,
+    locale,
+    dict,
+    priority = false,
+    basePath = '/products',
+}: {
+    product: Product;
+    locale?: string;
+    dict?: any;
+    priority?: boolean;
+    basePath?: '/products' | '/accessories';
+}) {
     const [hovered, setHovered] = useState(false);
     const prodName = locale === 'ru' ? (product.product_name_ru || product.name_ru || product.name) : (product.product_name_en || product.name_en || product.name);
     const blendImageBackground = shouldBlendImageBackground(product.image);
@@ -29,7 +41,7 @@ export default function ProductGridCard({ product, locale, dict, priority = fals
 
     return (
         <Link prefetch={false}
-            href={localePath(locale, `/products/${product.handle}`)}
+            href={localePath(locale, `${basePath}/${product.handle}`)}
             className="p-card-sbm"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}

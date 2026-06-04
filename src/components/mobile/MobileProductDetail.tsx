@@ -13,6 +13,8 @@ interface ProductProps {
     product: any;
     locale: string;
     dict: any;
+    basePath?: '/products' | '/accessories';
+    catalogLabel?: string;
 }
 
 function formatSpecLine(value?: string | null, fallbackLabel?: string) {
@@ -32,7 +34,48 @@ function formatSpecLine(value?: string | null, fallbackLabel?: string) {
     );
 }
 
-export default function MobileProductDetail({ product, locale, dict }: ProductProps) {
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+    return Boolean(value && typeof value === 'object' && !Array.isArray(value));
+}
+
+function renderMobileSpecRows(parameters: any): React.ReactNode {
+    if (Array.isArray(parameters)) {
+        return parameters.slice(0, 80).map((row: any, ri: number) => (
+            <tr key={ri} className={ri === 0 ? styles.tableHeader : ''}>
+                {(Array.isArray(row) ? row : [row]).map((cell: string, ci: number) => (
+                    <td key={ci} className={ri === 0 ? styles.specLabel : styles.specValue}>{String(cell ?? '')}</td>
+                ))}
+            </tr>
+        ));
+    }
+
+    if (!isPlainObject(parameters)) return null;
+
+    return Object.entries(parameters).flatMap(([param, val], idx) => {
+        if (isPlainObject(val)) {
+            return [
+                <tr key={`${param}-group`} className={styles.tableHeader}>
+                    <td colSpan={2} className={styles.specLabel}>{param}</td>
+                </tr>,
+                ...Object.entries(val).map(([childParam, childValue], childIdx) => (
+                    <tr key={`${param}-${childParam}-${childIdx}`}>
+                        <td className={styles.specLabel}>{childParam}</td>
+                        <td className={styles.specValue}>{Array.isArray(childValue) ? childValue.join(', ') : String(childValue ?? '')}</td>
+                    </tr>
+                ))
+            ];
+        }
+
+        return [
+            <tr key={idx}>
+                <td className={styles.specLabel}>{param}</td>
+                <td className={styles.specValue}>{Array.isArray(val) ? val.join(', ') : String(val ?? '')}</td>
+            </tr>
+        ];
+    });
+}
+
+export default function MobileProductDetail({ product, locale, dict, basePath = '/products', catalogLabel }: ProductProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
 
@@ -43,6 +86,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
     const keyParam1 = product[`key_parameter_1_${locale}`] || product.key_parameter_1_en;
     const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
     const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
+    const sectionLabel = catalogLabel || dict.nav.products;
     
     let parameters: any = null;
     try {
@@ -114,7 +158,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
             <div className={styles.breadcrumb}>
                 <Link href={localePath(locale)}>{dict.nav.home}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
-                <Link href={localePath(locale, '/products')}>{dict.nav.products}</Link>
+                <Link href={localePath(locale, basePath)}>{sectionLabel}</Link>
                 <span className={styles.breadcrumbSeparator}>/</span>
                 <span className={styles.breadcrumbActive}>
                     {name}
@@ -226,22 +270,7 @@ export default function MobileProductDetail({ product, locale, dict }: ProductPr
                 {parameters && (Array.isArray(parameters) ? parameters.length > 0 : Object.keys(parameters).length > 0) ? (
                     <table className={styles.specsTable}>
                         <tbody>
-                            {Array.isArray(parameters) ? (
-                                parameters.map((row: string[], ri: number) => (
-                                    <tr key={ri} className={ri === 0 ? styles.tableHeader : ''}>
-                                        {row.map((cell: string, ci: number) => (
-                                            <td key={ci} className={ri === 0 ? styles.specLabel : styles.specValue}>{cell}</td>
-                                        ))}
-                                    </tr>
-                                ))
-                            ) : (
-                                Object.entries(parameters).map(([param, val], idx) => (
-                                    <tr key={idx}>
-                                        <td className={styles.specLabel}>{param}</td>
-                                        <td className={styles.specValue}>{val as string}</td>
-                                    </tr>
-                                ))
-                            )}
+                            {renderMobileSpecRows(parameters)}
                         </tbody>
                     </table>
                 ) : (

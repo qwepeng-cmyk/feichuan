@@ -4,7 +4,7 @@ import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
 const SITE_URL = 'https://n-tet.com';
 const LOCALES = ['en', 'ru'] as const;
-const STATIC_PATHS = ['/', '/products', '/solutions', '/cases', '/media', '/about', '/contact'];
+const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact'];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';
 
@@ -31,11 +31,13 @@ function sitemapEntry(locale: (typeof LOCALES)[number], path: string, priority: 
 
 function publishedHandles(type: ContentType) {
   const config = CONTENT_CONFIG[type];
+  const productCategoryFilter = type === 'product' ? "AND category_primary <> 'uav-accessories'" : '';
   const rows = db
     .prepare(
       `SELECT ${config.handleColumn} AS handle
        FROM ${config.table}
        WHERE COALESCE(is_published, 1) = 1
+       ${productCategoryFilter}
        ORDER BY ${config.handleColumn} COLLATE NOCASE`
     )
     .all() as Array<{ handle?: string | null }>;
@@ -43,6 +45,20 @@ function publishedHandles(type: ContentType) {
   return rows
     .map((row) => row.handle)
     .filter((handle): handle is string => Boolean(handle && isPublicComplianceContent(type, handle)));
+}
+
+function accessoryHandles() {
+  const rows = db
+    .prepare(
+      `SELECT handle
+       FROM products
+       WHERE COALESCE(is_published, 1) = 1
+         AND category_primary = 'uav-accessories'
+       ORDER BY handle COLLATE NOCASE`
+    )
+    .all() as Array<{ handle?: string | null }>;
+
+  return rows.map((row) => row.handle).filter((handle): handle is string => Boolean(handle));
 }
 
 function solutionCategories() {
@@ -74,6 +90,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       for (const handle of publishedHandles(type)) {
         entries.push(sitemapEntry(locale, `/${config.route}/${handle}`, 0.7));
       }
+    }
+
+    for (const handle of accessoryHandles()) {
+      entries.push(sitemapEntry(locale, `/accessories/${handle}`, 0.7));
     }
   }
 

@@ -51,6 +51,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             <div className={styles.subNav}>
                 <Link prefetch={false} href={l("/")} className={`${styles.navLink} ${pathname === l("/") ? styles.active : ''}`}>{dict?.mobileNav?.home || 'HOME'}</Link>
                 <Link prefetch={false} href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) ? styles.active : ''}`}>{dict?.mobileNav?.product || 'PRODUCTS'}</Link>
+                <Link prefetch={false} href={l("/accessories")} className={`${styles.navLink} ${pathname.startsWith(l('/accessories')) ? styles.active : ''}`}>{dict?.mobileNav?.accessories || 'ACCESSORIES'}</Link>
                 <Link prefetch={false} href={l("/solutions")} className={`${styles.navLink} ${pathname.startsWith(l('/solutions')) ? styles.active : ''}`}>{dict?.mobileNav?.solutions || 'SOLUTIONS'}</Link>
                 <Link prefetch={false} href={l("/cases")} className={`${styles.navLink} ${pathname.startsWith(l('/cases')) ? styles.active : ''}`}>{dict?.mobileNav?.cases || 'CASES'}</Link>
             </div>
@@ -62,6 +63,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
                         {[
                             { name: dict?.nav?.home || 'Home', href: '/' },
                             { name: dict?.nav?.products || 'Products', href: '/products' },
+                            { name: dict?.nav?.accessories || 'Drone Accessories', href: '/accessories' },
                             { name: dict?.nav?.solutions || 'Solutions', href: '/solutions' },
                             { name: dict?.nav?.cases || 'Cases', href: '/cases' },
                             { name: dict?.nav?.media || 'News', href: '/media' },

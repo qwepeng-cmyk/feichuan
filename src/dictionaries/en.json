@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "products": "Products",
+    "accessories": "Drone Accessories",
     "solutions": "Solutions",
     "cases": "Cases",
     "media": "Media",
@@ -62,11 +63,27 @@
       "surveillance": "Perimeter Intelligence"
     }
   },
+  "accessories": {
+    "title": "Drone Accessories",
+    "pageTitle": "Drone Accessories & UAV Components",
+    "bannerTitle": "Drone Accessories & UAV Components",
+    "bannerDesc": "Browse gimbals, propulsion modules, data links, batteries, controllers, and flight-control components for industrial UAV platforms.",
+    "categories": {
+      "electro-optical-gimbals": "Electro-Optical Gimbals",
+      "uav-engines": "UAV Engines",
+      "uav-data-links": "UAV Data Links",
+      "uav-propellers": "UAV Propellers",
+      "uav-motors": "UAV Motors",
+      "uav-batteries": "UAV Batteries",
+      "uav-remote-controllers": "UAV Remote Controllers",
+      "flight-controllers": "Flight Controllers"
+    }
+  },
   "solutions": {
-    "pageTitle": "Low-Altitude & Industrial Solutions",
-    "bannerTitle": "Low-Altitude & Industrial Solutions",
-    "bannerDesc": "Integrated workflows for airspace monitoring, infrastructure inspection, event records, and compliant response coordination.",
-    "bannerSubtitle": "Integrated workflows for airspace monitoring, infrastructure inspection, event records, and compliant response coordination.",
+    "pageTitle": "Industrial UAV Solutions",
+    "bannerTitle": "Industrial UAV Solutions",
+    "bannerDesc": "UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.",
+    "bannerSubtitle": "UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
@@ -81,9 +98,9 @@
     }
   },
   "cases": {
-    "pageTitle": "Deployment Case Center",
-    "bannerTitle": "Deployment Case Center",
-    "bannerDesc": "Reference deployments for airspace monitoring, infrastructure inspection, public-site workflows, and emergency support.",
+    "pageTitle": "UAV Deployment Cases",
+    "bannerTitle": "UAV Deployment Cases",
+    "bannerDesc": "Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring.",
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
@@ -105,7 +122,7 @@
         "oceania": "Oceania"
       }
     },
-    "bannerSubtitle": "Reference deployments for airspace monitoring, infrastructure inspection, public-site workflows, and emergency support."
+    "bannerSubtitle": "Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring."
   },
   "media": {
     "pageTitle": "Insights & Updates",
@@ -370,6 +387,7 @@
   "mobileNav": {
     "home": "HOME",
     "product": "PRODUCT",
+    "accessories": "ACCESSORIES",
     "solutions": "SOLUTIONS",
     "cases": "CASES"
   }

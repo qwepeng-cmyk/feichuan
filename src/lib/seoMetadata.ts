@@ -46,10 +46,25 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
       'security screening equipment',
     ],
   },
-  '/solutions': {
-    title: 'Industrial UAV Inspection & Emergency Response Solutions | N-TET',
+  '/accessories': {
+    title: 'Drone Accessories & UAV Components | N-TET',
     description:
-      'Keyword-backed UAV solutions for search and rescue, firefighting, power-line inspection, pipeline inspection, water monitoring, border patrol, and emergency lighting.',
+      'Browse N-TET UAV accessories including electro-optical gimbals, UAV engines, data links, propellers, motors, batteries, remote controllers, and flight controllers.',
+    keywords: [
+      'drone accessories',
+      'UAV components',
+      'UAV gimbal',
+      'UAV engine',
+      'UAV data link',
+      'drone propellers',
+      'UAV motors',
+      'flight controller',
+    ],
+  },
+  '/solutions': {
+    title: 'Industrial UAV Solutions | N-TET',
+    description:
+      'N-TET UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.',
     keywords: [
       'UAV inspection solutions',
       'search and rescue drone',
@@ -227,9 +242,9 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/cases': {
-    title: 'Industrial UAV & Low-Altitude Monitoring Cases | N-TET',
+    title: 'UAV Deployment Cases | N-TET',
     description:
-      'Review public N-TET cases for power-line UAV patrol, flood-season emergency inspection, refinery monitoring, airport security, and infrastructure operations.',
+      'Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring.',
     keywords: [
       'UAV inspection cases',
       'power line UAV patrol',

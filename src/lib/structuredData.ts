@@ -104,6 +104,7 @@ export function productJsonLd({
   description,
   image,
   category,
+  basePath = '/products',
   breadcrumbs,
 }: {
   locale: Locale;
@@ -112,9 +113,10 @@ export function productJsonLd({
   description?: string | null;
   image?: string | null;
   category?: string | null;
+  basePath?: '/products' | '/accessories';
   breadcrumbs: BreadcrumbItem[];
 }) {
-  const url = pageUrl(locale, `/products/${handle}`);
+  const url = pageUrl(locale, `${basePath}/${handle}`);
   return {
     '@context': 'https://schema.org',
     '@graph': [
