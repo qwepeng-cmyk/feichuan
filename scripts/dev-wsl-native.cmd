@@ -4,6 +4,12 @@ setlocal
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'D:\\fc\\node_modules\\next|D:\\fc\\\\node_modules\\\\next|D:/fc/node_modules/next' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
 if errorlevel 1 exit /b %ERRORLEVEL%
 
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "$owners=Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue | Where-Object { $_.State -eq 'Listen' } | Select-Object -ExpandProperty OwningProcess -Unique; foreach ($pid in $owners) { $proc=Get-CimInstance Win32_Process -Filter ('ProcessId=' + $pid) -ErrorAction SilentlyContinue; if ($proc -and $proc.CommandLine -notmatch 'localhost-3000-proxy\.js') { Stop-Process -Id $pid -Force -ErrorAction SilentlyContinue } }"
+if errorlevel 1 exit /b %ERRORLEVEL%
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'node_modules[\\\\/]next[\\\\/]dist[\\\\/]bin[\\\\/]next|node_modules[\\\\/]next[\\\\/]dist[\\\\/]server[\\\\/]lib[\\\\/]start-server' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
+if errorlevel 1 exit /b %ERRORLEVEL%
+
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'wsl-native-server\.sh' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }"
 if errorlevel 1 exit /b %ERRORLEVEL%
 

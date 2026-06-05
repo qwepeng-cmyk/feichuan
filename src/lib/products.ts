@@ -25,6 +25,21 @@ const HIDDEN_PRODUCT_HANDLES = new Set([
 
 const ACCESSORY_CATEGORY = 'uav-accessories';
 
+const FALLBACK_FLIGHT_PLATFORMS: Record<string, string> = {
+  'multi-rotor-3kg-payload-uav': 'Multi-Rotor UAVs',
+  'multi-rotor-8kg-payload-uav': 'Multi-Rotor UAVs',
+  'multi-rotor-20kg-payload-uav': 'Multi-Rotor UAVs',
+  'multi-rotor-50kg-payload-uav': 'Multi-Rotor UAVs',
+  'vtol-14kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
+  'vtol-26kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
+  'vtol-40kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
+  'vtol-64kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
+  'vtol-135kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
+  'fc-yjtx-01-emergency-communication-drone': 'Tethered UAVs',
+  'fc-yjzm-01-emergency-lighting-drone': 'Tethered UAVs',
+  'fc-yjxf-01-aerial-firefighting-drone': 'Tethered UAVs',
+};
+
 function parseProductRawJson(rawJson?: string | null) {
   if (!rawJson) return {};
 
@@ -92,7 +107,7 @@ export const getAllProducts = unstable_cache(
           handle: row.handle,
           image: row.main_image,
           category: publicCategory,
-          flightPlatform: cleanCatalogGroup(raw.category_by_flight_platform as string | undefined),
+          flightPlatform: cleanCatalogGroup(raw.category_by_flight_platform as string | undefined) || FALLBACK_FLIGHT_PLATFORMS[row.handle] || '',
           missionApplication: cleanCatalogGroup(raw.category_by_mission_application as string | undefined),
           catalogOrder: readCatalogOrder(raw.catalog_order)
         }, tier);
@@ -107,7 +122,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260526-mission-first-path-safe-v3'],
+  ['all-products-uav-refresh-20260526-mission-first-path-safe-v4'],
   { revalidate: 3600, tags: ['products'] }
 );
 
