@@ -5,13 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { localizedField } from '@/lib/localization';
 
 interface Product {
     name: string;
     product_name_en?: string;
     product_name_ru?: string;
+    product_name_es?: string;
     name_en?: string;
     name_ru?: string;
+    name_es?: string;
     handle: string;
     image: string;
 }
@@ -34,7 +37,7 @@ export default function ProductGridCard({
     basePath?: '/products' | '/accessories';
 }) {
     const [hovered, setHovered] = useState(false);
-    const prodName = locale === 'ru' ? (product.product_name_ru || product.name_ru || product.name) : (product.product_name_en || product.name_en || product.name);
+    const prodName = localizedField(product, 'product_name', locale) || localizedField(product, 'name', locale) || product.name;
     const blendImageBackground = shouldBlendImageBackground(product.image);
     const imagePadding = blendImageBackground ? '15px' : '5px';
     const imageTransform = hovered && !blendImageBackground ? 'scale(1.05)' : 'scale(1)';

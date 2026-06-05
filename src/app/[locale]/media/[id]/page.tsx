@@ -14,15 +14,19 @@ import { articleJsonLd, pageUrl, stripHtml } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
-    return ids.map((id) => ({
-        id,
-    }));
+    return ids
+        .filter((id) => isPublicComplianceContent('media', id))
+        .map((id) => ({
+            id,
+        }));
 }
 
 export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
+    if (!isPublicComplianceContent('media', params.id)) return {};
     const news = await getMediaById(params.id);
     if (!news) return {};
 
@@ -41,6 +45,10 @@ export async function generateMetadata({ params }: { params: { id: string; local
 // 1. Data Fetching Component (Streaming)
 async function NewsDetailContent({ id, locale }: { id: string, locale: Locale }) {
     const dict = await getDictionary(locale);
+    if (!isPublicComplianceContent('media', id)) {
+        notFound();
+    }
+
     const news = await getMediaById(id);
     if (!news) {
         notFound();

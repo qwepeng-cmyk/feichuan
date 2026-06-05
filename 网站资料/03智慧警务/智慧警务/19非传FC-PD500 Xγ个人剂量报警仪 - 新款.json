@@ -65,5 +65,26 @@
     "Класс защиты": "IP65",
     "Условия эксплуатации": "Температура -10℃ ~ +50℃, влажность ≤ 95%"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Информативный дисплей: Матричный ЖК-экран с подсветкой и интуитивно понятным меню.</li><li>Эргономика: Противоскользящие вставки на корпусе и съемная клипса для удобного крепления.</li><li>Функция поиска: Режим поиска радиоактивных источников по изменению частоты импульсов.</li><li>Интеллектуальная память: Автоматическое сохранение накопленной дозы даже после выключения прибора.</li><li>Разнообразие сигналов: Выбор между звуком, вибрацией и беззвучным режимом.</li><li>Большой архив: Хранение до 98 000 записей с возможностью выгрузки через USB в специализированное ПО.</li><li>Современные коммуникации: Опциональная поддержка Bluetooth и мобильного приложения.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Информативный дисплей: Матричный ЖК-экран с подсветкой и интуитивно понятным меню.</li><li>Эргономика: Противоскользящие вставки на корпусе и съемная клипса для удобного крепления.</li><li>Функция поиска: Режим поиска радиоактивных источников по изменению частоты импульсов.</li><li>Интеллектуальная память: Автоматическое сохранение накопленной дозы даже после выключения прибора.</li><li>Разнообразие сигналов: Выбор между звуком, вибрацией и беззвучным режимом.</li><li>Большой архив: Хранение до 98 000 записей с возможностью выгрузки через USB в специализированное ПО.</li><li>Современные коммуникации: Опциональная поддержка Bluetooth и мобильного приложения.</li></ul>",
+  "product_name_es": "FC-PD500 X-γ Personal Radiation Dose Alarm",
+  "summary_es": "FC-PD500 X-γ Personal Radiation Dose Alarm de N-TET para monitoreo, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Personal dose monitoring for radiological workers; Site protection for nuclear medicine and interventional radiology; Industrial NDT and nuclear power plant safety monitoring; Customs; Security screening; And public safety emergency response.",
+  "key_parameter_1_es": "Measurement Range: Dose rate: 0.01μSv/h - 5000μSv/h",
+  "key_parameter_2_es": "X-γ Energy Range: 30keV - 3.0MeV",
+  "parameters_es": {
+    "Measurement Range": "Dose rate: 0.01μSv/h - 5000μSv/h, Accumulated dose: 0.00μSv - 9999Sv",
+    "X-γ Energy Range": "30keV - 3.0MeV",
+    "Energy Response Error": "Not exceeding ±25% (relative to 137Cs)",
+    "Relative Basic Error": "Not exceeding ±15% (at 10μSv/h, 137Cs)",
+    "Dose Rate Alarm Threshold": "Has two-level alarm thresholds, adjustable within full range",
+    "Accumulated Dose Alarm Threshold": "Adjustable within full range",
+    "Protection Alarm Response Time": "≤5 seconds (alarm threshold at 2.5μSv/h)",
+    "Display Units": "Dose rate: μSv/h, mSv/h auto-switching; Accumulated dose: μSv, mSv, Sv auto-switching; Count rate: CPS",
+    "Eléctrica Supply": "Built-in 3.7V, 900mAh rechargeable lithium battery, Type-C charging interface with silicone waterproof seal",
+    "Housing Dimensions": "115×60×28 (mm) (excluding back clip)",
+    "Weight": "Approx. 125g",
+    "Protection Level": "IP65",
+    "Operating Environment": "Temperature -10℃ to +50℃, relative humidity ≤95% (40±2)℃"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>FC-PD500 X-γ Personal Radiation Dose Alarm está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>FC-PD500 X-γ Personal Radiation Dose Alarm de N-TET para monitoreo, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

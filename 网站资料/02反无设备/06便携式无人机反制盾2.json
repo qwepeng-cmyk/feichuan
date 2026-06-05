@@ -76,5 +76,31 @@
     "Охлаждение": "Интеллектуальная система вентиляции",
     "Температура эксплуатации": "-40℃ ~ +60℃"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Премиальный дизайн Pro-класса: Усиленный корпус и улучшенная эргономика для профессионального использования.</li><li>Цифровая технология синтеза сигналов: Высокая стабильность частоты и отсутствие помех для соседних радиоэлектронных средств.</li><li>Дальнобойность: Уверенное подавление типичных целей на расстоянии до 3000 метров в прямой видимости.</li><li>Готовность к полевым условиям: Возможность мгновенной замены разряженного аккумулятора на новый без использования инструментов.</li><li>Сенсорное управление: Интуитивная настройка параметров через защищенный тач-скрин дисплей.</li><li>Всенаправленная навигационная блокировка: Воздействие на все частоты спутникового позиционирования.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Премиальный дизайн Pro-класса: Усиленный корпус и улучшенная эргономика для профессионального использования.</li><li>Цифровая технология синтеза сигналов: Высокая стабильность частоты и отсутствие помех для соседних радиоэлектронных средств.</li><li>Дальнобойность: Уверенное подавление типичных целей на расстоянии до 3000 метров в прямой видимости.</li><li>Готовность к полевым условиям: Возможность мгновенной замены разряженного аккумулятора на новый без использования инструментов.</li><li>Сенсорное управление: Интуитивная настройка параметров через защищенный тач-скрин дисплей.</li><li>Всенаправленная навигационная блокировка: Воздействие на все частоты спутникового позиционирования.</li></ul>",
+  "product_name_es": "Portable Anti-dron Jammer Shield (Pro)",
+  "summary_es": "Portable Anti-dron Jammer Shield (Pro) de N-TET para comunicación temporal, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Enhanced 3km jamming range for high-security areas; Swappable lithium battery for continuous field use; High-precision digital jamming with minimal out-of-band interference; Full GNSS support.",
+  "key_parameter_1_es": "Interference Distance: ≥3km (Varies with environment and drone model)",
+  "key_parameter_2_es": "Operating Frequency: 800MHz - 5.9GHz",
+  "parameters_es": {
+    "Operating Frequency": "800MHz - 5.9GHz (Multiple Bands)",
+    "Jamming Distance": "≥3km (depending on environment and drone model)",
+    "Interception Response": "≤3s",
+    "Continuous Operation": "≥40min (full band active)",
+    "Eléctrica Supply": "Lithium battery module (Swappable)",
+    "External eléctrica": "AC 220V adapter, supports direct power supply",
+    "Screen Interaction": "Built-in touch screen design",
+    "Batería Warning": "Integrated battery level monitoring",
+    "Positioning": "GPS/BDS support",
+    "Dimensions": "340mm * 360mm * 110mm",
+    "Weight": "≤8.5kg",
+    "Operational Mode": "Handheld or tripod fixed",
+    "Cooling Method": "Fan cooling",
+    "Antenna": "Built-in",
+    "Working Humidity": "≤95%",
+    "Operating Temp": "-40°C to +60°C",
+    "Storage Temp": "-40°C to +75°C",
+    "Input Voltage": "AC 220V"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Portable Anti-dron Jammer Shield (Pro) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Portable Anti-dron Jammer Shield (Pro) de N-TET para comunicación temporal, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

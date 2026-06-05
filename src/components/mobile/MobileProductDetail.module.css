@@ -242,9 +242,12 @@
 /* 6. Technical Specs Table */
 .specsTable {
     width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
     border: 1px solid #eee;
     font-size: 14px;
+    overflow: hidden;
     --mobile-table-hover-bg: #eef5ff;
     --mobile-table-hover-accent: #315ba4;
 }
@@ -261,9 +264,18 @@
     padding: 12px;
     border-bottom: 1px solid #eee;
     line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    white-space: normal;
     transition: background-color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.22s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.specsTable tr:has(td:nth-child(6)) td {
+    padding: 8px 6px;
+    font-size: 12px;
+    line-height: 1.35;
 }
 
 .specsTable tr:hover td,

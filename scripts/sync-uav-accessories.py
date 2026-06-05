@@ -342,6 +342,136 @@ def normalize_parameters(params: Any) -> dict[str, Any]:
     return normalized
 
 
+SPECIAL_PARAMETER_MAPS: dict[str, dict[str, str]] = {
+    "fc-mesh-100": {
+        "工作频率": "Operating Frequency",
+        "载波带宽": "Carrier Bandwidth",
+        "传输体制": "Transmission System",
+        "调制方式": "Modulation",
+        "传输能力": "Transmission Capacity",
+        "发射功率": "Transmit Power",
+        "传输距离": "Transmission Distance",
+        "视频输入": "Video Input",
+        "接收灵敏度": "Receiver Sensitivity",
+        "加密方式": "Encryption",
+        "设备功耗": "Device Power Consumption",
+        "供电方式": "Power Supply",
+        "组网模式": "Networking Modes",
+        "组网容量": "Network Capacity",
+        "天线接口": "Antenna Interface",
+        "电源接口": "Power Interface",
+        "串口": "Serial Port",
+        "以太网口": "Ethernet Port",
+        "设备尺寸": "Device Dimensions",
+        "设备重量": "Device Weight",
+        "工作温度": "Operating Temperature",
+    },
+    "fc-u9-ag": {
+        "外观尺寸": "Dimensions",
+        "产品重量": "Weight",
+        "供电电压": "Supply Voltage",
+        "工作环境温度": "Operating Temperature",
+        "悬停精度": "Hovering Accuracy",
+        "抗风等级": "Wind Resistance",
+        "最大升降速度": "Max Climb / Descent Speed",
+        "最大水平速度": "Max Horizontal Speed",
+        "最大姿态角度": "Max Attitude Angle",
+        "航线压线精度": "Route Line Accuracy",
+        "喷洒系统接口": "Spraying System Interface",
+        "作业类型": "Operation Types",
+    },
+    "fc-ykrc7-remote-controller": {
+        "产品型号": "Product Model",
+        "最大遥控距离（FC-YKRC7）": "Max Control Distance (FC-YKRC7)",
+        "最大遥控距离（FC-YKRC7 Pro）": "Max Control Distance (FC-YKRC7 Pro)",
+        "图传频率（FC-YKRC7）": "Video Transmission Frequency (FC-YKRC7)",
+        "图传频率（FC-YKRC7 Pro）": "Video Transmission Frequency (FC-YKRC7 Pro)",
+        "功能接口（FC-YKRC7）": "Function Interfaces (FC-YKRC7)",
+        "功能接口（FC-YKRC7 Pro）": "Function Interfaces (FC-YKRC7 Pro)",
+        "续航时间（FC-YKRC7）": "Battery Life (FC-YKRC7)",
+        "续航时间（FC-YKRC7 Pro）": "Battery Life (FC-YKRC7 Pro)",
+        "尺寸（FC-YKRC7）": "Dimensions (FC-YKRC7)",
+        "尺寸（FC-YKRC7 Pro）": "Dimensions (FC-YKRC7 Pro)",
+        "重量（FC-YKRC7）": "Weight (FC-YKRC7)",
+        "重量（FC-YKRC7 Pro）": "Weight (FC-YKRC7 Pro)",
+        "显示屏尺寸&分辨率（FC-YKRC7）": "Display Size & Resolution (FC-YKRC7)",
+        "显示屏尺寸&分辨率（FC-YKRC7 Pro）": "Display Size & Resolution (FC-YKRC7 Pro)",
+        "传输码率（FC-YKRC7）": "Transmission Bitrate (FC-YKRC7)",
+        "传输码率（FC-YKRC7 Pro）": "Transmission Bitrate (FC-YKRC7 Pro)",
+        "通讯通道（FC-YKRC7）": "Communication Channels (FC-YKRC7)",
+        "通讯通道（FC-YKRC7 Pro）": "Communication Channels (FC-YKRC7 Pro)",
+        "电池容量（FC-YKRC7）": "Battery Capacity (FC-YKRC7)",
+        "电池容量（FC-YKRC7 Pro）": "Battery Capacity (FC-YKRC7 Pro)",
+        "快充（FC-YKRC7）": "Fast Charging (FC-YKRC7)",
+        "快充（FC-YKRC7 Pro）": "Fast Charging (FC-YKRC7 Pro)",
+    },
+}
+
+
+SPECIAL_VALUE_REPLACEMENTS: list[tuple[str, str]] = [
+    ("灵活可配", "configurable"),
+    ("自适应", "adaptive"),
+    ("峰值速率", "peak rate "),
+    ("最高可选", "optional up to "),
+    ("视距", "line of sight"),
+    ("支持IP网络视频输入", "IP network video input supported"),
+    ("可选配", "optional"),
+    ("峰值功耗", "peak power consumption "),
+    ("典型功耗", "typical power consumption "),
+    ("供电", " power supply"),
+    ("无中心网络", "centerless network"),
+    ("星型网", "star network"),
+    ("链状网", "chain network"),
+    ("网状网", "mesh network"),
+    ("等", "and others"),
+    ("个节点", " nodes"),
+    ("跳", " hops"),
+    ("小时", " hours"),
+    ("级", " level"),
+    ("双GNSS", "dual GNSS"),
+    ("水平", "horizontal "),
+    ("垂直", "vertical "),
+    ("路水泵输出", " pump outputs"),
+    ("双流速计监测", "dual flow-meter monitoring"),
+    ("双液位计监测", "dual liquid-level monitoring"),
+    ("喷洒", "spraying"),
+    ("播撒", "seeding"),
+    ("清洗", "cleaning"),
+    ("吊运", "lifting"),
+    ("仅打点", "position marking only"),
+    ("网口", "Ethernet port"),
+    ("卡槽", " slot"),
+    ("约", "about "),
+    ("英寸", "inch"),
+]
+
+
+def normalize_special_value(value: Any) -> str:
+    text = str(value or "").replace("\n", "; ")
+    for source, target in SPECIAL_VALUE_REPLACEMENTS:
+        text = text.replace(source, target)
+    text = text.replace("（", " (").replace("）", ")")
+    text = text.replace("；", "; ").replace("，", ", ").replace("、", ", ")
+    text = text.replace("≤", "<=").replace("≥", ">=").replace("℃", "°C")
+    text = text.replace("networkand", "network and").replace("(optional)", " (optional)")
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
+def normalize_parameters_for_handle(handle: str, params: Any) -> dict[str, Any]:
+    mapping = SPECIAL_PARAMETER_MAPS.get(handle)
+    if not mapping or not isinstance(params, dict):
+        return normalize_parameters(params)
+    normalized: dict[str, Any] = {}
+    for source_key, label in mapping.items():
+        if source_key not in params:
+            continue
+        value = normalize_special_value(params[source_key])
+        if value:
+            normalized[label] = value
+    return normalized
+
+
 def detail_html(name: str, meta: CategoryMeta, highlights: list[str]) -> str:
     items = "".join(f"<li>{html.escape(item)}</li>" for item in highlights if item)
     article = "an" if meta.suffix_en.lower().startswith(("electro", "autopilot")) else "a"
@@ -385,7 +515,7 @@ def make_record(category_name: str, model_dir: Path, dry_run: bool = False) -> d
 
     key_1 = translate_technical_text(data.get("key_parameter_1"), f"Category: {meta.en}")
     key_2 = translate_technical_text(data.get("key_parameter_2"), "Designed for industrial UAV platform integration")
-    params_en = normalize_parameters(data.get("parameters"))
+    params_en = normalize_parameters_for_handle(handle, data.get("parameters"))
     highlights = [key_1, key_2, meta.application_en]
 
     raw_json = {

@@ -185,5 +185,51 @@
     "uav-remote-id-monitoring-system",
     "composite-electro-optical-tracking-system",
     "low-altitude-detection-radar-ku-band"
-  ]
+  ],
+  "product_name_es": "Presa hidroeléctrica Protection",
+  "summary_es": "Presa hidroeléctrica Protection de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Hydroelectric dams; Reservoir shorelines; Powerhouse perimeters; Spillways; Intake areas; Gates.",
+  "key_parameter_1_es": "Workflow Chain: low-altitude anomaly discovery, target identification confirmation, continuous track following, alert linkage, and dispatch coordination.",
+  "key_parameter_2_es": "Dam-Environment Adaptation: visual review, thermal assistance, and operator confirmation help reduce the impact of water reflection, fog, bird activity, and complex terrain.",
+  "parameters_es": {
+    "Industry_pain_points": [
+      "Dam bodies, powerhouses, spillways, intake areas, and grid-interface zones operate continuously, so abnormal low-altitude activity nearby can disrupt duty-room judgment and operational order.",
+      "Reservoir valleys, water reflection, fog, rain, and bird activity make single-camera observation or manual patrols prone to missed events, false alarms, and delayed confirmation.",
+      "Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the alert status changes.",
+      "Dam low-altitude security needs awareness, confirmation, tracking, alert circulation, and dispatch coordination in one workflow so abnormal target information does not remain fragmented between duty roles."
+    ],
+    "Uav_industry_upgrade": [
+      "Discover: maintain low-altitude awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal target clues early.",
+      "Confirm: use visual review, thermal assistance, and operator verification to identify the target context while filtering reflection, birds, and terrain noise.",
+      "Track: record movement direction, approach area, dwell position, and related zones so the duty team can follow target changes.",
+      "Link: route alerts by risk area and synchronize target imagery, tracks, and alert status to support operations dispatch and field patrol coordination."
+    ],
+    "Solution_modules_intro": "The solution is organized around a concise low-altitude security chain: discover abnormal activity, confirm the target, track movement, and link alerts with operations dispatch and field patrol roles. It focuses on duty-room workflow, data synchronization, and dispatch coordination.",
+    "Operation_upgrade_eyebrow": "Operational Flow",
+    "Operation_upgrade_title": "Baja altitud seguridad Workflow for Dam Operations",
+    "Solution_modules": [
+      {
+        "name": "Low-Altitude Anomaly Discovery",
+        "description": "Creates an early event-awareness entry around the dam body, reservoir bank, powerhouse perimeter, and inspection roads.",
+        "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
+      },
+      {
+        "name": "Target Identification Confirmation",
+        "description": "Combines clear visual review, thermal assistance, and operator verification to confirm target context and reduce environmental misjudgment.",
+        "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
+      },
+      {
+        "name": "Continuous Track Following",
+        "description": "Maintains the movement path, approach direction, dwell position, and associated risk area as a visible event timeline.",
+        "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
+      },
+      {
+        "name": "Alert Linkage and Dispatch Coordination",
+        "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
+        "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
+      }
+    ],
+    "Industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Presa hidroeléctrica Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Presa hidroeléctrica Protection de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

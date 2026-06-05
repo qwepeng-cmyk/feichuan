@@ -70,5 +70,28 @@
     "Питание": "Встроенная литиевая батарея 3.7В 1100мАч, зарядка USB Type-C",
     "Размеры и вес": "118 × 28 × 16 мм, вес 60 г"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Инновационный детектор: Сочетание сцинтиллятора CsI и SiPM для максимальной чувствительности.</li><li>Цветной ЖК-дисплей: Четкое отображение данных с поддержкой русского/английского языков.</li><li>Компактность: Дизайн в виде ручки с клипсой для ношения на кармане.</li><li>Двойной мониторинг: Одновременное отображение текущей мощности дозы и накопленной дозы.</li><li>Энергонезависимая память: Данные сохраняются даже при полной разрядке аккумулятора.</li><li>Разнообразные оповещения: Звук, вибрация, комбинированный режим или беззвучный режим.</li><li>Длительная работа: До 98 000 записей журнала и мощный аккумулятор 1100 мАч.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Инновационный детектор: Сочетание сцинтиллятора CsI и SiPM для максимальной чувствительности.</li><li>Цветной ЖК-дисплей: Четкое отображение данных с поддержкой русского/английского языков.</li><li>Компактность: Дизайн в виде ручки с клипсой для ношения на кармане.</li><li>Двойной мониторинг: Одновременное отображение текущей мощности дозы и накопленной дозы.</li><li>Энергонезависимая память: Данные сохраняются даже при полной разрядке аккумулятора.</li><li>Разнообразные оповещения: Звук, вибрация, комбинированный режим или беззвучный режим.</li><li>Длительная работа: До 98 000 записей журнала и мощный аккумулятор 1100 мАч.</li></ul>",
+  "product_name_es": "X-γ Radiation Dose Alarm FC902",
+  "summary_es": "X-γ Radiation Dose Alarm FC902 de N-TET para monitoreo, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Personal dose monitoring for radiological workers; Environmental monitoring near nuclear facilities; Radioactive material screening at customs and borders; Radiation safety inspections for health and environmental agencies.",
+  "key_parameter_1_es": "Detector Type: CsI + SiPM Solid-State Photomultiplier",
+  "key_parameter_2_es": "Dose Rate Range: 0.01 μSv/h - 1 mSv/h",
+  "parameters_es": {
+    "Detector Type": "CsI + SiPM Solid-State Photomultiplier",
+    "Gamma Sensitivity": "Approx. 70cps / (μSv/h) (relative to 137Cs)",
+    "Relative Basic Error": "Not exceeding ±15% (at 10μSv/h, 137Cs)",
+    "Dose Rate Range": "0.01 μSv/h - 1 mSv/h",
+    "Protection Alarm Response Time": "≤1 second",
+    "Data Export": "USB (Bluetooth version supports USB + Bluetooth mini-program)",
+    "Accumulated Dose": "0.00μSv - 9999Sv",
+    "X-γ Energy Range": "25keV - 3.0MeV",
+    "Energy Response Error": "Not exceeding ±30% (relative to 137Cs)",
+    "Dose Rate Alarm Threshold": "Adjustable within full range",
+    "Accumulated Dose Alarm Threshold": "Adjustable within full range",
+    "Display Units": "Dose rate: μSv/h, mSv/h auto-switching; μR/h, mR/h auto-switching; Accumulated dose: μSv, mSv, Sv auto-switching; Count rate: cps",
+    "Eléctrica Supply": "Built-in 3.7V, 1100mA lithium battery, USB TYPE-C charging interface",
+    "Dimensions & Weight": "L×W×H (118×28×16) mm, 20mm with back clip; Weight: 60g",
+    "Operating Environment": "-15℃ to +50℃, relative humidity ≤95% (40±2)℃"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>X-γ Radiation Dose Alarm FC902 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>X-γ Radiation Dose Alarm FC902 de N-TET para monitoreo, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

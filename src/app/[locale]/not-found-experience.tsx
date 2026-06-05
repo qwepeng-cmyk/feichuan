@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { localePath } from "@/lib/localePath";
+import { localeFromPathname } from "@/lib/localization";
 import styles from "./not-found.module.css";
 
 const solutionLinks = {
@@ -24,19 +25,35 @@ const solutionLinks = {
   ],
   ru: [
     { title: "Интеллектуальная инспекция ЛЭП с БПЛА", href: "/solutions/power-line-uav-intelligent-inspection-solution" },
-    { title: "Безлюдная инспекция умной подстанции", href: "/solutions/smart-substation-unattended-uav-inspection-solution" },
+    { title: "Автономная инспекция умных подстанций", href: "/solutions/smart-substation-unattended-uav-inspection-solution" },
     { title: "Мониторинг водного хозяйства, рек и озер", href: "/solutions/water-conservancy-river-lake-uav-monitoring-solution" },
-    { title: "Морское патрулирование с БПЛА", href: "/solutions/uav-maritime-patrol" },
-    { title: "Тушение и спасение в высотной городской застройке", href: "/solutions/urban-high-rise-firefighting-emergency-uav-solution" },
+    { title: "Морское и прибрежное патрулирование с БПЛА", href: "/solutions/uav-maritime-patrol" },
+    { title: "Поддержка при высотных пожарах", href: "/solutions/urban-high-rise-firefighting-emergency-uav-solution" },
     { title: "Поиск, спасение и разведка в зоне ЧС", href: "/solutions/disaster-site-search-rescue-reconnaissance-uav-solution" },
-    { title: "Поддержка аварийной связи после ЧС", href: "/solutions/post-disaster-emergency-communication-support-uav-solution" },
-    { title: "Поддержка ночного аварийного освещения", href: "/solutions/night-emergency-lighting-support-uav-solution" },
-    { title: "Защита химического завода", href: "/solutions/chemical-plant-protection" },
-    { title: "Защита нефтедобывающей базы", href: "/solutions/oil-production-base-protection" },
-    { title: "Защита гидроэлектрической плотины", href: "/solutions/hydroelectric-dam-protection" },
-    { title: "Безопасность судебного сектора", href: "/solutions/judicial-sector-security" },
+    { title: "Аварийная связь после ЧС", href: "/solutions/post-disaster-emergency-communication-support-uav-solution" },
+    { title: "Ночное аварийное освещение", href: "/solutions/night-emergency-lighting-support-uav-solution" },
+    { title: "Мониторинг химического объекта", href: "/solutions/chemical-plant-protection" },
+    { title: "Мониторинг нефтедобывающей базы", href: "/solutions/oil-production-base-protection" },
+    { title: "Мониторинг плотины ГЭС", href: "/solutions/hydroelectric-dam-protection" },
+    { title: "Безопасность судебных объектов", href: "/solutions/judicial-sector-security" },
     { title: "Безопасность спортивных мероприятий", href: "/solutions/sports-event-security" },
-    { title: "Защита безопасности аэропорта", href: "/solutions/airport-security-protection" },
+    { title: "Безопасность и мониторинг аэропортов", href: "/solutions/airport-security-protection" },
+  ],
+  es: [
+    { title: "Inspección inteligente de líneas eléctricas con UAV", href: "/solutions/power-line-uav-intelligent-inspection-solution" },
+    { title: "Inspección autónoma de subestaciones inteligentes", href: "/solutions/smart-substation-unattended-uav-inspection-solution" },
+    { title: "Monitoreo hídrico de ríos y lagos con UAV", href: "/solutions/water-conservancy-river-lake-uav-monitoring-solution" },
+    { title: "Patrullaje marítimo y costero con UAV", href: "/solutions/uav-maritime-patrol" },
+    { title: "Apoyo UAV para incendios en edificios altos", href: "/solutions/urban-high-rise-firefighting-emergency-uav-solution" },
+    { title: "Búsqueda, rescate y reconocimiento en desastres", href: "/solutions/disaster-site-search-rescue-reconnaissance-uav-solution" },
+    { title: "Comunicación de emergencia posterior a desastres", href: "/solutions/post-disaster-emergency-communication-support-uav-solution" },
+    { title: "Iluminación nocturna de emergencia con UAV", href: "/solutions/night-emergency-lighting-support-uav-solution" },
+    { title: "Monitoreo de planta química", href: "/solutions/chemical-plant-protection" },
+    { title: "Monitoreo de base de producción petrolera", href: "/solutions/oil-production-base-protection" },
+    { title: "Monitoreo de presa hidroeléctrica", href: "/solutions/hydroelectric-dam-protection" },
+    { title: "Seguridad para instalaciones judiciales", href: "/solutions/judicial-sector-security" },
+    { title: "Seguridad para eventos deportivos", href: "/solutions/sports-event-security" },
+    { title: "Seguridad y monitoreo de aeropuertos", href: "/solutions/airport-security-protection" },
   ],
 };
 
@@ -52,22 +69,26 @@ const copy = {
   ru: {
     label: "Страница не найдена",
     title: "404",
-    description: "Страница, которую вы ищете, не существует. Вы можете перейти к одному из решений безопасности ниже.",
+    description: "Страница, которую вы ищете, не существует. Вы можете перейти к одной из рекомендуемых решений ниже.",
     home: "На главную",
     allSolutions: "Все решения",
     recommended: "Рекомендуемые решения",
   },
+  es: {
+    label: "Página no encontrada",
+    title: "404",
+    description: "La página que buscas no existe. Puedes continuar desde una de nuestras soluciones recomendadas.",
+    home: "Volver al inicio",
+    allSolutions: "Todas las soluciones",
+    recommended: "Soluciones recomendadas",
+  },
 };
-
-function getLocale(pathname: string) {
-  return pathname === "/ru" || pathname.startsWith("/ru/") ? "ru" : "en";
-}
 
 export default function NotFoundExperience() {
   const pathname = usePathname();
-  const locale = getLocale(pathname);
-  const text = copy[locale];
-  const links = solutionLinks[locale];
+  const locale = localeFromPathname(pathname);
+  const text = copy[locale] || copy.en;
+  const links = solutionLinks[locale] || solutionLinks.en;
 
   return (
     <main className={styles.page}>

@@ -8,14 +8,17 @@ import ProductGridCard from '@/components/products/ProductGridCard';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileCategoryLanding from '@/components/mobile/MobileCategoryLanding';
 import { localePath } from '@/lib/localePath';
+import { localizedField } from '@/lib/localization';
 
 interface SubSolution {
   product_name: string;
   product_name_en: string;
   product_name_ru: string;
+  product_name_es?: string;
   summary: string;
   summary_en: string;
   summary_ru: string;
+  summary_es?: string;
   key_parameter_1: string;
   key_parameter_1_en: string;
   key_parameter_1_ru: string;
@@ -66,8 +69,8 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
     );
   }
 
-  const categoryName = locale === 'ru' ? data.name_ru : data.name_en;
-  const industryNeeds = locale === 'ru' ? data.industryNeeds_ru : data.industryNeeds_en;
+  const categoryName = localizedField(data as any, 'name', locale);
+  const industryNeeds = localizedField(data as any, 'industryNeeds', locale);
 
   // Standard container width from globals.css is 1240px
   const containerStyle = { maxWidth: '1240px', margin: '0 auto', padding: '0 20px' };
@@ -158,8 +161,8 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
               <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
                 {subSolutions.map((sol, idx) => {
                   const isReversed = idx % 2 === 1;
-                  const solName = locale === 'ru' ? sol.product_name_ru : sol.product_name_en;
-                  const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
+                  const solName = localizedField(sol, 'product_name', locale);
+                  const solSummary = localizedField(sol, 'summary', locale);
 
                   return (
                     <div key={sol.handle} className="reveal-on-scroll">

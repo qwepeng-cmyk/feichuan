@@ -309,5 +309,60 @@
     "title": "Border Patrol & Coastal Defense",
     "subtitle": "Routine border and coastal patrol, illegal vessel supervision, 24-hour coastline monitoring, maritime target search, evidence capture, warning broadcast, emergency rescue, and light supply delivery.",
     "intro": "Border Patrol & Coastal Defense combines UAV patrol, EO/IR observation, airborne warning broadcast, and land-based maritime monitoring for coastlines, islands, ports, estuaries, and border corridors. It helps teams reduce high-risk manual patrols, return real-time imagery to command centers, identify abnormal vessels or shoreline activity, and coordinate emergency response from the air."
-  }
+  },
+  "product_name_es": "Fronterizo patrullaje & costero Defense",
+  "summary_es": "Fronterizo patrullaje & costero Defense de N-TET para monitoreo, respuesta de emergencia, patrullaje, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Routine border and coastal patrol; Illegal vessel supervision; 24-hour coastline monitoring; Maritime target search; Evidence capture; Warning broadcast.",
+  "key_parameter_1_es": "Real-time Backhaul: 4G/5G, private network, and command-platform video return",
+  "key_parameter_2_es": "Intelligent Linkage: AI recognition, target tracking, early warning, and remote dispatch",
+  "parameters_es": {
+    "Industry_pain_points_image": "/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp",
+    "Industry_pain_points": [
+      "Border corridors, coastlines, islands, ports, and estuary zones cover long and complex frontlines where fixed cameras, boat patrols, and foot patrols still leave blind spots.",
+      "Frontline teams face sustained pressure from infiltration prevention, illegal crossing, smuggling, suspicious vessels, and shoreline intrusion, while night operations and severe weather raise safety risks.",
+      "When abnormal vessels or emergency incidents appear, command teams need fast positioning, clear evidence, warning broadcast, and coordinated dispatch, but scattered sensors and delayed reporting weaken situational awareness."
+    ],
+    "Uav_industry_upgrade": [
+      "UAVs can launch quickly on planned routes, cover fixed patrol zones and shorelines from the air, and return live video, coordinates, and flight tracks to the command platform.",
+      "EO/IR pods, zoom cameras, loudspeakers, and long-range links support day-night observation, target confirmation, evidence capture, legal notice broadcast, and on-site deterrence.",
+      "AI-assisted recognition and multi-source linkage connect UAV video with coastal radar/EO monitoring, pushing alerts and task instructions so air, ground, and maritime teams act from the same picture."
+    ],
+    "Solution_modules_intro": "The solution connects routine patrol, coastal monitoring, warning broadcast, evidence capture, and emergency response into one air-ground-maritime workflow.",
+    "Solution_modules": [
+      {
+        "name": "Routine Border and Coastal Patrol",
+        "description": "Fly scheduled or one-click task routes over border corridors, coastlines, islands, river mouths, and ports to replace or assist routine patrols and reduce frontline duty pressure.",
+        "image": "/solutions/uav-maritime-patrol/border-routine-patrol.webp"
+      },
+      {
+        "name": "24-Hour Coastline Monitoring and Emergency Response",
+        "description": "Combine coastal monitoring, UAV dispatch, warning broadcast, target search, personnel positioning, and emergency supply delivery to support rapid response during maritime incidents.",
+        "image": "/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp"
+      }
+    ],
+    "Related_equipment": [
+      {
+        "name": "Emergency Response Drone",
+        "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
+        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response"
+      },
+      {
+        "name": "FC-RDS500-4R Radar-Vision Fusion System",
+        "handle": "fc-rds500-4r-radar-vision-sentinel",
+        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
+      },
+      {
+        "name": "26kg MTOW VTOL Fixed-Wing UAV",
+        "handle": "vtol-26kg-mtow-uav",
+        "role": "Long-endurance shoreline and border-corridor patrol"
+      }
+    ],
+    "Related_cases": [
+      "anhui-flood-season-uav-patrol",
+      "ice-snow-emergency-uav-inspection"
+    ]
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Fronterizo patrullaje &amp; costero Defense está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Fronterizo patrullaje &amp; costero Defense de N-TET para monitoreo, respuesta de emergencia, patrullaje, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>",
+  "detail_sections_es": "Fronterizo patrullaje & costero Defense de N-TET para inspección, monitoreo, respuesta de emergencia, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "solution_name_es": "Fronterizo patrullaje & costero Defense de N-TET para patrullaje, monitoreo fronterizo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos."
 }

@@ -347,3 +347,82 @@ export const homeCases: any[] = [
         handle: "zhaoqing-long-distance-power-line-uav-inspection"
     }
 ];
+
+Object.assign(products[0], {
+    top_es: "Sistemas UAV industriales",
+    main_es: "UAV para monitoreo hídrico",
+    desc_es: "Sistema inteligente para entornos acuáticos e infraestructura hidráulica, con plataforma multirrotor y cargas de monitoreo de alta precisión."
+});
+Object.assign(products[1], {
+    top_es: "Monitoreo del espacio aéreo de baja altitud",
+    main_es: "Sistema fijo de detección RF",
+    desc_es: "Proporciona conciencia RF de baja altitud, alertas de actividad aérea y registros de eventos para el monitoreo de sitios industriales."
+});
+Object.assign(products[2], {
+    top_es: "Inspección de seguridad y acceso",
+    main_es: "Puerta inteligente de detección de teléfonos FC-H",
+    desc_es: "Utiliza detección de señales electromagnéticas para distinguir teléfonos móviles en espera, apagados o encendidos."
+});
+Object.assign(products[3], {
+    top_es: "Materiales de ingeniería",
+    main_es: "Puente de acero Bailey",
+    desc_es: "Sistema modular de armadura de acero con alta capacidad de carga y montaje ágil para infraestructura y apoyo de emergencia."
+});
+Object.assign(products[4], {
+    top_es: "Hospitales de campo y móviles",
+    main_es: "Sistema médico de rescate en contenedor",
+    desc_es: "Diseño modular integrado para desplegar rápidamente un hospital de campo funcional en terrenos complejos."
+});
+Object.assign(products[5], {
+    top_es: "Vigilancia perimetral y de área",
+    main_es: "Sistema de fusión radar-visión",
+    desc_es: "Sentinela panorámico que combina radar de matriz y cámara PTZ para monitoreo confiable en entornos complejos."
+});
+
+Object.assign(solutions[0], {
+    title_es: "Patrullaje fronterizo y monitoreo costero",
+    desc_es: "Patrullaje UAV de amplia cobertura para corredores fronterizos, costas, puertos e incidentes de ribera."
+});
+Object.assign(solutions[1], {
+    title_es: "Inspección inteligente de líneas eléctricas con UAV",
+    desc_es: "Patrullaje de líneas de transmisión, inspección de torres, mapeo LiDAR de corredores y revisiones de emergencia."
+});
+Object.assign(solutions[2], {
+    title_es: "Inspección autónoma de subestaciones inteligentes",
+    desc_es: "Inspección con estación autónoma, medición térmica, reconocimiento de defectos con IA y cierre de órdenes de trabajo."
+});
+Object.assign(solutions[3], {
+    title_es: "Monitoreo hídrico de ríos y lagos",
+    desc_es: "Patrullaje de ríos y lagos, inspección en temporada de inundaciones, muestreo de agua y rastreo de contaminación."
+});
+Object.assign(solutions[4], {
+    title_es: "Apoyo UAV para incendios y rescate en edificios altos",
+    desc_es: "Soporte aéreo cautivo para respuesta elevada, extracción de humo, iluminación y visibilidad de mando."
+});
+Object.assign(solutions[5], {
+    title_es: "Búsqueda, rescate y reconocimiento en desastres",
+    desc_es: "Reconocimiento aéreo rápido, búsqueda de objetivos, observación térmica y entrega ligera."
+});
+Object.assign(solutions[6], {
+    title_es: "Comunicación de emergencia posterior a desastres",
+    desc_es: "Nodos de comunicación elevados para cobertura temporal de red pública y equipos de rescate."
+});
+Object.assign(solutions[7], {
+    title_es: "Iluminación nocturna de emergencia",
+    desc_es: "Iluminación aérea persistente para rescate nocturno, inundaciones, reparación vial y puestos de mando."
+});
+Object.assign(solutions[8], {
+    title_es: "Protección de infraestructura crítica",
+    desc_es: "Monitoreo de baja altitud e inteligencia perimetral para instalaciones energéticas, petroquímicas, hídricas e industriales."
+});
+Object.assign(solutions[9], {
+    title_es: "Seguridad de áreas clave",
+    desc_es: "Flujos integrados de seguridad para aeropuertos, grandes eventos, instalaciones judiciales y activos de alto valor."
+});
+
+Object.assign(homeCases[0], { title_es: "Patrullaje UAV de emergencia en temporada de inundaciones en Anhui" });
+Object.assign(homeCases[1], { title_es: "Inspección UAV de emergencia ante hielo y nieve" });
+Object.assign(homeCases[2], { title_es: "Inspección UAV con LiDAR para obstrucción de árboles" });
+Object.assign(homeCases[3], { title_es: "Inspección UAV para prevención de incendios forestales en Southern Grid" });
+Object.assign(homeCases[4], { title_es: "Patrullaje UAV de líneas de transmisión ante incendios forestales" });
+Object.assign(homeCases[5], { title_es: "Inspección UAV de larga distancia de líneas eléctricas en Zhaoqing" });

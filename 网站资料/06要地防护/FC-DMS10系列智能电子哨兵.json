@@ -51,5 +51,22 @@
     "Энергопотребление": "Пиковое ≤ 60 Вт",
     "Габариты": "312 * 200 * 298 мм, вес ≤ 10 кг"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интеграция функций: Объединение функций обнаружения и активного отпугивания (звук, свет, лазер) в одном компактном устройстве.</li><li>Умная начинка: Поддержка детекции целей, автосопровождения и контроля состояния системы (PHM).</li><li>Аэродинамика: Квазисферическая форма снижает вибрации от ветра, обеспечивая стабильную картинку.</li><li>Мобильность: Малый вес (до 10 кг) позволяет быстро разворачивать временные посты охраны.</li><li>Связь: Поддержка проводных сетей и опциональных модулей 4G/5G для удаленного мониторинга.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интеграция функций: Объединение функций обнаружения и активного отпугивания (звук, свет, лазер) в одном компактном устройстве.</li><li>Умная начинка: Поддержка детекции целей, автосопровождения и контроля состояния системы (PHM).</li><li>Аэродинамика: Квазисферическая форма снижает вибрации от ветра, обеспечивая стабильную картинку.</li><li>Мобильность: Малый вес (до 10 кг) позволяет быстро разворачивать временные посты охраны.</li><li>Связь: Поддержка проводных сетей и опциональных модулей 4G/5G для удаленного мониторинга.</li></ul>",
+  "product_name_es": "FC-DMS10 Series Smart Electronic Sentinel",
+  "summary_es": "FC-DMS10 Series Smart Electronic Sentinel de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Applications: Rapid tactical deployment for border and military camps; Integrated 'detección & Deterrent' frontline defense; All-weather 24/7 surveillance in high-wind environments; Mobile sentry and temporary site security.",
+  "key_parameter_1_es": "Sensor: Back-illuminated Starlight-grade CMOS",
+  "key_parameter_2_es": "Rotation Range: 360° Continuous Pan; -90° to +90° Tilt",
+  "parameters_es": {
+    "Visible Light": "1. Sensor: Back-illuminated ultra-low illumination starlight-grade CMOS\n2. Resolution: 1920×1080\n3. Illumination: Color: 0.0005Lux; B/W: 0.0001Lux; 0Lux (IR ON)\n4. Lens Focal Length: 7mm～300mm/7mm～330mm 47x optical zoom 16x digital zoom\n5. Focus Control: Manual/Auto focus",
+    "Thermal Radiation Lens (Optional)": "1. Detector: 6th generation uncooled focal plane array VOx detector\n2. Resolution: 640×512/384×288\n3. NETD: 40mK (@25℃ F1.0)\n4. Lens Focal Length: 50mm/75mm/100mm fixed focus\n5. Strong Light Protection: Supports anti-sunlight damage",
+    "Illumination": "1. Laser Type: HD floodlight homogenized light source\n2. Illumination Angle: 3°～65°\n3. Illumination Distance: 300 meters\n1. Laser Type: HD floodlight homogenized light source\n2. Illumination Angle: 1°～20°\n3. Illumination Distance: 1000 meters\nSound and Light Warning: Built-in integrated tweeter + strobe light, supports custom alarm sound and laser dazzling warning",
+    "PTZ": "1. Rotation Speed: Horizontal: 0.01°/s～100°/s; Tilt: 0.01°/s～80°/s\n2. Rotation Range: Horizontal: 360° continuous rotation; Tilt: -90°～+90°\n3. Presets: 3000",
+    "Interfaces": "1. Power Supply Interface: 1-ch DC12V～36V\n2. Communication Interface: 1-ch RJ45 Ethernet port (supports optional 4G/5G transmission)",
+    "Eléctrica Consumption": "1. Peak Power Consumption: ≤60W",
+    "Dimensions": "1. Weight: ≤10kg (including load)\n2. Dimensions: 312mm×200mm×298mm (L×W×H)",
+    "Environmental Adaptability": "1. Working Temperature: -40℃～60℃\n2. Working Humidity: ≤95% RH\n3. Protection Level: IP67",
+    "Customization": "1. Supports customized function development"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>FC-DMS10 Series Smart Electronic Sentinel está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>FC-DMS10 Series Smart Electronic Sentinel de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

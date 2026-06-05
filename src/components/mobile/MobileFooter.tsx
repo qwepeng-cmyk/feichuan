@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { solutions as homeSolutions } from '@/constants/homeData';
+import { localizedField } from '@/lib/localization';
 
 export default function MobileFooter({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -51,7 +52,7 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {footerSolutions.map((solution) => {
-                            const title = locale === 'ru' ? (solution.title_ru || solution.title) : solution.title;
+                            const title = localizedField(solution, 'title', locale);
                             return (
                                 <Link key={solution.id} prefetch={false} href={l(solution.link)} style={{ color: '#888', fontSize: '16px' }}>
                                     {title}

@@ -76,5 +76,30 @@
     "Вес": "≤ 6.5 кг",
     "Габариты": "270 * 165 * 260 мм"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Эргономичный дизайн в форме щита: Легкий и портативный, управляется одним оператором.</li><li>Широкополосное подавление: Охватывает все основные каналы управления и навигации современных БПЛА.</li><li>Концентрированная энергия: Встроенная направленная антенна обеспечивает высокую плотность излучения для увеличения дальности.</li><li>Простота эксплуатации: Запуск одной кнопкой, не требует специальной подготовки.</li><li>Многофункциональность: Возможность использования в носимом варианте или на стационарной позиции с внешним питанием.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Эргономичный дизайн в форме щита: Легкий и портативный, управляется одним оператором.</li><li>Широкополосное подавление: Охватывает все основные каналы управления и навигации современных БПЛА.</li><li>Концентрированная энергия: Встроенная направленная антенна обеспечивает высокую плотность излучения для увеличения дальности.</li><li>Простота эксплуатации: Запуск одной кнопкой, не требует специальной подготовки.</li><li>Многофункциональность: Возможность использования в носимом варианте или на стационарной позиции с внешним питанием.</li></ul>",
+  "product_name_es": "Portable Anti-dron Jammer Shield",
+  "summary_es": "Portable Anti-dron Jammer Shield de N-TET para operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Full-frequency jamming for diverse scenarios; Long-range suppression up to 2km; Supports backpack; Handheld; Or tripod deployment; Dual power (internal battery/AC).",
+  "key_parameter_1_es": "Interference Distance: ≥2km (Environment dependent)",
+  "key_parameter_2_es": "Operating Frequency: 800MHz - 5.9GHz",
+  "parameters_es": {
+    "Operating Frequency": "800MHz, 900MHz, 1.5GHz, 2.4GHz, 5.8GHz, 5.1GHz-5.9GHz",
+    "Jamming Distance": "≥2km (depending on environment and drone model)",
+    "Interception Response": "≤ 3s",
+    "Eléctrica Consumption": "≤400W",
+    "Continuous Operation": "≥30min (all bands active)",
+    "Eléctrica Supply": "Built-in high-capacity battery",
+    "External eléctrica": "AC 220V adapter, supports charging while operating",
+    "Screen Interaction": "Built-in touchscreen design",
+    "Positioning": "GPS/BDS with lat/long reporting",
+    "Antenna": "Built-in",
+    "Deployment": "Handheld or Tripod-mounted",
+    "Cooling": "Active fan cooling",
+    "Operating Temp": "-40°C to +65°C",
+    "Storage Temp": "-40°C to +75°C",
+    "Input Voltage": "AC 220V",
+    "Dimensions": "270mm * 165mm * 260mm",
+    "Weight": "≤6.5kg"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Portable Anti-dron Jammer Shield está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Portable Anti-dron Jammer Shield de N-TET para operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

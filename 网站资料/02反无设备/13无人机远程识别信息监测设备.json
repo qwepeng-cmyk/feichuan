@@ -51,5 +51,21 @@
     "Класс защиты": "IP65",
     "Рабочая температура": "-40℃ ~ +70℃"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Декодирование и локализация: Прием сообщений Remote ID для получения ID дрона и точных координат оператора.</li><li>Сетевая интеграция: Возможность объединения с радарами и средствами радиопеленгации в единую сеть мониторинга.</li><li>Гибкость связи: Передача данных через проводную сеть или сотовые каналы 4G/5G.</li><li>Глобальная совместимость: Поддержка обязательных технических требований стандартов Китая (GB42590-2023), США (ASTM F3411) и ЕС (ASD-STAN).</li><li>Осведомленность ADS-B: Дополнительная возможность приема сигналов ADS-B для предупреждения о конфликтах с пилотируемой авиацией в общем воздушном пространстве.</li><li>Безопасность: Полностью пассивный мониторинг, не создающий помех окружающему оборудованию.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Декодирование и локализация: Прием сообщений Remote ID для получения ID дрона и точных координат оператора.</li><li>Сетевая интеграция: Возможность объединения с радарами и средствами радиопеленгации в единую сеть мониторинга.</li><li>Гибкость связи: Передача данных через проводную сеть или сотовые каналы 4G/5G.</li><li>Глобальная совместимость: Поддержка обязательных технических требований стандартов Китая (GB42590-2023), США (ASTM F3411) и ЕС (ASD-STAN).</li><li>Осведомленность ADS-B: Дополнительная возможность приема сигналов ADS-B для предупреждения о конфликтах с пилотируемой авиацией в общем воздушном пространстве.</li><li>Безопасность: Полностью пассивный мониторинг, не создающий помех окружающему оборудованию.</li></ul>",
+  "product_name_es": "UAV remoto ID monitoreo sistema",
+  "summary_es": "UAV remoto ID monitoreo sistema de N-TET para monitoreo, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Real-time remoto ID (RID) monitoring for airports and industrial parks; Extracts precise drone SN and pilot location; Supports 4G/5G data transmission and multi-system networking; Meets global safety standards (GB; ASTM; ASD-STAN).",
+  "key_parameter_1_es": "Weight: 4.2kg",
+  "key_parameter_2_es": "Operation Modes: Remote ID (Standard), ADS-B (Extended)",
+  "parameters_es": {
+    "Operation Modes": "Remoto ID (Standard), ADS-B (Extended)",
+    "Monitoreo Radius": "1-2km (Omni-directional)",
+    "Refresh Rate": "2-3 seconds per scan",
+    "Multi-target monitoreo": "≥12 targets simultaneously",
+    "Dimensions": "321mm * 231mm * 126mm",
+    "Weight": "4.2kg",
+    "IP Rating": "IP65",
+    "Operating Temperature": "-40℃ to +70℃"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>UAV remoto ID monitoreo sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>UAV remoto ID monitoreo sistema de N-TET para monitoreo, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

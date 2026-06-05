@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { solutions as homeSolutions } from '@/constants/homeData';
+import { localizedField } from '@/lib/localization';
 
 export default function Footer({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -24,7 +25,7 @@ export default function Footer({ locale, dict }: { locale: string; dict: any }) 
                         <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{dict.nav.solutions}</h4>
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '1.4rem' }}>
                             {footerSolutions.map((solution) => {
-                                const title = locale === 'ru' ? (solution.title_ru || solution.title) : solution.title;
+                                const title = localizedField(solution, 'title', locale);
                                 return (
                                     <li key={solution.id}>
                                         <Link prefetch={false} href={l(solution.link)} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>

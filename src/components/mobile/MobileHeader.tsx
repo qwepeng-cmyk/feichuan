@@ -6,10 +6,20 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './MobileHeader.module.css';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { languageLabels } from '@/lib/localization';
 
 export default function MobileHeader({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const pathname = usePathname();
+    const pathSegments = pathname.split('/').filter(Boolean);
+    const currentPathWithoutLocale = ['en', 'ru', 'es'].includes(pathSegments[0])
+        ? `/${pathSegments.slice(1).join('/')}`.replace(/\/$/, '') || '/'
+        : pathname || '/';
+    const languageLinks = [
+        { locale: 'en', href: currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale },
+        { locale: 'ru', href: currentPathWithoutLocale === '/' ? '/ru' : `/ru${currentPathWithoutLocale}` },
+        { locale: 'es', href: currentPathWithoutLocale === '/' ? '/es' : `/es${currentPathWithoutLocale}` },
+    ];
     const [menuOpen, setMenuOpen] = useState(false);
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
 
@@ -77,6 +87,18 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
                                 </svg>
                             </Link>
                         ))}
+                        <div className={styles.drawerLanguageGroup}>
+                            {languageLinks.map((item) => (
+                                <Link
+                                    key={item.locale}
+                                    prefetch={false}
+                                    href={item.href}
+                                    className={`${styles.drawerLanguageLink} ${locale === item.locale ? styles.activeLanguage : ''}`}
+                                >
+                                    {languageLabels[item.locale]}
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

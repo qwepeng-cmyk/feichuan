@@ -328,11 +328,46 @@ header.site-header.header-home .mega-menu > .container {
     padding-right: 40px;
 }
 
+header.site-header.header-home .mega-menu > .home-mega-container {
+    width: calc(100vw - 160px);
+    max-width: 1536px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+header.site-header.header-inner .mega-menu > .accessory-mega-container {
+    max-width: 1240px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 .product-mega-columns {
     display: grid;
     grid-template-columns: 1.12fr 1.12fr 1fr 1fr;
     gap: 28px;
     align-items: start;
+}
+
+.accessory-mega-columns {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.accessory-mega-column .mega-title {
+    font-size: 15px;
+}
+
+.accessory-mega-column .mega-title-image {
+    height: 66px;
+    margin: 2px 0 9px;
+}
+
+.accessory-mega-column .mega-list li {
+    margin-bottom: 6px;
+}
+
+.accessory-mega-column .mega-list a {
+    font-size: 13px;
 }
 
 .mega-title-image {
@@ -1629,16 +1664,19 @@ header#site-header.scrolled {
 .rich-content .table-wrap {
     width: 100%;
     margin: 36px 0 48px;
-    overflow-x: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
     background: #fff;
     border: 1px solid #eee;
 }
 
 .rich-content table {
     width: 100%;
-    min-width: 600px;
+    min-width: 0;
     margin: 0;
     border-collapse: collapse;
+    table-layout: fixed;
     background: #fff;
     color: #333;
     font-size: 1.5rem;
@@ -1657,11 +1695,13 @@ header#site-header.scrolled {
 
 .rich-content table th,
 .rich-content table td {
-    padding: 20px 30px;
+    padding: 18px 20px;
     text-align: left;
     vertical-align: top;
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
 .rich-content table th {
@@ -1850,7 +1890,8 @@ header#site-header.scrolled {
 
     .rich-content .table-wrap {
         margin: 28px 0 36px;
-        overflow-x: visible;
+        overflow-x: hidden;
+        overflow-y: visible;
     }
 
     .rich-content table {
@@ -1870,13 +1911,8 @@ header#site-header.scrolled {
         font-size: 1.45rem;
     }
 
-    .rich-content .table-wrap:has(table tr:first-child > :nth-child(4)) {
-        overflow-x: auto;
-    }
-
     .rich-content .table-wrap:has(table tr:first-child > :nth-child(4)) table {
-        min-width: 680px;
-        table-layout: auto;
+        font-size: 1.2rem;
     }
 }
 

@@ -16,6 +16,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -24,12 +25,15 @@ const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
 
 export async function generateStaticParams() {
   const handles = await getAllCaseHandles();
-  return handles.map((handle) => ({
-    handle,
-  }));
+  return handles
+    .filter((handle) => isPublicComplianceContent('case', handle))
+    .map((handle) => ({
+      handle,
+    }));
 }
 
 export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
+  if (!isPublicComplianceContent('case', params.handle)) return {};
   const caseData = await getCaseByHandle(params.handle);
   if (!caseData) return {};
 
@@ -102,6 +106,10 @@ function parseSnapshot(value: unknown): { label: string; value: string }[] {
 // 1. Data Fetching Component (Streaming)
 async function CaseDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
+  if (!isPublicComplianceContent('case', handle)) {
+    notFound();
+  }
+
   const caseData = await getCaseByHandle(handle);
 
   if (!caseData) {

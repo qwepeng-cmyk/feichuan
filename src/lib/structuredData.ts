@@ -58,7 +58,7 @@ export function organizationSchema(locale: Locale = 'en') {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      availableLanguage: locale === 'ru' ? ['ru', 'en'] : ['en', 'ru'],
+      availableLanguage: ['en', 'ru', 'es'],
       url: pageUrl(locale, '/contact'),
     },
   });

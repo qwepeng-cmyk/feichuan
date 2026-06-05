@@ -66,5 +66,26 @@
     "Темп обновления данных": "2 с",
     "Количество целей": "≥ 500 трасс одновременно"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая надежность: Твердотельная архитектура и цифровая обработка сигналов обеспечивают длительный срок службы и удобство обслуживания.</li><li>Всепогодный мониторинг: Алгоритмы подавления отражений от подстилающей поверхности и помех позволяют работать в условиях осадков и тумана.</li><li>Интеллектуальный анализ: Распознавание целей на основе характеристик движения для минимизации ложных тревог от птиц.</li><li>Бесшовная интеграция: Стандартные интерфейсы для каскадного подключения оптико-электронных систем и джаммеров.</li><li>Автоматизация: Онлайн-загрузка электронных карт и автоматическое логирование всех траекторий целей.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая надежность: Твердотельная архитектура и цифровая обработка сигналов обеспечивают длительный срок службы и удобство обслуживания.</li><li>Всепогодный мониторинг: Алгоритмы подавления отражений от подстилающей поверхности и помех позволяют работать в условиях осадков и тумана.</li><li>Интеллектуальный анализ: Распознавание целей на основе характеристик движения для минимизации ложных тревог от птиц.</li><li>Бесшовная интеграция: Стандартные интерфейсы для каскадного подключения оптико-электронных систем и джаммеров.</li><li>Автоматизация: Онлайн-загрузка электронных карт и автоматическое логирование всех траекторий целей.</li></ul>",
+  "product_name_es": "Baja altitud detección Radar (Ku-Band)",
+  "summary_es": "Baja altitud detección Radar (Ku-Band) de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Solid-state active T/R system for high reliability and security; 360° all-weather automatic target detection and tracking; Robust performance in rain; Snow; And dense fog; Weak target recognition based on motion analysis.",
+  "key_parameter_1_es": "Frequency Range: Ku (15.9-16.2GHz)",
+  "key_parameter_2_es": "Architecture: DBF (Digital Beamforming)",
+  "parameters_es": {
+    "Technology": "DBF (Digital Beamforming)",
+    "Scanning Mode": "Simultaneous multi-beam pitch, Mechanical azimuth",
+    "Frequency Band": "Ku (15.9-16.2GHz)",
+    "Detección Range": "≥5km (RCS=0.01㎡)",
+    "Blind Zone": "≤150m",
+    "Azimuth Coverage": "360°",
+    "Pitch Coverage": "≥60°",
+    "Speed Range": "1m/s - 150m/s (Radial)",
+    "Range Accuracy": "≤7.5m",
+    "Azimuth Accuracy": "≤0.3°",
+    "Pitch Accuracy": "≤0.5°",
+    "Data Rate": "2s",
+    "Simultaneous Targets": "≥500 tracks"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Baja altitud detección Radar (Ku-Band) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Baja altitud detección Radar (Ku-Band) de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

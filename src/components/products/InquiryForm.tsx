@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import { localePath } from '@/lib/localePath';
+import { localeFromPathname } from '@/lib/localization';
 
 export default function InquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
@@ -120,7 +122,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
             });
 
             if (response.ok) {
-                router.push(pathname?.startsWith('/ru') ? '/ru/thank-you' : '/thank-you');
+                router.push(localePath(localeFromPathname(pathname), '/thank-you'));
                 // Reset form
                 setFormData({
                     name: '',

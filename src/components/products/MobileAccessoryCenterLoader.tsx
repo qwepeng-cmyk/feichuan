@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { fetchAccessoriesForClient } from '@/lib/clientAccessories';
 import type { CatalogCategory } from './GenericCatalogCenter';
 
+const ACCESSORIES_BANNER_IMAGE = '/products/uav-accessories/uav-accessories-banner-blue-aerial.webp';
+
 const MobileGenericCatalogCenter = dynamic(() => import('@/components/mobile/MobileGenericCatalogCenter'), {
   ssr: false,
   loading: () => <MobileAccessoryFallback />,
@@ -17,7 +19,7 @@ function MobileAccessoryFallback({ title }: { title?: string }) {
         style={{
           height: '120px',
           width: '100%',
-          backgroundImage: "linear-gradient(90deg, rgba(5,18,37,0.72), rgba(5,18,37,0.18)), url('/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp')",
+          backgroundImage: `linear-gradient(90deg, rgba(5,18,37,0.72), rgba(5,18,37,0.18)), url('${ACCESSORIES_BANNER_IMAGE}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center 38%',
           display: 'flex',
@@ -92,6 +94,7 @@ export default function MobileAccessoryCenterLoader({
       dict={dict}
       bannerTitle={dict.accessories.bannerTitle}
       basePath="/accessories"
+      bannerImage={ACCESSORIES_BANNER_IMAGE}
     />
   );
 }

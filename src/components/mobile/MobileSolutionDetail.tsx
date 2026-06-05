@@ -282,6 +282,16 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
 }
 
 function getSolutionLabels(locale: string) {
+    if (locale === 'es') {
+        return {
+            solutionDetails: 'Detalles de la solución',
+            industryPainPoints: 'Necesidades de la industria',
+            upgradeTitle: 'Cómo los UAV mejoran la operación',
+            solutionModules: 'Módulos de la solución',
+            relatedCases: 'Casos relacionados',
+        };
+    }
+
     if (locale === 'ru') {
         return {
             solutionDetails: 'Детали решения',

@@ -6,6 +6,7 @@ import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
+import { localizedField } from '@/lib/localization';
 import { solutionCenterGroups, solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 
 interface Solution {
@@ -13,8 +14,10 @@ interface Solution {
     title_en: string;
     product_name_en?: string;
     product_name_ru?: string;
+    product_name_es?: string;
     summary_en?: string;
     summary_ru?: string;
+    summary_es?: string;
     main_image?: string;
     category_id: string;
 }
@@ -198,11 +201,7 @@ export default function MobileSolutionCenter({
         }
     };
 
-    const getSolutionTitle = (solution: Solution) => (
-        locale === 'ru'
-            ? (solution.product_name_ru || solution.product_name_en || solution.title_en)
-            : (solution.product_name_en || solution.title_en)
-    );
+    const getSolutionTitle = (solution: Solution) => localizedField(solution, 'product_name', locale) || localizedField(solution, 'title', locale);
 
     const shouldUseProductImageTreatment = (image?: string) => (
         Boolean(image?.includes('/products/uav-systems/'))

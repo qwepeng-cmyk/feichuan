@@ -61,5 +61,26 @@
     "Рабочая температура": "-20℃ ~ 50℃",
     "Функции защиты": "Возврат при потере связи, возврат при низком заряде, возобновление миссии с точки прерывания"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Быстрое развертывание: Оптимизирован для оперативного прибытия на место происшествия и немедленного начала разведки.</li><li>Универсальность нагрузки: Поддержка камер высокого разрешения, тепловизоров, газоанализаторов и громкоговорителей с освещением.</li><li>Интеллектуальный анализ: Возможность быстрого создания ортофотопланов и 3D-моделей пострадавших районов для точной оценки масштабов разрушений.</li><li>Надежность связи: Использование помехоустойчивых каналов передачи данных для работы в условиях сложного рельефа и застройки.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Быстрое развертывание: Оптимизирован для оперативного прибытия на место происшествия и немедленного начала разведки.</li><li>Универсальность нагрузки: Поддержка камер высокого разрешения, тепловизоров, газоанализаторов и громкоговорителей с освещением.</li><li>Интеллектуальный анализ: Возможность быстрого создания ортофотопланов и 3D-моделей пострадавших районов для точной оценки масштабов разрушений.</li><li>Надежность связи: Использование помехоустойчивых каналов передачи данных для работы в условиях сложного рельефа и застройки.</li></ul>",
+  "product_name_es": "Emergencia Response dron",
+  "summary_es": "Emergencia Response dron de N-TET para monitoreo, respuesta de emergencia, comunicación temporal, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Incident response (forest fires; Geological/water disasters); Large-scale monitoring at disaster sites; Search and rescue; Digital mapping; And 3D modeling for damage assessment.",
+  "key_parameter_1_es": "Endurance (No Load): 75min",
+  "key_parameter_2_es": "Standard carga útil: 7kg",
+  "parameters_es": {
+    "Max vuelo Speed": "15m/s",
+    "Number of Rotors": "6 Axis 6 Props",
+    "Standard carga útil": "7kg",
+    "Operating Temperature": "-20℃~50℃",
+    "Hélices": "29-inch Props",
+    "Endurance (No Load)": "75min",
+    "Eléctrica sistema": "FOC High Efficiency",
+    "Wheelbase": "1600mm",
+    "Positioning Accuracy": "±0.5m",
+    "Wind Resistance": "Level 6",
+    "Positioning sistema": "GPS/Beidou/Galileo/Glonass",
+    "Max vuelo Altitude": "4000m",
+    "Protection": "Fail-safe return, Low battery return, Resume from breakpoint"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia Response dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia Response dron de N-TET para monitoreo, respuesta de emergencia, comunicación temporal, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

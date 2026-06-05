@@ -60,5 +60,24 @@
     "Габариты": "489 * 461 * 233 мм",
     "Рабочая температура": "-40℃ ~ +60℃"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Круговое покрытие: Всенаправленная антенна обеспечивает защиту без мертвых зон на 360 градусов.</li><li>Комплексная блокировка: Прерывание сигналов управления и передачи видео большинства коммерческих и промышленных дронов.</li><li>Блокировка навигации: Полное подавление сигналов GPS, ГЛОНАСС, Beidou и Galileo для предотвращения полетов по координатам.</li><li>Модульная архитектура: Возможность гибкой конфигурации частотных диапазонов под конкретные угрозы.</li><li>Удаленный контроль: Поддержка сетевого управления и мониторинга через интерфейс RJ45.</li><li>Стабильность сигнала: Технология предотвращения дрейфа частоты для надежной работы в течение длительного времени.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Круговое покрытие: Всенаправленная антенна обеспечивает защиту без мертвых зон на 360 градусов.</li><li>Комплексная блокировка: Прерывание сигналов управления и передачи видео большинства коммерческих и промышленных дронов.</li><li>Блокировка навигации: Полное подавление сигналов GPS, ГЛОНАСС, Beidou и Galileo для предотвращения полетов по координатам.</li><li>Модульная архитектура: Возможность гибкой конфигурации частотных диапазонов под конкретные угрозы.</li><li>Удаленный контроль: Поддержка сетевого управления и мониторинга через интерфейс RJ45.</li><li>Стабильность сигнала: Технология предотвращения дрейфа частоты для надежной работы в течение длительного времени.</li></ul>",
+  "product_name_es": "Omni-directional RF Jammer",
+  "summary_es": "Omni-directional RF Jammer de N-TET para seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Supressive jamming against consumer; Industrial; FPV; And DIY drones; 360° omni-directional defense covering GPS; GLONASS.",
+  "key_parameter_1_es": "Interference Distance: 1.5km-2km (Environment dependent)",
+  "key_parameter_2_es": "Operating Frequency: 400MHz - 5.9GHz",
+  "parameters_es": {
+    "Frequency Range": "400MHz, 800MHz, 900MHz, 1.2GHz, 1.4GHz, 1.5GHz, 2.4GHz, 5.8GHz, 5.1-5.9GHz",
+    "Jamming Distance": "1.5km-2km (Dependent on environment/model)",
+    "Eléctrica Consumption": "≤600W",
+    "Eléctrica Supply": "AC 220V",
+    "Effective Angle": "360° Horizontal",
+    "IP Rating": "IP65",
+    "Continuous Work": "24/7 Outdoor use supported",
+    "Control Interface": "RJ45",
+    "Weight": "30kg",
+    "Dimensions": "489mm * 461mm * 233mm",
+    "Operating Temp": "-40℃ to +60℃"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Omni-directional RF Jammer está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Omni-directional RF Jammer de N-TET para seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

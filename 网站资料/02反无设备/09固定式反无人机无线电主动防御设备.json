@@ -57,5 +57,23 @@
     "Рабочая температура": "-40℃ ~ +65℃",
     "Класс защиты корпуса": "IP65"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Безопасность и соответствие: Низкая мощность передачи не мешает работе сторонних систем; наличие сертификатов радиооборудования государственного образца.</li><li>Специализированное исполнение: Взрывозащищенный корпус позволяет устанавливать систему на объектах критической инфраструктуры (ТЭК, НПЗ).</li><li>Глобальное покрытие: Воздействие на все основные созвездия спутников (GPS, ГЛОНАСС, Galileo) для нейтрализации продвинутых дронов.</li><li>Гибкость сценариев: Режимы направленного вытеснения, зонального запрета доступа и создания бесполетных зон.</li><li>Синергия систем: Автоматическое взаимодействие с радарами, средствами радиопеленгации и классическими джаммерами.</li><li>Всепогодность: Гарантированная работа в условиях дождя, снега и густого тумана.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Безопасность и соответствие: Низкая мощность передачи не мешает работе сторонних систем; наличие сертификатов радиооборудования государственного образца.</li><li>Специализированное исполнение: Взрывозащищенный корпус позволяет устанавливать систему на объектах критической инфраструктуры (ТЭК, НПЗ).</li><li>Глобальное покрытие: Воздействие на все основные созвездия спутников (GPS, ГЛОНАСС, Galileo) для нейтрализации продвинутых дронов.</li><li>Гибкость сценариев: Режимы направленного вытеснения, зонального запрета доступа и создания бесполетных зон.</li><li>Синергия систем: Автоматическое взаимодействие с радарами, средствами радиопеленгации и классическими джаммерами.</li><li>Всепогодность: Гарантированная работа в условиях дождя, снега и густого тумана.</li></ul>",
+  "product_name_es": "Stationary Active RF Defense sistema (Spoofing)",
+  "summary_es": "Stationary Active RF Defense sistema (Spoofing) de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Low-power emission compliant with national safety standards; Explosion-proof design for petrochemical and energy sectors; Covers GPS; GLONASS; And Galileo for multi-mode navigation denial; Supports multi-system integration.",
+  "key_parameter_1_es": "Effective Range: 500m - 1000m (Adjustable)",
+  "key_parameter_2_es": "Output eléctrica: ≤10dBm (mW)",
+  "parameters_es": {
+    "Transmission Frequency": "GPS L1, GLONASS L1, Galileo E1",
+    "Output eléctrica": "≤10dBm (mW)",
+    "Spoofing Response": "≤10s",
+    "Sync Accuracy": "＜1us",
+    "Effective Range": "500m - 1000m (Adjustable)",
+    "Repulsion Angle": "360° Horizontal",
+    "Eléctrica Consumption": "≤30W",
+    "Positioning": "Integrated GPS with coordinate display",
+    "Operating Temp": "-40℃ to +65℃",
+    "IP Rating": "IP65"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Stationary Active RF Defense sistema (Spoofing) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Stationary Active RF Defense sistema (Spoofing) de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

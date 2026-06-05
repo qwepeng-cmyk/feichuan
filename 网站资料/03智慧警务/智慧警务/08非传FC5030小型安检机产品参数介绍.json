@@ -57,5 +57,23 @@
     "Радиационная безопасность": "Доза утечки 0.01 мкГр/ч (соответствует стандартам безопасности)",
     "Функции системы": "Поиск ВВ/наркотиков, выключение одной кнопкой, улучшение изображения, безопасность для фотопленок (ISO1600)"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Простота в освоении: Интуитивно понятный интерфейс для легкой работы оператора.</li><li>Высокое разрешение: 21.5-дюймовый ЖК-монитор для детального анализа изображений.</li><li>Выключение одной кнопкой: Простое вращение ключа для безопасного завершения работы и снижения риска сбоев.</li><li>Экологичный дизайн: Защитное покрытие на свинцовых шторках для предотвращения контакта персонала со свинцом.</li><li>Автоматическая тревога: Сигнал при обнаружении опасных или непроницаемых предметов.</li><li>Гарантия сервиса: Техническая поддержка и обслуживание по всей стране.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Простота в освоении: Интуитивно понятный интерфейс для легкой работы оператора.</li><li>Высокое разрешение: 21.5-дюймовый ЖК-монитор для детального анализа изображений.</li><li>Выключение одной кнопкой: Простое вращение ключа для безопасного завершения работы и снижения риска сбоев.</li><li>Экологичный дизайн: Защитное покрытие на свинцовых шторках для предотвращения контакта персонала со свинцом.</li><li>Автоматическая тревога: Сигнал при обнаружении опасных или непроницаемых предметов.</li><li>Гарантия сервиса: Техническая поддержка и обслуживание по всей стране.</li></ul>",
+  "product_name_es": "X-Ray Baggage Scanner FC5030",
+  "summary_es": "X-Ray Baggage Scanner FC5030 de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Precise X-ray scanning for small baggage and parcels; Assisted detection for explosives and narcotics; High-resolution 21.5-inch LCD display; Eco-friendly shielded design for radiation safety; 720 units/hour throughput.",
+  "key_parameter_1_es": "Tunnel Size: 500mm(W) x 300mm(H)",
+  "key_parameter_2_es": "Penetration: 28mm steel plate",
+  "parameters_es": {
+    "External Dimensions": "2178.15(L) x 746(W) x 1165(H) mm",
+    "Tunnel Size": "500(W) x 300(H) mm",
+    "Conveyor Speed": "0.22m/s (Rated load 150kg)",
+    "Resolution": "Wire: Φ0.0787mm; Spatial: Φ0.8mm",
+    "Penetration": "28mm steel plate",
+    "Throughput": "720 units/hour",
+    "X-Ray Source": "Bottom-lit beam; 0.4-1.2mA (Adjustable)",
+    "Display sistema": "21.5-inch HD LCD; 24-bit color",
+    "Radiation Safety": "Leakage < 0.01μGy/h (Safe for health/film)",
+    "Sistema Features": "Assisted explosives/narcotics detection; One-key shutdown; Image enhancement"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>X-Ray Baggage Scanner FC5030 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>X-Ray Baggage Scanner FC5030 de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

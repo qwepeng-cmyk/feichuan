@@ -59,5 +59,24 @@
     "Уровень шума": "≤ 65 дБ",
     "Габаритные размеры": "1400 * 180 * 1000 мм"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Корпус из нержавеющей стали SUS304: Бесшовная лазерная сварка и высокая устойчивость к коррозии даже на открытом воздухе.</li><li>Высокая эффективность: Отклик системы менее 0.8 секунды для быстрой проходимости в часы пик.</li><li>Комплексная защита: Алгоритмы автоматической остановки при столкновении и интеграция с системами пожарной безопасности.</li><li>Защита от несанкционированного прохода: Инфракрасная матрица распознает попытки «прохода паровозиком» с интервалом от 100 мм.</li><li>Визуальная индикация: Трехцветные светодиоды на верхней крышке интуитивно подсказывают статус прохода (зеленый/красный/желтый).</li><li>Низкие эксплуатационные расходы: Благодаря высокому MTBF и системе самодиагностики.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Корпус из нержавеющей стали SUS304: Бесшовная лазерная сварка и высокая устойчивость к коррозии даже на открытом воздухе.</li><li>Высокая эффективность: Отклик системы менее 0.8 секунды для быстрой проходимости в часы пик.</li><li>Комплексная защита: Алгоритмы автоматической остановки при столкновении и интеграция с системами пожарной безопасности.</li><li>Защита от несанкционированного прохода: Инфракрасная матрица распознает попытки «прохода паровозиком» с интервалом от 100 мм.</li><li>Визуальная индикация: Трехцветные светодиоды на верхней крышке интуитивно подсказывают статус прохода (зеленый/красный/желтый).</li><li>Низкие эксплуатационные расходы: Благодаря высокому MTBF и системе самодиагностики.</li></ul>",
+  "product_name_es": "Deluxe Smart Swing Turnstile",
+  "summary_es": "Deluxe Smart Swing Turnstile de N-TET para iluminación operativa, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Premium access control for high-traffic public areas; SUS304 stainless steel with 1.5mm thickness; MTBF ≥ 8 million cycles; Wide transit width (≤110cm) with triple anti-pinch safety.",
+  "key_parameter_1_es": "Construction: SUS304 Stainless Steel, 1.5mm thickness",
+  "key_parameter_2_es": "Reliability: MTBF ≥ 8 million cycles",
+  "parameters_es": {
+    "Chassis Thickness": "1.5mm SUS304 Stainless Steel shell",
+    "Passage Width": "Supports widths up to 110 cm",
+    "Drive sistema": "Brushless DC motor with helical anti-collision drive core",
+    "Durability": "MTBF ≥ 8 million cycles; smooth acceleration/deceleration control",
+    "Safety sistemas": "Triple anti-pinch protection (Mechanical/Current/Optical); Anti-tailgate logic",
+    "Opening Speed": "Adjustable in 10 steps; ≥0.8s minimum",
+    "Emergencia": "Fire alarm linkage (Auto-open) and power-failure free-swing mode",
+    "Human Interaction": "Integrated LED passage indicators, atmospheric lights, and customized voice feedback",
+    "Industrial Standards": "Precision laser cutting; IP-rated waterproof and dustproof treatment",
+    "Operation Noise": "Smooth operation noise ≤ 65dB",
+    "Dimensions": "1400mm * 180mm * 1000mm"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Deluxe Smart Swing Turnstile está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Deluxe Smart Swing Turnstile de N-TET para iluminación operativa, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

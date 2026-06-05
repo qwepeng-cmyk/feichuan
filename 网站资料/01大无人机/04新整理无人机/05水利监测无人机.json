@@ -61,5 +61,26 @@
     "Спутниковые системы": "GPS/Beidou/Galileo/Glonass",
     "Точность позиционирования": "±0.5 м"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Специализированная нагрузка: Поддержка мультиспектральных датчиков для анализа состава воды и тепловизоров для поиска скрытых протечек в гидросооружениях.</li><li>Эффективность в паводки: Быстрое получение данных об уровнях воды, скорости течения и границах затопления для штабов ГО и ЧС.</li><li>Экологический контроль: Автоматизированный поиск источников загрязнения и документирование незаконной деятельности на водных объектах.</li><li>Надежность: Стабильные каналы связи и защищенный корпус позволяют работать в условиях высокой влажности и ветра.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Специализированная нагрузка: Поддержка мультиспектральных датчиков для анализа состава воды и тепловизоров для поиска скрытых протечек в гидросооружениях.</li><li>Эффективность в паводки: Быстрое получение данных об уровнях воды, скорости течения и границах затопления для штабов ГО и ЧС.</li><li>Экологический контроль: Автоматизированный поиск источников загрязнения и документирование незаконной деятельности на водных объектах.</li><li>Надежность: Стабильные каналы связи и защищенный корпус позволяют работать в условиях высокой влажности и ветра.</li></ul>",
+  "product_name_es": "Gestión hídrica monitoreo dron",
+  "summary_es": "Gestión hídrica monitoreo dron de N-TET para monitoreo, respuesta de emergencia, comunicación temporal, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Hydrological monitoring and hazard inspection during flood seasons; Regular supervision of rivers/lakes (water quality; Sewage; Sand mining); Intelligent inspection of dams (cracks; Seepage).",
+  "key_parameter_1_es": "Endurance (No Load): 100min",
+  "key_parameter_2_es": "Standard carga útil: 8kg",
+  "parameters_es": {
+    "Max vuelo Speed": "15m/s",
+    "Number of Rotors": "6 Axis 6 Props",
+    "Standard carga útil": "8kg",
+    "Operating Temperature": "-20℃~50℃",
+    "Hélices": "30-inch Props",
+    "Endurance (No Load)": "100min",
+    "Eléctrica sistema": "FOC High Efficiency",
+    "Wheelbase": "1600mm",
+    "Positioning Accuracy": "±0.5m",
+    "Wind Resistance": "Level 6",
+    "Positioning sistema": "GPS/Beidou/Galileo/Glonass",
+    "Max vuelo Altitude": "4000m",
+    "Protection": "Fail-safe return, Low battery return, Resume from breakpoint"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Gestión hídrica monitoreo dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Gestión hídrica monitoreo dron de N-TET para monitoreo, respuesta de emergencia, comunicación temporal, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

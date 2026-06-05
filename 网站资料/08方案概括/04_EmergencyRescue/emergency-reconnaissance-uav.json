@@ -41,5 +41,17 @@
     "Точность позиционирования": "RTK сантиметрового уровня",
     "Скорость полета": "15 м/с (макс. скорость)"
   },
-  "detail_html_ru": "<h4>Всеобъемлющее восприятие, авангард спасения</h4><p>Дрон обеспечивает интуитивно понятную и надежную визуальную поддержку для распределения ресурсов, планирования спасательных операций и принятия экстренных решений штабом.</p><ul><li>Широкомасштабное патрулирование и видеосвязь в реальном времени</li><li>Панорамный контроль развития чрезвычайных ситуаций</li><li>Многофункциональные HD и ИК сенсоры</li></ul>"
+  "detail_html_ru": "<h4>Всеобъемлющее восприятие, авангард спасения</h4><p>Дрон обеспечивает интуитивно понятную и надежную визуальную поддержку для распределения ресурсов, планирования спасательных операций и принятия экстренных решений штабом.</p><ul><li>Широкомасштабное патрулирование и видеосвязь в реальном времени</li><li>Панорамный контроль развития чрезвычайных ситуаций</li><li>Многофункциональные HD и ИК сенсоры</li></ul>",
+  "product_name_es": "Emergencia reconocimiento UAV",
+  "summary_es": "Emergencia reconocimiento UAV de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Flood On-site monitoreo.",
+  "key_parameter_1_es": "Global Situational Awareness: Integrated EO/IR payloads for deep large-scale cruise mapping",
+  "key_parameter_2_es": "Precision Life-finding: Navigating complex terrain to lock on targets and provide visual decision data",
+  "parameters_es": {
+    "Carga útil": "30x optical zoom + 640 IR thermal",
+    "Transmission": "10km - 20km (HD transmission)",
+    "Accuracy": "RTK centimeter-level positioning",
+    "Cruise Speed": "15m/s (Max speed)"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia reconocimiento UAV está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia reconocimiento UAV de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

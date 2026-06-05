@@ -60,5 +60,24 @@
     "Время полета": "≥12 ч",
     "Система позиционирования": "GPS/Beidou/Galileo/Glonass"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Мощное освещение: Возможность установки прожекторов и заливочных ламп большой мощности для работы на обширных территориях.</li><li>Длительное патрулирование: 12-часовой полет позволяет использовать дрон в качестве временной осветительной мачты.</li><li>Дополнительное оборудование: Поддержка установки камер, громкоговорителей и поисковых маяков.</li><li>Мобильность: Система быстро разворачивается из компактного транспортировочного кейса.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Мощное освещение: Возможность установки прожекторов и заливочных ламп большой мощности для работы на обширных территориях.</li><li>Длительное патрулирование: 12-часовой полет позволяет использовать дрон в качестве временной осветительной мачты.</li><li>Дополнительное оборудование: Поддержка установки камер, громкоговорителей и поисковых маяков.</li><li>Мобильность: Система быстро разворачивается из компактного транспортировочного кейса.</li></ul>",
+  "product_name_es": "Emergencia iluminación dron",
+  "summary_es": "Emergencia iluminación dron de N-TET para respuesta de emergencia, iluminación operativa, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Large-area illumination for emergency rescue and repair sites; Video recording; Monitoring; And search operations for public security; Traffic management; Disaster relief.",
+  "key_parameter_1_es": "Endurance: ≥12h",
+  "key_parameter_2_es": "Cautivo Hovering Height: 100m (Customizable)",
+  "parameters_es": {
+    "Unfolded Dimensions": "1200*1200*670mm",
+    "Wind Resistance": "Level 6",
+    "Number of Rotors": "6 Axis 6 Props",
+    "Folded Dimensions": "600*500*670mm",
+    "Cautivo Hovering Height": "100m (Customizable)",
+    "Hélices": "22-inch Propellers",
+    "Standard carga útil": "5kg",
+    "Positioning Accuracy": "±0.5m",
+    "Wheelbase": "1200mm",
+    "Endurance": "≥12h",
+    "Positioning sistema": "GPS/Beidou/Galileo/Glonass"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia iluminación dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia iluminación dron de N-TET para respuesta de emergencia, iluminación operativa, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

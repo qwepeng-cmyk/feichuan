@@ -84,5 +84,33 @@
     "Вес": "≤ 7 кг",
     "Габариты": "880 * 330 * 99.5 мм"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Комплексное воздействие: Встроенные модули на 5 частот позволяют блокировать любые каналы управления и видеосвязи.</li><li>Раннее предупреждение: Встроенный сканер обнаруживает дрон на подлете (1 км+) и идентифицирует его модель.</li><li>Точечное подавление: Узкий луч антенны (30°) минимизирует помехи для другого оборудования в зоне действия.</li><li>Визуальный контроль: ЖК-дисплей отображает выбранный режим и уровень заряда АКБ для уверенной работы оператора.</li><li>Быстрая замена АКБ: Механизм мгновенной смены батарей позволяет выполнять длительные миссии по защите объектов.</li><li>Безопасность и соответствие: Точная настройка частот гарантирует перехват только целевых устройств без нарушения работы гражданских сетей.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Комплексное воздействие: Встроенные модули на 5 частот позволяют блокировать любые каналы управления и видеосвязи.</li><li>Раннее предупреждение: Встроенный сканер обнаруживает дрон на подлете (1 км+) и идентифицирует его модель.</li><li>Точечное подавление: Узкий луч антенны (30°) минимизирует помехи для другого оборудования в зоне действия.</li><li>Визуальный контроль: ЖК-дисплей отображает выбранный режим и уровень заряда АКБ для уверенной работы оператора.</li><li>Быстрая замена АКБ: Механизм мгновенной смены батарей позволяет выполнять длительные миссии по защите объектов.</li><li>Безопасность и соответствие: Точная настройка частот гарантирует перехват только целевых устройств без нарушения работы гражданских сетей.</li></ul>",
+  "product_name_es": "Multi-band detección & Jamming Gun",
+  "summary_es": "Multi-band detección & Jamming Gun de N-TET para comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Five-band jamming (900M to 5.8G) covering all mainstream drone frequencies; 1km+ early warning with DJI O2/O3/O4 and National Standard protocol support; Ergonomic 7kg lightweight design with swappable batteries; 4 enforcement modes including forced landing and enhanced return.",
+  "key_parameter_1_es": "Weight: ≤7kg",
+  "key_parameter_2_es": "Interception Distance: ≥1km (Line-of-sight)",
+  "parameters_es": {
+    "Detección Bands": "2.4GHz, 5.8GHz",
+    "Detección Mode": "Protocol parsing / Digital video detection",
+    "Target Machines": "DJI O2/O3/O4 series, National Standard protocols, consumer drones",
+    "Detección Distance": "≥1km (Line-of-sight)",
+    "Jamming Endurance": "≥30min continuous emission",
+    "Interception Distance": "≥1km (Target dependent)",
+    "J/S Ratio": "Phantom 4 (10:1); Mavic 2 (10:1); Mavic 3 (1.5:1)",
+    "Jamming Bands": "900M, 1.5G, 2.4G, 5.2G, 5.8G",
+    "Beam Angle": "≥30°",
+    "Jamming Direction": "Directional",
+    "Eléctrica Supply": "Quick-swap lithium battery",
+    "Display": "LCD showing status, battery, and mode",
+    "Tactical Modes": "Forced Return, Auto Land, Enhanced Land, Enhanced Return",
+    "Eléctrica Consumption": "≤320W",
+    "IP Rating": "IP65",
+    "Operating Temperature": "-20°C to 55°C",
+    "Weight": "≤7kg",
+    "Charging Voltage": "DC 29.4V / 5A",
+    "Charging Time": "0-100% in 2h; 0-95% in 1.5h",
+    "Dimensions": "880mm * 330mm * 99.5mm (±2mm)"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Multi-band detección &amp; Jamming Gun está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Multi-band detección &amp; Jamming Gun de N-TET para comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

@@ -61,5 +61,26 @@
     "Рабочая температура": "-20℃ ~ 50℃",
     "Точность позиционирования": "±0.5 м"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Переход к умным инспекциям: Заменяет ручные обходы автоматизированным мониторингом с использованием ИИ для распознавания угроз (тяжелая техника в охранной зоне, признаки копки).</li><li>Мультисенсорный контроль: Одновременное использование HD-камер и тепловизоров для обнаружения температурных аномалий, свидетельствующих об утечках нефти или газа.</li><li>Безопасность данных: Передача видео в реальном времени и сохранение истории полетов для доказательной базы при выявлении хищений (врезок).</li><li>Высокая проходимость: Идеально подходит для участков, где доступ наземного транспорта невозможен или затруднен.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Переход к умным инспекциям: Заменяет ручные обходы автоматизированным мониторингом с использованием ИИ для распознавания угроз (тяжелая техника в охранной зоне, признаки копки).</li><li>Мультисенсорный контроль: Одновременное использование HD-камер и тепловизоров для обнаружения температурных аномалий, свидетельствующих об утечках нефти или газа.</li><li>Безопасность данных: Передача видео в реальном времени и сохранение истории полетов для доказательной базы при выявлении хищений (врезок).</li><li>Высокая проходимость: Идеально подходит для участков, где доступ наземного транспорта невозможен или затруднен.</li></ul>",
+  "product_name_es": "Oil & Gas Pipeline inspección dron",
+  "summary_es": "Oil & Gas Pipeline inspección dron de N-TET para inspección, respuesta de emergencia, patrullaje, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Routine patrol and leak detection for long-distance pipelines; Hazard troubleshooting in complex terrains (illegal construction; Occupation; Illegal tapping); Field evidence collection and construction supervision.",
+  "key_parameter_1_es": "Max Endurance (No Load): 180min",
+  "key_parameter_2_es": "Effective Operating Radius: 50km",
+  "parameters_es": {
+    "Aircraft Material": "Advanced Aviation Composites",
+    "Take-off/Landing": "VTOL (Vertical Take-off and Landing)",
+    "Eléctrica sistema": "Pure Electric",
+    "Max Endurance (No Load)": "180min",
+    "Cruise Speed": "65-120km/h",
+    "Effective Operating Radius": "50km",
+    "Max Take-off Altitude": "5000m",
+    "Carga útil": "5kg",
+    "Operating Temperature": "-20℃~50℃",
+    "Positioning Accuracy": "±0.5m",
+    "Wind Resistance": "Level 6",
+    "Positioning sistema": "GPS/Beidou",
+    "Protection": "Fail-safe return, Low battery return, Resume from breakpoint"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Oil &amp; Gas Pipeline inspección dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Oil &amp; Gas Pipeline inspección dron de N-TET para inspección, respuesta de emergencia, patrullaje, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

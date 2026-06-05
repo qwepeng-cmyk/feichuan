@@ -62,5 +62,25 @@
     "Экран": "1.77 дюйма",
     "Рабочая температура": "-20℃ ~ +50℃"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Скрытность работы: Только прием сигналов, устройство ничего не излучает и невидимо для средств радиоэлектронной разведки.</li><li>Широкий охват: Поддержка всех основных брендов (DJI, Autel, Hubsan) и FPV-дронов с прыгающей частотой (FHSS).</li><li>Тройное оповещение: Вибрация, звук и индикация на экране гарантируют, что оператор не пропустит угрозу.</li><li>Портативность: Вес и размер позволяют носить устройство в кармане или на поясе.</li><li>Энергоэффективность: Возможность быстрой замены аккумулятора для продолжения работы в полевых условиях.</li><li>Простота: Не требует специальных навыков, готов к работе через 15 секунд после включения.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Скрытность работы: Только прием сигналов, устройство ничего не излучает и невидимо для средств радиоэлектронной разведки.</li><li>Широкий охват: Поддержка всех основных брендов (DJI, Autel, Hubsan) и FPV-дронов с прыгающей частотой (FHSS).</li><li>Тройное оповещение: Вибрация, звук и индикация на экране гарантируют, что оператор не пропустит угрозу.</li><li>Портативность: Вес и размер позволяют носить устройство в кармане или на поясе.</li><li>Энергоэффективность: Возможность быстрой замены аккумулятора для продолжения работы в полевых условиях.</li><li>Простота: Не требует специальных навыков, готов к работе через 15 секунд после включения.</li></ul>",
+  "product_name_es": "Handheld RF detección sistema",
+  "summary_es": "Handheld RF detección sistema de N-TET para monitoreo, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Passive detection with zero electromagnetic emission; Full-band 400MHz-6GHz scanning; Ultra-compact design for individual field use; Identifies DJI; Autel; And DIY drones.",
+  "key_parameter_1_es": "Frequency Range: 400MHz-6GHz customizable (Default includes 400M/800M/900M/1.2G/1.4G/2.4G/5.2G/5.8G)",
+  "key_parameter_2_es": "Detección Distance: ≤2km",
+  "parameters_es": {
+    "Frequency Range": "400MHz-6GHz (Default: 400M/800M/900M/1.2G/1.4G/2.4G/5.2G/5.8G)",
+    "Detección Distance": "≤2km",
+    "Response Time": "≤3s",
+    "Detección Principle": "Spectral Recognition",
+    "Direction Function": "360° Detection (Non-directional)",
+    "Operation": "Keypad controlled; volume/backlight adjustment; logs viewing",
+    "Batería & Endurance": "1800mAh (≤3h) / 5000mAh (≤8h); Swappable",
+    "Startup Time": "15 seconds",
+    "Dimensions": "135mm * 69mm * 50mm (L*W*H)",
+    "Screen Size": "1.77-inch",
+    "Antenna Size": "14.5mm (Φ) * 58mm (L)",
+    "Operating Temp": "-20°C to +50°C"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Handheld RF detección sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Handheld RF detección sistema de N-TET para monitoreo, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

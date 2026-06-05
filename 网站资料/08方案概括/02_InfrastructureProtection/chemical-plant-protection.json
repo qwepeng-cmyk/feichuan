@@ -151,5 +151,55 @@
     "composite-electro-optical-tracking-system",
     "low-altitude-detection-radar-ku-band"
   ],
-  "recommended_cases": []
+  "recommended_cases": [],
+  "product_name_es": "Planta química Protection",
+  "summary_es": "Planta química Protection de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Chemical plants; Petrochemical parks; Storage tank areas; Loading zones; Hazardous-material warehouses; Pipe corridors.",
+  "key_parameter_1_es": "Perception layer: RF sensing, Remote ID monitoring, low-altitude radar, and EO/thermal confirmation can be combined according to site risk and terrain.",
+  "key_parameter_2_es": "Workflow: detect, identify, locate, track, confirm, alert, and support coordinated site handling.",
+  "parameters_es": {
+    "Operation_upgrade_eyebrow": "Baja altitud seguridad Workflow",
+    "Operation_upgrade_title": "A Neutral baja altitud Risk Process for Chemical Sites",
+    "Solution_modules_intro": "The solution follows the practical process described in critical-infrastructure protection planning: discover abnormal aerial activity, identify and locate the target, confirm it visually, link the alert to the security room, and support site-level handling.",
+    "Industry_pain_points_image": "/solutions/chemical-plant-protection/industry-pain-points-tank-drone.webp",
+    "Industry_pain_points": [
+      "Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.",
+      "Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.",
+      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams."
+    ],
+    "Uav_industry_upgrade": [
+      "RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.",
+      "EO and thermal tracking helps confirm the target, follow movement trends, and reduce uncertainty in steam, dust, low-light, and complex industrial backgrounds.",
+      "Platform linkage turns separate detection and visual inputs into a shared alert picture for the security room, patrol team, and on-duty site personnel."
+    ],
+    "Solution_modules": [
+      {
+        "name": "Perimeter Detection",
+        "description": "Build a low-altitude perception layer around plant boundaries, tank areas, loading points, and restricted industrial zones.",
+        "image": "/solutions/chemical-plant-protection/module-perimeter-refinery-wide.webp"
+      },
+      {
+        "name": "Target Identification",
+        "description": "Use RF sensing, Remote ID data, and low-altitude radar as complementary inputs to identify abnormal aerial activity and provide location context to the security room.",
+        "image": "/solutions/chemical-plant-protection/module-multisource-smokestacks.webp"
+      },
+      {
+        "name": "Visual Tracking and Confirmation",
+        "description": "Use visible-light and thermal observation to confirm target type, track movement trends, and support operator judgment in complex industrial backgrounds.",
+        "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
+      },
+      {
+        "name": "Alert Linkage",
+        "description": "Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
+        "image": "/solutions/chemical-plant-protection/module-loading-area-pier.webp"
+      },
+      {
+        "name": "Coordinated Site Handling",
+        "description": "Support patrol verification, duty-team notification, emergency liaison, and other site procedures so operators can act from the same alert context.",
+        "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
+      }
+    ],
+    "Typical_outputs": "Low-altitude target alerts, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Planta química Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Planta química Protection de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

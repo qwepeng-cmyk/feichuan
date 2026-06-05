@@ -19,6 +19,7 @@ import {
 import NEWS_DATA from "../../../public/media/news_data.json";
 import { homeCases, products, solutions } from "@/constants/homeData";
 import { localePath } from "@/lib/localePath";
+import { localizedField } from "@/lib/localization";
 import styles from "./HomeRebuildPreview.module.css";
 
 type PreviewDict = Record<string, any>;
@@ -43,9 +44,9 @@ export default function HomeRebuildPreview({
   const latestNews = useMemo(() => NEWS_DATA.slice(0, 3), []);
   const product = products[activeProduct];
   const localizedProduct = {
-    top: locale === "ru" ? product.top_ru : product.top,
-    main: locale === "ru" ? product.main_ru : product.main,
-    desc: locale === "ru" ? product.desc_ru : product.desc,
+    top: localizedField(product, "top", locale),
+    main: localizedField(product, "main", locale),
+    desc: localizedField(product, "desc", locale),
   };
 
   const solutionNames: Record<string, string> = {
@@ -141,7 +142,7 @@ export default function HomeRebuildPreview({
         <div className={styles.productStage}>
           <div className={styles.productTabs}>
             {products.map((item, index) => {
-              const title = locale === "ru" ? item.top_ru : item.top;
+              const title = localizedField(item, "top", locale);
               return (
                 <button
                   type="button"
@@ -237,7 +238,7 @@ export default function HomeRebuildPreview({
         </div>
         <div className={styles.caseGrid}>
           {homeCases.slice(0, 6).map((item, index) => {
-            const title = locale === "ru" ? item.title_ru : item.title;
+            const title = localizedField(item, "title", locale);
             return (
               <Link
                 className={styles.caseCard}
@@ -294,9 +295,7 @@ export default function HomeRebuildPreview({
           {latestNews.map((item) => {
             const newsItem = item as typeof item & { title_en?: string };
             const title =
-              locale === "ru"
-                ? newsItem.title_ru || newsItem.title
-                : newsItem.title_en || newsItem.title;
+              localizedField(newsItem, "title", locale);
             return (
               <Link className={styles.newsCard} href={localePath(locale, `/media/${item.id}`)} key={item.id}>
                 <Image src={item.image} alt={title} fill sizes="(max-width: 900px) 100vw, 33vw" />

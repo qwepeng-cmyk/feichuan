@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './MobileProductCenter.module.css';
+import { localePath } from '@/lib/localePath';
+import { localeFromPathname } from '@/lib/localization';
 
 export default function MobileInquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
@@ -71,7 +73,7 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                     name: '', company: '', email: '', contactMethod: 'WhatsApp',
                     countryCode: '', phone: '', demands: [], message: ''
                 });
-                router.push(pathname?.startsWith('/ru') ? '/ru/thank-you' : '/thank-you');
+                router.push(localePath(localeFromPathname(pathname), '/thank-you'));
             } else {
                 setSubmitStatus('error');
             }

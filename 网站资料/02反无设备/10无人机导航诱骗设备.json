@@ -69,5 +69,27 @@
     "Габариты": "388 * 388 * 214 мм",
     "Вес": "≤ 10 кг"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Множество режимов воздействия: Направленное вытеснение, зональный отказ, создание бесполетных зон, навигационное подавление и точечный захват цели.</li><li>Полный спектр частот: Охват сигналов GPS, ГЛОНАСС, Beidou и Galileo для борьбы с многорежимными навигационными системами БПЛА.</li><li>Интегрированная оборона: Возможность совместной работы с радарами обнаружения маловысотных целей и средствами радиопеленгации.</li><li>Всепогодность: Гарантированная работа в условиях ночи, дождя, снега и густого тумана.</li><li>Масштабируемость: Дистанция спуфинга регулируется от 1 до 30 км в зависимости от тактических задач.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Множество режимов воздействия: Направленное вытеснение, зональный отказ, создание бесполетных зон, навигационное подавление и точечный захват цели.</li><li>Полный спектр частот: Охват сигналов GPS, ГЛОНАСС, Beidou и Galileo для борьбы с многорежимными навигационными системами БПЛА.</li><li>Интегрированная оборона: Возможность совместной работы с радарами обнаружения маловысотных целей и средствами радиопеленгации.</li><li>Всепогодность: Гарантированная работа в условиях ночи, дождя, снега и густого тумана.</li><li>Масштабируемость: Дистанция спуфинга регулируется от 1 до 30 км в зависимости от тактических задач.</li></ul>",
+  "product_name_es": "UAV Navigation Spoofing sistema",
+  "summary_es": "UAV Navigation Spoofing sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Hemispherical zone defense against drone swarms; Supports mobile; Vehicle; Or stationary deployment; Versatile modes including directional repulsion; Area denial.",
+  "key_parameter_1_es": "Weight: ≤10kg",
+  "key_parameter_2_es": "Operating Frequency: GPS L1/L2, GLO L1/L2, BDS B1/B2 (Customizable)",
+  "parameters_es": {
+    "Operating Frequency": "GPS L1/L2, GLONASS L1/L2, BDS B1/B2 (Customizable)",
+    "Spoofing Radius": "1-30km (Adjustable)",
+    "Jamming Radius": "1-3km (Adjustable)",
+    "Effective Angle": "360° Horizontal",
+    "Spoofing Response": "≤10s",
+    "Eléctrica Consumption": "≤120W",
+    "Startup Time": "≤30s",
+    "Device Positioning": "GNSS location with coordinate reporting",
+    "Deployment": "Stationary, Portable, or Vehicle-mounted",
+    "Eléctrica Supply": "AC 90V-260V / DC 28V-36V",
+    "Operating Temp": "-41°C to +70°C",
+    "IP Rating": "IP66",
+    "Dimensions": "388mm * 388mm * 214mm",
+    "Weight": "≤10kg"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>UAV Navigation Spoofing sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>UAV Navigation Spoofing sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

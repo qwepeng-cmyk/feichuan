@@ -55,5 +55,24 @@
     "Защита": "IP66, защита матрицы от солнечных ожогов, работа до -40°C",
     "Вес": "45 кг (включая PTZ)"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Взаимное дополнение спектров: Быстрый поиск целей в ИК-диапазоне и детальное изучение в видимом свете.</li><li>Тяжелое исполнение: Усиленный ЧПУ-привод обеспечивает плавность хода и отсутствие дрожания при максимальном увеличении.</li><li>Умная противопожарная защита: Специализированные алгоритмы обнаруживают возгорания на ранних стадиях, минимизируя ущерб.</li><li>Надежность: Функция самодиагностики и защиты от засветки гарантируют долгий срок службы в автономном режиме.</li><li>Расширяемость: Возможность подключения лазерных дальномеров и модулей ГНСС для точного определения координат целей.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Взаимное дополнение спектров: Быстрый поиск целей в ИК-диапазоне и детальное изучение в видимом свете.</li><li>Тяжелое исполнение: Усиленный ЧПУ-привод обеспечивает плавность хода и отсутствие дрожания при максимальном увеличении.</li><li>Умная противопожарная защита: Специализированные алгоритмы обнаруживают возгорания на ранних стадиях, минимизируя ущерб.</li><li>Надежность: Функция самодиагностики и защиты от засветки гарантируют долгий срок службы в автономном режиме.</li><li>Расширяемость: Возможность подключения лазерных дальномеров и модулей ГНСС для точного определения координат целей.</li></ul>",
+  "product_name_es": "FC-TTVC Series Intelligent Multi-Band Camera",
+  "summary_es": "FC-TTVC Series Intelligent Multi-Band Camera de N-TET para monitoreo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Applications: Forest and industrial fire prevention; Long-range 24/7 target search and identification; All-dimensional EO/IR security monitoring for critical infrastructure.",
+  "key_parameter_1_es": "Sensing Technology: 6th Gen Uncooled VOx Thermal Imaging + Starlight Visible Light",
+  "key_parameter_2_es": "Laser Illumination Range: 1,000m - 3,000m (Optional)",
+  "parameters_es": {
+    "Model": "FC-TTVC series intelligent multi-band camera",
+    "Thermal Imaging": "1. Detector: 6th generation uncooled focal plane array VOx detector\n2. Resolution: 640×512\n3. Wavelength: 8～14μm\n4. NETD: 40mK (@25℃ F1.0)\n5. Lens Focal Length: 25mm~75mm/31mm~155mm/37mm~185mm/23mm~230mm/30mm~300mm\n6. Lens Control: Motorized zoom; manual/auto focus",
+    "Visible Light": "1. Sensor Type: Back-illuminated ultra-low illumination starlight-grade CMOS\n2. Minimum Illumination: Color: 0.0005Lux; B/W: 0.0001Lux; 0Lux (IR ON)\n3. Lens Focal Length: 7mm～330mm/11mm～860mm/12.5mm～750mm\n4. Lens Control: Megapixel HD motorized zoom; manual/auto focus",
+    "Laser Light Source": "1. Laser Type: New GHT-III HD floodlight ultra-homogenized light source patented technology\n2. Illumination Distance: 1000m~3000m optional\n3. Wavelength: 810nm laser\n4. Illumination Angle: 1°～20°/0.5°～20°/0.3°～20° optional, DSS digital stepping illumination angle control technology",
+    "Intelligent Functions": "1. Intelligent Analysis: Supports functions such as intrusion detection, tripwire detection, enter/leave region detection, and motion detection\n2. Supports single-scene tracking / supports multi-scene tracking / supports panorama tracking / supports alarm linkage tracking\n3. Alarm Management: Supports alarm capture upload",
+    "PTZ": "1. Range: Horizontal 0～360°, Tilt -45°～+45°\n2. Rotation Speed: Horizontal 0.01°/S～30°/S, Tilt 0.01°/S ～15°/S, supports lens focal length adaptive speed function\n3. Accuracy: ±0.1°",
+    "Interfaces": "1. Network Interface: 1-ch RJ45, 10/100 Base-T adaptive\n2. Power Supply: AC/DC24V, anti-reverse connection protection",
+    "Eléctrica Consumption": "1. Total Power Consumption: ≤180W",
+    "Weight": "1. Total Weight: 45kg (including PTZ)",
+    "Environmental Indicators": "1. Working Temperature: -40℃～60℃\n2. Storage Temperature: -45℃～70℃\n3. Working Humidity: ≤90% RH\n4. Protection Level: IP66",
+    "Customization": "1. Supports customized function development"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>FC-TTVC Series Intelligent Multi-Band Camera está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>FC-TTVC Series Intelligent Multi-Band Camera de N-TET para monitoreo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

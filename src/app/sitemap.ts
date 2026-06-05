@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
 import db from '@/lib/db';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { i18n, type Locale } from '@/i18n/config';
 
 const SITE_URL = 'https://n-tet.com';
-const LOCALES = ['en', 'ru'] as const;
 const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact'];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';
@@ -15,12 +15,12 @@ const CONTENT_CONFIG: Record<ContentType, { table: string; route: string; handle
   media: { table: 'media', route: 'media', handleColumn: 'id' },
 };
 
-function urlFor(locale: (typeof LOCALES)[number], path: string) {
+function urlFor(locale: Locale, path: string) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
   return `${SITE_URL}${locale === 'en' ? '' : `/${locale}`}${normalizedPath}`;
 }
 
-function sitemapEntry(locale: (typeof LOCALES)[number], path: string, priority: number): MetadataRoute.Sitemap[number] {
+function sitemapEntry(locale: Locale, path: string, priority: number): MetadataRoute.Sitemap[number] {
   return {
     url: urlFor(locale, path),
     lastModified: new Date(),
@@ -77,7 +77,7 @@ function solutionCategories() {
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const locale of LOCALES) {
+  for (const locale of i18n.locales) {
     for (const path of STATIC_PATHS) {
       entries.push(sitemapEntry(locale, path, path === '/' ? 1 : 0.8));
     }

@@ -9,7 +9,10 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
             position: 'fixed',
             bottom: 0,
             left: 0,
-            width: '100%',
+            right: 0,
+            width: 'auto',
+            maxWidth: '100vw',
+            boxSizing: 'border-box',
             height: '70px',
             background: '#fff',
             display: 'flex',
@@ -21,7 +24,9 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
         }}>
             {/* Get Solution */}
             <Link href={l("/contact")} style={{
-                flex: 1,
+                flex: '0 1 calc((100vw - 42px) / 2)',
+                minWidth: 0,
+                maxWidth: 'calc((100vw - 42px) / 2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -32,14 +37,18 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
                 borderRadius: '4px',
                 fontSize: '14px',
                 fontWeight: 700,
-                textDecoration: 'none'
+                textDecoration: 'none',
+                lineHeight: 1.2,
+                textAlign: 'center'
             }}>
                 <span style={{ fontSize: '18px' }}>📝</span> {dict.products.getSolution}
             </Link>
 
             {/* WhatsApp / Chat */}
             <a href="https://wa.me/8615011035546" target="_blank" style={{
-                flex: 1,
+                flex: '0 1 calc((100vw - 42px) / 2)',
+                minWidth: 0,
+                maxWidth: 'calc((100vw - 42px) / 2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -50,7 +59,9 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
                 borderRadius: '4px',
                 fontSize: '14px',
                 fontWeight: 700,
-                textDecoration: 'none'
+                textDecoration: 'none',
+                lineHeight: 1.2,
+                textAlign: 'center'
             }}>
                 <span style={{ fontSize: '18px' }}>💬</span> {dict.products.whatsapp}
             </a>

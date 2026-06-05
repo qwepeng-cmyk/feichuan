@@ -8,6 +8,7 @@ import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import type { CatalogCategory } from '@/components/products/GenericCatalogCenter';
+import { AccessoryCategoryIcon } from '@/components/products/accessoryCategoryIcons';
 
 interface CatalogItem {
   name: string;
@@ -45,15 +46,6 @@ function MobileCatalogCard({
   );
 }
 
-function MobileIcon() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="12" y="12" width="24" height="24" rx="3" />
-      <path d="M18 18h12v12H18zM8 18h4m-4 12h4m36-12h-4m4 12h-4M18 8v4m12-4v4m-12 36v-4m12 4v-4" />
-    </svg>
-  );
-}
-
 export default function MobileGenericCatalogCenter({
   categoriesData,
   categories,
@@ -61,6 +53,7 @@ export default function MobileGenericCatalogCenter({
   dict,
   bannerTitle,
   basePath,
+  bannerImage = '/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp',
 }: {
   categoriesData: Record<string, CatalogItem[]>;
   categories: CatalogCategory[];
@@ -68,6 +61,7 @@ export default function MobileGenericCatalogCenter({
   dict: any;
   bannerTitle: string;
   basePath: '/products' | '/accessories';
+  bannerImage?: string;
 }) {
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id || '');
   const [isFixed, setIsFixed] = useState(false);
@@ -110,7 +104,13 @@ export default function MobileGenericCatalogCenter({
 
   return (
     <div className={styles.wrapper}>
-      <section className={styles.banner} ref={bannerRef}>
+      <section
+        className={styles.banner}
+        ref={bannerRef}
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgba(5,18,37,0.72), rgba(5,18,37,0.18)), url('${bannerImage}')`,
+        }}
+      >
         <div className={styles.bannerOverlay} />
         <div className={styles.bannerContent}>
           <div className={styles.bannerTitle}>{bannerTitle}</div>
@@ -127,7 +127,7 @@ export default function MobileGenericCatalogCenter({
               className={`${styles.tabItem} ${activeCategory === cat.id ? styles.active : ''}`}
               onClick={() => scrollToCategory(cat.id)}
             >
-              <div className={styles.iconBox}><MobileIcon /></div>
+              <div className={styles.iconBox}><AccessoryCategoryIcon id={cat.id} /></div>
               <span className={styles.tabText}>{cat.name}</span>
             </button>
           ))}

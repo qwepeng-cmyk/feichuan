@@ -3,18 +3,30 @@
 > N-TET provides UAV systems, low-altitude monitoring, industrial security, and engineering-material content for international buyers and project teams.
 
 Canonical site: https://n-tet.com
-Generated: 2026-06-03
+Generated: 2026-06-04
 
 Compliance boundary: this file excludes restricted C-tier content, admin routes, preview routes, and advertising-unsafe paths. B-tier neutral SEO content may appear only as informational public content.
 
 ## Core Pages
 
-- [Home](https://n-tet.com/)
-- [Products](https://n-tet.com/products)
-- [Solutions](https://n-tet.com/solutions)
-- [Cases](https://n-tet.com/cases)
-- [Media](https://n-tet.com/media)
-- [Contact](https://n-tet.com/contact)
+- [Home (en)](https://n-tet.com/)
+- [Products (en)](https://n-tet.com/products)
+- [Solutions (en)](https://n-tet.com/solutions)
+- [Cases (en)](https://n-tet.com/cases)
+- [Media (en)](https://n-tet.com/media)
+- [Contact (en)](https://n-tet.com/contact)
+- [Home (ru)](https://n-tet.com/ru/)
+- [Products (ru)](https://n-tet.com/ru/products)
+- [Solutions (ru)](https://n-tet.com/ru/solutions)
+- [Cases (ru)](https://n-tet.com/ru/cases)
+- [Media (ru)](https://n-tet.com/ru/media)
+- [Contact (ru)](https://n-tet.com/ru/contact)
+- [Home (es)](https://n-tet.com/es/)
+- [Products (es)](https://n-tet.com/es/products)
+- [Solutions (es)](https://n-tet.com/es/solutions)
+- [Cases (es)](https://n-tet.com/es/cases)
+- [Media (es)](https://n-tet.com/es/media)
+- [Contact (es)](https://n-tet.com/es/contact)
 
 ## Products
 
@@ -39,13 +51,68 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 - [Emergency Search & Rescue Drone](https://n-tet.com/products/emergency-search-rescue-drone) - The emergency search-and-rescue UAV integrates HD visible-light imaging, infrared thermal imaging, intelligent target recognition, HD real-time video...
 - [Explosion Containment Vessel FBG-G1.5-FC06](https://n-tet.com/products/fbg-g15-fc06-explosion-containment-vessel) - The FBG-G1.5-FC06 Explosion Containment Vessel is a professional security protection device suitable for public security, airports, railway stations,...
 - [Explosion Protection Blanket FBT-FC09](https://n-tet.com/products/fbt-fc09-explosion-protection-blanket) - This explosion protection blanket is crafted from high-strength bulletproof fiber materials using specialized processing techniques. It features a we...
+- [FC-BT1 UAV Battery](https://n-tet.com/products/fc-bt1) - FC-BT1 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
+- [FC-BT2 UAV Battery](https://n-tet.com/products/fc-bt2) - FC-BT2 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
+- [FC-BT3 UAV Battery](https://n-tet.com/products/fc-bt3) - FC-BT3 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
+- [FC-BT4 UAV Battery](https://n-tet.com/products/fc-bt4) - FC-BT4 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
+- [FC-BTG UAV Battery](https://n-tet.com/products/fc-btg) - FC-BTG UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
+- [FC-C2D UAV Propeller](https://n-tet.com/products/fc-c2d-propeller) - FC-C2D UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-C2E UAV Propeller](https://n-tet.com/products/fc-c2e-propeller) - FC-C2E UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-C2T UAV Propeller](https://n-tet.com/products/fc-c2t-propeller) - FC-C2T UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-C2U UAV Propeller](https://n-tet.com/products/fc-c2u-propeller) - FC-C2U UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-C2UD UAV Propeller](https://n-tet.com/products/fc-c2ud-propeller) - FC-C2UD UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
 - [FC-DMA Multi-Spectral EO/IR PTZ Turret](https://n-tet.com/products/fc-dma-long-range-optical-turntable) - The FC-DMA multi-band optical turntable is a long-range optical detection system that can effectively detect, track, identify, and provide early warn...
 - [FC-DMS10 Series Smart Electronic Sentinel](https://n-tet.com/products/fc-dms10-smart-electronic-sentinel) - The FC-DMS10 series intelligent electronic sentinel is a lightweight, multi-functional, multi-purpose, and intelligent optical detection device integ...
 - [FC-DTVC Series Dual-Band Thermal High-Speed Dome](https://n-tet.com/products/fc-dtvc-dual-band-thermal-ptz) - The FC-DTVC series dual-band thermal imaging high-speed dome is an optical product designed for special applications. The product as a whole adopts t...
+- [FC-FDJ-111 UAV Engine](https://n-tet.com/products/fc-fdj-111) - FC-FDJ-111 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-120 UAV Engine](https://n-tet.com/products/fc-fdj-120) - FC-FDJ-120 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-120HD UAV Engine](https://n-tet.com/products/fc-fdj-120hd) - FC-FDJ-120HD UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-170 UAV Engine](https://n-tet.com/products/fc-fdj-170) - FC-FDJ-170 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-200 UAV Engine](https://n-tet.com/products/fc-fdj-200) - FC-FDJ-200 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-222 UAV Engine](https://n-tet.com/products/fc-fdj-222) - FC-FDJ-222 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-430 UAV Engine](https://n-tet.com/products/fc-fdj-430) - FC-FDJ-430 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-55 UAV Engine](https://n-tet.com/products/fc-fdj-55) - FC-FDJ-55 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-60 UAV Engine](https://n-tet.com/products/fc-fdj-60) - FC-FDJ-60 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-61 UAV Engine](https://n-tet.com/products/fc-fdj-61) - FC-FDJ-61 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-70HD UAV Engine](https://n-tet.com/products/fc-fdj-70hd) - FC-FDJ-70HD UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-FDJ-85 UAV Engine](https://n-tet.com/products/fc-fdj-85) - FC-FDJ-85 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
+- [FC-L10TR Electro-Optical Gimbal](https://n-tet.com/products/fc-l10tr-three-light-gimbal) - FC-L10TR Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-L40 Electro-Optical Gimbal](https://n-tet.com/products/fc-l40-smart-optical-pod) - FC-L40 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-L40T Electro-Optical Gimbal](https://n-tet.com/products/fc-l40t-dual-light-gimbal) - FC-L40T Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-L40TR Electro-Optical Gimbal](https://n-tet.com/products/fc-l40tr-smart-optical-pod) - FC-L40TR Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-L50 Electro-Optical Gimbal](https://n-tet.com/products/fc-l50-smart-optical-pod) - FC-L50 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-LN100 Electro-Optical Gimbal](https://n-tet.com/products/fc-ln100-dual-light-gimbal) - FC-LN100 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-LN95 Electro-Optical Gimbal](https://n-tet.com/products/fc-ln95-dual-light-gimbal) - FC-LN95 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-MAX 5330 UAV Motor](https://n-tet.com/products/fc-max-5330) - FC-MAX 5330 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-Mesh-100 UAV Data Link](https://n-tet.com/products/fc-mesh-100) - FC-Mesh-100 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
+- [FC-MiniL10TR Electro-Optical Gimbal](https://n-tet.com/products/fc-mini-l10tr-smart-optical-pod) - FC-MiniL10TR Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
+- [FC-PAB UAV Propeller](https://n-tet.com/products/fc-pab-propeller) - FC-PAB UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-PAD UAV Propeller](https://n-tet.com/products/fc-pad-propeller) - FC-PAD UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-PAE UAV Propeller](https://n-tet.com/products/fc-pae-propeller) - FC-PAE UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-PBF UAV Propeller](https://n-tet.com/products/fc-pbf-propeller) - FC-PBF UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
 - [FC-PD500 X-γ Personal Radiation Dose Alarm](https://n-tet.com/products/fc-pd500-personal-radiation-dose-alarm) - The FC-PD500 is a compact, high-sensitivity X-γ personal radiation dose alarm, using a high-speed, low-power embedded microprocessor as the data proc...
 - [FC-RC Series HD Long-Range Laser Camera](https://n-tet.com/products/fc-rc-series-hd-laser-camera) - The FC-RC series high-definition laser camera uses an ultra-homogenized laser as the illumination source and a low-illumination telephoto camera. It...
 - [FC-RDS500-4R Radar-Vision Fusion System](https://n-tet.com/products/fc-rds500-4r-radar-vision-sentinel) - The FC-RDS500-4R radar-vision fusion intelligent electronic sentinel system is a wide-area panoramic radar-vision fusion equipment product. Target de...
+- [FC-RM10X UAV Motor](https://n-tet.com/products/fc-rm10x) - FC-RM10X UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-RM30 UAV Motor](https://n-tet.com/products/fc-rm30) - FC-RM30 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-SJL-100 UAV Data Link](https://n-tet.com/products/fc-sjl-100) - FC-SJL-100 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
+- [FC-SJL-200 UAV Data Link](https://n-tet.com/products/fc-sjl-200) - FC-SJL-200 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
+- [FC-SJL-30 UAV Data Link](https://n-tet.com/products/fc-sjl-30) - FC-SJL-30 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
+- [FC-SJL-380 UAV Data Link](https://n-tet.com/products/fc-sjl-380) - FC-SJL-380 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
+- [FC-SJL-50 UAV Data Link](https://n-tet.com/products/fc-sjl-50) - FC-SJL-50 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
 - [FC-TTVC Series Intelligent Multi-Band Camera](https://n-tet.com/products/fc-ttvc-intelligent-multi-band-camera) - The FC-TTVC series intelligent multi-band camera is a camera designed and developed for the field of remote day and night monitoring based on the six...
+- [FC-U10-PRO Flight Controller](https://n-tet.com/products/fc-u10-pro) - FC-U10-PRO Flight Controller for industrial UAV accessory integration, matching flight controllers requirements.
+- [FC-U110 UAV Motor](https://n-tet.com/products/fc-u110) - FC-U110 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-U12 Flight Controller](https://n-tet.com/products/fc-u12) - FC-U12 Flight Controller for industrial UAV accessory integration, matching flight controllers requirements.
+- [FC-U8013 UAV Motor](https://n-tet.com/products/fc-u8013) - FC-U8013 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-U9-AG Flight Controller](https://n-tet.com/products/fc-u9-ag) - FC-U9-AG Flight Controller for industrial UAV accessory integration, matching flight controllers requirements.
+- [FC-W2U UAV Propeller](https://n-tet.com/products/fc-w2u-propeller) - FC-W2U UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-X8030 UAV Motor](https://n-tet.com/products/fc-x8030) - FC-X8030 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-XH14 UAV Motor](https://n-tet.com/products/fc-xh14) - FC-XH14 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
+- [FC-YK15 UAV Remote Controller](https://n-tet.com/products/fc-yk15-remote-controller) - FC-YK15 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
+- [FC-YK24 UAV Remote Controller](https://n-tet.com/products/fc-yk24-remote-controller) - FC-YK24 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
+- [FC-YK32 UAV Remote Controller](https://n-tet.com/products/fc-yk32-remote-controller) - FC-YK32 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
+- [FC-YKRC7 UAV Remote Controller](https://n-tet.com/products/fc-ykrc7-remote-controller) - FC-YKRC7 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
 - [FC4028 Neutron Ambient Dose Equivalent (Rate) Meter](https://n-tet.com/products/fc4028-neutron-ambient-dose-rate-meter) - This neutron dose rate meter is an intelligent radiation measurement instrument that uses a smart probe connected to a multi-functional radiation mea...
 - [Hand-carried RF Detection System](https://n-tet.com/products/portable-rf-detection-case) [neutral SEO] - The hand-carried RF detection system offers full-band detection across 300MHz to 6000MHz. It enables the detection, identification, positioning, trac...
 - [Handheld Liquid Detector FC1500](https://n-tet.com/products/fc1500-handheld-liquid-detector) - The FC1500 Handheld Hazardous Liquid Security Detector is a specialized instrument designed for the detection of flammable and explosive liquids. Cha...
@@ -127,3 +194,4 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 
 - en: https://n-tet.com/
 - ru: https://n-tet.com/ru
+- es: https://n-tet.com/es

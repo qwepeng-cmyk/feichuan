@@ -57,5 +57,23 @@
     "Размеры": "216 * 50 * 79 мм",
     "Память данных": "Не менее 10 000 записей, экспорт через USB"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Исключительная портативность: Легкий вес и компактный дизайн для мобильных групп досмотра.</li><li>Безопасность и точность: Быстрая идентификация через стенки емкости без вскрытия упаковки.</li><li>Инновационность: Первый в мире прибор с акцентом на обнаружение нитрометана — ключевого сырья для самодельных жидких взрывчатых веществ.</li><li>Широкая сфера применения: Идеально подходит для предотвращения терактов в метро и аэропортах, а также для пожарной профилактики на транспорте.</li><li>Простота: Требует минимального обучения персонала, интуитивно понятный ЖК-интерфейс.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Исключительная портативность: Легкий вес и компактный дизайн для мобильных групп досмотра.</li><li>Безопасность и точность: Быстрая идентификация через стенки емкости без вскрытия упаковки.</li><li>Инновационность: Первый в мире прибор с акцентом на обнаружение нитрометана — ключевого сырья для самодельных жидких взрывчатых веществ.</li><li>Широкая сфера применения: Идеально подходит для предотвращения терактов в метро и аэропортах, а также для пожарной профилактики на транспорте.</li><li>Простота: Требует минимального обучения персонала, интуитивно понятный ЖК-интерфейс.</li></ul>",
+  "product_name_es": "Handheld Liquid Detector FC1500",
+  "summary_es": "Handheld Liquid Detector FC1500 de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Non-contact hazardous liquid identification; Portable security for airports; Subways; And major events; Detects 40+ types of chemicals including nitromethane and acids; High-endurance battery for 1250+ tests.",
+  "key_parameter_1_es": "Detección Principle: Microwave Analysis",
+  "key_parameter_2_es": "Response Time: 1s - 2.5s",
+  "parameters_es": {
+    "Technology": "Microwave Analysis (based on conductivity and resistance)",
+    "Response Time": "1s - 2.5s",
+    "Startup": "1s (No preheating required)",
+    "Library": "40+ hazardous liquids including gasoline, nitromethane, and concentrated acids",
+    "Self-Calibration": "5 seconds",
+    "Alarms": "OLED graphic display and acoustic signal",
+    "Batería Life": "Li-ion battery; ≥1250 tests per charge",
+    "Weight": "Approx. 199.5g (including battery)",
+    "Dimensions": "216mm * 50mm * 79mm",
+    "Data Export": "Stores ≥10,000 records; USB interface"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Handheld Liquid Detector FC1500 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Handheld Liquid Detector FC1500 de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

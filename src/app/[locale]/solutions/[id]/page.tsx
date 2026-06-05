@@ -12,15 +12,19 @@ import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
-  return handles.map((id) => ({
-    id,
-  }));
+  return handles
+    .filter((id) => isPublicComplianceContent('solution', id))
+    .map((id) => ({
+      id,
+    }));
 }
 
 export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
+  if (!isPublicComplianceContent('solution', params.id)) return {};
   const solution = await getSolutionById(params.id);
   if (!solution) return {};
 
@@ -40,6 +44,10 @@ export async function generateMetadata({ params }: { params: { id: string; local
 // 1. Data Fetching Component (Streaming)
 async function SolutionDetailContent({ id, locale }: { id: string; locale: Locale }) {
   const dict = await getDictionary(locale);
+  if (!isPublicComplianceContent('solution', id)) {
+    notFound();
+  }
+
   const solution = await getSolutionById(id);
   if (!solution) {
     notFound();

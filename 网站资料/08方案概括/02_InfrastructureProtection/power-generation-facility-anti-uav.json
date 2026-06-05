@@ -45,5 +45,17 @@
     "Точность тревоги": "Высокоточное определение азимута",
     "Возможности защиты": "Предотвращение падения объектов и ближней разведки"
   },
-  "detail_html_ru": "<h4>Безопасность энергетических объектов</h4><p>В условиях роста угроз с воздуха энергоузлы и нефтепромыслы часто подвергаются вторжению нелегальных БПЛА. Наши параметры оптимизированы для исключения помех критическому оборудованию.</p><ul><li>Круглосуточное отслеживание траекторий БПЛА</li><li>Настройка параметров без влияния на работу активов электросети</li><li>Адаптация к сложным промышленным условиям эксплуатации</li></ul>"
+  "detail_html_ru": "<h4>Безопасность энергетических объектов</h4><p>В условиях роста угроз с воздуха энергоузлы и нефтепромыслы часто подвергаются вторжению нелегальных БПЛА. Наши параметры оптимизированы для исключения помех критическому оборудованию.</p><ul><li>Круглосуточное отслеживание траекторий БПЛА</li><li>Настройка параметров без влияния на работу активов электросети</li><li>Адаптация к сложным промышленным условиям эксплуатации</li></ul>",
+  "product_name_es": "Eléctrica Generation Facility espacio aéreo monitoreo",
+  "summary_es": "Eléctrica Generation Facility espacio aéreo monitoreo de N-TET para infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "",
+  "key_parameter_1_es": "Infraestructura Alert: Auto-detection of unauthorized mapping and spying to prevent line damage",
+  "key_parameter_2_es": "Continuous Safeguard: Integrated fixed and portable response workflows for stable hub operation",
+  "parameters_es": {
+    "Application": "Thermal/Nuclear/Wind/subestación hubs",
+    "Bands": "Multi-band coverage (airspace data review)",
+    "Alert Precision": "High-precision directional recognition",
+    "Protection": "Prevents fall damage and close reconnaissance"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Eléctrica Generation Facility espacio aéreo monitoreo está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Eléctrica Generation Facility espacio aéreo monitoreo de N-TET para infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

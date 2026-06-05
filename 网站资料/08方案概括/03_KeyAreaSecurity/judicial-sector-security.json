@@ -49,5 +49,18 @@
     "Точность досмотра": "Многоуровневая проверка (миллиметровые волны / X-ray)",
     "Время реакции": "< 2 с (автоматический захват и распознавание)"
   },
-  "detail_html_ru": "<h4>Трехмерная линия обороны судебных органов</h4><p>Для зон строгого контроля решение не только предотвращает вмешательство внешних БПЛА, но и повышает уровень цифрового контроля на физических КПП.</p><ul><li>регистрация и проверка низковысотных событий нелегальных БПЛА для предотвращения утечек информации</li><li>Детекторы FC-H для перехвата запрещенных мобильных телефонов</li><li>Интеллектуальные рентгеновские сканеры для быстрой проверки входящих грузов</li></ul>"
+  "detail_html_ru": "<h4>Трехмерная линия обороны судебных органов</h4><p>Для зон строгого контроля решение не только предотвращает вмешательство внешних БПЛА, но и повышает уровень цифрового контроля на физических КПП.</p><ul><li>регистрация и проверка низковысотных событий нелегальных БПЛА для предотвращения утечек информации</li><li>Детекторы FC-H для перехвата запрещенных мобильных телефонов</li><li>Интеллектуальные рентгеновские сканеры для быстрой проверки входящих грузов</li></ul>",
+  "product_name_es": "Sector judicial seguridad Protection",
+  "summary_es": "Sector judicial seguridad Protection de N-TET para monitoreo, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Key Area seguridad (Judicial/Military/Government).",
+  "key_parameter_1_es": "Multi-dimensional Defense: Integrated monitoring, Airspace Monitoring, and screening against spying and drops",
+  "key_parameter_2_es": "24/7 monitoreo: Multi-spectral imaging and smart ID for precision tracking of people, goods, and UAVs",
+  "parameters_es": {
+    "Depth": "Outdoor-Indoor integrated linkage",
+    "Response Workflow": "Full-band screening protection",
+    "Accuracy": "Multi-layered MMW/X-ray inspection",
+    "Response": "< 2s auto-capture & recognition",
+    "Industry_pain_points_image": "/solutions/solutions/sector judicial seguridad.webp"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Sector judicial seguridad Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Sector judicial seguridad Protection de N-TET para monitoreo, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

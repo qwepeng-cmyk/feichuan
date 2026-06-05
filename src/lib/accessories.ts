@@ -72,7 +72,7 @@ export const getAllAccessories = unstable_cache(
 
     return categories;
   },
-  ['all-accessories-uav-20260604-v4'],
+  ['all-accessories-uav-20260605-v8'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );
 
@@ -86,7 +86,7 @@ export const getAllAccessoryHandles = unstable_cache(
     `).all() as any[];
     return rows.map((row) => row.handle).filter(Boolean);
   },
-  ['accessory-handles-20260604-v4'],
+  ['accessory-handles-20260605-v8'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );
 
@@ -110,6 +110,6 @@ export const getAccessoryByHandle = unstable_cache(
       return pruneAccessoryDetailPayload(row);
     }
   },
-  ['accessory-detail-20260604-v4'],
+  ['accessory-detail-20260605-v8'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );

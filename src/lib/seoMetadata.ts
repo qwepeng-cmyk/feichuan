@@ -363,6 +363,59 @@ const PRODUCT_CATEGORY_KEYWORDS: Record<string, string[]> = {
   'perimeter-intelligence': ['perimeter intelligence', 'electro optical surveillance', 'radar vision fusion system'],
 };
 
+const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEntry>>> = {
+  es: {
+    '/': {
+      title: 'Sistemas UAV industriales y monitoreo de baja altitud | N-TET',
+      description:
+        'N-TET desarrolla plataformas UAV industriales, monitoreo de baja altitud, drones de emergencia, sistemas de inspección y soluciones de inspección de seguridad para operadores de infraestructura.',
+      keywords: ['sistemas UAV industriales', 'monitoreo de baja altitud', 'dron de inspección UAV', 'UAV de emergencia', 'equipos de monitoreo aéreo'],
+    },
+    '/products': {
+      title: 'Sistemas UAV industriales y equipos de monitoreo | Productos N-TET',
+      description:
+        'Explore UAV industriales, drones cautivos de emergencia, UAV de inspección, equipos de monitoreo de baja altitud y sistemas de inspección de seguridad de N-TET.',
+      keywords: ['sistemas UAV industriales', 'dron de inspección', 'UAV cautivo', 'dron de emergencia', 'equipos de monitoreo de baja altitud'],
+    },
+    '/accessories': {
+      title: 'Accesorios para drones y componentes UAV | N-TET',
+      description:
+        'Consulte accesorios UAV de N-TET: gimbals electro-ópticos, motores, enlaces de datos, hélices, baterías, controles remotos y controladores de vuelo.',
+      keywords: ['accesorios para drones', 'componentes UAV', 'gimbal UAV', 'motor UAV', 'enlace de datos UAV'],
+    },
+    '/solutions': {
+      title: 'Soluciones UAV industriales | N-TET',
+      description:
+        'Soluciones UAV para inspección, patrullaje, apoyo de emergencia y monitoreo del espacio aéreo de baja altitud.',
+      keywords: ['soluciones UAV', 'dron de búsqueda y rescate', 'dron contra incendios', 'inspección de líneas eléctricas con UAV'],
+    },
+    '/cases': {
+      title: 'Casos de despliegue UAV | N-TET',
+      description:
+        'Referencias de despliegue para inspección UAV, patrullaje, apoyo de emergencia y monitoreo de baja altitud.',
+      keywords: ['casos UAV', 'patrullaje UAV', 'monitoreo de baja altitud', 'inspección UAV'],
+    },
+    '/media': {
+      title: 'Noticias sobre UAV industriales y monitoreo de baja altitud | N-TET',
+      description:
+        'Lea perspectivas de N-TET sobre operaciones UAV industriales, economía de baja altitud, UAV cautivos, redundancia e infraestructura.',
+      keywords: ['noticias UAV industriales', 'economía de baja altitud', 'UAV cautivo', 'monitoreo de infraestructura'],
+    },
+    '/about': {
+      title: 'Acerca de N-TET | Fabricante de sistemas UAV industriales',
+      description:
+        'Conozca las capacidades de ingeniería, I+D y fabricación de N-TET para sistemas UAV industriales, monitoreo de baja altitud y tecnologías de seguridad.',
+      keywords: ['fabricante UAV industrial', 'proveedor de sistemas UAV', 'monitoreo de baja altitud', 'N-TET'],
+    },
+    '/contact': {
+      title: 'Contacto N-TET | Sistemas UAV industriales y monitoreo',
+      description:
+        'Contacte a N-TET para sistemas UAV industriales, drones de emergencia, UAV de inspección, monitoreo de baja altitud y soluciones de seguridad.',
+      keywords: ['cotización UAV industrial', 'proveedor UAV', 'solución de inspección con drones', 'monitoreo de baja altitud'],
+    },
+  },
+};
+
 function localizedPath(locale: Locale, path: string) {
   const normalized = path === '/' ? '/' : `/${path.replace(/^\/+/, '')}`;
   return locale === 'en' ? normalized : `/${locale}${normalized === '/' ? '' : normalized}`;
@@ -397,9 +450,9 @@ function fallbackKeywords(title: string, category?: string | null) {
   ])).slice(0, 8);
 }
 
-export function getKeywordBackedSeo(path: string) {
+export function getKeywordBackedSeo(path: string, locale: Locale = 'en') {
   const normalized = path === '/' ? '/' : `/${path.replace(/^\/+/, '')}`;
-  return KEYWORD_BACKED_SEO[normalized];
+  return LOCALIZED_KEYWORD_BACKED_SEO[locale]?.[normalized] || KEYWORD_BACKED_SEO[normalized];
 }
 
 export function getProductSeo(handle: string, name: string, category?: string | null): SeoEntry {
@@ -423,7 +476,7 @@ export function buildSeoMetadata({
   fallbackKeywords: fallbackKeywordList,
   image,
 }: BuildSeoMetadataOptions): Metadata {
-  const entry = getKeywordBackedSeo(path);
+  const entry = getKeywordBackedSeo(path, locale);
   const canonical = localizedPath(locale, path);
   const title = entry?.title || titleWithBrand(fallbackTitle);
   const description = entry?.description || cleanDescription(fallbackDescription) || `${fallbackTitle} from ${SITE_NAME}.`;

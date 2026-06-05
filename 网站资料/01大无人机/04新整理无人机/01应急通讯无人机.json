@@ -57,5 +57,24 @@
     "Сопротивление ветру": "Уровень 7",
     "Габариты (развернутый)": "1940 * 1700 * 750 мм"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Длительная автономность: Благодаря кабельному питанию система может работать 12 часов подряд, что невозможно для обычных аккумуляторных дронов.</li><li>Интегрированная база: Система поддерживает установку оборудования сотовой связи 4G/5G и коротковолновых радиостанций.</li><li>Сценарии ЧС: Быстрое восстановление связи после землетрясений и тайфунов для координации спасательных работ.</li><li>Надежность: Автоматическая система намотки кабеля и сервоприводы обеспечивают стабильное удержание высоты даже при сильном ветре.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Длительная автономность: Благодаря кабельному питанию система может работать 12 часов подряд, что невозможно для обычных аккумуляторных дронов.</li><li>Интегрированная база: Система поддерживает установку оборудования сотовой связи 4G/5G и коротковолновых радиостанций.</li><li>Сценарии ЧС: Быстрое восстановление связи после землетрясений и тайфунов для координации спасательных работ.</li><li>Надежность: Автоматическая система намотки кабеля и сервоприводы обеспечивают стабильное удержание высоты даже при сильном ветре.</li></ul>",
+  "product_name_es": "Emergencia comunicación dron",
+  "summary_es": "Emergencia comunicación dron de N-TET para respuesta de emergencia, comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Rapid relay signal construction at disaster sites (earthquakes; Floods); Network building in signal-blind areas (deserts; Mines); Local network and 360° monitoring in complex terrains.",
+  "key_parameter_1_es": "Endurance: ≥12h",
+  "key_parameter_2_es": "Cautivo Hovering Height: 150m (Customizable)",
+  "parameters_es": {
+    "Unfolded Dimensions": "1940*1700*750mm",
+    "Wind Resistance": "Level 7",
+    "Number of Rotors": "6 Axis 6 Props",
+    "Folded Dimensions": "1160*1080*750mm",
+    "Cautivo Hovering Height": "150m (Customizable)",
+    "Hélices": "34-inch Folding Props",
+    "Standard carga útil": "20kg",
+    "Positioning Accuracy": "±0.05m(RTK)",
+    "Wheelbase": "1800mm",
+    "Endurance": "≥12h",
+    "Positioning sistema": "GPS/Beidou/Galileo/Glonass"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia comunicación dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia comunicación dron de N-TET para respuesta de emergencia, comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

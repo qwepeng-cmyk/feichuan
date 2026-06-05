@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { localePath } from '@/lib/localePath';
+import { localizedField } from '@/lib/localization';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const MobileCases = dynamic(() => import('../home/sections/MobileCases'), {
@@ -181,7 +182,7 @@ export default function MobileHome({
                         className="no-scrollbar"
                     >
                         {solutions.map((sol, idx) => {
-                            const solName = locale === 'ru' ? (sol.title_ru || sol.title) : sol.title;
+                            const solName = localizedField(sol, 'title', locale);
 
                             return (
                                 <Link key={sol.id} href={localePath(locale, sol.link)} style={{
@@ -257,7 +258,7 @@ export default function MobileHome({
                 <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.products}</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
                     {products.slice(0, 6).map((item, idx) => {
-                        const productTitle = locale === 'ru' ? item.main_ru : item.main;
+                        const productTitle = localizedField(item, 'main', locale);
                         return (
                             <Link key={idx} href={localePath(locale, `/products/${item.handle}`)} style={{
                                 background: '#fff',

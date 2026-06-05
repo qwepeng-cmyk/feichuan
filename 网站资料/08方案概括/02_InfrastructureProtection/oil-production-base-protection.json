@@ -45,5 +45,17 @@
     "Сопровождение": "Поддержка одновременного отслеживания нескольких целей",
     "Интеграция": "Сопряжение с центральным пультом охраны предприятия"
   },
-  "detail_html_ru": "<h4>Трехмерная архитектура защиты</h4><p>Нефтебазам требуется как широкомасштабный мониторинг, так и высокоточные процедуры реагирования. Стратегическое размещение оборудования позволяет обнаруживать угрозы за несколько километров.</p><ul><li>Многоуровневая защита (Обнаружение + Документированное реагирование)</li><li>ИК-тепловизоры сверхдальнего действия</li><li>Определение местоположения оператора дрона в реальном времени</li></ul>"
+  "detail_html_ru": "<h4>Трехмерная архитектура защиты</h4><p>Нефтебазам требуется как широкомасштабный мониторинг, так и высокоточные процедуры реагирования. Стратегическое размещение оборудования позволяет обнаруживать угрозы за несколько километров.</p><ul><li>Многоуровневая защита (Обнаружение + Документированное реагирование)</li><li>ИК-тепловизоры сверхдальнего действия</li><li>Определение местоположения оператора дрона в реальном времени</li></ul>",
+  "product_name_es": "Base de producción petrolera Protection",
+  "summary_es": "Base de producción petrolera Protection de N-TET para monitoreo, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Espacio aéreo monitoreo Application for Natural Gas Facilities.",
+  "key_parameter_1_es": "Wide-area Coverage: Strategic high-altitude deployment for seamless monitoring of tanks and production zones",
+  "key_parameter_2_es": "Layered Defense: Integrated link of radio detection, navigation-signal analysis, and directional RF signal analysis",
+  "parameters_es": {
+    "Range": "5km - 10km (depending on model)",
+    "Response Workflow": "Full-band event management + navigation-signal analysis",
+    "Seguimiento": "Supports multi-target tracking",
+    "Integration": "Integrated with plant central security"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Base de producción petrolera Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Base de producción petrolera Protection de N-TET para monitoreo, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

@@ -60,5 +60,24 @@
     "Вес": "< 15 кг",
     "Время прогрева": "< 20 минут"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Безопасный источник: Отсутствие радиоактивных изотопов упрощает сертификацию и использование.</li><li>Двойной режим: Одновременный поиск наркотиков и взрывчатки в одном цикле анализа.</li><li>Скорость работы: Результат менее чем за 6 секунд.</li><li>Интеллектуальная система: Встроенный принтер для печати результатов, функция самоочистки и автоматическая калибровка.</li><li>Масштабируемость: Открытая база данных позволяет добавлять новые образцы веществ авторизованными пользователями.</li><li>Наглядность: Отображение результатов в виде спектрограмм и гистограмм с цветовой индикацией опасности.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Безопасный источник: Отсутствие радиоактивных изотопов упрощает сертификацию и использование.</li><li>Двойной режим: Одновременный поиск наркотиков и взрывчатки в одном цикле анализа.</li><li>Скорость работы: Результат менее чем за 6 секунд.</li><li>Интеллектуальная система: Встроенный принтер для печати результатов, функция самоочистки и автоматическая калибровка.</li><li>Масштабируемость: Открытая база данных позволяет добавлять новые образцы веществ авторизованными пользователями.</li><li>Наглядность: Отображение результатов в виде спектрограмм и гистограмм с цветовой индикацией опасности.</li></ul>",
+  "product_name_es": "Desktop Explosives & Narcotics Detector FC1800T",
+  "summary_es": "Desktop Explosives & Narcotics Detector FC1800T de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Simultaneous trace detection of explosives and narcotics; Non-radioactive vacuum UV light source; 6-second ultra-fast analysis; 10.4-inch touchscreen with 100; 000+ data storage capability.",
+  "key_parameter_1_es": "Dimensions: 380mm(W) x 400mm(L) x 180mm(H)",
+  "key_parameter_2_es": "Analysis Time: 6 seconds",
+  "parameters_es": {
+    "Technology": "Non-radioactive Vacuum Ultraviolet Photoionization (VUV)",
+    "Explosives Library": "Black Powder, AN, TNT, HMX, DNT, Tetryl, PETN, RDX, NG, and various improvised explosives",
+    "Narcotics Library": "Cocaine, Heroin, Marijuana, Methamphetamine, Ketamine, Morphine, etc.",
+    "Analysis Time": "≤ 6 seconds",
+    "Sensitivity": "Nanogram (ng) level",
+    "Display": "10.4-inch TFT Color Touchscreen",
+    "Sampling Method": "Trace particle swiping via test paper",
+    "Storage": "≥ 100,000 records; support for retrieval and cloud updates",
+    "Connectivity": "LAN, WiFi, Bluetooth, USB",
+    "Weight": "< 15 kg",
+    "Eléctrica Supply": "AC 220V / 50Hz"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Desktop Explosives &amp; Narcotics Detector FC1800T está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Desktop Explosives &amp; Narcotics Detector FC1800T de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

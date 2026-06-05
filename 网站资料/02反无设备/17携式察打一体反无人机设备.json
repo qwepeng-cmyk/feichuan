@@ -71,5 +71,28 @@
     "Класс защиты": "IP54",
     "Рабочая температура": "-30℃ ~ +55℃"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интегрированная архитектура: Сочетание偵察 и подавления в одном корпусе позволяет мгновенно реагировать на угрозу без смены оборудования.</li><li>Умное подавление SDR: Использование динамических помеховых кодов позволяет эффективно бороться с самодельными FPV-дронами и нестандартными протоколами управления.</li><li>Полнодиапазонный охват: Возможность настройки любых частот в диапазоне до 6 ГГц для противодействия новым типам угроз.</li><li>Система целеуказания: Вспомогательный прицел отображает информацию о цели и расчетное положение пилота в реальном времени.</li><li>Эргономика и мобильность: Конструкция без внешних кабелей и блоков обеспечивает максимальную свободу действий оператора.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интегрированная архитектура: Сочетание偵察 и подавления в одном корпусе позволяет мгновенно реагировать на угрозу без смены оборудования.</li><li>Умное подавление SDR: Использование динамических помеховых кодов позволяет эффективно бороться с самодельными FPV-дронами и нестандартными протоколами управления.</li><li>Полнодиапазонный охват: Возможность настройки любых частот в диапазоне до 6 ГГц для противодействия новым типам угроз.</li><li>Система целеуказания: Вспомогательный прицел отображает информацию о цели и расчетное положение пилота в реальном времени.</li><li>Эргономика и мобильность: Конструкция без внешних кабелей и блоков обеспечивает максимальную свободу действий оператора.</li></ul>",
+  "product_name_es": "Handheld Integrated C-UAS sistema",
+  "summary_es": "Handheld Integrated C-UAS sistema de N-TET para operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: All-in-one detection and neutralization (3km detection/2km strike); SDR-based dynamic code jamming for DIY FPV and standard drones; Auxiliary aiming system for real-time target data and pilot positioning; Full-band coverage from 400MHz to 6GHz.",
+  "key_parameter_1_es": "Jamming Distance: ≥2km (J/S ratio 2:1); ≥1km for DJI Mini 4 Pro / Mavic 3; supports ELRS/TBS Crossfire protocols",
+  "key_parameter_2_es": "Total Weight: <7kg",
+  "parameters_es": {
+    "Detección Bands": "100MHz-6000MHz",
+    "Target Types": "DIY FPV (ELRS/TBS), DJI, Autel, Parrot, WiFi drones",
+    "Detección Range": "≥3km (Open area); 0.5-1km (Urban)",
+    "Accuracy": "10° Direction Finding (Open area)",
+    "Jamming Bands": "400M / 800M-900M / 1.2G / 1.4G / 1.5G / 2.4G / 5.2G / 5.8G (SDR Software Defined)",
+    "Jamming Angle": "Directional: 45° H, 30° V",
+    "Jamming Distance": "≥2km (General); ≥1km (DJI high-power models)",
+    "Response Time": "<5s",
+    "Display": "5-inch touchscreen (status, model, battery, logs)",
+    "Batería Type": "Swappable lithium battery",
+    "Batería Endurance": "≥15min (full-band emission)",
+    "Dimensions": "653 * 407 * 187mm (±5mm)",
+    "Weight": "<7kg",
+    "IP Rating": "IP54",
+    "Operating Temp": "-30°C to +55°C"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Handheld Integrated C-UAS sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Handheld Integrated C-UAS sistema de N-TET para operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

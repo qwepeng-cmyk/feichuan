@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { products, solutions } from '@/constants/homeData';
 import { localePath } from '@/lib/localePath';
+import { localizedField } from '@/lib/localization';
 
 // Dynamic imports for better performance
 const HomeCases = dynamic(() => import('../home/sections/HomeCases'), { 
@@ -53,9 +54,9 @@ export default function DesktopHome({
     };
 
     const currentProduct = products[currentIndex];
-    const localizedProductMain = locale === 'ru' ? currentProduct.main_ru : currentProduct.main;
-    const localizedProductDesc = locale === 'ru' ? currentProduct.desc_ru : currentProduct.desc;
-    const localizedProductTop = locale === 'ru' ? currentProduct.top_ru : currentProduct.top;
+    const localizedProductMain = localizedField(currentProduct, 'main', locale);
+    const localizedProductDesc = localizedField(currentProduct, 'desc', locale);
+    const localizedProductTop = localizedField(currentProduct, 'top', locale);
 
     // Drag logic for solutions track
     useEffect(() => {
@@ -188,7 +189,7 @@ export default function DesktopHome({
                         </div>
                         <div className="solutions-track" id="solutions-track" ref={solutionTrackRef}>
                             {solutions.map((sol, index) => {
-                                const solName = locale === 'ru' ? (sol.title_ru || sol.title) : sol.title;
+                                const solName = localizedField(sol, 'title', locale);
 
                                 return (
                                     <Link

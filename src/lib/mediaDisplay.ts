@@ -13,6 +13,14 @@ export function getLocalizedMediaDate(date: string, locale: string) {
     }).format(parsed);
   }
 
+  if (locale === 'es') {
+    return new Intl.DateTimeFormat('es-419', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(parsed);
+  }
+
   return date;
 }
 

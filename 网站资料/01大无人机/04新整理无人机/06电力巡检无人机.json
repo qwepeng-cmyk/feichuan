@@ -61,5 +61,26 @@
     "Макс. высота взлета": "5000 м",
     "Спутниковые системы": "GPS/Beidou"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Гибридная конструкция: Сочетает удобство взлета коптера с высокой скоростью и дальностью полета самолета.</li><li>Высокоточная инспекция: Поддержка LiDAR для создания сверхточных облаков точек и камер с 30-кратным зумом для детального осмотра арматуры опор.</li><li>Экономическая эффективность: Один полет заменяет многодневный обход наземными бригадами в труднодоступной местности.</li><li>Интеллектуальная обработка: Автоматическое выявление опасного сближения веток деревьев с проводами и других угроз безопасности сети.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Гибридная конструкция: Сочетает удобство взлета коптера с высокой скоростью и дальностью полета самолета.</li><li>Высокоточная инспекция: Поддержка LiDAR для создания сверхточных облаков точек и камер с 30-кратным зумом для детального осмотра арматуры опор.</li><li>Экономическая эффективность: Один полет заменяет многодневный обход наземными бригадами в труднодоступной местности.</li><li>Интеллектуальная обработка: Автоматическое выявление опасного сближения веток деревьев с проводами и других угроз безопасности сети.</li></ul>",
+  "product_name_es": "Eléctrica red eléctrica inspección dron",
+  "summary_es": "Eléctrica red eléctrica inspección dron de N-TET para inspección, operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Routine autonomous inspection of transmission/distribution lines; Identifying abnormal heating and defects in towers/substations; 3D modeling of power corridors and tree barrier analysis.",
+  "key_parameter_1_es": "Max Endurance (No Load): 240min",
+  "key_parameter_2_es": "Effective Operating Radius: 50km",
+  "parameters_es": {
+    "Aircraft Material": "Advanced Aviation Composites",
+    "Take-off/Landing": "VTOL (Vertical Take-off and Landing)",
+    "Eléctrica sistema": "Pure Electric",
+    "Max Endurance (No Load)": "240min",
+    "Cruise Speed": "65-120km/h",
+    "Effective Operating Radius": "50km",
+    "Max Take-off Altitude": "5000m",
+    "Carga útil": "10kg",
+    "Operating Temperature": "-20℃~50℃",
+    "Positioning Accuracy": "±0.5m",
+    "Wind Resistance": "Level 6",
+    "Positioning sistema": "GPS/Beidou",
+    "Protection": "Fail-safe return, Low battery return, Resume from breakpoint"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Eléctrica red eléctrica inspección dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Eléctrica red eléctrica inspección dron de N-TET para inspección, operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

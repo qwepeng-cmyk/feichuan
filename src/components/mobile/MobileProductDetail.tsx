@@ -38,39 +38,145 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
     return Boolean(value && typeof value === 'object' && !Array.isArray(value));
 }
 
-function renderMobileSpecRows(parameters: any): React.ReactNode {
-    if (Array.isArray(parameters)) {
-        return parameters.slice(0, 80).map((row: any, ri: number) => (
-            <tr key={ri} className={ri === 0 ? styles.tableHeader : ''}>
-                {(Array.isArray(row) ? row : [row]).map((cell: string, ci: number) => (
-                    <td key={ci} className={ri === 0 ? styles.specLabel : styles.specValue}>{String(cell ?? '')}</td>
-                ))}
-            </tr>
-        ));
+function stringifyMobileValue(value: unknown): string {
+    if (Array.isArray(value)) {
+        return value
+            .filter((item) => item !== null && item !== undefined && String(item).trim())
+            .map((item) => String(item).trim())
+            .join(' / ');
     }
+    if (value === null || value === undefined) return '';
+    return String(value);
+}
+
+function hasMobileValue(value: unknown): boolean {
+    if (Array.isArray(value)) return value.some(hasMobileValue);
+    if (isPlainObject(value)) return Object.values(value).some(hasMobileValue);
+    return stringifyMobileValue(value).trim().length > 0;
+}
+
+function isMatrix(value: unknown): value is unknown[][] {
+    return Array.isArray(value) && value.length > 0 && value.every((row) =>
+        Array.isArray(row) && row.every((cell) => !Array.isArray(cell) && !isPlainObject(cell))
+    );
+}
+
+function isPrimitiveList(value: unknown[]): boolean {
+    return value.every((item) => !Array.isArray(item) && !isPlainObject(item));
+}
+
+function isAuxiliaryKey(key: string): boolean {
+    return key === '原图文件' || key === '审计' || key === '_sections';
+}
+
+function isTableDataKey(key: string): boolean {
+    return ['表格数据', 'Table Data', 'Табличные данные', 'Datos de tabla'].includes(key);
+}
+
+function shouldRenderMobileSections(parameters: Record<string, unknown>): boolean {
+    return Object.values(parameters).some((value) => {
+        if (isMatrix(value)) return true;
+        if (isPlainObject(value)) return true;
+        return Array.isArray(value) && !isPrimitiveList(value);
+    });
+}
+
+function renderMobileMatrixRows(rows: unknown[][], keyPrefix: string): React.ReactNode[] {
+    const maxCols = Math.max(...rows.map((row) => row.length));
+    return rows
+        .filter((row) => row.some((cell) => stringifyMobileValue(cell).trim()))
+        .slice(0, 120)
+        .map((row, rowIndex) => {
+            const normalized = [...row, ...Array(Math.max(0, maxCols - row.length)).fill('')];
+            const nonEmptyCount = normalized.filter((cell) => stringifyMobileValue(cell).trim()).length;
+            const isHeaderRow = rowIndex === 0 || nonEmptyCount >= Math.max(2, Math.floor(maxCols / 2));
+            return (
+                <tr key={`${keyPrefix}-${rowIndex}`} className={isHeaderRow ? styles.tableHeader : ''}>
+                    {normalized.map((cell, cellIndex) => (
+                        <td key={cellIndex} className={isHeaderRow ? styles.specLabel : styles.specValue}>
+                            {stringifyMobileValue(cell)}
+                        </td>
+                    ))}
+                </tr>
+            );
+        });
+}
+
+function renderMobileValueRows(value: unknown, keyPrefix: string): React.ReactNode[] {
+    if (isMatrix(value)) return renderMobileMatrixRows(value, keyPrefix);
+
+    if (Array.isArray(value)) {
+        if (isPrimitiveList(value)) {
+            return [
+                <tr key={keyPrefix}>
+                    <td className={styles.specValue} colSpan={2}>{stringifyMobileValue(value)}</td>
+                </tr>
+            ];
+        }
+        return value.flatMap((item, index) => renderMobileValueRows(item, `${keyPrefix}-${index}`));
+    }
+
+    if (isPlainObject(value)) {
+        const tableData = Object.entries(value).find(([key]) => isTableDataKey(key))?.[1];
+        if (isMatrix(tableData)) return renderMobileMatrixRows(tableData, `${keyPrefix}-table`);
+        if (Array.isArray(tableData)) {
+            return tableData.flatMap((item, index) => {
+                if (isMatrix(item)) return renderMobileMatrixRows(item, `${keyPrefix}-table-${index}`);
+                if (!isPlainObject(item) || !isMatrix(item['表格数据'])) return [];
+                return renderMobileMatrixRows(item['表格数据'], `${keyPrefix}-table-${index}`);
+            });
+        }
+
+        return Object.entries(value)
+            .filter(([param, val]) => !isAuxiliaryKey(param) && hasMobileValue(val))
+            .flatMap(([param, val], idx) => {
+                if (isPlainObject(val) || isMatrix(val) || (Array.isArray(val) && !isPrimitiveList(val))) {
+                    return [
+                        <tr key={`${keyPrefix}-${param}-group`} className={styles.tableHeader}>
+                            <td colSpan={2} className={styles.specLabel}>{param}</td>
+                        </tr>,
+                        ...renderMobileValueRows(val, `${keyPrefix}-${param}-${idx}`)
+                    ];
+                }
+
+                return [
+                    <tr key={`${keyPrefix}-${param}-${idx}`}>
+                        <td className={styles.specLabel}>{param}</td>
+                        <td className={styles.specValue}>{stringifyMobileValue(val)}</td>
+                    </tr>
+                ];
+            });
+    }
+
+    return [
+        <tr key={keyPrefix}>
+            <td className={styles.specValue} colSpan={2}>{stringifyMobileValue(value)}</td>
+        </tr>
+    ];
+}
+
+function renderMobileSpecRows(parameters: any): React.ReactNode {
+    if (isMatrix(parameters)) return renderMobileMatrixRows(parameters, 'root');
 
     if (!isPlainObject(parameters)) return null;
 
-    return Object.entries(parameters).flatMap(([param, val], idx) => {
-        if (isPlainObject(val)) {
-            return [
-                <tr key={`${param}-group`} className={styles.tableHeader}>
-                    <td colSpan={2} className={styles.specLabel}>{param}</td>
-                </tr>,
-                ...Object.entries(val).map(([childParam, childValue], childIdx) => (
-                    <tr key={`${param}-${childParam}-${childIdx}`}>
-                        <td className={styles.specLabel}>{childParam}</td>
-                        <td className={styles.specValue}>{Array.isArray(childValue) ? childValue.join(', ') : String(childValue ?? '')}</td>
-                    </tr>
-                ))
-            ];
-        }
+    if (!shouldRenderMobileSections(parameters)) {
+        return Object.entries(parameters)
+            .filter(([param, val]) => !isAuxiliaryKey(param) && hasMobileValue(val))
+            .map(([param, val], idx) => (
+                <tr key={`root-${param}-${idx}`}>
+                    <td className={styles.specLabel}>{param}</td>
+                    <td className={styles.specValue}>{stringifyMobileValue(val)}</td>
+                </tr>
+            ));
+    }
 
+    return Object.entries(parameters).flatMap(([param, val], idx) => {
         return [
-            <tr key={idx}>
-                <td className={styles.specLabel}>{param}</td>
-                <td className={styles.specValue}>{Array.isArray(val) ? val.join(', ') : String(val ?? '')}</td>
-            </tr>
+            <tr key={`${param}-group-${idx}`} className={styles.tableHeader}>
+                <td colSpan={2} className={styles.specLabel}>{param}</td>
+            </tr>,
+            ...renderMobileValueRows(val, `${param}-${idx}`)
         ];
     });
 }
@@ -96,16 +202,9 @@ export default function MobileProductDetail({ product, locale, dict, basePath = 
         parameters = {};
     }
 
-    let gallery = [];
-    try {
-        const rawGallery = product.product_images || product.Product_Images || [];
-        gallery = typeof rawGallery === 'string' ? JSON.parse(rawGallery) : (rawGallery || []);
-    } catch (e) {
-        gallery = [];
-    }
     const mainImg = product.main_image;
-    
-    const displayImages = Array.from(new Set([mainImg, ...gallery])).filter(Boolean) as string[];
+
+    const displayImages = mainImg ? [mainImg] : [];
     if (displayImages.length === 0) displayImages.push('/images/placeholder.jpg');
 
     // Touch swipe logic

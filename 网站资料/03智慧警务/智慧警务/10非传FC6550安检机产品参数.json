@@ -57,5 +57,23 @@
     "Архив": "Сохранение изображений в реальном времени, просмотр до 200 000 предыдущих сканов",
     "Уровень шума": "≤ 49 дБ (тихая работа)"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Универсальность: Стандартный размер туннеля для большинства видов багажа.</li><li>Высокое разрешение: Автоматическое цветовое кодирование материалов (органика/неорганика).</li><li>Функции обработки: Масштабирование, выделение краев, псевдоцвета и глубокая прорисовка деталей.</li><li>Безопасность: Полное соответствие международным нормам радиационной защиты.</li><li>Сервис: Круглосуточная техническая поддержка и обслуживание.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Универсальность: Стандартный размер туннеля для большинства видов багажа.</li><li>Высокое разрешение: Автоматическое цветовое кодирование материалов (органика/неорганика).</li><li>Функции обработки: Масштабирование, выделение краев, псевдоцвета и глубокая прорисовка деталей.</li><li>Безопасность: Полное соответствие международным нормам радиационной защиты.</li><li>Сервис: Круглосуточная техническая поддержка и обслуживание.</li></ul>",
+  "product_name_es": "X-Ray Baggage Scanner FC6550",
+  "summary_es": "X-Ray Baggage Scanner FC6550 de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: High-precision X-ray scanning for medium-sized baggage; 270kg heavy-duty conveyor for high-traffic environments; Assisted detection for explosives and narcotics; Ultra-low noise design (≤49dB) for comfortable operation.",
+  "key_parameter_1_es": "Dimensions: 2808.45(L) x 902(W) x 1362.5(H) mm",
+  "key_parameter_2_es": "Tunnel Size: 650mm(W) x 500mm(H)",
+  "parameters_es": {
+    "Tunnel Size": "650mm (W) x 500mm (H)",
+    "Conveyor Speed": "0.22 m/s (Rated load 270kg)",
+    "Penetration": "28mm steel plate",
+    "Radiation Safety": "Dosage per scan ≤ 1.0µGy; Leakage < 0.01μGy/h",
+    "Display": "21.5-inch High-Resolution Color LCD; 24-bit True Color",
+    "Image Tech": "Edge enhancement, Super-image enhancement, Local magnifying glass",
+    "Forensic Logs": "Image playback for up to 200,000 previous scans",
+    "Operation Environment": "0℃ to 45℃; 20%-95% Humidity",
+    "Noise Level": "≤ 49 dB (Whisper-quiet operation)",
+    "Dimensions": "2808mm(L) x 902mm(W) x 1362mm(H)"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>X-Ray Baggage Scanner FC6550 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>X-Ray Baggage Scanner FC6550 de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

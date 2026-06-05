@@ -42,5 +42,17 @@
     "Канал связи": "Дальняя передача видео в реальном времени",
     "Стойкость к ветру": "Уровень 6-7"
   },
-  "detail_html_ru": "<h4>Глубокий анализ решения</h4><p>БПЛА игнорируют ландшафтные препятствия и прибывают к месту происшествия гораздо быстрее судов, выигрывая время для спасения жизней.</p><ul><li>Трансляция панорамы ситуации в реальном времени</li><li>Всесторонний поиск с помощью HD-оптики и тепловизоров</li><li>Точная доставка спасательных материалов пострадавшим</li></ul>"
+  "detail_html_ru": "<h4>Глубокий анализ решения</h4><p>БПЛА игнорируют ландшафтные препятствия и прибывают к месту происшествия гораздо быстрее судов, выигрывая время для спасения жизней.</p><ul><li>Трансляция панорамы ситуации в реальном времени</li><li>Всесторонний поиск с помощью HD-оптики и тепловизоров</li><li>Точная доставка спасательных материалов пострадавшим</li></ul>",
+  "product_name_es": "UAV marítimo emergencia rescate",
+  "summary_es": "UAV marítimo emergencia rescate de N-TET para respuesta de emergencia, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Marítimo SAR; Material delivery; Emergencia response.",
+  "key_parameter_1_es": "Response speed: Arrive at the scene immediately",
+  "key_parameter_2_es": "Carga útil capability: Mount lifebuoys/emergency kits/comm base stations",
+  "parameters_es": {
+    "Búsqueda Tech": "IR thermal imaging for personnel positioning",
+    "Delivery Precision": "High-precision fixed-point dropping",
+    "Comm Link": "Extra-long distance real-time image transmission",
+    "Wind Resistance": "Level 6-7 wind resistance"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>UAV marítimo emergencia rescate está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>UAV marítimo emergencia rescate de N-TET para respuesta de emergencia, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

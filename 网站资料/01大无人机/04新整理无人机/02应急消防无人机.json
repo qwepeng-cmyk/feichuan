@@ -55,5 +55,23 @@
     "Сопротивление ветру": "Уровень 6",
     "Точность позиционирования": "±0.05 м (RTK)"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высотная эффективность: Позволяет подавать воду и пену на высоты, недоступные для обычных пожарных лестниц.</li><li>Многофункциональность: Модульная конструкция позволяет устанавливать тепловизионные камеры для поиска людей в задымлении.</li><li>Прорыв остекления: Наличие специальных снарядов для разбивания окон позволяет подавать тушащий состав непосредственно внутрь помещений.</li><li>Безопасность: Удаленное управление процессом тушения минимизирует риски для жизни пожарных.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высотная эффективность: Позволяет подавать воду и пену на высоты, недоступные для обычных пожарных лестниц.</li><li>Многофункциональность: Модульная конструкция позволяет устанавливать тепловизионные камеры для поиска людей в задымлении.</li><li>Прорыв остекления: Наличие специальных снарядов для разбивания окон позволяет подавать тушащий состав непосредственно внутрь помещений.</li><li>Безопасность: Удаленное управление процессом тушения минимизирует риски для жизни пожарных.</li></ul>",
+  "product_name_es": "Aerial apoyo contra incendios dron",
+  "summary_es": "Aerial apoyo contra incendios dron de N-TET para respuesta de emergencia, operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Precision firefighting at high-rise building fire sites; Continuous cooling and isolation for large-scale chemical installation fires; Forest fire disposal and rescue assistance; Post-fire watering and cooling.",
+  "key_parameter_1_es": "Endurance: ≥12h",
+  "key_parameter_2_es": "Standard carga útil: 70kg",
+  "parameters_es": {
+    "Unfolded Dimensions": "2710*2700*850mm",
+    "Folded Dimensions": "1100* 970*944mm",
+    "Wind Resistance": "Level 6",
+    "Number of Rotors": "4 Axis 8 Props",
+    "Cautivo Hovering Height": "160m",
+    "Standard carga útil": "70kg",
+    "Positioning Accuracy": "±0.05m(RTK)",
+    "Carga útil Expansion": "Window-breaking shells, high-pressure water cannon, EO/IR pod",
+    "Endurance": "≥12h",
+    "Positioning sistema": "GPS/Beidou/Galileo/Glonass"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Aerial apoyo contra incendios dron está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Aerial apoyo contra incendios dron de N-TET para respuesta de emergencia, operaciones UAV, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

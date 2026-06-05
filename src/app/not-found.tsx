@@ -6,16 +6,18 @@ import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import NotFoundExperience from "./[locale]/not-found-experience";
 import enDict from "@/dictionaries/en.json";
 import ruDict from "@/dictionaries/ru.json";
+import esDict from "@/dictionaries/es.json";
 import { usePathname } from "next/navigation";
+import { localeFromPathname } from "@/lib/localization";
 
 function getLocale(pathname: string) {
-  return pathname === "/ru" || pathname.startsWith("/ru/") ? "ru" : "en";
+  return localeFromPathname(pathname);
 }
 
 export default function RootNotFound() {
   const pathname = usePathname();
   const locale = getLocale(pathname);
-  const dict = locale === "ru" ? ruDict : enDict;
+  const dict = locale === "ru" ? ruDict : locale === "es" ? esDict : enDict;
 
   return (
     <>

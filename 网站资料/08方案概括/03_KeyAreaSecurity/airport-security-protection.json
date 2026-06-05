@@ -49,5 +49,18 @@
     "Защита от БПЛА": "Всенаправленный радиомониторинг вокруг терминалов",
     "Сертификация": "Соответствие стандартам безопасности таможни и гражданской авиации"
   },
-  "detail_html_ru": "<h4>Схема безопасности аэропорта</h4><p>Решение направлено на ускорение работы транспортных узлов. Интеграция передового оборудования для досмотра багажа позволяет точнее находить запрещенные предметы, не увеличивая время ожидания пассажиров.</p><ul><li>Интегрированный мониторинг терминалов и взлетно-посадочных полос</li><li>Точная проверка рисков, связанных с персоналом и грузами</li><li>Регистрация низковысотных событий, влияющих на связь точных приборов</li></ul>"
+  "detail_html_ru": "<h4>Схема безопасности аэропорта</h4><p>Решение направлено на ускорение работы транспортных узлов. Интеграция передового оборудования для досмотра багажа позволяет точнее находить запрещенные предметы, не увеличивая время ожидания пассажиров.</p><ul><li>Интегрированный мониторинг терминалов и взлетно-посадочных полос</li><li>Точная проверка рисков, связанных с персоналом и грузами</li><li>Регистрация низковысотных событий, влияющих на связь точных приборов</li></ul>",
+  "product_name_es": "Aeropuerto seguridad Protection",
+  "summary_es": "Aeropuerto seguridad Protection de N-TET para monitoreo, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Traffic Hub seguridad (aeropuerto/Station).",
+  "key_parameter_1_es": "High-speed seguridad: Dual-source/dual-view tech boosts throughput for massive crowds",
+  "key_parameter_2_es": "Comprehensive Intention: Global terminal and runway monitoring with precision cargo/personnel checks",
+  "parameters_es": {
+    "Scan Speed": "0.22m/s fast conveyor",
+    "ID Levels": "Smart detection of checkpoint screening items, knives, liquid threats",
+    "Defense": "Omni-directional radio monitoring around terminals",
+    "Certification": "Meets Customs/CAAC Level-2 security standards",
+    "Industry_pain_points_image": "/solutions/solutions/aeropuerto seguridad Protection.webp"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Aeropuerto seguridad Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Aeropuerto seguridad Protection de N-TET para monitoreo, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

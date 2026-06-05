@@ -8,6 +8,7 @@ import LeadConversionTracker from '@/components/tracking/LeadConversionTracker';
 const copy = {
     en: {
         title: 'Thank You',
+        badge: 'N-TET Inquiry Desk',
         heading: 'Your inquiry has been received.',
         intro: 'Our team will review your project details and contact you as soon as possible.',
         steps: [
@@ -21,18 +22,34 @@ const copy = {
         note: 'You can submit another message from any product, solution, case, media, or contact page.',
     },
     ru: {
-        title: 'Thank You',
-        heading: 'Your inquiry has been received.',
-        intro: 'Our team will review your project details and contact you as soon as possible.',
+        title: 'Спасибо',
+        badge: 'Отдел запросов N-TET',
+        heading: 'Ваш запрос получен.',
+        intro: 'Наша команда изучит детали проекта и свяжется с вами в ближайшее время.',
         steps: [
-            'Inquiry saved in the N-TET admin system',
-            'Project requirements queued for follow-up',
-            'A specialist will respond through your selected contact method',
+            'Запрос сохранен в административной системе N-TET',
+            'Требования проекта поставлены в очередь для дальнейшей обработки',
+            'Специалист ответит через выбранный вами способ связи',
         ],
-        primary: 'Back to Home',
-        secondary: 'View Products',
-        noteTitle: 'Need to add more details?',
-        note: 'You can submit another message from any product, solution, case, media, or contact page.',
+        primary: 'На главную',
+        secondary: 'Смотреть продукты',
+        noteTitle: 'Нужно добавить детали?',
+        note: 'Вы можете отправить еще одно сообщение со страницы продукта, решения, кейса, медиа или контактов.',
+    },
+    es: {
+        title: 'Gracias',
+        badge: 'Mesa de consultas N-TET',
+        heading: 'Recibimos su consulta.',
+        intro: 'Nuestro equipo revisará los detalles de su proyecto y se pondrá en contacto lo antes posible.',
+        steps: [
+            'Consulta guardada en el sistema administrativo de N-TET',
+            'Requisitos del proyecto en cola para seguimiento',
+            'Un especialista responderá por el método de contacto seleccionado',
+        ],
+        primary: 'Volver al inicio',
+        secondary: 'Ver productos',
+        noteTitle: '¿Necesita agregar más detalles?',
+        note: 'Puede enviar otro mensaje desde cualquier página de producto, solución, caso, medio o contacto.',
     },
 };
 
@@ -91,7 +108,7 @@ export default function ThankYouPage({ params }: { params: { locale: Locale } })
                             }}
                         >
                             <ShieldCheck size={16} />
-                            N-TET Inquiry Desk
+                            {text.badge}
                         </div>
 
                         <h1

@@ -40,5 +40,17 @@
     "Время в воздухе": ">= 12 часов (привязной режим)",
     "Пропускная способность": "50 Мбит/с (вверх) / 100 Мбит/с (вниз)"
   },
-  "detail_html_ru": "<h4>«Воздушная базовая станция» в условиях отсутствия сети</h4><p>В экстремальных условиях разрушения инфраструктуры это решение позволяет оперативно восстановить связь для голосовых вызовов, SMS и интернета, а также создать выделенный канал для координации спасательных работ.</p><ul><li>Быстрое восстановление покрытия 4G/5G</li><li>Связь между штабом и местом проведения работ</li><li>Идеально для зон землетрясений, наводнений и других ЧС</li></ul>"
+  "detail_html_ru": "<h4>«Воздушная базовая станция» в условиях отсутствия сети</h4><p>В экстремальных условиях разрушения инфраструктуры это решение позволяет оперативно восстановить связь для голосовых вызовов, SMS и интернета, а также создать выделенный канал для координации спасательных работ.</p><ul><li>Быстрое восстановление покрытия 4G/5G</li><li>Связь между штабом и местом проведения работ</li><li>Идеально для зон землетрясений, наводнений и других ЧС</li></ul>",
+  "product_name_es": "Emergencia comunicación UAV",
+  "summary_es": "Emergencia comunicación UAV de N-TET para respuesta de emergencia, comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Post-Earthquake comunicación Setup.",
+  "key_parameter_1_es": "Rapid Network Recovery: Rebuilds 4G/5G coverage in disaster zones using aerial base stations",
+  "key_parameter_2_es": "Emergencia Private Network: Instantly deploys site-specific private networks for duplex command data",
+  "parameters_es": {
+    "Base Station": "Integrated LTE/5G small cell",
+    "Relay Mode": "Satellite/Microwave dual-mode relay",
+    "Endurance": ">= 12 hours (tethered mode)",
+    "Bandwidth": "50Mbps Uplink / 100Mbps Downlink"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia comunicación UAV está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia comunicación UAV de N-TET para respuesta de emergencia, comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

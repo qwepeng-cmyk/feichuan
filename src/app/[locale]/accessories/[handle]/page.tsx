@@ -7,15 +7,19 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import CatalogDetailContent from '@/components/products/CatalogDetailContent';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const handles = await getAllAccessoryHandles();
-  return handles.map((handle) => ({ handle }));
+  return handles
+    .filter((handle) => isPublicComplianceContent('product', handle))
+    .map((handle) => ({ handle }));
 }
 
 export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
+  if (!isPublicComplianceContent('product', params.handle)) return {};
   const product = await getAccessoryByHandle(params.handle);
   if (!product) return {};
 
@@ -34,6 +38,10 @@ export async function generateMetadata({ params }: { params: { handle: string; l
 
 async function AccessoryDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
+  if (!isPublicComplianceContent('product', handle)) {
+    notFound();
+  }
+
   const product = await getAccessoryByHandle(handle);
 
   if (!product) {

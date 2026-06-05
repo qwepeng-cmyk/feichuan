@@ -67,5 +67,27 @@
     "Питание": "AC 220 В",
     "Режим работы": "Поддержка непрерывной эксплуатации 24/7 на открытом воздухе"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Многодиапазонность: Блокировка всех популярных каналов управления и навигации, включая ГЛОНАСС и Beidou.</li><li>Гибкость тактики: Оператор может выбирать отдельные частоты для подавления или задействовать весь спектр сразу.</li><li>Интеллектуальное наведение: Высокоскоростное опорно-поворотное устройство позволяет автоматически следовать за целью по командам от системы обнаружения.</li><li>Всепогодность: Защита IP66 и широкий температурный диапазон для использования в любых климатических зонах.</li><li>Стабильность сигнала: Отсутствие дрейфа частоты при длительной непрерывной работе.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Многодиапазонность: Блокировка всех популярных каналов управления и навигации, включая ГЛОНАСС и Beidou.</li><li>Гибкость тактики: Оператор может выбирать отдельные частоты для подавления или задействовать весь спектр сразу.</li><li>Интеллектуальное наведение: Высокоскоростное опорно-поворотное устройство позволяет автоматически следовать за целью по командам от системы обнаружения.</li><li>Всепогодность: Защита IP66 и широкий температурный диапазон для использования в любых климатических зонах.</li><li>Стабильность сигнала: Отсутствие дрейфа частоты при длительной непрерывной работе.</li></ul>",
+  "product_name_es": "Directional RF Jammer",
+  "summary_es": "Directional RF Jammer de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Multi-target jamming (consumer; Industrial; FPV; DIY drones); Comprehensive navigation interference (GPS; GLONASS.",
+  "key_parameter_1_es": "Interference Range: ≥3km (Variable based on environment and target)",
+  "key_parameter_2_es": "Operating Frequency: 400MHz - 5.9GHz",
+  "parameters_es": {
+    "Frequency Range": "400MHz, 800MHz, 900MHz, 1.2GHz, 1.4GHz, 1.5GHz, 2.4GHz, 5.8GHz, 5.1-5.9GHz",
+    "Jamming Mode": "Repel mode and Forced Landing mode",
+    "Jamming Distance": "≥3km (Environment dependent)",
+    "Response Time": "≤3s",
+    "PTZ Angle": "360° Horizontal; -10° to +60° Vertical",
+    "PTZ Speed": "H: 0.02°-60°/s; V: 0.01°-12°/s",
+    "Antenna Angle": "H: 30°-50°; V: 50°-80°",
+    "Eléctrica Consumption": "<600W",
+    "Dimensions": "470mm * 250mm * 700mm",
+    "Weight": "≤41kg",
+    "Operating Temp": "-40°C to +60℃",
+    "IP Rating": "IP66",
+    "Eléctrica Supply": "AC 220V",
+    "Continuous Work": "24/7 Outdoor use supported"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Directional RF Jammer está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Directional RF Jammer de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

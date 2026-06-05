@@ -44,5 +44,19 @@
     "Особенности компонентов": "Легкий вес, малое количество деталей, удобство транспортировки, высокая взаимозаменяемость",
     "Универсальность": "Возможность сборки в козловые краны, пусковые порталы и направляющие балки"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Модульный прорыв: Стандартизированные компоненты позволяют выходить за рамки обычных мостов, создавая строительное оборудование, такое как краны и эстакады.</li><li>Простота логистики: Легкие элементы и отсутствие нестандартных деталей снижают требования к строительной площадке и технике.</li><li>Тактическая ценность: Способность быстро возводить «дороги жизни» в зонах бедствий для эвакуации людей и доставки гуманитарной помощи.</li><li>Варианты исполнения: Однопутные мосты для узких участков, двухпутные для интенсивного трафика и эстетичные пешеходные переходы для городских зон.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Модульный прорыв: Стандартизированные компоненты позволяют выходить за рамки обычных мостов, создавая строительное оборудование, такое как краны и эстакады.</li><li>Простота логистики: Легкие элементы и отсутствие нестандартных деталей снижают требования к строительной площадке и технике.</li><li>Тактическая ценность: Способность быстро возводить «дороги жизни» в зонах бедствий для эвакуации людей и доставки гуманитарной помощи.</li><li>Варианты исполнения: Однопутные мосты для узких участков, двухпутные для интенсивного трафика и эстетичные пешеходные переходы для городских зон.</li></ul>",
+  "product_name_es": "Bailey Steel Bridge Overview",
+  "summary_es": "Bailey Steel Bridge Overview de N-TET para respuesta de emergencia, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Modular steel truss system for permanent or emergency bridges; High-strength assembly for roads; Railways; And hydraulic projects; Versatile components can be transformed into gantry cranes and bridge erection machines.",
+  "key_parameter_1_es": "Structure: Modular prefabricated highway steel bridge",
+  "key_parameter_2_es": "Application: Emergency relief, military logistics, heavy construction",
+  "parameters_es": {
+    "Material": "High-strength alloy steel (Q345B/Q355B)",
+    "Structure Type": "Truss assembly structure (Bailey type)",
+    "Bridge Deck": "Single-lane / Double-lane / Pedestrian",
+    "Load Capacity": "Adjustable by combination (10t - 60t+)",
+    "Component Features": "Lightweight, few parts, easy transport, high interchangeability",
+    "Versatility": "Transformable into gantry cranes, launching girders, and guide beams"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Bailey Steel Bridge Overview está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Bailey Steel Bridge Overview de N-TET para respuesta de emergencia, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

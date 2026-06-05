@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { localizedField } from '@/lib/localization';
 
 interface MobileCasesProps {
     locale: string;
@@ -20,7 +21,7 @@ export default function MobileCases({ locale, dict, homeCases }: MobileCasesProp
             <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.cases}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {homeCases.slice(0, 3).map((item, idx) => {
-                    const caseTitle = locale === 'ru' ? item.title_ru : item.title;
+                    const caseTitle = localizedField(item, 'title', locale);
                     return (
                         <Link key={idx} href={localePath(locale, `/cases/${item.handle}`)} style={{
                             position: 'relative',

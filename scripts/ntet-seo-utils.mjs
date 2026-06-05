@@ -17,7 +17,7 @@ try {
 }
 
 export const SITE_URL = (process.env.SITE_URL || 'https://n-tet.com').replace(/\/+$/, '');
-export const LOCALES = ['en', 'ru'];
+export const LOCALES = ['en', 'ru', 'es'];
 
 export const CONTENT_TYPES = {
   product: {

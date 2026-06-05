@@ -41,5 +41,17 @@
     "Площадь освещения": ">= 5000 кв. метров",
     "Высота зависания": "30м - 100м (регулируемая)"
   },
-  "detail_html_ru": "<h4>«Искусственное солнце» в ночи</h4><p>Эффективно решает проблемы традиционного наземного освещения: малый охват, неподвижность и наличие слепых зон. Широко применяется при ночном поиске, ремонте дорог и эвакуации людей.</p><ul><li>Всенаправленное высотное освещение без слепых зон</li><li>Взрывозащищенные светодиоды высокой проникающей способности</li><li>Усиление мер безопасности при ночных экстренных работах</li></ul>"
+  "detail_html_ru": "<h4>«Искусственное солнце» в ночи</h4><p>Эффективно решает проблемы традиционного наземного освещения: малый охват, неподвижность и наличие слепых зон. Широко применяется при ночном поиске, ремонте дорог и эвакуации людей.</p><ul><li>Всенаправленное высотное освещение без слепых зон</li><li>Взрывозащищенные светодиоды высокой проникающей способности</li><li>Усиление мер безопасности при ночных экстренных работах</li></ul>",
+  "product_name_es": "Emergencia iluminación UAV",
+  "summary_es": "Emergencia iluminación UAV de N-TET para iluminación operativa, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Repair Site emergencia iluminación.",
+  "key_parameter_1_es": "Continuous Hovering: Tethered power platform supports 12h+ fixed-point operations",
+  "key_parameter_2_es": "High-intensity iluminación: High-power explosion-proof LED array for shadowless area illumination",
+  "parameters_es": {
+    "Light Source": "High-power explosion-proof LED star array",
+    "Duration": ">= 12 hours (uninterrupted tethered power)",
+    "Illumination Area": ">= 5000 square meters",
+    "Hovering Altitude": "30m - 100m adjustable"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia iluminación UAV está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia iluminación UAV de N-TET para iluminación operativa, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

@@ -64,5 +64,25 @@
     "Размеры": "Высота стойки 180 см, высота основания 7 см",
     "Автономность": "Более 24 часов от встроенного аккумулятора, зарядка Type-C"
   },
-  "detail_html_ru": "<h4>Функциональные возможности</h4><ul><li>Детектирование: Обнаружение любых предметов, содержащих ферромагнитные элементы.</li><li>Экологичность: Не излучает вредных волн, безопасен для всех категорий граждан.</li><li>Сверхвысокая чувствительность: Уровень нанотесла (нТл) с точным указанием зоны нахождения предмета.</li><li>Скрытый досмотр: Возможность размещения за дверями, стенами или предметами интерьера.</li><li>Интеллектуальное оповещение: Синхронизация со смарт-часами для бесшумного уведомления охраны.</li><li>Автономная работа: Более суток непрерывной эксплуатации без подзарядки.</li></ul>"
+  "detail_html_ru": "<h4>Функциональные возможности</h4><ul><li>Детектирование: Обнаружение любых предметов, содержащих ферромагнитные элементы.</li><li>Экологичность: Не излучает вредных волн, безопасен для всех категорий граждан.</li><li>Сверхвысокая чувствительность: Уровень нанотесла (нТл) с точным указанием зоны нахождения предмета.</li><li>Скрытый досмотр: Возможность размещения за дверями, стенами или предметами интерьера.</li><li>Интеллектуальное оповещение: Синхронизация со смарт-часами для бесшумного уведомления охраны.</li><li>Автономная работа: Более суток непрерывной эксплуатации без подзарядки.</li></ul>",
+  "product_name_es": "Intelligent Ferromagnetic detección sistema FC-3000",
+  "summary_es": "Intelligent Ferromagnetic detección sistema FC-3000 de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Passive electromagnetic-safe ferromagnetic detection; Nanotesla-level sensitivity for hidden metals; 3-zone positioning for precise identification; Discrete/covert screening capable; High-throughput 60+ ppm.",
+  "key_parameter_1_es": "Sensitivity: Nanotesla (nT) Level",
+  "key_parameter_2_es": "Batería Life: ≥ 24 Hours (Internal Li-ion)",
+  "parameters_es": {
+    "Technology": "Passive Fluxgate detección with High-Performance DSP Processing",
+    "Detección Targets": "Precisely scans for ferromagnetic metals/non-metals (Iron, Cobalt, Nickel)",
+    "Radiation Safety": "Passive sensing only; zero EM emission; certified CE/QMS",
+    "Alarm Interface": "Visual alerts (Red/Green), high-fidelity audio, and optional discreet vibrating watch link",
+    "Spatial Resolution": "3-zone vertical positioning for accurate item localization",
+    "Intelligent Networking": "Dual-column linking for hierarchical warnings (Lighter/Phone/Knife differentiation)",
+    "Throughput Flux": "> 60 persons/minute",
+    "Coverage": "0 - 1.5 meter radius with 360-degree omnidirectional sensing",
+    "Industrial Rating": "IP65 Weatherproof; suitable for indoor/outdoor use",
+    "Material/Portability": "High-strength aluminum alloy;柱身 5.9kg (Lightweight column)",
+    "Dimensions": "Column Height: 180cm; Base Height: 7cm",
+    "Endurance": "Internal Li-battery supports > 24 hours of operation; Type-C charging"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Intelligent Ferromagnetic detección sistema FC-3000 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Intelligent Ferromagnetic detección sistema FC-3000 de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

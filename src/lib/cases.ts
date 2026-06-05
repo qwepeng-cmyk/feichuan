@@ -13,11 +13,14 @@ export const getAllCases = unstable_cache(
         handle,
         title_en,
         title_ru,
+        title_es,
         main_image,
         region_en,
         country_en,
         region_ru,
         country_ru,
+        region_es,
+        country_es,
         solution_category_id
       FROM cases
       WHERE COALESCE(is_published, 1) = 1

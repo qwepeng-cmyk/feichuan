@@ -154,5 +154,46 @@
     "/products/security/FC-H-Smart-Phone-Detection-Gate.webp",
     "/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp",
     "/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp"
-  ]
+  ],
+  "product_name_es": "Large evento deportivo seguridad Protection",
+  "summary_es": "Large evento deportivo seguridad Protection de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Large sports events; Stadiums; Arenas; Exhibition centers; Fan zones; Media entrances.",
+  "key_parameter_1_es": "High-throughput Event inspección: coordinated handheld, gate, X-ray, and trace-detection checks for spectators, staff, media equipment, and delivered materials",
+  "key_parameter_2_es": "Venue espacio aéreo Awareness: monitoring and visual verification around stadiums, fan zones, broadcast areas, parking zones, and logistics routes",
+  "parameters_es": {
+    "Operation_upgrade_eyebrow": "Seguridad Operation Upgrade",
+    "Operation_upgrade_title": "How Integrated monitoreo and inspección Support Large Events",
+    "Solution_modules_intro": "The solution follows the airport-security page structure but adapts it to temporary event operations, combining low-altitude awareness, entrance screening, baggage inspection, command-center coordination, and post-event review.",
+    "Industry_pain_points_image": "/solutions/solutions/Large evento deportivo seguridad.webp",
+    "Industry_pain_points": [
+      "Large sports events concentrate spectators, athletes, staff, media teams, vendors, logistics vehicles, VIP routes, and temporary structures into a short operating window with little tolerance for delay.",
+      "Venue operators must coordinate low-altitude awareness, entrance screening, baggage checks, staff access, and emergency communication while keeping visitor movement smooth.",
+      "Temporary deployments need airport-style checkpoint discipline: equipment that can be installed quickly, operated consistently, logged clearly, and removed after the event without losing review records."
+    ],
+    "Uav_industry_upgrade": [
+      "Airspace monitoring helps event command teams maintain awareness around stadium roofs, fan zones, broadcast areas, parking zones, and surrounding public spaces.",
+      "Walk-through, handheld, X-ray, and trace-detection screening equipment supports high-throughput checks for spectators, staff, media teams, and delivered materials.",
+      "A shared command workflow connects low-altitude alerts, checkpoint exceptions, bag-inspection results, operator notes, and handling status for live coordination and post-event review."
+    ],
+    "Solution_modules": [
+      {
+        "name": "Temporary Airspace Awareness",
+        "description": "Monitor low-altitude activity around venues, fan zones, broadcast areas, team routes, parking areas, and logistics yards during event windows."
+      },
+      {
+        "name": "High-Throughput Entrance Screening",
+        "description": "Use handheld metal detectors, phone-detection gates where required, and checkpoint procedures to keep spectator, staff, and media access organized."
+      },
+      {
+        "name": "Baggage and Materials Inspection",
+        "description": "Deploy X-ray baggage scanning and trace inspection for bags, parcels, broadcast equipment, vendor materials, and service deliveries."
+      },
+      {
+        "name": "Command Center and Event Review",
+        "description": "Connect alerts, screening exceptions, operator notes, timestamps, and handling status to the event command center for live coordination and review reports."
+      }
+    ],
+    "Typical_outputs": "Venue airspace alerts, checkpoint exception records, baggage inspection logs, command-center event timelines, and post-event review materials"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Large evento deportivo seguridad Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Large evento deportivo seguridad Protection de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

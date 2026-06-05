@@ -69,5 +69,27 @@
     "Габариты": "≤ 990 * 450 * 650 мм",
     "Вес": "≤ 66 кг (без штатива)"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая эксплуатационная надежность: Твердотельная приемопередающая система и цифровая обработка сигналов обеспечивают безопасность и удобство обслуживания.</li><li>Всепогодный автоматический мониторинг: Способность обнаруживать и отслеживать цели 24/7 в условиях дождя, снега, тумана и ночного времени.</li><li>Обнаружение малоразмерных целей: Алгоритмы распознавания на основе кинематических характеристик позволяют эффективно выделять БПЛА на фоне помех от земли.</li><li>Круговой обзор: Механическое вращение на 360° гарантирует отсутствие слепых секторов в охраняемой зоне.</li><li>Интеллектуальная диагностика: Система непрерывно контролирует состояние всех узлов с выдачей отчетов о неисправностях.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая эксплуатационная надежность: Твердотельная приемопередающая система и цифровая обработка сигналов обеспечивают безопасность и удобство обслуживания.</li><li>Всепогодный автоматический мониторинг: Способность обнаруживать и отслеживать цели 24/7 в условиях дождя, снега, тумана и ночного времени.</li><li>Обнаружение малоразмерных целей: Алгоритмы распознавания на основе кинематических характеристик позволяют эффективно выделять БПЛА на фоне помех от земли.</li><li>Круговой обзор: Механическое вращение на 360° гарантирует отсутствие слепых секторов в охраняемой зоне.</li><li>Интеллектуальная диагностика: Система непрерывно контролирует состояние всех узлов с выдачей отчетов о неисправностях.</li></ul>",
+  "product_name_es": "Baja altitud detección Radar (X-Band)",
+  "summary_es": "Baja altitud detección Radar (X-Band) de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: 3D Pulse Doppler technology for precise spatial tracking; 360° azimuth search with zero detection blind spots; Industrial-grade solid-state transceiver for all-weather reliability; Multi-device automated defense network support.",
+  "key_parameter_1_es": "Scanning Coverage: 360° Azimuth, 0-30° Pitch",
+  "key_parameter_2_es": "Weight: ≤66kg (Excluding tripod and cover)",
+  "parameters_es": {
+    "Radar Band": "X-Band (9GHz-10.2GHz)",
+    "Detección Range": "≥10km (Phantom 4); ≥7km (Egret) (10-6 false alarm rate)",
+    "Target Speed": "1-200m/s",
+    "Blind Zone": "≤200m",
+    "Scanning Coverage": "Azimuth: 0-360°; Pitch: 0-30°",
+    "Target Capacity": "≥200 tracks",
+    "Accuracy": "Azimuth/Pitch: ≤0.5°; Range: ≤10m",
+    "Self-check": "Real-time subsystem status monitoring",
+    "Protocol": "UDP",
+    "Eléctrica Consumption": "≤400W",
+    "Eléctrica Supply": "AC 220V/50Hz",
+    "Data Interface": "Gigabit Ethernet",
+    "Dimensions": "≤990mm x 450mm x 650mm",
+    "Total Weight": "≤66kg (Base unit)"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Baja altitud detección Radar (X-Band) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Baja altitud detección Radar (X-Band) de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

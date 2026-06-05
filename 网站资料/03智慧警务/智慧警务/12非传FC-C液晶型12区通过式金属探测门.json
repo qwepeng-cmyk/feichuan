@@ -57,5 +57,23 @@
     "Вес": "около 45 кг",
     "Размеры прохода": "2010(В) x 700(Ш) x 500(Г) мм"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Улучшенные материалы: ПВХ-композит со специальными водонепроницаемыми чехлами на ножках для долгой службы.</li><li>ЖК-монитор 7 дюймов: Интуитивно понятная настройка параметров и мониторинг состояния в реальном времени.</li><li>Точная локализация: Светодиоды на стойках и графическое отображение зон на экране позволяют мгновенно увидеть, где спрятан металл.</li><li>Сетевое управление: Возможность удаленного контроля группы металлодетекторов через единую систему.</li><li>Настройка звука: Регулируемая громкость и тон (длинный/средний/короткий) для разных условий эксплуатации.</li><li>Безопасность: Полное соответствие международным стандартам защиты здоровья (безопасно для беременных и носителей кардиостимуляторов).</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Улучшенные материалы: ПВХ-композит со специальными водонепроницаемыми чехлами на ножках для долгой службы.</li><li>ЖК-монитор 7 дюймов: Интуитивно понятная настройка параметров и мониторинг состояния в реальном времени.</li><li>Точная локализация: Светодиоды на стойках и графическое отображение зон на экране позволяют мгновенно увидеть, где спрятан металл.</li><li>Сетевое управление: Возможность удаленного контроля группы металлодетекторов через единую систему.</li><li>Настройка звука: Регулируемая громкость и тон (длинный/средний/короткий) для разных условий эксплуатации.</li><li>Безопасность: Полное соответствие международным стандартам защиты здоровья (безопасно для беременных и носителей кардиостимуляторов).</li></ul>",
+  "product_name_es": "Walk-Through Metal Detector FC-C (LCD, 12-Zone)",
+  "summary_es": "Walk-Through Metal Detector FC-C (LCD, 12-Zone) de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Advanced LCD interface with 12 overlapping detection zones; High-speed digital scanning for zero blind spots; Networked capability for up to 20 gates; Waterproof and fireproof PVC construction.",
+  "key_parameter_1_es": "Detección Zones: 12 overlapping zones",
+  "key_parameter_2_es": "Material: Specialized PVC composite",
+  "parameters_es": {
+    "Detección Zones": "12 overlapping zones with multi-target simultaneous alarm capability",
+    "Sensitivity": "0-1000 levels; can filter personal items; maximum detection of a safety pin",
+    "Signal Processing": "2000-level DSP digital filtering for extreme E-M interference resistance",
+    "Connectivity": "Built-in network interface for centralized management of up to 20 gates",
+    "Construction": "High-durability PVC composite; waterproof, fireproof, and shock-resistant",
+    "Traffic Statistics": "Smart bi-directional traffic counter and alarm statistics logger",
+    "External Interface": "Optional serial interface for gate and surveillance integration",
+    "Eléctrica Supply": "AC 90V - 250V (50/60Hz), power <35W",
+    "Weight": "Approx. 45kg",
+    "Channel Dimensions": "2010(H) x 700(W) x 500(D) mm"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Walk-Through Metal Detector FC-C (LCD, 12-Zone) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Walk-Through Metal Detector FC-C (LCD, 12-Zone) de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

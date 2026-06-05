@@ -57,5 +57,23 @@
     "Габариты": "Φ565 мм × H880 мм",
     "Общий вес": "≤ 105 кг"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая грузоподъемность: Возможность установки длиннофокусных камер, крупноапертурных тепловизоров и лазерных дальномеров для сверхдальнего обзора.</li><li>Динамика и скорость: Ускорение до 100°/с² позволяет мгновенно захватывать и плавно вести быстро движущиеся цели.</li><li>Прецизионная точность: Использование высокоточных датчиков угла и сервоприводов с обратной связью обеспечивает точность позиционирования 0.02°.</li><li>Умное сопровождение: Продвинутые алгоритмы захвата цели гарантируют стабильное удержание БПЛА в кадре даже при резких маневрах.</li><li>Защита и надежность: Вакуумная герметизация с заполнением азотом предотвращает запотевание оптики и коррозию внутренних компонентов.</li><li>Автоматизация: Поддержка зонального обнаружения, оповещения о горячих точках и интеграция с данными радаров.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая грузоподъемность: Возможность установки длиннофокусных камер, крупноапертурных тепловизоров и лазерных дальномеров для сверхдальнего обзора.</li><li>Динамика и скорость: Ускорение до 100°/с² позволяет мгновенно захватывать и плавно вести быстро движущиеся цели.</li><li>Прецизионная точность: Использование высокоточных датчиков угла и сервоприводов с обратной связью обеспечивает точность позиционирования 0.02°.</li><li>Умное сопровождение: Продвинутые алгоритмы захвата цели гарантируют стабильное удержание БПЛА в кадре даже при резких маневрах.</li><li>Защита и надежность: Вакуумная герметизация с заполнением азотом предотвращает запотевание оптики и коррозию внутренних компонентов.</li><li>Автоматизация: Поддержка зонального обнаружения, оповещения о горячих точках и интеграция с данными радаров.</li></ul>",
+  "product_name_es": "Electro-Optical (EO) seguimiento sistema",
+  "summary_es": "Electro-Optical (EO) seguimiento sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Ultra-long-distance target observation (up to 4km tracking); Multi-spectral fusion for all-weather surveillance; High-speed precision tracking with 100°/s² acceleration; Intelligent classification and radar-linkage support.",
+  "key_parameter_1_es": "Detección Range (0.3m target): Visible tracking ≥4000m, identification ≥3000m; Thermal tracking ≥2000m, identification ≥800m",
+  "key_parameter_2_es": "Total Weight: ≤105kg",
+  "parameters_es": {
+    "Detección Range (0.3m target)": "Visible: Tracking ≥4000m, ID ≥3000m; Thermal: Tracking ≥2000m, ID ≥800m",
+    "Thermal Sensor": "5th Gen VOx uncooled, 640×512, 10x Continuous Zoom (22-230mm)",
+    "Visible Sensor": "2MP HD, 12.5-775mm HD Electric Zoom, Day/Night CMOS",
+    "Intelligence": "Intrusion detection, Auto-tracking, UAV classification",
+    "PTZ gimbals": "360° Azimuth, ±90° Pitch; 0.01° Position Accuracy; Speed up to 80°/s",
+    "Protocol Support": "ONVIF, RTSP, GB/T 28181",
+    "Eléctrica Supply": "AC 220V",
+    "Eléctrica Consumption": "≤500W",
+    "Dimensions": "Φ565mm × H880mm",
+    "Total Weight": "≤105kg"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Electro-Optical (EO) seguimiento sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Electro-Optical (EO) seguimiento sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

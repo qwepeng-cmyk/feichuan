@@ -41,5 +41,18 @@
     "Ключевое преимущество": "Решает проблему медленного и хаотичного развертывания традиционного оборудования",
     "Применение": "Масштабные полевые госпитали, чрезвычайные ситуации, медицинское обеспечение войск"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Революционный дизайн: Полный отказ от длинных цепочек снабжения в пользу компактных, готовых к работе модулей.</li><li>Мгновенная готовность: Сокращение времени развертывания в разы по сравнению с аналогами, что спасает жизни в «золотой час».</li><li>Надежность: Защищенные контейнеры обеспечивают стерильность и защиту оборудования в суровых полевых условиях.</li><li>Масштабируемость: Возможность объединения модулей для создания госпиталей различной емкости и профиля.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Революционный дизайн: Полный отказ от длинных цепочек снабжения в пользу компактных, готовых к работе модулей.</li><li>Мгновенная готовность: Сокращение времени развертывания в разы по сравнению с аналогами, что спасает жизни в «золотой час».</li><li>Надежность: Защищенные контейнеры обеспечивают стерильность и защиту оборудования в суровых полевых условиях.</li><li>Масштабируемость: Возможность объединения модулей для создания госпиталей различной емкости и профиля.</li></ul>",
+  "product_name_es": "Containerized Medical rescate sistema",
+  "summary_es": "Containerized Medical rescate sistema de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: World-first modular box design; Fast building of large-scale field hospitals in 20 minutes; Eliminating slow and chaotic deployment of traditional medical equipment.",
+  "key_parameter_1_es": "Deployment Time: ≤20 minutes",
+  "key_parameter_2_es": "Sistema Design: Modular containerized architecture",
+  "parameters_es": {
+    "Sistema Architecture": "World-first highly integrated modular box design",
+    "Deployment Speed": "Rapid construction within 20 minutes",
+    "Mobility": "All-terrain and all-scenario fast deployment support",
+    "Key Advantage": "Solves traditional slow and chaotic equipment deployment issues",
+    "Application": "Large-scale field hospitals and emergency medical support"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Containerized Medical rescate sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Containerized Medical rescate sistema de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

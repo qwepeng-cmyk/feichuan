@@ -41,5 +41,18 @@
     "Концепция дизайна": "Легкая, модульная, интеллектуальная интеграция",
     "Сценарии": "Лечение массовых раненых, противоэпидемический контроль, ликвидация последствий катастроф"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интеллектуальное управление: Единая цифровая сеть управления медицинскими блоками и ресурсами госпиталя.</li><li>Автономность: Встроенные системы жизнеобеспечения, энергоснабжения и водоочистки для работы в изолированных районах.</li><li>Стандартизация: Соответствие международным стандартам оказания экстренной медицинской помощи.</li><li>Многофункциональность: Возможность быстрой переконфигурации модулей под конкретные задачи (хирургия, терапия, инфекционный блок).</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интеллектуальное управление: Единая цифровая сеть управления медицинскими блоками и ресурсами госпиталя.</li><li>Автономность: Встроенные системы жизнеобеспечения, энергоснабжения и водоочистки для работы в изолированных районах.</li><li>Стандартизация: Соответствие международным стандартам оказания экстренной медицинской помощи.</li><li>Многофункциональность: Возможность быстрой переконфигурации модулей под конкретные задачи (хирургия, терапия, инфекционный блок).</li></ul>",
+  "product_name_es": "Intelligent Mobile Cabin Hospital",
+  "summary_es": "Intelligent Mobile Cabin Hospital de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Sea-land-air global mobility with 36-hour rapid deployment; All-weather and all-terrain medical support for mass casualty rescue; Epidemic prevention; And humanitarian aid.",
+  "key_parameter_1_es": "Deployment/Retrieval: 36h / 24h",
+  "key_parameter_2_es": "Mobility: Sea-land-air global amphibious support",
+  "parameters_es": {
+    "Mobility": "Sea-land-air global amphibious mobility",
+    "Deployment Time": "≤36 hours",
+    "Retrieval Time": "≤24 hours",
+    "Design Concept": "Lightweight, modular, and smart integration",
+    "Application": "Mass casualty rescue, epidemic control, disaster relief, humanitarian aid"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Intelligent Mobile Cabin Hospital está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Intelligent Mobile Cabin Hospital de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

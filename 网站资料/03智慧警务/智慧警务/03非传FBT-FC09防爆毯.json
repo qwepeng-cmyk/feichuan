@@ -48,5 +48,20 @@
     "Прочность на раздир": "Радиальная 580 Н, уточная 390 Н",
     "Комплектация": "Специальный чемодан на колесиках для быстрой транспортировки"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокотехнологичное баллистическое волокно: Использование передовых композитных материалов с особой технологией плетения.</li><li>Двойная структура ограждения: Внутреннее и внешнее кольца для научного отвода ударной волны.</li><li>Всепогодный чехол: Превосходная износостойкость и защита от воды (выдерживает давление >12 кПа).</li><li>Широкая сфера применения: Стандартное оснащение для зон досмотра в аэропортах и на массовых мероприятиях.</li><li>Мобильность: Вес 30 кг и наличие специального кейса позволяют одному человеку быстро развернуть защиту на месте.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокотехнологичное баллистическое волокно: Использование передовых композитных материалов с особой технологией плетения.</li><li>Двойная структура ограждения: Внутреннее и внешнее кольца для научного отвода ударной волны.</li><li>Всепогодный чехол: Превосходная износостойкость и защита от воды (выдерживает давление >12 кПа).</li><li>Широкая сфера применения: Стандартное оснащение для зон досмотра в аэропортах и на массовых мероприятиях.</li><li>Мобильность: Вес 30 кг и наличие специального кейса позволяют одному человеку быстро развернуть защиту на месте.</li></ul>",
+  "product_name_es": "Explosion Protection Blanket FBT-FC09",
+  "summary_es": "Explosion Protection Blanket FBT-FC09 de N-TET para seguridad de sitio, gestión hídrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Essential for police; Airports; And major event security; Blocks explosion shockwaves and shrapnel; High-strength bulletproof fiber with waterproof outer cover; Lightweight and portable with dedicated carrying case.",
+  "key_parameter_1_es": "Blast Resistance: Effectively blocks Type 67 or 82-2 grenade shockwaves and fragments",
+  "key_parameter_2_es": "Total Weight: 30kg",
+  "parameters_es": {
+    "Blanket Size": "1600mm x 1600mm",
+    "Fence Dimensions": "Outer: Φ520 x H300 mm; Inner: Φ420 x H150 mm",
+    "Total Weight": "30kg (including fences)",
+    "Material Performance": "Internal high-strength ballistic fiber; Waterproof cover (>12kPa)",
+    "Breaking Strength": "Warp: 3600N, Weft: 2800N",
+    "Tear Strength": "Warp: 580N, Weft: 390N",
+    "Deployment": "Equipped with dedicated trolley case"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Explosion Protection Blanket FBT-FC09 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Explosion Protection Blanket FBT-FC09 de N-TET para seguridad de sitio, gestión hídrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

@@ -14,14 +14,17 @@ import {
   sanitizeComplianceValue,
 } from '@/lib/complianceTaxonomy';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { localizedField } from '@/lib/localization';
 
 interface SolutionJson {
   product_name: string;
   product_name_en: string;
   product_name_ru: string;
+  product_name_es?: string;
   summary: string;
   summary_en: string;
   summary_ru: string;
+  summary_es?: string;
   key_parameter_1: string;
   key_parameter_1_en: string;
   key_parameter_1_ru: string;
@@ -32,8 +35,10 @@ interface SolutionJson {
   handle: string;
   detail_html_en?: string;
   detail_html_ru?: string;
+  detail_html_es?: string;
   parameters_en?: Record<string, string>;
   parameters_ru?: Record<string, string>;
+  parameters_es?: Record<string, string>;
 }
 
 const VALID_CATEGORIES = [
@@ -49,13 +54,13 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { categoryId: string; locale: Locale } }): Metadata {
   const landingData = categoryLandingData[params.categoryId];
-  const title = landingData?.name_en || params.categoryId.replace(/^\d+_/, '').replace(/([a-z])([A-Z])/g, '$1 $2');
+  const title = localizedField(landingData as any, 'name', params.locale) || params.categoryId.replace(/^\d+_/, '').replace(/([a-z])([A-Z])/g, '$1 $2');
 
   return buildSeoMetadata({
     locale: params.locale,
     path: `/solutions/category/${params.categoryId}`,
     fallbackTitle: title,
-    fallbackDescription: landingData?.industryNeeds_en,
+    fallbackDescription: localizedField(landingData as any, 'industryNeeds', params.locale),
   });
 }
 
@@ -77,7 +82,7 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
   }
 
   // Fetch Recommended Products
-  const productsByCategory = await getAllProducts();
+  const productsByCategory = await getAllProducts(locale);
   const allProducts = Object.values(productsByCategory).flat();
   const landingData = categoryLandingData[categoryId];
   const sanitizedLandingData = landingData ? sanitizeComplianceValue(landingData) : undefined;

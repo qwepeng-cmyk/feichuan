@@ -45,5 +45,17 @@
     "Радиус защиты": "3 км – 10 км (настраиваемый)",
     "Соответствие": "Отвечает техническим стандартам гражданской авиации по защите от БПЛА"
   },
-  "detail_html_ru": "<h4>Детальная защита аэропорта</h4><p>Аэропорты являются зонами высокой чувствительности, требующими предельной точности в управлении частотами. Наша система поддерживает документированное реагирование на нелегальные дроны, не создавая помех связи с диспетчерской вышкой или навигационным маякам.</p><ul><li>Защита зон взлета и посадки</li><li>Многоуровневое взаимодействие компонентов</li><li>Запись и хранение доказательств в реальном времени</li></ul>"
+  "detail_html_ru": "<h4>Детальная защита аэропорта</h4><p>Аэропорты являются зонами высокой чувствительности, требующими предельной точности в управлении частотами. Наша система поддерживает документированное реагирование на нелегальные дроны, не создавая помех связи с диспетчерской вышкой или навигационным маякам.</p><ul><li>Защита зон взлета и посадки</li><li>Многоуровневое взаимодействие компонентов</li><li>Запись и хранение доказательств в реальном времени</li></ul>",
+  "product_name_es": "Aeropuerto espacio aéreo monitoreo Application",
+  "summary_es": "Aeropuerto espacio aéreo monitoreo Application de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "",
+  "key_parameter_1_es": "Sensitive Clearance Protection: 24/7 guarding of airport surroundings and approach routes",
+  "key_parameter_2_es": "Multi-layered response workflows: Integrated wireless detection, decoy, and event management against unauthorized flights",
+  "parameters_es": {
+    "Componentes": "Radar-EO-response workflows linkage",
+    "Frequencies": "Covers all civil and special bands",
+    "Defense Radius": "3km - 10km customizable",
+    "Compliance": "Meets civil aviation espacio aéreo monitoreo standards"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Aeropuerto espacio aéreo monitoreo Application está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Aeropuerto espacio aéreo monitoreo Application de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

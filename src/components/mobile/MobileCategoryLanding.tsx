@@ -7,14 +7,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { localizedField } from '@/lib/localization';
 
 interface SubSolution {
     product_name: string;
     product_name_en: string;
     product_name_ru: string;
+    product_name_es?: string;
     summary: string;
     summary_en: string;
     summary_ru: string;
+    summary_es?: string;
     main_image: string;
     handle: string;
 }
@@ -74,8 +77,8 @@ export default function MobileCategoryLanding({
                 <h2 className={styles.sectionTitle}>{dict.solutions.pageTitle}</h2>
                 <div className={styles.solutionsList}>
                     {subSolutions.map((sol) => {
-                        const solName = locale === 'ru' ? sol.product_name_ru : sol.product_name_en;
-                        const solSummary = locale === 'ru' ? sol.summary_ru : sol.summary_en;
+                        const solName = localizedField(sol, 'product_name', locale);
+                        const solSummary = localizedField(sol, 'summary', locale);
                         return (
                             <div key={sol.handle} className={styles.solutionItem}>
                                 <Link prefetch={false} href={l(`/solutions/${sol.handle}`)} className={styles.solutionImage} style={{ position: 'relative', display: 'block', width: '100%', paddingTop: '56.25%', overflow: 'hidden' }}>
@@ -100,7 +103,7 @@ export default function MobileCategoryLanding({
                     <h2 className={styles.recommendationsTitle}>{dict.solutions.recommendedProducts}</h2>
                     <div className={styles.productGrid}>
                         {recommendedProducts.map((prod, idx) => {
-                             const prodName = locale === 'ru' ? (prod.product_name_ru || prod.name_ru || prod.name) : (prod.product_name_en || prod.name_en || prod.name);
+                             const prodName = localizedField(prod, 'product_name', locale) || localizedField(prod, 'name', locale) || prod.name;
                              const prodImage = prod.main_image || prod.image;
                              return (
                                 <Link prefetch={false} href={l(`/products/${prod.handle}`)} key={idx} className={styles.productCard}>

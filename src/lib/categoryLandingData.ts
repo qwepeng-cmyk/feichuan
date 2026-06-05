@@ -3,10 +3,12 @@ export interface CategoryLandingData {
   name: string;
   name_en: string;
   name_ru: string;
+  name_es?: string;
   bannerImage: string;
   industryNeeds_en: string;
   industryNeeds_ru: string;
-  applicationScenes: { title: string; title_en: string; title_ru: string }[];
+  industryNeeds_es?: string;
+  applicationScenes: { title: string; title_en: string; title_ru: string; title_es?: string }[];
   products: { name: string; name_en: string }[];
   recommendedProductHandles: string[];
 }
@@ -119,5 +121,37 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     ]
   },
 };
+
+Object.assign(categoryLandingData['01_BorderPatrol'], {
+  name_es: 'Patrullaje fronterizo y costero',
+  industryNeeds_es: 'El monitoreo fronterizo y costero es clave para la seguridad operativa de corredores, puertos, costas e infraestructura cercana. Las operaciones tradicionales de patrullaje requieren mucha mano de obra y cobertura continua. Las soluciones de N-TET combinan UAV industriales, cargas electro-ópticas, monitoreo de área y registros de eventos para apoyar inspecciones amplias, verificación visual y coordinación de equipos en campo.',
+});
+categoryLandingData['01_BorderPatrol'].applicationScenes[0].title_es = 'Vigilancia de embarcaciones no autorizadas';
+categoryLandingData['01_BorderPatrol'].applicationScenes[1].title_es = 'Monitoreo costero 24/7';
+categoryLandingData['01_BorderPatrol'].applicationScenes[2].title_es = 'Patrullaje rutinario de zonas fronterizas';
+
+Object.assign(categoryLandingData['02_InfrastructureProtection'], {
+  name_es: 'Protección de infraestructura crítica',
+  industryNeeds_es: 'Con el crecimiento de las operaciones de baja altitud, las plantas de energía, subestaciones, presas hidroeléctricas, bases petroleras y plantas químicas necesitan mayor conciencia situacional del espacio aéreo cercano. N-TET integra radar de baja altitud, monitoreo RF, seguimiento electro-óptico y registro de eventos para apoyar detección, clasificación, verificación visual y coordinación con los procesos de seguridad existentes.',
+});
+categoryLandingData['02_InfrastructureProtection'].applicationScenes[0].title_es = 'Monitoreo del espacio aéreo en aeropuertos';
+categoryLandingData['02_InfrastructureProtection'].applicationScenes[1].title_es = 'Monitoreo de instalaciones de generación eléctrica';
+categoryLandingData['02_InfrastructureProtection'].applicationScenes[2].title_es = 'Monitoreo de instalaciones de gas natural';
+
+Object.assign(categoryLandingData['03_KeyAreaSecurity'], {
+  name_es: 'Seguridad de áreas clave',
+  industryNeeds_es: 'Áreas como aeropuertos, instalaciones judiciales, centros de transporte y eventos masivos concentran flujo de personas, activos y operaciones complejas. Las soluciones de N-TET integran vigilancia electro-óptica, monitoreo de baja altitud, inspección inteligente y registros de operación para apoyar revisiones rápidas, confirmación visual y flujos de respuesta coordinados sin exponer detalles técnicos sensibles.',
+});
+categoryLandingData['03_KeyAreaSecurity'].applicationScenes[0].title_es = 'Seguridad de áreas clave';
+categoryLandingData['03_KeyAreaSecurity'].applicationScenes[1].title_es = 'Soporte de seguridad para eventos';
+categoryLandingData['03_KeyAreaSecurity'].applicationScenes[2].title_es = 'Seguridad de centros de transporte';
+
+Object.assign(categoryLandingData['04_EmergencyRescue'], {
+  name_es: 'Emergencia y rescate',
+  industryNeeds_es: 'Los equipos de emergencia necesitan desplegar observación aérea, comunicación temporal e iluminación en sitios complejos con rapidez y trazabilidad. Las soluciones UAV de N-TET apoyan reconocimiento, búsqueda, coordinación, comunicación posterior a desastres e iluminación nocturna para mejorar la toma de decisiones y la continuidad operativa en campo.',
+});
+categoryLandingData['04_EmergencyRescue'].applicationScenes[0].title_es = 'Comunicación de emergencia posterior a sismos';
+categoryLandingData['04_EmergencyRescue'].applicationScenes[1].title_es = 'Monitoreo de inundaciones en sitio';
+categoryLandingData['04_EmergencyRescue'].applicationScenes[2].title_es = 'Iluminación de emergencia para reparaciones';
 
 export default categoryLandingData;

@@ -293,6 +293,21 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
 }
 
 function getSolutionLabels(locale: string) {
+  if (locale === 'es') {
+    return {
+      solutionDetails: 'Detalles de la solución',
+      industryEyebrow: 'Contexto operativo',
+      industryPainPoints: 'Necesidades de la industria',
+      upgradeEyebrow: 'Actualización operativa con UAV',
+      upgradeTitle: 'Cómo los UAV mejoran la eficiencia operativa',
+      modulesEyebrow: 'Arquitectura de la solución',
+      solutionModules: 'Módulos de la solución',
+      modulesIntro: 'La solución se organiza alrededor de tareas de campo, no de un solo modelo de UAV. Los equipos operativos y de emergencia pueden combinar patrullaje, monitoreo, respuesta y gestión local según el escenario.',
+      relatedCases: 'Casos relacionados',
+      solutionOverview: 'Resumen de la solución',
+    };
+  }
+
   if (locale === 'ru') {
     return {
       solutionDetails: 'Детали решения',

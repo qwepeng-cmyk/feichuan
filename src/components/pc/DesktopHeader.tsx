@@ -5,13 +5,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { languageLabels } from '@/lib/localization';
 
 export default function Header({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
 
     const pathname = usePathname();
-    const isHome = pathname === '/' || ['/en', '/ru'].some(locale => pathname === locale || pathname === `${locale}/`);
+    const pathSegments = pathname.split('/').filter(Boolean);
+    const currentPathWithoutLocale = ['en', 'ru', 'es'].includes(pathSegments[0])
+        ? `/${pathSegments.slice(1).join('/')}`.replace(/\/$/, '') || '/'
+        : pathname || '/';
+    const languageLinks = [
+        { locale: 'en', href: currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale },
+        { locale: 'ru', href: currentPathWithoutLocale === '/' ? '/ru' : `/ru${currentPathWithoutLocale}` },
+        { locale: 'es', href: currentPathWithoutLocale === '/' ? '/es' : `/es${currentPathWithoutLocale}` },
+    ];
+    const isHome = pathname === '/' || ['/en', '/ru', '/es'].some(locale => pathname === locale || pathname === `${locale}/`);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -205,9 +215,10 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
     ];
     const accessoryMegaColumns = [
         [accessoryMegaGroups[0], accessoryMegaGroups[4]],
-        [accessoryMegaGroups[1], accessoryMegaGroups[5]],
-        [accessoryMegaGroups[2], accessoryMegaGroups[6]],
-        [accessoryMegaGroups[3], accessoryMegaGroups[7]],
+        [accessoryMegaGroups[1], accessoryMegaGroups[7]],
+        [accessoryMegaGroups[2]],
+        [accessoryMegaGroups[5]],
+        [accessoryMegaGroups[3], accessoryMegaGroups[6]],
     ];
 
     return (
@@ -263,10 +274,11 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                 display: 'none',
                                 zIndex: 1001
                             }}>
-                                <li style={{ padding: '8px 20px', cursor: 'pointer' }}><Link prefetch={false} href="/">English</Link></li>
-                                <li style={{ padding: '8px 20px', cursor: 'pointer' }}><Link prefetch={false} href="/ru">Русский</Link></li>
-
-                                <li style={{ padding: '8px 20px', cursor: 'pointer' }}>Español</li>
+                                {languageLinks.map((item) => (
+                                    <li key={item.locale} style={{ padding: '8px 20px', cursor: 'pointer' }}>
+                                        <Link prefetch={false} href={item.href}>{languageLabels[item.locale]}</Link>
+                                    </li>
+                                ))}
                             </ul>
                             <style jsx>{`
                                 .lang-switch-top:hover .lang-dropdown-inner {
@@ -320,7 +332,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/products')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/products")} className="nav-link">{dict?.nav?.products || 'Products'}</Link>
                             <div className="mega-menu">
-                                <div className="container product-mega-container">
+                                <div className="container product-mega-container home-mega-container">
                                     <div className="product-mega-columns">
                                     {/* Column 1: UAV by mission and application */}
                                     <div className="mega-column">
@@ -430,10 +442,10 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/accessories')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/accessories")} className="nav-link">{dict?.nav?.accessories || 'Drone Accessories'}</Link>
                             <div className="mega-menu">
-                                <div className="container product-mega-container">
-                                    <div className="product-mega-columns">
+                                <div className="container product-mega-container home-mega-container accessory-mega-container">
+                                    <div className="product-mega-columns accessory-mega-columns">
                                         {accessoryMegaColumns.map((column, columnIndex) => (
-                                            <div className="mega-column" key={`accessory-column-${columnIndex}`}>
+                                            <div className="mega-column accessory-mega-column" key={`accessory-column-${columnIndex}`}>
                                                 {column.map((group) => (
                                                     <div className="mega-menu-group" key={group.id}>
                                                         <h3 className="mega-title">
@@ -459,7 +471,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         <div className={`nav-item ${pathname.startsWith(l('/solutions')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/solutions")} className="nav-link">{dict?.nav?.solutions || 'Solutions'}</Link>
                             <div className="mega-menu">
-                                <div className="container" style={{ display: 'grid', gridTemplateColumns: 'minmax(460px, 1.7fr) minmax(200px, 0.9fr) minmax(200px, 0.9fr)', gap: '44px', padding: '25px 0' }}>
+                                <div className="container home-mega-container" style={{ display: 'grid', gridTemplateColumns: 'minmax(460px, 1.7fr) minmax(200px, 0.9fr) minmax(200px, 0.9fr)', gap: '44px', padding: '25px 32px' }}>
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link prefetch={false} href={l("/solutions")}>{dict?.megaMenu?.uavIndustryApplications || 'UAV Industry Applications'}</Link></h3>
                                         <div className="mega-split-grid">
@@ -516,13 +528,14 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         {isHome && (
                             <div className="lang-switch">
                                 <div className="lang-switch-text">
-                                    {locale === 'ru' ? 'Русский' : 'English'} <svg style={{ width: '12px', height: '12px', marginLeft: '5px' }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    {languageLabels[locale] || 'English'} <svg style={{ width: '12px', height: '12px', marginLeft: '5px' }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z"></path>
                                     </svg>
                                 </div>
                                 <ul className="lang-dropdown">
-                                    <li><Link prefetch={false} href="/">English</Link></li>
-                                    <li><Link prefetch={false} href="/ru">Русский</Link></li>
+                                    {languageLinks.map((item) => (
+                                        <li key={item.locale}><Link prefetch={false} href={item.href}>{languageLabels[item.locale]}</Link></li>
+                                    ))}
                                 </ul>
                             </div>
                         )}

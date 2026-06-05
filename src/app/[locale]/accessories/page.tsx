@@ -7,6 +7,8 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 
+const ACCESSORIES_BANNER_IMAGE = '/products/uav-accessories/uav-accessories-banner-blue-aerial.webp';
+
 function accessoryCategories(dict: any): CatalogCategory[] {
   return ACCESSORY_CATEGORY_ORDER.map((id) => ({
     id,
@@ -38,6 +40,7 @@ async function AccessoriesDataWrapper({ locale, dict }: { locale: Locale; dict: 
           bannerTitle={dict.accessories.bannerTitle}
           bannerDesc={dict.accessories.bannerDesc}
           basePath="/accessories"
+          bannerImage={ACCESSORIES_BANNER_IMAGE}
         />
       </div>
       <div className="mobile_only">

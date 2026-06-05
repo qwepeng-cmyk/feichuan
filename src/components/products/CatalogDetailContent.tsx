@@ -42,9 +42,7 @@ function readJsonLike(value: unknown) {
 }
 
 function readGalleryImages(product: any) {
-  const rawImages = readJsonLike(product.product_images || product.Product_Images) || [];
-  const images = Array.isArray(rawImages) ? rawImages : [];
-  return Array.from(new Set([product.main_image, ...images])).filter(Boolean) as string[];
+  return product.main_image ? [product.main_image] : [];
 }
 
 export default function CatalogDetailContent({
@@ -69,10 +67,21 @@ export default function CatalogDetailContent({
   const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
   const parameters = readJsonLike(product[`parameters_${locale}`] || product.parameters_en);
-  const applicationLabel = locale === 'ru' ? 'Application' : 'Application';
+  const overviewTitle =
+    locale === 'es' ? 'Resumen del producto' :
+    locale === 'ru' ? 'Обзор продукта' :
+    'Product Overview';
+  const applicationLabel =
+    locale === 'es' ? 'Aplicación' :
+    locale === 'ru' ? 'Применение' :
+    'Application';
+  const keyParameterLabel =
+    locale === 'es' ? 'Parámetro clave' :
+    locale === 'ru' ? 'Ключевой параметр' :
+    'Key Parameter';
   const productOverview = [
-    parseOverviewLine(keyParam1, locale === 'ru' ? 'Key Parameter' : 'Key Parameter'),
-    parseOverviewLine(keyParam2, locale === 'ru' ? 'Key Parameter' : 'Key Parameter'),
+    parseOverviewLine(keyParam1, keyParameterLabel),
+    parseOverviewLine(keyParam2, keyParameterLabel),
     parseOverviewLine(keyApp, applicationLabel),
   ].filter((item): item is { label: string; value: string } => Boolean(item));
   const galleryImages = readGalleryImages(product);
@@ -126,7 +135,7 @@ export default function CatalogDetailContent({
                     {productOverview.length > 0 && (
                       <div className="product-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
                         <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
-                          Product Overview
+                          {overviewTitle}
                         </div>
                         {productOverview.map((item, idx) => (
                           <div key={`${item.label}-${idx}`} style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '18px', fontSize: '1.65rem', lineHeight: '1.5', marginBottom: idx === productOverview.length - 1 ? 0 : '12px' }}>

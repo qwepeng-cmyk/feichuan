@@ -22,6 +22,21 @@ const labels = {
   media: 'Media and Insights',
 };
 
+const corePages = [
+  ['Home', ''],
+  ['Products', 'products'],
+  ['Solutions', 'solutions'],
+  ['Cases', 'cases'],
+  ['Media', 'media'],
+  ['Contact', 'contact'],
+];
+
+function localizedPageUrl(locale, path = '') {
+  const prefix = locale === 'en' ? '' : `/${locale}`;
+  const suffix = path ? `/${path}` : '';
+  return `${SITE_URL}${prefix}${suffix || '/'}`;
+}
+
 const lines = [
   '# N-TET',
   '',
@@ -34,14 +49,14 @@ const lines = [
   '',
   '## Core Pages',
   '',
-  `- [Home](${SITE_URL}/)`,
-  `- [Products](${SITE_URL}/products)`,
-  `- [Solutions](${SITE_URL}/solutions)`,
-  `- [Cases](${SITE_URL}/cases)`,
-  `- [Media](${SITE_URL}/media)`,
-  `- [Contact](${SITE_URL}/contact)`,
-  '',
 ];
+
+for (const locale of LOCALES) {
+  for (const [label, path] of corePages) {
+    lines.push(`- [${label} (${locale})](${localizedPageUrl(locale, path)})`);
+  }
+}
+lines.push('');
 
 for (const type of ['product', 'solution', 'case', 'media']) {
   const items = groups[type] || [];

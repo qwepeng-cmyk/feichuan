@@ -17,6 +17,21 @@ function cleanTrackingId(value: string) {
   return value.replace(/[^A-Z0-9-]/gi, '');
 }
 
+const localeHomeMetadata: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: 'N-TET - Industrial UAV Systems & Low-Altitude Monitoring',
+    description: 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
+  },
+  ru: {
+    title: 'N-TET - Промышленные БПЛА и мониторинг низковысотного пространства',
+    description: 'Промышленные платформы БПЛА, оборудование мониторинга воздушного пространства, журналы событий и регламентированные рабочие процессы для инфраструктурных операторов.',
+  },
+  es: {
+    title: 'N-TET - Sistemas UAV industriales y monitoreo de baja altitud',
+    description: 'Plataformas UAV industriales, equipos de monitoreo del espacio aéreo, registros de eventos y flujos de respuesta para operadores de infraestructura.',
+  },
+};
+
 const fallbackTracking = {
   gaMeasurementId: 'G-ZS6XC2TFCG',
   gaEnabled: true,
@@ -45,21 +60,19 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   }
 
   const baseUrl = 'https://n-tet.com';
-  
+  const metadata = localeHomeMetadata[locale] || localeHomeMetadata.en;
+
   return {
-    title: locale === 'ru'
-      ? 'N-TET - Промышленные БПЛА и мониторинг низковысотного пространства'
-      : 'N-TET - Industrial UAV Systems & Low-Altitude Monitoring',
-    description: locale === 'ru'
-      ? 'Промышленные платформы БПЛА, оборудование мониторинга воздушного пространства, журналы событий и регламентированные рабочие процессы для инфраструктурных операторов.'
-      : 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
+    title: metadata.title,
+    description: metadata.description,
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
       languages: {
         'en': '/',
         'ru': '/ru',
-        'x-default': '/', // 默认语言设为英文
+        'es': '/es',
+        'x-default': '/',
       },
     },
   };

@@ -66,5 +66,26 @@
     "Вес": "16 кг",
     "Рабочая температура": "-20℃ ~ +55℃"
   },
-  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Скрытность работы: Только прием сигналов, отсутствие собственного излучения делает систему невидимой для средств РЭР противника.</li><li>Глубокий анализ: Распознавание серийных номеров, моделей, скорости, высоты и точных координат как дрона, так и пульта управления.</li><li>Управление списками: Маркировка «своих» дронов одной кнопкой для предотвращения ложных тревог.</li><li>Трассировка целей: Отображение траекторий полета нескольких БПЛА одновременно разными цветами на встроенном экране.</li><li>Сетевая интеграция: Возможность передачи данных на удаленные командные пункты.</li><li>Мобильность: Форм-фактор кейса позволяет переносить систему одним человеком и развертывать ее в считанные минуты.</li></ul>"
+  "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Скрытность работы: Только прием сигналов, отсутствие собственного излучения делает систему невидимой для средств РЭР противника.</li><li>Глубокий анализ: Распознавание серийных номеров, моделей, скорости, высоты и точных координат как дрона, так и пульта управления.</li><li>Управление списками: Маркировка «своих» дронов одной кнопкой для предотвращения ложных тревог.</li><li>Трассировка целей: Отображение траекторий полета нескольких БПЛА одновременно разными цветами на встроенном экране.</li><li>Сетевая интеграция: Возможность передачи данных на удаленные командные пункты.</li><li>Мобильность: Форм-фактор кейса позволяет переносить систему одним человеком и развертывать ее в считанные минуты.</li></ul>",
+  "product_name_es": "Hand-carried RF detección sistema",
+  "summary_es": "Hand-carried RF detección sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Passive detection with zero electromagnetic emission; Multi-mode recognition (spectrum analysis & protocol decoding); High mobility for individual soldier deployment and rapid response.",
+  "key_parameter_1_es": "Detección Radius: 5km",
+  "key_parameter_2_es": "Operating Frequency: 300MHz-6000MHz",
+  "parameters_es": {
+    "Frequency Range": "300MHz-6000MHz",
+    "Detección Mode": "Passive detection, Spectrum analysis, Protocol decoding",
+    "Detección Angle": "360° Horizontal",
+    "Detección Radius": "5km",
+    "Direction Accuracy": "≤3° (RMS)",
+    "Identification Time": "≤3s",
+    "Screen Size": "13.3 inch",
+    "Eléctrica Supply": "Batería/Adapter",
+    "IP Rating": "IP65",
+    "Max eléctrica": "80W",
+    "Batería Endurance": "5h",
+    "Weight": "16kg",
+    "Operating Temp": "-20℃ to +55℃"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Hand-carried RF detección sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Hand-carried RF detección sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

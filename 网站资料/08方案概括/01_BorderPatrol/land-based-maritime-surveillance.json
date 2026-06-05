@@ -41,5 +41,17 @@
     "Особенности системы": "Цифровая визуализация ГИС-данных",
     "Класс защиты": "IP67 промышленный стандарт"
   },
-  "detail_html_ru": "<h4>Основные преимущества</h4><p>Система строит цифровую архитектуру контроля морских границ, объединяя данные из различных источников.</p><ul><li>Круглосуточное наблюдение без слепых зон</li><li>Автоматическое распознавание и отслеживание движущихся целей</li><li>Точный захват деталей объектов</li></ul>"
+  "detail_html_ru": "<h4>Основные преимущества</h4><p>Система строит цифровую архитектуру контроля морских границ, объединяя данные из различных источников.</p><ul><li>Круглосуточное наблюдение без слепых зон</li><li>Автоматическое распознавание и отслеживание движущихся целей</li><li>Точный захват деталей объектов</li></ul>",
+  "product_name_es": "Land-based marítimo vigilancia & Early Warning",
+  "summary_es": "Land-based marítimo vigilancia & Early Warning de N-TET para monitoreo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+  "key_application_es": "Aplicaciones principales: Marítimo defense regulation; 24/7 early warning; Digital control.",
+  "key_parameter_1_es": "Core Equipment: FC-RDS500-4R Radar-Vision Integration System",
+  "key_parameter_2_es": "Detección: All-weather detection + Multi-target tracking",
+  "parameters_es": {
+    "Integration Tech": "Radar + Intelligent Optoelectronics",
+    "Monitoreo Mode": "AI Identification-seguimiento-Warning",
+    "Sistema Features": "Digitized visual geographic information",
+    "Protection Level": "IP67 Industrial Grade"
+  },
+  "detail_html_es": "<h4>Características</h4><ul><li>Land-based marítimo vigilancia &amp; Early Warning está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Land-based marítimo vigilancia &amp; Early Warning de N-TET para monitoreo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { localizedField } from '@/lib/localization';
 
 interface HomeCasesProps {
     locale: string;
@@ -24,7 +25,7 @@ export default function HomeCases({ locale, dict, homeCases }: HomeCasesProps) {
                 </div>
                 <div className="cases-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
                     {homeCases.map((item, idx) => {
-                        const localizedCaseTitle = locale === 'ru' ? item.title_ru : item.title;
+                        const localizedCaseTitle = localizedField(item, 'title', locale);
                         return (
                             <Link
                                 key={idx}
