@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileMediaDetail from '@/components/mobile/MobileMediaDetail';
+import ArticleEditorialSignals from '@/components/media/ArticleEditorialSignals';
 import { getMediaById, getAllMediaIds } from '@/lib/media';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
@@ -117,12 +118,16 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                         <div className="container" style={{ maxWidth: '1200px' }}>
                             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                                 <h1 style={{ fontSize: '4.8rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '30px' }}>{newsTitle}</h1>
-                                <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>{newsDate}</div>
+                                <div style={{ fontSize: '1.8rem', color: '#666', fontWeight: 500 }}>
+                                    <time dateTime={news.date}>{newsDate}</time>
+                                </div>
                             </div>
 
                             <div style={{ marginBottom: '50px', position: 'relative', height: '500px', width: '100%', backgroundColor: '#f5f5f5' }}>
                                 <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover', borderRadius: '8px' }} sizes="100vw" />
                             </div>
+
+                            <ArticleEditorialSignals locale={locale} title={newsTitle} date={newsDate} dateTime={news.date} />
 
                             <div className="news-rich-content" style={{ fontSize: '1.8rem', lineHeight: '1.8', color: '#444' }}>
                                 <OptimizedRichText className="rich-content" html={newsContent} />

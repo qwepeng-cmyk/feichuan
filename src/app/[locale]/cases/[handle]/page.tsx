@@ -17,6 +17,7 @@ import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -118,6 +119,14 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 
   const title = caseData[`title_${locale}`] || caseData.title_en || caseData.title;
   const description = caseData[`description_${locale}`] || caseData.description_en || caseData.description;
+  const seoTarget = getSeoKeywordTarget({
+    route: `/cases/${handle}`,
+    title,
+    pageKind: 'case_detail',
+    fallbackKeywords: [title],
+    locale,
+  });
+  const overviewHeading = seoTarget.overviewHeading || dict.products.overview;
   const jsonLd = articleJsonLd({
     locale,
     path: `/cases/${handle}`,
@@ -220,7 +229,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 
             <section id="overview" className="product-intro-section" style={{ padding: '70px 0', background: '#fff' }}>
               <div className="container">
-                <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '34px' }}>{dict.products.overview}</h2>
+                <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '34px' }}>{overviewHeading}</h2>
                 <div className="product-intro-text" style={{ width: '100%', maxWidth: 'none', margin: 0, fontSize: '1.8rem', color: '#444', lineHeight: '1.85', textAlign: 'left' }}>
                   {typeof description === 'string' && description.split('\n').map((paragraph: string, idx: number) => (
                     paragraph.trim() ? <p key={idx} style={{ marginBottom: '20px' }}>{paragraph}</p> : null

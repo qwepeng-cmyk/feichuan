@@ -7,6 +7,8 @@ import Image from 'next/image';
 import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import ProductCenterSeoContent from '@/components/products/ProductCenterSeoContent';
+import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface Product {
     name: string;
@@ -212,6 +214,14 @@ export default function MobileProductCenter({
     locale: string,
     dict: any
 }) {
+    const seoTarget = getSeoKeywordTarget({
+        route: '/products',
+        title: dict.products.bannerTitle,
+        pageKind: 'product_list',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.products.bannerTitle;
+
     const CATEGORY_NAMES: Record<string, string> = {
         'uav-drone-systems': dict.products.categories.uav,
         'drone-detection': dict.products.categories.droneDetection,
@@ -327,7 +337,7 @@ export default function MobileProductCenter({
             <section className={styles.banner} ref={bannerRef}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
-                    <div className={styles.bannerTitle}>{dict.products.bannerTitle}</div>
+                    <div className={styles.bannerTitle}>{bannerTitle}</div>
                 </div>
             </section>
 
@@ -348,6 +358,8 @@ export default function MobileProductCenter({
                     ))}
                 </div>
             </div>
+
+            <ProductCenterSeoContent locale={locale} compact />
 
             <div className={styles.listContainer}>
                 {categoryList.map((category) => (

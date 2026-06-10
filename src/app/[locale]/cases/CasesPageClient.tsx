@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface CaseItem {
     handle: string;
@@ -32,6 +33,15 @@ export default function CasesPageClient({
     const [selectedRegionId, setSelectedRegionId] = useState('all');
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 9;
+    const seoTarget = getSeoKeywordTarget({
+        route: '/cases',
+        title: dict.cases.bannerTitle,
+        pageKind: 'case_list',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.cases.bannerTitle;
+    const seoIntroTitle = seoTarget.overviewHeading || dict.cases.seoIntroTitle;
+    const seoIntroBody = buildKeywordIntro(seoTarget, dict.cases.bannerTitle, locale) || dict.cases.seoIntroBody;
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.all },
@@ -175,6 +185,28 @@ export default function CasesPageClient({
                     .mobile_only { display: block !important; }
                     .pc_only { display: none !important; }
                 }
+                .listing-seo-intro {
+                    padding: 46px 0 8px;
+                    background: #fff;
+                }
+                .listing-seo-intro-inner {
+                    max-width: 920px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+                .listing-seo-intro h2 {
+                    color: #1f2937;
+                    font-size: 3.2rem;
+                    font-weight: 850;
+                    line-height: 1.2;
+                    margin: 0 0 16px;
+                }
+                .listing-seo-intro p {
+                    color: #4b5563;
+                    font-size: 1.8rem;
+                    line-height: 1.7;
+                    margin: 0;
+                }
             `}} />
 
             <div className="pc_only product-page-new" style={{ paddingTop: '112px' }}>
@@ -187,11 +219,11 @@ export default function CasesPageClient({
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Image src={withStaticAssetVersion('/cases/case_banner_center_collage_v2.webp')} fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={dict.cases.bannerTitle} />
+                    <Image src={withStaticAssetVersion('/cases/case_banner_center_collage_v2.webp')} fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={bannerTitle} />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>
-                            <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.cases.bannerTitle}</h1>
+                            <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{bannerTitle}</h1>
                             <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.cases.bannerSubtitle}</p>
                         </div>
                     </div>
@@ -211,7 +243,18 @@ export default function CasesPageClient({
                         </div>
                     </section>
 
-                    <div className="product-lists-wrap" style={{ padding: '25px 0 100px 0', backgroundColor: '#fcfdfe', minHeight: '600px' }}>
+                    {seoIntroTitle && seoIntroBody && (
+                        <section className="listing-seo-intro">
+                            <div className="container">
+                                <div className="listing-seo-intro-inner">
+                                    <h2>{seoIntroTitle}</h2>
+                                    <p>{seoIntroBody}</p>
+                                </div>
+                            </div>
+                        </section>
+                    )}
+
+                    <div className="product-lists-wrap" style={{ padding: '48px 0 100px 0', backgroundColor: '#fcfdfe', minHeight: '600px' }}>
                         <div className="container">
                             {paginatedCases.length > 0 ? (
                                 <>

@@ -80,10 +80,12 @@
     }
   },
   "solutions": {
-    "pageTitle": "Industrial UAV Solutions",
-    "bannerTitle": "Industrial UAV Solutions",
-    "bannerDesc": "UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.",
-    "bannerSubtitle": "UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.",
+    "pageTitle": "UAV Inspection Solutions",
+    "bannerTitle": "UAV Inspection Solutions",
+    "bannerDesc": "UAV inspection solutions for utility corridors, emergency response drone work, search and rescue drone teams, firefighting drone support, and low-altitude airspace monitoring.",
+    "bannerSubtitle": "UAV inspection solutions for utility corridors, emergency response drone work, search and rescue drone teams, firefighting drone support, and low-altitude airspace monitoring.",
+    "seoIntroTitle": "UAV Inspection Solutions for Industrial Field Teams",
+    "seoIntroBody": "N-TET organizes drone power line inspection, pipeline inspection drones, water conservancy monitoring UAV workflows, search and rescue drone operations, firefighting drone support, and tethered lighting UAV deployment into practical solution groups for infrastructure and emergency teams.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
@@ -98,9 +100,11 @@
     }
   },
   "cases": {
-    "pageTitle": "UAV Deployment Cases",
-    "bannerTitle": "UAV Deployment Cases",
-    "bannerDesc": "Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring.",
+    "pageTitle": "UAV Inspection Cases",
+    "bannerTitle": "UAV Inspection Cases",
+    "bannerDesc": "Deployment references for UAV inspection cases, power line UAV patrol, emergency support, and low altitude monitoring case work.",
+    "seoIntroTitle": "UAV Inspection Cases by Region and Scenario",
+    "seoIntroBody": "Browse power line UAV patrol, water conservancy UAV patrol, refinery monitoring case, and low altitude monitoring case references to compare how N-TET systems are used in field inspection, emergency support, and infrastructure operations.",
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
@@ -122,13 +126,15 @@
         "oceania": "Oceania"
       }
     },
-    "bannerSubtitle": "Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring."
+    "bannerSubtitle": "Deployment references for UAV inspection cases, power line UAV patrol, emergency support, and low altitude monitoring case work."
   },
   "media": {
-    "pageTitle": "Insights & Updates",
-    "bannerTitle": "Insights & Updates",
-    "bannerDesc": "Company updates, technical notes, and industry perspectives on UAV operations and airspace monitoring.",
-    "bannerSubtitle": "Company updates, technical notes, and industry perspectives on UAV operations and airspace monitoring.",
+    "pageTitle": "Industrial UAV News",
+    "bannerTitle": "Industrial UAV News",
+    "bannerDesc": "Industrial UAV news, low altitude economy analysis, tethered UAV surveillance notes, industrial UAV redundancy updates, and border surveillance UAV network planning.",
+    "bannerSubtitle": "Industrial UAV news, low altitude economy analysis, tethered UAV surveillance notes, industrial UAV redundancy updates, and border surveillance UAV network planning.",
+    "seoIntroTitle": "Industrial UAV News and Low Altitude Economy Updates",
+    "seoIntroBody": "Follow N-TET coverage of low altitude economy development, tethered UAV surveillance, industrial UAV redundancy, and border surveillance UAV network design for infrastructure, public-site, and emergency operations.",
     "latest": "Latest",
     "corporate": "Corporate News",
     "productTech": "Product & Tech",
@@ -144,7 +150,7 @@
   "about": {
     "pageTitle": "Company Profile",
     "bannerTitle": "Company Profile",
-    "bannerDesc": "Engineering UAV, airspace monitoring, and intelligent inspection systems for infrastructure operators.",
+    "bannerDesc": "Integrated UAV systems, low-altitude monitoring, and inspection workflows for infrastructure operators.",
     "companyProfile": "Company Profile",
     "companyDesc1": "Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in Beijing and focuses on industrial UAV systems, airspace monitoring, intelligent inspection, and site-screening technologies.",
     "companyDesc2": "The company connects engineering development, field deployment experience, and partner resources to support infrastructure operators, utilities, emergency teams, and public-site managers.",
@@ -164,9 +170,11 @@
     "aiRecognitionDesc": "AI-based image analysis technology, providing comprehensive optical visual system solutions."
   },
   "contact": {
-    "pageTitle": "Contact Us",
-    "bannerTitle": "Contact Us",
-    "bannerDesc": "Talk with our team about UAV platforms, airspace monitoring equipment, inspection workflows, and project-specific deployment needs.",
+    "pageTitle": "Industrial UAV Quote",
+    "bannerTitle": "Industrial UAV Quote",
+    "bannerDesc": "Talk with N-TET as a UAV system supplier about drone inspection solution planning, emergency response UAV projects, low altitude monitoring equipment, and project-specific deployment needs.",
+    "seoIntroTitle": "Industrial UAV Quote and Project Consultation",
+    "seoIntroBody": "Use this contact page to request an industrial UAV quote, compare UAV system supplier options, discuss a drone inspection solution, or plan emergency response UAV and low altitude monitoring equipment requirements with the N-TET team.",
     "directContact": "Direct Contact",
     "consultation": "Consultation",
     "whatsapp": "WhatsApp",

@@ -10,6 +10,7 @@ import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -67,6 +68,17 @@ export default function CatalogDetailContent({
   const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
   const parameters = readJsonLike(product[`parameters_${locale}`] || product.parameters_en);
+  const seoTarget = getSeoKeywordTarget({
+    route: `${basePath}/${handle}`,
+    title: name,
+    category: product.category_primary || product.category,
+    pageKind: basePath === '/accessories' ? 'accessory_detail' : 'product_detail',
+    fallbackKeywords: [name, product.category_primary || product.category].filter(Boolean),
+    locale,
+  });
+  const displayName = seoTarget.h1 || name;
+  const specsHeading = seoTarget.overviewHeading || dict.products.technicalSpecs;
+  const keywordIntro = buildKeywordIntro(seoTarget, name, locale);
   const overviewTitle =
     locale === 'es' ? 'Resumen del producto' :
     locale === 'ru' ? 'Обзор продукта' :
@@ -117,7 +129,7 @@ export default function CatalogDetailContent({
             <div className="product-breadcrumb-nav">
               <div className="container">
                 <div className="breadcrumb-path">
-                  <Link href={localePath(locale)}>{dict.nav.home}</Link> &gt; <Link href={localePath(locale, basePath)}>{catalogLabel}</Link> &gt; {name}
+                  <Link href={localePath(locale)}>{dict.nav.home}</Link> &gt; <Link href={localePath(locale, basePath)}>{catalogLabel}</Link> &gt; {displayName}
                 </div>
               </div>
             </div>
@@ -126,11 +138,11 @@ export default function CatalogDetailContent({
               <div className="container">
                 <div className="product-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'start' }}>
                   <div className="gallery-main-area">
-                    <UniversalGallery images={galleryImages.length ? galleryImages : ['/logo1-small.webp']} fit="contain" alt={name} aspectRatio="1.618 / 1" />
+                    <UniversalGallery images={galleryImages.length ? galleryImages : ['/logo1-small.webp']} fit="contain" alt={displayName} aspectRatio="1.618 / 1" />
                   </div>
                   <div className="product-info">
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
-                      {name}
+                      {displayName}
                     </h1>
                     {productOverview.length > 0 && (
                       <div className="product-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
@@ -162,6 +174,11 @@ export default function CatalogDetailContent({
               <section className="product-intro-section" style={{ paddingBottom: '60px', background: '#fff' }}>
                 <div className="container">
                   <div className="product-intro-text" style={{ fontSize: '1.8rem', color: '#444', lineHeight: '1.8', borderTop: '1px solid #eee', paddingTop: '40px' }}>
+                    {keywordIntro && (
+                      <p style={{ margin: '0 0 18px', color: '#263241', fontWeight: 650 }}>
+                        {keywordIntro}
+                      </p>
+                    )}
                     {summary}
                   </div>
                 </div>
@@ -181,7 +198,7 @@ export default function CatalogDetailContent({
             {hasParameters && (
               <section id="specs" className="detail-section" style={{ padding: '80px 0', backgroundColor: '#fff' }}>
                 <div className="container">
-                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px', fontSize: '3.6rem', fontWeight: 700 }}>{dict.products.technicalSpecs}</h2>
+                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px', fontSize: '3.6rem', fontWeight: 700 }}>{specsHeading}</h2>
                   <SpecificationTable parameters={parameters} parameterLabel={dict.products.parameter} descriptionLabel={dict.products.description} />
                 </div>
               </section>

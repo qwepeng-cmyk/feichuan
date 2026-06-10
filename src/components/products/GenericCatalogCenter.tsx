@@ -4,6 +4,7 @@ import InquiryForm from '@/components/products/InquiryForm';
 import CategoryNav from '@/components/products/CategoryNav';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import { AccessoryCategoryIcon } from '@/components/products/accessoryCategoryIcons';
+import AccessoryCenterSeoContent from '@/components/products/AccessoryCenterSeoContent';
 
 export interface CatalogCategory {
   id: string;
@@ -56,6 +57,10 @@ export default function GenericCatalogCenter({
       </section>
 
       <CategoryNav categories={categoryList} />
+
+      {basePath === '/accessories' && (
+        <AccessoryCenterSeoContent locale={locale} />
+      )}
 
       <div className="product-lists-wrap" style={{ padding: '60px 0' }}>
         {categories.map((category) => (

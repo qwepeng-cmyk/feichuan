@@ -6,8 +6,10 @@ import Image from 'next/image';
 import styles from './MobileSolutionDetail.module.css';
 import OptimizedRichText from '../common/OptimizedRichText';
 import MobileInquiryForm from './MobileInquiryForm';
+import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface SolutionProps {
     solution: any;
@@ -421,6 +423,13 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
     const keyParam1 = solution[`key_parameter_1_${locale}`] || solution.key_parameter_1_en;
     const keyParam2 = solution[`key_parameter_2_${locale}`] || solution.key_parameter_2_en;
     const detailHtml = solution[`detail_html_${locale}`] || solution.detail_html_en;
+    const seoTarget = getSeoKeywordTarget({
+        route: `/solutions/${solution.handle || solution.id}`,
+        title: name,
+        category: solution.category_id,
+        pageKind: 'solution_detail',
+        locale,
+    });
     
     let parameters: any = null;
     try {
@@ -619,6 +628,12 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
                             {solutionLabels.relatedCases}
                         </button>
                     )}
+                    <button
+                        className={`${styles.navItem} ${activeTab === 'faq' ? styles.active : ''}`}
+                        onClick={() => scrollToSection('faq')}
+                    >
+                        FAQ
+                    </button>
                     <button 
                         className={`${styles.navItem} ${activeTab === 'inquiry' ? styles.active : ''}`}
                         onClick={() => scrollToSection('inquiry-title')}
@@ -697,6 +712,8 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
                     </div>
                 </section>
             )}
+
+            <SolutionFaqSection locale={locale} subject={name} target={seoTarget} compact />
 
             {/* 6. Inquiry Section */}
             <section id="inquiry-title" className={styles.section} style={{ background: '#f8faff', paddingTop: '20px' }}>

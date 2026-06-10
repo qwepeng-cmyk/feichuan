@@ -7,6 +7,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
@@ -19,6 +20,16 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
 }
 
 async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
+    const seoTarget = getSeoKeywordTarget({
+        route: '/contact',
+        title: dict.contact.bannerTitle,
+        pageKind: 'contact',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.contact.bannerTitle;
+    const seoIntroTitle = seoTarget.overviewHeading || dict.contact.seoIntroTitle;
+    const seoIntroBody = buildKeywordIntro(seoTarget, dict.contact.bannerTitle, locale) || dict.contact.seoIntroBody;
+
     return (
         <>
             <div className="pc_only">
@@ -45,13 +56,28 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.4)', zIndex: 0 }}></div>
                             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ maxWidth: '800px' }}>
-                                    <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.contact.bannerTitle}</h1>
+                                    <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{bannerTitle}</h1>
                                     <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>
                                         {dict.contact.bannerDesc}
                                     </p>
                                 </div>
                             </div>
                         </section>
+
+                        {seoIntroTitle && seoIntroBody && (
+                            <section style={{ padding: '54px 0 8px', backgroundColor: '#fff' }}>
+                                <div className="container">
+                                    <div style={{ maxWidth: '920px', margin: '0 auto', textAlign: 'center' }}>
+                                        <h2 style={{ fontSize: '3.2rem', lineHeight: 1.2, fontWeight: 850, color: '#1f2937', margin: '0 0 16px' }}>
+                                            {seoIntroTitle}
+                                        </h2>
+                                        <p style={{ fontSize: '1.8rem', lineHeight: 1.7, color: '#4b5563', margin: 0 }}>
+                                            {seoIntroBody}
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
 
                         <section className="contact-main-content" style={{ padding: '80px 0' }}>
                             <div className="container">

@@ -8,8 +8,10 @@ import InquiryForm from '@/components/products/InquiryForm';
 import UniversalGallery from '@/components/common/UniversalGallery';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
+import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 function renderParameterValue(value: unknown): React.ReactNode {
   if (value === null || value === undefined || value === '') return '-';
@@ -521,6 +523,13 @@ function StructuredSolutionContent({
   const sectionData = { ...detailSections, ...parameters };
   const visuals = getSolutionVisuals(solution.handle || '', solution.main_image);
   const baseLabels = getSolutionLabels(locale);
+  const seoTarget = getSeoKeywordTarget({
+    route: `/solutions/${solution.handle || solution.id}`,
+    title: solution[`product_name_${locale}`] || solution.product_name_en || solution.title_en,
+    category: solution.category_id,
+    pageKind: 'solution_detail',
+    locale,
+  });
   const labels = {
     ...baseLabels,
     upgradeEyebrow: typeof sectionData.operation_upgrade_eyebrow === 'string' ? sectionData.operation_upgrade_eyebrow : baseLabels.upgradeEyebrow,
@@ -543,7 +552,7 @@ function StructuredSolutionContent({
       <SolutionVisualSection
         id="details"
         eyebrow={labels.industryEyebrow}
-        title={labels.industryPainPoints}
+        title={seoTarget.overviewHeading || labels.industryPainPoints}
         items={painPoints}
         image={painPointsImage}
       />
@@ -588,6 +597,16 @@ export default function SolutionDetailClient({
   const detailSections = rawJson.detail_sections && typeof rawJson.detail_sections === 'object' ? rawJson.detail_sections : {};
   const hasStructuredSolutionContent = Object.keys(detailSections).length > 0 || Boolean(parameters?.industry_pain_points || parameters?.uav_industry_upgrade || parameters?.solution_modules);
   const solutionLabels = getSolutionLabels(locale);
+  const seoTarget = getSeoKeywordTarget({
+    route: `/solutions/${solution.handle || solution.id}`,
+    title: name,
+    category: solution.category_id,
+    pageKind: 'solution_detail',
+    locale,
+  });
+  const displayName = seoTarget.h1 || name;
+  const overviewHeading = seoTarget.overviewHeading || solutionLabels.solutionOverview;
+  const keywordIntro = buildKeywordIntro(seoTarget, name, locale);
   const solutionOverviewItems = [
     parseOverviewLine(keyApp, 'Application'),
     parseOverviewLine(keyParam1, 'Key Parameter'),
@@ -606,6 +625,7 @@ export default function SolutionDetailClient({
     ...(recommendedCases.length > 0
       ? [{ id: 'cases', label: solutionLabels.relatedCases }]
       : []),
+    { id: 'faq', label: 'FAQ' },
     { id: 'inquiry', label: dict.nav.contact },
   ];
 
@@ -616,7 +636,7 @@ export default function SolutionDetailClient({
         <div className="product-breadcrumb-nav">
           <div className="container">
             <div className="breadcrumb-path">
-              <Link href={localePath(locale)}>{dict.nav.home}</Link> &gt; <Link href={localePath(locale, '/solutions')}>{dict.nav.solutions}</Link> &gt; <Link href={localePath(locale, `/solutions/category/${solution.category_id}`)}>{solution.category_name}</Link> &gt; {name}
+              <Link href={localePath(locale)}>{dict.nav.home}</Link> &gt; <Link href={localePath(locale, '/solutions')}>{dict.nav.solutions}</Link> &gt; <Link href={localePath(locale, `/solutions/category/${solution.category_id}`)}>{solution.category_name}</Link> &gt; {displayName}
             </div>
           </div>
         </div>
@@ -628,13 +648,13 @@ export default function SolutionDetailClient({
 
               {/* Image Gallery Area */}
               <div className="gallery-main-area solution-hero-gallery">
-                <UniversalGallery images={heroImages} alt={name} fit="cover" aspectRatio="16 / 10" />
+                <UniversalGallery images={heroImages} alt={displayName} fit="cover" aspectRatio="16 / 10" />
               </div>
 
               {/* Info Area */}
               <div className="product-info" style={{ minWidth: 0 }}>
                 <h1 style={{ fontSize: '4.2rem', fontWeight: '900', marginBottom: '24px', lineHeight: '1.12', color: '#263241', letterSpacing: 0 }}>
-                  {name}
+                  {displayName}
                 </h1>
 
                 {solutionOverviewItems.length > 0 && (
@@ -668,6 +688,7 @@ export default function SolutionDetailClient({
         <section className="product-intro-section" style={{ padding: '60px 0', background: '#fff' }}>
           <div className="container">
             <div className="product-intro-text" style={{ fontSize: '1.8rem', color: '#444', lineHeight: '1.8', borderTop: '1px solid #eee', paddingTop: '40px' }}>
+              {keywordIntro && <p style={{ margin: '0 0 18px', color: '#263241', fontWeight: 650 }}>{keywordIntro}</p>}
               {summary}
             </div>
           </div>
@@ -682,7 +703,7 @@ export default function SolutionDetailClient({
         ) : detailHtml && (
           <section id="features" className="detail-section" style={{ padding: '100px 0', backgroundColor: '#f8f9fa' }}>
             <div className="container">
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '50px' }}>{solutionLabels.solutionOverview}</h2>
+              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '50px' }}>{overviewHeading}</h2>
               <OptimizedRichText
                 className="rich-content"
                 html={detailHtml}
@@ -755,6 +776,8 @@ export default function SolutionDetailClient({
             </div>
           </section>
         )}
+
+        <SolutionFaqSection locale={locale} subject={displayName} target={seoTarget} />
 
         {/* 6. Contact Form */}
         <section id="inquiry" className="detail-section alt">

@@ -4,6 +4,8 @@ import InquiryForm from '@/components/products/InquiryForm';
 import CategoryNav from '@/components/products/CategoryNav';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import DeferredProductSections from '@/components/products/DeferredProductSections';
+import ProductCenterSeoContent from '@/components/products/ProductCenterSeoContent';
+import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface ProductSummary {
     name: string;
@@ -193,6 +195,13 @@ export default function DesktopProductCenter({
     locale: string,
     dict: any
 }) {
+    const seoTarget = getSeoKeywordTarget({
+        route: '/products',
+        title: dict.products.bannerTitle,
+        pageKind: 'product_list',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.products.bannerTitle;
 
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
         'uav-drone-systems': (
@@ -328,22 +337,24 @@ export default function DesktopProductCenter({
                 display: 'flex',
                 alignItems: 'center'
             }}>
-                <Image src="/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp" fill sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 38%', filter: 'saturate(1.04) contrast(1.05)' }} priority alt={dict.products.bannerTitle} />
+                <Image src="/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp" fill sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 38%', filter: 'saturate(1.04) contrast(1.05)' }} priority alt={bannerTitle} />
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(90deg, rgba(5,18,37,0.54) 0%, rgba(5,18,37,0.34) 36%, rgba(5,18,37,0.08) 66%, rgba(5,18,37,0.02) 100%)', zIndex: 1 }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '750px' }}>
-                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.products.bannerTitle}</h1>
+                        <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{bannerTitle}</h1>
                         <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.9 }}>{dict.products.bannerDesc}</p>
                     </div>
                 </div>
                 {/* Visual Accent */}
                 <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
-                    <Image src="/logo1-small.webp" alt="" fill style={{ objectFit: 'contain' }} />
+                    <Image src="/logo1-small.webp" alt="N-TET industrial UAV systems emblem" fill style={{ objectFit: 'contain' }} />
                 </div>
             </section>
 
             {/* STICKY CATEGORY NAV */}
             <CategoryNav categories={categoryList} />
+
+            <ProductCenterSeoContent locale={locale} />
 
             {/* PRODUCT LISTS */}
             <div className="product-lists-wrap" style={{ padding: '60px 0' }}>

@@ -9,6 +9,7 @@ import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import type { CatalogCategory } from '@/components/products/GenericCatalogCenter';
 import { AccessoryCategoryIcon } from '@/components/products/accessoryCategoryIcons';
+import AccessoryCenterSeoContent from '@/components/products/AccessoryCenterSeoContent';
 
 interface CatalogItem {
   name: string;
@@ -133,6 +134,10 @@ export default function MobileGenericCatalogCenter({
           ))}
         </div>
       </div>
+
+      {basePath === '/accessories' && (
+        <AccessoryCenterSeoContent locale={locale} compact />
+      )}
 
       <div className={styles.listContainer}>
         {categories.map((category) => (

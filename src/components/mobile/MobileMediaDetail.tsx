@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './MobileMediaDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import OptimizedRichText from '../common/OptimizedRichText';
+import ArticleEditorialSignals from '@/components/media/ArticleEditorialSignals';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 
@@ -44,7 +45,9 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
             {/* 3. News Content */}
             <article className={styles.articleContainer}>
                 <div className={styles.newsTitle}>{newsTitle}</div>
-                <div className={styles.newsMeta}>{newsDate}</div>
+                <div className={styles.newsMeta}>
+                    <time dateTime={news.date}>{newsDate}</time>
+                </div>
 
                 {news.image && (
                     <div className={styles.featuredImage}>
@@ -53,6 +56,8 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
                         </div>
                     </div>
                 )}
+
+                <ArticleEditorialSignals locale={locale} title={newsTitle} date={newsDate} dateTime={news.date} compact />
 
                 <OptimizedRichText className={styles.richContent} html={newsContent} />
             </article>

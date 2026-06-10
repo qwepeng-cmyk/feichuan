@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 export default function MediaClient({ 
     newsData,
@@ -19,6 +20,15 @@ export default function MediaClient({
     const [activeCategory, setActiveCategory] = React.useState('all');
     const [currentPage, setCurrentPage] = React.useState(1);
     const pageSize = 6;
+    const seoTarget = getSeoKeywordTarget({
+        route: '/media',
+        title: dict.media.bannerTitle,
+        pageKind: 'media',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.media.bannerTitle;
+    const seoIntroTitle = seoTarget.overviewHeading || dict.media.seoIntroTitle;
+    const seoIntroBody = buildKeywordIntro(seoTarget, dict.media.bannerTitle, locale) || dict.media.seoIntroBody;
 
     const categoryTitles: Record<string, string> = {
         'all': dict.media.categories.latest,
@@ -45,6 +55,28 @@ export default function MediaClient({
                     .mobile_only { display: block !important; }
                     .pc_only { display: none !important; }
                 }
+                .listing-seo-intro {
+                    padding: 46px 0 8px;
+                    background: #fff;
+                }
+                .listing-seo-intro-inner {
+                    max-width: 920px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+                .listing-seo-intro h2 {
+                    color: #1f2937;
+                    font-size: 3.2rem;
+                    font-weight: 850;
+                    line-height: 1.2;
+                    margin: 0 0 16px;
+                }
+                .listing-seo-intro p {
+                    color: #4b5563;
+                    font-size: 1.8rem;
+                    line-height: 1.7;
+                    margin: 0;
+                }
             `}} />
 
             <div className="pc_only">
@@ -64,13 +96,13 @@ export default function MediaClient({
                             fill
                             style={{ objectFit: 'cover', objectPosition: 'center' }}
                             priority
-                            alt={dict.media.bannerTitle}
+                            alt={bannerTitle}
                         />
                         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(2, 10, 24, 0.82) 0%, rgba(13, 36, 75, 0.58) 42%, rgba(49, 91, 164, 0.12) 72%, rgba(1, 8, 18, 0.18) 100%)', zIndex: 1 }}></div>
                         
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '700px', textShadow: '0 10px 28px rgba(0, 0, 0, 0.34)' }}>
-                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.media.bannerTitle}</h1>
+                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{bannerTitle}</h1>
                                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>{dict.media.bannerSubtitle}</p>
                             </div>
                         </div>
@@ -97,7 +129,18 @@ export default function MediaClient({
                         </div>
                     </div>
 
-                    <section style={{ padding: '80px 0' }}>
+                    {seoIntroTitle && seoIntroBody && (
+                        <section className="listing-seo-intro">
+                            <div className="container">
+                                <div className="listing-seo-intro-inner">
+                                    <h2>{seoIntroTitle}</h2>
+                                    <p>{seoIntroBody}</p>
+                                </div>
+                            </div>
+                        </section>
+                    )}
+
+                    <section style={{ padding: '48px 0 80px' }}>
                         <div className="container">
                             <div className="category-heading-wrap" style={{ 
                                 marginBottom: '60px', 

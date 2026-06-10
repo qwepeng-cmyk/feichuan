@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { localizedField } from '@/lib/localization';
 import { solutionCenterGroups, solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface Solution {
     id: string;
@@ -41,6 +42,16 @@ export default function SolutionCenterClient({
     locale: string,
     dict: any
 }) {
+    const seoTarget = getSeoKeywordTarget({
+        route: '/solutions',
+        title: dict.solutions.bannerTitle,
+        pageKind: 'solution_list',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.solutions.bannerTitle;
+    const seoIntroTitle = seoTarget.overviewHeading || dict.solutions.seoIntroTitle;
+    const seoIntroBody = buildKeywordIntro(seoTarget, dict.solutions.bannerTitle, locale) || dict.solutions.seoIntroBody;
+
     const ICON_CAMERA = (
         <g>
             <path d="M14 12h20l2 10H12l2-10z" fill="rgba(49, 91, 164, 0.05)" />
@@ -191,6 +202,28 @@ export default function SolutionCenterClient({
                 .solution-center-section.priority {
                     padding: 8px 0 4px;
                 }
+                .solution-center-intro {
+                    padding: 46px 0 8px;
+                    background: #fff;
+                }
+                .solution-center-intro-inner {
+                    max-width: 960px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+                .solution-center-intro h2 {
+                    color: #1f2937;
+                    font-size: 3.2rem;
+                    font-weight: 850;
+                    line-height: 1.2;
+                    margin: 0 0 16px;
+                }
+                .solution-center-intro p {
+                    color: #4b5563;
+                    font-size: 1.8rem;
+                    line-height: 1.7;
+                    margin: 0;
+                }
                 .solution-center-section-title {
                     text-align: center;
                     margin-bottom: 40px;
@@ -286,22 +319,33 @@ export default function SolutionCenterClient({
                         display: 'flex',
                         alignItems: 'center'
                     }}>
-                        <Image src="/solutions/solution_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={dict.solutions.bannerTitle} />
+                        <Image src="/solutions/solution_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.22)', zIndex: 1 }} />
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '750px' }}>
-                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.solutions.bannerTitle}</h1>
+                                <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{bannerTitle}</h1>
                                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.55, opacity: 0.94, maxWidth: '690px' }}>{dict.solutions.bannerSubtitle}</p>
                             </div>
                         </div>
                         <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
-                            <Image src="/logo1-small.webp" alt="" fill style={{ objectFit: 'contain' }} />
+                            <Image src="/logo1-small.webp" alt="N-TET industrial UAV solutions emblem" fill style={{ objectFit: 'contain' }} />
                         </div>
                     </section>
 
                     <CategoryNav categories={categoryList} />
 
-                    <div className="solution-lists-wrap" style={{ padding: '60px 0 20px' }}>
+                    {seoIntroTitle && seoIntroBody && (
+                        <section className="solution-center-intro">
+                            <div className="container">
+                                <div className="solution-center-intro-inner">
+                                    <h2>{seoIntroTitle}</h2>
+                                    <p>{seoIntroBody}</p>
+                                </div>
+                            </div>
+                        </section>
+                    )}
+
+                    <div className="solution-lists-wrap" style={{ padding: '48px 0 20px' }}>
                         {displayGroups.map((group, groupIndex) => (
                             <section key={group.id} id={group.id} className={`solution-center-section ${groupIndex < 2 ? 'priority' : ''}`}>
                                 <div className="container">

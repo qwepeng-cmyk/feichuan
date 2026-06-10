@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { Locale } from '@/i18n/config';
+import { buildKeywordIntro, getSeoKeywordBackedEntry } from '@/lib/seoKeywordTargets';
 
 const SITE_URL = 'https://n-tet.com';
 const SITE_NAME = 'N-TET';
@@ -62,9 +63,9 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/solutions': {
-    title: 'Industrial UAV Solutions | N-TET',
+    title: 'UAV Inspection Solutions & Emergency Response Drone | N-TET',
     description:
-      'N-TET UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.',
+      'N-TET UAV inspection solutions for power line inspection, pipeline inspection drones, search and rescue drone work, firefighting drone support, and tethered lighting UAV operations.',
     keywords: [
       'UAV inspection solutions',
       'search and rescue drone',
@@ -242,9 +243,9 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/cases': {
-    title: 'UAV Deployment Cases | N-TET',
+    title: 'UAV Inspection Cases & Low Altitude Monitoring Case | N-TET',
     description:
-      'Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring.',
+      'Review UAV inspection cases, power line UAV patrol references, water conservancy UAV patrol work, and low altitude monitoring case examples from N-TET deployments.',
     keywords: [
       'UAV inspection cases',
       'power line UAV patrol',
@@ -254,9 +255,9 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/media': {
-    title: 'Industrial UAV Insights & Low-Altitude Monitoring News | N-TET',
+    title: 'Industrial UAV News & Low Altitude Economy Updates | N-TET',
     description:
-      'Read N-TET insights on industrial UAV operations, low-altitude economy trends, tethered UAV surveillance, redundancy, and infrastructure monitoring.',
+      'Read industrial UAV news from N-TET on low altitude economy trends, tethered UAV surveillance, industrial UAV redundancy, and border surveillance UAV network planning.',
     keywords: [
       'industrial UAV news',
       'low altitude economy',
@@ -266,21 +267,21 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/about': {
-    title: 'About N-TET | Industrial UAV & Monitoring Systems Manufacturer',
+    title: 'About N-TET | Industrial UAV Systems Integrator & Solution Provider',
     description:
-      'Learn about N-TET engineering, R&D, and manufacturing capabilities for industrial UAV systems, low-altitude monitoring equipment, and security technologies.',
+      'Learn about N-TET engineering, integration, and solution delivery capabilities for industrial UAV systems, low-altitude monitoring equipment, and security technologies.',
     keywords: [
-      'industrial UAV manufacturer',
-      'low altitude monitoring manufacturer',
+      'industrial UAV systems integrator',
+      'low altitude monitoring solution provider',
       'UAV system supplier',
-      'security equipment manufacturer',
+      'security technology integrator',
       'N-TET',
     ],
   },
   '/contact': {
-    title: 'Contact N-TET | Industrial UAV Systems & Monitoring Equipment',
+    title: 'Industrial UAV Quote & UAV System Supplier Contact | N-TET',
     description:
-      'Contact N-TET for industrial UAV systems, emergency response drones, inspection UAVs, low-altitude monitoring equipment, and security screening solutions.',
+      'Request an industrial UAV quote from N-TET, a UAV system supplier for drone inspection solution planning, emergency response UAV projects, and low altitude monitoring equipment.',
     keywords: [
       'industrial UAV quote',
       'UAV system supplier',
@@ -402,10 +403,10 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ['noticias UAV industriales', 'economía de baja altitud', 'UAV cautivo', 'monitoreo de infraestructura'],
     },
     '/about': {
-      title: 'Acerca de N-TET | Fabricante de sistemas UAV industriales',
+      title: 'Acerca de N-TET | Integrador de sistemas UAV industriales',
       description:
-        'Conozca las capacidades de ingeniería, I+D y fabricación de N-TET para sistemas UAV industriales, monitoreo de baja altitud y tecnologías de seguridad.',
-      keywords: ['fabricante UAV industrial', 'proveedor de sistemas UAV', 'monitoreo de baja altitud', 'N-TET'],
+        'Conozca las capacidades de ingeniería, integración y entrega de soluciones de N-TET para sistemas UAV industriales, monitoreo de baja altitud y tecnologías de seguridad.',
+      keywords: ['integrador de sistemas UAV industriales', 'proveedor de sistemas UAV', 'monitoreo de baja altitud', 'N-TET'],
     },
     '/contact': {
       title: 'Contacto N-TET | Sistemas UAV industriales y monitoreo',
@@ -452,6 +453,14 @@ function fallbackKeywords(title: string, category?: string | null) {
 
 export function getKeywordBackedSeo(path: string, locale: Locale = 'en') {
   const normalized = path === '/' ? '/' : `/${path.replace(/^\/+/, '')}`;
+  const target = getSeoKeywordBackedEntry(normalized, locale);
+  if (target) {
+    return {
+      title: titleWithBrand(target.h1 || target.primary),
+      description: buildKeywordIntro(target, SITE_NAME, locale),
+      keywords: [target.primary, ...target.secondary],
+    };
+  }
   return LOCALIZED_KEYWORD_BACKED_SEO[locale]?.[normalized] || KEYWORD_BACKED_SEO[normalized];
 }
 

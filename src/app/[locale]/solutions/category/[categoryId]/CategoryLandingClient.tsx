@@ -6,9 +6,11 @@ import Link from 'next/link';
 import type { CategoryLandingData } from '@/lib/categoryLandingData';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import InquiryForm from '@/components/products/InquiryForm';
+import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import MobileCategoryLanding from '@/components/mobile/MobileCategoryLanding';
 import { localePath } from '@/lib/localePath';
 import { localizedField } from '@/lib/localization';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface SubSolution {
   product_name: string;
@@ -71,6 +73,15 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
 
   const categoryName = localizedField(data as any, 'name', locale);
   const industryNeeds = localizedField(data as any, 'industryNeeds', locale);
+  const seoTarget = getSeoKeywordTarget({
+    route: `/solutions/category/${categoryId}`,
+    title: categoryName,
+    pageKind: 'solution_category',
+    locale,
+  });
+  const bannerTitle = seoTarget.h1 || categoryName;
+  const industryHeading = seoTarget.overviewHeading || dict.solutions.industryNeeds;
+  const keywordIntro = buildKeywordIntro(seoTarget, categoryName, locale);
 
   // Standard container width from globals.css is 1240px
   const containerStyle = { maxWidth: '1240px', margin: '0 auto', padding: '0 20px' };
@@ -95,7 +106,7 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
           <div className="product-breadcrumb-nav" style={{ background: '#fff', borderBottom: '1px solid #f0f0f0' }}>
             <div className="container" style={containerStyle}>
               <div className="breadcrumb-path">
-                <Link prefetch={false} href={l("/")}>{dict.nav.home}</Link> &gt; <Link prefetch={false} href={l("/solutions")}>{dict.nav.solutions}</Link> &gt; {categoryName}
+                <Link prefetch={false} href={l("/")}>{dict.nav.home}</Link> &gt; <Link prefetch={false} href={l("/solutions")}>{dict.nav.solutions}</Link> &gt; {bannerTitle}
               </div>
             </div>
           </div>
@@ -112,7 +123,7 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
             overflow: 'hidden',
             backgroundColor: '#020c1b'
           }}>
-            <Image src={data.bannerImage} fill style={{ objectFit: 'cover' }} priority alt={categoryName} />
+            <Image src={data.bannerImage} fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
             <div style={{
               position: 'absolute',
               inset: 0,
@@ -122,7 +133,7 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
             <div className="container" style={{ ...containerStyle, position: 'relative', zIndex: 2 }}>
               <div style={{ textAlign: 'left', width: '100%', maxWidth: '800px' }}>
                 <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#ffffff', lineHeight: 1.1, marginBottom: '15px' }}>
-                  {categoryName}
+                  {bannerTitle}
                 </h1>
                 <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
                   {dict.solutions.bannerSubtitle || dict.solutions.bannerDesc}
@@ -136,11 +147,16 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
             <div className="container" style={containerStyle}>
               <div className="reveal-on-scroll" style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <h2 style={{ fontSize: '3.4rem', fontWeight: 800, color: '#333', textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
-                  {dict.solutions.industryNeeds}
+                  {industryHeading}
                 </h2>
                 <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto 0' }}></div>
               </div>
               <div className="reveal-on-scroll" style={{ borderTop: '1px solid #eee', paddingTop: '40px' }}>
+                {keywordIntro && (
+                  <p style={{ fontSize: '1.8rem', color: '#263241', lineHeight: 1.8, textAlign: 'justify', margin: '0 0 18px', fontWeight: 650 }}>
+                    {keywordIntro}
+                  </p>
+                )}
                 <p style={{ fontSize: '1.8rem', color: '#444', lineHeight: 1.8, textAlign: 'justify', margin: 0 }}>
                   {industryNeeds}
                 </p>
@@ -211,6 +227,8 @@ export default function CategoryLandingClient({ categoryId, landingData, subSolu
               </div>
             </div>
           </section>
+
+          <SolutionFaqSection locale={locale} subject={bannerTitle} target={seoTarget} />
 
           {/* 5. Inquiry Form */}
           <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>

@@ -8,18 +8,29 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
         locale: params.locale,
         path: '/about',
-        fallbackTitle: 'About N-TET | Industrial UAV & Monitoring Systems Manufacturer',
-        fallbackDescription: 'Learn about N-TET engineering, R&D, and manufacturing capabilities for industrial UAV systems, low-altitude monitoring equipment, and security technologies.',
+        fallbackTitle: 'About N-TET | Industrial UAV Systems Integrator & Solution Provider',
+        fallbackDescription: 'Learn about N-TET engineering, integration, and solution delivery capabilities for industrial UAV systems, low-altitude monitoring equipment, and security technologies.',
         image: '/about/about_banner.jpg',
     });
 }
 
 async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
+    const seoTarget = getSeoKeywordTarget({
+        route: '/about',
+        title: dict.about.bannerTitle,
+        pageKind: 'about',
+        locale,
+    });
+    const bannerTitle = seoTarget.h1 || dict.about.bannerTitle;
+    const profileHeading = seoTarget.overviewHeading || dict.about.companyProfile;
+    const keywordIntro = buildKeywordIntro(seoTarget, dict.about.bannerTitle, locale);
+
     return (
         <>
             <div className="pc_only">
@@ -43,11 +54,11 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                             overflow: 'hidden',
                             borderBottom: '1px solid #e1e8f0'
                         }}>
-                            <Image src="/about/about_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={dict.about.bannerTitle} />
+                            <Image src="/about/about_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
                             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ maxWidth: '800px' }}>
-                                    <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{dict.about.bannerTitle}</h1>
+                                    <h1 style={{ fontSize: '5.2rem', fontWeight: 900, color: '#fff', marginBottom: '15px', lineHeight: 1.1 }}>{bannerTitle}</h1>
                                     <p style={{ fontSize: '2rem', color: '#fff', lineHeight: 1.5, opacity: 0.95 }}>
                                         {dict.about.bannerDesc}
                                     </p>
@@ -68,15 +79,20 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                                             overflow: 'hidden',
                                             boxShadow: '0 20px 40px rgba(0,0,0,0.05)'
                                         }}>
-                                            <Image src="/about/about_company.jpg" fill style={{ objectFit: 'cover' }} alt={dict.about.companyProfile} />
+                                            <Image src="/about/about_company.jpg" fill style={{ objectFit: 'cover' }} alt={profileHeading} />
                                         </div>
                                     </div>
                                     <div className="profile-text-content">
                                         <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '30px', position: 'relative' }}>
-                                            {dict.about.companyProfile}
+                                            {profileHeading}
                                             <span style={{ display: 'block', width: '60px', height: '4px', background: '#315ba4', marginTop: '15px' }}></span>
                                         </h2>
                                         <div style={{ fontSize: '1.8rem', color: '#475569', lineHeight: 1.8, textAlign: 'left' }}>
+                                            {keywordIntro && (
+                                                <p style={{ marginBottom: '20px', color: '#263241', fontWeight: 650 }}>
+                                                    {keywordIntro}
+                                                </p>
+                                            )}
                                             <p style={{ marginBottom: '20px' }}>
                                                 {dict.about.companyDesc1}
                                             </p>
