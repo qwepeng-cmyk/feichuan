@@ -284,6 +284,16 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
 }
 
 function getSolutionLabels(locale: string) {
+    if (locale === 'ar') {
+        return {
+            solutionDetails: 'تفاصيل الحل',
+            industryPainPoints: 'احتياجات القطاع',
+            upgradeTitle: 'كيف ترفع الطائرات بدون طيار كفاءة العمليات',
+            solutionModules: 'وحدات الحل',
+            relatedCases: 'حالات ذات صلة',
+        };
+    }
+
     if (locale === 'es') {
         return {
             solutionDetails: 'Detalles de la solución',

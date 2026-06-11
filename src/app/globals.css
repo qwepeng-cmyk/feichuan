@@ -1957,3 +1957,100 @@ header#site-header.scrolled {
         right: -2px !important;
     }
 }
+
+/* Arabic RTL support */
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .site-header,
+html[dir="rtl"] .desktop-footer,
+html[dir="rtl"] .mobile-footer,
+html[dir="rtl"] .product-detail-page,
+html[dir="rtl"] .solution-detail-page,
+html[dir="rtl"] .case-detail-page,
+html[dir="rtl"] .rich-content,
+html[dir="rtl"] .breadcrumb-path {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .breadcrumb-path {
+    unicode-bidi: plaintext;
+}
+
+html[dir="rtl"] .dropdown-menu {
+    right: auto !important;
+    left: 0 !important;
+    text-align: right;
+}
+
+html[dir="rtl"] .lang-switch,
+html[dir="rtl"] .lang-switch-top {
+    direction: rtl;
+}
+
+html[dir="rtl"] .lang-switch-text,
+html[dir="rtl"] .lang-switch-top-trigger {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .lang-switch-text svg {
+    margin-left: 0 !important;
+    margin-right: 5px !important;
+}
+
+html[dir="rtl"] .lang-dropdown {
+    right: auto;
+    left: 0;
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .lang-dropdown-inner {
+    right: auto !important;
+    left: 0 !important;
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .lang-dropdown li,
+html[dir="rtl"] .lang-dropdown-inner li {
+    text-align: right;
+}
+
+html[dir="rtl"] .product-grid,
+html[dir="rtl"] .solution-grid,
+html[dir="rtl"] .case-grid {
+    direction: rtl;
+}
+
+html[dir="rtl"] .rich-content ul,
+html[dir="rtl"] .rich-content ol {
+    padding-left: 0;
+    padding-right: 1.6em;
+}
+
+html[dir="rtl"] .rich-content table,
+html[dir="rtl"] .spec-table,
+html[dir="rtl"] .product-spec-table {
+    direction: rtl;
+}
+
+html[dir="rtl"] .rich-content table th,
+html[dir="rtl"] .rich-content table td,
+html[dir="rtl"] .spec-table th,
+html[dir="rtl"] .spec-table td,
+html[dir="rtl"] .product-spec-table th,
+html[dir="rtl"] .product-spec-table td {
+    text-align: right;
+}

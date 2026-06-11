@@ -1,4 +1,4 @@
-import type { Locale } from '@/i18n/config';
+import { i18n, type Locale } from '@/i18n/config';
 
 const SITE_URL = 'https://n-tet.com';
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
@@ -58,7 +58,7 @@ export function organizationSchema(locale: Locale = 'en') {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      availableLanguage: ['en', 'ru', 'es'],
+      availableLanguage: [...i18n.locales],
       url: pageUrl(locale, '/contact'),
     },
   });

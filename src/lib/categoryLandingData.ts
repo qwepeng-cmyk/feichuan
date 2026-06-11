@@ -4,11 +4,13 @@ export interface CategoryLandingData {
   name_en: string;
   name_ru: string;
   name_es?: string;
+  name_ar?: string;
   bannerImage: string;
   industryNeeds_en: string;
   industryNeeds_ru: string;
   industryNeeds_es?: string;
-  applicationScenes: { title: string; title_en: string; title_ru: string; title_es?: string }[];
+  industryNeeds_ar?: string;
+  applicationScenes: { title: string; title_en: string; title_ru: string; title_es?: string; title_ar?: string }[];
   products: { name: string; name_en: string }[];
   recommendedProductHandles: string[];
 }
@@ -153,5 +155,37 @@ Object.assign(categoryLandingData['04_EmergencyRescue'], {
 categoryLandingData['04_EmergencyRescue'].applicationScenes[0].title_es = 'Comunicación de emergencia posterior a sismos';
 categoryLandingData['04_EmergencyRescue'].applicationScenes[1].title_es = 'Monitoreo de inundaciones en sitio';
 categoryLandingData['04_EmergencyRescue'].applicationScenes[2].title_es = 'Iluminación de emergencia para reparaciones';
+
+Object.assign(categoryLandingData['01_BorderPatrol'], {
+  name_ar: 'دوريات الحدود والسواحل',
+  industryNeeds_ar: 'تحتاج عمليات الحدود والسواحل إلى مراقبة واسعة النطاق وقابلة للتتبع للممرات والموانئ والمناطق الساحلية. تجمع حلول N-TET بين منصات UAV الصناعية، والحمولات الكهروبصرية، ومراقبة المناطق، وسجلات الأحداث لدعم التفتيش الواسع والتحقق البصري وتنسيق الفرق الميدانية.',
+});
+categoryLandingData['01_BorderPatrol'].applicationScenes[0].title_ar = 'مراقبة السفن غير المصرح بها';
+categoryLandingData['01_BorderPatrol'].applicationScenes[1].title_ar = 'مراقبة الساحل على مدار الساعة';
+categoryLandingData['01_BorderPatrol'].applicationScenes[2].title_ar = 'دوريات روتينية للمناطق الحدودية';
+
+Object.assign(categoryLandingData['02_InfrastructureProtection'], {
+  name_ar: 'حماية البنية التحتية الحرجة',
+  industryNeeds_ar: 'مع نمو العمليات منخفضة الارتفاع، تحتاج محطات الطاقة والمحطات الفرعية والسدود وقواعد النفط والمنشآت الكيميائية إلى وعي أوضح بالمجال الجوي القريب. تدمج N-TET الرادار منخفض الارتفاع، ومراقبة الترددات اللاسلكية، والتتبع الكهروبصري، وسجلات الأحداث لدعم الكشف والتصنيف والتحقق البصري والتنسيق مع عمليات الأمن القائمة.',
+});
+categoryLandingData['02_InfrastructureProtection'].applicationScenes[0].title_ar = 'مراقبة المجال الجوي للمطارات';
+categoryLandingData['02_InfrastructureProtection'].applicationScenes[1].title_ar = 'مراقبة منشآت توليد الطاقة';
+categoryLandingData['02_InfrastructureProtection'].applicationScenes[2].title_ar = 'مراقبة منشآت الغاز الطبيعي';
+
+Object.assign(categoryLandingData['03_KeyAreaSecurity'], {
+  name_ar: 'أمن المناطق الحيوية',
+  industryNeeds_ar: 'تجمع المطارات والمنشآت القضائية ومراكز النقل والفعاليات الكبرى بين كثافة بشرية وأصول وعمليات معقدة. تدمج حلول N-TET المراقبة الكهروبصرية، ومراقبة المجال منخفض الارتفاع، والفحص الذكي، وسجلات التشغيل لدعم الفحص السريع والتحقق البصري وسير الاستجابة المنسق دون كشف تفاصيل فنية حساسة.',
+});
+categoryLandingData['03_KeyAreaSecurity'].applicationScenes[0].title_ar = 'أمن المناطق الحيوية';
+categoryLandingData['03_KeyAreaSecurity'].applicationScenes[1].title_ar = 'دعم أمن الفعاليات';
+categoryLandingData['03_KeyAreaSecurity'].applicationScenes[2].title_ar = 'أمن مراكز النقل';
+
+Object.assign(categoryLandingData['04_EmergencyRescue'], {
+  name_ar: 'الطوارئ والإنقاذ',
+  industryNeeds_ar: 'تحتاج فرق الطوارئ إلى نشر المراقبة الجوية والاتصال المؤقت والإضاءة بسرعة في مواقع معقدة مع قابلية التتبع. تدعم حلول N-TET باستخدام UAV الاستطلاع والبحث والتنسيق والاتصال بعد الكوارث والإضاءة الليلية لتحسين القرار واستمرارية العمليات في الميدان.',
+});
+categoryLandingData['04_EmergencyRescue'].applicationScenes[0].title_ar = 'اتصالات طارئة بعد الزلازل';
+categoryLandingData['04_EmergencyRescue'].applicationScenes[1].title_ar = 'مراقبة ميدانية للفيضانات';
+categoryLandingData['04_EmergencyRescue'].applicationScenes[2].title_ar = 'إضاءة طارئة لأعمال الإصلاح';
 
 export default categoryLandingData;

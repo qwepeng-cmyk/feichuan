@@ -6,6 +6,7 @@ export const languageLabels: Record<string, string> = {
   en: 'English',
   ru: 'Русский',
   es: 'Español',
+  ar: 'العربية',
 };
 
 export function isSupportedLocale(value: string | undefined | null): value is Locale {

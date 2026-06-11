@@ -7,21 +7,27 @@ const staticDir = process.env.AUDIT_STATIC_DIR;
 const publicPaths = [
   '/en',
   '/ru',
+  '/ar',
   '/en/products',
   '/ru/products',
+  '/ar/products',
   '/en/products/stationary-rf-detection-system',
   '/en/products/portable-rf-detection-case',
   '/en/products/low-altitude-detection-radar-ku-band',
   '/en/products/composite-electro-optical-tracking-system',
   '/en/products/uav-remote-id-monitoring-system',
   '/en/solutions',
+  '/ar/solutions',
   '/en/solutions/category/02_InfrastructureProtection',
   '/en/solutions/category/03_KeyAreaSecurity',
   '/en/solutions/airport-security-protection',
   '/en/solutions/sports-event-security',
   '/en/cases',
+  '/ar/cases',
   '/en/media',
+  '/ar/media',
   '/en/contact',
+  '/ar/contact',
 ];
 
 const restrictedPaths = [

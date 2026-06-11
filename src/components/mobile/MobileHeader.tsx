@@ -7,19 +7,21 @@ import { usePathname } from 'next/navigation';
 import styles from './MobileHeader.module.css';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { languageLabels } from '@/lib/localization';
+import { i18n } from '@/i18n/config';
 
 export default function MobileHeader({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const pathname = usePathname();
     const pathSegments = pathname.split('/').filter(Boolean);
-    const currentPathWithoutLocale = ['en', 'ru', 'es'].includes(pathSegments[0])
+    const currentPathWithoutLocale = i18n.locales.includes(pathSegments[0] as any)
         ? `/${pathSegments.slice(1).join('/')}`.replace(/\/$/, '') || '/'
         : pathname || '/';
-    const languageLinks = [
-        { locale: 'en', href: currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale },
-        { locale: 'ru', href: currentPathWithoutLocale === '/' ? '/ru' : `/ru${currentPathWithoutLocale}` },
-        { locale: 'es', href: currentPathWithoutLocale === '/' ? '/es' : `/es${currentPathWithoutLocale}` },
-    ];
+    const languageLinks = i18n.locales.map((itemLocale) => ({
+        locale: itemLocale,
+        href: itemLocale === i18n.defaultLocale
+            ? (currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale)
+            : (currentPathWithoutLocale === '/' ? `/${itemLocale}` : `/${itemLocale}${currentPathWithoutLocale}`),
+    }));
     const [menuOpen, setMenuOpen] = useState(false);
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
 

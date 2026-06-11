@@ -426,3 +426,93 @@ Object.assign(homeCases[2], { title_es: "Inspección UAV con LiDAR para obstrucc
 Object.assign(homeCases[3], { title_es: "Inspección UAV para prevención de incendios forestales en Southern Grid" });
 Object.assign(homeCases[4], { title_es: "Patrullaje UAV de líneas de transmisión ante incendios forestales" });
 Object.assign(homeCases[5], { title_es: "Inspección UAV de larga distancia de líneas eléctricas en Zhaoqing" });
+
+Object.assign(products[0], {
+    top_ar: "أنظمة الطائرات الصناعية بدون طيار",
+    main_ar: "طائرة UAV لمراقبة المياه",
+    desc_ar: "نظام ذكي للبيئات المائية ومشروعات البنية الهيدروليكية، مع منصة متعددة المراوح وحمولات مراقبة عالية الدقة."
+});
+Object.assign(products[1], {
+    top_ar: "مراقبة المجال الجوي منخفض الارتفاع",
+    main_ar: "نظام ثابت لكشف الترددات اللاسلكية",
+    desc_ar: "يوفر وعيا بالترددات اللاسلكية منخفضة الارتفاع، وتنبيهات نشاط المجال الجوي، وسجلات أحداث لمراقبة المواقع الصناعية."
+});
+Object.assign(products[2], {
+    top_ar: "الفحص الأمني وإدارة الدخول",
+    main_ar: "بوابة FC-H الذكية لكشف الهواتف",
+    desc_ar: "تستخدم تقنية كشف الإشارات الكهرومغناطيسية لتمييز الهواتف المحمولة في أوضاع الانتظار أو الإيقاف أو التشغيل."
+});
+Object.assign(products[3], {
+    top_ar: "مواد هندسية",
+    main_ar: "جسر بيلي فولاذي",
+    desc_ar: "نظام جسور فولاذية معيارية يجمع بين قدرة تحمل عالية وسهولة تركيب للبنية التحتية والدعم الطارئ."
+});
+Object.assign(products[4], {
+    top_ar: "مستشفيات ميدانية ومتنقلة",
+    main_ar: "نظام إنقاذ طبي حاوي",
+    desc_ar: "تصميم معياري عالي التكامل يتيح نشر مستشفى ميداني وظيفي بسرعة في البيئات المعقدة."
+});
+Object.assign(products[5], {
+    top_ar: "مراقبة المحيط والمناطق",
+    main_ar: "نظام دمج الرادار والرؤية",
+    desc_ar: "نقطة مراقبة بانورامية تجمع الرادار والكاميرا المتحركة لتوفير مراقبة موثوقة في البيئات المعقدة."
+});
+
+Object.assign(solutions[0], {
+    title_ar: "دوريات الحدود والمراقبة الساحلية",
+    desc_ar: "دوريات UAV واسعة النطاق لممرات الحدود والسواحل والموانئ والحوادث الساحلية."
+});
+Object.assign(solutions[1], {
+    title_ar: "تفتيش ذكي لخطوط الطاقة باستخدام UAV",
+    desc_ar: "دوريات خطوط النقل، وتفتيش الأبراج، ورسم ممرات LiDAR، وفحوصات الطوارئ."
+});
+Object.assign(solutions[2], {
+    title_ar: "تفتيش ذاتي للمحطات الفرعية الذكية",
+    desc_ar: "تفتيش بمحطات إرساء ذاتية، وقياس حراري، وتعرف عيوب بالذكاء الاصطناعي، وإغلاق أوامر العمل."
+});
+Object.assign(solutions[3], {
+    title_ar: "مراقبة المياه والأنهار والبحيرات",
+    desc_ar: "دوريات للأنهار والبحيرات، وفحوصات موسم الفيضانات، وأخذ عينات المياه، وتتبع التلوث."
+});
+Object.assign(solutions[4], {
+    title_ar: "دعم UAV لإطفاء وإنقاذ المباني العالية",
+    desc_ar: "دعم جوي مربوط للاستجابة على الارتفاعات، وشفط الدخان، والإضاءة، ووضوح القيادة."
+});
+Object.assign(solutions[5], {
+    title_ar: "البحث والإنقاذ والاستطلاع في مواقع الكوارث",
+    desc_ar: "استطلاع جوي سريع، وبحث عن الأهداف، ومراقبة حرارية، وتسليم خفيف."
+});
+Object.assign(solutions[6], {
+    title_ar: "دعم الاتصالات الطارئة بعد الكوارث",
+    desc_ar: "عقد اتصالات مرتفعة لتغطية مؤقتة للشبكات العامة وفرق الإنقاذ."
+});
+Object.assign(solutions[7], {
+    title_ar: "دعم الإضاءة الليلية الطارئة",
+    desc_ar: "إضاءة جوية مستمرة للإنقاذ الليلي والاستجابة للفيضانات وإصلاح الطرق ومواقع القيادة."
+});
+Object.assign(solutions[8], {
+    title_ar: "حماية البنية التحتية الحرجة",
+    desc_ar: "مراقبة منخفضة الارتفاع وذكاء محيط لمنشآت الطاقة والبتروكيماويات والمياه والصناعة."
+});
+Object.assign(solutions[9], {
+    title_ar: "أمن المناطق الحيوية",
+    desc_ar: "سير عمل أمني متكامل للمطارات والفعاليات الكبرى والمواقع القضائية والأصول عالية القيمة."
+});
+
+Object.assign(homeCases[0], { title_ar: "دورية UAV طارئة خلال موسم الفيضانات في آنهوي" });
+Object.assign(homeCases[1], { title_ar: "تفتيش UAV طارئ أثناء كوارث الجليد والثلوج" });
+Object.assign(homeCases[2], { title_ar: "تفتيش UAV بتقنية LiDAR لعوائق الأشجار" });
+Object.assign(homeCases[3], { title_ar: "تفتيش UAV للوقاية من حرائق الغابات في Southern Grid" });
+Object.assign(homeCases[4], { title_ar: "دورية UAV طارئة لخطوط النقل أثناء حرائق الغابات" });
+Object.assign(homeCases[5], { title_ar: "تفتيش UAV بعيد المدى لخطوط الطاقة في تشاوتشينغ" });
+const substationSolutionIndex = solutions.findIndex(
+    (solution) => solution.id === "smart-substation-unattended-uav-inspection-solution"
+);
+const substationSolutionTargetIndex = 7;
+
+if (substationSolutionIndex !== -1 && substationSolutionIndex !== substationSolutionTargetIndex) {
+    const [substationSolution] = solutions.splice(substationSolutionIndex, 1);
+    solutions.splice(substationSolutionTargetIndex, 0, substationSolution);
+}
+
+export const homepageSolutions = solutions;

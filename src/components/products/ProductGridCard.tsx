@@ -12,9 +12,11 @@ interface Product {
     product_name_en?: string;
     product_name_ru?: string;
     product_name_es?: string;
+    product_name_ar?: string;
     name_en?: string;
     name_ru?: string;
     name_es?: string;
+    name_ar?: string;
     handle: string;
     image: string;
 }

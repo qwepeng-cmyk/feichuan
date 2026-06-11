@@ -80,14 +80,17 @@ export default function CatalogDetailContent({
   const specsHeading = seoTarget.overviewHeading || dict.products.technicalSpecs;
   const keywordIntro = buildKeywordIntro(seoTarget, name, locale);
   const overviewTitle =
+    locale === 'ar' ? 'نظرة عامة على المنتج' :
     locale === 'es' ? 'Resumen del producto' :
     locale === 'ru' ? 'Обзор продукта' :
     'Product Overview';
   const applicationLabel =
+    locale === 'ar' ? 'التطبيق' :
     locale === 'es' ? 'Aplicación' :
     locale === 'ru' ? 'Применение' :
     'Application';
   const keyParameterLabel =
+    locale === 'ar' ? 'المؤشر الرئيسي' :
     locale === 'es' ? 'Parámetro clave' :
     locale === 'ru' ? 'Ключевой параметр' :
     'Key Parameter';

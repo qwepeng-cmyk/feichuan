@@ -46,7 +46,7 @@ export const getAllMedia = unstable_cache(
       .filter(item => isPublicComplianceContent('media', item.id))
       .map(item => sanitizeRecordForTier(item, getComplianceTier('media', item.id)));
   },
-  ['all-media'],
+  ['all-media-arabic-retranslate-20260611'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -55,7 +55,7 @@ export const getAllMediaIds = unstable_cache(
     const rows = db.prepare('SELECT id FROM media WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.id).filter(id => isPublicComplianceContent('media', id));
   },
-  ['media-ids'],
+  ['media-ids-arabic-retranslate-20260611'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -73,6 +73,6 @@ export const getMediaById = unstable_cache(
       return null;
     }
   },
-  ['media-detail'],
+  ['media-detail-arabic-retranslate-20260611'],
   { revalidate: 3600, tags: ['media'] }
 );

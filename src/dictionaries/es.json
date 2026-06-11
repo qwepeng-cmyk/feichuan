@@ -163,6 +163,14 @@
     "all": "Todos",
     "noResults": "No se encontraron casos que coincidan con sus criterios.",
     "equipmentUsed": "Equipo utilizado",
+    "projectOverview": "Resumen del proyecto",
+    "snapshotLabels": {
+      "Application": "Aplicación",
+      "Location": "Ubicación",
+      "Mission Scale": "Alcance de la misión",
+      "Key Capability": "Capacidad clave",
+      "Result": "Resultado"
+    },
     "filters": {
       "all": "Todos",
       "allSolutions": "Todas las soluciones",

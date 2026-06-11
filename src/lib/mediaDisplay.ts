@@ -5,16 +5,15 @@ export function getLocalizedMediaDate(date: string, locale: string) {
     return date;
   }
 
-  if (locale === 'ru') {
-    return new Intl.DateTimeFormat('ru-RU', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    }).format(parsed);
-  }
+  const localeFormats: Record<string, string> = {
+    ru: 'ru-RU',
+    es: 'es-419',
+    ar: 'ar',
+  };
+  const formatLocale = localeFormats[locale];
 
-  if (locale === 'es') {
-    return new Intl.DateTimeFormat('es-419', {
+  if (formatLocale) {
+    return new Intl.DateTimeFormat(formatLocale, {
       day: 'numeric',
       month: 'long',
       year: 'numeric',

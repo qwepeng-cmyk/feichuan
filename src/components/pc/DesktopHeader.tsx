@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { languageLabels } from '@/lib/localization';
+import { i18n } from '@/i18n/config';
 
 export default function Header({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -13,15 +14,19 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
 
     const pathname = usePathname();
     const pathSegments = pathname.split('/').filter(Boolean);
-    const currentPathWithoutLocale = ['en', 'ru', 'es'].includes(pathSegments[0])
+    const currentPathWithoutLocale = i18n.locales.includes(pathSegments[0] as any)
         ? `/${pathSegments.slice(1).join('/')}`.replace(/\/$/, '') || '/'
         : pathname || '/';
-    const languageLinks = [
-        { locale: 'en', href: currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale },
-        { locale: 'ru', href: currentPathWithoutLocale === '/' ? '/ru' : `/ru${currentPathWithoutLocale}` },
-        { locale: 'es', href: currentPathWithoutLocale === '/' ? '/es' : `/es${currentPathWithoutLocale}` },
-    ];
-    const isHome = pathname === '/' || ['/en', '/ru', '/es'].some(locale => pathname === locale || pathname === `${locale}/`);
+    const languageLinks = i18n.locales.map((itemLocale) => ({
+        locale: itemLocale,
+        href: itemLocale === i18n.defaultLocale
+            ? (currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale)
+            : (currentPathWithoutLocale === '/' ? `/${itemLocale}` : `/${itemLocale}${currentPathWithoutLocale}`),
+    }));
+    const isHome = pathname === '/' || i18n.locales.some(itemLocale => {
+        const homePath = itemLocale === i18n.defaultLocale ? `/${itemLocale}` : `/${itemLocale}`;
+        return pathname === homePath || pathname === `${homePath}/`;
+    });
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -257,7 +262,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         
                         {/* Language Selector with Dropdown */}
                         <div className="lang-switch-top" style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                            <div className="lang-switch-top-trigger" style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
                                 {dict.nav.selectLanguage} <svg style={{ width: '12px', height: '12px' }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z"></path>
                                 </svg>

@@ -17,10 +17,12 @@ interface SubSolution {
   product_name_en: string;
   product_name_ru: string;
   product_name_es?: string;
+  product_name_ar?: string;
   summary: string;
   summary_en: string;
   summary_ru: string;
   summary_es?: string;
+  summary_ar?: string;
   key_parameter_1: string;
   key_parameter_1_en: string;
   key_parameter_1_ru: string;

@@ -163,6 +163,14 @@
     "all": "Все",
     "noResults": "Кейсы по выбранным условиям не найдены.",
     "equipmentUsed": "Использованное оборудование",
+    "projectOverview": "Обзор проекта",
+    "snapshotLabels": {
+      "Application": "Применение",
+      "Location": "Местоположение",
+      "Mission Scale": "Масштаб задачи",
+      "Key Capability": "Ключевая возможность",
+      "Result": "Результат"
+    },
     "filters": {
       "all": "Все",
       "allSolutions": "Все решения",
