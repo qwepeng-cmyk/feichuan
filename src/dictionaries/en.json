@@ -106,6 +106,14 @@
     "all": "All",
     "noResults": "No cases found matching your criteria.",
     "equipmentUsed": "Equipment Used",
+    "projectOverview": "Project Overview",
+    "snapshotLabels": {
+      "Application": "Application",
+      "Location": "Location",
+      "Mission Scale": "Mission Scale",
+      "Key Capability": "Key Capability",
+      "Result": "Result"
+    },
     "filters": {
       "all": "All",
       "allSolutions": "All Solutions",

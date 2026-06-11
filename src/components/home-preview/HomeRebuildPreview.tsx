@@ -17,7 +17,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import NEWS_DATA from "../../../public/media/news_data.json";
-import { homeCases, products, solutions } from "@/constants/homeData";
+import { homeCases, products, homepageSolutions as solutions } from "@/constants/homeData";
 import { localePath } from "@/lib/localePath";
 import { localizedField } from "@/lib/localization";
 import styles from "./HomeRebuildPreview.module.css";

@@ -55,6 +55,22 @@ const solutionLinks = {
     { title: "Seguridad para eventos deportivos", href: "/solutions/sports-event-security" },
     { title: "Seguridad y monitoreo de aeropuertos", href: "/solutions/airport-security-protection" },
   ],
+  ar: [
+    { title: "تفتيش ذكي لخطوط الطاقة باستخدام UAV", href: "/solutions/power-line-uav-intelligent-inspection-solution" },
+    { title: "تفتيش ذاتي للمحطات الفرعية الذكية", href: "/solutions/smart-substation-unattended-uav-inspection-solution" },
+    { title: "مراقبة المياه والأنهار والبحيرات باستخدام UAV", href: "/solutions/water-conservancy-river-lake-uav-monitoring-solution" },
+    { title: "دوريات بحرية وساحلية باستخدام UAV", href: "/solutions/uav-maritime-patrol" },
+    { title: "دعم UAV لإطفاء المباني العالية", href: "/solutions/urban-high-rise-firefighting-emergency-uav-solution" },
+    { title: "البحث والإنقاذ والاستطلاع في الكوارث", href: "/solutions/disaster-site-search-rescue-reconnaissance-uav-solution" },
+    { title: "اتصال طارئ بعد الكوارث", href: "/solutions/post-disaster-emergency-communication-support-uav-solution" },
+    { title: "إضاءة ليلية طارئة باستخدام UAV", href: "/solutions/night-emergency-lighting-support-uav-solution" },
+    { title: "مراقبة المنشآت الكيميائية", href: "/solutions/chemical-plant-protection" },
+    { title: "مراقبة قاعدة إنتاج النفط", href: "/solutions/oil-production-base-protection" },
+    { title: "مراقبة السدود الكهرومائية", href: "/solutions/hydroelectric-dam-protection" },
+    { title: "أمن المنشآت القضائية", href: "/solutions/judicial-sector-security" },
+    { title: "أمن الفعاليات الرياضية", href: "/solutions/sports-event-security" },
+    { title: "أمن ومراقبة المطارات", href: "/solutions/airport-security-protection" },
+  ],
 };
 
 const copy = {
@@ -81,6 +97,14 @@ const copy = {
     home: "Volver al inicio",
     allSolutions: "Todas las soluciones",
     recommended: "Soluciones recomendadas",
+  },
+  ar: {
+    label: "الصفحة غير موجودة",
+    title: "404",
+    description: "الصفحة التي تبحث عنها غير موجودة. يمكنك المتابعة من أحد الحلول الموصى بها أدناه.",
+    home: "العودة إلى الرئيسية",
+    allSolutions: "كل الحلول",
+    recommended: "حلول موصى بها",
   },
 };
 

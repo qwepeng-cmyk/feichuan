@@ -14,6 +14,7 @@ export const getAllCases = unstable_cache(
         title_en,
         title_ru,
         title_es,
+        title_ar,
         main_image,
         region_en,
         country_en,
@@ -21,6 +22,8 @@ export const getAllCases = unstable_cache(
         country_ru,
         region_es,
         country_es,
+        region_ar,
+        country_ar,
         solution_category_id
       FROM cases
       WHERE COALESCE(is_published, 1) = 1
@@ -29,7 +32,7 @@ export const getAllCases = unstable_cache(
       .filter(row => isPublicComplianceContent('case', row.handle))
       .map(row => sanitizeRecordForTier(row, getComplianceTier('case', row.handle)));
   },
-  ['all-cases-uav-refresh-20260526'],
+  ['all-cases-uav-refresh-20260526-arabic-case-snapshot-20260611'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -38,7 +41,7 @@ export const getAllCaseHandles = unstable_cache(
     const rows = db.prepare('SELECT handle FROM cases WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.handle).filter(handle => handle && isPublicComplianceContent('case', handle));
   },
-  ['case-handles-uav-refresh-20260526'],
+  ['case-handles-uav-refresh-20260526-arabic-case-snapshot-20260611'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -58,6 +61,6 @@ export const getCaseByHandle = unstable_cache(
         return sanitizeRecordForTier(row, getComplianceTier('case', handle));
     }
   },
-  ['case-detail-uav-refresh-20260526'],
+  ['case-detail-uav-refresh-20260526-arabic-case-snapshot-20260611'],
   { revalidate: 3600, tags: ['cases'] }
 );

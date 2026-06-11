@@ -82,7 +82,7 @@ export const getAllProducts = unstable_cache(
     };
 
     const rows = db.prepare(`
-      SELECT handle, product_name_en, product_name_ru, product_name_es, main_image, category_primary, raw_json
+      SELECT handle, product_name_en, product_name_ru, product_name_es, product_name_ar, main_image, category_primary, raw_json
       FROM products
       WHERE COALESCE(is_published, 1) = 1
         AND category_primary <> ?
@@ -122,7 +122,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260526-mission-first-path-safe-v4'],
+  ['all-products-uav-refresh-20260526-mission-first-path-safe-v4-arabic-retranslate-20260611'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -133,7 +133,7 @@ export const getAllProductHandles = unstable_cache(
       .map(r => r.handle)
       .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
   },
-  ['product-handles-uav-refresh-20260526-mission-first-path-safe-v3'],
+  ['product-handles-uav-refresh-20260526-mission-first-path-safe-v3-arabic-retranslate-20260611'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -155,6 +155,6 @@ export const getProductByHandle = unstable_cache(
       return sanitizeRecordForTier(pruneProductDetailPayload(row), getComplianceTier('product', handle));
     }
   },
-  ['product-detail-uav-refresh-20260527-sljc-scenarios-v7'],
+  ['product-detail-uav-refresh-20260527-sljc-scenarios-v7-arabic-retranslate-20260611'],
   { revalidate: 3600, tags: ['products'] }
 );

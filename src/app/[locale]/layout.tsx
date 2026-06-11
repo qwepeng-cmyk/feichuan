@@ -2,6 +2,7 @@ import { i18n, type Locale } from "@/i18n/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
+import LocaleDocumentState from "@/components/LocaleDocumentState";
 import { Metadata } from "next";
 import { getDictionary } from "@/i18n/getDictionary";
 import { notFound } from "next/navigation";
@@ -29,6 +30,10 @@ const localeHomeMetadata: Record<Locale, { title: string; description: string }>
   es: {
     title: 'N-TET - Sistemas UAV industriales y monitoreo de baja altitud',
     description: 'Plataformas UAV industriales, equipos de monitoreo del espacio aéreo, registros de eventos y flujos de respuesta para operadores de infraestructura.',
+  },
+  ar: {
+    title: 'N-TET - أنظمة طائرات صناعية بدون طيار ومراقبة المجال المنخفض',
+    description: 'منصات طائرات صناعية بدون طيار، ومعدات مراقبة المجال المنخفض، وسجلات أحداث، وسير عمل استجابة متوافق لمشغلي البنية التحتية.',
   },
 };
 
@@ -72,6 +77,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
         'en': '/',
         'ru': '/ru',
         'es': '/es',
+        'ar': '/ar',
         'x-default': '/',
       },
     },
@@ -92,6 +98,7 @@ export default async function LocaleLayout({
   params: { locale: Locale };
 }) {
   const locale = params.locale;
+  const isRtl = locale === 'ar';
   if (!isValidLocale(locale)) {
     notFound();
   }
@@ -103,9 +110,10 @@ export default async function LocaleLayout({
 
   return (
     <>
+        <LocaleDocumentState locale={locale} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.lang=${JSON.stringify(locale)};`,
+            __html: `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${JSON.stringify(isRtl ? 'rtl' : 'ltr')};document.documentElement.dataset.locale=${JSON.stringify(locale)};`,
           }}
         />
 

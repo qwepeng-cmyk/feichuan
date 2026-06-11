@@ -68,14 +68,17 @@ export default function CatalogDetailContent({
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
   const parameters = readJsonLike(product[`parameters_${locale}`] || product.parameters_en);
   const overviewTitle =
+    locale === 'ar' ? 'نظرة عامة على المنتج' :
     locale === 'es' ? 'Resumen del producto' :
     locale === 'ru' ? 'Обзор продукта' :
     'Product Overview';
   const applicationLabel =
+    locale === 'ar' ? 'التطبيق' :
     locale === 'es' ? 'Aplicación' :
     locale === 'ru' ? 'Применение' :
     'Application';
   const keyParameterLabel =
+    locale === 'ar' ? 'المؤشر الرئيسي' :
     locale === 'es' ? 'Parámetro clave' :
     locale === 'ru' ? 'Ключевой параметр' :
     'Key Parameter';

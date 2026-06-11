@@ -293,6 +293,21 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
 }
 
 function getSolutionLabels(locale: string) {
+  if (locale === 'ar') {
+    return {
+      solutionDetails: 'تفاصيل الحل',
+      industryEyebrow: 'السياق التشغيلي',
+      industryPainPoints: 'احتياجات القطاع',
+      upgradeEyebrow: 'تطوير العمليات بالطائرات بدون طيار',
+      upgradeTitle: 'كيف ترفع الطائرات بدون طيار كفاءة العمليات',
+      modulesEyebrow: 'بنية الحل',
+      solutionModules: 'وحدات الحل',
+      modulesIntro: 'ينظم الحل حول مهام ميدانية واضحة، وليس حول نموذج واحد فقط من الطائرات بدون طيار. يمكن لفرق التشغيل والطوارئ الجمع بين الدوريات والمراقبة والاستجابة والإدارة المحلية حسب السيناريو.',
+      relatedCases: 'حالات ذات صلة',
+      solutionOverview: 'نظرة عامة على الحل',
+    };
+  }
+
   if (locale === 'es') {
     return {
       solutionDetails: 'Detalles de la solución',

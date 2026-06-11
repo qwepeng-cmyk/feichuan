@@ -177,3 +177,28 @@
     color: #fff;
     border-color: #315ba4;
 }
+
+:global(html[dir="rtl"]) .wrapper {
+    right: 0 !important;
+    left: auto !important;
+}
+
+:global(html[dir="rtl"]) .drawerOverlay {
+    right: 0;
+    left: auto;
+}
+
+:global(html[dir="rtl"]) .drawerContent {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+}
+
+:global(html[dir="rtl"]) .drawerContent.open {
+    transform: translateX(0);
+}
+
+:global(html[dir="rtl"]) .drawerLink svg {
+    transform: scaleX(-1);
+}

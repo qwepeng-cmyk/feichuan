@@ -15,10 +15,12 @@ export interface Solution {
     product_name_en: string; 
     product_name_ru?: string;
     product_name_es?: string;
+    product_name_ar?: string;
     title_en: string;
     summary_en: string;
     summary_ru?: string;
     summary_es?: string;
+    summary_ar?: string;
     key_application_en: string;
     key_application_ru?: string;
     parameters_en: any;
@@ -42,9 +44,11 @@ export const getAllSolutions = unstable_cache(
                 product_name_en,
                 product_name_ru,
                 product_name_es,
+                product_name_ar,
                 summary_en,
                 summary_ru,
                 summary_es,
+                summary_ar,
                 main_image
             FROM solutions
             WHERE COALESCE(is_published, 1) = 1
@@ -60,7 +64,7 @@ export const getAllSolutions = unstable_cache(
                 category_name: row.category_name,
             } as Solution, getComplianceTier('solution', row.handle)));
     },
-    ['all-solutions-uav-refresh-20260602-hydro-flow-doc-aligned-v4'],
+    ['all-solutions-uav-refresh-20260602-hydro-flow-doc-aligned-v4-arabic-retranslate-20260611'],
     { revalidate: 3600, tags: ['solutions'] }
 );
 
@@ -86,7 +90,7 @@ export const getSolutionById = unstable_cache(
 
         return sanitizeRecordForTier(solution, getComplianceTier('solution', id));
     },
-    ['solution-detail-uav-refresh-20260602-hydro-flow-doc-aligned-v4'],
+    ['solution-detail-uav-refresh-20260602-hydro-flow-doc-aligned-v4-arabic-retranslate-20260611'],
     { revalidate: 3600, tags: ['solutions'] }
 );
 
@@ -95,6 +99,6 @@ export const getAllSolutionHandles = unstable_cache(
         const rows = db.prepare('SELECT handle FROM solutions WHERE COALESCE(is_published, 1) = 1').all() as any[];
         return rows.map(r => r.handle).filter(handle => isPublicComplianceContent('solution', handle));
     },
-    ['solution-handles-uav-refresh-20260602-hydro-flow-doc-aligned-v4'],
+    ['solution-handles-uav-refresh-20260602-hydro-flow-doc-aligned-v4-arabic-retranslate-20260611'],
     { revalidate: 3600, tags: ['solutions'] }
 );

@@ -30,7 +30,9 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
         caseSnapshot = Array.isArray(parsedSnapshot)
             ? parsedSnapshot
                 .map((item: any) => ({
-                    label: typeof item?.label === 'string' ? item.label.trim() : '',
+                    label: typeof item?.label === 'string'
+                        ? (dict?.cases?.snapshotLabels?.[item.label.trim()] || item.label.trim())
+                        : '',
                     value: typeof item?.value === 'string' ? item.value.trim() : ''
                 }))
                 .filter((item: { label: string; value: string }) => item.label && item.value)
@@ -144,7 +146,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                     <div className={styles.infoContent}>
                         <div className={styles.keyParams}>
                             <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '8px' }}>
-                                Project Overview
+                                {dict.cases?.projectOverview || 'Project Overview'}
                             </div>
                             {caseSnapshot.map((item, idx) => (
                                 <div key={idx} className={styles.paramItem}>

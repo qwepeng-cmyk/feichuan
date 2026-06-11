@@ -3,7 +3,7 @@
 > N-TET provides UAV systems, low-altitude monitoring, industrial security, and engineering-material content for international buyers and project teams.
 
 Canonical site: https://n-tet.com
-Generated: 2026-06-04
+Generated: 2026-06-11
 
 Compliance boundary: this file excludes restricted C-tier content, admin routes, preview routes, and advertising-unsafe paths. B-tier neutral SEO content may appear only as informational public content.
 
@@ -27,6 +27,12 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 - [Cases (es)](https://n-tet.com/es/cases)
 - [Media (es)](https://n-tet.com/es/media)
 - [Contact (es)](https://n-tet.com/es/contact)
+- [Home (ar)](https://n-tet.com/ar/)
+- [Products (ar)](https://n-tet.com/ar/products)
+- [Solutions (ar)](https://n-tet.com/ar/solutions)
+- [Cases (ar)](https://n-tet.com/ar/cases)
+- [Media (ar)](https://n-tet.com/ar/media)
+- [Contact (ar)](https://n-tet.com/ar/contact)
 
 ## Products
 
@@ -51,68 +57,68 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 - [Emergency Search & Rescue Drone](https://n-tet.com/products/emergency-search-rescue-drone) - The emergency search-and-rescue UAV integrates HD visible-light imaging, infrared thermal imaging, intelligent target recognition, HD real-time video...
 - [Explosion Containment Vessel FBG-G1.5-FC06](https://n-tet.com/products/fbg-g15-fc06-explosion-containment-vessel) - The FBG-G1.5-FC06 Explosion Containment Vessel is a professional security protection device suitable for public security, airports, railway stations,...
 - [Explosion Protection Blanket FBT-FC09](https://n-tet.com/products/fbt-fc09-explosion-protection-blanket) - This explosion protection blanket is crafted from high-strength bulletproof fiber materials using specialized processing techniques. It features a we...
-- [FC-BT1 UAV Battery](https://n-tet.com/products/fc-bt1) - FC-BT1 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
-- [FC-BT2 UAV Battery](https://n-tet.com/products/fc-bt2) - FC-BT2 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
-- [FC-BT3 UAV Battery](https://n-tet.com/products/fc-bt3) - FC-BT3 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
-- [FC-BT4 UAV Battery](https://n-tet.com/products/fc-bt4) - FC-BT4 UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
-- [FC-BTG UAV Battery](https://n-tet.com/products/fc-btg) - FC-BTG UAV Battery for industrial UAV accessory integration, matching uav batteries requirements.
-- [FC-C2D UAV Propeller](https://n-tet.com/products/fc-c2d-propeller) - FC-C2D UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-C2E UAV Propeller](https://n-tet.com/products/fc-c2e-propeller) - FC-C2E UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-C2T UAV Propeller](https://n-tet.com/products/fc-c2t-propeller) - FC-C2T UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-C2U UAV Propeller](https://n-tet.com/products/fc-c2u-propeller) - FC-C2U UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-C2UD UAV Propeller](https://n-tet.com/products/fc-c2ud-propeller) - FC-C2UD UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-BT1 UAV Solid-State Battery](https://n-tet.com/products/fc-bt1) - FC-BT1 is a 280Wh/kg, 4.2V 10C solid-state lithium-ion battery series covering 16Ah-30Ah capacities for inspection, mapping, VTOL, multi-rotor indust...
+- [FC-BT2 UAV Solid-State Battery](https://n-tet.com/products/fc-bt2) - FC-BT2 is an upgraded FC-BT1 series with 310Wh/kg energy density, improved wind resistance and landing safety, and stable performance for inspection,...
+- [FC-BT3 High-Voltage UAV Solid-State Battery](https://n-tet.com/products/fc-bt3) - FC-BT3 is a 4.35V high-voltage solid-state battery series with higher discharge rate and lower voltage sag for heavy-lift VTOL and aircraft with larg...
+- [FC-BT4 High-Energy UAV Solid-State Battery](https://n-tet.com/products/fc-bt4) - FC-BT4 is a 340Wh/kg high-energy-density solid-state battery series balancing low voltage sag, high safety, long service life, and cost performance f...
+- [FC-BTG Training UAV Solid-State Battery](https://n-tet.com/products/fc-btg) - FC-BTG is a cost-effective solid-state battery series for training, logistics, and power-operation scenarios, covering FC-BTG-TG1 and FC-BTG-TG3 conf...
+- [FC-C2D UAV Propeller](https://n-tet.com/products/fc-c2d-propeller) - Dimension range: 11~42 in; maximum thrust: 12.42kgf (7000RPM); peak propeller efficiency: 11.08gf/W (2821RPM).
+- [FC-C2E UAV Propeller](https://n-tet.com/products/fc-c2e-propeller) - Dimension range: 8~32 in; maximum thrust: 10.84kgf (6261RPM); peak propeller efficiency: 10.83gf/W (3442RPM).
+- [FC-C2T UAV Propeller](https://n-tet.com/products/fc-c2t-propeller) - Dimension range: 14~46 in; maximum thrust: 24.99kgf (7850RPM); peak propeller efficiency: 8.49gf/W (3036RPM).
+- [FC-C2U UAV Propeller](https://n-tet.com/products/fc-c2u-propeller) - Dimension range: 16~47 in; maximum thrust: 38.70kgf (7279RPM); peak propeller efficiency: 12.63gf/W (2309RPM).
+- [FC-C2UD UAV Propeller](https://n-tet.com/products/fc-c2ud-propeller) - Dimension range: 18~40 in; maximum thrust: 37.65kgf (7838RPM); peak propeller efficiency: 6.64gf/W (3720RPM).
 - [FC-DMA Multi-Spectral EO/IR PTZ Turret](https://n-tet.com/products/fc-dma-long-range-optical-turntable) - The FC-DMA multi-band optical turntable is a long-range optical detection system that can effectively detect, track, identify, and provide early warn...
 - [FC-DMS10 Series Smart Electronic Sentinel](https://n-tet.com/products/fc-dms10-smart-electronic-sentinel) - The FC-DMS10 series intelligent electronic sentinel is a lightweight, multi-functional, multi-purpose, and intelligent optical detection device integ...
 - [FC-DTVC Series Dual-Band Thermal High-Speed Dome](https://n-tet.com/products/fc-dtvc-dual-band-thermal-ptz) - The FC-DTVC series dual-band thermal imaging high-speed dome is an optical product designed for special applications. The product as a whole adopts t...
-- [FC-FDJ-111 UAV Engine](https://n-tet.com/products/fc-fdj-111) - FC-FDJ-111 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-120 UAV Engine](https://n-tet.com/products/fc-fdj-120) - FC-FDJ-120 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-120HD UAV Engine](https://n-tet.com/products/fc-fdj-120hd) - FC-FDJ-120HD UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-170 UAV Engine](https://n-tet.com/products/fc-fdj-170) - FC-FDJ-170 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-200 UAV Engine](https://n-tet.com/products/fc-fdj-200) - FC-FDJ-200 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-222 UAV Engine](https://n-tet.com/products/fc-fdj-222) - FC-FDJ-222 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-430 UAV Engine](https://n-tet.com/products/fc-fdj-430) - FC-FDJ-430 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-55 UAV Engine](https://n-tet.com/products/fc-fdj-55) - FC-FDJ-55 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-60 UAV Engine](https://n-tet.com/products/fc-fdj-60) - FC-FDJ-60 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-61 UAV Engine](https://n-tet.com/products/fc-fdj-61) - FC-FDJ-61 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-70HD UAV Engine](https://n-tet.com/products/fc-fdj-70hd) - FC-FDJ-70HD UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-FDJ-85 UAV Engine](https://n-tet.com/products/fc-fdj-85) - FC-FDJ-85 UAV Engine for industrial UAV accessory integration, matching uav engines requirements.
-- [FC-L10TR Electro-Optical Gimbal](https://n-tet.com/products/fc-l10tr-three-light-gimbal) - FC-L10TR Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-L40 Electro-Optical Gimbal](https://n-tet.com/products/fc-l40-smart-optical-pod) - FC-L40 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-L40T Electro-Optical Gimbal](https://n-tet.com/products/fc-l40t-dual-light-gimbal) - FC-L40T Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-L40TR Electro-Optical Gimbal](https://n-tet.com/products/fc-l40tr-smart-optical-pod) - FC-L40TR Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-L50 Electro-Optical Gimbal](https://n-tet.com/products/fc-l50-smart-optical-pod) - FC-L50 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-LN100 Electro-Optical Gimbal](https://n-tet.com/products/fc-ln100-dual-light-gimbal) - FC-LN100 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-LN95 Electro-Optical Gimbal](https://n-tet.com/products/fc-ln95-dual-light-gimbal) - FC-LN95 Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-MAX 5330 UAV Motor](https://n-tet.com/products/fc-max-5330) - FC-MAX 5330 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-Mesh-100 UAV Data Link](https://n-tet.com/products/fc-mesh-100) - FC-Mesh-100 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
-- [FC-MiniL10TR Electro-Optical Gimbal](https://n-tet.com/products/fc-mini-l10tr-smart-optical-pod) - FC-MiniL10TR Electro-Optical Gimbal for industrial UAV accessory integration, matching electro-optical gimbals requirements.
-- [FC-PAB UAV Propeller](https://n-tet.com/products/fc-pab-propeller) - FC-PAB UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-PAD UAV Propeller](https://n-tet.com/products/fc-pad-propeller) - FC-PAD UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-PAE UAV Propeller](https://n-tet.com/products/fc-pae-propeller) - FC-PAE UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-PBF UAV Propeller](https://n-tet.com/products/fc-pbf-propeller) - FC-PBF UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
+- [FC-FDJ-111 UAV Engine](https://n-tet.com/products/fc-fdj-111) - FC-FDJ-111 UAV engine with displacement 111.2cm3, power/performance 11.2HP/7500rpm, static thrust 25.5kg/altitude 100m.
+- [FC-FDJ-120 UAV Engine](https://n-tet.com/products/fc-fdj-120) - FC-FDJ-120 UAV engine with displacement 120cm3, power/performance 12HP/7500rpm, static thrust 26.5kg/altitude 100m.
+- [FC-FDJ-120HD UAV Engine](https://n-tet.com/products/fc-fdj-120hd) - FC-FDJ-120HD UAV engine with displacement 120cm3, power/performance 7.35KW(0altitude)/8000rpm.
+- [FC-FDJ-170 UAV Engine](https://n-tet.com/products/fc-fdj-170) - FC-FDJ-170 UAV engine with displacement 170cm3, power/performance 17.5HP/7500rpm, static thrust 35kg/altitude 100m.
+- [FC-FDJ-200 UAV Engine](https://n-tet.com/products/fc-fdj-200) - FC-FDJ-200 UAV engine with displacement 200CC, power/performance 20HP/7500rpm.
+- [FC-FDJ-222 UAV Engine](https://n-tet.com/products/fc-fdj-222) - FC-FDJ-222 UAV engine with displacement 222.5cm3, power/performance 21.5HP/7500rpm, static thrust 51kg/altitude 100m.
+- [FC-FDJ-430 UAV Engine](https://n-tet.com/products/fc-fdj-430) - FC-FDJ-430 UAV engine with displacement 430.8cc, power/performance 42HP at 6800 RPM, static thrust 110kg.
+- [FC-FDJ-55 UAV Engine](https://n-tet.com/products/fc-fdj-55) - FC-FDJ-55 UAV engine with displacement 55.6cm3, power/performance 5.5HP/8500rpm, static thrust 14.5kg/altitude 100m.
+- [FC-FDJ-60 UAV Engine](https://n-tet.com/products/fc-fdj-60) - FC-FDJ-60 UAV engine with displacement 61cm3, power/performance 7HP/8500rpm, static thrust 15.2kg/altitude 100m.
+- [FC-FDJ-61 UAV Engine](https://n-tet.com/products/fc-fdj-61) - FC-FDJ-61 UAV engine with displacement 60cm3, power/performance 6HP/7500rpm, static thrust 15kg/altitude 100m.
+- [FC-FDJ-70HD UAV Engine](https://n-tet.com/products/fc-fdj-70hd) - FC-FDJ-70HD UAV engine with displacement 70cm3, power/performance 4.2KW(0altitude)/8300rpm.
+- [FC-FDJ-85 UAV Engine](https://n-tet.com/products/fc-fdj-85) - FC-FDJ-85 UAV engine with displacement 85cm3, power/performance 8.5HP/9000rpm, static thrust 21kg/altitude 100m.
+- [FC-L10TR Electro-Optical Gimbal](https://n-tet.com/products/fc-l10tr-three-light-gimbal) - FC-L10TR electro-optical gimbal: 10x continuous optical zoom + thermal imaging + 905nm laser ranging; 5m-1500m laser ranging, weight <=800g.
+- [FC-L40 Electro-Optical Gimbal](https://n-tet.com/products/fc-l40-smart-optical-pod) - FC-L40 electro-optical gimbal: 40x visible-light optical zoom; Weight <=1kg, dimensions <=Phi115mm x 175mm.
+- [FC-L40T Electro-Optical Gimbal](https://n-tet.com/products/fc-l40t-dual-light-gimbal) - FC-L40T electro-optical gimbal: Visible light 1920x1080, 40x zoom range 4.25-170mm; 640x512 thermal imaging, weight <=1.1kg.
+- [FC-L40TR Electro-Optical Gimbal](https://n-tet.com/products/fc-l40tr-smart-optical-pod) - FC-L40TR electro-optical gimbal: 40x visible light + 640x512 thermal imaging + 1535nm laser ranging; 20m-3000m laser ranging, weight <=1.3kg.
+- [FC-L50 Electro-Optical Gimbal](https://n-tet.com/products/fc-l50-smart-optical-pod) - FC-L50 electro-optical gimbal: 1280 x 1024 uncooled infrared imaging module; 50mm thermal focal length, weight <=1.5kg.
+- [FC-LN100 Electro-Optical Gimbal](https://n-tet.com/products/fc-ln100-dual-light-gimbal) - FC-LN100 electro-optical gimbal: 4K fixed-focus visible light + 640x512 thermal imaging; Weight <=260g, average power 10w.
+- [FC-LN95 Electro-Optical Gimbal](https://n-tet.com/products/fc-ln95-dual-light-gimbal) - FC-LN95 electro-optical gimbal: Fixed-focus dual visible-light cameras, 3840x2160 resolution; Weight <=260g, dimensions <=Phi64mm x 90mm.
+- [FC-MAX 5330 UAV Motor](https://n-tet.com/products/fc-max-5330) - FC-MAX 5330 UAV Motor core parameters: Max Thrust: 11 kg / 11.5 kg; Rated Operating Voltage: 12S; KV Value: 220 KV / 260 KV.
+- [FC-Mesh-100 UAV Data Link](https://n-tet.com/products/fc-mesh-100) - FC-Mesh-100 is an airborne self-forming network radio for multi-node UAV communication, relay networking, and air-ground coordination.
+- [FC-MiniL10TR Electro-Optical Gimbal](https://n-tet.com/products/fc-mini-l10tr-smart-optical-pod) - FC-MiniL10TR electro-optical gimbal: 48MP 10x hybrid zoom visible light + infrared + laser ranging; Weight <=400g, dimensions <=95mm x 97mm x 147mm.
+- [FC-PAB UAV Propeller](https://n-tet.com/products/fc-pab-propeller) - Dimension range: 15.2~36.2 in; maximum thrust: 26.41kgf (4817RPM); peak propeller efficiency: 17.52gf/W (1476RPM).
+- [FC-PAD UAV Propeller](https://n-tet.com/products/fc-pad-propeller) - Dimension range: 18.3~46.3 in; maximum thrust: 25.10kgf (4663RPM); peak propeller efficiency: 13.99gf/W (1825RPM).
+- [FC-PAE UAV Propeller](https://n-tet.com/products/fc-pae-propeller) - Dimension range: 18.3~32.3 in; maximum thrust: 6.42kgf (6520RPM); peak propeller efficiency: 20.14gf/W (1820RPM).
+- [FC-PBF UAV Propeller](https://n-tet.com/products/fc-pbf-propeller) - Dimension range: 16.1~48.1 in; maximum thrust: 43.52kgf (3373RPM); peak propeller efficiency: 13.97gf/W (1385RPM).
 - [FC-PD500 X-γ Personal Radiation Dose Alarm](https://n-tet.com/products/fc-pd500-personal-radiation-dose-alarm) - The FC-PD500 is a compact, high-sensitivity X-γ personal radiation dose alarm, using a high-speed, low-power embedded microprocessor as the data proc...
 - [FC-RC Series HD Long-Range Laser Camera](https://n-tet.com/products/fc-rc-series-hd-laser-camera) - The FC-RC series high-definition laser camera uses an ultra-homogenized laser as the illumination source and a low-illumination telephoto camera. It...
 - [FC-RDS500-4R Radar-Vision Fusion System](https://n-tet.com/products/fc-rds500-4r-radar-vision-sentinel) - The FC-RDS500-4R radar-vision fusion intelligent electronic sentinel system is a wide-area panoramic radar-vision fusion equipment product. Target de...
-- [FC-RM10X UAV Motor](https://n-tet.com/products/fc-rm10x) - FC-RM10X UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-RM30 UAV Motor](https://n-tet.com/products/fc-rm30) - FC-RM30 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-SJL-100 UAV Data Link](https://n-tet.com/products/fc-sjl-100) - FC-SJL-100 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
-- [FC-SJL-200 UAV Data Link](https://n-tet.com/products/fc-sjl-200) - FC-SJL-200 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
-- [FC-SJL-30 UAV Data Link](https://n-tet.com/products/fc-sjl-30) - FC-SJL-30 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
-- [FC-SJL-380 UAV Data Link](https://n-tet.com/products/fc-sjl-380) - FC-SJL-380 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
-- [FC-SJL-50 UAV Data Link](https://n-tet.com/products/fc-sjl-50) - FC-SJL-50 UAV Data Link for industrial UAV accessory integration, matching uav data links requirements.
+- [FC-RM10X UAV Motor](https://n-tet.com/products/fc-rm10x) - FC-RM10X UAV Motor core parameters: Max Thrust: 12081g/axis @48Vsea level; Recommended Takeoff Weight: 4500-6000g/axis @48Vsea level.
+- [FC-RM30 UAV Motor](https://n-tet.com/products/fc-rm30) - FC-RM30 UAV Motor core parameters: Max Thrust: 74.7 kg / 69.6 kg; Rated Operating Voltage: 96S / 24S; KV Value: 10 KV / 43 KV.
+- [FC-SJL-100 UAV Data Link](https://n-tet.com/products/fc-sjl-100) - FC-SJL-100 provides 100km+ air-to-ground video-and-data transmission with a rugged J30J interface layout for UAV and robotic platforms.
+- [FC-SJL-200 UAV Data Link](https://n-tet.com/products/fc-sjl-200) - FC-SJL-200 is an ultra-long-range UAV video-and-data radio supporting 200km+ transmission for integrated video, telemetry, and control links.
+- [FC-SJL-30 UAV Data Link](https://n-tet.com/products/fc-sjl-30) - FC-SJL-30 is a compact UAV video-and-data radio for 30km+ air-to-ground HD video, audio, telemetry, and remote-control data links.
+- [FC-SJL-380 UAV Data Link](https://n-tet.com/products/fc-sjl-380) - FC-SJL-380 supports 380km+ ultra-long-range UAV video-and-data transmission for distributed networking and air-to-ground control links.
+- [FC-SJL-50 UAV Data Link](https://n-tet.com/products/fc-sjl-50) - FC-SJL-50 is a lightweight UAV video-and-data radio for 50km+ HD video, telemetry, and remote-control data links.
 - [FC-TTVC Series Intelligent Multi-Band Camera](https://n-tet.com/products/fc-ttvc-intelligent-multi-band-camera) - The FC-TTVC series intelligent multi-band camera is a camera designed and developed for the field of remote day and night monitoring based on the six...
-- [FC-U10-PRO Flight Controller](https://n-tet.com/products/fc-u10-pro) - FC-U10-PRO Flight Controller for industrial UAV accessory integration, matching flight controllers requirements.
-- [FC-U110 UAV Motor](https://n-tet.com/products/fc-u110) - FC-U110 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-U12 Flight Controller](https://n-tet.com/products/fc-u12) - FC-U12 Flight Controller for industrial UAV accessory integration, matching flight controllers requirements.
-- [FC-U8013 UAV Motor](https://n-tet.com/products/fc-u8013) - FC-U8013 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-U9-AG Flight Controller](https://n-tet.com/products/fc-u9-ag) - FC-U9-AG Flight Controller for industrial UAV accessory integration, matching flight controllers requirements.
-- [FC-W2U UAV Propeller](https://n-tet.com/products/fc-w2u-propeller) - FC-W2U UAV Propeller for industrial UAV accessory integration, matching uav propellers requirements.
-- [FC-X8030 UAV Motor](https://n-tet.com/products/fc-x8030) - FC-X8030 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-XH14 UAV Motor](https://n-tet.com/products/fc-xh14) - FC-XH14 UAV Motor for industrial UAV accessory integration, matching uav motors requirements.
-- [FC-YK15 UAV Remote Controller](https://n-tet.com/products/fc-yk15-remote-controller) - FC-YK15 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
-- [FC-YK24 UAV Remote Controller](https://n-tet.com/products/fc-yk24-remote-controller) - FC-YK24 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
-- [FC-YK32 UAV Remote Controller](https://n-tet.com/products/fc-yk32-remote-controller) - FC-YK32 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
-- [FC-YKRC7 UAV Remote Controller](https://n-tet.com/products/fc-ykrc7-remote-controller) - FC-YKRC7 UAV Remote Controller for industrial UAV accessory integration, matching uav remote controllers requirements.
+- [FC-U10-PRO Flight Controller](https://n-tet.com/products/fc-u10-pro) - The FC-U10-PRO integrates high-precision RTK, supports 16V-120V power input, up to 16-rotor UAV platforms, and UPS backup for heavy-lift flight-contr...
+- [FC-U110 UAV Motor](https://n-tet.com/products/fc-u110) - FC-U110 UAV Motor core parameters: Max Thrust: 45.5 kg; Rated Operating Voltage: 12-14S; KV Value: 140 KV.
+- [FC-U12 Flight Controller](https://n-tet.com/products/fc-u12) - The FC-U12 is a compact and easy-to-use flight controller for small and mid-size tightly integrated UAV platforms, with expandable external control c...
+- [FC-U8013 UAV Motor](https://n-tet.com/products/fc-u8013) - FC-U8013 UAV Motor core parameters: Max Thrust: 14.5 kg / 15 kg / 16.3 kg; Rated Operating Voltage: 12S; KV Value: 135KV / 150KV / 170KV.
+- [FC-U9-AG Agricultural Flight Controller](https://n-tet.com/products/fc-u9-ag) - The FC-U9-AG is a professional agricultural UAV flight-control system for spraying, spreading, cleaning, and lifting operations, with rich interfaces...
+- [FC-W2U UAV Propeller](https://n-tet.com/products/fc-w2u-propeller) - Dimension range: 24~40 in; maximum thrust: 68.92kgf (5353RPM); peak propeller efficiency: 7.11gf/W (2354RPM).
+- [FC-X8030 UAV Motor](https://n-tet.com/products/fc-x8030) - FC-X8030 UAV Motor core parameters: Max Thrust: 22.7 kg / 21.5 kg; Rated Operating Voltage: 12S; KV Value: 160 KV / 190 KV.
+- [FC-XH14 UAV Motor](https://n-tet.com/products/fc-xh14) - FC-XH14 UAV Motor core parameters: Max Thrust: 110 kg/axis（92V/108，sea level）; Recommended Battery: 24-28S （Lipo）.
+- [FC-YK15 UAV Remote Controller](https://n-tet.com/products/fc-yk15-remote-controller) - The FC-YK15 UAV Remote Controller is a compact handheld ground station with low-latency three-in-one HD video transmission, Android integration, and...
+- [FC-YK24 UAV Remote Controller](https://n-tet.com/products/fc-yk24-remote-controller) - The FC-YK24 is a 16-channel model-aircraft remote controller with 15km beyond-visual-range stable control, wireless binding, wireless receiver config...
+- [FC-YK32 UAV Remote Controller](https://n-tet.com/products/fc-yk32-remote-controller) - The FC-YK32 is an industrial handheld ground station combining remote control, data transmission, and wireless HD video transmission, with 15KM video...
+- [FC-YKRC7 UAV Remote Controller](https://n-tet.com/products/fc-ykrc7-remote-controller) - The FC-YKRC7 is a high-performance handheld ground station with 40KM long-range video transmission, 2.4G/5G intelligent dual-band links, and a 7-inch...
 - [FC4028 Neutron Ambient Dose Equivalent (Rate) Meter](https://n-tet.com/products/fc4028-neutron-ambient-dose-rate-meter) - This neutron dose rate meter is an intelligent radiation measurement instrument that uses a smart probe connected to a multi-functional radiation mea...
 - [Hand-carried RF Detection System](https://n-tet.com/products/portable-rf-detection-case) [neutral SEO] - The hand-carried RF detection system offers full-band detection across 300MHz to 6000MHz. It enables the detection, identification, positioning, trac...
 - [Handheld Liquid Detector FC1500](https://n-tet.com/products/fc1500-handheld-liquid-detector) - The FC1500 Handheld Hazardous Liquid Security Detector is a specialized instrument designed for the detection of flammable and explosive liquids. Cha...
@@ -195,3 +201,4 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 - en: https://n-tet.com/
 - ru: https://n-tet.com/ru
 - es: https://n-tet.com/es
+- ar: https://n-tet.com/ar

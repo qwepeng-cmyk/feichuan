@@ -77,7 +77,11 @@ function uniqueItems(items: string[]) {
   return Array.from(new Set(items.filter(Boolean)));
 }
 
-function parseSnapshot(value: unknown): { label: string; value: string }[] {
+function localizeSnapshotLabel(label: string, dict: any) {
+  return dict?.cases?.snapshotLabels?.[label] || label;
+}
+
+function parseSnapshot(value: unknown, dict: any): { label: string; value: string }[] {
   if (!value) return [];
 
   let source = value;
@@ -98,7 +102,7 @@ function parseSnapshot(value: unknown): { label: string; value: string }[] {
       const record = item as { label?: unknown; value?: unknown };
       const label = typeof record.label === 'string' ? record.label.trim() : '';
       const itemValue = typeof record.value === 'string' ? record.value.trim() : '';
-      return label && itemValue ? { label, value: itemValue } : null;
+      return label && itemValue ? { label: localizeSnapshotLabel(label, dict), value: itemValue } : null;
     })
     .filter((item): item is { label: string; value: string } => Boolean(item));
 }
@@ -132,7 +136,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
       { name: title, url: pageUrl(locale, `/cases/${handle}`) },
     ],
   });
-  const caseSnapshot = parseSnapshot(caseData[`case_snapshot_${locale}`] || caseData.case_snapshot_en);
+  const caseSnapshot = parseSnapshot(caseData[`case_snapshot_${locale}`] || caseData.case_snapshot_en, dict);
   const recommendedProductHandles = uniqueItems([
     ...parseList(caseData.recommended_product_handles),
     ...parseList(caseData.recommendedProductHandles),
@@ -193,7 +197,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                     {caseSnapshot.length > 0 && (
                       <div className="case-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
                         <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
-                          Project Overview
+                          {dict.cases?.projectOverview || 'Project Overview'}
                         </div>
                         {caseSnapshot.map((item, idx) => (
                           <div key={idx} style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: '18px', fontSize: '1.65rem', lineHeight: '1.5', marginBottom: idx === caseSnapshot.length - 1 ? 0 : '12px' }}>

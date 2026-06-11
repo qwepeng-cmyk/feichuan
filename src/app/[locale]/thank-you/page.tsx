@@ -51,6 +51,21 @@ const copy = {
         noteTitle: '¿Necesita agregar más detalles?',
         note: 'Puede enviar otro mensaje desde cualquier página de producto, solución, caso, medio o contacto.',
     },
+    ar: {
+        title: 'شكرا لك',
+        badge: 'مكتب استفسارات N-TET',
+        heading: 'تم استلام استفسارك.',
+        intro: 'سيقوم فريقنا بمراجعة تفاصيل مشروعك والتواصل معك في أقرب وقت ممكن.',
+        steps: [
+            'تم حفظ الاستفسار في نظام إدارة N-TET',
+            'تم وضع متطلبات المشروع في قائمة المتابعة',
+            'سيرد متخصص عبر طريقة التواصل التي اخترتها',
+        ],
+        primary: 'العودة إلى الرئيسية',
+        secondary: 'عرض المنتجات',
+        noteTitle: 'هل تحتاج إلى إضافة تفاصيل أخرى؟',
+        note: 'يمكنك إرسال رسالة أخرى من أي صفحة منتج أو حل أو حالة أو مركز إعلامي أو صفحة تواصل.',
+    },
 };
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }): Promise<Metadata> {

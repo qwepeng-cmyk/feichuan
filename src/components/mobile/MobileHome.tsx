@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { products, solutions } from '@/constants/homeData';
+import { products, homepageSolutions as solutions } from '@/constants/homeData';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';

@@ -46,7 +46,7 @@ export const getAllAccessories = unstable_cache(
     const categories = Object.fromEntries(ACCESSORY_CATEGORY_ORDER.map((category) => [category, []])) as Record<string, AccessoryMetadata[]>;
 
     const rows = db.prepare(`
-      SELECT handle, product_name_en, product_name_ru, product_name_es, main_image, raw_json
+      SELECT handle, product_name_en, product_name_ru, product_name_es, product_name_ar, main_image, raw_json
       FROM products
       WHERE COALESCE(is_published, 1) = 1
         AND category_primary = 'uav-accessories'
@@ -72,7 +72,7 @@ export const getAllAccessories = unstable_cache(
 
     return categories;
   },
-  ['all-accessories-uav-20260605-v8'],
+  ['all-accessories-uav-20260611-ar-labels-v1'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );
 
@@ -86,7 +86,7 @@ export const getAllAccessoryHandles = unstable_cache(
     `).all() as any[];
     return rows.map((row) => row.handle).filter(Boolean);
   },
-  ['accessory-handles-20260605-v8'],
+  ['accessory-handles-20260611-ar-labels-v1'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );
 
@@ -110,6 +110,6 @@ export const getAccessoryByHandle = unstable_cache(
       return pruneAccessoryDetailPayload(row);
     }
   },
-  ['accessory-detail-20260605-v8'],
+  ['accessory-detail-20260611-ar-labels-v1'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );
