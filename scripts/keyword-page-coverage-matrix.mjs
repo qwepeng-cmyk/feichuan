@@ -98,12 +98,12 @@ function uniq(values) {
 }
 
 function localeFromRoute(route) {
-  const match = route.match(/^\/(en|ru|es)(?:\/|$)/);
+  const match = route.match(/^\/(en|ru|es|ar)(?:\/|$)/);
   return match?.[1] || 'en';
 }
 
 function stripLocale(route) {
-  const stripped = route.replace(/^\/(en|ru|es)(?=\/|$)/, '');
+  const stripped = route.replace(/^\/(en|ru|es|ar)(?=\/|$)/, '');
   return stripped || '/';
 }
 
@@ -229,28 +229,28 @@ function matchKeywordLibrary(keywords, keywordIndex) {
 }
 
 function mappingStatus({ planned, inheritedPlanned, libraryMatch, locale }) {
-  if (planned.length) return '绮惧噯瑙勫垝鏄犲皠';
-  if (inheritedPlanned.length && locale !== 'en') return '缁ф壙鑻辨枃椤甸潰鏄犲皠';
-  if (libraryMatch.matchedKeywords.length) return '鍛戒腑鍏抽敭璇嶅簱浣嗘湭瑙勫垝';
-  return '鏈涓婂箍鍛婂叧閿瘝搴?;
+  if (planned.length) return 'planned_exact_mapping';
+  if (inheritedPlanned.length && locale !== 'en') return 'inherits_en_mapping';
+  if (libraryMatch.matchedKeywords.length) return 'keyword_library_hit_unplanned';
+  return 'not_mapped_to_ads_keyword_library';
 }
 
 function actionFor({ status, auditStatus, pageKind, tier, planned, inheritedPlanned, libraryMatch }) {
-  if (tier === 'restricted') return '淇濇寔涓嶅彲鍏紑钀藉湴锛屼笉杩涘叆骞垮憡/Schema/llms.txt';
+  if (tier === 'restricted') return 'Keep unavailable publicly; exclude from ads, Schema, sitemap, and llms.txt.';
   if (planned.length || inheritedPlanned.length) {
-    if (auditStatus === 'strong') return '淇濇寔鏄犲皠锛屽悗缁仛 E-E-A-T 鍜屽唴閾惧寮?;
-    return '鎸夎鍒掍富璇嶄紭鍖?title銆乨escription銆丠1銆丠2銆侀娈靛拰姝ｆ枃灏忚妭';
+    if (auditStatus === 'strong') return 'Keep mapping; continue E-E-A-T and internal-link strengthening.';
+    return 'Optimize title, description, H1, H2, intro paragraph, and body sections around the planned primary keyword.';
   }
   if (libraryMatch.matchedKeywords.length) {
-    return '琛ュ叆鍏抽敭璇嶈鍒掕〃锛屾槑纭富钀藉湴椤靛拰杈呭姪璇?;
+    return 'Add to keyword planning table and define primary landing page plus supporting terms.';
   }
   if (['brand', 'conversion', 'home'].includes(pageKind)) {
-    return '鏍囪涓哄搧鐗?杞寲椤甸潰锛岄€夋嫨灏戦噺鏍稿績璇嶆垨鍝佺墝璇嶆壙鎺?;
+    return 'Treat as brand/conversion page; use a small set of core or brand terms.';
   }
   if (pageKind.endsWith('_detail')) {
-    return '妫€鏌ユ槸鍚﹂渶瑕佷粠鍏抽敭璇嶅簱琛ラ暱灏捐瘝锛涗綆鍟嗕笟浠峰€奸〉鍙笉寮哄埗骞垮憡璇嶆槧灏?;
+    return 'Review whether long-tail keyword mapping is needed; low commercial value detail pages do not require forced ads mapping.';
   }
-  return '浜哄伐鍒ゅ畾鏄惁闇€瑕佸叧閿瘝搴撴槧灏?;
+  return 'Manually decide whether keyword-library mapping is needed.';
 }
 
 function buildMatrix() {
@@ -294,7 +294,7 @@ function buildMatrix() {
       body_hit: row.body_hit,
       keyword_density_pct: row.keyword_density_pct,
       mapping_status: status,
-      from_google_ads_keywords: status === '鏈涓婂箍鍛婂叧閿瘝搴? ? '鍚? : '鏄?,
+      from_google_ads_keywords: status === 'not_mapped_to_ads_keyword_library' ? 'no' : 'yes',
       mapped_clusters: clusterNames.join(' | '),
       mapped_cluster_rows: uniq(clusterRows.map(String)).join(' | '),
       matched_business_groups: libraryMatch.groups.join(' | '),
@@ -335,9 +335,9 @@ function renderCountTable(counts) {
 }
 
 function renderRows(rows, limit = 30) {
-  if (!rows.length) return '鏃犮€?;
+  if (!rows.length) return 'None.';
   return [
-    '| 椤甸潰 | 鐘舵€?| 鍒嗘暟 | 鏄犲皠鐘舵€?| 涓诲叧閿瘝 | 鍏抽敭璇嶇皣 | 涓嬩竴姝?|',
+    '| Page | Audit | Score | Mapping | Primary keyword | Clusters | Next action |',
     '| --- | --- | ---: | --- | --- | --- | --- |',
     ...rows.slice(0, limit).map((row) => (
       `| ${row.route} | ${row.audit_status} | ${row.audit_score} | ${row.mapping_status} | ${row.primary_keyword} | ${row.mapped_clusters || '-'} | ${row.implementation_action} |`
@@ -347,60 +347,74 @@ function renderRows(rows, limit = 30) {
 
 function writeMarkdown(rows) {
   const total = rows.length;
-  const mapped = rows.filter((row) => row.from_google_ads_keywords === '鏄?);
-  const precise = rows.filter((row) => row.mapping_status === '绮惧噯瑙勫垝鏄犲皠');
-  const inherited = rows.filter((row) => row.mapping_status === '缁ф壙鑻辨枃椤甸潰鏄犲皠');
-  const libraryOnly = rows.filter((row) => row.mapping_status === '鍛戒腑鍏抽敭璇嶅簱浣嗘湭瑙勫垝');
-  const unmapped = rows.filter((row) => row.mapping_status === '鏈涓婂箍鍛婂叧閿瘝搴?);
-  const mappedWeak = rows.filter((row) => row.from_google_ads_keywords === '鏄? && row.audit_status !== 'strong');
+  const mapped = rows.filter((row) => row.from_google_ads_keywords === 'yes');
+  const precise = rows.filter((row) => row.mapping_status === 'planned_exact_mapping');
+  const inherited = rows.filter((row) => row.mapping_status === 'inherits_en_mapping');
+  const libraryOnly = rows.filter((row) => row.mapping_status === 'keyword_library_hit_unplanned');
+  const unmapped = rows.filter((row) => row.mapping_status === 'not_mapped_to_ads_keyword_library');
+  const mappedWeak = rows.filter((row) => row.from_google_ads_keywords === 'yes' && row.audit_status !== 'strong');
   const p0 = rows.filter((row) => row.planned_priority.split(' | ').includes('P0') && row.audit_status !== 'strong');
 
-  const body = `# 椤甸潰-鍏抽敭璇嶈鐩栫煩闃?
-鐢熸垚鏃ユ湡锛?{DATE_STAMP}
-椤甸潰鏉ユ簮锛?{path.relative(ROOT, INPUTS.audit)}
-鍏抽敭璇嶆潵婧愶細${ADS_KEYWORD_DIR}
-瀹屾暣鐭╅樀 CSV锛?{path.relative(ROOT, OUTPUTS.csv)}
+  const body = `# Page-Keyword Coverage Matrix
+Generated: ${DATE_STAMP}
+Page source: ${path.relative(ROOT, INPUTS.audit)}
+Keyword source: ${ADS_KEYWORD_DIR}
+Full CSV: ${path.relative(ROOT, OUTPUTS.csv)}
 
-## 鎬昏
+## Overview
 
-- 瑕嗙洊椤甸潰鏁帮細${total}
-- 宸插拰骞垮憡鍏抽敭璇嶅簱寤虹珛鍏崇郴鐨勯〉闈細${mapped.length}锛?{pct(mapped.length, total)}锛?- 宸茬簿鍑嗚鍒掑埌 canonical cluster 鐨勯〉闈細${precise.length}
-- 缁ф壙鑻辨枃椤甸潰鏄犲皠鐨勫璇█椤甸潰锛?{inherited.length}
-- 鍛戒腑鍏抽敭璇嶅簱浣嗚繕娌℃湁鏄庣‘瑙勫垝鐨勯〉闈細${libraryOnly.length}
-- 灏氭湭瀵逛笂骞垮憡鍏抽敭璇嶅簱鐨勯〉闈細${unmapped.length}
-- 宸叉槧灏勪絾褰撳墠杩樹笉鏄?strong 鐨勯〉闈細${mappedWeak.length}
+- Audited pages: ${total}
+- Pages mapped to the ads keyword library: ${mapped.length} (${pct(mapped.length, total)})
+- Planned exact canonical-cluster mappings: ${precise.length}
+- Localized pages inheriting English mappings: ${inherited.length}
+- Keyword-library hits without explicit planning: ${libraryOnly.length}
+- Not mapped to ads keyword library: ${unmapped.length}
+- Mapped pages that are not strong yet: ${mappedWeak.length}
 
-## 鏄犲皠鐘舵€佸垎甯?
-| 鏄犲皠鐘舵€?| 椤甸潰鏁?|
+## Mapping Status Distribution
+
+| Mapping status | Pages |
 | --- | ---: |
 ${renderCountTable(countBy(rows, 'mapping_status'))}
 
-## 椤甸潰绫诲瀷鍒嗗竷
+## Page Type Distribution
 
-| 椤甸潰绫诲瀷 | 椤甸潰鏁?|
+| Page type | Pages |
 | --- | ---: |
 ${renderCountTable(countBy(rows, 'page_type'))}
 
-## 瀹¤鐘舵€佸垎甯?
-| 瀹¤鐘舵€?| 椤甸潰鏁?|
+## Audit Status Distribution
+
+| Audit status | Pages |
 | --- | ---: |
 ${renderCountTable(countBy(rows, 'audit_status'))}
 
-## 浼樺厛澶勭悊椤甸潰
+## Priority Pages
 
-浠ヤ笅椤甸潰宸茬粡杩涘叆鍏抽敭璇嶈鍒掞紝涓斿綋鍓嶈繕娌℃湁杈惧埌 strong锛屼紭鍏堟寜瑙勫垝淇敼銆?
+These pages are already in keyword planning and are not strong yet. Update them first.
+
 ${renderRows(p0, 40)}
 
-## 宸叉槧灏勪絾杩橀渶浼樺寲鐨勯〉闈?
+## Mapped Pages Still Needing Optimization
+
 ${renderRows(mappedWeak, 40)}
 
-## 灏氭湭瀵逛笂骞垮憡鍏抽敭璇嶅簱鐨勯〉闈?
-杩欎簺椤甸潰涓嶆槸閮藉繀椤诲己鍒舵壙鎺ュ箍鍛婂叧閿瘝銆備骇鍝佽鎯呴〉銆侀厤浠惰鎯呴〉銆佸搧鐗岄〉銆佸獟浣撹鎯呴〉鍙互鏍规嵁鍟嗕笟浠峰€煎喅瀹氭槸鍚﹁ˉ鍏ュ叧閿瘝搴擄紝鎴栨爣璁颁负浜у搧闀垮熬/鍝佺墝鏀拺椤甸潰銆?
+## Pages Not Mapped To Ads Keyword Library
+
+Not every page must target ads keywords. Product details, accessory details, brand pages, and media pages can remain long-tail or supporting pages when commercial value is lower.
+
 ${renderRows(unmapped, 40)}
 
-## 鎵ц瑙勫垯
+## Execution Rules
 
-1. P0 椤甸潰鍏堟敼锛屾瘡鎵?3-4 涓〉闈€?2. 姣忛〉鍙 1 涓富鍏抽敭璇嶏紝3-5 涓緟鍔╁叧閿瘝銆?3. 涓诲叧閿瘝杩涘叆 title銆乨escription銆丠1 鍜岄娈点€?4. 杈呭姪鍏抽敭璇嶈繘鍏?H2銆佸満鏅钀姐€丗AQ 鎴栫浉鍏抽摼鎺ャ€?5. 澶氳瑷€椤甸潰鍏堢户鎵胯嫳鏂囬〉闈㈡槧灏勶紝鍐嶅仛鏈湴鍖栧叧閿瘝锛屼笉鐩存帴濂楄嫳鏂囪瘝銆?6. \`neutral_seo\` 椤甸潰鍙仛淇℃伅鍨?SEO/GEO锛屼笉榛樿浣滀负骞垮憡钀藉湴椤点€?7. 鏀瑰畬杩愯 \`npm run build\`銆乗`npm run audit:keywords\`锛屾秹鍙婂叕寮€椋庨櫓鏃跺啀璺?\`audit-public-site-risk\`銆?`;
+1. Prioritize P0 planned pages in batches of 3-4 pages.
+2. Use 1 primary keyword and 3-5 supporting keywords per page.
+3. Put the primary keyword in title, description, H1, and the intro paragraph.
+4. Put supporting keywords in H2, scenario paragraphs, FAQ, and related links.
+5. Localized pages should inherit the English mapping first, then use localized keyword wording.
+6. neutral_seo pages are informational SEO/GEO pages, not default ad landing pages.
+7. After changes, run npm run build and npm run audit:keywords; run public-risk audit when public compliance may change.
+`;
 
   fs.writeFileSync(OUTPUTS.md, body, 'utf8');
 }
@@ -408,6 +422,16 @@ ${renderRows(unmapped, 40)}
 function pct(value, total) {
   if (!total) return '0.0%';
   return `${((value / total) * 100).toFixed(1)}%`;
+}
+
+if (!fs.existsSync(INPUTS.plan)) {
+  const latestPlan = fs.readdirSync(path.join(ROOT, 'docs', 'seo'))
+    .filter((name) => /^keyword-page-plan-\d{4}-\d{2}-\d{2}\.csv$/.test(name))
+    .sort()
+    .pop();
+  if (latestPlan) {
+    INPUTS.plan = path.join(ROOT, 'docs', 'seo', latestPlan);
+  }
 }
 
 for (const [name, file] of Object.entries(INPUTS)) {
@@ -423,4 +447,4 @@ writeMarkdown(matrix);
 
 console.log(`Wrote ${OUTPUTS.csv}`);
 console.log(`Wrote ${OUTPUTS.md}`);
-console.log(`Keyword page coverage matrix: ${matrix.length} pages, ${matrix.filter((row) => row.from_google_ads_keywords === '鏄?).length} mapped to ads keyword library.`);
+console.log(`Keyword page coverage matrix: ${matrix.length} pages, ${matrix.filter((row) => row.from_google_ads_keywords === 'yes').length} mapped to ads keyword library.`);

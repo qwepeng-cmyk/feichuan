@@ -6,6 +6,7 @@ import UniversalGallery from '@/components/common/UniversalGallery';
 import InPageNav from '@/components/products/InPageNav';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import type { Locale } from '@/i18n/config';
@@ -121,6 +122,22 @@ export default function CatalogDetailContent({
     { id: 'inquiry', label: dict.nav.contact },
   ];
   const hasParameters = parameters && (Array.isArray(parameters) ? parameters.length > 0 : Object.keys(parameters).length > 0);
+  const categoryPath = product.category_primary && basePath === '/products'
+    ? `/products#${product.category_primary}`
+    : basePath;
+  const relatedLinks = basePath === '/accessories'
+    ? [
+        { href: '/accessories', label: catalogLabel, description: 'UAV parts and payload options' },
+        { href: '/products', label: dict.nav.products, description: 'Industrial UAV and monitoring equipment' },
+        { href: '/solutions', label: dict.nav.solutions, description: 'Operational workflows and use cases' },
+        { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
+      ]
+    : [
+        { href: categoryPath, label: catalogLabel, description: 'Product category and comparable models' },
+        { href: '/solutions', label: dict.nav.solutions, description: 'Related deployment workflows' },
+        { href: '/cases', label: dict.nav.cases, description: 'Published reference deployments' },
+        { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
+      ];
 
   return (
     <>
@@ -219,6 +236,8 @@ export default function CatalogDetailContent({
       <div className="mobile_only">
         <MobileProductDetail product={product} locale={locale} dict={dict} basePath={basePath} catalogLabel={catalogLabel} />
       </div>
+
+      <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>
   );
 }

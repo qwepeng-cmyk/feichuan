@@ -42,6 +42,10 @@ const HIGH_VALUE_EN_ROUTES = new Set([
   '/en/products/bailey-bridge',
 ]);
 
+const HIGH_VALUE_BASE_ROUTES = new Set(
+  Array.from(HIGH_VALUE_EN_ROUTES, (route) => route.replace(/^\/en(?=\/|$)/, '') || '/')
+);
+
 const RESTRICTED_PUBLIC_TERMS = [
   /\bjammer\b/i,
   /\bjamming\b/i,
@@ -217,11 +221,16 @@ function extractJsonLdTypes(html) {
 function localeFromRoute(route) {
   if (route === '/es' || route.startsWith('/es/')) return 'es';
   if (route === '/ru' || route.startsWith('/ru/')) return 'ru';
+  if (route === '/ar' || route.startsWith('/ar/')) return 'ar';
   return 'en';
 }
 
 function routeWithoutLocale(route) {
-  return route.replace(/^\/(?:en|es|ru)(?=\/|$)/, '') || '/';
+  return route.replace(/^\/(?:en|es|ru|ar)(?=\/|$)/, '') || '/';
+}
+
+function isHighValueRoute(route) {
+  return HIGH_VALUE_BASE_ROUTES.has(routeWithoutLocale(route));
 }
 
 function pageType(route) {
@@ -278,17 +287,17 @@ function signalSet(text, html, links, schemaTypes) {
   const lower = normalizeText(text);
   const linkText = normalizeText(links.map((link) => link.anchor).join(' '));
   return {
-    hasFaq: /\bfaq\b|frequently asked|preguntas frecuentes|часто задаваем/i.test(text),
-    hasSpecs: /specification|technical specs|parameter|payload|endurance|range|resolution|sensor|gimbal|table|parámetro|especificaci|параметр|характеристик|спецификац/i.test(text),
-    hasCases: /case|project|deployment|application|site|scenario|reference|caso|proyecto|aplicaci|проект|кейс|применен|развертыван/i.test(text),
-    hasWorkflow: /workflow|process|module|operation|patrol|inspection|monitoring|flujo|proceso|модул|процесс|инспекц|мониторинг/i.test(text),
-    hasDate: /<time\b/i.test(html) || /\b20[12]\d[-/.年]\d{1,2}|updated|published|date|fecha|дата/i.test(text),
-    hasAuthor: /author|byline|written by|editor|autor|автор/i.test(text),
+    hasFaq: /\bfaq\b|frequently asked|preguntas frecuentes|الأسئلة الشائعة|أسئلة شائعة|часто задаваем/i.test(text),
+    hasSpecs: /specification|technical specs|parameter|payload|endurance|range|resolution|sensor|gimbal|table|parámetro|especificaci|المواصفات|المعيار|الحمولة|المدى|المستشعر|параметр|характеристик|спецификац/i.test(text),
+    hasCases: /case|project|deployment|application|site|scenario|reference|caso|proyecto|aplicaci|مشروع|حالة|نشر|تطبيق|سيناريو|مرجع|проект|кейс|применен|развертыван/i.test(text),
+    hasWorkflow: /workflow|process|module|operation|patrol|inspection|monitoring|flujo|proceso|سير العمل|عملية|تفتيش|مراقبة|دورية|تشغيل|модул|процесс|инспекц|мониторинг/i.test(text),
+    hasDate: /<time\b/i.test(html) || /\b20[12]\d[-/.年]\d{1,2}|updated|published|date|fecha|تاريخ|نشر|منشور|дата/i.test(text),
+    hasAuthor: /author|byline|written by|editor|autor|كاتب|محرر|فريق المحتوى|автор/i.test(text),
     hasStats: /\b\d+(?:\.\d+)?\s*(?:%|km|m|kg|h|min|hours|minutes|w|v|mah|mp|gb|hz|mhz|ghz|℃|°c|point|points|checkpoint|checkpoints|punto|puntos|пункт|пункта|пунктов)\b/i.test(lower),
     hasTable: /<table\b/i.test(html),
     hasList: /<(?:ul|ol)\b/i.test(html),
-    hasInquiry: /quotation|quote|inquiry|contact|consultation|brochure|cotizaci|consulta|связаться|запрос|кп/i.test(text),
-    hasRelatedProducts: /recommended products|related products|product recommendations|productos recomendados|связанное оборудование|рекомендуемые продукты/i.test(text + ' ' + linkText),
+    hasInquiry: /quotation|quote|inquiry|contact|consultation|brochure|cotizaci|consulta|عرض سعر|استفسار|اتصل|استشارة|связаться|запрос|кп/i.test(text),
+    hasRelatedProducts: /recommended products|related products|product recommendations|productos recomendados|منتجات موصى بها|منتجات ذات صلة|معدات ذات صلة|связанное оборудование|рекомендуемые продукты/i.test(text + ' ' + linkText),
     hasOrganizationSchema: schemaTypes.includes('Organization'),
     hasProductSchema: schemaTypes.includes('Product'),
     hasServiceSchema: schemaTypes.includes('Service'),
@@ -372,7 +381,7 @@ function analyzePage(row) {
     (signals.hasCases ? 8 : 0) +
     (signals.hasStats ? 5 : 0) +
     scoreByRatio(images.length - missingAlt, 2, 5) +
-    (/field|site|deployment|operator|project|case|现场|项目|развертыван|проект|caso|proyecto/i.test(text) ? 7 : 0)
+    (/field|site|deployment|operator|project|case|现场|项目|موقع|نشر|مشروع|مشغل|حالة|развертыван|проект|caso|proyecto/i.test(text) ? 7 : 0)
   );
   const expertise = Math.round(
     (signals.hasSpecs ? 8 : 0) +
@@ -470,7 +479,7 @@ function analyzePage(row) {
     primary_keyword: row.primary_keyword,
     audit_scope: [
       row.status === 'partial' ? 'partial_keyword_page' : '',
-      HIGH_VALUE_EN_ROUTES.has(row.route) ? 'high_value_en' : '',
+      isHighValueRoute(row.route) ? `high_value_${row.keyword_locale || localeFromRoute(row.route)}` : '',
     ].filter(Boolean).join(' + ') || 'full_inventory',
     words,
     content_paragraphs: contentParagraphs.length,
@@ -528,7 +537,7 @@ function scoreBand(rows, field, max = 100) {
 function writeMarkdown(rows) {
   const selected = rows.filter((row) => row.audit_scope !== 'full_inventory');
   const partialRows = selected.filter((row) => row.audit_scope.includes('partial_keyword_page'));
-  const highValueRows = selected.filter((row) => row.audit_scope.includes('high_value_en'));
+  const highValueRows = selected.filter((row) => row.audit_scope.includes('high_value_'));
   const p1Rows = selected
     .filter((row) => row.priority.startsWith('P0') || row.priority.startsWith('P1'))
     .sort((a, b) => {
@@ -631,7 +640,8 @@ function writeCache(rows) {
       full_pages: rows.length,
       focused_pages: selected.length,
       partial_keyword_pages: selected.filter((row) => row.audit_scope.includes('partial_keyword_page')).length,
-      high_value_en_pages: selected.filter((row) => row.audit_scope.includes('high_value_en')).length,
+      high_value_pages: selected.filter((row) => row.audit_scope.includes('high_value_')).length,
+      high_value_ar_pages: selected.filter((row) => row.audit_scope.includes('high_value_ar')).length,
     },
     key_findings: {
       p1_pages: selected.filter((row) => row.priority.startsWith('P1')).map((row) => row.route),

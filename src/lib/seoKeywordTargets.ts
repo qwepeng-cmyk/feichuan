@@ -144,7 +144,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
   },
 };
 
-const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru', Record<string, SeoKeywordTarget>>> = {
+const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKeywordTarget>>> = {
   es: {
     '/': {
       primary: 'sistemas UAV industriales',
@@ -293,6 +293,157 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru', Record<string, SeoKeywordTa
       secondary: ['dron de comunicación para respuesta a desastres', 'UAV de comunicación cautivo', 'comunicaciones UAV de seguridad pública'],
       h1: 'Solución UAV de comunicación de emergencia',
       overviewHeading: 'Flujo UAV de comunicación de emergencia',
+      source: 'google_ads_keywords',
+    },
+  },
+  ar: {
+    '/': {
+      primary: 'أنظمة UAV صناعية',
+      secondary: ['أنظمة الطائرات بدون طيار الصناعية', 'مراقبة الارتفاعات المنخفضة', 'طائرة UAV للتفتيش', 'طائرة UAV للاستجابة الطارئة'],
+      h1: 'أنظمة الطائرات بدون طيار الصناعية لعمليات الارتفاع المنخفض',
+      overviewHeading: 'أنظمة UAV الصناعية ومراقبة الارتفاعات المنخفضة',
+      source: 'google_ads_keywords',
+    },
+    '/about': {
+      primary: 'مكامل أنظمة UAV الصناعية',
+      secondary: ['مزود أنظمة UAV', 'مزود حلول مراقبة الارتفاع المنخفض', 'مكامل تقنيات الأمن'],
+      h1: 'ملف مكامل أنظمة UAV الصناعية',
+      overviewHeading: 'قدرات تكامل أنظمة UAV الصناعية',
+      intro: 'تركز N-TET على تكامل أنظمة UAV الصناعية وحلول مراقبة الارتفاعات المنخفضة وسير عمل التفتيش وتقنيات الفحص الميداني لمشغلي البنية التحتية.',
+      source: 'google_ads_keywords',
+    },
+    '/products': {
+      primary: 'أنظمة UAV الصناعية',
+      secondary: ['طائرة UAV للتفتيش', 'طائرة UAV للطوارئ', 'معدات مراقبة الارتفاع المنخفض'],
+      h1: 'أنظمة UAV الصناعية ومعدات المراقبة',
+      overviewHeading: 'مركز منتجات أنظمة UAV الصناعية',
+      source: 'google_ads_keywords',
+    },
+    '/accessories': {
+      primary: 'ملحقات الطائرات بدون طيار',
+      secondary: ['مكونات UAV', 'حامل UAV', 'محرك UAV', 'رابط بيانات UAV'],
+      h1: 'ملحقات الطائرات بدون طيار ومكونات UAV',
+      overviewHeading: 'ملحقات الطائرات بدون طيار للمنصات الصناعية',
+      source: 'google_ads_keywords',
+    },
+    '/solutions': {
+      primary: 'حلول تفتيش UAV',
+      secondary: ['طائرة بحث وإنقاذ', 'طائرة مكافحة حرائق', 'تفتيش خطوط الكهرباء باستخدام UAV'],
+      h1: 'حلول تفتيش UAV',
+      overviewHeading: 'حلول تفتيش UAV للفرق الصناعية',
+      source: 'google_ads_keywords',
+    },
+    '/cases': {
+      primary: 'حالات تفتيش ومراقبة UAV',
+      secondary: ['حالات استخدام UAV', 'دوريات UAV', 'مراقبة الارتفاع المنخفض', 'تفتيش UAV'],
+      h1: 'حالات تفتيش ومراقبة UAV',
+      overviewHeading: 'حالات UAV حسب المنطقة والسيناريو',
+      source: 'google_ads_keywords',
+    },
+    '/media': {
+      primary: 'أخبار UAV الصناعية',
+      secondary: ['اقتصاد الارتفاع المنخفض', 'UAV مربوط', 'مراقبة البنية التحتية'],
+      h1: 'أخبار UAV الصناعية',
+      overviewHeading: 'أخبار UAV الصناعية واقتصاد الارتفاع المنخفض',
+      source: 'google_ads_keywords',
+    },
+    '/contact': {
+      primary: 'عرض سعر UAV صناعي',
+      secondary: ['مزود UAV', 'حل تفتيش بالطائرات بدون طيار', 'معدات مراقبة الارتفاع المنخفض'],
+      h1: 'طلب عرض سعر UAV صناعي',
+      overviewHeading: 'عرض سعر UAV صناعي واستشارة مشروع',
+      intro: 'استخدم هذه الصفحة لطلب عرض سعر UAV صناعي أو مناقشة مزود UAV أو تخطيط حل تفتيش بالطائرات بدون طيار أو معدات مراقبة الارتفاع المنخفض مع فريق N-TET.',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/category/01_BorderPatrol': {
+      primary: 'UAV لدوريات الحدود',
+      secondary: ['UAV للدوريات البحرية', 'طائرة لمراقبة السواحل', 'مراقبة بحرية برية'],
+      h1: 'حلول UAV لدوريات الحدود',
+      overviewHeading: 'UAV لدوريات الحدود ومراقبة السواحل',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/category/02_InfrastructureProtection': {
+      primary: 'UAV لتفتيش المنشآت الصناعية',
+      secondary: ['تفتيش النفط والغاز بالطائرات بدون طيار', 'طائرات تفتيش خطوط الأنابيب', 'مراقبة المصانع الكيميائية'],
+      h1: 'حلول UAV لتفتيش المنشآت الصناعية',
+      overviewHeading: 'سيناريوهات تفتيش المنشآت الصناعية باستخدام UAV',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/category/03_KeyAreaSecurity': {
+      primary: 'مراقبة المجال الجوي للمطارات',
+      secondary: ['مراقبة أمن الفعاليات', 'أمن المناطق الرئيسية', 'معدات مراقبة الارتفاع المنخفض'],
+      h1: 'مراقبة المجال الجوي للمطارات وأمن المناطق الرئيسية',
+      overviewHeading: 'سيناريوهات مراقبة المجال الجوي للمطارات',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/category/04_EmergencyRescue': {
+      primary: 'طائرات البحث والإنقاذ والطوارئ',
+      secondary: ['طائرة بحث وإنقاذ', 'طائرة مكافحة حرائق', 'UAV للاتصالات الطارئة', 'طائرة إضاءة'],
+      h1: 'حلول طائرات البحث والإنقاذ والطوارئ',
+      overviewHeading: 'سير عمل UAV للبحث والإنقاذ والطوارئ',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/power-line-uav-intelligent-inspection-solution': {
+      primary: 'تفتيش خطوط الكهرباء بالطائرات بدون طيار',
+      secondary: ['طائرة تفتيش خطوط الكهرباء', 'تفتيش خطوط الكهرباء باستخدام UAV', 'طائرات تفتيش المرافق'],
+      h1: 'حل تفتيش خطوط الكهرباء بالطائرات بدون طيار',
+      overviewHeading: 'سير عمل تفتيش خطوط الكهرباء باستخدام UAV',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/water-conservancy-river-lake-uav-monitoring-solution': {
+      primary: 'UAV لمراقبة الموارد المائية',
+      secondary: ['UAV لتفتيش السدود', 'مراقبة الأنهار والبحيرات باستخدام UAV', 'طائرة مراقبة الفيضانات'],
+      h1: 'حل UAV لمراقبة الموارد المائية',
+      overviewHeading: 'سير عمل مراقبة الموارد المائية باستخدام UAV',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/disaster-site-search-rescue-reconnaissance-uav-solution': {
+      primary: 'طائرة البحث والإنقاذ',
+      secondary: ['طائرة بحث وإنقاذ', 'طائرات حرارية للبحث والإنقاذ', 'UAV للبحث والإنقاذ', 'طائرة إنقاذ'],
+      h1: 'حل طائرة البحث والإنقاذ',
+      overviewHeading: 'سير عمل طائرة البحث والإنقاذ',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/chemical-plant-protection': {
+      primary: 'طائرات تفتيش خطوط الأنابيب',
+      secondary: ['مراقبة المصانع الكيميائية', 'تفتيش خطوط الأنابيب باستخدام UAV', 'تفتيش النفط والغاز بالطائرات بدون طيار'],
+      h1: 'طائرات تفتيش خطوط الأنابيب لمراقبة المصانع الكيميائية',
+      overviewHeading: 'طائرات تفتيش خطوط الأنابيب ومراقبة المنشآت',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/smart-substation-unattended-uav-inspection-solution': {
+      primary: 'التفتيش الذاتي للمحطات الفرعية الذكية',
+      secondary: ['تفتيش ذاتي للمحطات الفرعية الذكية', 'طائرة تفتيش المحطات الفرعية', 'تفتيش مرافق الطاقة باستخدام UAV', 'تفتيش UAV ذاتي'],
+      h1: 'حل التفتيش الذاتي للمحطات الفرعية الذكية',
+      overviewHeading: 'سير عمل التفتيش الذاتي للمحطات الفرعية الذكية',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/uav-maritime-patrol': {
+      primary: 'UAV للدوريات البحرية',
+      secondary: ['طائرة لمراقبة السواحل', 'UAV لدوريات الحدود', 'UAV لمراقبة الحدود'],
+      h1: 'حل UAV للدوريات البحرية',
+      overviewHeading: 'سير عمل UAV للدوريات البحرية',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/urban-high-rise-firefighting-emergency-uav-solution': {
+      primary: 'طائرة مكافحة الحرائق',
+      secondary: ['طائرة مكافحة حرائق', 'UAV لمكافحة حرائق المباني العالية', 'طائرة لإطفاء الحرائق', 'طائرات مكافحة حرائق'],
+      h1: 'حل طائرة مكافحة الحرائق',
+      overviewHeading: 'سير عمل طائرة مكافحة الحرائق',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/night-emergency-lighting-support-uav-solution': {
+      primary: 'UAV مربوط للإضاءة',
+      secondary: ['طائرة إضاءة', 'نظام إضاءة UAV', 'طائرة إضاءة طارئة'],
+      h1: 'حل UAV مربوط للإضاءة',
+      overviewHeading: 'سير عمل UAV مربوط للإضاءة',
+      source: 'google_ads_keywords',
+    },
+    '/solutions/post-disaster-emergency-communication-support-uav-solution': {
+      primary: 'UAV للاتصالات الطارئة',
+      secondary: ['طائرة اتصالات للاستجابة للكوارث', 'UAV مربوط للاتصالات', 'اتصالات UAV للسلامة العامة'],
+      h1: 'حل UAV للاتصالات الطارئة',
+      overviewHeading: 'سير عمل UAV للاتصالات الطارئة',
       source: 'google_ads_keywords',
     },
   },
@@ -459,7 +610,7 @@ const CATEGORY_FALLBACKS: Record<string, string[]> = {
 };
 
 function normalizePath(route: string) {
-  const withoutLocale = route.replace(/^\/(en|ru|es)(?=\/|$)/, '');
+  const withoutLocale = route.replace(/^\/(en|ru|es|ar)(?=\/|$)/, '');
   return withoutLocale || '/';
 }
 
@@ -490,7 +641,7 @@ export function getSeoKeywordTarget(options: {
 }): SeoKeywordTarget {
   const normalized = normalizePath(options.route);
   const localizedTarget =
-    options.locale === 'es' || options.locale === 'ru'
+    options.locale === 'es' || options.locale === 'ru' || options.locale === 'ar'
       ? LOCALIZED_TARGETS[options.locale]?.[normalized]
       : undefined;
   const target = localizedTarget || TARGETS[normalized];
@@ -516,7 +667,7 @@ export function getSeoKeywordTarget(options: {
 export function getSeoKeywordBackedEntry(route: string, locale = 'en') {
   const normalized = normalizePath(route);
   const localizedTarget =
-    locale === 'es' || locale === 'ru'
+    locale === 'es' || locale === 'ru' || locale === 'ar'
       ? LOCALIZED_TARGETS[locale]?.[normalized]
       : undefined;
   return localizedTarget || TARGETS[normalized];
@@ -531,6 +682,9 @@ export function buildKeywordIntro(target: SeoKeywordTarget, fallbackSubject: str
     }
     if (locale === 'ru') {
       return `${target.primary} является основной темой этой страницы; также раскрываются связанные задачи: ${related || fallbackSubject}.`;
+    }
+    if (locale === 'ar') {
+      return `${target.primary} هو موضوع البحث الرئيسي لهذه الصفحة، مع تغطية مرتبطة بـ ${related || fallbackSubject}.`;
     }
     return `${target.primary} is the primary search theme for this page, with related coverage for ${related || fallbackSubject}.`;
   }

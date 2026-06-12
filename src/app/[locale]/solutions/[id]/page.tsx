@@ -9,6 +9,7 @@ import MobileSolutionDetail from '@/components/mobile/MobileSolutionDetail';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
@@ -110,6 +111,14 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
       });
     }
   }
+  const relatedLinks = [
+    ...(solution.category_id
+      ? [{ href: `/solutions/category/${solution.category_id}`, label: dict.nav.solutions, description: 'Solution category and adjacent workflows' }]
+      : []),
+    { href: '/products', label: dict.nav.products, description: 'Equipment families for this workflow' },
+    { href: '/cases', label: dict.nav.cases, description: 'Published deployment references' },
+    { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
+  ];
 
   return (
     <>
@@ -134,6 +143,8 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
             dict={dict}
         />
       </div>
+
+      <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>
   );
 }
@@ -141,6 +152,14 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 // 2. Entry Page Component (Instant Navigation)
 export default async function SolutionDetailPage({ params }: { params: { id: string; locale: Locale } }) {
   const { id, locale } = params;
+  if (!isPublicComplianceContent('solution', id)) {
+    notFound();
+  }
+
+  const solution = await getSolutionById(id);
+  if (!solution) {
+    notFound();
+  }
 
   return (
     <>

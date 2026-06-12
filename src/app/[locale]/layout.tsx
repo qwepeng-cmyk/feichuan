@@ -1,9 +1,11 @@
 import { i18n, type Locale } from "@/i18n/config";
+import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import LocaleDocumentState from "@/components/LocaleDocumentState";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import NextTopLoader from "nextjs-toploader";
 import { getDictionary } from "@/i18n/getDictionary";
 import { notFound } from "next/navigation";
 import Script from "next/script";
@@ -17,25 +19,6 @@ function isValidLocale(locale: string): locale is Locale {
 function cleanTrackingId(value: string) {
   return value.replace(/[^A-Z0-9-]/gi, '');
 }
-
-const localeHomeMetadata: Record<Locale, { title: string; description: string }> = {
-  en: {
-    title: 'N-TET - Industrial UAV Systems & Low-Altitude Monitoring',
-    description: 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
-  },
-  ru: {
-    title: 'N-TET - Промышленные БПЛА и мониторинг низковысотного пространства',
-    description: 'Промышленные платформы БПЛА, оборудование мониторинга воздушного пространства, журналы событий и регламентированные рабочие процессы для инфраструктурных операторов.',
-  },
-  es: {
-    title: 'N-TET - Sistemas UAV industriales y monitoreo de baja altitud',
-    description: 'Plataformas UAV industriales, equipos de monitoreo del espacio aéreo, registros de eventos y flujos de respuesta para operadores de infraestructura.',
-  },
-  ar: {
-    title: 'N-TET - أنظمة طائرات صناعية بدون طيار ومراقبة المجال المنخفض',
-    description: 'منصات طائرات صناعية بدون طيار، ومعدات مراقبة المجال المنخفض، وسجلات أحداث، وسير عمل استجابة متوافق لمشغلي البنية التحتية.',
-  },
-};
 
 const fallbackTracking = {
   gaMeasurementId: 'G-ZS6XC2TFCG',
@@ -65,11 +48,13 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   }
 
   const baseUrl = 'https://n-tet.com';
-  const metadata = localeHomeMetadata[locale] || localeHomeMetadata.en;
+  const dict = await getDictionary(locale);
+  const homeTitle = dict.home.hero.title.replace(/<br\s*\/?\s*>/gi, ' ');
+  const homeDescription = dict.home.hero.subtitle;
 
   return {
-    title: metadata.title,
-    description: metadata.description,
+    title: `${homeTitle} | N-TET`,
+    description: homeDescription,
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
@@ -84,11 +69,14 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   };
 }
 
-
-
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
 }
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export default async function LocaleLayout({
   children,
@@ -109,13 +97,20 @@ export default async function LocaleLayout({
   const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
 
   return (
-    <>
-        <LocaleDocumentState locale={locale} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${JSON.stringify(isRtl ? 'rtl' : 'ltr')};document.documentElement.dataset.locale=${JSON.stringify(locale)};`,
-          }}
+    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-locale={locale} suppressHydrationWarning>
+      <body className="font-sans antialiased">
+        <NextTopLoader
+          color="#315ba4"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #315ba4,0 0 5px #315ba4"
         />
+        <LocaleDocumentState locale={locale} />
 
         {gtmContainerId && (
           <Script
@@ -188,6 +183,7 @@ s0.parentNode.insertBefore(s1,s0);
         <div className="mobile_only">
             <MobileStickyBar locale={locale} dict={dict} />
         </div>
-    </>
+      </body>
+    </html>
   );
 }

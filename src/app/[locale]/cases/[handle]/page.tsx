@@ -13,6 +13,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import dynamic from 'next/dynamic';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
@@ -177,6 +178,14 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
       : []),
     { id: 'inquiry', label: dict.nav.contact },
   ];
+  const relatedLinks = [
+    ...(caseData.solution_category_id
+      ? [{ href: `/solutions/category/${caseData.solution_category_id}`, label: dict.nav.solutions, description: 'Solution category for this deployment type' }]
+      : []),
+    { href: '/cases', label: dict.nav.cases, description: 'More public deployment references' },
+    { href: '/products', label: dict.nav.products, description: 'Equipment families used in field projects' },
+    { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
+  ];
 
   return (
     <>
@@ -272,6 +281,8 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
           dict={dict}
         />
       </div>
+
+      <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>
   );
 }
@@ -279,6 +290,14 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 // 2. Entry Page Component (Instant Navigation)
 export default async function CaseDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
+  if (!isPublicComplianceContent('case', handle)) {
+    notFound();
+  }
+
+  const caseData = await getCaseByHandle(handle);
+  if (!caseData) {
+    notFound();
+  }
 
   return (
     <>

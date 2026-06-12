@@ -1,4 +1,5 @@
 import type { SeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import FaqListSection from '@/components/common/FaqListSection';
 
 type SolutionFaqSectionProps = {
   locale: string;
@@ -24,9 +25,9 @@ function faqCopy(locale: string, subject: string, target?: Pick<SeoKeywordTarget
 
   if (locale === 'es') {
     return {
-      eyebrow: 'Decision de proyecto',
-      title: 'FAQ y planificacion del proyecto',
-      intro: `${theme} se debe evaluar por escenario operativo, carga util, comunicacion, autonomia, mantenimiento y evidencia de casos relacionados, no solo por el modelo de UAV.`,
+      eyebrow: '',
+      title: 'FAQ de la solucion',
+      intro: `Para ${theme}, confirme escenario operativo, carga util, comunicacion, autonomia, mantenimiento y evidencia de casos relacionados antes de seleccionar el equipo.`,
       items: [
         {
           q: `Que informacion se necesita antes de seleccionar ${theme}?`,
@@ -46,9 +47,9 @@ function faqCopy(locale: string, subject: string, target?: Pick<SeoKeywordTarget
 
   if (locale === 'ru') {
     return {
-      eyebrow: 'Планирование проекта',
-      title: 'FAQ по решению и подготовке проекта',
-      intro: `${theme} следует оценивать по сценарию работ, полезной нагрузке, связи, автономности, обслуживанию и связанным проектным примерам, а не только по модели БПЛА.`,
+      eyebrow: '',
+      title: 'FAQ по решению',
+      intro: `Для ${theme} подтвердите рабочий сценарий, полезную нагрузку, связь, автономность, обслуживание и связанные проектные примеры перед выбором оборудования.`,
       items: [
         {
           q: `Какие данные нужны перед выбором ${theme}?`,
@@ -66,10 +67,32 @@ function faqCopy(locale: string, subject: string, target?: Pick<SeoKeywordTarget
     };
   }
 
+  if (locale === 'ar') {
+    return {
+      eyebrow: '',
+      title: 'الأسئلة الشائعة حول الحل',
+      intro: `بالنسبة إلى ${theme}، أكد سيناريو التشغيل والحمولة والاتصالات ومدة الطيران وخطة الصيانة وأدلة الحالات ذات الصلة قبل اختيار المعدات.`,
+      items: [
+        {
+          q: `ما المعلومات المطلوبة قبل اختيار ${theme}؟`,
+          a: `قبل اختيار ${theme}، يجب على فريق المشروع تأكيد منطقة التشغيل ومدة المهمة واحتياجات الحمولة وظروف الاتصال ومتطلبات السلامة والبيانات المتوقعة من فريق القيادة أو التفتيش.`,
+        },
+        {
+          q: 'كيف يجب مطابقة هذا الحل مع المعدات ذات الصلة؟',
+          a: `عادة تقارن عملية الاختيار ${supporting}، ومحطات التحكم، والمستشعرات، وروابط البيانات، ودعم الطاقة وملحقات الخدمة حتى يبقى سير العمل مستقرا من الإعداد الميداني إلى مراجعة النتائج.`,
+        },
+        {
+          q: 'ما الذي يجب تأكيده قبل النشر؟',
+          a: 'يجب أن تؤكد الفرق التصاريح المحلية وتدريب المشغل وقطع الغيار وفترات الصيانة وتسليم البيانات ومعايير قبول المشروع ومسار التصعيد للدعم الميداني.',
+        },
+      ],
+    };
+  }
+
   return {
-    eyebrow: 'Project Decision',
-    title: 'FAQ and Project Planning',
-    intro: `${theme} should be evaluated by operating scenario, payload, communications, endurance, maintenance plan, and related case evidence, not only by UAV model.`,
+    eyebrow: '',
+    title: 'Solution FAQ',
+    intro: `For ${theme}, confirm the operating scenario, payload, communications, endurance, maintenance plan, and related case evidence before selecting equipment.`,
     items: [
       {
         q: `What inputs are needed before selecting ${theme}?`,
@@ -97,55 +120,14 @@ export default function SolutionFaqSection({
   const copy = faqCopy(locale, subject, target);
 
   return (
-    <section
+    <FaqListSection
       id={id}
       className={compact ? undefined : 'detail-section'}
-      style={{
-        padding: compact ? '34px 18px' : '96px 0',
-        background: compact ? '#fff' : '#f7faff',
-      }}
-    >
-      <div
-        className={compact ? undefined : 'container'}
-        style={compact ? undefined : { maxWidth: '1120px' }}
-      >
-        <div style={{ maxWidth: compact ? '100%' : '760px', marginBottom: compact ? '20px' : '38px' }}>
-          <div style={{ color: '#315ba4', fontSize: compact ? '13px' : '1.4rem', fontWeight: 850, textTransform: 'uppercase', marginBottom: '10px' }}>
-            {copy.eyebrow}
-          </div>
-          <h2 style={{ fontSize: compact ? '24px' : '4rem', lineHeight: 1.16, color: '#0f172a', margin: '0 0 16px', fontWeight: 900, letterSpacing: 0 }}>
-            {copy.title}
-          </h2>
-          <p style={{ fontSize: compact ? '15px' : '1.8rem', lineHeight: 1.75, color: '#52606d', margin: 0 }}>
-            {copy.intro}
-          </p>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: compact ? '1fr' : 'repeat(3, minmax(0, 1fr))', gap: compact ? '12px' : '22px' }}>
-          {copy.items.map((item, index) => (
-            <article
-              key={item.q}
-              style={{
-                background: '#fff',
-                border: '1px solid #dbe7f6',
-                padding: compact ? '18px' : '28px',
-                minHeight: compact ? undefined : '250px',
-                boxShadow: compact ? 'none' : '0 18px 42px rgba(15, 23, 42, 0.06)',
-              }}
-            >
-              <div style={{ color: '#315ba4', fontSize: compact ? '12px' : '1.35rem', fontWeight: 900, marginBottom: '12px' }}>
-                {String(index + 1).padStart(2, '0')}
-              </div>
-              <h3 style={{ fontSize: compact ? '17px' : '2.1rem', lineHeight: 1.3, color: '#152235', margin: '0 0 12px', fontWeight: 850 }}>
-                {item.q}
-              </h3>
-              <p style={{ fontSize: compact ? '14px' : '1.6rem', lineHeight: 1.75, color: '#52606d', margin: 0 }}>
-                {item.a}
-              </p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+      compact={compact}
+      eyebrow={copy.eyebrow}
+      title={copy.title}
+      intro={copy.intro}
+      items={copy.items.map((item) => ({ question: item.q, answer: item.a }))}
+    />
   );
 }

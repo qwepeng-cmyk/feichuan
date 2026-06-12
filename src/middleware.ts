@@ -2,6 +2,48 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { i18n } from './i18n/config';
 
+const restrictedPublicHandles = new Set([
+    'directional-rf-jammer',
+    'omni-directional-rf-jammer',
+    'portable-anti-drone-jammer-shield',
+    'portable-anti-drone-jammer-shield-pro',
+    'portable-integrated-detection-jamming-c-uas-basic',
+    'portable-integrated-detection-jamming-pro-c-uas',
+    'stationary-active-rf-defense-system',
+    'uav-navigation-spoofing-system',
+    'portable-active-rf-defense-system',
+    'handheld-integrated-sdr-c-uas',
+    'handheld-integrated-multi-band-jammer-gun',
+    'power-generation-facility-anti-uav',
+    'airport-anti-uav',
+    'airport-security-application',
+    'asian-games-security',
+    'water-conservancy-security',
+    'pakistan-power-plant-anti-uav',
+    'brazil-refinery-anti-uav',
+    'nigeria-factory-anti-uav',
+    'multi-sensor-cuas-architecture-2026',
+    'cuas-critical-infrastructure-deployment-2026',
+]);
+
+function publicPathSegments(pathname: string) {
+    return pathname.split('/').filter(Boolean).filter((part, index) => {
+        return !(index === 0 && i18n.locales.includes(part as any));
+    });
+}
+
+function isRestrictedPublicPath(pathname: string) {
+    const segments = publicPathSegments(pathname);
+    const section = segments[0];
+    const handle = segments[1];
+
+    return Boolean(
+        handle &&
+        ['products', 'solutions', 'cases', 'media'].includes(section) &&
+        restrictedPublicHandles.has(handle)
+    );
+}
+
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const isInternalDefaultLocaleRewrite =
@@ -41,6 +83,17 @@ export function middleware(request: NextRequest) {
         pathname === '/favicon.ico'
     ) {
         return NextResponse.next();
+    }
+
+    if (isRestrictedPublicPath(pathname)) {
+        return new NextResponse('Gone', {
+            status: 410,
+            headers: {
+                'content-type': 'text/plain; charset=utf-8',
+                'x-robots-tag': 'noindex, nofollow',
+                'cache-control': 'public, max-age=3600',
+            },
+        });
     }
 
     // --- i18n Locale Routing ---

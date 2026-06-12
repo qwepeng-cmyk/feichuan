@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
 
   const name = product[`product_name_${params.locale}`] || product.product_name_en || product.name;
   const description = product[`summary_${params.locale}`] || product.summary_en || undefined;
-  const productSeo = getProductSeo(params.handle, name, product.category_primary || product.category);
+  const productSeo = getProductSeo(params.handle, name, product.category_primary || product.category, params.locale);
 
   return buildSeoMetadata({
     locale: params.locale,
@@ -63,6 +63,14 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
 
 export default async function ProductDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
+  if (!isPublicComplianceContent('product', handle)) {
+    notFound();
+  }
+
+  const product = await getProductByHandle(handle);
+  if (!product) {
+    notFound();
+  }
 
   return (
     <>

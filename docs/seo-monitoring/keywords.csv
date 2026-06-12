@@ -1,0 +1,5 @@
+keyword,locale,target_url,intent,tier,priority,source,notes
+airport security screening systems,en,/solutions/airport-security-protection,commercial-investigation,neutral_seo,P0,manual-topic-cluster,First pillar cluster seed
+airport x ray baggage scanner,en,/products/fc6550-standard-x-ray-baggage-scanner,commercial,normal,P1,manual-topic-cluster,Needs volume and SERP validation
+airport walk through metal detector,en,/products/fc-c-lcd-walk-through-metal-detector,commercial,normal,P1,manual-topic-cluster,Needs volume and SERP validation
+airport airspace monitoring,en,/solutions/airport-security-protection,informational,neutral_seo,P2,manual-topic-cluster,Use neutral monitoring language only

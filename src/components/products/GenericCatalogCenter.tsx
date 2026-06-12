@@ -80,6 +80,10 @@ export default function GenericCatalogCenter({
         ))}
       </div>
 
+      {basePath === '/accessories' && (
+        <AccessoryCenterSeoContent locale={locale} placement="faq" />
+      )}
+
       <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>
         <div className="container" style={{ maxWidth: '1200px' }}>
           <InquiryForm dict={dict} />

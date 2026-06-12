@@ -32,13 +32,31 @@ const publicPaths = [
 
 const restrictedPaths = [
   '/en/products/directional-rf-jammer',
+  '/products/directional-rf-jammer',
+  '/ru/products/directional-rf-jammer',
+  '/ar/products/directional-rf-jammer',
   '/en/products/omni-directional-rf-jammer',
   '/en/products/handheld-integrated-multi-band-jammer-gun',
   '/en/products/uav-navigation-spoofing-system',
+  '/ru/products/uav-navigation-spoofing-system',
+  '/ar/products/uav-navigation-spoofing-system',
+  '/ru/products/stationary-active-rf-defense-system',
+  '/ar/products/stationary-active-rf-defense-system',
   '/en/solutions/airport-anti-uav',
+  '/solutions/airport-anti-uav',
   '/en/solutions/power-generation-facility-anti-uav',
+  '/ru/solutions/power-generation-facility-anti-uav',
+  '/ar/solutions/power-generation-facility-anti-uav',
   '/en/cases/airport-security-application',
+  '/cases/water-conservancy-security',
+  '/ru/cases/water-conservancy-security',
+  '/ar/cases/water-conservancy-security',
+  '/cases/pakistan-power-plant-anti-uav',
+  '/ru/cases/brazil-refinery-anti-uav',
+  '/ar/cases/brazil-refinery-anti-uav',
   '/en/media/multi-sensor-cuas-architecture-2026',
+  '/media/cuas-critical-infrastructure-deployment-2026',
+  '/ar/media/cuas-critical-infrastructure-deployment-2026',
 ];
 
 const restrictedPatterns = [

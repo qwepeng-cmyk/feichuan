@@ -11,6 +11,28 @@
 - 初步层级：A normal / B neutral_seo / C restricted
 - 是否允许公开发布：
 
+## RAG Evidence Pack
+
+- 检索日期：
+- 检索主题：
+- 使用的知识库目录：
+- Evidence used：
+  - 来源：
+  - 可见性：public / internal / restricted
+  - 日期：
+  - 可引用事实：
+  - 对应文章段落：
+- Evidence not used：
+  - 来源：
+  - 原因：C 层 / 内部资料 / 证据不足 / 过期 / 与主题无关
+- Claims needing confirmation：
+  - 性能数据：
+  - 认证/资质：
+  - 客户或项目名称：
+  - 数量、日期、覆盖范围：
+- Citation candidates：
+  - 可用于 GEO/AI 引用块的短事实：
+
 ## SERP / 竞品观察
 
 - Top 页面类型：
@@ -24,12 +46,13 @@
 - 产品/规格证据：
 - 项目/应用证据：
 - 公司/认证证据：
+- 行业/法规证据：
 - 日期/更新要求：
 - 需要人工补充的来源：
 
 ## GEO 要求
 
-- 134-167 词 AI citation block：
+- 130-170 词 AI citation block：
 - 问题式 H2/H3：
 - 需要表格/列表：
 - 关键实体：

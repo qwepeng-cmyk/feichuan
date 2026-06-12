@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { localePath } from '@/lib/localePath';
+import FaqListSection from '@/components/common/FaqListSection';
 
 type LocaleContent = {
   eyebrow: string;
@@ -11,6 +10,8 @@ type LocaleContent = {
   linksTitle: string;
   links: Array<{ label: string; href: string }>;
 };
+
+type ProductContentPlacement = 'intro' | 'faq';
 
 const CONTENT: Record<string, LocaleContent> = {
   en: {
@@ -154,29 +155,99 @@ const CONTENT: Record<string, LocaleContent> = {
       { label: 'Запрос КП на промышленные БПЛА и консультация', href: '/contact' },
     ],
   },
+  ar: {
+    eyebrow: 'دليل الاختيار',
+    title: 'أنظمة UAV الصناعية ومعدات المراقبة وملاءمة المشروع',
+    intro: [
+      'يجب اختيار أنظمة UAV الصناعية حسب المهمة والحمولة ومدة الطيران وسير عمل البيانات وقيود الموقع. تنظم N-TET منصات UAV ومعدات مراقبة الارتفاع المنخفض وطائرات التفتيش وأنظمة الفحص ومواد الهندسة ومعدات الدعم الميداني حسب سيناريو التشغيل.',
+      'بالنسبة لفرق الشراء، نقطة البداية هي المهمة الميدانية: تفتيش المرافق، الاستجابة للطوارئ، مراقبة الموارد المائية، فحص المواقع العامة، مراقبة المحيط أو دعم البنية التحتية المؤقتة.',
+    ],
+    cards: [
+      {
+        title: 'ملاءمة المهمة والتطبيق',
+        body: 'طابق خيارات طائرات UAV للتفتيش مع دوريات خطوط الكهرباء، تفتيش المحطات الفرعية، البحث والإنقاذ، الاتصالات الطارئة، الإضاءة، دعم مكافحة الحرائق ومراقبة المياه.',
+      },
+      {
+        title: 'اختيار المنصة والحمولة',
+        body: 'قارن UAV متعددة الدوارات، UAV ذات الإقلاع العمودي، UAV المربوطة، الحمولة، مدة الطيران، روابط البيانات، الحوامل ومتطلبات النشر الميداني قبل طلب عرض السعر.',
+      },
+      {
+        title: 'أدلة الدعم التشغيلي',
+        body: 'استخدم صفحات الحلول وحالات النشر للتحقق من سير العمل والمعدات الموصى بها وبيئة التشغيل وتوقعات الدعم بعد النشر.',
+      },
+    ],
+    faqTitle: 'الأسئلة الشائعة لاختيار المنتجات',
+    faqs: [
+      {
+        question: 'كيف تختار الفرق بين منصات UAV ومعدات المراقبة؟',
+        answer: 'ابدأ بمهمة الموقع وسير الاستجابة. فريق التفتيش يركز عادة على تخطيط المسار وحمولة التصوير ومدة الطيران وسجلات التفتيش، بينما يركز مشروع مراقبة الارتفاع المنخفض على تغطية المستشعرات وسجلات الأحداث والتكامل مع مركز القيادة.',
+      },
+      {
+        question: 'ما المعلومات المطلوبة لعرض سعر UAV صناعي؟',
+        answer: 'تشمل مدخلات عرض السعر نوع المهمة، منطقة التشغيل، مدة الطيران المطلوبة، احتياجات الحمولة أو المستشعر، مسافة الاتصال، تكرار النشر، وهل يحتاج المشروع إلى تدريب أو قطع غيار أو تكامل مع أنظمة قائمة.',
+      },
+      {
+        question: 'هل يمكن ربط المنتجات بصفحات الحلول والحالات؟',
+        answer: 'نعم. يجب مراجعة صفحات المنتجات مع سير عمل الحلول وحالات النشر حتى يرى المشتري كيف تدعم المعدات التفتيش أو الاستجابة الطارئة أو المراقبة أو عمليات الفحص.',
+      },
+      {
+        question: 'متى تكون التهيئة المخصصة مطلوبة؟',
+        answer: 'تكون التهيئة المخصصة مطلوبة غالبا عند وجود حمولة خاصة، أهداف مدة طيران طويلة، ظروف ميدانية قاسية، نشر متعدد المواقع، أو الحاجة إلى جمع UAV والمراقبة ومعدات الفحص في سير عمل واحد.',
+      },
+    ],
+    linksTitle: 'صفحات تخطيط ذات صلة',
+    links: [
+      { label: 'حلول تفتيش UAV للفرق الميدانية', href: '/solutions' },
+      { label: 'حالات UAV ومراجع النشر', href: '/cases' },
+      { label: 'عرض سعر UAV صناعي واستشارة مشروع', href: '/contact' },
+    ],
+  },
 };
 
-export default function ProductCenterSeoContent({ locale, compact = false }: { locale: string; compact?: boolean }) {
+function getProductSummary(locale: string) {
+  if (locale === 'es') {
+    return 'Compare sistemas UAV industriales por ajuste de mision, carga util, autonomia, flujo de monitoreo y soporte en campo antes de seleccionar equipos para un proyecto industrial o de emergencia.';
+  }
+
+  if (locale === 'ru') {
+    return 'Compare industrial UAV systems by mission fit, payload, endurance, monitoring workflow, and field support before selecting equipment for an infrastructure or emergency project.';
+  }
+
+  if (locale === 'ar') {
+    return 'قارن أنظمة UAV الصناعية حسب ملاءمة المهمة والحمولة ومدة الطيران وسير المراقبة والدعم الميداني قبل اختيار المعدات لمشروع بنية تحتية أو طوارئ.';
+  }
+
+  return 'Compare industrial UAV systems by mission fit, payload, endurance, monitoring workflow, and field support before selecting equipment for an infrastructure or emergency project.';
+}
+
+export default function ProductCenterSeoContent({
+  locale,
+  compact = false,
+  placement = 'intro',
+}: {
+  locale: string;
+  compact?: boolean;
+  placement?: ProductContentPlacement;
+}) {
   const content = CONTENT[locale] || CONTENT.en;
-  const sectionPadding = compact ? '34px 16px' : '70px 0 24px';
+  const sectionPadding = compact ? '30px 16px' : '58px 0 0';
   const cardGrid = compact ? '1fr' : 'repeat(3, minmax(0, 1fr))';
-  const faqGrid = compact ? '1fr' : 'repeat(2, minmax(0, 1fr))';
+  const summary = getProductSummary(locale);
+
+  if (placement === 'faq') {
+    return <FaqListSection title={content.faqTitle} items={content.faqs} compact={compact} />;
+  }
 
   return (
-    <section style={{ padding: sectionPadding, background: '#fff', borderBottom: '1px solid #eef2f7' }}>
+    <section style={{ padding: sectionPadding, background: '#fff' }}>
       <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: compact ? 0 : '0 20px' }}>
         <div style={{ maxWidth: '940px', margin: compact ? '0' : '0 auto', textAlign: compact ? 'left' : 'center' }}>
-          <div style={{ color: '#315ba4', fontSize: compact ? '1.2rem' : '1.4rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-            {content.eyebrow}
-          </div>
           <h2 style={{ margin: 0, color: '#172033', fontSize: compact ? '2.4rem' : '3.4rem', lineHeight: 1.18, fontWeight: 900 }}>
             {content.title}
           </h2>
-          <div style={{ marginTop: compact ? '18px' : '24px', color: '#4b5563', fontSize: compact ? '1.55rem' : '1.75rem', lineHeight: 1.75 }}>
-            {content.intro.map((paragraph) => (
-              <p key={paragraph} style={{ margin: '0 0 14px' }}>{paragraph}</p>
-            ))}
-          </div>
+          <p style={{ margin: compact ? '16px 0 0' : '22px auto 0', maxWidth: '820px', color: '#40506a', fontSize: compact ? '1.55rem' : '1.75rem', lineHeight: 1.72 }}>
+            {summary}
+          </p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: cardGrid, gap: compact ? '14px' : '22px', marginTop: compact ? '26px' : '38px' }}>
@@ -189,38 +260,6 @@ export default function ProductCenterSeoContent({ locale, compact = false }: { l
                 {card.body}
               </p>
             </div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: compact ? '30px' : '48px' }}>
-          <h2 style={{ margin: '0 0 22px', color: '#172033', fontSize: compact ? '2.1rem' : '2.8rem', fontWeight: 900 }}>
-            {content.faqTitle}
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: faqGrid, gap: compact ? '14px' : '20px' }}>
-            {content.faqs.map((faq) => (
-              <div key={faq.question} style={{ borderTop: '2px solid #315ba4', paddingTop: '14px' }}>
-                <h3 style={{ margin: '0 0 8px', color: '#1f2a44', fontSize: compact ? '1.6rem' : '1.85rem', lineHeight: 1.35, fontWeight: 850 }}>
-                  {faq.question}
-                </h3>
-                <p style={{ margin: 0, color: '#566174', fontSize: compact ? '1.45rem' : '1.58rem', lineHeight: 1.72 }}>
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div style={{ marginTop: compact ? '28px' : '42px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: compact ? '10px' : '14px' }}>
-          <strong style={{ color: '#172033', fontSize: compact ? '1.45rem' : '1.6rem' }}>{content.linksTitle}</strong>
-          {content.links.map((link) => (
-            <Link
-              key={link.href}
-              prefetch={false}
-              href={localePath(locale, link.href)}
-              style={{ color: '#315ba4', fontSize: compact ? '1.42rem' : '1.55rem', fontWeight: 800, textDecoration: 'none', borderBottom: '1px solid rgba(49, 91, 164, 0.35)' }}
-            >
-              {link.label}
-            </Link>
           ))}
         </div>
       </div>

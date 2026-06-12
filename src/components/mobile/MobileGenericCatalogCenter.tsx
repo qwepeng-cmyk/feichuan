@@ -161,6 +161,10 @@ export default function MobileGenericCatalogCenter({
         ))}
       </div>
 
+      {basePath === '/accessories' && (
+        <AccessoryCenterSeoContent locale={locale} compact placement="faq" />
+      )}
+
       <MobileInquiryForm dict={dict} />
     </div>
   );

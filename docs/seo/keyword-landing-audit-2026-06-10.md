@@ -48,25 +48,25 @@
 | /en/media/industrial-uav-redundancy-2026 | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.323% | description 未命中关键词; H2 未命中关键词 |
 | /en/media/low-altitude-economy-2026-outlook | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.302% | description 未命中关键词; H2 未命中关键词 |
 | /en/media/tethered-uav-persistent-surveillance-2026 | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.399% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/emergency-communication-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.756% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/emergency-search-rescue-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.743% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/high-rise-firefighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.736% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/power-tower-inspection-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.736% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/smart-substation-autonomous-inspection-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.726% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/tethered-lighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.751% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/water-conservancy-monitoring-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.741% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/emergency-communication-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.763% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/emergency-search-rescue-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.750% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/high-rise-firefighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.743% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/power-tower-inspection-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.742% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/smart-substation-autonomous-inspection-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.732% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/tethered-lighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.758% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/water-conservancy-monitoring-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.747% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/border-surveillance-uav-network-2026 | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.639% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/industrial-uav-redundancy-2026 | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.618% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/low-altitude-economy-2026-outlook | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.616% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/tethered-uav-persistent-surveillance-2026 | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.615% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/emergency-communication-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.777% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/emergency-search-rescue-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.780% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/high-rise-firefighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.751% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/power-tower-inspection-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.749% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/smart-substation-autonomous-inspection-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.750% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/tethered-lighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.781% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/water-conservancy-monitoring-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.757% | description 未命中关键词; H2 未命中关键词 |
-| /en/accessories | en | 80 | 是 | 否 | 是 | 是 | 是 | 4.403% | description 未命中关键词; 关键词密度偏高，需要检查堆砌风险 |
+| /ru/solutions/emergency-communication-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.786% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/emergency-search-rescue-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.789% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/high-rise-firefighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.759% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/power-tower-inspection-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.758% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/smart-substation-autonomous-inspection-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.759% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/tethered-lighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.791% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/water-conservancy-monitoring-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.766% | description 未命中关键词; H2 未命中关键词 |
+| /en/accessories | en | 80 | 是 | 否 | 是 | 是 | 是 | 4.592% | description 未命中关键词; 关键词密度偏高，需要检查堆砌风险 |
 | /en | en | 85 | 是 | 是 | 是 | 否 | 是 | 0.358% | H2 未命中关键词 |
 | /en/about | en | 85 | 是 | 是 | 是 | 否 | 是 | 0.170% | H2 未命中关键词 |
 | /en/accessories/fc-bt1 | en | 85 | 是 | 否 | 是 | 是 | 是 | 0.278% | description 未命中关键词 |
@@ -97,24 +97,24 @@
 | /en/media/industrial-uav-redundancy-2026 | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.323% | description 未命中关键词; H2 未命中关键词 |
 | /en/media/low-altitude-economy-2026-outlook | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.302% | description 未命中关键词; H2 未命中关键词 |
 | /en/media/tethered-uav-persistent-surveillance-2026 | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.399% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/emergency-communication-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.756% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/emergency-search-rescue-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.743% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/high-rise-firefighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.736% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/power-tower-inspection-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.736% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/smart-substation-autonomous-inspection-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.726% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/tethered-lighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.751% | description 未命中关键词; H2 未命中关键词 |
-| /en/solutions/water-conservancy-monitoring-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.741% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/emergency-communication-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.763% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/emergency-search-rescue-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.750% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/high-rise-firefighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.743% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/power-tower-inspection-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.742% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/smart-substation-autonomous-inspection-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.732% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/tethered-lighting-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.758% | description 未命中关键词; H2 未命中关键词 |
+| /en/solutions/water-conservancy-monitoring-uav-solution | en | 70 | 是 | 否 | 是 | 否 | 是 | 0.747% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/border-surveillance-uav-network-2026 | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.639% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/industrial-uav-redundancy-2026 | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.618% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/low-altitude-economy-2026-outlook | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.616% | description 未命中关键词; H2 未命中关键词 |
 | /ru/media/tethered-uav-persistent-surveillance-2026 | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.615% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/emergency-communication-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.777% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/emergency-search-rescue-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.780% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/high-rise-firefighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.751% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/power-tower-inspection-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.749% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/smart-substation-autonomous-inspection-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.750% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/tethered-lighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.781% | description 未命中关键词; H2 未命中关键词 |
-| /ru/solutions/water-conservancy-monitoring-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.757% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/emergency-communication-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.786% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/emergency-search-rescue-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.789% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/high-rise-firefighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.759% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/power-tower-inspection-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.758% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/smart-substation-autonomous-inspection-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.759% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/tethered-lighting-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.791% | description 未命中关键词; H2 未命中关键词 |
+| /ru/solutions/water-conservancy-monitoring-uav-solution | ru | 70 | 是 | 否 | 是 | 否 | 是 | 0.766% | description 未命中关键词; H2 未命中关键词 |
 | /en | en | 85 | 是 | 是 | 是 | 否 | 是 | 0.358% | H2 未命中关键词 |
 | /en/about | en | 85 | 是 | 是 | 是 | 否 | 是 | 0.170% | H2 未命中关键词 |
 | /es | es | 85 | 是 | 是 | 是 | 否 | 是 | 0.618% | H2 未命中关键词 |

@@ -38,6 +38,7 @@ function routeFromHtmlFile(filePath) {
 function keywordLocaleForRoute(route) {
   if (route === '/es' || route.startsWith('/es/')) return 'es';
   if (route === '/ru' || route.startsWith('/ru/')) return 'ru';
+  if (route === '/ar' || route.startsWith('/ar/')) return 'ar';
   return 'en';
 }
 
@@ -304,7 +305,7 @@ function markdownTable(rows) {
 }
 
 function localeSummary(rows) {
-  return ['en', 'es', 'ru'].flatMap((locale) => {
+  return ['en', 'es', 'ru', 'ar'].flatMap((locale) => {
     const scoped = rows.filter((row) => row.keywordLocale === locale);
     if (!scoped.length) return [];
     const strong = scoped.filter((row) => row.status === 'strong').length;

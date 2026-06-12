@@ -62,6 +62,14 @@ async function AccessoryDetailContent({ handle, locale }: { handle: string; loca
 
 export default async function AccessoryDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
+  if (!isPublicComplianceContent('product', handle)) {
+    notFound();
+  }
+
+  const product = await getAccessoryByHandle(handle);
+  if (!product) {
+    notFound();
+  }
 
   return (
     <>

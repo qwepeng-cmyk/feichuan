@@ -29,6 +29,17 @@ function localizedCopy(locale: string, title: string) {
     };
   }
 
+  if (locale === 'ar') {
+    return {
+      heading: 'مراجعة تحريرية وإشارات المشروع',
+      published: 'نشر في',
+      editor: 'المحرر',
+      editorName: 'فريق المحتوى الفني في N-TET',
+      summary: `تمت مراجعة هذا المقال حول ${title} كملاحظة تخطيط بثلاث نقاط: سيناريو التشغيل، وملاءمة المعدات، ومتطلبات الدعم الميداني.`,
+      note: 'قبل قرار الشراء، ينبغي مقارنة هذا المقال مع صفحات الحلول ومواصفات المنتجات والملحقات ذات الصلة ومتطلبات التشغيل المحلية.',
+    };
+  }
+
   return {
     heading: 'Editorial Review and Project Signals',
     published: 'Published',

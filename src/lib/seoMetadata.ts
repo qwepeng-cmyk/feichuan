@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import type { Locale } from '@/i18n/config';
+import { i18n, type Locale } from '@/i18n/config';
 import { buildKeywordIntro, getSeoKeywordBackedEntry } from '@/lib/seoKeywordTargets';
 
 const SITE_URL = 'https://n-tet.com';
@@ -472,6 +472,19 @@ function localizedPath(locale: Locale, path: string) {
   return locale === 'en' ? normalized : `/${locale}${normalized === '/' ? '' : normalized}`;
 }
 
+function absoluteUrl(path: string) {
+  return new URL(path, SITE_URL).toString();
+}
+
+function localizedAlternates(path: string) {
+  const languages = Object.fromEntries(
+    i18n.locales.map((locale) => [locale, localizedPath(locale, path)])
+  ) as Record<string, string>;
+
+  languages['x-default'] = localizedPath(i18n.defaultLocale, path);
+  return languages;
+}
+
 function absoluteImage(image?: string | null) {
   if (!image) return undefined;
   return new URL(image, SITE_URL).toString();
@@ -503,6 +516,9 @@ function fallbackKeywords(title: string, category?: string | null) {
 
 export function getKeywordBackedSeo(path: string, locale: Locale = 'en') {
   const normalized = path === '/' ? '/' : `/${path.replace(/^\/+/, '')}`;
+  const localizedEntry = locale === 'ar' ? undefined : LOCALIZED_KEYWORD_BACKED_SEO[locale]?.[normalized];
+  if (localizedEntry) return localizedEntry;
+
   const target = getSeoKeywordBackedEntry(normalized, locale);
   if (target) {
     return {
@@ -511,18 +527,44 @@ export function getKeywordBackedSeo(path: string, locale: Locale = 'en') {
       keywords: [target.primary, ...target.secondary],
     };
   }
-  return LOCALIZED_KEYWORD_BACKED_SEO[locale]?.[normalized] || KEYWORD_BACKED_SEO[normalized];
+  if (locale !== 'en') return undefined;
+  return KEYWORD_BACKED_SEO[normalized];
 }
 
-export function getProductSeo(handle: string, name: string, category?: string | null): SeoEntry {
+function defaultDescription(locale: Locale, title: string) {
+  if (locale === 'ru') {
+    return `${title} от ${SITE_NAME}: промышленное решение для инспекции, мониторинга и полевых операций с технической поддержкой проекта.`;
+  }
+
+  if (locale === 'es') {
+    return `${title} de ${SITE_NAME}: solucion industrial para inspeccion, monitoreo y operaciones de campo con soporte tecnico del proyecto.`;
+  }
+
+  if (locale === 'ar') {
+    return `${title} من ${SITE_NAME}: حل صناعي للفحص والمراقبة وعمليات الموقع مع دعم فني للمشروع.`;
+  }
+
+  return `${title} from ${SITE_NAME}.`;
+}
+
+export function getProductSeo(handle: string, name: string, category?: string | null, locale: Locale = 'en'): SeoEntry {
   const keywords = Array.from(new Set([
     ...(PRODUCT_KEYWORD_HINTS[handle] || []),
     ...fallbackKeywords(name, category),
   ])).slice(0, 8);
 
+  const description =
+    locale === 'ru'
+      ? `${SITE_NAME} ${name}: промышленное решение для инспекции, мониторинга и полевых операций с технической поддержкой проекта.`
+      : locale === 'es'
+        ? `${SITE_NAME} ${name}: solucion industrial para inspeccion, monitoreo y operaciones de campo con soporte tecnico del proyecto.`
+        : locale === 'ar'
+          ? `${SITE_NAME} ${name}: حل صناعي للفحص والمراقبة وعمليات الموقع مع دعم فني للمشروع.`
+          : `${SITE_NAME} ${name} for industrial operators, combining ${keywords.slice(0, 3).join(', ')} workflows with field-ready deployment and support.`;
+
   return {
     title: titleWithBrand(name),
-    description: `N-TET ${name} for industrial operators, combining ${keywords.slice(0, 3).join(', ')} workflows with field-ready deployment and support.`,
+    description,
     keywords,
   };
 }
@@ -538,7 +580,7 @@ export function buildSeoMetadata({
   const entry = getKeywordBackedSeo(path, locale);
   const canonical = localizedPath(locale, path);
   const title = entry?.title || titleWithBrand(fallbackTitle);
-  const description = entry?.description || cleanDescription(fallbackDescription) || `${fallbackTitle} from ${SITE_NAME}.`;
+  const description = entry?.description || cleanDescription(fallbackDescription) || defaultDescription(locale, fallbackTitle);
   const keywords = entry?.keywords || fallbackKeywordList || fallbackKeywords(fallbackTitle);
   const imageUrl = absoluteImage(image);
 
@@ -546,11 +588,17 @@ export function buildSeoMetadata({
     title,
     description,
     keywords,
-    alternates: { canonical },
+    other: {
+      'content-language': locale,
+    },
+    alternates: {
+      canonical,
+      languages: localizedAlternates(path),
+    },
     openGraph: {
       title,
       description,
-      url: canonical,
+      url: absoluteUrl(canonical),
       images: imageUrl ? [{ url: imageUrl, alt: fallbackTitle }] : undefined,
     },
     twitter: {

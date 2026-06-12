@@ -402,6 +402,8 @@ export default function MobileProductCenter({
                 ))}
             </div>
 
+            <ProductCenterSeoContent locale={locale} compact placement="faq" />
+
             {/* Mobile Inquiry Form */}
             <MobileInquiryForm dict={dict} />
         </div>

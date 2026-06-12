@@ -6,12 +6,10 @@ import styles from '@/app/admin/admin.module.css';
 import { LogOut } from 'lucide-react';
 
 export default function AdminTopBar() {
-    const pathname = usePathname();
+    const pathname = usePathname() || '';
 
-    // Don't render on login page
     if (pathname === '/admin/login') return null;
 
-    // Simple breadcrumb logic
     const getPageTitle = () => {
         if (pathname === '/admin') return '数据看板 (Dashboard)';
         if (pathname.includes('/products')) return '产品管理 (Products)';
@@ -20,6 +18,7 @@ export default function AdminTopBar() {
         if (pathname.includes('/media')) return '新闻管理 (Media)';
         if (pathname.includes('/inquiries')) return '询价列表 (Inquiries)';
         if (pathname.includes('/compliance')) return '广告合规 (Compliance)';
+        if (pathname.includes('/seo-monitoring')) return 'SEO 监控 (SEO Monitoring)';
         if (pathname.includes('/settings')) return '网站设置 (Settings)';
         return '管理后台';
     };
@@ -39,7 +38,7 @@ export default function AdminTopBar() {
                 {getPageTitle()}
             </div>
             <div className={styles.topbarRight}>
-                <span style={{ fontSize: '1.3rem', color: '#94a3b8', fontWeight: 500 }}>管理员: admin</span>
+                <span style={{ fontSize: '1.3rem', color: '#94a3b8', fontWeight: 500 }}>管理员 admin</span>
                 <button onClick={handleLogout} className={styles.logoutBtn} title="退出登录">
                     <LogOut size={18} /> 退出登录
                 </button>

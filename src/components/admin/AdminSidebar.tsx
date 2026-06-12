@@ -3,11 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ExternalLink, Settings, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ExternalLink, Settings, ShieldCheck, Activity } from 'lucide-react';
 import styles from '@/app/admin/admin.module.css';
 
 export default function AdminSidebar() {
-    const pathname = usePathname();
+    const pathname = usePathname() || '';
 
     const navItems = [
         { name: '数据看板', path: '/admin', icon: <LayoutDashboard size={20} /> },
@@ -17,10 +17,10 @@ export default function AdminSidebar() {
         { name: '新闻管理', path: '/admin/media', icon: <Newspaper size={20} /> },
         { name: '询价列表', path: '/admin/inquiries', icon: <MessageSquare size={20} /> },
         { name: '广告合规', path: '/admin/compliance', icon: <ShieldCheck size={20} /> },
+        { name: 'SEO 监控', path: '/admin/seo-monitoring', icon: <Activity size={20} /> },
         { name: '网站设置', path: '/admin/settings', icon: <Settings size={20} /> },
     ];
 
-    // Don't render sidebar on login page
     if (pathname === '/admin/login') return null;
 
     return (
@@ -30,14 +30,13 @@ export default function AdminSidebar() {
             </div>
             <nav className={styles.sidebarNav}>
                 {navItems.map(item => {
-                    // Exact match for dashboard, startswith for others
-                    const isActive = item.path === '/admin' 
-                        ? pathname === '/admin' 
+                    const isActive = item.path === '/admin'
+                        ? pathname === '/admin'
                         : pathname.startsWith(item.path);
 
                     return (
-                        <Link 
-                            key={item.path} 
+                        <Link
+                            key={item.path}
                             href={item.path}
                             className={`${styles.navItem} ${isActive ? styles.active : ''}`}
                         >
@@ -48,9 +47,9 @@ export default function AdminSidebar() {
                 })}
 
                 <div style={{ margin: '20px 0', borderTop: '1px solid rgba(255,255,255,0.1)' }} />
-                
-                <Link 
-                    href="/" 
+
+                <Link
+                    href="/"
                     target="_blank"
                     className={styles.navItem}
                     style={{ color: '#94a3b8' }}

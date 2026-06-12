@@ -65,8 +65,9 @@ if (!fs.existsSync(AUDIT_CSV)) {
 }
 
 const rows = parseCsv(fs.readFileSync(AUDIT_CSV, 'utf8').replace(/^\uFEFF/, ''));
+const LOCALIZED_LOCALES = new Set(['es', 'ru', 'ar']);
 const localizedRows = rows
-  .filter((row) => row.keyword_locale === 'es' || row.keyword_locale === 'ru')
+  .filter((row) => LOCALIZED_LOCALES.has(row.keyword_locale))
   .map((row) => ({
     route: row.route,
     locale: row.keyword_locale,
@@ -115,7 +116,7 @@ const counts = localizedRows.reduce((acc, row) => {
 }, {});
 
 const md = [
-  '# 西语 / 俄语页面 SEO 关键词对应表',
+  '# 西语 / 俄语 / 阿拉伯语页面 SEO 关键词对应表',
   '',
   `生成日期：${DATE_STAMP}`,
   `来源审计：${path.relative(ROOT, AUDIT_CSV).replace(/\\/g, '/')}`,
@@ -129,6 +130,9 @@ const md = [
   `- ru strong：${counts['ru:strong'] || 0}`,
   `- ru partial：${counts['ru:partial'] || 0}`,
   `- ru weak：${counts['ru:weak'] || 0}`,
+  `- ar strong：${counts['ar:strong'] || 0}`,
+  `- ar partial：${counts['ar:partial'] || 0}`,
+  `- ar weak：${counts['ar:weak'] || 0}`,
   '',
   '## 重点映射',
   '',
@@ -145,4 +149,4 @@ fs.writeFileSync(OUT_MD, `${md.join('\n')}\n`, 'utf8');
 
 console.log(`Wrote ${OUT_CSV}`);
 console.log(`Wrote ${OUT_MD}`);
-console.log(`Localized keyword map: ${localizedRows.length} es/ru pages.`);
+console.log(`Localized keyword map: ${localizedRows.length} es/ru/ar pages.`);

@@ -1,0 +1,182 @@
+{
+  "date": "2026-06-10",
+  "generatedAt": "2026-06-10T08:54:39.027Z",
+  "siteUrl": "https://n-tet.com",
+  "content": {
+    "totalPublishedRecords": 155,
+    "publicRecords": 150,
+    "restrictedRecords": 5,
+    "byTypeAndTier": {
+      "product": {
+        "normal": 102,
+        "neutral_seo": 7,
+        "restricted": 0,
+        "public": 109,
+        "total": 109
+      },
+      "solution": {
+        "normal": 22,
+        "neutral_seo": 6,
+        "restricted": 0,
+        "public": 28,
+        "total": 28
+      },
+      "case": {
+        "normal": 9,
+        "neutral_seo": 0,
+        "restricted": 3,
+        "public": 9,
+        "total": 12
+      },
+      "media": {
+        "normal": 0,
+        "neutral_seo": 4,
+        "restricted": 2,
+        "public": 4,
+        "total": 6
+      }
+    }
+  },
+  "llms": {
+    "exists": true,
+    "path": "public\\llms.txt",
+    "urlCount": 171,
+    "privatePathLeaks": [],
+    "restrictedLeaks": []
+  },
+  "robots": {
+    "exists": true,
+    "path": "public\\robots.txt",
+    "hasSitemap": true,
+    "sitemapUrls": [
+      "https://n-tet.com/sitemap.xml"
+    ],
+    "disallowsAdmin": true,
+    "disallowsApi": true,
+    "disallowsPreview": true,
+    "aiCrawlers": [
+      "GPTBot",
+      "OAI-SearchBot",
+      "ChatGPT-User",
+      "ClaudeBot",
+      "PerplexityBot",
+      "Google-Extended"
+    ]
+  },
+  "sitemap": {
+    "declaredUrls": [
+      "https://n-tet.com/sitemap.xml"
+    ],
+    "localFileExists": false,
+    "localPath": "public\\sitemap.xml",
+    "nextRouteExists": true,
+    "nextRoutePath": "src\\app\\sitemap.ts"
+  },
+  "schema": {
+    "siteGraphInLayout": true,
+    "supportedByType": {
+      "product": true,
+      "solution": true,
+      "case": true,
+      "media": true
+    },
+    "coveredPublicRecords": 150,
+    "missingPublicRecords": 0
+  },
+  "sourceChecks": {
+    "siteLayout": {
+      "path": "src/app/[locale]/layout.tsx",
+      "exists": true,
+      "hasJsonLd": true,
+      "importsJsonLd": true,
+      "hasGenerateMetadata": true,
+      "bytes": 6273
+    },
+    "productDetail": {
+      "path": "src/app/[locale]/products/[handle]/page.tsx",
+      "exists": true,
+      "hasJsonLd": false,
+      "importsJsonLd": false,
+      "hasGenerateMetadata": true,
+      "bytes": 3839
+    },
+    "catalogDetailContent": {
+      "path": "src/components/products/CatalogDetailContent.tsx",
+      "exists": true,
+      "hasJsonLd": true,
+      "importsJsonLd": true,
+      "hasGenerateMetadata": false,
+      "bytes": 10268
+    },
+    "solutionDetail": {
+      "path": "src/app/[locale]/solutions/[id]/page.tsx",
+      "exists": true,
+      "hasJsonLd": true,
+      "importsJsonLd": true,
+      "hasGenerateMetadata": true,
+      "bytes": 6463
+    },
+    "caseDetail": {
+      "path": "src/app/[locale]/cases/[handle]/page.tsx",
+      "exists": true,
+      "hasJsonLd": true,
+      "importsJsonLd": true,
+      "hasGenerateMetadata": true,
+      "bytes": 13807
+    },
+    "mediaDetail": {
+      "path": "src/app/[locale]/media/[id]/page.tsx",
+      "exists": true,
+      "hasJsonLd": true,
+      "importsJsonLd": true,
+      "hasGenerateMetadata": true,
+      "bytes": 9044
+    },
+    "structuredData": {
+      "path": "src/lib/structuredData.ts",
+      "exists": true,
+      "hasJsonLd": false,
+      "importsJsonLd": false,
+      "hasGenerateMetadata": false,
+      "bytes": 5419
+    }
+  },
+  "buildHtml": [
+    {
+      "label": "home",
+      "path": ".next/server/app/en.html",
+      "exists": true,
+      "bytes": 201250,
+      "jsonLdScripts": 1
+    },
+    {
+      "label": "products index",
+      "path": ".next/server/app/en/products.html",
+      "exists": true,
+      "bytes": 170784,
+      "jsonLdScripts": 1
+    },
+    {
+      "label": "bailey bridge product",
+      "path": ".next/server/app/en/products/bailey-bridge.html",
+      "exists": true,
+      "bytes": 147584,
+      "jsonLdScripts": 2
+    },
+    {
+      "label": "airport security solution",
+      "path": ".next/server/app/en/solutions/airport-security-protection.html",
+      "exists": true,
+      "bytes": 225010,
+      "jsonLdScripts": 2
+    },
+    {
+      "label": "media sample",
+      "path": ".next/server/app/en/media/industrial-uav-redundancy-2026.html",
+      "exists": true,
+      "bytes": 140066,
+      "jsonLdScripts": 2
+    }
+  ],
+  "risks": []
+}
