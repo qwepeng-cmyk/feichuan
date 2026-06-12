@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/',
         fallbackTitle: 'Industrial UAV Systems & Low-Altitude Monitoring',
-        fallbackDescription: 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response workflows for infrastructure operators.',
+        fallbackDescription: 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response operations for infrastructure operators.',
     });
 }
 

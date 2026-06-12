@@ -348,7 +348,7 @@ function getSolutionLabels(locale: string) {
     upgradeTitle: 'How UAVs Upgrade Operations',
     modulesEyebrow: 'Scenario-Based Solution',
     solutionModules: 'Solution Modules',
-    modulesIntro: 'The solution is organized around field tasks, not around a single UAV model, so operators can combine patrol, monitoring, response, and on-site command workflows.',
+    modulesIntro: 'The solution is organized around field tasks, not around a single UAV model, so operators can combine patrol, monitoring, response, and on-site command operations.',
     relatedCases: 'Related Cases',
     solutionOverview: 'Solution Overview',
   };

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
-import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 export default function MediaClient({ 
     newsData,
@@ -27,8 +27,6 @@ export default function MediaClient({
         locale,
     });
     const bannerTitle = seoTarget.h1 || dict.media.bannerTitle;
-    const seoIntroTitle = seoTarget.overviewHeading || dict.media.seoIntroTitle;
-    const seoIntroBody = buildKeywordIntro(seoTarget, dict.media.bannerTitle, locale) || dict.media.seoIntroBody;
 
     const categoryTitles: Record<string, string> = {
         'all': dict.media.categories.latest,
@@ -54,28 +52,6 @@ export default function MediaClient({
                 @media (max-width: 991px) {
                     .mobile_only { display: block !important; }
                     .pc_only { display: none !important; }
-                }
-                .listing-seo-intro {
-                    padding: 46px 0 8px;
-                    background: #fff;
-                }
-                .listing-seo-intro-inner {
-                    max-width: 920px;
-                    margin: 0 auto;
-                    text-align: center;
-                }
-                .listing-seo-intro h2 {
-                    color: #1f2937;
-                    font-size: 3.2rem;
-                    font-weight: 850;
-                    line-height: 1.2;
-                    margin: 0 0 16px;
-                }
-                .listing-seo-intro p {
-                    color: #4b5563;
-                    font-size: 1.8rem;
-                    line-height: 1.7;
-                    margin: 0;
                 }
             `}} />
 
@@ -128,17 +104,6 @@ export default function MediaClient({
                             </ul>
                         </div>
                     </div>
-
-                    {seoIntroTitle && seoIntroBody && (
-                        <section className="listing-seo-intro">
-                            <div className="container">
-                                <div className="listing-seo-intro-inner">
-                                    <h2>{seoIntroTitle}</h2>
-                                    <p>{seoIntroBody}</p>
-                                </div>
-                            </div>
-                        </section>
-                    )}
 
                     <section style={{ padding: '48px 0 80px' }}>
                         <div className="container">

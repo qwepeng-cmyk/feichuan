@@ -7,16 +7,16 @@
   "key_application_en": "",
   "key_parameter_1": "Sensitive Clearance Protection: 24/7 guarding of airport surroundings and approach routes",
   "key_parameter_1_en": "Sensitive Clearance Protection: 24/7 guarding of airport surroundings and approach routes",
-  "key_parameter_2": "Multi-layered response workflows: Integrated wireless detection, decoy, and event management against unauthorized flights",
-  "key_parameter_2_en": "Multi-layered response workflows: Integrated wireless detection, decoy, and event management against unauthorized flights",
+  "key_parameter_2": "Multi-layered response procedures: Integrated wireless detection, decoy, and event management against unauthorized flights",
+  "key_parameter_2_en": "Multi-layered response procedures: Integrated wireless detection, decoy, and event management against unauthorized flights",
   "parameters": {
-    "Components": "Radar-EO-response workflows linkage",
+    "Components": "Radar-EO-response procedures linkage",
     "Frequencies": "Covers all civil and special bands",
     "Defense Radius": "3km - 10km customizable",
     "Compliance": "Meets civil aviation Airspace Monitoring standards"
   },
   "parameters_en": {
-    "Components": "Radar-EO-response workflows linkage",
+    "Components": "Radar-EO-response procedures linkage",
     "Frequencies": "Covers all civil and special bands",
     "Defense Radius": "3km - 10km customizable",
     "Compliance": "Meets civil aviation Airspace Monitoring standards"
@@ -50,9 +50,9 @@
   "summary_es": "Aeropuerto espacio aéreo monitoreo Application de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
   "key_application_es": "",
   "key_parameter_1_es": "Sensitive Clearance Protection: 24/7 guarding of airport surroundings and approach routes",
-  "key_parameter_2_es": "Multi-layered response workflows: Integrated wireless detection, decoy, and event management against unauthorized flights",
+  "key_parameter_2_es": "Multi-layered response procedures: Integrated wireless detection, decoy, and event management against unauthorized flights",
   "parameters_es": {
-    "Componentes": "Radar-EO-response workflows linkage",
+    "Componentes": "Radar-EO-response procedures linkage",
     "Frequencies": "Covers all civil and special bands",
     "Defense Radius": "3km - 10km customizable",
     "Compliance": "Meets civil aviation espacio aéreo monitoreo standards"

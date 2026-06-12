@@ -129,12 +129,12 @@ export default function CatalogDetailContent({
     ? [
         { href: '/accessories', label: catalogLabel, description: 'UAV parts and payload options' },
         { href: '/products', label: dict.nav.products, description: 'Industrial UAV and monitoring equipment' },
-        { href: '/solutions', label: dict.nav.solutions, description: 'Operational workflows and use cases' },
+        { href: '/solutions', label: dict.nav.solutions, description: 'Field operations and use cases' },
         { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
       ]
     : [
         { href: categoryPath, label: catalogLabel, description: 'Product category and comparable models' },
-        { href: '/solutions', label: dict.nav.solutions, description: 'Related deployment workflows' },
+        { href: '/solutions', label: dict.nav.solutions, description: 'Related deployment operations' },
         { href: '/cases', label: dict.nav.cases, description: 'Published reference deployments' },
         { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
       ];

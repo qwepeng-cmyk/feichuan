@@ -11,18 +11,18 @@
   "key_parameter_2_en": "Layered Defense: Integrated link of radio detection, navigation-signal analysis, and directional RF signal analysis",
   "parameters": {
     "Range": "5km - 10km (depending on model)",
-    "Response Workflow": "Full-band event management + navigation-signal analysis",
+    "Response Procedure": "Full-band event management + navigation-signal analysis",
     "Tracking": "Supports multi-target tracking",
     "Integration": "Integrated with plant central security"
   },
   "parameters_en": {
     "Range": "5km - 10km (depending on model)",
-    "Response Workflow": "Full-band event management + navigation-signal analysis",
+    "Response Procedure": "Full-band event management + navigation-signal analysis",
     "Tracking": "Supports multi-target tracking",
     "Integration": "Integrated with plant central security"
   },
-  "detail_html": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise response workflows. Strategic high deployment allows the system to detect threats kilometers away and conduct layered event review.</p><ul><li>Layered defense (Detection + coordinated response)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
-  "detail_html_en": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise response workflows. Strategic high deployment allows the system to detect threats kilometers away and conduct layered event review.</p><ul><li>Layered defense (Detection + coordinated response)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
+  "detail_html": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise response procedures. Strategic high deployment allows the system to detect threats kilometers away and conduct layered event review.</p><ul><li>Layered defense (Detection + coordinated response)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
+  "detail_html_en": "<h4>3D Defense Architecture</h4><p>Oil production bases require wide-area monitoring plus precise response procedures. Strategic high deployment allows the system to detect threats kilometers away and conduct layered event review.</p><ul><li>Layered defense (Detection + coordinated response)</li><li>Ultra-long-range IR thermal imaging</li><li>Real-time pilot localization</li></ul>",
   "main_image": "/solutions/infrastructure protection/Oil Production Base Protection/Oil Production Base Protection.png",
   "handle": "oil-production-base-protection",
   "category_primary": "",
@@ -53,7 +53,7 @@
   "key_parameter_2_es": "Layered Defense: Integrated link of radio detection, navigation-signal analysis, and directional RF signal analysis",
   "parameters_es": {
     "Range": "5km - 10km (depending on model)",
-    "Response Workflow": "Full-band event management + navigation-signal analysis",
+    "Response Procedure": "Full-band event management + navigation-signal analysis",
     "Seguimiento": "Supports multi-target tracking",
     "Integration": "Integrated with plant central security"
   },

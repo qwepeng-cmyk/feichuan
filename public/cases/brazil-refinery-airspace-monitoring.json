@@ -1,8 +1,8 @@
 {
   "title": "Airspace Monitoring Case of a Refinery in Brazil",
   "title_en": "Airspace Monitoring Case of a Refinery in Brazil",
-  "description": "2025 Airspace Monitoring Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Detection Equipment\nAirspace Situational Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a low-altitude monitoring workflow for key production and perimeter areas. Stationary spectrum detection equipment collects radio-frequency activity, while the situational awareness platform organizes airspace tracks, alert records, operator notes, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented escalation procedures. Public documentation focuses on monitoring, evidence records, and compliance response workflows rather than sensitive technical response methods.",
-  "description_en": "2025 Airspace Monitoring Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Detection Equipment\nAirspace Situational Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a low-altitude monitoring workflow for key production and perimeter areas. Stationary spectrum detection equipment collects radio-frequency activity, while the situational awareness platform organizes airspace tracks, alert records, operator notes, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented escalation procedures. Public documentation focuses on monitoring, evidence records, and compliance response workflows rather than sensitive technical response methods.",
+  "description": "2025 Airspace Monitoring Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Detection Equipment\nAirspace Situational Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a low-altitude monitoring operation for key production and perimeter areas. Stationary spectrum detection equipment collects radio-frequency activity, while the situational awareness platform organizes airspace tracks, alert records, operator notes, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented escalation procedures. Public documentation focuses on monitoring, evidence records, and compliance response procedures rather than sensitive technical response methods.",
+  "description_en": "2025 Airspace Monitoring Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Detection Equipment\nAirspace Situational Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a low-altitude monitoring operation for key production and perimeter areas. Stationary spectrum detection equipment collects radio-frequency activity, while the situational awareness platform organizes airspace tracks, alert records, operator notes, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented escalation procedures. Public documentation focuses on monitoring, evidence records, and compliance response procedures rather than sensitive technical response methods.",
   "devices": [
     "Stationary Spectrum Detection Equipment",
     "Airspace Situational Awareness Platform",
@@ -18,7 +18,7 @@
   "recommendedProductHandles": [],
   "handle": "brazil-refinery-airspace-monitoring",
   "title_ru": "Airspace Monitoring Case of a Refinery in Brazil",
-  "description_ru": "2025 Airspace Monitoring Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Detection Equipment\nAirspace Situational Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a low-altitude monitoring workflow for key production and perimeter areas. Stationary spectrum detection equipment collects radio-frequency activity, while the situational awareness platform organizes airspace tracks, alert records, operator notes, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented escalation procedures. Public documentation focuses on monitoring, evidence records, and compliance response workflows rather than sensitive technical response methods.",
+  "description_ru": "2025 Airspace Monitoring Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Detection Equipment\nAirspace Situational Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a low-altitude monitoring operation for key production and perimeter areas. Stationary spectrum detection equipment collects radio-frequency activity, while the situational awareness platform organizes airspace tracks, alert records, operator notes, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented escalation procedures. Public documentation focuses on monitoring, evidence records, and compliance response procedures rather than sensitive technical response methods.",
   "devices_ru": [
     "Stationary Spectrum Detection Equipment",
     "Airspace Situational Awareness Platform",
@@ -37,7 +37,7 @@
       "value": "Low-altitude monitoring and event records"
     },
     {
-      "label": "Workflow",
+      "label": "Operating Plan",
       "value": "Airspace awareness, alert review, and compliant response coordination"
     },
     {
@@ -51,7 +51,7 @@
       "value": "Low-altitude monitoring and event records"
     },
     {
-      "label": "Workflow",
+      "label": "Operating Plan",
       "value": "Airspace awareness, alert review, and compliant response coordination"
     },
     {

@@ -113,9 +113,9 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
   }
   const relatedLinks = [
     ...(solution.category_id
-      ? [{ href: `/solutions/category/${solution.category_id}`, label: dict.nav.solutions, description: 'Solution category and adjacent workflows' }]
+      ? [{ href: `/solutions/category/${solution.category_id}`, label: dict.nav.solutions, description: 'Solution category and adjacent operations' }]
       : []),
-    { href: '/products', label: dict.nav.products, description: 'Equipment families for this workflow' },
+    { href: '/products', label: dict.nav.products, description: 'Equipment families for this solution' },
     { href: '/cases', label: dict.nav.cases, description: 'Published deployment references' },
     { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
   ];

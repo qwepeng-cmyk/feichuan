@@ -477,7 +477,7 @@ def detail_html(name: str, meta: CategoryMeta, highlights: list[str]) -> str:
     article = "an" if meta.suffix_en.lower().startswith(("electro", "autopilot")) else "a"
     return (
         f"<p>{html.escape(name)} is {article} {html.escape(meta.suffix_en.lower())} for industrial UAV integration. "
-        f"It is organized for field replacement, platform matching, and reliable operation in inspection and monitoring workflows.</p>"
+        f"It is organized for field replacement, platform matching, and reliable operation in inspection and monitoring operations.</p>"
         f"<h4>Key Capabilities</h4><ul>{items}</ul>"
     )
 

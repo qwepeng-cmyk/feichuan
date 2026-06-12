@@ -15,7 +15,7 @@ const Hero = () => {
       <div className="hero-overlay"></div>
       <div className="container hero-content">
         <h1 className="hero-title">Industrial UAV Systems<br />for Low-Altitude Operations</h1>
-        <p className="hero-subtitle">Industrial UAV platforms, airspace awareness, event records, and compliant workflows for infrastructure operations.</p>
+        <p className="hero-subtitle">Industrial UAV platforms, airspace awareness, event records, and compliant response operations for infrastructure sites.</p>
         <a href="#" className="btn btn-orange">Discover Solutions</a>
       </div>
     </section>

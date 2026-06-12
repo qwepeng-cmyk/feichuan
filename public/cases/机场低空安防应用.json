@@ -1,8 +1,8 @@
 {
   "title": "Airport Low-Altitude Airspace Monitoring Application",
   "title_en": "Airport Low-Altitude Airspace Monitoring Application",
-  "description": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response workflows for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
-  "description_en": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response workflows for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
+  "description": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
+  "description_en": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
   "devices": [
     "Stationary Spectrum Detection Equipment",
     "Portable Airspace Monitoring Equipment",
@@ -22,7 +22,7 @@
   "recommendedProductHandles": [],
   "handle": "airport-security-application",
   "title_ru": "Airport Low-Altitude Airspace Monitoring Application",
-  "description_ru": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response workflows for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
+  "description_ru": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.\nFigure 23: Hangzhou Xiaoshan Airport Low-Altitude Monitoring\nFigure 24: Airport Airspace Situation\nFigure 25: Portable Airspace Monitoring Equipment",
   "devices_ru": [
     "Stationary Spectrum Detection Equipment",
     "Portable Airspace Monitoring Equipment",
@@ -41,7 +41,7 @@
       "value": "Low-altitude monitoring and event records"
     },
     {
-      "label": "Workflow",
+      "label": "Operating Plan",
       "value": "Airspace awareness, alert review, and compliant response coordination"
     },
     {
@@ -55,7 +55,7 @@
       "value": "Low-altitude monitoring and event records"
     },
     {
-      "label": "Workflow",
+      "label": "Operating Plan",
       "value": "Airspace awareness, alert review, and compliant response coordination"
     },
     {

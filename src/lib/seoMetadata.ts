@@ -35,16 +35,20 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/products': {
-    title: 'Industrial UAV Systems & Monitoring Equipment | N-TET Products',
+    title: 'Industrial UAV Systems & Field Equipment | N-TET Products',
     description:
-      'Explore N-TET industrial UAV systems, tethered emergency drones, inspection UAVs, low-altitude monitoring equipment, and security screening products for operational teams.',
+      'Explore N-TET industrial UAV systems, low-altitude monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components.',
     keywords: [
       'industrial UAV systems',
       'UAV inspection drone',
       'tethered UAV',
       'emergency response drone',
       'low altitude monitoring equipment',
-      'security screening equipment',
+      'security screening systems',
+      'engineering materials',
+      'field medical equipment',
+      'drone accessories',
+      'UAV components',
     ],
   },
   '/accessories': {
@@ -63,17 +67,21 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/solutions': {
-    title: 'UAV Inspection Solutions & Emergency Response Drone | N-TET',
+    title: 'Industrial UAV Solutions & Low-Altitude Monitoring | N-TET',
     description:
-      'N-TET UAV inspection solutions for power line inspection, pipeline inspection drones, search and rescue drone work, firefighting drone support, and tethered lighting UAV operations.',
+      'N-TET industrial UAV solutions for UAV inspection, emergency response drone operations, critical infrastructure protection, key area security, and low-altitude monitoring.',
     keywords: [
+      'industrial UAV solutions',
       'UAV inspection solutions',
+      'emergency response drone',
+      'critical infrastructure protection',
+      'key area security',
+      'low altitude monitoring',
       'search and rescue drone',
       'firefighting drone',
       'drone power line inspection',
       'pipeline inspection drones',
       'water conservancy monitoring UAV',
-      'tethered lighting UAV',
     ],
   },
   '/solutions/category/01_BorderPatrol': {
@@ -131,7 +139,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/solutions/disaster-site-search-rescue-reconnaissance-uav-solution': {
     title: 'Search and Rescue Drone Solution | Thermal UAV Reconnaissance',
     description:
-      'Search and rescue UAV solution for emergency teams using thermal drones, aerial reconnaissance, disaster-site monitoring, and rescue coordination workflows.',
+      'Search and rescue UAV solution for emergency teams using thermal drones, aerial reconnaissance, disaster-site monitoring, and rescue coordination.',
     keywords: [
       'thermal drones for search and rescue',
       'search and rescue drone',
@@ -157,7 +165,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/solutions/power-line-uav-intelligent-inspection-solution': {
     title: 'Power Line UAV Inspection Solution | Utility Inspection Drones',
     description:
-      'UAV inspection solution for power lines, utility corridors, transmission towers, and cell towers with aerial inspection workflows for maintenance teams.',
+      'UAV inspection solution for power lines, utility corridors, transmission towers, and cell towers with aerial inspection operations for maintenance teams.',
     keywords: [
       'drones for utility inspection',
       'drone power line inspection',
@@ -243,13 +251,17 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/cases': {
-    title: 'UAV Inspection Cases & Low Altitude Monitoring Case | N-TET',
+    title: 'UAV Deployment Cases & Low Altitude Monitoring References | N-TET',
     description:
-      'Review UAV inspection cases, power line UAV patrol references, water conservancy UAV patrol work, and low altitude monitoring case examples from N-TET deployments.',
+      'Review N-TET UAV deployment cases for UAV inspection, emergency support, critical infrastructure protection, key area security, and low altitude monitoring references.',
     keywords: [
+      'UAV deployment cases',
       'UAV inspection cases',
       'power line UAV patrol',
       'low altitude monitoring case',
+      'emergency support case',
+      'critical infrastructure protection',
+      'key area security',
       'water conservancy UAV patrol',
       'refinery monitoring case',
     ],
@@ -373,10 +385,9 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ['sistemas UAV industriales', 'monitoreo de baja altitud', 'dron de inspección UAV', 'UAV de emergencia', 'equipos de monitoreo aéreo'],
     },
     '/products': {
-      title: 'Sistemas UAV industriales y equipos de monitoreo | Productos N-TET',
-      description:
-        'Explore UAV industriales, drones cautivos de emergencia, UAV de inspección, equipos de monitoreo de baja altitud y sistemas de inspección de seguridad de N-TET.',
-      keywords: ['sistemas UAV industriales', 'dron de inspección', 'UAV cautivo', 'dron de emergencia', 'equipos de monitoreo de baja altitud'],
+      title: "Sistemas UAV industriales y equipos de campo | Productos N-TET",
+      description: "Explore sistemas UAV industriales, equipos de monitoreo de baja altitud, sistemas de inspeccion de seguridad, materiales de ingenieria, equipos medicos de campo, accesorios para drones y componentes UAV.",
+      keywords: ["sistemas UAV industriales", "dron de inspeccion UAV", "UAV de emergencia", "equipos de monitoreo de baja altitud", "sistemas de inspeccion de seguridad", "materiales de ingenieria", "equipos medicos de campo", "accesorios para drones", "componentes UAV"],
     },
     '/accessories': {
       title: 'Accesorios para drones y componentes UAV | N-TET',
@@ -385,16 +396,14 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ['accesorios para drones', 'componentes UAV', 'gimbal UAV', 'motor UAV', 'enlace de datos UAV'],
     },
     '/solutions': {
-      title: 'Soluciones UAV industriales | N-TET',
-      description:
-        'Soluciones UAV para inspección, patrullaje, apoyo de emergencia y monitoreo del espacio aéreo de baja altitud.',
-      keywords: ['soluciones UAV', 'dron de búsqueda y rescate', 'dron contra incendios', 'inspección de líneas eléctricas con UAV'],
+      title: "Soluciones UAV industriales y monitoreo de baja altitud | N-TET",
+      description: "Soluciones UAV industriales de N-TET para inspeccion UAV, operaciones con drones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y monitoreo de baja altitud.",
+      keywords: ["soluciones UAV industriales", "soluciones de inspeccion UAV", "dron de respuesta de emergencia", "proteccion de infraestructura critica", "seguridad de areas clave", "monitoreo de baja altitud"],
     },
     '/cases': {
-      title: 'Casos de despliegue UAV | N-TET',
-      description:
-        'Referencias de despliegue para inspección UAV, patrullaje, apoyo de emergencia y monitoreo de baja altitud.',
-      keywords: ['casos UAV', 'patrullaje UAV', 'monitoreo de baja altitud', 'inspección UAV'],
+      title: "Casos de despliegue UAV y monitoreo de baja altitud | N-TET",
+      description: "Revise casos de despliegue UAV de N-TET para inspeccion UAV, apoyo de emergencia, proteccion de infraestructura critica, seguridad de areas clave y monitoreo de baja altitud.",
+      keywords: ["casos de despliegue UAV", "casos de inspeccion UAV", "patrullaje UAV de lineas electricas", "caso de monitoreo de baja altitud", "caso de apoyo de emergencia", "proteccion de infraestructura critica", "seguridad de areas clave"],
     },
     '/media': {
       title: 'Noticias sobre UAV industriales y monitoreo de baja altitud | N-TET',
@@ -415,42 +424,56 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ['cotización UAV industrial', 'proveedor UAV', 'solución de inspección con drones', 'monitoreo de baja altitud'],
     },
   },
-  ar: {
-    '/': {
-      title: 'أنظمة طائرات بدون طيار صناعية ومراقبة المجال المنخفض | N-TET',
-      description:
-        'تطوّر N-TET منصات طائرات بدون طيار صناعية، ومعدات مراقبة المجال المنخفض، وطائرات للطوارئ والتفتيش، وحلول فحص أمني لمشغلي البنية التحتية.',
-      keywords: ['أنظمة طائرات بدون طيار صناعية', 'مراقبة المجال المنخفض', 'طائرة تفتيش بدون طيار', 'طائرات طوارئ بدون طيار', 'معدات مراقبة المجال الجوي'],
-    },
-    '/products': {
-      title: 'أنظمة طائرات بدون طيار صناعية ومعدات مراقبة | منتجات N-TET',
-      description:
-        'استكشف أنظمة N-TET للطائرات بدون طيار الصناعية، والطائرات المربوطة للطوارئ، وطائرات التفتيش، ومعدات مراقبة المجال المنخفض، وحلول الفحص الأمني.',
-      keywords: ['أنظمة UAV صناعية', 'طائرة تفتيش بدون طيار', 'طائرة مربوطة بدون طيار', 'طائرة طوارئ بدون طيار', 'معدات مراقبة منخفضة الارتفاع'],
-    },
-    '/accessories': {
-      title: 'ملحقات الطائرات بدون طيار ومكونات UAV | N-TET',
-      description:
-        'تصفح ملحقات N-TET للطائرات بدون طيار، بما في ذلك الحوامل الكهروبصرية، والمحركات، وروابط البيانات، والمراوح، والبطاريات، ووحدات التحكم في الطيران.',
-      keywords: ['ملحقات الطائرات بدون طيار', 'مكونات UAV', 'حامل كهروبصري UAV', 'محرك UAV', 'رابط بيانات UAV'],
+  ru: {
+    '/cases': {
+      title: "Кейсы внедрения БПЛА и мониторинг низкой высоты | N-TET",
+      description: "Изучите кейсы внедрения БПЛА N-TET для инспекции БПЛА, аварийной поддержки, защиты критической инфраструктуры, безопасности ключевых зон и мониторинга низкой высоты.",
+      keywords: ["кейсы внедрения БПЛА", "кейсы инспекции БПЛА", "патрулирование ЛЭП БПЛА", "кейс мониторинга низкой высоты", "кейс аварийной поддержки", "защита критической инфраструктуры", "безопасность ключевых зон"],
     },
     '/solutions': {
-      title: 'حلول طائرات بدون طيار صناعية | N-TET',
+      title: "Промышленные решения БПЛА и мониторинг низкой высоты | N-TET",
+      description: "Промышленные решения БПЛА N-TET для инспекции БПЛА, аварийного реагирования, защиты критической инфраструктуры, безопасности ключевых зон и мониторинга низкой высоты.",
+      keywords: ["промышленные решения БПЛА", "решения для инспекции БПЛА", "БПЛА аварийного реагирования", "защита критической инфраструктуры", "безопасность ключевых зон", "мониторинг низкой высоты"],
+    },
+    '/products': {
+      title: "Промышленные БПЛА и полевое оборудование | Продукты N-TET",
+      description: "Изучите промышленные БПЛА N-TET, оборудование мониторинга низкой высоты, системы досмотра, инженерные материалы, полевое медицинское оборудование, аксессуары и компоненты БПЛА.",
+      keywords: ["промышленные БПЛА", "инспекционный БПЛА", "аварийный БПЛА", "оборудование мониторинга низкой высоты", "системы досмотра", "инженерные материалы", "полевое медицинское оборудование", "аксессуары для БПЛА", "компоненты БПЛА"],
+    },
+  },
+  ar: {
+    '/': {
+      title: 'أنظمة UAV صناعية ومراقبة الارتفاع المنخفض | N-TET',
       description:
-        'حلول N-TET للطائرات بدون طيار للتفتيش والدوريات والدعم الطارئ ومراقبة المجال الجوي منخفض الارتفاع.',
-      keywords: ['حلول UAV', 'طائرة بحث وإنقاذ بدون طيار', 'طائرة إطفاء بدون طيار', 'تفتيش خطوط الطاقة بالطائرات بدون طيار'],
+        'تطوّر N-TET أنظمة UAV صناعية، ومعدات مراقبة الارتفاع المنخفض، وطائرات UAV للطوارئ والتفتيش، وحلول فحص أمني لمشغلي البنية التحتية.',
+      keywords: ['أنظمة UAV صناعية', 'مراقبة الارتفاع المنخفض', 'طائرة UAV للتفتيش', 'طائرة UAV للطوارئ', 'معدات مراقبة المجال الجوي'],
+    },
+    '/products': {
+      title: "أنظمة UAV الصناعية والمعدات الميدانية | منتجات N-TET",
+      description: "استكشف أنظمة UAV الصناعية من N-TET، ومعدات مراقبة الارتفاع المنخفض، وأنظمة الفحص الأمني، ومواد الهندسة، والمعدات الطبية الميدانية، وملحقات الطائرات بدون طيار، ومكونات UAV.",
+      keywords: ["أنظمة UAV الصناعية", "طائرة UAV للتفتيش", "طائرة UAV للطوارئ", "معدات مراقبة الارتفاع المنخفض", "أنظمة الفحص الأمني", "مواد الهندسة", "المعدات الطبية الميدانية", "ملحقات الطائرات بدون طيار", "مكونات UAV"],
+    },
+    '/accessories': {
+      title: 'ملحقات ومكونات UAV | N-TET',
+      description:
+        'تصفح ملحقات ومكونات UAV من N-TET، بما في ذلك الحوامل الكهروبصرية، والمحركات، وروابط البيانات، والمراوح، والبطاريات، ووحدات التحكم في الطيران.',
+      keywords: ['ملحقات ومكونات UAV', 'ملحقات الطائرات بدون طيار', 'مكونات UAV', 'حامل كهروبصري UAV', 'محرك UAV', 'رابط بيانات UAV'],
+    },
+    '/solutions': {
+      title: "حلول UAV الصناعية ومراقبة الارتفاع المنخفض | N-TET",
+      description: "حلول UAV الصناعية من N-TET لتفتيش UAV وعمليات طائرات الاستجابة للطوارئ وحماية البنية التحتية الحرجة وأمن المناطق الرئيسية ومراقبة الارتفاع المنخفض.",
+      keywords: ["حلول UAV الصناعية", "حلول تفتيش UAV", "طائرة استجابة للطوارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية", "مراقبة الارتفاع المنخفض"],
     },
     '/cases': {
-      title: 'حالات نشر الطائرات بدون طيار | N-TET',
-      description:
-        'مراجع نشر لطائرات التفتيش والدوريات والدعم الطارئ ومراقبة المجال منخفض الارتفاع.',
-      keywords: ['حالات UAV', 'دوريات UAV', 'مراقبة المجال المنخفض', 'تفتيش UAV'],
+      title: "حالات نشر UAV ومراقبة الارتفاع المنخفض | N-TET",
+      description: "راجع حالات نشر UAV من N-TET لتفتيش UAV والدعم الطارئ وحماية البنية التحتية الحرجة وأمن المناطق الرئيسية ومراقبة الارتفاع المنخفض.",
+      keywords: ["حالات نشر UAV", "حالات تفتيش UAV", "دوريات UAV لخطوط الكهرباء", "حالات مراقبة الارتفاع المنخفض", "حالات الدعم الطارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية"],
     },
     '/media': {
-      title: 'أخبار الطائرات الصناعية ومراقبة المجال المنخفض | N-TET',
+      title: 'رؤى وتحديثات UAV الصناعية | N-TET',
       description:
-        'اقرأ رؤى N-TET حول عمليات الطائرات بدون طيار الصناعية، واقتصاد المجال المنخفض، والطائرات المربوطة، والتكرار التشغيلي، ومراقبة البنية التحتية.',
-      keywords: ['أخبار UAV صناعية', 'اقتصاد المجال المنخفض', 'UAV مربوط', 'مراقبة البنية التحتية'],
+        'اقرأ رؤى وتحديثات UAV الصناعية من N-TET حول عمليات UAV، واقتصاد الارتفاع المنخفض، والطائرات المربوطة، والتكرار التشغيلي، ومراقبة البنية التحتية.',
+      keywords: ['رؤى وتحديثات UAV الصناعية', 'أخبار UAV صناعية', 'اقتصاد الارتفاع المنخفض', 'UAV مربوط', 'مراقبة البنية التحتية'],
     },
     '/about': {
       title: 'حول N-TET | مصنع أنظمة UAV صناعية',
@@ -516,7 +539,7 @@ function fallbackKeywords(title: string, category?: string | null) {
 
 export function getKeywordBackedSeo(path: string, locale: Locale = 'en') {
   const normalized = path === '/' ? '/' : `/${path.replace(/^\/+/, '')}`;
-  const localizedEntry = locale === 'ar' ? undefined : LOCALIZED_KEYWORD_BACKED_SEO[locale]?.[normalized];
+  const localizedEntry = LOCALIZED_KEYWORD_BACKED_SEO[locale]?.[normalized];
   if (localizedEntry) return localizedEntry;
 
   const target = getSeoKeywordBackedEntry(normalized, locale);
@@ -560,7 +583,7 @@ export function getProductSeo(handle: string, name: string, category?: string | 
         ? `${SITE_NAME} ${name}: solucion industrial para inspeccion, monitoreo y operaciones de campo con soporte tecnico del proyecto.`
         : locale === 'ar'
           ? `${SITE_NAME} ${name}: حل صناعي للفحص والمراقبة وعمليات الموقع مع دعم فني للمشروع.`
-          : `${SITE_NAME} ${name} for industrial operators, combining ${keywords.slice(0, 3).join(', ')} workflows with field-ready deployment and support.`;
+          : `${SITE_NAME} ${name} for industrial operators, combining ${keywords.slice(0, 3).join(', ')} with field-ready deployment and support.`;
 
   return {
     title: titleWithBrand(name),

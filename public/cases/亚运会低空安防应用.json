@@ -1,8 +1,8 @@
 {
   "title": "Asian Games Low-Altitude Airspace Monitoring Application",
   "title_en": "Asian Games Low-Altitude Airspace Monitoring Application",
-  "description": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination workflow. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security workflows across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
-  "description_en": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination workflow. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security workflows across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
+  "description": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination plan. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security operations across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
+  "description_en": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination plan. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security operations across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
   "devices": [
     "Radio Detection Equipment",
     "Airspace Situational Awareness Platform",
@@ -22,7 +22,7 @@
   "recommendedProductHandles": [],
   "handle": "asian-games-security",
   "title_ru": "Asian Games Low-Altitude Airspace Monitoring Application",
-  "description_ru": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination workflow. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security workflows across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
+  "description_ru": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination plan. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security operations across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
   "devices_ru": [
     "Radio Detection Equipment",
     "Airspace Situational Awareness Platform",
@@ -41,7 +41,7 @@
       "value": "Low-altitude monitoring and event records"
     },
     {
-      "label": "Workflow",
+      "label": "Operating Plan",
       "value": "Airspace awareness, alert review, and compliant response coordination"
     },
     {
@@ -55,7 +55,7 @@
       "value": "Low-altitude monitoring and event records"
     },
     {
-      "label": "Workflow",
+      "label": "Operating Plan",
       "value": "Airspace awareness, alert review, and compliant response coordination"
     },
     {

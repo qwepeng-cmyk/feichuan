@@ -38,9 +38,9 @@
     }
   },
   "products": {
-    "pageTitle": "Centro de tecnología y equipos",
-    "bannerTitle": "Centro de tecnología y equipos",
-    "bannerDesc": "Explore plataformas UAV industriales, equipos de monitoreo aéreo, sistemas de inspección y herramientas de revisión para operaciones en sitio.",
+    "pageTitle": "Sistemas UAV industriales y equipos de campo",
+    "bannerTitle": "Sistemas UAV industriales y equipos de campo",
+    "bannerDesc": "Explore plataformas UAV industriales, equipos de monitoreo de baja altitud, sistemas de inspeccion de seguridad, materiales de ingenieria, equipos medicos de campo, accesorios para drones y componentes UAV.",
     "getPrice": "Solicitar precio",
     "getQuotation": "Solicitar cotización",
     "getQuote": "Solicitar cotización",
@@ -139,8 +139,8 @@
   "solutions": {
     "pageTitle": "Soluciones UAV industriales",
     "bannerTitle": "Soluciones UAV industriales",
-    "bannerDesc": "Soluciones UAV para inspección, patrullaje, apoyo de emergencia y monitoreo del espacio aéreo de baja altitud.",
-    "bannerSubtitle": "Soluciones UAV para inspección, patrullaje, apoyo de emergencia y monitoreo del espacio aéreo de baja altitud.",
+    "bannerDesc": "Soluciones UAV industriales para inspeccion y patrullaje, operaciones con drones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y monitoreo de baja altitud.",
+    "bannerSubtitle": "Soluciones UAV industriales para inspeccion y patrullaje, operaciones con drones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y monitoreo de baja altitud.",
     "industryNeeds": "Necesidades de la industria",
     "applicationScenes": "Escenarios de aplicación",
     "recommendedProducts": "Productos recomendados",
@@ -152,12 +152,14 @@
       "infrastructure": "Protección de infraestructura",
       "security": "Seguridad de áreas clave",
       "emergency": "Emergencia y rescate ante desastres"
-    }
+    },
+    "seoIntroTitle": "Soluciones UAV industriales para inspeccion, respuesta de emergencia, monitoreo de baja altitud y seguridad",
+    "seoIntroBody": "N-TET lista soluciones de inspeccion UAV, inspeccion de lineas electricas con drones, drones de inspeccion de tuberias, monitoreo hidrico con UAV, drones de respuesta de emergencia, equipos de busqueda y rescate, apoyo contra incendios, proteccion de infraestructura critica, seguridad de areas clave, monitoreo aereo aeroportuario, monitoreo de eventos y soluciones de monitoreo de baja altitud."
   },
   "cases": {
     "pageTitle": "Casos de despliegue UAV",
     "bannerTitle": "Casos de despliegue UAV",
-    "bannerDesc": "Referencias de despliegue para inspección UAV, patrullaje, apoyo de emergencia y monitoreo de baja altitud.",
+    "bannerDesc": "Referencias de despliegue para casos de inspeccion UAV, operaciones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y casos de monitoreo de baja altitud.",
     "region": "Región:",
     "solutionFilter": "Soluciones:",
     "all": "Todos",
@@ -187,7 +189,9 @@
         "oceania": "Oceanía"
       }
     },
-    "bannerSubtitle": "Referencias de despliegue para inspección UAV, patrullaje, apoyo de emergencia y monitoreo de baja altitud."
+    "bannerSubtitle": "Referencias de despliegue para casos de inspeccion UAV, operaciones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y casos de monitoreo de baja altitud.",
+    "seoIntroTitle": "Casos de despliegue UAV y monitoreo de baja altitud",
+    "seoIntroBody": "Explore casos de despliegue UAV y casos de monitoreo de baja altitud. Las referencias incluyen patrullaje UAV de lineas electricas, patrullaje UAV hidrico, casos de monitoreo de refinerias, casos de apoyo de emergencia, monitoreo aereo aeroportuario, monitoreo de eventos y casos de monitoreo de baja altitud."
   },
   "media": {
     "pageTitle": "Perspectivas y actualizaciones",

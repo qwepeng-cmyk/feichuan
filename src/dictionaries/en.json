@@ -14,7 +14,7 @@
   "home": {
     "hero": {
       "title": "Industrial UAV Systems<br/>for Low-Altitude Operations",
-      "subtitle": "Industrial UAV platforms, airspace situational awareness, event records, and compliant response workflows for infrastructure, utilities, and public operations.",
+      "subtitle": "Industrial UAV platforms, airspace situational awareness, event records, and compliant response operations for infrastructure, utilities, and public sites.",
       "button": "Explore Solutions"
     },
     "sections": {
@@ -34,13 +34,13 @@
       "successCase": "Deployment Evidence"
     },
     "about": {
-      "content": "Beijing Feichuan Equipment Technology Co., Ltd. develops industrial UAV platforms, airspace monitoring equipment, inspection workflows, and intelligent screening systems for infrastructure and public operations."
+      "content": "Beijing Feichuan Equipment Technology Co., Ltd. develops industrial UAV platforms, airspace monitoring equipment, inspection operations, and intelligent screening systems for infrastructure and public operations."
     }
   },
   "products": {
-    "pageTitle": "Technology & Equipment Center",
-    "bannerTitle": "Technology & Equipment Center",
-    "bannerDesc": "Browse industrial UAV platforms, airspace monitoring equipment, inspection systems, and screening tools for site operations.",
+    "pageTitle": "Industrial UAV Systems & Field Equipment",
+    "bannerTitle": "Industrial UAV Systems & Field Equipment",
+    "bannerDesc": "Browse industrial UAV platforms, low-altitude monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components.",
     "getPrice": "Get Price",
     "getQuotation": "Get quotation",
     "getQuote": "Get a Quote",
@@ -80,12 +80,12 @@
     }
   },
   "solutions": {
-    "pageTitle": "UAV Inspection Solutions",
-    "bannerTitle": "UAV Inspection Solutions",
-    "bannerDesc": "UAV inspection solutions for utility corridors, emergency response drone work, search and rescue drone teams, firefighting drone support, and low-altitude airspace monitoring.",
-    "bannerSubtitle": "UAV inspection solutions for utility corridors, emergency response drone work, search and rescue drone teams, firefighting drone support, and low-altitude airspace monitoring.",
-    "seoIntroTitle": "UAV Inspection Solutions for Industrial Field Teams",
-    "seoIntroBody": "N-TET organizes drone power line inspection, pipeline inspection drones, water conservancy monitoring UAV workflows, search and rescue drone operations, firefighting drone support, and tethered lighting UAV deployment into practical solution groups for infrastructure and emergency teams.",
+    "pageTitle": "Industrial UAV Solutions",
+    "bannerTitle": "Industrial UAV Solutions",
+    "bannerDesc": "Industrial UAV solutions for inspection and patrol, emergency response drone operations, critical infrastructure protection, key area security, and low-altitude airspace monitoring.",
+    "bannerSubtitle": "Industrial UAV solutions for inspection and patrol, emergency response drone operations, critical infrastructure protection, key area security, and low-altitude airspace monitoring.",
+    "seoIntroTitle": "Industrial UAV Solutions for Inspection, Emergency Response, Low-Altitude Monitoring, and Security Operations",
+    "seoIntroBody": "N-TET lists UAV inspection solutions, drone power line inspection, pipeline inspection drones, water conservancy monitoring UAV operations, emergency response drone operations, search and rescue drone support, firefighting drone support, critical infrastructure protection, key area security, airport airspace monitoring, event security monitoring, and low-altitude monitoring solutions.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
@@ -100,11 +100,11 @@
     }
   },
   "cases": {
-    "pageTitle": "UAV Inspection Cases",
-    "bannerTitle": "UAV Inspection Cases",
-    "bannerDesc": "Deployment references for UAV inspection cases, power line UAV patrol, emergency support, and low altitude monitoring case work.",
-    "seoIntroTitle": "UAV Inspection Cases by Region and Scenario",
-    "seoIntroBody": "Browse power line UAV patrol, water conservancy UAV patrol, refinery monitoring case, and low altitude monitoring case references to compare how N-TET systems are used in field inspection, emergency support, and infrastructure operations.",
+    "pageTitle": "UAV Deployment Cases",
+    "bannerTitle": "UAV Deployment Cases",
+    "bannerDesc": "Deployment references for UAV inspection cases, emergency response operations, critical infrastructure protection, key area security, and low altitude monitoring case work.",
+    "seoIntroTitle": "UAV Deployment and Low-Altitude Monitoring Cases",
+    "seoIntroBody": "Browse UAV deployment cases and low-altitude monitoring cases. References include power line UAV patrol, water conservancy UAV patrol, refinery monitoring cases, emergency support cases, airport airspace monitoring, event security monitoring, and low-altitude monitoring case examples.",
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
@@ -134,7 +134,7 @@
         "oceania": "Oceania"
       }
     },
-    "bannerSubtitle": "Deployment references for UAV inspection cases, power line UAV patrol, emergency support, and low altitude monitoring case work."
+    "bannerSubtitle": "Deployment references for UAV inspection cases, emergency response operations, critical infrastructure protection, key area security, and low altitude monitoring case work."
   },
   "media": {
     "pageTitle": "Industrial UAV News",
@@ -158,11 +158,11 @@
   "about": {
     "pageTitle": "Company Profile",
     "bannerTitle": "Company Profile",
-    "bannerDesc": "Integrated UAV systems, low-altitude monitoring, and inspection workflows for infrastructure operators.",
+    "bannerDesc": "Integrated UAV systems, low-altitude monitoring, and inspection operations for infrastructure operators.",
     "companyProfile": "Company Profile",
     "companyDesc1": "Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in Beijing and focuses on industrial UAV systems, airspace monitoring, intelligent inspection, and site-screening technologies.",
     "companyDesc2": "The company connects engineering development, field deployment experience, and partner resources to support infrastructure operators, utilities, emergency teams, and public-site managers.",
-    "companyDesc3": "We help customers turn sensing, inspection, records, and response coordination into practical operating workflows.",
+    "companyDesc3": "We help customers turn sensing, inspection, records, and response coordination into practical operating procedures.",
     "rdTeam": "R&D Team",
     "rdTeamDesc": "Driving innovation with technical expertise and deep industry experience.",
     "rdRatio": "R&D Team Ratio",
@@ -382,13 +382,13 @@
   },
   "solutionCenterGroups": {
     "uavInspectionPatrol": "UAV Inspection & Patrol",
-    "uavInspectionPatrolDesc": "Recurring aerial patrol, corridor inspection, and field monitoring workflows for utilities, water resources, and coastal operations.",
+    "uavInspectionPatrolDesc": "Recurring aerial patrol, corridor inspection, and field monitoring operations for utilities, water resources, and coastal teams.",
     "uavEmergencyResponse": "UAV Emergency Response",
     "uavEmergencyResponseDesc": "Rapid aerial response for firefighting support, search and rescue, post-disaster communications, and night emergency lighting.",
     "criticalInfrastructure": "Critical Infrastructure Protection",
     "criticalInfrastructureDesc": "Airspace monitoring and perimeter intelligence for energy, petrochemical, and water-conservancy facilities.",
     "keyAreaSecurity": "Key Area Security",
-    "keyAreaSecurityDesc": "Integrated security workflows for judicial sites, major events, airport checkpoints, and transport hubs."
+    "keyAreaSecurityDesc": "Integrated security operations for judicial sites, major events, airport checkpoints, and transport hubs."
   },
   "regions": {
     "all": "All",

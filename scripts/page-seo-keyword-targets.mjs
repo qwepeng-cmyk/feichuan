@@ -113,7 +113,7 @@ function suggestedTitle(row, primary) {
 function suggestedH2(row, primary) {
   if (row.page_type.includes('case')) return `${titleCaseFallback(primary)} Project Overview`;
   if (row.page_type.includes('media')) return `${titleCaseFallback(primary)} Insights`;
-  if (row.page_type.includes('solution')) return `${titleCaseFallback(primary)} Workflow`;
+  if (row.page_type.includes('solution')) return `${titleCaseFallback(primary)} Operating Plan`;
   if (row.page_type.includes('product') || row.page_type.includes('accessory')) return `${titleCaseFallback(primary)} Technical Specifications`;
   return `${titleCaseFallback(primary)} Overview`;
 }

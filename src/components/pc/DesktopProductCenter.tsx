@@ -4,7 +4,6 @@ import InquiryForm from '@/components/products/InquiryForm';
 import CategoryNav from '@/components/products/CategoryNav';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import DeferredProductSections from '@/components/products/DeferredProductSections';
-import ProductCenterSeoContent from '@/components/products/ProductCenterSeoContent';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface ProductSummary {
@@ -354,8 +353,6 @@ export default function DesktopProductCenter({
             {/* STICKY CATEGORY NAV */}
             <CategoryNav categories={categoryList} />
 
-            <ProductCenterSeoContent locale={locale} />
-
             {/* PRODUCT LISTS */}
             <div className="product-lists-wrap" style={{ padding: '60px 0' }}>
                 <section key={primaryCategory.id} id={primaryCategory.id} style={{ marginBottom: '100px', scrollMarginTop: '300px' }}>
@@ -385,8 +382,6 @@ export default function DesktopProductCenter({
                 </section>
                 <DeferredProductSections categories={deferredCategories} locale={locale} />
             </div>
-
-            <ProductCenterSeoContent locale={locale} placement="faq" />
 
             {/* INQUIRY FORM */}
             <section id="inquiry" style={{ padding: '100px 0', background: '#f8f9fa', borderTop: '1px solid #eee' }}>

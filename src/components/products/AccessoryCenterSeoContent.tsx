@@ -15,144 +15,191 @@ type AccessoryContentPlacement = 'intro' | 'faq';
 
 function getAccessorySummary(locale: string) {
   if (locale === 'es') {
-    return 'Compare accesorios para drones por compatibilidad de plataforma, carga util, energia, control y flujo de datos antes de seleccionar componentes UAV para un proyecto industrial.';
+    return 'Explore accesorios para drones y componentes UAV, incluidos gimbals, motores, enlaces de datos, hélices, baterías, controles remotos y controladores de vuelo.';
   }
 
   if (locale === 'ru') {
-    return 'Сравните аксессуары для БПЛА по совместимости платформы, полезной нагрузке, питанию, управлению и передаче данных перед выбором компонентов для промышленного проекта.';
+    return 'Просмотрите аксессуары и компоненты БПЛА: подвесы, двигатели, каналы данных, пропеллеры, аккумуляторы, пульты управления и полетные контроллеры.';
   }
 
-  return 'Compare drone accessories by platform fit, payload interface, power readiness, control workflow, and field support before selecting UAV components for an industrial project.';
+  if (locale === 'ar') {
+    return 'استعرض ملحقات ومكونات UAV، بما في ذلك الحوامل والمحركات وروابط البيانات والمراوح والبطاريات ووحدات التحكم عن بعد ووحدات التحكم بالطيران.';
+  }
+
+  return 'Explore drone accessories and UAV components, including gimbals, engines, data links, propellers, motors, batteries, remote controllers, and flight controllers.';
 }
 
 const CONTENT: Record<string, AccessoryContent> = {
   en: {
-    eyebrow: 'Accessory planning',
+    eyebrow: 'Accessory catalog',
     title: 'Drone Accessories and UAV Components for Industrial Platforms',
     intro: [
-      'Drone accessories should be selected around platform compatibility, payload interface, endurance target, data workflow, and field maintenance plan. N-TET organizes UAV components such as electro-optical gimbals, UAV engines, data links, propellers, motors, batteries, remote controllers, and flight controllers so technical teams can compare parts by function.',
-      'For industrial UAV systems, accessory planning affects imaging quality, flight stability, communication reliability, spare-parts readiness, and deployment continuity. The catalog below is intended to help buyers connect components with UAV platforms, inspection solutions, and after-sales support requirements.',
+      'N-TET accessory categories include electro-optical gimbals, UAV engines, UAV data links, propellers, motors, batteries, remote controllers, and flight controllers.',
+      'Accessory pages list product name, category, model, image, key parameters, product description, and technical specifications where source data is available.',
     ],
     cards: [
       {
-        title: 'Payload and sensing compatibility',
-        body: 'Match gimbals, optical payloads, sensors, and mounting interfaces with the UAV platform, mission altitude, image-recording requirement, and inspection workflow.',
+        title: 'Gimbals and imaging components',
+        body: 'Includes electro-optical gimbals, optical pods, visible-light payloads, thermal payloads, laser rangefinder modules, mounting interfaces, and related imaging accessories.',
       },
       {
-        title: 'Power and propulsion readiness',
-        body: 'Review batteries, motors, propellers, engines, and spare modules together so endurance, lift, operating temperature, and maintenance intervals stay aligned.',
+        title: 'Propulsion and power components',
+        body: 'Includes UAV engines, motors, propellers, batteries, power modules, and spare propulsion parts listed by product category and available specifications.',
       },
       {
-        title: 'Control and data workflow',
-        body: 'Check remote controllers, flight controllers, and UAV data links against command distance, telemetry needs, video transmission, and field support expectations.',
+        title: 'Control and communication components',
+        body: 'Includes UAV data links, remote controllers, flight controllers, antennas, telemetry modules, and related command or transmission accessories.',
       },
     ],
-    faqTitle: 'Drone Accessories FAQ',
+    faqTitle: 'Drone Accessories Product FAQ',
     faqs: [
       {
-        question: 'Which drone accessories should be confirmed before procurement?',
-        answer: 'Confirm platform model, payload weight, voltage, mounting interface, communication distance, flight-control compatibility, spare battery plan, and the field maintenance process.',
+        question: 'Which drone accessory categories are listed?',
+        answer: 'The catalog includes electro-optical gimbals, UAV engines, UAV data links, propellers, motors, batteries, remote controllers, and flight controllers.',
       },
       {
-        question: 'How do UAV components affect inspection performance?',
-        answer: 'Gimbals and sensors affect image stability, motors and propellers affect lift and endurance, batteries affect mission duration, and data links affect command and video reliability.',
+        question: 'Which parameters can appear on an accessory page?',
+        answer: 'Accessory pages can show model, product category, weight, voltage, interface, communication distance, payload type, power type, size, image, description, and technical specifications when the source data provides them.',
       },
       {
-        question: 'Can accessories be supplied as a package with UAV systems?',
-        answer: 'Yes. Accessories are often selected together with UAV platforms, solution workflows, training needs, and recommended spare parts for the project environment.',
+        question: 'Which UAV components are related to control and communication?',
+        answer: 'Control and communication components include UAV data links, remote controllers, flight controllers, antennas, telemetry modules, and transmission accessories.',
       },
     ],
-    linksTitle: 'Related planning pages',
+    linksTitle: 'Related product pages',
     links: [
       { label: 'Industrial UAV systems product center', href: '/products' },
-      { label: 'UAV inspection solutions and workflows', href: '/solutions' },
-      { label: 'Project consultation for UAV components', href: '/contact' },
+      { label: 'Drone accessories inquiry', href: '/contact' },
+      { label: 'Industrial UAV solutions', href: '/solutions' },
     ],
   },
   es: {
-    eyebrow: 'Planificación de accesorios',
+    eyebrow: 'Catálogo de accesorios',
     title: 'Accesorios para drones y componentes UAV para plataformas industriales',
     intro: [
-      'Los accesorios para drones deben seleccionarse según compatibilidad de plataforma, interfaz de carga útil, autonomía esperada, flujo de datos y plan de mantenimiento. N-TET organiza componentes UAV como gimbals electro-ópticos, motores, enlaces de datos, hélices, baterías, controles remotos y controladores de vuelo por función.',
-      'En sistemas UAV industriales, la planificación de accesorios influye en calidad de imagen, estabilidad de vuelo, fiabilidad de comunicación, repuestos y continuidad de despliegue. Este catálogo ayuda a conectar componentes con plataformas UAV, soluciones de inspección y soporte posventa.',
+      'Las categorías de accesorios N-TET incluyen gimbals electro-ópticos, motores UAV, enlaces de datos UAV, hélices, motores, baterías, controles remotos y controladores de vuelo.',
+      'Las páginas de accesorios muestran nombre del producto, categoría, modelo, imagen, parámetros principales, descripción y especificaciones técnicas cuando los datos de origen están disponibles.',
     ],
     cards: [
       {
-        title: 'Compatibilidad de carga útil y sensores',
-        body: 'Relacione gimbals, cargas ópticas, sensores e interfaces de montaje con la plataforma UAV, altitud de misión, registro de imagen y flujo de inspección.',
+        title: 'Gimbals y componentes de imagen',
+        body: 'Incluye gimbals electro-ópticos, pods ópticos, cargas visibles, cargas térmicas, módulos láser de medición, interfaces de montaje y accesorios de imagen.',
       },
       {
-        title: 'Preparación de energía y propulsión',
-        body: 'Revise baterías, motores, hélices y módulos de repuesto para alinear autonomía, elevación, temperatura de operación e intervalos de mantenimiento.',
+        title: 'Propulsión y energía',
+        body: 'Incluye motores UAV, motores eléctricos, hélices, baterías, módulos de energía y piezas de propulsión listadas por categoría y especificaciones disponibles.',
       },
       {
-        title: 'Control y flujo de datos',
-        body: 'Verifique controles remotos, controladores de vuelo y enlaces de datos UAV frente a distancia de mando, telemetría, video y soporte de campo.',
+        title: 'Control y comunicación',
+        body: 'Incluye enlaces de datos UAV, controles remotos, controladores de vuelo, antenas, módulos de telemetría y accesorios de transmisión.',
       },
     ],
-    faqTitle: 'FAQ de accesorios para drones',
+    faqTitle: 'FAQ de productos de accesorios',
     faqs: [
       {
-        question: '¿Qué accesorios para drones se deben confirmar antes de comprar?',
-        answer: 'Confirme modelo de plataforma, peso de carga útil, voltaje, interfaz de montaje, distancia de comunicación, compatibilidad de control de vuelo, baterías de repuesto y mantenimiento.',
+        question: '¿Qué categorías de accesorios para drones aparecen?',
+        answer: 'El catálogo incluye gimbals electro-ópticos, motores UAV, enlaces de datos UAV, hélices, motores, baterías, controles remotos y controladores de vuelo.',
       },
       {
-        question: '¿Cómo afectan los componentes UAV al rendimiento de inspección?',
-        answer: 'Los gimbals y sensores influyen en estabilidad de imagen; motores y hélices en elevación y autonomía; baterías en duración; enlaces de datos en mando y video.',
+        question: '¿Qué parámetros puede mostrar una página de accesorio?',
+        answer: 'Una página de accesorio puede mostrar modelo, categoría, peso, voltaje, interfaz, distancia de comunicación, tipo de carga útil, tipo de energía, tamaño, imagen, descripción y especificaciones técnicas cuando los datos de origen los incluyen.',
       },
       {
-        question: '¿Se pueden suministrar accesorios junto con sistemas UAV?',
-        answer: 'Sí. Los accesorios suelen seleccionarse con plataformas UAV, flujos de solución, capacitación y repuestos recomendados para el entorno del proyecto.',
+        question: '¿Qué componentes UAV pertenecen a control y comunicación?',
+        answer: 'Los componentes de control y comunicación incluyen enlaces de datos UAV, controles remotos, controladores de vuelo, antenas, módulos de telemetría y accesorios de transmisión.',
       },
     ],
-    linksTitle: 'Páginas relacionadas',
+    linksTitle: 'Páginas de productos relacionadas',
     links: [
       { label: 'Centro de productos de sistemas UAV industriales', href: '/products' },
-      { label: 'Soluciones de inspección UAV', href: '/solutions' },
-      { label: 'Consulta de proyecto para componentes UAV', href: '/contact' },
+      { label: 'Consulta de accesorios para drones', href: '/contact' },
+      { label: 'Soluciones UAV industriales', href: '/solutions' },
     ],
   },
   ru: {
-    eyebrow: 'Планирование аксессуаров',
+    eyebrow: 'Каталог аксессуаров',
     title: 'Аксессуары для дронов и компоненты БПЛА для промышленных платформ',
     intro: [
-      'Аксессуары для дронов следует выбирать по совместимости платформы, интерфейсу полезной нагрузки, требуемой автономности, потоку данных и плану обслуживания. N-TET группирует компоненты БПЛА: электрооптические подвесы, двигатели, каналы данных, пропеллеры, аккумуляторы, пульты управления и полетные контроллеры.',
-      'Для промышленных БПЛА планирование аксессуаров влияет на качество изображения, стабильность полета, надежность связи, готовность запасных частей и непрерывность развертывания. Каталог помогает связать компоненты с платформами БПЛА, решениями инспекции и послепродажной поддержкой.',
+      'Категории аксессуаров N-TET включают электрооптические подвесы, двигатели БПЛА, каналы данных БПЛА, пропеллеры, моторы, аккумуляторы, пульты управления и полетные контроллеры.',
+      'Страницы аксессуаров показывают название продукта, категорию, модель, изображение, ключевые параметры, описание продукта и технические характеристики, если эти данные есть в источнике.',
     ],
     cards: [
       {
-        title: 'Совместимость полезной нагрузки и сенсоров',
-        body: 'Сопоставьте подвесы, оптические нагрузки, сенсоры и крепления с платформой БПЛА, высотой миссии, требованиями к записи и рабочим процессом инспекции.',
+        title: 'Подвесы и компоненты изображения',
+        body: 'Включает электрооптические подвесы, оптические модули, видимые камеры, тепловизионные нагрузки, лазерные дальномеры, крепления и аксессуары для съемки.',
       },
       {
-        title: 'Готовность питания и тяги',
-        body: 'Проверяйте аккумуляторы, моторы, пропеллеры и запасные модули вместе, чтобы согласовать автономность, подъемную силу, температуру работы и обслуживание.',
+        title: 'Тяга и питание',
+        body: 'Включает двигатели БПЛА, моторы, пропеллеры, аккумуляторы, модули питания и запасные детали тяговой системы по категории и доступным характеристикам.',
       },
       {
-        title: 'Управление и поток данных',
-        body: 'Оцените пульты управления, полетные контроллеры и каналы данных БПЛА по дальности управления, телеметрии, видеопередаче и поддержке в поле.',
+        title: 'Управление и связь',
+        body: 'Включает каналы данных БПЛА, пульты управления, полетные контроллеры, антенны, телеметрические модули и аксессуары передачи данных.',
       },
     ],
-    faqTitle: 'FAQ по аксессуарам для дронов',
+    faqTitle: 'FAQ по продуктам аксессуаров',
     faqs: [
       {
-        question: 'Какие аксессуары для дронов нужно подтвердить перед закупкой?',
-        answer: 'Подтвердите модель платформы, вес полезной нагрузки, напряжение, крепление, дальность связи, совместимость контроллера, запасные аккумуляторы и процесс обслуживания.',
+        question: 'Какие категории аксессуаров для дронов указаны?',
+        answer: 'Каталог включает электрооптические подвесы, двигатели БПЛА, каналы данных БПЛА, пропеллеры, моторы, аккумуляторы, пульты управления и полетные контроллеры.',
       },
       {
-        question: 'Как компоненты БПЛА влияют на инспекционные задачи?',
-        answer: 'Подвесы и сенсоры влияют на стабильность изображения, моторы и пропеллеры - на тягу и автономность, аккумуляторы - на длительность миссии, каналы данных - на управление и видео.',
+        question: 'Какие параметры может показывать страница аксессуара?',
+        answer: 'Страница аксессуара может показывать модель, категорию, вес, напряжение, интерфейс, дальность связи, тип полезной нагрузки, тип питания, размер, изображение, описание и технические характеристики, если эти данные есть в источнике.',
       },
       {
-        question: 'Можно ли поставлять аксессуары вместе с системами БПЛА?',
-        answer: 'Да. Аксессуары часто подбираются вместе с платформами БПЛА, рабочими процессами решений, обучением и рекомендуемыми запасными частями.',
+        question: 'Какие компоненты БПЛА относятся к управлению и связи?',
+        answer: 'К компонентам управления и связи относятся каналы данных БПЛА, пульты управления, полетные контроллеры, антенны, телеметрические модули и аксессуары передачи данных.',
       },
     ],
-    linksTitle: 'Связанные страницы',
+    linksTitle: 'Связанные страницы продуктов',
     links: [
       { label: 'Центр продуктов промышленных БПЛА', href: '/products' },
-      { label: 'Решения инспекции БПЛА', href: '/solutions' },
-      { label: 'Консультация по компонентам БПЛА', href: '/contact' },
+      { label: 'Запрос по аксессуарам для дронов', href: '/contact' },
+      { label: 'Промышленные решения БПЛА', href: '/solutions' },
+    ],
+  },
+  ar: {
+    eyebrow: 'كتالوج الملحقات',
+    title: 'ملحقات الطائرات بدون طيار ومكونات UAV للمنصات الصناعية',
+    intro: [
+      'تشمل فئات ملحقات N-TET الحوامل الكهروبصرية، ومحركات UAV، وروابط بيانات UAV، والمراوح، والمحركات، والبطاريات، ووحدات التحكم عن بعد، ووحدات التحكم بالطيران.',
+      'تعرض صفحات الملحقات اسم المنتج والفئة والطراز والصورة والمعلمات الرئيسية ووصف المنتج والمواصفات الفنية عندما تتوفر هذه البيانات في المصدر.',
+    ],
+    cards: [
+      {
+        title: 'الحوامل ومكونات التصوير',
+        body: 'تشمل الحوامل الكهروبصرية، والوحدات البصرية، وحمولات الضوء المرئي، والحمولات الحرارية، ووحدات قياس المسافة بالليزر، وواجهات التثبيت، وملحقات التصوير.',
+      },
+      {
+        title: 'الدفع والطاقة',
+        body: 'تشمل محركات UAV، والمحركات الكهربائية، والمراوح، والبطاريات، ووحدات الطاقة، وقطع الدفع الاحتياطية حسب فئة المنتج والمواصفات المتاحة.',
+      },
+      {
+        title: 'التحكم والاتصال',
+        body: 'تشمل روابط بيانات UAV، ووحدات التحكم عن بعد، ووحدات التحكم بالطيران، والهوائيات، ووحدات القياس عن بعد، وملحقات الإرسال.',
+      },
+    ],
+    faqTitle: 'الأسئلة الشائعة لمنتجات الملحقات',
+    faqs: [
+      {
+        question: 'ما فئات ملحقات الطائرات بدون طيار المعروضة؟',
+        answer: 'يشمل الكتالوج الحوامل الكهروبصرية، ومحركات UAV، وروابط بيانات UAV، والمراوح، والمحركات، والبطاريات، ووحدات التحكم عن بعد، ووحدات التحكم بالطيران.',
+      },
+      {
+        question: 'ما المعلمات التي يمكن أن تعرضها صفحة الملحق؟',
+        answer: 'يمكن أن تعرض صفحة الملحق الطراز، والفئة، والوزن، والجهد، والواجهة، ومسافة الاتصال، ونوع الحمولة، ونوع الطاقة، والحجم، والصورة، والوصف، والمواصفات الفنية عندما تتوفر في المصدر.',
+      },
+      {
+        question: 'ما مكونات UAV المرتبطة بالتحكم والاتصال؟',
+        answer: 'تشمل مكونات التحكم والاتصال روابط بيانات UAV، ووحدات التحكم عن بعد، ووحدات التحكم بالطيران، والهوائيات، ووحدات القياس عن بعد، وملحقات الإرسال.',
+      },
+    ],
+    linksTitle: 'صفحات منتجات ذات صلة',
+    links: [
+      { label: 'مركز منتجات أنظمة UAV الصناعية', href: '/products' },
+      { label: 'استفسار عن ملحقات الطائرات بدون طيار', href: '/contact' },
+      { label: 'حلول UAV الصناعية', href: '/solutions' },
     ],
   },
 };

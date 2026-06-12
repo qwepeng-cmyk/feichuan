@@ -7,7 +7,6 @@ import Image from 'next/image';
 import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import ProductCenterSeoContent from '@/components/products/ProductCenterSeoContent';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 interface Product {
@@ -359,8 +358,6 @@ export default function MobileProductCenter({
                 </div>
             </div>
 
-            <ProductCenterSeoContent locale={locale} compact />
-
             <div className={styles.listContainer}>
                 {categoryList.map((category) => (
                     <section key={category.id} id={`mobile-${category.id}`} className={styles.categorySection}>
@@ -401,8 +398,6 @@ export default function MobileProductCenter({
                     </section>
                 ))}
             </div>
-
-            <ProductCenterSeoContent locale={locale} compact placement="faq" />
 
             {/* Mobile Inquiry Form */}
             <MobileInquiryForm dict={dict} />

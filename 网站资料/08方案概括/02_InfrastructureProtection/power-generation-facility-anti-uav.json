@@ -1,14 +1,14 @@
 {
   "product_name": "Power Generation Facility Airspace Monitoring",
   "product_name_en": "Power Generation Facility Airspace Monitoring",
-  "summary": "Customized for high-voltage thermal power plants, nuclear power plants, and core substation hubs. It automatically detects unauthorized mapping and reconnaissance flights, preventing foreign objects from falling and causing short circuits or damage to critical lines. The system is equipped with both fixed and portable response workflows to ensure the stable operation of the energy industry.",
-  "summary_en": "Customized for high-voltage thermal power plants, nuclear power plants, and core substation hubs. It automatically detects unauthorized mapping and reconnaissance flights, preventing foreign objects from falling and causing short circuits or damage to critical lines. The system is equipped with both fixed and portable response workflows to ensure the stable operation of the energy industry.",
+  "summary": "Customized for high-voltage thermal power plants, nuclear power plants, and core substation hubs. It automatically detects unauthorized mapping and reconnaissance flights, preventing foreign objects from falling and causing short circuits or damage to critical lines. The system is equipped with both fixed and portable response procedures to ensure the stable operation of the energy industry.",
+  "summary_en": "Customized for high-voltage thermal power plants, nuclear power plants, and core substation hubs. It automatically detects unauthorized mapping and reconnaissance flights, preventing foreign objects from falling and causing short circuits or damage to critical lines. The system is equipped with both fixed and portable response procedures to ensure the stable operation of the energy industry.",
   "key_application": "",
   "key_application_en": "",
   "key_parameter_1": "Infrastructure Alert: Auto-detection of unauthorized mapping and spying to prevent line damage",
   "key_parameter_1_en": "Infrastructure Alert: Auto-detection of unauthorized mapping and spying to prevent line damage",
-  "key_parameter_2": "Continuous Safeguard: Integrated fixed and portable response workflows for stable hub operation",
-  "key_parameter_2_en": "Continuous Safeguard: Integrated fixed and portable response workflows for stable hub operation",
+  "key_parameter_2": "Continuous Safeguard: Integrated fixed and portable response procedures for stable hub operation",
+  "key_parameter_2_en": "Continuous Safeguard: Integrated fixed and portable response procedures for stable hub operation",
   "parameters": {
     "Application": "Thermal/Nuclear/Wind/Substation hubs",
     "Bands": "Multi-band coverage (airspace data review)",
@@ -50,7 +50,7 @@
   "summary_es": "Eléctrica Generation Facility espacio aéreo monitoreo de N-TET para infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
   "key_application_es": "",
   "key_parameter_1_es": "Infraestructura Alert: Auto-detection of unauthorized mapping and spying to prevent line damage",
-  "key_parameter_2_es": "Continuous Safeguard: Integrated fixed and portable response workflows for stable hub operation",
+  "key_parameter_2_es": "Continuous Safeguard: Integrated fixed and portable response procedures for stable hub operation",
   "parameters_es": {
     "Application": "Thermal/Nuclear/Wind/subestación hubs",
     "Bands": "Multi-band coverage (airspace data review)",

@@ -11,14 +11,14 @@
   "key_parameter_2_en": "24/7 Monitoring: Multi-spectral imaging and smart ID for precision tracking of people, goods, and UAVs",
   "parameters": {
     "Depth": "Outdoor-Indoor integrated linkage",
-    "Response Workflow": "Full-band screening protection",
+    "Response Procedure": "Full-band screening protection",
     "Accuracy": "Multi-layered MMW/X-ray inspection",
     "Response": "< 2s auto-capture & recognition",
     "industry_pain_points_image": "/solutions/solutions/Judicial Sector Security.webp"
   },
   "parameters_en": {
     "Depth": "Outdoor-Indoor integrated linkage",
-    "Response Workflow": "Full-band screening protection",
+    "Response Procedure": "Full-band screening protection",
     "Accuracy": "Multi-layered MMW/X-ray inspection",
     "Response": "< 2s auto-capture & recognition",
     "industry_pain_points_image": "/solutions/solutions/Judicial Sector Security.webp"
@@ -57,7 +57,7 @@
   "key_parameter_2_es": "24/7 monitoreo: Multi-spectral imaging and smart ID for precision tracking of people, goods, and UAVs",
   "parameters_es": {
     "Depth": "Outdoor-Indoor integrated linkage",
-    "Response Workflow": "Full-band screening protection",
+    "Response Procedure": "Full-band screening protection",
     "Accuracy": "Multi-layered MMW/X-ray inspection",
     "Response": "< 2s auto-capture & recognition",
     "Industry_pain_points_image": "/solutions/solutions/sector judicial seguridad.webp"

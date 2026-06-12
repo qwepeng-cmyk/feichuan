@@ -62,7 +62,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
     const newsSummary = stripHtml(newsContent).slice(0, 220);
     const relatedLinks = [
         { href: '/media', label: dict.nav.media, description: 'More N-TET technical articles' },
-        { href: '/solutions', label: dict.nav.solutions, description: 'Related operational workflows' },
+        { href: '/solutions', label: dict.nav.solutions, description: 'Related field operations' },
         { href: '/products', label: dict.nav.products, description: 'Industrial UAV and monitoring equipment' },
         { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
     ];
@@ -107,7 +107,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                                 <h1>{newsTitle}</h1>
                                 <p>{newsSummary}</p>
                                 <div className="media-hero-signals" aria-label="Article signals">
-                                    <span>Field workflow</span>
+                                    <span>Field operations</span>
                                     <span>Equipment fit</span>
                                     <span>AI citation ready</span>
                                 </div>

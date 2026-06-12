@@ -15,209 +15,209 @@ type ProductContentPlacement = 'intro' | 'faq';
 
 const CONTENT: Record<string, LocaleContent> = {
   en: {
-    eyebrow: 'Selection guide',
-    title: 'Industrial UAV Systems, Monitoring Equipment, and Project Fit',
+    eyebrow: 'Product range',
+    title: 'Industrial UAV Systems, Monitoring Equipment, Accessories, and Field Equipment',
     intro: [
-      'Industrial UAV systems should be selected by mission, payload, endurance, data workflow, and site constraints. N-TET groups UAV platforms, low-altitude monitoring equipment, inspection drones, screening systems, engineering materials, and field medical equipment so project teams can compare equipment by operational scenario rather than by catalog name alone.',
-      'For procurement teams, the useful starting point is the field task: utility inspection, emergency response, water conservancy monitoring, public-site screening, perimeter observation, or temporary infrastructure support. Each product family below links to equipment that can be matched with solution pages, case evidence, and a project quotation workflow.',
+      'N-TET product families include industrial UAV platforms, low-altitude monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components.',
+      'Product pages list product type, model, payload, endurance, operating radius, sensor, data link, power module, compatible accessories, and available spare parts where the source data provides them.',
     ],
     cards: [
       {
-        title: 'Mission and application fit',
-        body: 'Match UAV inspection drone options to power-line patrol, substation inspection, search and rescue, emergency communication, lighting, firefighting support, and water-resource monitoring tasks.',
+        title: 'UAV platforms',
+        body: 'Includes multi-rotor UAVs, VTOL fixed-wing UAVs, tethered UAVs, emergency communication UAVs, lighting UAVs, firefighting UAVs, inspection UAVs, and water-resource monitoring UAVs.',
       },
       {
-        title: 'Platform and payload selection',
-        body: 'Compare multi-rotor UAVs, VTOL fixed-wing UAVs, tethered UAVs, payload capacity, endurance, data links, gimbals, and field deployment requirements before requesting a quote.',
+        title: 'Monitoring and screening equipment',
+        body: 'Includes low-altitude detection radars, RF detection systems, electro-optical tracking systems, Remote ID monitoring, X-ray baggage scanners, metal detectors, liquid inspectors, explosive detectors, and access-control turnstiles.',
       },
       {
-        title: 'Operational support evidence',
-        body: 'Use related solution pages and deployment cases to check workflow fit, recommended equipment, operating environment, and post-deployment support expectations.',
+        title: 'Accessories and field equipment',
+        body: 'Includes gimbals, UAV engines, data links, propellers, motors, batteries, remote controllers, flight controllers, prefabricated steel bridges, bridge components, containerized medical systems, and mobile cabin hospitals.',
       },
     ],
-    faqTitle: 'Product Selection FAQ',
+    faqTitle: 'Product Category FAQ',
     faqs: [
       {
-        question: 'How should a team choose between UAV platforms and monitoring equipment?',
-        answer: 'Start with the site task and response workflow. A utility inspection team usually prioritizes route planning, imaging payloads, endurance, and inspection records, while a low-altitude monitoring project prioritizes sensor coverage, event records, and command-center integration.',
+        question: 'Which UAV product types are listed?',
+        answer: 'The UAV category includes multi-rotor UAVs, VTOL fixed-wing UAVs, tethered UAVs, emergency communication UAVs, lighting UAVs, firefighting UAVs, inspection UAVs, and water-resource monitoring UAVs.',
       },
       {
-        question: 'What information is needed for an industrial UAV quote?',
-        answer: 'Useful quotation inputs include mission type, operating area, expected endurance, payload or sensor needs, communication distance, deployment frequency, and whether the project needs training, spare parts, or integration with existing systems.',
+        question: 'Which monitoring and screening products are listed?',
+        answer: 'The catalog includes low-altitude detection radars, RF detection systems, electro-optical tracking systems, Remote ID monitoring, X-ray baggage scanners, metal detectors, liquid inspectors, explosive detectors, radiation detectors, and access-control turnstiles.',
       },
       {
-        question: 'Can products be matched with solution pages and cases?',
-        answer: 'Yes. Product pages should be reviewed together with solution workflows and deployment cases so buyers can see how equipment supports inspection, emergency response, monitoring, or screening operations.',
+        question: 'Which UAV accessories are listed?',
+        answer: 'The accessories category includes electro-optical gimbals, UAV engines, UAV data links, propellers, motors, batteries, remote controllers, and flight controllers.',
       },
       {
-        question: 'When is a custom configuration needed?',
-        answer: 'Custom configuration is usually needed when a project has unusual payload requirements, long endurance targets, harsh field conditions, multi-site deployment, or a need to combine UAV, monitoring, and screening equipment in one workflow.',
+        question: 'Which field equipment categories are listed?',
+        answer: 'Field equipment includes prefabricated steel bridges, bridge components, containerized medical systems, intelligent mobile cabin hospitals, smart electronic sentinels, radar-vision systems, EO/IR PTZ cameras, thermal domes, and HD laser cameras.',
       },
     ],
-    linksTitle: 'Related product planning pages',
+    linksTitle: 'Related product pages',
     links: [
-      { label: 'UAV inspection solutions for field teams', href: '/solutions' },
-      { label: 'UAV inspection cases and deployment references', href: '/cases' },
-      { label: 'Industrial UAV quote and project consultation', href: '/contact' },
+      { label: 'Drone accessories and UAV components', href: '/accessories' },
+      { label: 'Industrial UAV solutions', href: '/solutions' },
+      { label: 'Product inquiry', href: '/contact' },
     ],
   },
   es: {
-    eyebrow: 'Guía de selección',
-    title: 'Sistemas UAV industriales, equipos de monitoreo y ajuste al proyecto',
+    eyebrow: 'Gama de productos',
+    title: 'Sistemas UAV industriales, equipos de monitoreo, accesorios y equipos de campo',
     intro: [
-      'Los sistemas UAV industriales deben seleccionarse según misión, carga útil, autonomía, flujo de datos y condiciones del sitio. N-TET organiza plataformas UAV, equipos de monitoreo de baja altitud, drones de inspección, sistemas de inspección de seguridad, materiales de ingeniería y equipos médicos de campaña para comparar productos por escenario operativo.',
-      'Para equipos de compra, el punto de partida es la tarea de campo: inspección de servicios públicos, respuesta de emergencia, monitoreo de recursos hídricos, inspección de sitios públicos, observación perimetral o soporte temporal de infraestructura. Cada familia de productos se puede revisar junto con soluciones, casos y consulta de cotización.',
+      'Las familias de productos N-TET incluyen plataformas UAV industriales, equipos de monitoreo de baja altitud, sistemas de inspección de seguridad, materiales de ingeniería, equipos médicos de campo, accesorios para drones y componentes UAV.',
+      'Las páginas de producto muestran tipo de producto, modelo, carga útil, autonomía, radio operativo, sensor, enlace de datos, módulo de energía, accesorios compatibles y repuestos disponibles cuando los datos de origen los incluyen.',
     ],
     cards: [
       {
-        title: 'Ajuste por misión y aplicación',
-        body: 'Relacione drones de inspección UAV con patrullaje de líneas eléctricas, inspección de subestaciones, búsqueda y rescate, comunicación de emergencia, iluminación, apoyo contra incendios y monitoreo hídrico.',
+        title: 'Plataformas UAV',
+        body: 'Incluye UAV multirrotor, UAV VTOL de ala fija, UAV cautivos, UAV de comunicación de emergencia, UAV de iluminación, UAV de extinción de incendios, UAV de inspección y UAV de monitoreo de recursos hídricos.',
       },
       {
-        title: 'Selección de plataforma y carga útil',
-        body: 'Compare UAV multirrotor, UAV VTOL de ala fija, UAV cautivo, capacidad de carga, autonomía, enlaces de datos, gimbals y requisitos de despliegue antes de solicitar cotización.',
+        title: 'Equipos de monitoreo e inspección',
+        body: 'Incluye radares de detección de baja altitud, sistemas de detección RF, sistemas electroópticos de seguimiento, monitoreo Remote ID, escáneres X-ray, detectores de metales, inspectores de líquidos, detectores de explosivos y torniquetes.',
       },
       {
-        title: 'Evidencia de soporte operativo',
-        body: 'Use páginas de soluciones y casos de despliegue para revisar flujo de trabajo, equipos recomendados, entorno operativo y expectativas de soporte posterior.',
+        title: 'Accesorios y equipos de campo',
+        body: 'Incluye gimbals, motores UAV, enlaces de datos, hélices, motores, baterías, controles remotos, controladores de vuelo, puentes prefabricados de acero, componentes de puente, sistemas médicos en contenedor y hospitales móviles.',
       },
     ],
-    faqTitle: 'Preguntas frecuentes de selección de productos',
+    faqTitle: 'Preguntas frecuentes de categorías de productos',
     faqs: [
       {
-        question: '¿Cómo elegir entre plataformas UAV y equipos de monitoreo?',
-        answer: 'Empiece por la tarea del sitio y el flujo de respuesta. Un equipo de inspección suele priorizar rutas, carga de imagen, autonomía y registros; un proyecto de monitoreo de baja altitud prioriza cobertura, registros de eventos e integración con centro de mando.',
+        question: '¿Qué tipos de UAV aparecen en el catálogo?',
+        answer: 'La categoría UAV incluye UAV multirrotor, UAV VTOL de ala fija, UAV cautivos, UAV de comunicación de emergencia, UAV de iluminación, UAV de extinción de incendios, UAV de inspección y UAV de monitoreo de recursos hídricos.',
       },
       {
-        question: '¿Qué datos ayudan a preparar una cotización UAV industrial?',
-        answer: 'Conviene definir tipo de misión, área de operación, autonomía esperada, sensores o carga útil, distancia de comunicación, frecuencia de despliegue y necesidades de capacitación, repuestos o integración.',
+        question: '¿Qué equipos de monitoreo e inspección aparecen?',
+        answer: 'El catálogo incluye radares de detección de baja altitud, sistemas de detección RF, sistemas electroópticos de seguimiento, monitoreo Remote ID, escáneres X-ray, detectores de metales, inspectores de líquidos, detectores de explosivos, detectores de radiación y torniquetes.',
       },
       {
-        question: '¿Los productos se pueden relacionar con soluciones y casos?',
-        answer: 'Sí. Las páginas de productos deben revisarse con soluciones y casos para ver cómo el equipo apoya inspección, respuesta de emergencia, monitoreo o inspección de seguridad.',
+        question: '¿Qué accesorios UAV aparecen?',
+        answer: 'La categoría de accesorios incluye gimbals electroópticos, motores UAV, enlaces de datos UAV, hélices, motores, baterías, controles remotos y controladores de vuelo.',
       },
       {
-        question: '¿Cuándo se necesita configuración personalizada?',
-        answer: 'Suele ser necesaria cuando hay cargas útiles especiales, objetivos de larga autonomía, condiciones de campo difíciles, despliegues en varios sitios o combinación de UAV, monitoreo y equipos de inspección.',
+        question: '¿Qué equipos de campo aparecen?',
+        answer: 'Los equipos de campo incluyen puentes prefabricados de acero, componentes de puente, sistemas médicos en contenedor, hospitales móviles, centinelas electrónicos, sistemas radar-visión, cámaras EO/IR PTZ, domos térmicos y cámaras láser HD.',
       },
     ],
-    linksTitle: 'Páginas relacionadas para planificación',
+    linksTitle: 'Páginas de productos relacionadas',
     links: [
-      { label: 'Soluciones de inspección UAV para equipos de campo', href: '/solutions' },
-      { label: 'Casos UAV y referencias de despliegue', href: '/cases' },
-      { label: 'Cotización UAV industrial y consulta de proyecto', href: '/contact' },
+      { label: 'Accesorios para drones y componentes UAV', href: '/accessories' },
+      { label: 'Soluciones UAV industriales', href: '/solutions' },
+      { label: 'Consulta de producto', href: '/contact' },
     ],
   },
   ru: {
-    eyebrow: 'Руководство по выбору',
-    title: 'промышленные БПЛА, оборудование мониторинга и соответствие проекту',
+    eyebrow: 'Линейка продуктов',
+    title: 'Промышленные БПЛА, оборудование мониторинга, аксессуары и полевое оборудование',
     intro: [
-      'промышленные БПЛА следует выбирать по задаче, полезной нагрузке, времени полета, рабочему процессу данных и условиям площадки. N-TET группирует платформы БПЛА, оборудование мониторинга низкой высоты, инспекционные дроны, системы досмотра, инженерные материалы и полевое медицинское оборудование по практическим сценариям.',
-      'Для закупочной команды отправная точка - полевая задача: инспекция инфраструктуры, аварийное реагирование, мониторинг водных объектов, досмотр общественных площадок, периметральное наблюдение или временная инфраструктурная поддержка. Каждая группа продуктов связана с решениями, кейсами и консультацией по проекту.',
+      'Линейки N-TET включают промышленные платформы БПЛА, оборудование мониторинга низкой высоты, системы досмотра, инженерные материалы, полевое медицинское оборудование, аксессуары для дронов и компоненты БПЛА.',
+      'Страницы продуктов показывают тип продукта, модель, полезную нагрузку, автономность, рабочий радиус, датчик, канал данных, модуль питания, совместимые аксессуары и доступные запасные части, если эти данные есть в источнике.',
     ],
     cards: [
       {
-        title: 'Соответствие миссии и применению',
-        body: 'Сопоставьте инспекционные БПЛА с патрулированием ЛЭП, инспекцией подстанций, поиском и спасением, аварийной связью, освещением, пожарной поддержкой и мониторингом водных ресурсов.',
+        title: 'Платформы БПЛА',
+        body: 'Включает мультироторные БПЛА, БПЛА VTOL, привязные БПЛА, БПЛА экстренной связи, осветительные БПЛА, пожарные БПЛА, инспекционные БПЛА и БПЛА мониторинга водных ресурсов.',
       },
       {
-        title: 'Выбор платформы и нагрузки',
-        body: 'Сравните мультироторные БПЛА, БПЛА VTOL, привязные БПЛА, грузоподъемность, автономность, каналы данных, подвесы и требования к развертыванию перед запросом КП.',
+        title: 'Оборудование мониторинга и досмотра',
+        body: 'Включает низковысотные радары обнаружения, RF-системы обнаружения, электрооптические системы сопровождения, мониторинг Remote ID, X-ray сканеры багажа, металлодетекторы, инспекторы жидкостей, детекторы взрывчатых веществ и турникеты.',
       },
       {
-        title: 'Операционные доказательства',
-        body: 'Используйте страницы решений и кейсы, чтобы проверить рабочий процесс, рекомендуемое оборудование, условия эксплуатации и ожидания по поддержке после внедрения.',
+        title: 'Аксессуары и полевое оборудование',
+        body: 'Включает подвесы, двигатели БПЛА, каналы данных, пропеллеры, моторы, аккумуляторы, пульты управления, полетные контроллеры, сборные стальные мосты, компоненты мостов, контейнерные медицинские системы и мобильные госпитали.',
       },
     ],
-    faqTitle: 'FAQ по выбору продуктов',
+    faqTitle: 'FAQ по категориям продуктов',
     faqs: [
       {
-        question: 'Как выбрать между платформами БПЛА и оборудованием мониторинга?',
-        answer: 'Начните с задачи площадки и рабочего процесса реагирования. Инспекционная команда обычно оценивает маршруты, полезную нагрузку, автономность и записи инспекции, а проект мониторинга низкой высоты - покрытие сенсоров, записи событий и интеграцию с центром управления.',
+        question: 'Какие типы БПЛА указаны в каталоге?',
+        answer: 'Категория БПЛА включает мультироторные БПЛА, БПЛА VTOL, привязные БПЛА, БПЛА экстренной связи, осветительные БПЛА, пожарные БПЛА, инспекционные БПЛА и БПЛА мониторинга водных ресурсов.',
       },
       {
-        question: 'Какие данные нужны для запроса КП на промышленные БПЛА?',
-        answer: 'Полезно указать тип миссии, район работы, ожидаемую автономность, датчики или полезную нагрузку, дальность связи, частоту развертывания, потребность в обучении, запасных частях или интеграции.',
+        question: 'Какое оборудование мониторинга и досмотра указано?',
+        answer: 'Каталог включает низковысотные радары обнаружения, RF-системы обнаружения, электрооптические системы сопровождения, мониторинг Remote ID, X-ray сканеры, металлодетекторы, инспекторы жидкостей, детекторы взрывчатых веществ, радиационные детекторы и турникеты.',
       },
       {
-        question: 'Можно ли сопоставить продукты со страницами решений и кейсами?',
-        answer: 'Да. Страницы продуктов следует рассматривать вместе с решениями и кейсами, чтобы увидеть, как оборудование поддерживает инспекцию, аварийное реагирование, мониторинг или досмотровые операции.',
+        question: 'Какие аксессуары БПЛА указаны?',
+        answer: 'Категория аксессуаров включает электрооптические подвесы, двигатели БПЛА, каналы данных БПЛА, пропеллеры, моторы, аккумуляторы, пульты управления и полетные контроллеры.',
       },
       {
-        question: 'Когда нужна индивидуальная конфигурация?',
-        answer: 'Она обычно требуется при нестандартной полезной нагрузке, долгой автономности, сложных полевых условиях, нескольких площадках или объединении БПЛА, мониторинга и досмотрового оборудования в один процесс.',
+        question: 'Какие категории полевого оборудования указаны?',
+        answer: 'Полевое оборудование включает сборные стальные мосты, компоненты мостов, контейнерные медицинские системы, мобильные госпитали, электронные посты, системы радар-оптика, EO/IR PTZ камеры, тепловизионные купольные камеры и HD лазерные камеры.',
       },
     ],
-    linksTitle: 'Связанные страницы для планирования',
+    linksTitle: 'Связанные страницы продуктов',
     links: [
-      { label: 'Решения инспекции БПЛА для полевых команд', href: '/solutions' },
-      { label: 'Кейсы БПЛА и примеры развертывания', href: '/cases' },
-      { label: 'Запрос КП на промышленные БПЛА и консультация', href: '/contact' },
+      { label: 'Аксессуары и компоненты БПЛА', href: '/accessories' },
+      { label: 'Промышленные решения БПЛА', href: '/solutions' },
+      { label: 'Запрос по продукту', href: '/contact' },
     ],
   },
   ar: {
-    eyebrow: 'دليل الاختيار',
-    title: 'أنظمة UAV الصناعية ومعدات المراقبة وملاءمة المشروع',
+    eyebrow: 'نطاق المنتجات',
+    title: 'أنظمة UAV الصناعية ومعدات المراقبة والملحقات والمعدات الميدانية',
     intro: [
-      'يجب اختيار أنظمة UAV الصناعية حسب المهمة والحمولة ومدة الطيران وسير عمل البيانات وقيود الموقع. تنظم N-TET منصات UAV ومعدات مراقبة الارتفاع المنخفض وطائرات التفتيش وأنظمة الفحص ومواد الهندسة ومعدات الدعم الميداني حسب سيناريو التشغيل.',
-      'بالنسبة لفرق الشراء، نقطة البداية هي المهمة الميدانية: تفتيش المرافق، الاستجابة للطوارئ، مراقبة الموارد المائية، فحص المواقع العامة، مراقبة المحيط أو دعم البنية التحتية المؤقتة.',
+      'تغطي عائلات منتجات N-TET منصات UAV الصناعية، ومعدات مراقبة الارتفاع المنخفض، وأنظمة الفحص الأمني، ومواد الهندسة، والمعدات الطبية الميدانية، وملحقات الطائرات بدون طيار، ومكونات UAV.',
+      'تعرض صفحات المنتجات نوع المنتج والطراز والحمولة ومدة الطيران ونطاق التشغيل والمستشعر ورابط البيانات ووحدة الطاقة والملحقات المتوافقة وقطع الغيار المتاحة عندما تتوفر هذه البيانات في المصدر.',
     ],
     cards: [
       {
-        title: 'ملاءمة المهمة والتطبيق',
-        body: 'طابق خيارات طائرات UAV للتفتيش مع دوريات خطوط الكهرباء، تفتيش المحطات الفرعية، البحث والإنقاذ، الاتصالات الطارئة، الإضاءة، دعم مكافحة الحرائق ومراقبة المياه.',
+        title: 'منصات UAV',
+        body: 'تشمل UAV متعددة الدوارات، وUAV ذات الإقلاع العمودي، وUAV المربوطة، وUAV للاتصالات الطارئة، وUAV للإضاءة، وUAV لمكافحة الحرائق، وUAV للتفتيش، وUAV لمراقبة الموارد المائية.',
       },
       {
-        title: 'اختيار المنصة والحمولة',
-        body: 'قارن UAV متعددة الدوارات، UAV ذات الإقلاع العمودي، UAV المربوطة، الحمولة، مدة الطيران، روابط البيانات، الحوامل ومتطلبات النشر الميداني قبل طلب عرض السعر.',
+        title: 'معدات المراقبة والفحص',
+        body: 'تشمل رادارات كشف الارتفاع المنخفض، وأنظمة كشف RF، وأنظمة التتبع الكهروبصرية، ومراقبة Remote ID، وأجهزة X-ray للأمتعة، وكواشف المعادن، وأجهزة فحص السوائل، وكواشف المتفجرات، وبوابات المرور.',
       },
       {
-        title: 'أدلة الدعم التشغيلي',
-        body: 'استخدم صفحات الحلول وحالات النشر للتحقق من سير العمل والمعدات الموصى بها وبيئة التشغيل وتوقعات الدعم بعد النشر.',
+        title: 'الملحقات والمعدات الميدانية',
+        body: 'تشمل الحوامل، ومحركات UAV، وروابط البيانات، والمراوح، والمحركات، والبطاريات، ووحدات التحكم عن بعد، ووحدات التحكم بالطيران، والجسور الفولاذية الجاهزة، ومكونات الجسور، والأنظمة الطبية الحاوية، والمستشفيات المتنقلة.',
       },
     ],
-    faqTitle: 'الأسئلة الشائعة لاختيار المنتجات',
+    faqTitle: 'الأسئلة الشائعة لفئات المنتجات',
     faqs: [
       {
-        question: 'كيف تختار الفرق بين منصات UAV ومعدات المراقبة؟',
-        answer: 'ابدأ بمهمة الموقع وسير الاستجابة. فريق التفتيش يركز عادة على تخطيط المسار وحمولة التصوير ومدة الطيران وسجلات التفتيش، بينما يركز مشروع مراقبة الارتفاع المنخفض على تغطية المستشعرات وسجلات الأحداث والتكامل مع مركز القيادة.',
+        question: 'ما أنواع UAV المعروضة في الكتالوج؟',
+        answer: 'تشمل فئة UAV الطائرات متعددة الدوارات، وUAV ذات الإقلاع العمودي، وUAV المربوطة، وUAV للاتصالات الطارئة، وUAV للإضاءة، وUAV لمكافحة الحرائق، وUAV للتفتيش، وUAV لمراقبة الموارد المائية.',
       },
       {
-        question: 'ما المعلومات المطلوبة لعرض سعر UAV صناعي؟',
-        answer: 'تشمل مدخلات عرض السعر نوع المهمة، منطقة التشغيل، مدة الطيران المطلوبة، احتياجات الحمولة أو المستشعر، مسافة الاتصال، تكرار النشر، وهل يحتاج المشروع إلى تدريب أو قطع غيار أو تكامل مع أنظمة قائمة.',
+        question: 'ما معدات المراقبة والفحص المعروضة؟',
+        answer: 'يشمل الكتالوج رادارات كشف الارتفاع المنخفض، وأنظمة كشف RF، وأنظمة التتبع الكهروبصرية، ومراقبة Remote ID، وأجهزة X-ray، وكواشف المعادن، وأجهزة فحص السوائل، وكواشف المتفجرات، وكواشف الإشعاع، وبوابات المرور.',
       },
       {
-        question: 'هل يمكن ربط المنتجات بصفحات الحلول والحالات؟',
-        answer: 'نعم. يجب مراجعة صفحات المنتجات مع سير عمل الحلول وحالات النشر حتى يرى المشتري كيف تدعم المعدات التفتيش أو الاستجابة الطارئة أو المراقبة أو عمليات الفحص.',
+        question: 'ما ملحقات UAV المعروضة؟',
+        answer: 'تشمل فئة الملحقات الحوامل الكهروبصرية، ومحركات UAV، وروابط بيانات UAV، والمراوح، والمحركات، والبطاريات، ووحدات التحكم عن بعد، ووحدات التحكم بالطيران.',
       },
       {
-        question: 'متى تكون التهيئة المخصصة مطلوبة؟',
-        answer: 'تكون التهيئة المخصصة مطلوبة غالبا عند وجود حمولة خاصة، أهداف مدة طيران طويلة، ظروف ميدانية قاسية، نشر متعدد المواقع، أو الحاجة إلى جمع UAV والمراقبة ومعدات الفحص في سير عمل واحد.',
+        question: 'ما فئات المعدات الميدانية المعروضة؟',
+        answer: 'تشمل المعدات الميدانية الجسور الفولاذية الجاهزة، ومكونات الجسور، والأنظمة الطبية الحاوية، والمستشفيات المتنقلة، والحراس الإلكترونيين، وأنظمة الرادار والرؤية، وكاميرات EO/IR PTZ، والقباب الحرارية، وكاميرات الليزر HD.',
       },
     ],
-    linksTitle: 'صفحات تخطيط ذات صلة',
+    linksTitle: 'صفحات منتجات ذات صلة',
     links: [
-      { label: 'حلول تفتيش UAV للفرق الميدانية', href: '/solutions' },
-      { label: 'حالات UAV ومراجع النشر', href: '/cases' },
-      { label: 'عرض سعر UAV صناعي واستشارة مشروع', href: '/contact' },
+      { label: 'ملحقات ومكونات UAV', href: '/accessories' },
+      { label: 'حلول UAV الصناعية', href: '/solutions' },
+      { label: 'استفسار عن المنتج', href: '/contact' },
     ],
   },
 };
 
 function getProductSummary(locale: string) {
   if (locale === 'es') {
-    return 'Compare sistemas UAV industriales por ajuste de mision, carga util, autonomia, flujo de monitoreo y soporte en campo antes de seleccionar equipos para un proyecto industrial o de emergencia.';
+    return 'Explore plataformas UAV industriales, equipos de monitoreo, sistemas de inspección, materiales de ingeniería, equipos médicos de campo, accesorios para drones y componentes UAV por categoría de producto.';
   }
 
   if (locale === 'ru') {
-    return 'Compare industrial UAV systems by mission fit, payload, endurance, monitoring workflow, and field support before selecting equipment for an infrastructure or emergency project.';
+    return 'Просмотрите промышленные БПЛА, оборудование мониторинга, системы досмотра, инженерные материалы, полевое медицинское оборудование, аксессуары и компоненты БПЛА по категории продукта.';
   }
 
   if (locale === 'ar') {
-    return 'قارن أنظمة UAV الصناعية حسب ملاءمة المهمة والحمولة ومدة الطيران وسير المراقبة والدعم الميداني قبل اختيار المعدات لمشروع بنية تحتية أو طوارئ.';
+    return 'استعرض منصات UAV الصناعية ومعدات المراقبة وأنظمة الفحص ومواد الهندسة والمعدات الطبية الميدانية وملحقات الطائرات بدون طيار ومكونات UAV حسب فئة المنتج.';
   }
 
-  return 'Compare industrial UAV systems by mission fit, payload, endurance, monitoring workflow, and field support before selecting equipment for an infrastructure or emergency project.';
+  return 'Explore industrial UAV platforms, monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components by product category.';
 }
 
 export default function ProductCenterSeoContent({
