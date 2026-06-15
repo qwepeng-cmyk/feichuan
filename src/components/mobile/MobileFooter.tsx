@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { solutions as homeSolutions } from '@/constants/homeData';
 import { localizedField } from '@/lib/localization';
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 
 export default function MobileFooter({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -82,11 +83,11 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                         <div>
                             <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>
-                            <div style={{ color: '#888', fontSize: '16px' }}>+86 136 1371 4648</div>
+                            <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#888', fontSize: '16px', textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</a>
                         </div>
                         <div>
                             <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.email}</div>
-                            <div style={{ color: '#888', fontSize: '16px' }}>info@n-tetbj.com</div>
+                            <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#888', fontSize: '16px', textDecoration: 'none' }}>{CONTACT_EMAIL}</a>
                         </div>
                         <div>
                             <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.salesHotline}</div>

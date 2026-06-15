@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './MobileContact.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 
 export default function MobileContact({ dict }: { dict?: any }) {
     const d = dict?.contact || {
@@ -42,7 +43,7 @@ export default function MobileContact({ dict }: { dict?: any }) {
                         </div>
                         <div className={styles.infoContent}>
                             <h4>{d.whatsapp}</h4>
-                            <a href="https://wa.me/+8613613714648" className={`${styles.infoValue} ${styles.linkValue}`}>+86 136 1371 4648</a>
+                            <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.infoValue} ${styles.linkValue}`}>{CONTACT_WHATSAPP_DISPLAY}</a>
                         </div>
                     </div>
 
@@ -53,7 +54,7 @@ export default function MobileContact({ dict }: { dict?: any }) {
                         </div>
                         <div className={styles.infoContent}>
                             <h4>{d.email}</h4>
-                            <div className={styles.infoValue}>info@n-tetbj.com</div>
+                            <a href={`mailto:${CONTACT_EMAIL}`} className={`${styles.infoValue} ${styles.linkValue}`}>{CONTACT_EMAIL}</a>
                         </div>
                     </div>
 

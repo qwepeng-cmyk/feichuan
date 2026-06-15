@@ -11,6 +11,7 @@ import OptimizedRichText from '@/components/common/OptimizedRichText';
 import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 function renderParameterValue(value: unknown): React.ReactNode {
@@ -690,7 +691,7 @@ export default function SolutionDetailClient({
                   <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                     {dict.products.getQuotation}
                   </a>
-                  <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                  <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                     {dict.products.whatsapp}
                   </a>
                 </div>

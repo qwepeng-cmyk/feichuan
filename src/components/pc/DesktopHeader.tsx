@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { languageLabels } from '@/lib/localization';
 import { i18n } from '@/i18n/config';
+import { CONTACT_EMAIL } from '@/lib/contactSettings';
 
 export default function Header({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -258,7 +259,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         alignItems: 'center', 
                         height: '100%' 
                     }}>
-                        <div>Email: info@n-tetbj.com</div>
+                        <div>Email: {CONTACT_EMAIL}</div>
                         
                         {/* Language Selector with Dropdown */}
                         <div className="lang-switch-top" style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}>

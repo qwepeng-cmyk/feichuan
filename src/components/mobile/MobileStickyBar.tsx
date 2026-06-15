@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 
 export default function MobileStickyBar({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -45,7 +46,7 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
             </Link>
 
             {/* WhatsApp / Chat */}
-            <a href="https://wa.me/8615011035546" target="_blank" style={{
+            <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{
                 flex: '0 1 calc((100vw - 42px) / 2)',
                 minWidth: 0,
                 maxWidth: 'calc((100vw - 42px) / 2)',

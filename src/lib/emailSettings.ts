@@ -16,15 +16,23 @@ export interface PublicEmailSettings extends Omit<EmailSettings, 'smtpPass'> {
   hasSmtpPass: boolean;
 }
 
+const hasSmtpConfig = Boolean(
+  process.env.SMTP_HOST &&
+  process.env.SMTP_USER &&
+  process.env.SMTP_PASS
+);
+
 const DEFAULT_EMAIL_SETTINGS: EmailSettings = {
-  enabled: false,
+  enabled: process.env.EMAIL_NOTIFICATIONS_ENABLED
+    ? process.env.EMAIL_NOTIFICATIONS_ENABLED === 'true'
+    : hasSmtpConfig,
   smtpHost: process.env.SMTP_HOST || '',
   smtpPort: Number(process.env.SMTP_PORT || 587),
   smtpSecure: Number(process.env.SMTP_PORT || 587) === 465,
   smtpUser: process.env.SMTP_USER || '',
   smtpPass: process.env.SMTP_PASS || '',
   fromEmail: process.env.SMTP_USER || '',
-  receiverEmail: process.env.RECEIVER_EMAIL || '',
+  receiverEmail: process.env.INQUIRY_RECEIVER_EMAIL || 'info@n-tetbj.cn',
 };
 
 function parseBoolean(value: unknown, fallback: boolean) {

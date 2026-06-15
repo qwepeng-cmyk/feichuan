@@ -9,6 +9,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
+import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
@@ -181,7 +182,7 @@ export default function CatalogDetailContent({
                       <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
                       </a>
                     </div>

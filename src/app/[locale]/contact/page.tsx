@@ -8,6 +8,7 @@ import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
@@ -104,7 +105,7 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                                                 </div>
                                                 <div>
                                                     <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>{dict.contact.whatsapp}</h4>
-                                                    <a href="https://wa.me/+8613613714648" style={{ fontSize: '2rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none' }}>+86 136 1371 4648</a>
+                                                    <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: '2rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</a>
                                                 </div>
                                             </div>
 
@@ -114,7 +115,7 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                                                 </div>
                                                 <div>
                                                     <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>{dict.contact.email}</h4>
-                                                    <div style={{ fontSize: '2rem', fontWeight: 700, color: '#333' }}>info@n-tetbj.com</div>
+                                                    <a href={`mailto:${CONTACT_EMAIL}`} style={{ fontSize: '2rem', fontWeight: 700, color: '#333', textDecoration: 'none' }}>{CONTACT_EMAIL}</a>
                                                 </div>
                                             </div>
 

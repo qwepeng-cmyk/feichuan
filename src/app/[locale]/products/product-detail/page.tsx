@@ -4,6 +4,7 @@ import ProductGallery from '@/components/products/ProductGallery';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import { getProductByHandle } from '@/lib/products';
+import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 import { notFound } from 'next/navigation';
 
 export const metadata = {
@@ -91,7 +92,7 @@ export default async function ProductDetailPage() {
                                     <button className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer' }}>
                                         Get quotation
                                     </button>
-                                    <a href="https://wa.me/+8613761974616" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
+                                    <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
                                         WhatsApp
                                     </a>
                                 </div>
