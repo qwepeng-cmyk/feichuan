@@ -14,9 +14,7 @@
     "Command and Control Platform"
   ],
   "main_image": "/cases/water-conservancy-security/main.webp",
-  "case_images": [
-    "/cases/water-conservancy-security/hydropower-station-airspace-monitoring.webp"
-  ],
+  "case_images": [],
   "recommendedProductHandles": [],
   "handle": "water-conservancy-security",
   "title_ru": "Water Conservancy Facility Low-Altitude Airspace Monitoring",

@@ -1,12 +1,13 @@
 ﻿'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import MobileCaseCenter from '@/components/mobile/MobileCaseCenter';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
@@ -31,8 +32,6 @@ export default function CasesPageClient({
 }) {
     const [selectedSolution, setSelectedSolution] = useState('all');
     const [selectedRegionId, setSelectedRegionId] = useState('all');
-    const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 9;
     const seoTarget = getSeoKeywordTarget({
         route: '/cases',
         title: dict.cases.bannerTitle,
@@ -62,8 +61,10 @@ export default function CasesPageClient({
         { id: 'Oceania', name: dict.cases.filters.regions.oceania }
     ];
 
+    const orderedCases = useMemo(() => orderCasesForCasesPage(allCases), [allCases]);
+
     const filteredCases = useMemo(() => {
-        return allCases.filter(item => {
+        return orderedCases.filter(item => {
             const matchesSolution = selectedSolution === 'all' || getCaseSolutionGroupId(item) === selectedSolution;
 
             let matchesRegion = true;
@@ -79,15 +80,7 @@ export default function CasesPageClient({
 
             return matchesSolution && matchesRegion;
         });
-    }, [allCases, selectedSolution, selectedRegionId]);
-
-    // Reset to page 1 when filters change
-    useEffect(() => {
-        setCurrentPage(1);
-    }, [selectedSolution, selectedRegionId]);
-
-    const totalPages = Math.ceil(filteredCases.length / pageSize);
-    const paginatedCases = filteredCases.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    }, [orderedCases, selectedSolution, selectedRegionId]);
 
     const renderRadioFilter = (
         label: string,
@@ -256,17 +249,17 @@ export default function CasesPageClient({
 
                     <div className="product-lists-wrap" style={{ padding: '48px 0 100px 0', backgroundColor: '#fcfdfe', minHeight: '600px' }}>
                         <div className="container">
-                            {paginatedCases.length > 0 ? (
+                            {filteredCases.length > 0 ? (
                                 <>
                                     <div className="solution-grid" style={{
                                         display: 'grid',
                                         gridTemplateColumns: 'repeat(3, 1fr)',
                                         gap: '40px'
                                     }}>
-                                        {paginatedCases.map((item, idx) => {
+                                        {filteredCases.map((item, idx) => {
                                             const caseTitle = item[`title_${locale}`] || item.title_en;
                                             return (
-                                                <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={idx} className="catalog-card-item">
+                                                <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={item.handle} className="catalog-card-item">
                                                     <div className="card-image" style={{ borderRadius: '0', overflow: 'hidden', position: 'relative', height: '240px' }}>
                                                         <Image
                                                             src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')}
@@ -274,7 +267,7 @@ export default function CasesPageClient({
                                                             fill
                                                             style={{ objectFit: 'cover' }}
                                                             sizes="(max-width: 1200px) 33vw, 400px"
-                                                            priority={currentPage === 1 && idx < 6}
+                                                            priority={idx < 6}
                                                         />
                                                     </div>
                                                     <div className="card-content" style={{ padding: '25px', textAlign: 'center' }}>
@@ -286,41 +279,6 @@ export default function CasesPageClient({
                                             );
                                         })}
                                     </div>
-
-                                    {totalPages >= 1 && (
-                                        <div className="pagination-wrapper" style={{
-                                            marginTop: '60px',
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            gap: '10px'
-                                        }}>
-                                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-                                                <div
-                                                    key={p}
-                                                    onClick={() => {
-                                                        setCurrentPage(p);
-                                                        window.scrollTo({ top: 300, behavior: 'smooth' });
-                                                    }}
-                                                    style={{
-                                                        width: '45px',
-                                                        height: '45px',
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'center',
-                                                        border: '1px solid #ddd',
-                                                        fontSize: '1.6rem',
-                                                        fontWeight: 600,
-                                                        color: p === currentPage ? '#fff' : '#444',
-                                                        backgroundColor: p === currentPage ? '#315ba4' : 'transparent',
-                                                        cursor: 'pointer',
-                                                        transition: 'all 0.2s'
-                                                    }}
-                                                >
-                                                    {p}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
                                 </>
                             ) : (
                                 <div style={{ textAlign: 'center', padding: '120px 0', background: '#fff', borderRadius: '8px' }}>

@@ -1,12 +1,13 @@
 ﻿'use client';
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import styles from './MobileCaseCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 
 interface CaseItem {
@@ -30,8 +31,6 @@ export default function MobileCaseCenter({
 }) {
     const [selectedSolution, setSelectedSolution] = useState('all');
     const [selectedRegionId, setSelectedRegionId] = useState('all');
-    const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 8;
     const [regionOpen, setRegionOpen] = useState(false);
     const [solutionOpen, setSolutionOpen] = useState(false);
 
@@ -54,8 +53,10 @@ export default function MobileCaseCenter({
         { id: 'Oceania', name: dict.cases.filters.regions.oceania }
     ];
 
+    const orderedCases = useMemo(() => orderCasesForCasesPage(allCases), [allCases]);
+
     const filteredCases = useMemo(() => {
-        return allCases.filter(item => {
+        return orderedCases.filter(item => {
             const matchesSolution = selectedSolution === 'all' || getCaseSolutionGroupId(item) === selectedSolution;
             
             let matchesRegion = true;
@@ -71,31 +72,7 @@ export default function MobileCaseCenter({
             
             return matchesSolution && matchesRegion;
         });
-    }, [allCases, selectedSolution, selectedRegionId]);
-
-    useEffect(() => {
-        setCurrentPage(1);
-    }, [selectedSolution, selectedRegionId]);
-
-    const totalPages = Math.ceil(filteredCases.length / pageSize);
-    const paginatedCases = filteredCases.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-
-    const handlePageChange = (p: number) => {
-        setCurrentPage(p);
-        const element = document.getElementById('case-grid-top');
-        if (element) {
-            const offset = 190;
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    };
+    }, [orderedCases, selectedSolution, selectedRegionId]);
 
     return (
         <div className={styles.wrapper}>
@@ -178,13 +155,13 @@ export default function MobileCaseCenter({
             </section>
 
             <div id="case-grid-top" className={styles.listContainer}>
-                {paginatedCases.length > 0 ? (
+                {filteredCases.length > 0 ? (
                     <>
                         <div className={styles.grid}>
-                            {paginatedCases.map((item, idx) => {
+                            {filteredCases.map((item, idx) => {
                                 const caseTitle = item[`title_${locale}`] || item.title_en;
                                 return (
-                                    <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={idx} className={styles.card}>
+                                    <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={item.handle} className={styles.card}>
                                         <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
                                             <Image src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 4} />
                                         </div>
@@ -195,20 +172,6 @@ export default function MobileCaseCenter({
                                 );
                             })}
                         </div>
-
-                        {totalPages > 1 && (
-                            <div className={styles.pagination}>
-                                {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-                                    <button 
-                                        key={p} 
-                                        className={`${styles.pageBtn} ${p === currentPage ? styles.active : ''}`}
-                                        onClick={() => handlePageChange(p)}
-                                    >
-                                        {p}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
                     </>
                 ) : (
                     <div className={styles.emptyState}>

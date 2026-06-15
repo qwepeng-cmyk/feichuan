@@ -82,9 +82,9 @@ const BASELINE_TIERS = {
     'airport-anti-uav': 'restricted',
   },
   case: {
-    'airport-security-application': 'restricted',
-    'asian-games-security': 'restricted',
-    'water-conservancy-security': 'restricted',
+    'airport-security-application': 'neutral_seo',
+    'asian-games-security': 'neutral_seo',
+    'water-conservancy-security': 'neutral_seo',
     'pakistan-power-plant-anti-uav': 'restricted',
     'brazil-refinery-anti-uav': 'restricted',
     'nigeria-factory-anti-uav': 'restricted',

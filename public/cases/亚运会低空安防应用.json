@@ -14,11 +14,7 @@
     "Command and Control Platform"
   ],
   "main_image": "/cases/asian-games-security/main.webp",
-  "case_images": [
-    "/cases/asian-games-security/asian-games-venue-airspace-monitoring.webp",
-    "/cases/asian-games-security/wenzhou-longwan-stadium-airspace-monitoring.webp",
-    "/cases/asian-games-security/huzhou-deqing-venue-airspace-monitoring.webp"
-  ],
+  "case_images": [],
   "recommendedProductHandles": [],
   "handle": "asian-games-security",
   "title_ru": "Asian Games Low-Altitude Airspace Monitoring Application",

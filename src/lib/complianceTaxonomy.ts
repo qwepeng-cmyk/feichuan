@@ -38,9 +38,9 @@ const SOLUTION_TIERS: Record<string, ComplianceTier> = {
 };
 
 const CASE_TIERS: Record<string, ComplianceTier> = {
-  'airport-security-application': 'restricted',
-  'asian-games-security': 'restricted',
-  'water-conservancy-security': 'restricted',
+  'airport-security-application': 'neutral_seo',
+  'asian-games-security': 'neutral_seo',
+  'water-conservancy-security': 'neutral_seo',
   'pakistan-power-plant-anti-uav': 'restricted',
   'brazil-refinery-anti-uav': 'restricted',
   'nigeria-factory-anti-uav': 'restricted',
