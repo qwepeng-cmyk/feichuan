@@ -396,6 +396,24 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                                 <li><Link prefetch={false} href={l("/products/uav-remote-id-monitoring-system")}>{dict.megaMenu.remoteId}</Link></li>
                                             </ul>
                                         </div>
+                                        <div style={{ marginBottom: '20px' }}>
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#perimeter-intelligence")}>{dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance}</Link></h3>
+                                            {renderMegaImage(productMegaImages.perimeter, dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance, "perimeter")}
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/products/fc-dms10-smart-electronic-sentinel")}>{dict.megaMenu.smartSentinels}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-rds500-4r-radar-vision-sentinel")}>{dict.megaMenu.radarVision}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-dma-long-range-optical-turntable")}>{dict.megaMenu.multiBandEOIR}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-dtvc-dual-band-thermal-ptz")}>{dict.megaMenu.dualBandThermal}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-rc-series-hd-laser-camera")}>{dict.megaMenu.hdLaser}</Link></li>
+                                            </ul>
+                                        </div>
+                                        <div style={{ marginBottom: '20px' }}>
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#industrial-engine-microgrid")}>{dict.products?.categories?.industrialEngineMicrogrid || 'Industrial Engines'}</Link></h3>
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/products/n-tet-fc16vcn-1200kw")}>FC16VCN 1200kW</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/n-tet-fc6kn-200-250kw")}>FC6KN 200~250kW</Link></li>
+                                            </ul>
+                                        </div>
                                         <h3 className="mega-title"><Link prefetch={false} href={l("/products#security-screening")}>{dict.megaMenu.securityScreening}</Link></h3>
                                         {renderMegaImage(productMegaImages.security, dict.megaMenu.securityScreening, "security")}
                                         <ul className="mega-list">
@@ -427,17 +445,6 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/containerized-medical-rescue-system")}>{dict.megaMenu.containerizedMedical}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/intelligent-mobile-cabin-hospital")}>{dict.megaMenu.mobileCabin}</Link></li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#perimeter-intelligence")}>{dict.megaMenu.perimeterSurveillance}</Link></h3>
-                                            {renderMegaImage(productMegaImages.perimeter, dict.megaMenu.perimeterSurveillance, "perimeter")}
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/fc-dms10-smart-electronic-sentinel")}>{dict.megaMenu.smartSentinels}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-rds500-4r-radar-vision-sentinel")}>{dict.megaMenu.radarVision}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-dma-long-range-optical-turntable")}>{dict.megaMenu.multiBandEOIR}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-dtvc-dual-band-thermal-ptz")}>{dict.megaMenu.dualBandThermal}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/fc-rc-series-hd-laser-camera")}>{dict.megaMenu.hdLaser}</Link></li>
                                             </ul>
                                         </div>
                                     </div>

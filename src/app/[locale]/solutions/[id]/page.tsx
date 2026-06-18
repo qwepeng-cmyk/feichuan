@@ -6,6 +6,7 @@ import { getAllProducts } from '@/lib/products';
 import { getCaseByHandle } from '@/lib/cases';
 import SolutionDetailClient from './SolutionDetailClient';
 import MobileSolutionDetail from '@/components/mobile/MobileSolutionDetail';
+import MicrogridSolutionPage from '@/components/solutions/MicrogridSolutionPage';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import JsonLd from '@/components/seo/JsonLd';
@@ -14,6 +15,10 @@ import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+
+function isMicrogridSolution(handle?: string) {
+  return Boolean(handle?.includes('n-tet-pv-storage-diesel-microgrid'));
+}
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
@@ -124,25 +129,35 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
     <>
       <JsonLd data={jsonLd} />
 
-      <div className="pc_only">
+      {isMicrogridSolution(displaySolution.handle || id) ? (
+        <MicrogridSolutionPage
+          solution={displaySolution}
+          locale={locale}
+          dict={dict}
+        />
+      ) : (
+        <>
+          <div className="pc_only">
             <SolutionDetailClient
             solution={displaySolution}
-            recommendedProducts={recommendedProducts} 
+            recommendedProducts={recommendedProducts}
             recommendedCases={recommendedCases}
             locale={locale}
             dict={dict}
         />
-      </div>
+          </div>
 
-      <div className="mobile_only">
-        <MobileSolutionDetail
-            solution={displaySolution}
-            recommendedProducts={recommendedProducts} 
-            recommendedCases={recommendedCases}
-            locale={locale}
-            dict={dict}
-        />
-      </div>
+          <div className="mobile_only">
+            <MobileSolutionDetail
+                solution={displaySolution}
+                recommendedProducts={recommendedProducts}
+                recommendedCases={recommendedCases}
+                locale={locale}
+                dict={dict}
+            />
+          </div>
+        </>
+      )}
 
       <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>

@@ -60,7 +60,8 @@
       "security": "الفحص الأمني",
       "engineeringMaterials": "مواد هندسية",
       "medical": "مستشفيات ميدانية",
-      "surveillance": "ذكاء المحيط"
+      "surveillance": "ذكاء المحيط",
+      "industrialEngineMicrogrid": "المحركات الصناعية والشبكات المصغرة"
     }
   },
   "accessories": {

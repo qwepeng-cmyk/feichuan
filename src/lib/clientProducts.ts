@@ -8,7 +8,7 @@ interface ProductSummary {
 }
 
 type ProductCategories = Record<string, ProductSummary[]>;
-const PRODUCTS_API_VERSION = 'path-safe-v3';
+const PRODUCTS_API_VERSION = 'path-safe-v6-ntet-fc';
 
 declare global {
   interface Window {

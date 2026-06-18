@@ -9,6 +9,7 @@ import UniversalGallery from '@/components/common/UniversalGallery';
 import ProductGridCard from '@/components/products/ProductGridCard';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
 import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
+import MicrogridEnergyFlow from '@/components/solutions/MicrogridEnergyFlow';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
@@ -139,7 +140,20 @@ const defaultSolutionImages = [
   uavSolutionScenes.searchRescue,
 ];
 
+const microgridImages = [
+  '/solutions/n-tet-pv-storage-diesel-microgrid-solution/energy-storage-cabinet.webp',
+  '/solutions/n-tet-pv-storage-diesel-microgrid-solution/diesel-generator-set.webp',
+  '/solutions/n-tet-pv-storage-diesel-microgrid-solution/ems-platform.webp',
+  '/solutions/n-tet-pv-storage-diesel-microgrid-solution/commercial-building.webp',
+  '/solutions/n-tet-pv-storage-diesel-microgrid-solution/factory-site.webp',
+  '/solutions/n-tet-pv-storage-diesel-microgrid-solution/pv-storage-charging.webp',
+];
+
 const solutionVisualSets: Array<{ match: string; images: string[] }> = [
+  {
+    match: 'n-tet-pv-storage-diesel-microgrid',
+    images: microgridImages,
+  },
   {
     match: 'urban-high-rise-firefighting',
     images: [
@@ -294,6 +308,9 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
   const sceneImages = handle.includes('water-conservancy') ? waterSolutionImages : matchedSet?.images || defaultSolutionImages;
   return Array.from(new Set([...(mainImage ? [mainImage] : []), ...sceneImages]));
 }
+function isMicrogridSolution(handle?: string) {
+  return Boolean(handle?.includes('n-tet-pv-storage-diesel-microgrid'));
+}
 
 function getSolutionLabels(locale: string) {
   if (locale === 'ar') {
@@ -367,7 +384,6 @@ function SectionList({ items }: { items: string[] }) {
     </ul>
   );
 }
-
 function SolutionVisualSection({
   id,
   eyebrow,
@@ -407,7 +423,6 @@ function SolutionVisualSection({
     </section>
   );
 }
-
 function UpgradeCards({ items, labels }: { items: string[]; labels: ReturnType<typeof getSolutionLabels> }) {
   if (items.length === 0) return null;
 
@@ -572,6 +587,8 @@ function StructuredSolutionContent({
         items={painPoints}
         image={painPointsImage}
       />
+
+      {isMicrogridSolution(solution.handle || solution.id) && <MicrogridEnergyFlow />}
 
       <UpgradeCards items={upgradeItems} labels={labels} />
 

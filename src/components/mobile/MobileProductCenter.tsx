@@ -224,10 +224,11 @@ export default function MobileProductCenter({
     const CATEGORY_NAMES: Record<string, string> = {
         'uav-drone-systems': dict.products.categories.uav,
         'drone-detection': dict.products.categories.droneDetection,
+        'perimeter-intelligence': dict.products.categories.surveillance,
+        'industrial-engine-microgrid': dict.products.categories.industrialEngineMicrogrid,
         'security-screening': dict.products.categories.security,
         'engineering-materials': dict.products.categories.engineeringMaterials,
-        'field-hospitals': dict.products.categories.medical,
-        'perimeter-intelligence': dict.products.categories.surveillance
+        'field-hospitals': dict.products.categories.medical
     };
 
     const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -276,6 +277,17 @@ export default function MobileProductCenter({
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M14 12h20l2 10H12l2-10z" fill="rgba(49, 91, 164, 0.05)" />
                 <circle cx="24" cy="28" r="10" /><circle cx="24" cy="28" r="4" fill="currentColor" /><circle cx="26" cy="26" r="1" fill="#fff" /><path d="M12 22h24" strokeWidth="2" />
+            </svg>
+        ),
+        'industrial-engine-microgrid': (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="7" y="18" width="22" height="16" rx="2" fill="rgba(49, 91, 164, 0.05)" />
+                <path d="M11 22h9M11 26h14M11 30h10" />
+                <path d="M29 24h5l3 4h4v6H29z" fill="rgba(49, 91, 164, 0.08)" />
+                <circle cx="15" cy="37" r="3" />
+                <circle cx="35" cy="37" r="3" />
+                <path d="M8 14h8M12 10v8M33 11v8M29 15h8M38 11v8M3 37h42" />
+                <path d="M21 14c2.8-4.4 8.2-4.4 11 0" strokeDasharray="2 2" />
             </svg>
         )
     };

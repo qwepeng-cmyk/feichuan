@@ -133,6 +133,25 @@ export default function SolutionCenterClient({
                 <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
+        'energy-microgrid': (
+            <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
+                <g transform="translate(2, 3)">
+                    <path d="M7 35h28M13 35V18l8-7 8 7v17M18 35V25h6v10" />
+                    <path d="M10 20h22" strokeOpacity="0.25" />
+                </g>
+                <path d="M43 24h8M47 20v8" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+                <g transform="translate(54, 5)">
+                    <rect x="5" y="8" width="22" height="25" rx="2" fill="rgba(49,91,164,0.08)" />
+                    <path d="M11 13h10M11 18h10M11 23h10M16 33v6" />
+                    <path d="M3 39h26" />
+                </g>
+                <g transform="translate(82, 4)">
+                    <path d="M9 29h14M12 29V13h8v16M10 13h12M11 8h10" />
+                    <path d="M16 8V2" stroke="#ff9800" strokeWidth="2" />
+                    <path d="M6 36h20" />
+                </g>
+            </svg>
+        ),
         'key-area-security': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
                 <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>

@@ -6,7 +6,6 @@ import UniversalGallery from '@/components/common/UniversalGallery';
 import InPageNav from '@/components/products/InPageNav';
 import OptimizedRichText from '@/components/common/OptimizedRichText';
 import JsonLd from '@/components/seo/JsonLd';
-import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
@@ -32,6 +31,22 @@ function parseOverviewLine(value?: string | null, fallbackLabel?: string) {
 
   if (!fallbackLabel) return null;
   return { label: fallbackLabel, value: text };
+}
+
+function isCategoryOverviewItem(item: { label: string; value: string }) {
+  const normalizedLabel = item.label
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .toLowerCase();
+
+  return [
+    'category',
+    'categoria',
+    '\u5206\u7c7b',
+    '\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f',
+    '\u0627\u0644\u0641\u0626\u0629',
+  ].includes(normalizedLabel);
 }
 
 function readJsonLike(value: unknown) {
@@ -100,7 +115,8 @@ export default function CatalogDetailContent({
     parseOverviewLine(keyParam1, keyParameterLabel),
     parseOverviewLine(keyParam2, keyParameterLabel),
     parseOverviewLine(keyApp, applicationLabel),
-  ].filter((item): item is { label: string; value: string } => Boolean(item));
+  ].filter((item): item is { label: string; value: string } => Boolean(item))
+    .filter((item) => !isCategoryOverviewItem(item));
   const galleryImages = readGalleryImages(product);
   const jsonLd = productJsonLd({
     locale,
@@ -123,22 +139,6 @@ export default function CatalogDetailContent({
     { id: 'inquiry', label: dict.nav.contact },
   ];
   const hasParameters = parameters && (Array.isArray(parameters) ? parameters.length > 0 : Object.keys(parameters).length > 0);
-  const categoryPath = product.category_primary && basePath === '/products'
-    ? `/products#${product.category_primary}`
-    : basePath;
-  const relatedLinks = basePath === '/accessories'
-    ? [
-        { href: '/accessories', label: catalogLabel, description: 'UAV parts and payload options' },
-        { href: '/products', label: dict.nav.products, description: 'Industrial UAV and monitoring equipment' },
-        { href: '/solutions', label: dict.nav.solutions, description: 'Field operations and use cases' },
-        { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
-      ]
-    : [
-        { href: categoryPath, label: catalogLabel, description: 'Product category and comparable models' },
-        { href: '/solutions', label: dict.nav.solutions, description: 'Related deployment operations' },
-        { href: '/cases', label: dict.nav.cases, description: 'Published reference deployments' },
-        { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
-      ];
 
   return (
     <>
@@ -237,8 +237,6 @@ export default function CatalogDetailContent({
       <div className="mobile_only">
         <MobileProductDetail product={product} locale={locale} dict={dict} basePath={basePath} catalogLabel={catalogLabel} />
       </div>
-
-      <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>
   );
 }

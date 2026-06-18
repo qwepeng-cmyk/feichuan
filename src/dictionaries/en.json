@@ -60,7 +60,8 @@
       "security": "Security Screening",
       "engineeringMaterials": "Engineering Materials",
       "medical": "Field Hospitals",
-      "surveillance": "Perimeter Intelligence"
+      "surveillance": "Perimeter Intelligence",
+      "industrialEngineMicrogrid": "Industrial Engines"
     }
   },
   "accessories": {

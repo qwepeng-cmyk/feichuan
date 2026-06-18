@@ -41,6 +41,29 @@ function isRestrictedPublicPath(pathname: string) {
     );
 }
 
+function normalizedBrandPath(pathname: string) {
+    const segments = pathname.split('/').filter(Boolean);
+    const locale = segments[0] && i18n.locales.includes(segments[0] as any) ? segments[0] : '';
+    const offset = locale ? 1 : 0;
+    const section = segments[offset];
+    const handle = segments[offset + 1];
+
+    if (!section || !handle) return '';
+
+    let nextHandle = handle;
+    if (section === 'products' && handle.startsWith('yuchai-yc')) {
+        nextHandle = handle.replace(/^yuchai-yc/, 'n-tet-fc');
+    }
+    if (section === 'solutions' && handle === 'yuchai-pv-storage-diesel-microgrid-solution') {
+        nextHandle = 'n-tet-pv-storage-diesel-microgrid-solution';
+    }
+    if (nextHandle === handle) return '';
+
+    const nextSegments = [...segments];
+    nextSegments[offset + 1] = nextHandle;
+    return `/${nextSegments.join('/')}`;
+}
+
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const isInternalDefaultLocaleRewrite =
@@ -80,6 +103,11 @@ export function middleware(request: NextRequest) {
         pathname === '/favicon.ico'
     ) {
         return NextResponse.next();
+    }
+
+    const brandPath = normalizedBrandPath(pathname);
+    if (brandPath) {
+        return NextResponse.redirect(new URL(brandPath, request.url), { status: 301 });
     }
 
     if (isRestrictedPublicPath(pathname)) {

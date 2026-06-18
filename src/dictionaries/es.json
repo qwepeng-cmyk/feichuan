@@ -60,7 +60,8 @@
       "security": "Inspección de seguridad",
       "engineeringMaterials": "Materiales de ingeniería",
       "medical": "Hospitales de campo",
-      "surveillance": "Inteligencia perimetral"
+      "surveillance": "Inteligencia perimetral",
+      "industrialEngineMicrogrid": "Motores industriales y microrredes"
     }
   },
   "accessories": {

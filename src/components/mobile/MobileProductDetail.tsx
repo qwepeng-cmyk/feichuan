@@ -34,6 +34,27 @@ function formatSpecLine(value?: string | null, fallbackLabel?: string) {
     );
 }
 
+function isCategorySpecLine(value?: string | null) {
+    const text = value?.trim();
+    if (!text) return false;
+    const separatorIndex = text.search(/[:\uFF1A]/);
+    if (separatorIndex <= 0) return false;
+    const label = text
+        .slice(0, separatorIndex)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .toLowerCase();
+
+    return [
+        'category',
+        'categoria',
+        '\u5206\u7c7b',
+        '\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f',
+        '\u0627\u0644\u0641\u0626\u0629',
+    ].includes(label);
+}
+
 function isPlainObject(value: unknown): value is Record<string, unknown> {
     return Boolean(value && typeof value === 'object' && !Array.isArray(value));
 }
@@ -301,7 +322,7 @@ export default function MobileProductDetail({ product, locale, dict, basePath = 
                     {/* Key Parameters */}
                     <div className={styles.keyParams}>
                         {keyParam1 && <div className={styles.paramItem}>{formatSpecLine(keyParam1)}</div>}
-                        {keyParam2 && <div className={styles.paramItem}>{formatSpecLine(keyParam2)}</div>}
+                        {keyParam2 && !isCategorySpecLine(keyParam2) && <div className={styles.paramItem}>{formatSpecLine(keyParam2)}</div>}
                         {keyApp && <div className={styles.paramItem}>{formatSpecLine(keyApp, 'Applications')}</div>}
                     </div>
                 </div>

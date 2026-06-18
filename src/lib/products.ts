@@ -75,10 +75,11 @@ export const getAllProducts = unstable_cache(
     const categories: Record<string, ProductMetadata[]> = {
       'uav-drone-systems': [],
       'drone-detection': [],
+      'perimeter-intelligence': [],
+      'industrial-engine-microgrid': [],
       'security-screening': [],
       'engineering-materials': [],
-      'field-hospitals': [],
-      'perimeter-intelligence': []
+      'field-hospitals': []
     };
 
     const rows = db.prepare(`
@@ -122,7 +123,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260526-mission-first-path-safe-v4-arabic-retranslate-20260611'],
+  ['all-products-uav-refresh-20260526-mission-first-path-safe-v7-ntet-fc-20260618'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -133,7 +134,7 @@ export const getAllProductHandles = unstable_cache(
       .map(r => r.handle)
       .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
   },
-  ['product-handles-uav-refresh-20260526-mission-first-path-safe-v3-arabic-retranslate-20260611'],
+  ['product-handles-uav-refresh-20260526-mission-first-path-safe-v6-ntet-fc-20260618'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -155,6 +156,6 @@ export const getProductByHandle = unstable_cache(
       return sanitizeRecordForTier(pruneProductDetailPayload(row), getComplianceTier('product', handle));
     }
   },
-  ['product-detail-uav-refresh-20260527-sljc-scenarios-v7-arabic-retranslate-20260611'],
+  ['product-detail-uav-refresh-20260527-sljc-scenarios-v11-ntet-fc-20260618'],
   { revalidate: 3600, tags: ['products'] }
 );

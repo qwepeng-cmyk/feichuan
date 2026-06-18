@@ -60,7 +60,8 @@
       "security": "Досмотровое оборудование",
       "engineeringMaterials": "Инженерные материалы",
       "medical": "Полевые госпитали",
-      "surveillance": "Периметральное наблюдение"
+      "surveillance": "Периметральное наблюдение",
+      "industrialEngineMicrogrid": "Промышленные двигатели и микросети"
     }
   },
   "accessories": {

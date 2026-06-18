@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -7,6 +7,7 @@ import styles from './MobileSolutionDetail.module.css';
 import OptimizedRichText from '../common/OptimizedRichText';
 import MobileInquiryForm from './MobileInquiryForm';
 import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
+import MicrogridEnergyFlow from '@/components/solutions/MicrogridEnergyFlow';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
@@ -122,7 +123,20 @@ const waterSolutionImages = [
     uavSolutionScenes.emergencyCommunication,
 ];
 
+const microgridImages = [
+    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/energy-storage-cabinet.webp',
+    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/diesel-generator-set.webp',
+    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/ems-platform.webp',
+    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/commercial-building.webp',
+    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/factory-site.webp',
+    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/pv-storage-charging.webp',
+];
+
 const solutionVisualSets: Array<{ match: string; images: string[] }> = [
+    {
+        match: 'n-tet-pv-storage-diesel-microgrid',
+        images: microgridImages,
+    },
     {
         match: 'urban-high-rise-firefighting',
         images: [
@@ -283,34 +297,38 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
     return Array.from(new Set([...(mainImage ? [mainImage] : []), ...sceneImages]));
 }
 
+function isMicrogridSolution(handle?: string) {
+    return Boolean(handle?.includes('n-tet-pv-storage-diesel-microgrid'));
+}
+
 function getSolutionLabels(locale: string) {
     if (locale === 'ar') {
         return {
-            solutionDetails: 'تفاصيل الحل',
-            industryPainPoints: 'احتياجات القطاع',
-            upgradeTitle: 'كيف ترفع الطائرات بدون طيار كفاءة العمليات',
-            solutionModules: 'وحدات الحل',
-            relatedCases: 'حالات ذات صلة',
+            solutionDetails: '鬲賮丕氐賷賱 丕賱丨賱',
+            industryPainPoints: '丕丨鬲賷丕噩丕鬲 丕賱賯胤丕毓',
+            upgradeTitle: '賰賷賮 鬲乇賮毓 丕賱胤丕卅乇丕鬲 亘丿賵賳 胤賷丕乇 賰賮丕亍丞 丕賱毓賲賱賷丕鬲',
+            solutionModules: '賵丨丿丕鬲 丕賱丨賱',
+            relatedCases: '丨丕賱丕鬲 匕丕鬲 氐賱丞',
         };
     }
 
     if (locale === 'es') {
         return {
-            solutionDetails: 'Detalles de la solución',
+            solutionDetails: 'Detalles de la soluci贸n',
             industryPainPoints: 'Necesidades de la industria',
-            upgradeTitle: 'Cómo los UAV mejoran la operación',
-            solutionModules: 'Módulos de la solución',
+            upgradeTitle: 'C贸mo los UAV mejoran la operaci贸n',
+            solutionModules: 'M贸dulos de la soluci贸n',
             relatedCases: 'Casos relacionados',
         };
     }
 
     if (locale === 'ru') {
         return {
-            solutionDetails: 'Детали решения',
-            industryPainPoints: 'Отраслевые проблемы',
-            upgradeTitle: 'Как БПЛА повышают эффективность работ',
-            solutionModules: 'Модули решения',
-            relatedCases: 'Связанные кейсы',
+            solutionDetails: '袛械褌邪谢懈 褉械褕械薪懈褟',
+            industryPainPoints: '袨褌褉邪褋谢械胁褘械 锌褉芯斜谢械屑褘',
+            upgradeTitle: '袣邪泻 袘袩袥袗 锌芯胁褘褕邪褞褌 褝褎褎械泻褌懈胁薪芯褋褌褜 褉邪斜芯褌',
+            solutionModules: '袦芯写褍谢懈 褉械褕械薪懈褟',
+            relatedCases: '小胁褟蟹邪薪薪褘械 泻械泄褋褘',
         };
     }
 
@@ -335,7 +353,6 @@ function MobileNumberList({ items }: { items: string[] }) {
         </div>
     );
 }
-
 function MobileSceneSection({ title, items, image }: { title: string; items: string[]; image: string }) {
     if (items.length === 0) return null;
 
@@ -671,6 +688,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
             {hasStructuredSolutionContent && (
                 <>
                     <MobileSceneSection title={contentLabels.industryPainPoints} items={painPoints} image={painPointsImage} />
+                    {isMicrogridSolution(solution.handle || solution.id) && <MicrogridEnergyFlow compact />}
                     <MobileUpgradeBlocks items={upgradeItems} title={contentLabels.upgradeTitle} />
                     <MobileModuleRows modules={modules} visuals={visuals} title={contentLabels.solutionModules} />
                 </>
@@ -732,4 +750,3 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
         </div>
     );
 }
-
