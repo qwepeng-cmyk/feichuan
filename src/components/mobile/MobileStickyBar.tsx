@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 
 export default function MobileStickyBar({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -46,7 +46,7 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
             </Link>
 
             {/* WhatsApp / Chat */}
-            <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{
+            <WhatsAppLeadButton sourceLabel="mobile_sticky_whatsapp" style={{
                 flex: '0 1 calc((100vw - 42px) / 2)',
                 minWidth: 0,
                 maxWidth: 'calc((100vw - 42px) / 2)',
@@ -65,7 +65,7 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
                 textAlign: 'center'
             }}>
                 <span style={{ fontSize: '18px' }}>💬</span> {dict.products.whatsapp}
-            </a>
+            </WhatsAppLeadButton>
         </div>
     );
 }

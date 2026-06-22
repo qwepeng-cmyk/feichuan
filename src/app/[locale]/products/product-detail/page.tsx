@@ -4,7 +4,7 @@ import ProductGallery from '@/components/products/ProductGallery';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import { getProductByHandle } from '@/lib/products';
-import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 import { notFound } from 'next/navigation';
 
 export const metadata = {
@@ -92,9 +92,9 @@ export default async function ProductDetailPage() {
                                     <button className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer' }}>
                                         Get quotation
                                     </button>
-                                    <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
+                                    <WhatsAppLeadButton sourceLabel="legacy_product_detail_whatsapp" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
                                         WhatsApp
-                                    </a>
+                                    </WhatsAppLeadButton>
                                 </div>
                             </div>
                         </div>

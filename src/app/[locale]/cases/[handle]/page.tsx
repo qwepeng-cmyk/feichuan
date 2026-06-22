@@ -18,7 +18,7 @@ import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
-import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
@@ -230,9 +230,9 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                       <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <WhatsAppLeadButton sourceLabel="case_detail_whatsapp" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
-                      </a>
+                      </WhatsAppLeadButton>
                     </div>
                   </div>
                 </div>

@@ -238,7 +238,7 @@ EXACT = {
     "Quick Links": "روابط سريعة",
     "Contact Info": "معلومات الاتصال",
     "Industrial UAV Systems & Airspace Monitoring": "أنظمة UAV صناعية ومراقبة المجال الجوي",
-    "(c) 2026 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved.": "(c) 2026 Beijing Feichuan Equipment Technology Co., Ltd. جميع الحقوق محفوظة.",
+    "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved.": "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. جميع الحقوق محفوظة.",
     "Name": "الاسم",
     "Company Name": "اسم الشركة",
     "E-mail": "البريد الإلكتروني",

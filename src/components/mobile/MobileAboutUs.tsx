@@ -12,7 +12,7 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
         pageTitle: "Company Profile",
         bannerTitle: "ABOUT US",
         companyProfile: "Company Profile",
-        companyDesc1: "Beijing Feichuan Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.",
+        companyDesc1: "Beijing Non-traditional Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.",
         companyDesc2: "Based on technological innovation, the company integrates global high-quality resources and market networks, and is committed to building an efficient and collaborative industrial ecosystem.",
         companyDesc3: "We uphold the development mission of \"Connecting Technology with Applications, Integrating Domestic and International Markets\" to provide top-tier integrated security services for global customers.",
         rdTeam: "R&D Team",

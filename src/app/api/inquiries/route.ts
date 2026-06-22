@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import db from '@/lib/db';
 import { sendInquiryNotification } from '@/lib/inquiryEmail';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: Request) {
     try {
         const body = await request.json();
@@ -15,7 +18,7 @@ export async function POST(request: Request) {
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `);
 
-        insert.run(
+        const result = insert.run(
             body.name,
             body.company || '',
             body.email,
@@ -26,6 +29,16 @@ export async function POST(request: Request) {
             body.message || '',
             referer
         );
+        const inquiryId = Number(result.lastInsertRowid);
+        const savedInquiry = db.prepare(`
+            SELECT id, name, email, created_at
+            FROM inquiries
+            WHERE id = ?
+        `).get(inquiryId) as { id: number; name: string; email: string; created_at: string } | undefined;
+
+        if (!savedInquiry) {
+            throw new Error(`Inquiry insert verification failed for id ${inquiryId}`);
+        }
 
         try {
             await sendInquiryNotification({
@@ -43,9 +56,29 @@ export async function POST(request: Request) {
             console.error('Inquiry saved, but email notification failed:', emailError);
         }
 
-        return NextResponse.json({ success: true, message: 'Inquiry submitted successfully' });
+        return NextResponse.json(
+            {
+                success: true,
+                message: 'Inquiry submitted successfully',
+                inquiryId: savedInquiry.id,
+                savedAt: savedInquiry.created_at,
+            },
+            {
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate',
+                },
+            }
+        );
     } catch (e) {
         console.error('Failed to submit inquiry:', e);
-        return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
+        return NextResponse.json(
+            { success: false, error: 'Server error' },
+            {
+                status: 500,
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate',
+                },
+            }
+        );
     }
 }

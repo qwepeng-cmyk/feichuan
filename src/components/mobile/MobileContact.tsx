@@ -3,7 +3,8 @@
 import React from 'react';
 import styles from './MobileContact.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
-import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
+import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 
 export default function MobileContact({ dict }: { dict?: any }) {
     const d = dict?.contact || {
@@ -43,7 +44,7 @@ export default function MobileContact({ dict }: { dict?: any }) {
                         </div>
                         <div className={styles.infoContent}>
                             <h4>{d.whatsapp}</h4>
-                            <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.infoValue} ${styles.linkValue}`}>{CONTACT_WHATSAPP_DISPLAY}</a>
+                            <WhatsAppLeadButton sourceLabel="mobile_contact_whatsapp" className={`${styles.infoValue} ${styles.linkValue}`}>{CONTACT_WHATSAPP_DISPLAY}</WhatsAppLeadButton>
                         </div>
                     </div>
 

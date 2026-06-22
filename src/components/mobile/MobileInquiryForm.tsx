@@ -67,17 +67,20 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                 body: JSON.stringify(formData)
             });
             
-            if (res.ok) {
-                setSubmitStatus('success');
+            const result = await res.json().catch(() => null);
+
+            if (res.ok && result?.success === true && result?.inquiryId) {
                 setFormData({
                     name: '', company: '', email: '', contactMethod: 'WhatsApp',
                     countryCode: '', phone: '', demands: [], message: ''
                 });
                 router.push(localePath(localeFromPathname(pathname), '/thank-you'));
             } else {
+                console.error('Inquiry submit failed:', result);
                 setSubmitStatus('error');
             }
         } catch(e) {
+            console.error('Inquiry submit error:', e);
             setSubmitStatus('error');
         }
     };
@@ -254,7 +257,11 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                 </div>
 
                 <button type="submit" className={styles.formSubmit} disabled={submitStatus === 'loading' || submitStatus === 'success'}>
-                    {submitStatus === 'loading' ? d.submitting : submitStatus === 'success' ? d.submitted : d.submit}
+                    {submitStatus === 'loading'
+                        ? d.submitting
+                        : submitStatus === 'success'
+                            ? (typeof d.submitted === 'string' ? d.submitted : d.submitted?.title || 'SUBMITTED SUCCESSFULLY!')
+                            : d.submit}
                 </button>
                 {submitStatus === 'error' && <div style={{color: 'red', marginTop: '10px', textAlign: 'center'}}>{d.failed}</div>}
             </form>

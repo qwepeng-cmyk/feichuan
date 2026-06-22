@@ -121,7 +121,9 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 body: JSON.stringify(formData),
             });
 
-            if (response.ok) {
+            const result = await response.json().catch(() => null);
+
+            if (response.ok && result?.success === true && result?.inquiryId) {
                 router.push(localePath(localeFromPathname(pathname), '/thank-you'));
                 // Reset form
                 setFormData({
@@ -135,6 +137,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                     message: '',
                 });
             } else {
+                console.error('Inquiry submit failed:', result);
                 alert('Error sending inquiry. Please try again or contact us directly.');
             }
         } catch (error) {

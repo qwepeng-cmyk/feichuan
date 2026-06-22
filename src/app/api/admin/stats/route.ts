@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
     try {
         const productsCount = db.prepare('SELECT COUNT(*) as count FROM products').get() as any;
@@ -20,8 +23,20 @@ export async function GET() {
                 inquiries: inquiriesCount.count,
                 unreadInquiries: unreadInquiriesCount.count
             }
+        }, {
+            headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate',
+            },
         });
     } catch (e) {
-        return NextResponse.json({ success: false, error: 'Failed to fetch stats' }, { status: 500 });
+        return NextResponse.json(
+            { success: false, error: 'Failed to fetch stats' },
+            {
+                status: 500,
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate',
+                },
+            }
+        );
     }
 }

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { solutions as homeSolutions } from '@/constants/homeData';
 import { localizedField } from '@/lib/localization';
-import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
+import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 
 export default function Footer({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -55,7 +56,7 @@ export default function Footer({ locale, dict }: { locale: string; dict: any }) 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '1.4rem' }}>
                             <div>
                                 <div style={{ color: '#555', marginBottom: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>
-                                <a href={CONTACT_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#888', fontWeight: 400, textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</a>
+                                <WhatsAppLeadButton sourceLabel="desktop_footer_whatsapp" style={{ color: '#888', fontWeight: 400, textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</WhatsAppLeadButton>
                             </div>
                             <div>
                                 <div style={{ color: '#555', marginBottom: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>{dict.contact.email}</div>

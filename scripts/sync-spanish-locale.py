@@ -119,7 +119,7 @@ EXACT = {
     "Quick Links": "Enlaces rápidos",
     "Contact Info": "Información de contacto",
     "Industrial UAV Systems & Airspace Monitoring": "Sistemas UAV industriales y monitoreo aéreo",
-    "(c) 2026 Beijing Feichuan Equipment Technology Co., Ltd. All rights reserved.": "(c) 2026 Beijing Feichuan Equipment Technology Co., Ltd. Todos los derechos reservados.",
+    "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved.": "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados.",
     "Name": "Nombre",
     "Company Name": "Empresa",
     "E-mail": "Correo electrónico",
@@ -389,12 +389,12 @@ def sync_dictionary():
     es = translate_dict_value(en)
     es["nav"]["accessories"] = "Accesorios UAV"
     es["home"]["about"]["content"] = (
-        "Beijing Feichuan Equipment Technology Co., Ltd. desarrolla plataformas UAV industriales, "
+        "Beijing Non-traditional Equipment Technology Co., Ltd. desarrolla plataformas UAV industriales, "
         "equipos de monitoreo del espacio aéreo, flujos de inspección y sistemas inteligentes de revisión "
         "para infraestructura y operaciones públicas."
     )
     es["about"]["companyDesc1"] = (
-        "Beijing Feichuan Equipment Technology Co., Ltd. tiene sede en Beijing y se enfoca en sistemas UAV "
+        "Beijing Non-traditional Equipment Technology Co., Ltd. tiene sede en Beijing y se enfoca en sistemas UAV "
         "industriales, monitoreo del espacio aéreo, inspección inteligente y tecnologías de revisión en sitio."
     )
     es["about"]["companyDesc2"] = (

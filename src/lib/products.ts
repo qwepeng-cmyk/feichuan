@@ -123,7 +123,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260526-mission-first-path-safe-v7-ntet-fc-20260618'],
+  ['all-products-uav-refresh-20260526-mission-first-path-safe-v8-ntet-fc-engine-webp-20260618'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -134,7 +134,7 @@ export const getAllProductHandles = unstable_cache(
       .map(r => r.handle)
       .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
   },
-  ['product-handles-uav-refresh-20260526-mission-first-path-safe-v6-ntet-fc-20260618'],
+  ['product-handles-uav-refresh-20260526-mission-first-path-safe-v7-ntet-fc-engine-webp-20260618'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -156,6 +156,6 @@ export const getProductByHandle = unstable_cache(
       return sanitizeRecordForTier(pruneProductDetailPayload(row), getComplianceTier('product', handle));
     }
   },
-  ['product-detail-uav-refresh-20260527-sljc-scenarios-v11-ntet-fc-20260618'],
+  ['product-detail-uav-refresh-20260527-sljc-scenarios-v12-ntet-fc-engine-webp-20260618'],
   { revalidate: 3600, tags: ['products'] }
 );
