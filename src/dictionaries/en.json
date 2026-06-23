@@ -56,7 +56,7 @@
     "relatedEquipment": "Related Equipment",
     "categories": {
       "uav": "UAV & Drone Systems",
-      "droneDetection": "Low-Altitude Airspace Monitoring",
+      "droneDetection": "Drone Detection & Tracking",
       "security": "Security Screening",
       "engineeringMaterials": "Engineering Materials",
       "medical": "Field Hospitals",
@@ -194,7 +194,7 @@
   },
   "footer": {
     "companyName": "N-TET",
-    "tagline": "Industrial UAV Systems & Airspace Monitoring",
+    "tagline": "Industrial UAV Systems & Drone Detection",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "copyright": "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved."
@@ -291,7 +291,7 @@
   },
   "megaMenu": {
     "uavSystems": "UAV & Drone Systems",
-    "droneDetection": "Low-Altitude Airspace Monitoring",
+    "droneDetection": "Drone Detection & Tracking",
     "securityScreening": "Security Screening & Policing",
     "engineeringMaterials": "Engineering Materials",
     "fieldHospitals": "Field & Mobile Hospitals",
@@ -358,9 +358,9 @@
     "emergencyDisaster": "Emergency & Disaster Rescue",
     "chemicalPlantProtection": "Chemical Plant Protection",
     "oilProductionBaseProtection": "Oil Production Base Protection",
-    "powerGenerationFacilityAirspace": "Power Generation Facility Airspace Monitoring",
+    "powerGenerationFacilityAirspace": "Power Generation Facility Drone Detection",
     "hydroelectricDamProtection": "Hydroelectric Dam Protection",
-    "airportAirspaceMonitoring": "Airport Airspace Monitoring",
+    "airportAirspaceMonitoring": "Airport Drone Detection",
     "judicialSectorSecurity": "Judicial Sector Security",
     "sportsEventSecurity": "Large Sports Event Security",
     "airportSecurityProtection": "Airport Security Protection",

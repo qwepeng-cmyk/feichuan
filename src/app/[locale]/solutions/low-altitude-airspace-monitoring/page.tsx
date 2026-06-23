@@ -27,19 +27,19 @@ import { breadcrumbSchema, pageUrl } from '@/lib/structuredData';
 import styles from './LowAltitudeAirspaceMonitoring.module.css';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
-const pageTitle = 'Low-Altitude Airspace Monitoring';
+const pageTitle = 'Drone Detection System';
 const pageDescription =
-  'Detect low-altitude activity, verify targets, generate alerts, and keep event records for coordinated site security response.';
+  'Detect drones with RF detection, drone radar, optical tracking, Remote ID identification, alerts, and event records for site security teams.';
 
 const systemLayers = [
   {
-    title: 'RF Monitoring',
-    text: 'Monitor wireless signals and identify airspace activity.',
+    title: 'RF Detection',
+    text: 'Detect drone control and video signals for early warning.',
     icon: RadioTower,
   },
   {
     title: 'Radar Detection',
-    text: 'Detect and locate low-altitude objects in real time.',
+    text: 'Detect and locate low-altitude drones in real time.',
     icon: Target,
   },
   {
@@ -49,7 +49,7 @@ const systemLayers = [
   },
   {
     title: 'Remote ID',
-    text: 'Capture and analyze available Remote ID information.',
+    text: 'Read available Remote ID broadcasts for identity clues.',
     icon: Contact,
   },
   {
@@ -67,7 +67,7 @@ const systemLayers = [
 const workflow = [
   {
     title: 'Detect',
-    text: 'Monitor the airspace and detect low-altitude activity.',
+    text: 'Detect drone activity with RF, radar, and Remote ID inputs.',
     icon: Radio,
   },
   {
@@ -92,26 +92,26 @@ const packages = [
     title: 'Fixed Industrial Site',
     meta: 'Energy, chemical, logistics, and industrial parks',
     image: '/cases/brazil-refinery-airspace-monitoring/main.webp?v=2026060102',
-    points: ['RF Monitoring', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
+    points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
   },
   {
     title: 'Public Venue',
     meta: 'Event, stadium, transport, and key-area operations',
     image: '/cases/asian-games-security/main-home.webp',
-    points: ['RF Monitoring', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
+    points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
   },
   {
     title: 'Airport / Large Perimeter',
-    meta: 'Wide boundary monitoring and layered airspace awareness',
+    meta: 'Wide boundary coverage and layered drone detection',
     image: '/cases/airport-security-application/main.webp?v=2026060102',
-    points: ['RF Monitoring', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
+    points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
   },
 ];
 
 const relatedEquipment = [
   {
     title: 'Stationary RF Detection System',
-    role: 'RF monitoring layer',
+    role: 'RF detection layer',
     image: '/products/02-drone-detection/stationary-rf-detection-system.webp',
     href: '/products/stationary-rf-detection-system',
     imageClass: 'equipmentImageRf',
@@ -132,7 +132,7 @@ const relatedEquipment = [
   },
   {
     title: 'UAV Remote ID Monitoring System',
-    role: 'Identity monitoring layer',
+    role: 'Identity detection layer',
     image: '/products/02-drone-detection/portable-rf-detection-case.webp',
     href: '/products/uav-remote-id-monitoring-system',
     imageClass: 'equipmentImagePortable',
@@ -146,11 +146,18 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     fallbackTitle: `${pageTitle} | N-TET`,
     fallbackDescription: pageDescription,
     fallbackKeywords: [
-      'low-altitude airspace monitoring',
+      'drone detection system',
+      'drone detector',
+      'drone radar',
+      'UAV detection system',
       'drone detection equipment',
-      'RF monitoring system',
+      'RF detection system',
       'low-altitude detection radar',
       'electro-optical tracking system',
+      'detector de drone',
+      'detector de drones',
+      'radar de drone',
+      'radar de drones',
     ],
     image: '/products/02-drone-detection/drone-detection-home.webp',
   });
@@ -182,7 +189,7 @@ function Breadcrumbs({
 
 function HeroVisual() {
   return (
-    <div className={styles.heroVisual} aria-label="Low-altitude monitoring equipment composition">
+    <div className={styles.heroVisual} aria-label="Drone detection equipment composition">
       <Image
         src="/products/02-drone-detection/stationary-rf-detection-system.webp"
         alt="Stationary RF detection unit"
@@ -226,10 +233,10 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.heroSection}>
         <div className={styles.heroCopy}>
-          <h1><span className={styles.nowrap}>Low-Altitude</span> Airspace Monitoring</h1>
+          <h1><span className={styles.nowrap}>Drone Detection</span> System</h1>
           <p>
-            Detect low-altitude activity, verify targets, generate alerts, and support coordinated site response
-            through RF monitoring, radar detection, optical tracking, and event records.
+            Detect drones, verify targets, generate alerts, and support coordinated site response through RF
+            detection, drone radar, optical tracking, Remote ID identification, and event records.
           </p>
           <div className={styles.heroActions}>
             <Link prefetch={false} href="#inquiry" className={styles.primaryCta}>
@@ -237,7 +244,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <Link prefetch={false} href="#equipment" className={styles.secondaryCta}>
-              View Monitoring Equipment
+              View Detection Equipment
             </Link>
           </div>
         </div>
@@ -288,7 +295,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.workflowSection}>
         <div className={styles.sectionHeader}>
-          <h2>From Discovery to Coordinated Response</h2>
+          <h2>From Drone Detection to Event Records</h2>
         </div>
         <div className={styles.workflowTrack}>
           {workflow.map((item, index) => (
@@ -344,11 +351,11 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.mobileHero}>
         <h1>
-          <span className={styles.nowrap}>Low-Altitude</span>
-          <span className={styles.mobileTitleLine}>Airspace</span>
-          <span className={styles.mobileTitleLine}>Monitoring</span>
+          <span className={styles.nowrap}>Drone</span>
+          <span className={styles.mobileTitleLine}>Detection</span>
+          <span className={styles.mobileTitleLine}>System</span>
         </h1>
-        <p>Detect low-altitude activity, verify targets, generate alerts, and keep event records for coordinated site response.</p>
+        <p>Detect drones, verify targets, generate alerts, and keep event records for coordinated site response.</p>
         <HeroVisual />
         <div className={styles.mobileActions}>
           <Link prefetch={false} href="#mobile-inquiry" className={styles.primaryCta}>
@@ -363,7 +370,7 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
       <section id="mobile-equipment" className={styles.mobileBlock}>
         <div className={styles.mobileSectionTitle}>
           <span>System Layers</span>
-          <h2>Monitoring Architecture</h2>
+          <h2>Detection Architecture</h2>
         </div>
         <div className={styles.mobileLayerGrid}>
           {systemLayers.map((item) => {

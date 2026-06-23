@@ -13,7 +13,7 @@ export const products = [
         handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Low-Altitude Airspace Monitoring",
+        top: "Drone Detection & Tracking",
         top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
         main: "Stationary RF Detection System",
         main_ru: "Стационарная система радиочастотного обнаружения",
