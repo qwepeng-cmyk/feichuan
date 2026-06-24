@@ -115,9 +115,27 @@
   gap: 10px;
 }
 
+.countryCodeShell {
+  position: relative;
+}
+
 .countryCodeInput {
   text-align: left;
   font-weight: 700;
+  padding-right: 88px;
+}
+
+.countryCodeHint {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #7a8797;
+  font-size: 1.15rem;
+  font-weight: 650;
+  line-height: 1;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .error {
@@ -196,5 +214,9 @@
 
   .phoneRow {
     grid-template-columns: 1fr;
+  }
+
+  .countryCodeInput {
+    padding-right: 116px;
   }
 }

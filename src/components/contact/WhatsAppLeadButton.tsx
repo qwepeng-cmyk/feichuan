@@ -171,18 +171,23 @@ export default function WhatsAppLeadButton({
               <label className={styles.field}>
                 <span className={styles.label}>WhatsApp / Phone *</span>
                 <div className={styles.phoneRow}>
-                  <input
-                    className={`${styles.input} ${styles.countryCodeInput}`}
-                    value={formData.countryCode}
-                    onChange={(event) => {
-                      const rawValue = event.target.value.replace(/[^\d+]/g, '');
-                      const normalizedValue = rawValue.startsWith('+') ? rawValue : `+${rawValue.replace(/\+/g, '')}`;
-                      setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) || '+' }));
-                    }}
-                    inputMode="tel"
-                    autoComplete="tel-country-code"
-                    aria-label="Country code"
-                  />
+                  <div className={styles.countryCodeShell}>
+                    <input
+                      className={`${styles.input} ${styles.countryCodeInput}`}
+                      value={formData.countryCode}
+                      onChange={(event) => {
+                        const rawValue = event.target.value.replace(/[^\d+]/g, '');
+                        const normalizedValue = rawValue.startsWith('+') ? rawValue : `+${rawValue.replace(/\+/g, '')}`;
+                        setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) || '+' }));
+                      }}
+                      inputMode="tel"
+                      autoComplete="tel-country-code"
+                      aria-label="Country code"
+                    />
+                    {formData.countryCode === '+' && (
+                      <span className={styles.countryCodeHint}>Country code</span>
+                    )}
+                  </div>
                   <input
                     className={styles.input}
                     type="tel"
