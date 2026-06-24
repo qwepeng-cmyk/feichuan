@@ -3,19 +3,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
+  Building2,
   CheckCircle2,
   ClipboardList,
   Contact,
-  Eye,
+  Factory,
   FileClock,
+  Landmark,
   Monitor,
-  Network,
+  Plane,
   Radio,
   RadioTower,
-  Radar,
   ScanSearch,
+  Ship,
   Target,
+  Zap,
 } from 'lucide-react';
+import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
 import JsonLd from '@/components/seo/JsonLd';
@@ -24,12 +28,20 @@ import { type Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { breadcrumbSchema, pageUrl } from '@/lib/structuredData';
+import OpenLinksInNewTab from './OpenLinksInNewTab';
 import styles from './LowAltitudeAirspaceMonitoring.module.css';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
-const pageTitle = 'Drone Detection System';
+const pageTitle = 'Drone Detection & Low-Altitude Airspace Monitoring';
 const pageDescription =
-  'Detect drones with RF detection, drone radar, optical tracking, Remote ID identification, alerts, and event records for site security teams.';
+  'RF detection, drone radar, EO tracking, Remote ID monitoring, alerts, and event records for airports, refineries, power plants, ports, prisons, and large perimeter sites.';
+
+const heroPoints = [
+  'Detect unauthorized drone activity',
+  'Track and verify targets with RF, radar, and EO',
+  'Generate alerts and event records',
+  'Request site-based system design and quotation',
+];
 
 const systemLayers = [
   {
@@ -106,6 +118,47 @@ const packages = [
     image: '/cases/airport-security-application/main.webp?v=2026060102',
     points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
   },
+];
+
+const siteScenarios = [
+  {
+    title: 'Airport / Runway Protection',
+    text: 'Layer RF, radar, EO, and records around runways, aprons, and boundary zones.',
+    icon: Plane,
+  },
+  {
+    title: 'Oil & Gas / Refinery Protection',
+    text: 'Monitor low-altitude activity around process units, tank farms, and logistics areas.',
+    icon: Factory,
+  },
+  {
+    title: 'Power Plant & Substation Protection',
+    text: 'Support early detection and alert workflows for critical energy facilities.',
+    icon: Zap,
+  },
+  {
+    title: 'Port & Border Perimeter Monitoring',
+    text: 'Build wide-area awareness for docks, storage yards, border zones, and long perimeters.',
+    icon: Ship,
+  },
+  {
+    title: 'Prison / Key Area Security',
+    text: 'Detect and verify drone activity around restricted zones and controlled facilities.',
+    icon: Landmark,
+  },
+  {
+    title: 'Stadium & Event Airspace Monitoring',
+    text: 'Support temporary or fixed monitoring for venues, events, and public operations.',
+    icon: Building2,
+  },
+];
+
+const deliverables = [
+  'Recommended detection architecture',
+  'Equipment list: RF / radar / EO / Remote ID',
+  'Estimated coverage layout',
+  'Quotation and product brochure',
+  'Integration discussion for command systems',
 ];
 
 const relatedEquipment = [
@@ -226,6 +279,71 @@ function HeroVisual() {
   );
 }
 
+function ScenarioEntrance() {
+  return (
+    <section className={styles.scenarioSection}>
+      <div className={styles.sectionHeader}>
+        <h2>Choose by Site Type</h2>
+        <p>Select the operating environment closest to your site, then request a detection layout and quotation.</p>
+      </div>
+      <div className={styles.scenarioGrid}>
+        {siteScenarios.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article className={styles.scenarioCard} key={item.title}>
+              <div className={styles.scenarioIcon}>
+                <Icon size={28} strokeWidth={1.9} aria-hidden="true" />
+              </div>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function ConversionPrompt({ inquiryHref = '#inquiry' }: { inquiryHref?: string }) {
+  return (
+    <section className={styles.conversionSection}>
+      <div className={styles.conversionGrid}>
+        <div className={styles.conversionPanel}>
+          <span className={styles.conversionEyebrow}>Site-based quotation path</span>
+          <h2>Get a Detection Layout for Your Site</h2>
+          <p>
+            Share the site type, country, perimeter condition, and preferred contact method. N-TET can respond
+            with a practical system recommendation instead of a generic product list.
+          </p>
+          <div className={styles.quickFields} aria-label="Recommended inquiry details">
+            <span>Name / Company</span>
+            <span>Email / WhatsApp</span>
+            <span>Country</span>
+            <span>Site Type</span>
+          </div>
+          <Link prefetch={false} href={inquiryHref} className={styles.primaryCta}>
+            Request Assessment & Quotation
+            <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+        </div>
+        <div className={styles.deliverablesPanel}>
+          <h3>After submission, N-TET can provide:</h3>
+          <ul>
+            {deliverables.map((item) => (
+              <li key={item}>
+                <CheckCircle2 size={18} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
   return (
     <main className={`${styles.page} ${styles.desktopPage}`}>
@@ -233,25 +351,44 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.heroSection}>
         <div className={styles.heroCopy}>
-          <h1><span className={styles.nowrap}>Drone Detection</span> System</h1>
+          <span className={styles.heroEyebrow}>Low-Altitude Airspace Monitoring</span>
+          <h1>
+            <span className={styles.titleLine}>Drone Detection System</span>
+            <span className={styles.titleLine}>for Critical Sites</span>
+          </h1>
           <p>
-            Detect drones, verify targets, generate alerts, and support coordinated site response through RF
-            detection, drone radar, optical tracking, Remote ID identification, and event records.
+            RF detection, drone radar, EO tracking, and Remote ID monitoring for airports, refineries, power
+            plants, ports, prisons, and large perimeter sites.
           </p>
+          <ul className={styles.heroPoints}>
+            {heroPoints.map((item) => (
+              <li key={item}>
+                <CheckCircle2 size={16} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
           <div className={styles.heroActions}>
             <Link prefetch={false} href="#inquiry" className={styles.primaryCta}>
-              Request Site Assessment
+              Get Site Assessment
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link prefetch={false} href="#equipment" className={styles.secondaryCta}>
-              View Detection Equipment
-            </Link>
+            <WhatsAppLeadButton sourceLabel="low_altitude_landing_hero_whatsapp" className={styles.secondaryCta}>
+              WhatsApp Consultation
+            </WhatsAppLeadButton>
           </div>
         </div>
         <HeroVisual />
       </section>
 
+      <ScenarioEntrance />
+
+      <ConversionPrompt />
+
       <section id="equipment" className={styles.layerSection}>
+        <div className={styles.sectionHeader}>
+          <h2>Detection Architecture</h2>
+        </div>
         <div className={styles.layerGrid}>
           {systemLayers.map((item) => {
             const Icon = item.icon;
@@ -351,21 +488,33 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.mobileHero}>
         <h1>
-          <span className={styles.nowrap}>Drone</span>
-          <span className={styles.mobileTitleLine}>Detection</span>
-          <span className={styles.mobileTitleLine}>System</span>
+          <span className={styles.nowrap}>Drone Detection &</span>
+          <span className={styles.mobileTitleLine}>Low-Altitude</span>
+          <span className={styles.mobileTitleLine}>Monitoring</span>
         </h1>
-        <p>Detect drones, verify targets, generate alerts, and keep event records for coordinated site response.</p>
+        <p>RF detection, drone radar, EO tracking, and Remote ID monitoring for airports, refineries, power plants, and large perimeter sites.</p>
+        <ul className={styles.heroPoints}>
+          {heroPoints.slice(0, 3).map((item) => (
+            <li key={item}>
+              <CheckCircle2 size={15} aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
         <HeroVisual />
         <div className={styles.mobileActions}>
           <Link prefetch={false} href="#mobile-inquiry" className={styles.primaryCta}>
-            Request Site Assessment
+            Get Site Assessment
           </Link>
           <Link prefetch={false} href="#mobile-equipment" className={styles.secondaryCta}>
             View Equipment
           </Link>
         </div>
       </section>
+
+      <ScenarioEntrance />
+
+      <ConversionPrompt inquiryHref="#mobile-inquiry" />
 
       <section id="mobile-equipment" className={styles.mobileBlock}>
         <div className={styles.mobileSectionTitle}>
@@ -468,6 +617,7 @@ export default async function LowAltitudeAirspaceMonitoringPage({ params }: { pa
 
   return (
     <>
+      <OpenLinksInNewTab />
       <JsonLd data={{ '@context': 'https://schema.org', '@graph': [breadcrumbSchema(breadcrumbs)] }} />
       <style dangerouslySetInnerHTML={{ __html: `
         .mobile_only { display: none !important; }

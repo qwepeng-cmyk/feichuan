@@ -29,7 +29,7 @@ const fallbackTracking = {
 
 const tawkPropertyId = '6a1e6979734ebd1c2f45a821';
 const tawkWidgetId = '1jq3co0p8';
-const shouldLoadTawk = process.env.NODE_ENV === 'production';
+const shouldLoadTawk = process.env.NEXT_PUBLIC_DISABLE_TAWK !== 'true';
 
 async function loadTrackingSettings() {
   try {
