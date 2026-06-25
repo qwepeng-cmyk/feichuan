@@ -54,7 +54,7 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '8px',
-                background: '#ff9800',
+                background: '#25D366',
                 color: '#fff',
                 height: '46px',
                 borderRadius: '4px',

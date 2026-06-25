@@ -3,8 +3,17 @@
 import React from 'react';
 import DesktopHeader from './pc/DesktopHeader';
 import MobileHeader from './mobile/MobileHeader';
+import type { ProductCategoryId } from '@/lib/productCategoryVisibility';
 
-export default function Header({ locale, dict }: { locale: string; dict: any }) {
+export default function Header({
+    locale,
+    dict,
+    visibleProductCategoryIds
+}: {
+    locale: string;
+    dict: any;
+    visibleProductCategoryIds?: ProductCategoryId[];
+}) {
     return (
         <>
             {/* 这里的样式会直接注入 HTML，比任何外部 CSS 都快 */}
@@ -19,7 +28,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
             `}} />
 
             <div className="pc_only_container">
-                <DesktopHeader locale={locale} dict={dict} />
+                <DesktopHeader locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
             </div>
 
             <div className="mobile_only_container">

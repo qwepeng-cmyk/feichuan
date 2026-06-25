@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import styles from './MobileProductCenter.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,6 +8,8 @@ import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import AccessoryCategoryCards from '@/components/products/AccessoryCategoryCards';
+import { getVisibleProductCategoryIds } from '@/lib/productCategoryVisibility';
 
 interface Product {
     name: string;
@@ -45,6 +47,7 @@ const MISSION_APPLICATION_ORDER = [
     'fc-yjxf-01-aerial-firefighting-drone',
 ];
 const MISSION_APPLICATION_HANDLES = new Set(MISSION_APPLICATION_ORDER);
+const ACCESSORIES_CATEGORY_ID = 'drone-accessories';
 
 function shouldBlendImageBackground(image?: string) {
     return Boolean(image?.includes('/products/uav-systems/'));
@@ -223,6 +226,7 @@ export default function MobileProductCenter({
 
     const CATEGORY_NAMES: Record<string, string> = {
         'uav-drone-systems': dict.products.categories.uav,
+        [ACCESSORIES_CATEGORY_ID]: dict?.accessories?.title || 'Drone Accessories',
         'drone-detection': dict.products.categories.droneDetection,
         'perimeter-intelligence': dict.products.categories.surveillance,
         'industrial-engine-microgrid': dict.products.categories.industrialEngineMicrogrid,
@@ -244,6 +248,17 @@ export default function MobileProductCenter({
                     <g transform="translate(13,31.5) rotate(-60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
                     <g transform="translate(35,14.5) rotate(-60)"><path d="M-6.5,-0.8 Q-4,0 -1,0 Q-4,0.8 -6.5,0.8 Z M6.5,0.8 Q4,0 1,0 Q4,-0.8 6.5,-0.8 Z" /></g>
                 </g>
+            </svg>
+        ),
+        [ACCESSORIES_CATEGORY_ID]: (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M24 20c-2.6-7.2-1.3-12.2 3.8-15 2.5 5.4 1.1 10-3.8 15z" fill="rgba(49, 91, 164, 0.18)" />
+                <path d="M28 24c7.2-2.6 12.2-1.3 15 3.8-5.4 2.5-10 1.1-15-3.8z" fill="rgba(49, 91, 164, 0.18)" />
+                <path d="M24 28c2.6 7.2 1.3 12.2-3.8 15-2.5-5.4-1.1-10 3.8-15z" fill="rgba(49, 91, 164, 0.18)" />
+                <path d="M20 24c-7.2 2.6-12.2 1.3-15-3.8 5.4-2.5 10-1.1 15 3.8z" fill="rgba(49, 91, 164, 0.18)" />
+                <circle cx="24" cy="24" r="4.4" fill="currentColor" stroke="none" />
+                <circle cx="24" cy="24" r="8" />
+                <path d="M24 12v-3M36 24h3M24 36v3M12 24H9" />
             </svg>
         ),
         'drone-detection': (
@@ -292,15 +307,27 @@ export default function MobileProductCenter({
         )
     };
 
-    const categoryList = Object.keys(CATEGORY_NAMES).map(key => ({
-        id: key,
-        name: CATEGORY_NAMES[key],
-        icon: CATEGORY_ICONS[key]
-    }));
+    const categoryList = useMemo(() => {
+        const productCenterCategoryIds = getVisibleProductCategoryIds(categoriesData).flatMap((id) =>
+            id === 'perimeter-intelligence' ? [id, ACCESSORIES_CATEGORY_ID] : [id]
+        );
 
-    const [activeCategory, setActiveCategory] = useState(categoryList[0].id);
+        return productCenterCategoryIds.map(key => ({
+            id: key,
+            name: CATEGORY_NAMES[key],
+            icon: CATEGORY_ICONS[key]
+        }));
+    }, [categoriesData, CATEGORY_ICONS, CATEGORY_NAMES]);
+
+    const [activeCategory, setActiveCategory] = useState<string>(categoryList[0]?.id || '');
     const [isFixed, setIsFixed] = useState(false);
     const bannerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (categoryList.length > 0 && !categoryList.some((category) => category.id === activeCategory)) {
+            setActiveCategory(categoryList[0].id);
+        }
+    }, [activeCategory, categoryList]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -373,12 +400,20 @@ export default function MobileProductCenter({
             <div className={styles.listContainer}>
                 {categoryList.map((category) => (
                     <section key={category.id} id={`mobile-${category.id}`} className={styles.categorySection}>
-                        <div className={styles.sectionHeader}>
+                        <div
+                            className={styles.sectionHeader}
+                            style={category.id === ACCESSORIES_CATEGORY_ID ? { borderLeft: 0, paddingLeft: 0, textAlign: 'center' } : undefined}
+                        >
                             <h2>{CATEGORY_NAMES[category.id]}</h2>
-                            <div className={styles.accentLine}></div>
+                            <div
+                                className={styles.accentLine}
+                                style={category.id === ACCESSORIES_CATEGORY_ID ? { margin: '10px auto 0' } : undefined}
+                            ></div>
                         </div>
 
-                        {category.id === 'uav-drone-systems' ? (
+                        {category.id === ACCESSORIES_CATEGORY_ID ? (
+                            <AccessoryCategoryCards locale={locale} dict={dict} compact showTitle={false} />
+                        ) : category.id === 'uav-drone-systems' ? (
                             <>
                                 <MobileMissionApplicationCatalog
                                     title={dict.megaMenu?.byMission || 'By Mission & Application'}
@@ -402,7 +437,7 @@ export default function MobileProductCenter({
                                         key={idx}
                                         product={product}
                                         locale={locale}
-                                        priority={category.id === categoryList[0].id && idx < 2}
+                                        priority={category.id === categoryList[0]?.id && idx < 2}
                                     />
                                 ))}
                             </div>

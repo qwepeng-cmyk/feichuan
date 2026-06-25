@@ -7,10 +7,27 @@ import { solutions as homeSolutions } from '@/constants/homeData';
 import { localizedField } from '@/lib/localization';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
 import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 
-export default function MobileFooter({ locale, dict }: { locale: string; dict: any }) {
+export default function MobileFooter({
+    locale,
+    dict,
+    visibleProductCategoryIds
+}: {
+    locale: string;
+    dict: any;
+    visibleProductCategoryIds?: ProductCategoryId[];
+}) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const footerSolutions = homeSolutions.slice(0, 6);
+    const productLinks = [
+        { id: 'uav-drone-systems' as const, href: '/products#uav-drone-systems', label: dict.megaMenu.uavSystems },
+        { id: 'drone-detection' as const, href: '/products#drone-detection', label: dict.megaMenu.droneDetection },
+        { id: 'security-screening' as const, href: '/products#security-screening', label: dict.megaMenu.securityScreening },
+        { id: 'engineering-materials' as const, href: '/products#engineering-materials', label: dict.megaMenu.engineeringMaterials },
+        { id: 'field-hospitals' as const, href: '/products#field-hospitals', label: dict.megaMenu.fieldHospitals },
+        { id: 'perimeter-intelligence' as const, href: '/products#perimeter-intelligence', label: dict.megaMenu.perimeterSurveillance },
+    ].filter((item) => hasVisibleProductCategory(visibleProductCategoryIds, item.id));
 
     return (
         <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
@@ -68,12 +85,11 @@ export default function MobileFooter({ locale, dict }: { locale: string; dict: a
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.products}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        <Link prefetch={false} href={l("/products#uav-drone-systems")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.uavSystems}</Link>
-                        <Link prefetch={false} href={l("/products")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.droneDetection}</Link>
-                        <Link prefetch={false} href={l("/products#security-screening")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.securityScreening}</Link>
-                        <Link prefetch={false} href={l("/products")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.engineeringMaterials}</Link>
-                        <Link prefetch={false} href={l("/products#field-hospitals")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.fieldHospitals}</Link>
-                        <Link prefetch={false} href={l("/products#perimeter-intelligence")} style={{ color: '#888', fontSize: '16px' }}>{dict.megaMenu.perimeterSurveillance}</Link>
+                        {productLinks.map((item) => (
+                            <Link key={item.id} prefetch={false} href={l(item.href)} style={{ color: '#888', fontSize: '16px' }}>
+                                {item.label}
+                            </Link>
+                        ))}
                     </div>
                 </div>
 

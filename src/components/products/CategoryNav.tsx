@@ -9,7 +9,7 @@ interface Category {
 }
 
 export default function CategoryNav({ categories }: { categories: Category[] }) {
-    const [activeTab, setActiveTab] = useState(categories[0].id);
+    const [activeTab, setActiveTab] = useState(categories[0]?.id || '');
 
     const getStickyOffset = () => {
         const nav = document.querySelector('.sticky-category-nav') as HTMLElement | null;
@@ -34,8 +34,18 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
         }
     };
 
+    useEffect(() => {
+        if (categories.length > 0 && !categories.some((category) => category.id === activeTab)) {
+            setActiveTab(categories[0].id);
+        }
+    }, [activeTab, categories]);
+
     // Update active tab on scroll
     useEffect(() => {
+        if (categories.length === 0) {
+            return;
+        }
+
         const handleScroll = () => {
             const sections = categories.map(cat => document.getElementById(cat.id));
             const scrollPos = window.scrollY + getStickyOffset();
@@ -68,6 +78,10 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
             window.removeEventListener('scroll', handleScroll);
         };
     }, [categories]);
+
+    if (categories.length === 0) {
+        return null;
+    }
 
     return (
         <nav className="sticky-category-nav" style={{ 

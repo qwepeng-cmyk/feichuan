@@ -75,7 +75,7 @@ export default function MobileGenericCatalogCenter({
         setIsFixed(bannerBottom <= 108);
       }
 
-      const sections = categories.map(cat => document.getElementById(`mobile-${cat.id}`));
+      const sections = categories.map(cat => document.getElementById(cat.id));
       const scrollPos = window.scrollY + 250;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -95,7 +95,7 @@ export default function MobileGenericCatalogCenter({
   }, [categories]);
 
   const scrollToCategory = (id: string) => {
-    const element = document.getElementById(`mobile-${id}`);
+    const element = document.getElementById(id);
     if (!element) return;
     const totalOffset = 198;
     const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -141,7 +141,7 @@ export default function MobileGenericCatalogCenter({
 
       <div className={styles.listContainer}>
         {categories.map((category) => (
-          <section key={category.id} id={`mobile-${category.id}`} className={styles.categorySection}>
+          <section key={category.id} id={category.id} className={styles.categorySection}>
             <div className={styles.sectionHeader}>
               <h2>{category.name}</h2>
               <div className={styles.accentLine} />

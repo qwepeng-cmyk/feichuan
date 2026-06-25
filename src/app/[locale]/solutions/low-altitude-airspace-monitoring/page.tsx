@@ -373,7 +373,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
               Get Site Assessment
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <WhatsAppLeadButton sourceLabel="low_altitude_landing_hero_whatsapp" className={styles.secondaryCta}>
+            <WhatsAppLeadButton sourceLabel="low_altitude_landing_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
               WhatsApp Consultation
             </WhatsAppLeadButton>
           </div>

@@ -8,8 +8,17 @@ import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { languageLabels } from '@/lib/localization';
 import { i18n } from '@/i18n/config';
 import { CONTACT_EMAIL } from '@/lib/contactSettings';
+import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 
-export default function Header({ locale, dict }: { locale: string; dict: any }) {
+export default function Header({
+    locale,
+    dict,
+    visibleProductCategoryIds
+}: {
+    locale: string;
+    dict: any;
+    visibleProductCategoryIds?: ProductCategoryId[];
+}) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
 
@@ -44,6 +53,14 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
     }, []);
 
     const headerClass = `site-header ${isHome ? 'header-home' : 'header-inner'} ${scrolled ? 'scrolled' : ''}`;
+    const hasProductCategory = (categoryId: ProductCategoryId) => hasVisibleProductCategory(visibleProductCategoryIds, categoryId);
+    const showUavSystems = hasProductCategory('uav-drone-systems');
+    const showDroneDetection = hasProductCategory('drone-detection');
+    const showPerimeter = hasProductCategory('perimeter-intelligence');
+    const showSecurityScreening = hasProductCategory('security-screening');
+    const showEngineeringMaterials = hasProductCategory('engineering-materials');
+    const showFieldHospitals = hasProductCategory('field-hospitals');
+    const showProductMiniPair = showEngineeringMaterials || showFieldHospitals;
     const uavCategoryPath = "/products#uav-drone-systems";
     const multiRotorGroup = {
         title: dict.megaMenu.multiRotor,
@@ -91,6 +108,7 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
     ];
     const productMegaImages = {
         mission: "/products/uav-systems/FC-SLJC-01-Water-Conservancy-Monitoring-Drone.webp",
+        detection: "/products/02-drone-detection/stationary-rf-detection-system.webp?v=2026061801",
         security: "/products/security/Deluxe-Smart-Turnstile.webp",
         engineering: "/products/04-engineering-materials/bailey-bridge-steel-prefab.webp",
         perimeter: "/products/surveillance/FC-DMS10-Series-Smart-Electronic-Sentinel.webp",
@@ -220,14 +238,6 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
             ],
         },
     ];
-    const accessoryMegaColumns = [
-        [accessoryMegaGroups[0], accessoryMegaGroups[4]],
-        [accessoryMegaGroups[1], accessoryMegaGroups[7]],
-        [accessoryMegaGroups[2]],
-        [accessoryMegaGroups[5]],
-        [accessoryMegaGroups[3], accessoryMegaGroups[6]],
-    ];
-
     return (
         <header id="site-header" className={headerClass} style={{
             position: 'fixed',
@@ -336,59 +346,47 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                         </div>
 
 
-                        <div className={`nav-item ${pathname.startsWith(l('/products')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+                        <div className={`nav-item ${pathname.startsWith(l('/products')) || pathname.startsWith(l('/accessories')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/products")} className="nav-link">{dict?.nav?.products || 'Products'}</Link>
                             <div className="mega-menu">
-                                <div className="container product-mega-container home-mega-container">
-                                    <div className="product-mega-columns">
-                                    {/* Column 1: UAV by mission and application */}
-                                    <div className="mega-column">
+                                <div className="container product-mega-container product-mega-container-v2 home-mega-container">
+                                    <div className="product-mega-columns product-mega-columns-v2">
+                                    {showUavSystems && (
+                                    <div className="mega-column product-mega-primary">
                                         <h3 className="mega-title"><Link prefetch={false} href={l(uavCategoryPath)}>{dict.megaMenu.uavSystems}</Link></h3>
-                                        <div>
-                                            <div className="mega-sub-header">{dict.megaMenu.byMission}</div>
-                                            {renderMegaImage(productMegaImages.mission, dict.megaMenu.byMission, "mission")}
-                                            <ul className="mega-list">
-                                                {uavMissionItems.map((item) => (
-                                                    <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                        <div className="mega-menu-group mega-platform-under-mission">
-                                            <div className="mega-sub-header">{dict.megaMenu.byFlightPlatform}</div>
-                                            <Link prefetch={false} href={l(uavCategoryPath)} className="mega-group-title">{multiRotorGroup.title}</Link>
-                                            {renderMegaImage(multiRotorGroup.image, multiRotorGroup.title, multiRotorGroup.imageVariant)}
-                                            <ul className="mega-list mega-sub-list">
-                                                {multiRotorGroup.items.map((item) => (
-                                                    <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    {/* Column 2: UAV by flight platform */}
-                                    <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l(uavCategoryPath)}>{dict.megaMenu.uavSystems}</Link></h3>
-                                        <div>
-                                            <div className="mega-sub-header">{dict.megaMenu.byFlightPlatform}</div>
-                                            {uavPlatformGroups.map((group) => (
-                                                <div className="mega-menu-group" key={group.title}>
-                                                    <Link prefetch={false} href={l(uavCategoryPath)} className="mega-group-title">{group.title}</Link>
-                                                    {group.image && renderMegaImage(group.image, group.title, group.imageVariant)}
-                                                    <ul className="mega-list mega-sub-list">
-                                                        {group.items.map((item) => (
-                                                            <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
+                                        <div className="mega-sub-header">{dict.megaMenu.byMission}</div>
+                                        {renderMegaImage(productMegaImages.mission, dict.megaMenu.byMission, "mission")}
+                                        <ul className="mega-list">
+                                            {uavMissionItems.map((item) => (
+                                                <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
                                             ))}
-                                        </div>
+                                        </ul>
                                     </div>
+                                    )}
 
-                                    {/* Column 3: Drone detection and security screening */}
-                                    <div className="mega-column">
-                                        <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.droneDetection}</Link></h3>
+                                    {showUavSystems && (
+                                    <div className="mega-column product-mega-platform-column">
+                                        <h3 className="mega-title"><Link prefetch={false} href={l(uavCategoryPath)}>{dict.megaMenu.byFlightPlatform}</Link></h3>
+                                        {[multiRotorGroup, ...uavPlatformGroups].map((group) => (
+                                            <div className="mega-menu-group product-mega-platform-group" key={group.title}>
+                                                <Link prefetch={false} href={l(uavCategoryPath)} className="mega-group-title">{group.title}</Link>
+                                                {group.image && renderMegaImage(group.image, group.title, group.imageVariant)}
+                                                <ul className="mega-list mega-sub-list">
+                                                    {group.items.map((item) => (
+                                                        <li key={item.label}><Link prefetch={false} href={l(item.href)}>{item.label}</Link></li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    )}
+
+                                    {showDroneDetection && (
+                                    <div className="mega-column product-mega-detection-column">
+                                        <div className="product-mega-panel product-mega-panel-emphasis">
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#drone-detection")}>{dict.megaMenu.droneDetection}</Link></h3>
                                             <div className="mega-sub-header">{dict.megaMenu.detectionTracking}</div>
+                                            {renderMegaImage(productMegaImages.detection, dict.megaMenu.detectionTracking, "detection")}
                                             <ul className="mega-list">
                                                 <li><Link prefetch={false} href={l("/products/low-altitude-detection-radar-ku-band")}>{dict.megaMenu.lowAltRadars}</Link></li>
                                                 <li><Link prefetch={false} href={l("/products/stationary-rf-detection-system")}>{dict.megaMenu.rfDetection}</Link></li>
@@ -396,7 +394,13 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                                 <li><Link prefetch={false} href={l("/products/uav-remote-id-monitoring-system")}>{dict.megaMenu.remoteId}</Link></li>
                                             </ul>
                                         </div>
-                                        <div style={{ marginBottom: '20px' }}>
+
+                                    </div>
+                                    )}
+
+                                    {showPerimeter && (
+                                    <div className="mega-column product-mega-perimeter-column">
+                                        <div className="product-mega-panel">
                                             <h3 className="mega-title"><Link prefetch={false} href={l("/products#perimeter-intelligence")}>{dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance}</Link></h3>
                                             {renderMegaImage(productMegaImages.perimeter, dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance, "perimeter")}
                                             <ul className="mega-list">
@@ -407,76 +411,76 @@ export default function Header({ locale, dict }: { locale: string; dict: any }) 
                                                 <li><Link prefetch={false} href={l("/products/fc-rc-series-hd-laser-camera")}>{dict.megaMenu.hdLaser}</Link></li>
                                             </ul>
                                         </div>
-                                        <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#industrial-engine-microgrid")}>{dict.products?.categories?.industrialEngineMicrogrid || 'Industrial Engines'}</Link></h3>
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/n-tet-fc16vcn-1200kw")}>FC16VCN 1200kW</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/n-tet-fc6kn-200-250kw")}>FC6KN 200~250kW</Link></li>
+
+                                    </div>
+                                    )}
+
+                                    {(showSecurityScreening || showProductMiniPair) && (
+                                    <div className="mega-column product-mega-security-column">
+                                        {showSecurityScreening && (
+                                        <div className="product-mega-panel">
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#security-screening")}>{dict.megaMenu.securityScreening}</Link></h3>
+                                            {renderMegaImage(productMegaImages.security, dict.megaMenu.securityScreening, "security")}
+                                            <ul className="mega-list mega-list-tight">
+                                                <li><Link prefetch={false} href={l("/products/fc6550-standard-x-ray-baggage-scanner")}>{dict.megaMenu.xrayScanner}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-c-lcd-walk-through-metal-detector")}>{dict.megaMenu.walkThrough}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-h-smart-phone-detection-gate")}>{dict.megaMenu.phoneDetection}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-3000-ferromagnetic-detection-column")}>{dict.megaMenu.ferromagnetic}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc2088-handheld-metal-detector")}>{dict.megaMenu.handheldMetal}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc1800t-desktop-explosives-narcotics-detector")}>{dict.megaMenu.explosiveDetectors}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc1500b-desktop-liquid-security-inspector")}>{dict.megaMenu.liquidInspectors}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fbg-g15-fc06-explosion-containment-vessel")}>{dict.megaMenu.explosionProtection}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc902-personal-radiation-dose-alarm")}>{dict.megaMenu.radiationDetectors}</Link></li>
+                                                <li><Link prefetch={false} href={l("/products/fc-smart-swing-turnstile")}>{dict.megaMenu.accessControl}</Link></li>
                                             </ul>
                                         </div>
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/products#security-screening")}>{dict.megaMenu.securityScreening}</Link></h3>
-                                        {renderMegaImage(productMegaImages.security, dict.megaMenu.securityScreening, "security")}
-                                        <ul className="mega-list">
-                                            <li><Link prefetch={false} href={l("/products/fc6550-standard-x-ray-baggage-scanner")}>{dict.megaMenu.xrayScanner}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc-c-lcd-walk-through-metal-detector")}>{dict.megaMenu.walkThrough}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc-h-smart-phone-detection-gate")}>{dict.megaMenu.phoneDetection}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc-3000-ferromagnetic-detection-column")}>{dict.megaMenu.ferromagnetic}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc2088-handheld-metal-detector")}>{dict.megaMenu.handheldMetal}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc1800t-desktop-explosives-narcotics-detector")}>{dict.megaMenu.explosiveDetectors}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc1500b-desktop-liquid-security-inspector")}>{dict.megaMenu.liquidInspectors}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fbg-g15-fc06-explosion-containment-vessel")}>{dict.megaMenu.explosionProtection}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc902-personal-radiation-dose-alarm")}>{dict.megaMenu.radiationDetectors}</Link></li>
-                                            <li><Link prefetch={false} href={l("/products/fc-smart-swing-turnstile")}>{dict.megaMenu.accessControl}</Link></li>
+                                        )}
+
+                                        {showProductMiniPair && (
+                                        <div className="product-mega-mini-pair">
+                                            {showEngineeringMaterials && (
+                                            <div>
+                                                <h3 className="mega-title"><Link prefetch={false} href={l("/products#engineering-materials")}>{dict.megaMenu.engineeringMaterials}</Link></h3>
+                                                <ul className="mega-list mega-list-tight">
+                                                    <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.steelBridges}</Link></li>
+                                                    <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.bridgeComponents}</Link></li>
+                                                </ul>
+                                            </div>
+                                            )}
+                                            {showFieldHospitals && (
+                                            <div>
+                                                <h3 className="mega-title"><Link prefetch={false} href={l("/products#field-hospitals")}>{dict.megaMenu.fieldHospitals}</Link></h3>
+                                                <ul className="mega-list mega-list-tight">
+                                                    <li><Link prefetch={false} href={l("/products/containerized-medical-rescue-system")}>{dict.megaMenu.containerizedMedical}</Link></li>
+                                                    <li><Link prefetch={false} href={l("/products/intelligent-mobile-cabin-hospital")}>{dict.megaMenu.mobileCabin}</Link></li>
+                                                </ul>
+                                            </div>
+                                            )}
+                                        </div>
+                                        )}
+                                    </div>
+                                    )}
+                                    <div className="product-mega-accessories-row">
+                                        <h3 className="mega-title"><Link prefetch={false} href={l("/accessories")}>{dict?.accessories?.title || 'Drone Accessories'}</Link></h3>
+                                        <ul className="mega-list accessory-thumb-list">
+                                            {accessoryMegaGroups.map((group) => (
+                                                <li key={group.id}>
+                                                    <Link prefetch={false} href={l(`/accessories#${group.id}`)} className="accessory-thumb-link">
+                                                        <span className="accessory-thumb-image">
+                                                                <Image
+                                                                    src={group.image}
+                                                                    alt={group.title}
+                                                                    width={44}
+                                                                    height={34}
+                                                                    className="accessory-thumb-media"
+                                                                />
+                                                        </span>
+                                                        <span>{group.title}</span>
+                                                    </Link>
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
-
-                                    {/* Column 4: Engineering, Medical & Surveillance */}
-                                    <div className="mega-column">
-                                        <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products")}>{dict.megaMenu.engineeringMaterials}</Link></h3>
-                                            {renderMegaImage(productMegaImages.engineering, dict.megaMenu.engineeringMaterials, "engineering")}
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.steelBridges}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/bailey-bridge")}>{dict.megaMenu.bridgeComponents}</Link></li>
-                                            </ul>
-                                        </div>
-                                        <div style={{ marginBottom: '20px' }}>
-                                            <h3 className="mega-title"><Link prefetch={false} href={l("/products#field-hospitals")}>{dict.megaMenu.fieldHospitals}</Link></h3>
-                                            <ul className="mega-list">
-                                                <li><Link prefetch={false} href={l("/products/containerized-medical-rescue-system")}>{dict.megaMenu.containerizedMedical}</Link></li>
-                                                <li><Link prefetch={false} href={l("/products/intelligent-mobile-cabin-hospital")}>{dict.megaMenu.mobileCabin}</Link></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={`nav-item ${pathname.startsWith(l('/accessories')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <Link prefetch={false} href={l("/accessories")} className="nav-link">{dict?.nav?.accessories || 'Drone Accessories'}</Link>
-                            <div className="mega-menu">
-                                <div className="container product-mega-container home-mega-container accessory-mega-container">
-                                    <div className="product-mega-columns accessory-mega-columns">
-                                        {accessoryMegaColumns.map((column, columnIndex) => (
-                                            <div className="mega-column accessory-mega-column" key={`accessory-column-${columnIndex}`}>
-                                                {column.map((group) => (
-                                                    <div className="mega-menu-group" key={group.id}>
-                                                        <h3 className="mega-title">
-                                                            <Link prefetch={false} href={l(`/accessories#${group.id}`)}>{group.title}</Link>
-                                                        </h3>
-                                                        {renderMegaImage(group.image, group.title)}
-                                                        <ul className="mega-list">
-                                                            {group.items.map((item) => (
-                                                                <li key={item.href}>
-                                                                    <Link prefetch={false} href={l(item.href)}>{item.label}</Link>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        ))}
                                     </div>
                                 </div>
                             </div>

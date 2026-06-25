@@ -3,6 +3,7 @@ import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
+import DesktopFloatingContact from "@/components/contact/DesktopFloatingContact";
 import LocaleDocumentState from "@/components/LocaleDocumentState";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
@@ -11,6 +12,8 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteGraphSchema } from "@/lib/structuredData";
+import { getAllProducts } from "@/lib/products";
+import { getVisibleProductCategoryIds } from "@/lib/productCategoryVisibility";
 
 function isValidLocale(locale: string): locale is Locale {
   return i18n.locales.includes(locale as Locale);
@@ -92,6 +95,7 @@ export default async function LocaleLayout({
   }
 
   const dict = await getDictionary(locale);
+  const visibleProductCategoryIds = getVisibleProductCategoryIds(await getAllProducts(locale));
   const tracking = locale === i18n.defaultLocale ? await loadTrackingSettings() : null;
   const gaMeasurementId = tracking?.gaEnabled ? cleanTrackingId(tracking.gaMeasurementId) : '';
   const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
@@ -174,10 +178,11 @@ s0.parentNode.insertBefore(s1,s0);
           </noscript>
         )}
 
-        <Header locale={locale} dict={dict} />
+        <Header locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
         <JsonLd data={siteGraphSchema(locale)} />
         {children}
-        <Footer locale={locale} dict={dict} />
+        <Footer locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
+        <DesktopFloatingContact dict={dict} />
 
         {/* MOBILE STICKY BAR */}
         <div className="mobile_only">

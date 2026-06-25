@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
@@ -20,6 +21,85 @@ interface WhatsAppLeadButtonProps {
   ariaLabel?: string;
 }
 
+const modalCopy = {
+  en: {
+    eyebrow: 'WhatsApp Consultation',
+    title: 'Confirm your contact details',
+    helper: 'Leave your WhatsApp number first. Then we will open WhatsApp with a ready-to-send message.',
+    nameLabel: 'Name *',
+    phoneLabel: 'WhatsApp / Phone *',
+    countryCodeAria: 'Country code',
+    countryCodePlaceholder: 'e.g. +1',
+    phonePlaceholder: 'WhatsApp number, or full number with +',
+    saving: 'Saving...',
+    submit: 'Open WhatsApp',
+    note: 'The WhatsApp message is pre-filled, but the visitor still needs to press Send.',
+    close: 'Close WhatsApp contact form',
+    nameError: 'Please enter your name before opening WhatsApp.',
+    phoneError: 'Please enter your WhatsApp number before continuing.',
+    countryCodeError: 'Please enter a country code, or enter the full number with +.',
+  },
+  ru: {
+    eyebrow: 'Консультация в WhatsApp',
+    title: 'Подтвердите контактные данные',
+    helper: 'Оставьте номер WhatsApp. Затем мы откроем WhatsApp с готовым сообщением.',
+    nameLabel: 'Имя *',
+    phoneLabel: 'WhatsApp / телефон *',
+    countryCodeAria: 'Код страны',
+    countryCodePlaceholder: 'например +1',
+    phonePlaceholder: 'Номер WhatsApp или полный номер с +',
+    saving: 'Сохранение...',
+    submit: 'Открыть WhatsApp',
+    note: 'Сообщение WhatsApp уже подготовлено, но посетителю все равно нужно нажать Send.',
+    close: 'Закрыть форму WhatsApp',
+    nameError: 'Введите имя перед открытием WhatsApp.',
+    phoneError: 'Введите номер WhatsApp, чтобы продолжить.',
+    countryCodeError: 'Введите код страны или полный номер с +.',
+  },
+  es: {
+    eyebrow: 'Consulta por WhatsApp',
+    title: 'Confirme sus datos de contacto',
+    helper: 'Deje primero su numero de WhatsApp. Luego abriremos WhatsApp con un mensaje listo para enviar.',
+    nameLabel: 'Nombre *',
+    phoneLabel: 'WhatsApp / telefono *',
+    countryCodeAria: 'Codigo de pais',
+    countryCodePlaceholder: 'ej. +1',
+    phonePlaceholder: 'Numero de WhatsApp o numero completo con +',
+    saving: 'Guardando...',
+    submit: 'Abrir WhatsApp',
+    note: 'El mensaje de WhatsApp ya esta preparado, pero el visitante aun debe pulsar Enviar.',
+    close: 'Cerrar formulario de WhatsApp',
+    nameError: 'Ingrese su nombre antes de abrir WhatsApp.',
+    phoneError: 'Ingrese su numero de WhatsApp para continuar.',
+    countryCodeError: 'Ingrese un codigo de pais o el numero completo con +.',
+  },
+  ar: {
+    eyebrow: 'استشارة عبر WhatsApp',
+    title: 'أكد بيانات التواصل',
+    helper: 'اترك رقم WhatsApp اولا. بعد ذلك سنفتح WhatsApp برسالة جاهزة للارسال.',
+    nameLabel: 'الاسم *',
+    phoneLabel: 'WhatsApp / الهاتف *',
+    countryCodeAria: 'رمز الدولة',
+    countryCodePlaceholder: 'مثال +1',
+    phonePlaceholder: 'رقم WhatsApp او الرقم الكامل مع +',
+    saving: 'جار الحفظ...',
+    submit: 'فتح WhatsApp',
+    note: 'رسالة WhatsApp جاهزة مسبقا، لكن على الزائر الضغط على Send.',
+    close: 'اغلاق نموذج WhatsApp',
+    nameError: 'يرجى ادخال الاسم قبل فتح WhatsApp.',
+    phoneError: 'يرجى ادخال رقم WhatsApp للمتابعة.',
+    countryCodeError: 'يرجى ادخال رمز الدولة او الرقم الكامل مع +.',
+  },
+};
+
+function getCopy(pathname: string) {
+  const segment = pathname.split('/').filter(Boolean)[0];
+  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
+    return modalCopy[segment];
+  }
+  return modalCopy.en;
+}
+
 export default function WhatsAppLeadButton({
   children,
   className,
@@ -28,12 +108,13 @@ export default function WhatsAppLeadButton({
   ariaLabel,
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
+  const copy = getCopy(pathname);
   const [isOpen, setIsOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
-    countryCode: '+',
+    countryCode: '',
     phone: '',
   });
 
@@ -81,17 +162,17 @@ export default function WhatsAppLeadButton({
     const hasUsableCountryCode = /^\+\d{1,4}$/.test(countryCode);
 
     if (!name) {
-      setError('Please enter your name before opening WhatsApp.');
+      setError(copy.nameError);
       return;
     }
 
     if (!phone) {
-      setError('Please enter your WhatsApp number before continuing.');
+      setError(copy.phoneError);
       return;
     }
 
     if (!hasInternationalPrefix && !hasUsableCountryCode) {
-      setError('Please enter a country code, or enter the full number with +.');
+      setError(copy.countryCodeError);
       return;
     }
 
@@ -139,26 +220,24 @@ export default function WhatsAppLeadButton({
         {children}
       </a>
 
-      {isOpen && (
+      {isOpen && createPortal(
         <div className={styles.modalBackdrop} role="presentation">
           <div className={styles.modalPanel} role="dialog" aria-modal="true" aria-labelledby="whatsapp-lead-title">
             <div className={styles.modalHeader}>
               <div>
-                <p className={styles.eyebrow}>WhatsApp Consultation</p>
-                <h2 id="whatsapp-lead-title" className={styles.title}>Confirm your contact details</h2>
+                <p className={styles.eyebrow}>{copy.eyebrow}</p>
+                <h2 id="whatsapp-lead-title" className={styles.title}>{copy.title}</h2>
               </div>
-              <button type="button" className={styles.closeButton} onClick={closeModal} aria-label="Close WhatsApp contact form">
+              <button type="button" className={styles.closeButton} onClick={closeModal} aria-label={copy.close}>
                 <X size={18} />
               </button>
             </div>
 
             <form className={styles.form} onSubmit={submitLead}>
-              <p className={styles.helper}>
-                Leave your WhatsApp number first. Then we will open WhatsApp with a ready-to-send message.
-              </p>
+              <p className={styles.helper}>{copy.helper}</p>
 
               <label className={styles.field}>
-                <span className={styles.label}>Name *</span>
+                <span className={styles.label}>{copy.nameLabel}</span>
                 <input
                   className={styles.input}
                   value={formData.name}
@@ -169,7 +248,7 @@ export default function WhatsAppLeadButton({
               </label>
 
               <label className={styles.field}>
-                <span className={styles.label}>WhatsApp / Phone *</span>
+                <span className={styles.label}>{copy.phoneLabel}</span>
                 <div className={styles.phoneRow}>
                   <div className={styles.countryCodeShell}>
                     <input
@@ -178,15 +257,13 @@ export default function WhatsAppLeadButton({
                       onChange={(event) => {
                         const rawValue = event.target.value.replace(/[^\d+]/g, '');
                         const normalizedValue = rawValue.startsWith('+') ? rawValue : `+${rawValue.replace(/\+/g, '')}`;
-                        setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) || '+' }));
+                        setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) }));
                       }}
                       inputMode="tel"
                       autoComplete="tel-country-code"
-                      aria-label="Country code"
+                      placeholder={copy.countryCodePlaceholder}
+                      aria-label={copy.countryCodeAria}
                     />
-                    {formData.countryCode === '+' && (
-                      <span className={styles.countryCodeHint}>Country code</span>
-                    )}
                   </div>
                   <input
                     className={styles.input}
@@ -194,7 +271,7 @@ export default function WhatsAppLeadButton({
                     value={formData.phone}
                     onChange={(event) => setFormData((prev) => ({ ...prev, phone: event.target.value }))}
                     autoComplete="tel"
-                    placeholder="WhatsApp number, or full number with +"
+                    placeholder={copy.phonePlaceholder}
                   />
                 </div>
               </label>
@@ -203,16 +280,15 @@ export default function WhatsAppLeadButton({
 
               <div className={styles.actions}>
                 <button type="submit" className={styles.submitButton} disabled={isSending}>
-                  {isSending ? 'Saving...' : 'Open WhatsApp'}
+                  {isSending ? copy.saving : copy.submit}
                   {!isSending && <Send size={16} />}
                 </button>
-                <span className={styles.note}>
-                  The WhatsApp message is pre-filled, but the visitor still needs to press Send.
-                </span>
+                <span className={styles.note}>{copy.note}</span>
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

@@ -37,7 +37,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/products': {
     title: 'Industrial UAV Systems & Field Equipment | N-TET Products',
     description:
-      'Explore N-TET industrial UAV systems, low-altitude monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components.',
+      'Explore N-TET industrial UAV systems, low-altitude monitoring equipment, security screening systems, drone accessories, and UAV components.',
     keywords: [
       'industrial UAV systems',
       'UAV inspection drone',
@@ -45,8 +45,6 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
       'emergency response drone',
       'low altitude monitoring equipment',
       'security screening systems',
-      'engineering materials',
-      'field medical equipment',
       'drone accessories',
       'UAV components',
     ],

@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import { fetchProductsForClient } from '@/lib/clientProducts';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import AccessoryCategoryCards from '@/components/products/AccessoryCategoryCards';
+
+const ACCESSORIES_CATEGORY_ID = 'drone-accessories';
 
 interface CategoryMeta {
     id: string;
@@ -91,10 +94,12 @@ function ProductSkeleton() {
 
 export default function DeferredProductSections({
     categories,
-    locale
+    locale,
+    dict
 }: {
     categories: CategoryMeta[];
     locale: string;
+    dict: any;
 }) {
     const [isDesktop, setIsDesktop] = useState(false);
     const [categoriesData, setCategoriesData] = useState<Record<string, Product[]> | null>(null);
@@ -137,17 +142,21 @@ export default function DeferredProductSections({
                             <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
                         </div>
 
-                        <div className="product-grid" style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(3, 1fr)',
-                            gap: '30px'
-                        }}>
-                            {categoriesData
-                                ? categoriesData[category.id]?.map((product) => (
-                                    <ProductCard key={product.handle} product={product} locale={locale} />
-                                ))
-                                : [1, 2, 3].map((item) => <ProductSkeleton key={item} />)}
-                        </div>
+                        {category.id === ACCESSORIES_CATEGORY_ID ? (
+                            <AccessoryCategoryCards locale={locale} dict={dict} showTitle={false} />
+                        ) : (
+                            <div className="product-grid" style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(3, 1fr)',
+                                gap: '30px'
+                            }}>
+                                {categoriesData
+                                    ? categoriesData[category.id]?.map((product) => (
+                                        <ProductCard key={product.handle} product={product} locale={locale} />
+                                    ))
+                                    : [1, 2, 3].map((item) => <ProductSkeleton key={item} />)}
+                            </div>
+                        )}
                     </div>
                 </section>
             ))}

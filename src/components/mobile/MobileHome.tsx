@@ -129,19 +129,19 @@ export default function MobileHome({
             </section>
 
             {/* 2. Solutions */}
-            <section ref={mobileSolutionsSectionRef} style={{ padding: '42px 0', background: '#f7f9fd' }}>
-                <div style={{ padding: '0 20px', marginBottom: '20px', textAlign: 'center' }}>
-                    <h2 style={{ fontSize: '24px', margin: 0, color: '#0f172a', fontWeight: 900, lineHeight: 1.15 }}>{dict.home.sections.solutions}</h2>
+            <section ref={mobileSolutionsSectionRef} style={{ padding: '26px 0 22px', background: '#f7f9fd' }}>
+                <div style={{ padding: '0 18px', marginBottom: '12px', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '21px', margin: 0, color: '#0f172a', fontWeight: 900, lineHeight: 1.15 }}>{dict.home.sections.solutions}</h2>
                 </div>
                 <div style={{ position: 'relative' }}>
                     <button type="button" aria-label="Previous solutions" onClick={() => scrollMobileSolutions('prev')} style={{
                         position: 'absolute',
-                        left: '8px',
+                        left: '6px',
                         top: '50%',
                         transform: 'translateY(-50%)',
                         zIndex: 3,
-                        width: '38px',
-                        height: '38px',
+                        width: '32px',
+                        height: '32px',
                         borderRadius: '50%',
                         border: '1px solid rgba(255,255,255,0.7)',
                         background: 'rgba(255,255,255,0.86)',
@@ -150,15 +150,15 @@ export default function MobileHome({
                         alignItems: 'center',
                         justifyContent: 'center',
                         boxShadow: '0 10px 24px rgba(15,23,42,0.18)'
-                    }}><ChevronLeft size={20} /></button>
+                    }}><ChevronLeft size={18} /></button>
                     <button type="button" aria-label="Next solutions" onClick={() => scrollMobileSolutions('next')} style={{
                         position: 'absolute',
-                        right: '8px',
+                        right: '6px',
                         top: '50%',
                         transform: 'translateY(-50%)',
                         zIndex: 3,
-                        width: '38px',
-                        height: '38px',
+                        width: '32px',
+                        height: '32px',
                         borderRadius: '50%',
                         border: '1px solid rgba(255,255,255,0.7)',
                         background: 'rgba(255,255,255,0.86)',
@@ -167,15 +167,15 @@ export default function MobileHome({
                         alignItems: 'center',
                         justifyContent: 'center',
                         boxShadow: '0 10px 24px rgba(15,23,42,0.18)'
-                    }}><ChevronRight size={20} /></button>
+                    }}><ChevronRight size={18} /></button>
                     <div
                         ref={mobileSolutionsRef}
                         onScroll={updateMobileSolutionProgress}
                         style={{
                             display: 'flex',
                             overflowX: 'auto',
-                            padding: '0 20px',
-                            gap: '14px',
+                            padding: '0 16px',
+                            gap: '12px',
                             WebkitOverflowScrolling: 'touch',
                             scrollbarWidth: 'none'
                         }}
@@ -186,9 +186,9 @@ export default function MobileHome({
 
                             return (
                                 <Link key={sol.id} href={localePath(locale, sol.link)} style={{
-                                    flex: '0 0 70%',
+                                    flex: '0 0 clamp(140px, 36vw, 220px)',
                                     position: 'relative',
-                                    aspectRatio: '420 / 798',
+                                    aspectRatio: '5 / 6',
                                     overflow: 'hidden',
                                     display: 'block',
                                     background: '#e8eef7',
@@ -206,7 +206,7 @@ export default function MobileHome({
                                                 objectPosition: sol.objectPosition || '50% 50%',
                                                 transform: `scale(${sol.imageScale || 1.02})`
                                             }}
-                                            sizes="70vw"
+                                            sizes="(max-width: 480px) 36vw, 220px"
                                         />
                                     </div>
                                     <div style={{
@@ -217,13 +217,13 @@ export default function MobileHome({
                                         flexDirection: 'column',
                                         justifyContent: 'flex-start',
                                         alignItems: 'flex-start',
-                                        padding: '18px'
+                                        padding: '10px'
                                     }}>
                                         <div style={{ width: '100%' }}>
-                                            <span style={{ color: '#f59e0b', fontSize: '12px', fontWeight: 900 }}>{String(idx + 1).padStart(2, '0')}</span>
-                                            <h3 style={{ color: '#fff', fontSize: '19px', fontWeight: 900, margin: '8px 0 10px', lineHeight: '1.18', textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>{solName}</h3>
-                                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#fff', fontSize: '12px', fontWeight: 800 }}>
-                                                {dict.solutions?.viewDetails || 'View Details'} <ArrowUpRight size={14} />
+                                            <span style={{ color: '#f59e0b', fontSize: '11px', fontWeight: 900 }}>{String(idx + 1).padStart(2, '0')}</span>
+                                            <h3 style={{ color: '#fff', fontSize: '13px', fontWeight: 900, margin: '4px 0 6px', lineHeight: '1.16', textShadow: '0 1px 3px rgba(0,0,0,0.6)' }}>{solName}</h3>
+                                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#fff', fontSize: '11px', fontWeight: 800 }}>
+                                                {dict.solutions?.viewDetails || 'View Details'} <ArrowUpRight size={12} />
                                             </span>
                                         </div>
                                     </div>
@@ -231,20 +231,20 @@ export default function MobileHome({
                             );
                         })}
                     </div>
-                    <div aria-hidden="true" style={{ width: '42%', height: '2px', margin: '16px auto 0', background: 'rgba(49,91,164,0.16)', overflow: 'hidden' }}>
+                    <div aria-hidden="true" style={{ width: '42%', height: '2px', margin: '12px auto 0', background: 'rgba(49,91,164,0.16)', overflow: 'hidden' }}>
                         <span style={{ display: 'block', minWidth: '18%', width: `${mobileSolutionProgress}%`, height: '100%', background: '#315ba4', transition: 'width 0.18s ease' }} />
                     </div>
                 </div>
-                <div style={{ padding: '30px 20px 0' }}>
+                <div style={{ padding: '18px 20px 0' }}>
                     <Link href={localePath(locale, '/solutions')} aria-label={`${dict.home.buttons.learnMore}: ${dict.home.sections.solutions}`} style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         background: '#315ba4',
                         color: '#fff',
-                        height: '48px',
-                        borderRadius: '24px',
-                        fontSize: '16px',
+                        height: '42px',
+                        borderRadius: '21px',
+                        fontSize: '15px',
                         fontWeight: 700,
                         textDecoration: 'none'
                     }}>

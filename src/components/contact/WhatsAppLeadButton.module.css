@@ -122,20 +122,7 @@
 .countryCodeInput {
   text-align: left;
   font-weight: 700;
-  padding-right: 88px;
-}
-
-.countryCodeHint {
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  color: #7a8797;
-  font-size: 1.15rem;
-  font-weight: 650;
-  line-height: 1;
-  pointer-events: none;
-  white-space: nowrap;
+  padding-right: 12px;
 }
 
 .error {
@@ -161,7 +148,7 @@
   min-height: 48px;
   border: 0;
   border-radius: 6px;
-  background: #315ba4;
+  background: #25D366;
   color: #fff;
   font-size: 1.45rem;
   font-weight: 800;
@@ -172,11 +159,11 @@
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(49, 91, 164, 0.24);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.24);
 }
 
 .submitButton:disabled {
-  background: #8aa0c5;
+  background: #9adfb4;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -217,6 +204,6 @@
   }
 
   .countryCodeInput {
-    padding-right: 116px;
+    padding-right: 12px;
   }
 }

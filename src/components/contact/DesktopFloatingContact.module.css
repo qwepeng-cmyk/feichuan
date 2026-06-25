@@ -1,0 +1,203 @@
+.shell {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .shell {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 3600;
+    display: block;
+    width: 68px;
+    height: 138px;
+    transform: translateY(-50%);
+    overflow: visible;
+    font-family: var(--font-outfit), "Segoe UI", sans-serif;
+  }
+
+  .actions {
+    position: relative;
+    z-index: 2;
+    width: 68px;
+  }
+
+  .actionButton {
+    width: 68px;
+    height: 68px;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    margin-top: 2px;
+    padding: 9px 4px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(5, 25, 54, 0.14);
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.22s cubic-bezier(0.4, 0, 0.2, 1), filter 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .actionButton:first-child {
+    margin-top: 0;
+  }
+
+  .actionButton:hover {
+    transform: translateX(-4px);
+    filter: saturate(1.08);
+    box-shadow: 0 14px 28px rgba(5, 25, 54, 0.2);
+  }
+
+  .actionButton span {
+    display: block;
+    max-width: 60px;
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.05;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .whatsapp {
+    background: #11a20b;
+  }
+
+  .message {
+    background: #0676bf;
+  }
+
+  .panel {
+    position: absolute;
+    top: 0;
+    right: 68px;
+    width: 286px;
+    min-height: 321px;
+    background: #fff;
+    border: 1px solid #0676bf;
+    border-right: 0;
+    box-shadow: 0 20px 50px rgba(6, 31, 70, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(16px);
+    transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .open .panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .form {
+    padding: 14px 10px 15px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .form input,
+  .form textarea {
+    width: 100%;
+    border: 1px solid #edf0f4;
+    border-radius: 0;
+    background: #f6f7f9;
+    color: #253143;
+    font-size: 14px;
+    line-height: 1.25;
+    outline: none;
+    padding: 12px 14px;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .form input {
+    height: 43px;
+  }
+
+  .phoneRow {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 8px;
+  }
+
+  .form textarea {
+    min-height: 86px;
+    resize: vertical;
+  }
+
+  .form input:focus,
+  .form textarea:focus {
+    border-color: #315ba4;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(49, 91, 164, 0.11);
+  }
+
+  .privacy {
+    margin-top: -7px;
+    color: #8a9099;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .submitButton {
+    height: 35px;
+    border: 0;
+    border-radius: 0;
+    background: #0676bf;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 850;
+    cursor: pointer;
+    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .submitButton:hover {
+    background: #315ba4;
+    transform: translateY(-1px);
+  }
+
+  .submitButton:disabled {
+    background: #9aa9bb;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .success {
+    min-height: 321px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    color: #253143;
+    text-align: center;
+  }
+
+  .success strong {
+    color: #0f9f3d;
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  .success p {
+    margin: 0;
+    color: #667184;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .success button {
+    height: 34px;
+    border: 1px solid #0676bf;
+    background: #fff;
+    color: #0676bf;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+}

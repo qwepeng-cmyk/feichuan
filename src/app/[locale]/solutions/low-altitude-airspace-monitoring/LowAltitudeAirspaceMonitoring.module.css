@@ -153,6 +153,13 @@
   background: rgba(255, 255, 255, 0.9);
 }
 
+.whatsappCta {
+  color: #fff;
+  border-color: #25D366;
+  background: #25D366;
+  box-shadow: 0 16px 28px rgba(37, 211, 102, 0.2);
+}
+
 .primaryCta:hover,
 .secondaryCta:hover {
   transform: translateY(-3px);

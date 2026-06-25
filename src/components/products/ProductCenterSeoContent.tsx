@@ -18,7 +18,7 @@ const CONTENT: Record<string, LocaleContent> = {
     eyebrow: 'Product range',
     title: 'Industrial UAV Systems, Monitoring Equipment, Accessories, and Field Equipment',
     intro: [
-      'N-TET product families include industrial UAV platforms, low-altitude monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components.',
+      'N-TET product families include industrial UAV platforms, low-altitude monitoring equipment, security screening systems, drone accessories, and UAV components.',
       'Product pages list product type, model, payload, endurance, operating radius, sensor, data link, power module, compatible accessories, and available spare parts where the source data provides them.',
     ],
     cards: [
@@ -31,8 +31,8 @@ const CONTENT: Record<string, LocaleContent> = {
         body: 'Includes low-altitude detection radars, RF detection systems, electro-optical tracking systems, Remote ID monitoring, X-ray baggage scanners, metal detectors, liquid inspectors, explosive detectors, and access-control turnstiles.',
       },
       {
-        title: 'Accessories and field equipment',
-        body: 'Includes gimbals, UAV engines, data links, propellers, motors, batteries, remote controllers, flight controllers, prefabricated steel bridges, bridge components, containerized medical systems, and mobile cabin hospitals.',
+        title: 'Accessories and UAV components',
+        body: 'Includes gimbals, UAV engines, data links, propellers, motors, batteries, remote controllers, and flight controllers.',
       },
     ],
     faqTitle: 'Product Category FAQ',
@@ -50,8 +50,8 @@ const CONTENT: Record<string, LocaleContent> = {
         answer: 'The accessories category includes electro-optical gimbals, UAV engines, UAV data links, propellers, motors, batteries, remote controllers, and flight controllers.',
       },
       {
-        question: 'Which field equipment categories are listed?',
-        answer: 'Field equipment includes prefabricated steel bridges, bridge components, containerized medical systems, intelligent mobile cabin hospitals, smart electronic sentinels, radar-vision systems, EO/IR PTZ cameras, thermal domes, and HD laser cameras.',
+        question: 'Which perimeter intelligence products are listed?',
+        answer: 'Perimeter intelligence includes smart electronic sentinels, radar-vision systems, EO/IR PTZ cameras, thermal domes, and HD laser cameras.',
       },
     ],
     linksTitle: 'Related product pages',
@@ -217,7 +217,7 @@ function getProductSummary(locale: string) {
     return 'استعرض منصات UAV الصناعية ومعدات المراقبة وأنظمة الفحص ومواد الهندسة والمعدات الطبية الميدانية وملحقات الطائرات بدون طيار ومكونات UAV حسب فئة المنتج.';
   }
 
-  return 'Explore industrial UAV platforms, monitoring equipment, security screening systems, engineering materials, field medical equipment, drone accessories, and UAV components by product category.';
+  return 'Explore industrial UAV platforms, monitoring equipment, security screening systems, drone accessories, and UAV components by product category.';
 }
 
 export default function ProductCenterSeoContent({

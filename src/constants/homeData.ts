@@ -1,24 +1,53 @@
 export const products = [
     {
-        top: "UAV & Drone Systems",
+        top: "Industrial UAV Inspection",
         top_ru: "БПЛА и беспилотные системы",
-        main: "Water Conservancy Monitoring Drone",
+        main: "Power Grid Inspection Drone",
         main_ru: "Дрон для мониторинга водных ресурсов",
-        desc: "Intelligent system specifically designed for managing aquatic environments and hydraulic projects, featuring multi-rotor flying platform and high-precision monitoring payloads.",
+        desc: "VTOL UAV platform for transmission corridors, tower inspection, thermal patrols, route mapping, and post-disaster infrastructure checks.",
         desc_ru: "Интеллектуальная система, специально разработанная для управления водной средой и гидротехническими проектами, оснащенная мультироторной летающей платформой и высокоточными датчиками мониторинга.",
-        img: "/products/01-uav-drone-systems/uav-systems-home.webp",
-        mobileImg: "/products/01-uav-drone-systems/uav-systems-mobile.webp",
-        scale: 0.95,
+        img: "/products/uav-systems/FC-DLXJ-01-Power-Grid-Inspection-Drone.webp",
+        mobileImg: "/products/uav-systems/FC-DLXJ-01-Power-Grid-Inspection-Drone.webp",
+        scale: 1.03,
         offsetY: 0,
+        imagePadding: "24px",
+        handle: "fc-dlxj-01-power-grid-inspection-drone"
+    },
+    {
+        top: "Emergency UAV Response",
+        top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
+        main: "Emergency Response Drone",
+        main_ru: "Стационарная система радиочастотного обнаружения",
+        desc: "Rapid-deployment UAV for disaster reconnaissance, field assessment, command support, and wide-area emergency observation.",
+        desc_ru: "Обеспечивает радиочастотный анализ, раннее предупреждение и быстрый обзор воздушного пространства для промышленных объектов.",
+        img: "/products/uav-systems/FC-YJZC-01-Emergency-Reconnaissance-Drone.webp",
+        mobileImg: "/products/uav-systems/FC-YJZC-01-Emergency-Reconnaissance-Drone.webp",
+        scale: 1.04,
+        offsetY: 2,
+        imagePadding: "24px",
+        handle: "fc-yjzc-01-emergency-reconnaissance-drone"
+    },
+    {
+        top: "Environmental UAV Monitoring",
+        top_ru: "Досмотр и общественная безопасность",
+        main: "Water Conservancy Monitoring UAV",
+        main_ru: "Интеллектуальный портал обнаружения телефонов FC-H",
+        desc: "Multi-rotor UAV for river-lake patrols, hydraulic project observation, flood-season inspection, and water-environment evidence capture.",
+        desc_ru: "Использует передовую технологию обнаружения сигналов электромагнитных волн для эффективного распознавания мобильных телефонов в любом состоянии, включая режим ожидания, выключенное и включенное питание.",
+        img: "/products/uav-systems/FC-SLJC-01-Water-Conservancy-Monitoring-Drone.webp",
+        mobileImg: "/products/uav-systems/FC-SLJC-01-Water-Conservancy-Monitoring-Drone.webp",
+        scale: 1.04,
+        offsetY: 0,
+        imagePadding: "24px",
         handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Drone Detection & Tracking",
-        top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
+        top: "Low-Altitude Airspace Monitoring",
+        top_ru: "Оборонное проектирование",
         main: "Stationary RF Detection System",
-        main_ru: "Стационарная система радиочастотного обнаружения",
-        desc: "Provides low-altitude RF awareness, airspace activity alerts, and event records for industrial site monitoring.",
-        desc_ru: "Обеспечивает радиочастотный анализ, раннее предупреждение и быстрый обзор воздушного пространства для промышленных объектов.",
+        main_ru: "Стальной мост Бейли",
+        desc: "Fixed-site RF awareness system for low-altitude activity detection, airspace alerts, and event records around industrial facilities.",
+        desc_ru: "Всемирно признанная модульная стальная ферменная система, сочетающая высокую грузоподъемность и простоту сборки для инфраструктуры и аварийно-спасательных работ.",
         img: "/products/02-drone-detection/stationary-rf-detection-system.webp",
         mobileImg: "/products/02-drone-detection/stationary-rf-detection-system.webp",
         scale: 1.28,
@@ -27,56 +56,32 @@ export const products = [
         handle: "stationary-rf-detection-system"
     },
     {
-        top: "Security Screening & Site Access",
-        top_ru: "Досмотр и общественная безопасность",
-        main: "Smart Phone Detection Gate FC-H",
-        main_ru: "Интеллектуальный портал обнаружения телефонов FC-H",
-        desc: "Utilizes advanced electromagnetic wave signal detection technology to effectively distinguish mobile phones in any state, including standby, power-off, and power-on.",
-        desc_ru: "Использует передовую технологию обнаружения сигналов электромагнитных волн для эффективного распознавания мобильных телефонов в любом состоянии, включая режим ожидания, выключенное и включенное питание.",
-        img: "/products/03-security-screening/security-policing-home.webp",
-        mobileImg: "/products/03-security-screening/security-policing-mobile.webp",
-        scale: 1.14,
-        offsetY: 8,
-        handle: "fc-h-smart-phone-detection-gate"
-    },
-    {
-        top: "Engineering Materials",
-        top_ru: "Оборонное проектирование",
-        main: "Bailey Steel Bridge",
-        main_ru: "Стальной мост Бейли",
-        desc: "A globally recognized modular steel truss structure system that balances high load capacity and ease of assembly for infrastructure and emergency relief.",
-        desc_ru: "Всемирно признанная модульная стальная ферменная система, сочетающая высокую грузоподъемность и простоту сборки для инфраструктуры и аварийно-спасательных работ.",
-        img: "/products/04-engineering-materials/engineering-materials-home.webp",
-        mobileImg: "/products/04-engineering-materials/engineering-materials-mobile.webp",
-        scale: 1.12,
-        offsetY: 10,
-        handle: "bailey-bridge"
-    },
-    {
-        top: "Field & Mobile Hospitals",
+        top: "Low-Altitude Radar",
         top_ru: "Полевые и мобильные госпитали",
-        main: "Containerized Medical Rescue System",
+        main: "Low-Altitude Detection Radar (Ku-Band)",
         main_ru: "Контейнерная система медицинской помощи",
-        desc: "A highly integrated modular design that enables rapid construction of a fully functional large-scale field hospital in complex terrain within just 20 minutes.",
+        desc: "Ku-band radar for low-altitude target detection, trajectory awareness, and layered monitoring with optical and RF systems.",
         desc_ru: "Высокоинтегрированная модульная конструкция, позволяющая быстро развернуть полнофункциональный крупномасштабный полевой госпиталь на сложной местности всего за 20 минут.",
-        img: "/products/05-field-mobile-hospitals/field-hospitals-home.webp",
-        mobileImg: "/products/05-field-mobile-hospitals/field-hospitals-mobile.webp",
-        scale: 1.12,
-        offsetY: 14,
-        handle: "containerized-medical-rescue-system"
+        img: "/products/02-drone-detection/low-altitude-detection-radar.webp",
+        mobileImg: "/products/02-drone-detection/low-altitude-detection-radar.webp",
+        scale: 1.18,
+        offsetY: 0,
+        imagePadding: "32px",
+        handle: "low-altitude-detection-radar-ku-band"
     },
     {
-        top: "Perimeter & Area Surveillance",
+        top: "Electro-Optical Tracking",
         top_ru: "Охрана периметра и территорий",
-        main: "Radar-Vision Fusion System",
+        main: "Electro-Optical Tracking System",
         main_ru: "Система радарно-оптического слияния",
-        desc: "Wide-area panoramic sentinel that fuses four-sided array radar with a PTZ camera, combining active radar detection with visual intelligence for reliable monitoring in complex environments.",
+        desc: "EO tracking unit for visual confirmation, target observation, and coordinated low-altitude monitoring workflows.",
         desc_ru: "Панорамный пост наблюдения большой площади, объединяющий четырехсторонний радар с фазированной решеткой и PTZ-камеру, сочетающий активное радарное обнаружение с визуальным интеллектом для надежного мониторинга в сложных условиях.",
-        img: "/products/06-perimeter-surveillance/perimeter-surveillance-home.webp",
-        mobileImg: "/products/06-perimeter-surveillance/perimeter-surveillance-mobile.webp",
-        scale: 1.10,
-        offsetY: 5,
-        handle: "fc-rds500-4r-radar-vision-sentinel"
+        img: "/products/02-drone-detection/electro-optical-tracking-system.webp",
+        mobileImg: "/products/02-drone-detection/electro-optical-tracking-system.webp",
+        scale: 1.16,
+        offsetY: 0,
+        imagePadding: "32px",
+        handle: "composite-electro-optical-tracking-system"
     }
 ];
 
@@ -329,22 +334,22 @@ export const homeCases: any[] = [
         handle: "lidar-tree-obstruction-uav-inspection"
     },
     {
-        title: "Southern Grid Wildfire Prevention UAV Inspection",
-        title_ru: "Southern Grid Wildfire Prevention UAV Inspection",
-        img: "/cases/southern-grid-wildfire-uav-inspection/01.webp",
-        handle: "southern-grid-wildfire-uav-inspection"
+        title: "Airport Low-Altitude Airspace Monitoring Application",
+        title_ru: "Airport Low-Altitude Airspace Monitoring Application",
+        img: "/cases/airport-security-application/main.webp",
+        handle: "airport-security-application"
     },
     {
-        title: "Wildfire Emergency Transmission-Line UAV Patrol",
-        title_ru: "Wildfire Emergency Transmission-Line UAV Patrol",
-        img: "/cases/wildfire-emergency-transmission-line-uav-patrol/01.webp",
-        handle: "wildfire-emergency-transmission-line-uav-patrol"
+        title: "Airspace Monitoring Case of a Power Plant in Pakistan",
+        title_ru: "Airspace Monitoring Case of a Power Plant in Pakistan",
+        img: "/cases/pakistan-power-plant-airspace-monitoring/main.webp",
+        handle: "pakistan-power-plant-low-altitude-monitoring"
     },
     {
-        title: "Zhaoqing Long-Distance Power-Line UAV Inspection",
-        title_ru: "Zhaoqing Long-Distance Power-Line UAV Inspection",
-        img: "/cases/zhaoqing-long-distance-power-line-uav-inspection/01.webp",
-        handle: "zhaoqing-long-distance-power-line-uav-inspection"
+        title: "Airspace Monitoring Case of a Refinery in Brazil",
+        title_ru: "Airspace Monitoring Case of a Refinery in Brazil",
+        img: "/cases/brazil-refinery-airspace-monitoring/main.webp",
+        handle: "brazil-refinery-low-altitude-monitoring"
     }
 ];
 
@@ -365,7 +370,7 @@ Object.assign(products[2], {
 });
 Object.assign(products[3], {
     top_es: "Materiales de ingeniería",
-    main_es: "Puente de acero Bailey",
+    main_es: "Stationary RF Detection System",
     desc_es: "Sistema modular de armadura de acero con alta capacidad de carga y montaje ágil para infraestructura y apoyo de emergencia."
 });
 Object.assign(products[4], {
@@ -505,6 +510,19 @@ Object.assign(homeCases[2], { title_ar: "تفتيش UAV بتقنية LiDAR لع�
 Object.assign(homeCases[3], { title_ar: "تفتيش UAV للوقاية من حرائق الغابات في Southern Grid" });
 Object.assign(homeCases[4], { title_ar: "دورية UAV طارئة لخطوط النقل أثناء حرائق الغابات" });
 Object.assign(homeCases[5], { title_ar: "تفتيش UAV بعيد المدى لخطوط الطاقة في تشاوتشينغ" });
+Object.assign(homeCases[3], {
+    title_es: "Aplicacion de monitoreo del espacio aereo de baja altitud en aeropuertos",
+    title_ar: "Airport Low-Altitude Airspace Monitoring Application"
+});
+Object.assign(homeCases[4], {
+    title_es: "Caso de monitoreo del espacio aereo en una central electrica de Pakistan",
+    title_ar: "Airspace Monitoring Case of a Power Plant in Pakistan"
+});
+Object.assign(homeCases[5], {
+    title_es: "Caso de monitoreo del espacio aereo en una refineria de Brasil",
+    title_ar: "Airspace Monitoring Case of a Refinery in Brazil"
+});
+
 const substationSolutionIndex = solutions.findIndex(
     (solution) => solution.id === "smart-substation-unattended-uav-inspection-solution"
 );
@@ -516,3 +534,54 @@ if (substationSolutionIndex !== -1 && substationSolutionIndex !== substationSolu
 }
 
 export const homepageSolutions = solutions;
+
+[
+    {
+        index: 0,
+        top: "Industrial UAV Inspection",
+        main: "Power Grid Inspection Drone",
+        desc: "VTOL UAV platform for transmission corridors, tower inspection, thermal patrols, route mapping, and post-disaster infrastructure checks."
+    },
+    {
+        index: 1,
+        top: "Emergency UAV Response",
+        main: "Emergency Response Drone",
+        desc: "Rapid-deployment UAV for disaster reconnaissance, field assessment, command support, and wide-area emergency observation."
+    },
+    {
+        index: 2,
+        top: "Environmental UAV Monitoring",
+        main: "Water Conservancy Monitoring UAV",
+        desc: "Multi-rotor UAV for river-lake patrols, hydraulic project observation, flood-season inspection, and water-environment evidence capture."
+    },
+    {
+        index: 3,
+        top: "Low-Altitude Airspace Monitoring",
+        main: "Stationary RF Detection System",
+        desc: "Fixed-site RF awareness system for low-altitude activity detection, airspace alerts, and event records around industrial facilities."
+    },
+    {
+        index: 4,
+        top: "Low-Altitude Radar",
+        main: "Low-Altitude Detection Radar (Ku-Band)",
+        desc: "Ku-band radar for low-altitude target detection, trajectory awareness, and layered monitoring with optical and RF systems."
+    },
+    {
+        index: 5,
+        top: "Electro-Optical Tracking",
+        main: "Electro-Optical Tracking System",
+        desc: "EO tracking unit for visual confirmation, target observation, and coordinated low-altitude monitoring workflows."
+    }
+].forEach(({ index, top, main, desc }) => {
+    Object.assign(products[index], {
+        top_ru: top,
+        main_ru: main,
+        desc_ru: desc,
+        top_es: top,
+        main_es: main,
+        desc_es: desc,
+        top_ar: top,
+        main_ar: main,
+        desc_ar: desc
+    });
+});

@@ -92,7 +92,7 @@ export default async function ProductDetailPage() {
                                     <button className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer' }}>
                                         Get quotation
                                     </button>
-                                    <WhatsAppLeadButton sourceLabel="legacy_product_detail_whatsapp" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
+                                    <WhatsAppLeadButton sourceLabel="legacy_product_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none' }}>
                                         WhatsApp
                                     </WhatsAppLeadButton>
                                 </div>
