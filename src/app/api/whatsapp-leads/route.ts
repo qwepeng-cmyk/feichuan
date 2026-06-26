@@ -9,12 +9,17 @@ function cleanText(value: unknown) {
   return String(value ?? '').trim();
 }
 
+function cleanShortMessage(value: unknown) {
+  return cleanText(value).slice(0, 500);
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const name = cleanText(body.name);
     const countryCode = cleanText(body.countryCode);
     const phone = cleanText(body.phone);
+    const leadMessage = cleanShortMessage(body.message);
     const sourceLabel = cleanText(body.sourceLabel) || 'whatsapp_cta';
     const pagePath = cleanText(body.pagePath);
     const referer = request.headers.get('referer') || pagePath || 'Direct';
@@ -42,7 +47,8 @@ export async function POST(request: Request) {
       `Source CTA: ${sourceLabel}`,
       `Page path: ${pagePath || referer}`,
       `Visitor WhatsApp/phone: ${displayPhone || 'Not provided'}`,
-    ].join('\n');
+      leadMessage ? `Visitor message: ${leadMessage}` : '',
+    ].filter(Boolean).join('\n');
 
     const insert = db.prepare(`
       INSERT INTO inquiries (

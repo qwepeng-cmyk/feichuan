@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import { CONTACT_WHATSAPP_MESSAGE, CONTACT_WHATSAPP_NUMBER, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
 import styles from './WhatsAppLeadButton.module.css';
 
 declare global {
@@ -25,7 +26,7 @@ const modalCopy = {
   en: {
     eyebrow: 'WhatsApp Consultation',
     title: 'Confirm your contact details',
-    helper: 'Leave your WhatsApp number first. Then we will open WhatsApp with a ready-to-send message.',
+    helper: "Enter your WhatsApp number first. We'll open WhatsApp with a ready-to-send message.",
     nameLabel: 'Name *',
     phoneLabel: 'WhatsApp / Phone *',
     countryCodeAria: 'Country code',
@@ -33,7 +34,7 @@ const modalCopy = {
     phonePlaceholder: 'WhatsApp number, or full number with +',
     saving: 'Saving...',
     submit: 'Open WhatsApp',
-    note: 'The WhatsApp message is pre-filled, but the visitor still needs to press Send.',
+    note: 'The message is pre-filled; you still need to press Send in WhatsApp.',
     close: 'Close WhatsApp contact form',
     nameError: 'Please enter your name before opening WhatsApp.',
     phoneError: 'Please enter your WhatsApp number before continuing.',
@@ -92,12 +93,43 @@ const modalCopy = {
   },
 };
 
+const optionalMessageCopy = {
+  en: {
+    label: 'Message (optional)',
+    placeholder: 'Add a short note about your requirements',
+    whatsappPrefix: 'Message',
+  },
+  ru: {
+    label: 'Сообщение (необязательно)',
+    placeholder: 'Кратко опишите ваш запрос',
+    whatsappPrefix: 'Message',
+  },
+  es: {
+    label: 'Mensaje (opcional)',
+    placeholder: 'Agregue una nota breve sobre su necesidad',
+    whatsappPrefix: 'Message',
+  },
+  ar: {
+    label: 'الرسالة (اختياري)',
+    placeholder: 'اكتب ملاحظة قصيرة حول طلبك',
+    whatsappPrefix: 'Message',
+  },
+};
+
 function getCopy(pathname: string) {
   const segment = pathname.split('/').filter(Boolean)[0];
   if (segment === 'ru' || segment === 'es' || segment === 'ar') {
     return modalCopy[segment];
   }
   return modalCopy.en;
+}
+
+function getOptionalMessageCopy(pathname: string) {
+  const segment = pathname.split('/').filter(Boolean)[0];
+  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
+    return optionalMessageCopy[segment];
+  }
+  return optionalMessageCopy.en;
 }
 
 export default function WhatsAppLeadButton({
@@ -109,6 +141,7 @@ export default function WhatsAppLeadButton({
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
   const copy = getCopy(pathname);
+  const messageCopy = getOptionalMessageCopy(pathname);
   const [isOpen, setIsOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
@@ -116,6 +149,7 @@ export default function WhatsAppLeadButton({
     name: '',
     countryCode: '',
     phone: '',
+    message: '',
   });
 
   const track = (event: string, payload: Record<string, unknown> = {}) => {
@@ -142,12 +176,17 @@ export default function WhatsAppLeadButton({
     setIsOpen(false);
   };
 
-  const openWhatsApp = () => {
-    const opened = window.open(CONTACT_WHATSAPP_URL, '_blank');
+  const openWhatsApp = (leadMessage = '') => {
+    const cleanMessage = leadMessage.trim();
+    const message = cleanMessage
+      ? `${CONTACT_WHATSAPP_MESSAGE}\n\n${messageCopy.whatsappPrefix}: ${cleanMessage}`
+      : CONTACT_WHATSAPP_MESSAGE;
+    const url = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const opened = window.open(url, '_blank');
     if (opened) {
       opened.opener = null;
     } else {
-      window.location.href = CONTACT_WHATSAPP_URL;
+      window.location.href = url;
     }
   };
 
@@ -158,6 +197,7 @@ export default function WhatsAppLeadButton({
     const name = formData.name.trim();
     const phone = formData.phone.trim();
     const countryCode = formData.countryCode.trim();
+    const leadMessage = formData.message.trim();
     const hasInternationalPrefix = /^\+/.test(phone);
     const hasUsableCountryCode = /^\+\d{1,4}$/.test(countryCode);
 
@@ -178,7 +218,7 @@ export default function WhatsAppLeadButton({
 
     setIsSending(true);
     setIsOpen(false);
-    openWhatsApp();
+    openWhatsApp(leadMessage);
 
     fetch('/api/whatsapp-leads', {
       method: 'POST',
@@ -196,6 +236,12 @@ export default function WhatsAppLeadButton({
           throw new Error(result?.error || 'Failed to save WhatsApp lead');
         }
         track('ntet_whatsapp_lead_submit', { inquiry_id: result.inquiryId });
+        trackGoogleAdsFormConversion({
+          conversion_source: sourceLabel,
+          form_name: 'whatsapp_pre_chat',
+          inquiry_id: result.inquiryId,
+          page_path: pathname,
+        });
       })
       .catch((err) => {
         console.error('WhatsApp lead capture failed:', err);
@@ -274,6 +320,17 @@ export default function WhatsAppLeadButton({
                     placeholder={copy.phonePlaceholder}
                   />
                 </div>
+              </label>
+
+              <label className={styles.field}>
+                <span className={styles.label}>{messageCopy.label}</span>
+                <textarea
+                  className={`${styles.input} ${styles.textarea}`}
+                  value={formData.message}
+                  onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value.slice(0, 500) }))}
+                  placeholder={messageCopy.placeholder}
+                  maxLength={500}
+                />
               </label>
 
               {error && <p className={styles.error}>{error}</p>}

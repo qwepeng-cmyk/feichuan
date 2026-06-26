@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import WhatsAppLeadButton from './WhatsAppLeadButton';
+import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
 import styles from './DesktopFloatingContact.module.css';
 
 type FloatingContactProps = {
@@ -69,6 +70,12 @@ export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
       }
 
       setStatus('sent');
+      trackGoogleAdsFormConversion({
+        conversion_source: 'desktop_floating_message',
+        form_name: 'desktop_floating_message',
+        inquiry_id: result.inquiryId,
+        page_path: pathname,
+      });
       setFormData({ name: '', email: '', countryCode: '', whatsapp: '', message: '' });
     } catch (error) {
       console.error('Floating message submit failed:', error);

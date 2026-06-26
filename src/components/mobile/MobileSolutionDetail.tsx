@@ -7,7 +7,6 @@ import styles from './MobileSolutionDetail.module.css';
 import OptimizedRichText from '../common/OptimizedRichText';
 import MobileInquiryForm from './MobileInquiryForm';
 import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
-import MicrogridEnergyFlow from '@/components/solutions/MicrogridEnergyFlow';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
@@ -123,20 +122,7 @@ const waterSolutionImages = [
     uavSolutionScenes.emergencyCommunication,
 ];
 
-const microgridImages = [
-    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/energy-storage-cabinet.webp',
-    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/diesel-generator-set.webp',
-    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/ems-platform.webp',
-    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/commercial-building.webp',
-    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/factory-site.webp',
-    '/solutions/n-tet-pv-storage-diesel-microgrid-solution/pv-storage-charging.webp',
-];
-
 const solutionVisualSets: Array<{ match: string; images: string[] }> = [
-    {
-        match: 'n-tet-pv-storage-diesel-microgrid',
-        images: microgridImages,
-    },
     {
         match: 'urban-high-rise-firefighting',
         images: [
@@ -295,10 +281,6 @@ function getSolutionVisuals(handle: string, mainImage?: string) {
     const matchedSet = solutionVisualSets.find((item) => handle.includes(item.match));
     const sceneImages = handle.includes('water-conservancy') ? waterSolutionImages : matchedSet?.images || defaultSolutionImages;
     return Array.from(new Set([...(mainImage ? [mainImage] : []), ...sceneImages]));
-}
-
-function isMicrogridSolution(handle?: string) {
-    return Boolean(handle?.includes('n-tet-pv-storage-diesel-microgrid'));
 }
 
 function getSolutionLabels(locale: string) {
@@ -688,7 +670,6 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
             {hasStructuredSolutionContent && (
                 <>
                     <MobileSceneSection title={contentLabels.industryPainPoints} items={painPoints} image={painPointsImage} />
-                    {isMicrogridSolution(solution.handle || solution.id) && <MicrogridEnergyFlow compact />}
                     <MobileUpgradeBlocks items={upgradeItems} title={contentLabels.upgradeTitle} />
                     <MobileModuleRows modules={modules} visuals={visuals} title={contentLabels.solutionModules} />
                 </>

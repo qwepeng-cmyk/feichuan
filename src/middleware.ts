@@ -21,6 +21,8 @@ const restrictedPublicHandles = new Set([
     'nigeria-factory-anti-uav',
     'multi-sensor-cuas-architecture-2026',
     'cuas-critical-infrastructure-deployment-2026',
+    'n-tet-pv-storage-diesel-microgrid-solution',
+    'yuchai-pv-storage-diesel-microgrid-solution',
 ]);
 
 function publicPathSegments(pathname: string) {
@@ -53,9 +55,6 @@ function normalizedBrandPath(pathname: string) {
     let nextHandle = handle;
     if (section === 'products' && handle.startsWith('yuchai-yc')) {
         nextHandle = handle.replace(/^yuchai-yc/, 'n-tet-fc');
-    }
-    if (section === 'solutions' && handle === 'yuchai-pv-storage-diesel-microgrid-solution') {
-        nextHandle = 'n-tet-pv-storage-diesel-microgrid-solution';
     }
     if (nextHandle === handle) return '';
 

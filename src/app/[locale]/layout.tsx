@@ -96,7 +96,7 @@ export default async function LocaleLayout({
 
   const dict = await getDictionary(locale);
   const visibleProductCategoryIds = getVisibleProductCategoryIds(await getAllProducts(locale));
-  const tracking = locale === i18n.defaultLocale ? await loadTrackingSettings() : null;
+  const tracking = await loadTrackingSettings();
   const gaMeasurementId = tracking?.gaEnabled ? cleanTrackingId(tracking.gaMeasurementId) : '';
   const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
 

@@ -47,19 +47,6 @@ export const solutionCenterGroups = [
     ],
   },
   {
-    id: 'energy-microgrid',
-    labelKey: 'energyMicrogrid',
-    fallbackLabel: 'Energy & Microgrid',
-    eyebrowKey: 'infrastructure',
-    fallbackEyebrow: 'Energy Infrastructure',
-    descriptionKey: 'energyMicrogridDesc',
-    fallbackDescription: 'PV-storage-diesel microgrid architecture for commercial buildings, industrial sites, charging stations, and resilient backup power.',
-    categoryHref: undefined,
-    handles: [
-      'n-tet-pv-storage-diesel-microgrid-solution',
-    ],
-  },
-  {
     id: 'key-area-security',
     labelKey: 'keyAreaSecurity',
     fallbackLabel: 'Key Area Security',
@@ -87,5 +74,4 @@ export const solutionCenterImageByHandle: Record<string, string> = {
   'disaster-site-search-rescue-reconnaissance-uav-solution': '/solutions/solutions/Disaster-Site Search, Rescue & Reconnaissance.webp',
   'post-disaster-emergency-communication-support-uav-solution': '/solutions/solutions/Post-Disaster Emergency Communication Support.webp',
   'night-emergency-lighting-support-uav-solution': '/solutions/solutions/Night Emergency Lighting Support.webp',
-  'n-tet-pv-storage-diesel-microgrid-solution': '/solutions/n-tet-pv-storage-diesel-microgrid-solution/energy-storage-cabinet.webp',
 };

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { trackGoogleAdsFormConversion } from './googleAdsConversion';
 
 declare global {
     interface Window {
@@ -31,6 +32,11 @@ export default function LeadConversionTracker() {
                 event_label: 'public_inquiry',
             });
         }
+
+        trackGoogleAdsFormConversion({
+            conversion_source: 'thank_you_page',
+            form_name: 'public_inquiry',
+        });
     }, []);
 
     return null;
