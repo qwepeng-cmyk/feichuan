@@ -8,6 +8,24 @@ import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
+function stripMediaHtml(html = '') {
+    return html
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function getMediaCardSummary(news: any, locale: string) {
+    const localizedSummary = news?.[`summary_${locale}`] || news?.summary_en || news?.summary;
+    const source = localizedSummary || stripMediaHtml(news?.[`content_${locale}`] || news?.content_en || news?.content || '');
+    if (source.length <= 168) return source;
+    return `${source.slice(0, 168).replace(/\s+\S*$/, '')}...`;
+}
+
 export default function MediaClient({ 
     newsData,
     locale,
@@ -143,6 +161,8 @@ export default function MediaClient({
                                 {paginatedNews.map((news) => {
                                     const newsTitle = getLocalizedMediaTitle(news, locale);
                                     const newsDate = getLocalizedMediaDate(news.date, locale);
+                                    const categoryLabel = categoryTitles[news.category] || news.category || dict.nav.media;
+                                    const newsSummary = getMediaCardSummary(news, locale);
                                     return (
                                         <Link prefetch={false} href={localePath(locale, `/media/${news.id}`)} key={news.id} className="news-card-group" style={{ cursor: 'pointer', textDecoration: 'none' }}>
                                             <div className="news-image-wrapper" style={{ 
@@ -170,12 +190,28 @@ export default function MediaClient({
                                                 backgroundColor: '#fcfcfc',
                                                 transition: 'all 0.3s ease'
                                             }}>
-                                                <div className="news-date" style={{ 
-                                                    fontSize: '1.4rem', 
-                                                    color: '#315ba4', 
-                                                    fontWeight: 600, 
-                                                    marginBottom: '15px' 
-                                                }}>{newsDate}</div>
+                                                <div style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'space-between',
+                                                    gap: '14px',
+                                                    marginBottom: '15px'
+                                                }}>
+                                                    <div className="news-date" style={{
+                                                        fontSize: '1.4rem',
+                                                        color: '#315ba4',
+                                                        fontWeight: 700
+                                                    }}>{newsDate}</div>
+                                                    <div className="news-category-badge" style={{
+                                                        padding: '6px 10px',
+                                                        border: '1px solid #d8e2f0',
+                                                        color: '#315ba4',
+                                                        background: '#f3f7fc',
+                                                        fontSize: '1.16rem',
+                                                        fontWeight: 800,
+                                                        whiteSpace: 'nowrap'
+                                                    }}>{categoryLabel}</div>
+                                                </div>
                                                 <h3 style={{ 
                                                     fontSize: '2.2rem', 
                                                     fontWeight: 700, 
@@ -183,6 +219,14 @@ export default function MediaClient({
                                                     lineHeight: '1.4',
                                                     margin: 0
                                                 }}>{newsTitle}</h3>
+                                                {newsSummary && (
+                                                    <p className="news-card-summary" style={{
+                                                        margin: '16px 0 0',
+                                                        color: '#5f6b7a',
+                                                        fontSize: '1.48rem',
+                                                        lineHeight: 1.64
+                                                    }}>{newsSummary}</p>
+                                                )}
                                             </div>
                                         </Link>
                                     );
@@ -253,6 +297,14 @@ export default function MediaClient({
                 }
                 .pc_only .news-card-group:hover h3, .pc_only .news-card-group:hover .news-date {
                     color: #fff !important;
+                }
+                .pc_only .news-card-group:hover .news-card-summary {
+                    color: rgba(255,255,255,0.86) !important;
+                }
+                .pc_only .news-card-group:hover .news-category-badge {
+                    color: #fff !important;
+                    border-color: rgba(255,255,255,0.42) !important;
+                    background: rgba(255,255,255,0.12) !important;
                 }
                 .pc_only .news-card-group:hover .card-img {
                     transform: scale(1.08);

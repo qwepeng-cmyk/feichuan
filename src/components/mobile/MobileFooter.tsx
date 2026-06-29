@@ -9,6 +9,16 @@ import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
 import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 
+type FooterLink = {
+    href: string;
+    label: string;
+    categoryId?: ProductCategoryId;
+};
+
+function productCategoryLink(categoryId: ProductCategoryId, href: string, label: string): FooterLink {
+    return { categoryId, href, label };
+}
+
 export default function MobileFooter({
     locale,
     dict,
@@ -19,15 +29,35 @@ export default function MobileFooter({
     visibleProductCategoryIds?: ProductCategoryId[];
 }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
-    const footerSolutions = homeSolutions.slice(0, 6);
-    const productLinks = [
-        { id: 'uav-drone-systems' as const, href: '/products#uav-drone-systems', label: dict.megaMenu.uavSystems },
-        { id: 'drone-detection' as const, href: '/products#drone-detection', label: dict.megaMenu.droneDetection },
-        { id: 'security-screening' as const, href: '/products#security-screening', label: dict.megaMenu.securityScreening },
-        { id: 'engineering-materials' as const, href: '/products#engineering-materials', label: dict.megaMenu.engineeringMaterials },
-        { id: 'field-hospitals' as const, href: '/products#field-hospitals', label: dict.megaMenu.fieldHospitals },
-        { id: 'perimeter-intelligence' as const, href: '/products#perimeter-intelligence', label: dict.megaMenu.perimeterSurveillance },
-    ].filter((item) => hasVisibleProductCategory(visibleProductCategoryIds, item.id));
+    const prioritySolutionLinks: FooterLink[] = [
+        { href: '/solutions', label: dict.solutions?.pageTitle || dict.nav.solutions },
+        { href: '/solutions/low-altitude-airspace-monitoring', label: 'Low-Altitude Airspace Monitoring' },
+        { href: '/solutions/category/01_BorderPatrol', label: dict.solutionCategories?.borderPatrol || 'Border Patrol UAV Solutions' },
+        { href: '/solutions/category/02_InfrastructureProtection', label: dict.solutionCategories?.infrastructureProtection || 'Critical Infrastructure Protection' },
+        { href: '/solutions/category/03_KeyAreaSecurity', label: dict.solutionCategories?.keyAreaSecurity || 'Key Area Security' },
+        { href: '/solutions/category/04_EmergencyRescue', label: dict.solutionCategories?.emergencyRescue || 'Emergency & Disaster Rescue' },
+    ];
+    const homepageSolutionLinks: FooterLink[] = homeSolutions.slice(0, 6).map((solution) => ({
+        href: solution.link,
+        label: localizedField(solution, 'title', locale),
+    }));
+    const solutionLinks = [...prioritySolutionLinks, ...homepageSolutionLinks].filter((item, index, items) =>
+        items.findIndex((candidate) => candidate.href === item.href) === index
+    );
+    const productLinkCandidates: FooterLink[] = [
+        { href: '/products', label: dict.products?.pageTitle || dict.nav.products },
+        productCategoryLink('uav-drone-systems', '/products#uav-drone-systems', dict.megaMenu.uavSystems),
+        productCategoryLink('drone-detection', '/products#drone-detection', dict.megaMenu.droneDetection),
+        productCategoryLink('perimeter-intelligence', '/products#perimeter-intelligence', dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance),
+        productCategoryLink('industrial-engine-microgrid', '/products#industrial-engine-microgrid', dict.products?.categories?.industrialEngineMicrogrid || 'Industrial Engines'),
+        productCategoryLink('security-screening', '/products#security-screening', dict.megaMenu.securityScreening),
+        productCategoryLink('engineering-materials', '/products#engineering-materials', dict.megaMenu.engineeringMaterials),
+        productCategoryLink('field-hospitals', '/products#field-hospitals', dict.megaMenu.fieldHospitals),
+        { href: '/accessories', label: dict.accessories?.title || dict.nav.accessories || 'Drone Accessories' },
+    ];
+    const productLinks = productLinkCandidates.filter((item) =>
+        item.categoryId ? hasVisibleProductCategory(visibleProductCategoryIds, item.categoryId) : true
+    );
 
     return (
         <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
@@ -70,14 +100,11 @@ export default function MobileFooter({
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        {footerSolutions.map((solution) => {
-                            const title = localizedField(solution, 'title', locale);
-                            return (
-                                <Link key={solution.id} prefetch={false} href={l(solution.link)} style={{ color: '#888', fontSize: '16px' }}>
-                                    {title}
-                                </Link>
-                            );
-                        })}
+                        {solutionLinks.map((item) => (
+                            <Link key={item.href} prefetch={false} href={l(item.href)} style={{ color: '#888', fontSize: '16px', lineHeight: 1.45 }}>
+                                {item.label}
+                            </Link>
+                        ))}
                     </div>
                 </div>
 
@@ -86,7 +113,7 @@ export default function MobileFooter({
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.products}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {productLinks.map((item) => (
-                            <Link key={item.id} prefetch={false} href={l(item.href)} style={{ color: '#888', fontSize: '16px' }}>
+                            <Link key={item.href} prefetch={false} href={l(item.href)} style={{ color: '#888', fontSize: '16px', lineHeight: 1.45 }}>
                                 {item.label}
                             </Link>
                         ))}

@@ -9,6 +9,16 @@ import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
 import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 
+type FooterLink = {
+    href: string;
+    label: string;
+    categoryId?: ProductCategoryId;
+};
+
+function productCategoryLink(categoryId: ProductCategoryId, href: string, label: string): FooterLink {
+    return { categoryId, href, label };
+}
+
 export default function Footer({
     locale,
     dict,
@@ -19,20 +29,40 @@ export default function Footer({
     visibleProductCategoryIds?: ProductCategoryId[];
 }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
-    const footerSolutions = homeSolutions.slice(0, 6);
-    const productLinks = [
-        { id: 'uav-drone-systems' as const, href: '/products#uav-drone-systems', label: dict.megaMenu.uavSystems },
-        { id: 'drone-detection' as const, href: '/products#drone-detection', label: dict.megaMenu.droneDetection },
-        { id: 'security-screening' as const, href: '/products#security-screening', label: dict.megaMenu.securityScreening },
-        { id: 'engineering-materials' as const, href: '/products#engineering-materials', label: dict.megaMenu.engineeringMaterials },
-        { id: 'field-hospitals' as const, href: '/products#field-hospitals', label: dict.megaMenu.fieldHospitals },
-        { id: 'perimeter-intelligence' as const, href: '/products#perimeter-intelligence', label: dict.megaMenu.perimeterSurveillance },
-    ].filter((item) => hasVisibleProductCategory(visibleProductCategoryIds, item.id));
+    const prioritySolutionLinks: FooterLink[] = [
+        { href: '/solutions', label: dict.solutions?.pageTitle || dict.nav.solutions },
+        { href: '/solutions/low-altitude-airspace-monitoring', label: 'Low-Altitude Airspace Monitoring' },
+        { href: '/solutions/category/01_BorderPatrol', label: dict.solutionCategories?.borderPatrol || 'Border Patrol UAV Solutions' },
+        { href: '/solutions/category/02_InfrastructureProtection', label: dict.solutionCategories?.infrastructureProtection || 'Critical Infrastructure Protection' },
+        { href: '/solutions/category/03_KeyAreaSecurity', label: dict.solutionCategories?.keyAreaSecurity || 'Key Area Security' },
+        { href: '/solutions/category/04_EmergencyRescue', label: dict.solutionCategories?.emergencyRescue || 'Emergency & Disaster Rescue' },
+    ];
+    const homepageSolutionLinks: FooterLink[] = homeSolutions.slice(0, 6).map((solution) => ({
+        href: solution.link,
+        label: localizedField(solution, 'title', locale),
+    }));
+    const solutionLinks = [...prioritySolutionLinks, ...homepageSolutionLinks].filter((item, index, items) =>
+        items.findIndex((candidate) => candidate.href === item.href) === index
+    );
+    const productLinkCandidates: FooterLink[] = [
+        { href: '/products', label: dict.products?.pageTitle || dict.nav.products },
+        productCategoryLink('uav-drone-systems', '/products#uav-drone-systems', dict.megaMenu.uavSystems),
+        productCategoryLink('drone-detection', '/products#drone-detection', dict.megaMenu.droneDetection),
+        productCategoryLink('perimeter-intelligence', '/products#perimeter-intelligence', dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance),
+        productCategoryLink('industrial-engine-microgrid', '/products#industrial-engine-microgrid', dict.products?.categories?.industrialEngineMicrogrid || 'Industrial Engines'),
+        productCategoryLink('security-screening', '/products#security-screening', dict.megaMenu.securityScreening),
+        productCategoryLink('engineering-materials', '/products#engineering-materials', dict.megaMenu.engineeringMaterials),
+        productCategoryLink('field-hospitals', '/products#field-hospitals', dict.megaMenu.fieldHospitals),
+        { href: '/accessories', label: dict.accessories?.title || dict.nav.accessories || 'Drone Accessories' },
+    ];
+    const productLinks = productLinkCandidates.filter((item) =>
+        item.categoryId ? hasVisibleProductCategory(visibleProductCategoryIds, item.categoryId) : true
+    );
 
     return (
-        <footer className="footer" style={{ background: '#111', color: '#888', padding: '100px 0 40px' }}>
-            <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1.2fr', gap: '60px', marginBottom: '60px' }}>
+        <footer className="footer desktop-footer" style={{ background: '#111', color: '#888', padding: '100px 0 40px' }}>
+            <div className="desktop-footer-shell">
+                <div className="desktop-footer-grid">
                     <div>
                         <div style={{ position: 'relative', width: '168px', height: '56px', marginBottom: '30px' }}>
                             <Image src="/logo1-small.webp" alt="Logo" fill style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
@@ -42,26 +72,23 @@ export default function Footer({
                     
                     <div>
                         <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{dict.nav.solutions}</h4>
-                        <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '1.4rem' }}>
-                            {footerSolutions.map((solution) => {
-                                const title = localizedField(solution, 'title', locale);
-                                return (
-                                    <li key={solution.id}>
-                                        <Link prefetch={false} href={l(solution.link)} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>
-                                            {title}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
+                        <ul className="desktop-footer-link-list">
+                            {solutionLinks.map((item) => (
+                                <li key={item.href}>
+                                    <Link prefetch={false} href={l(item.href)} className="desktop-footer-link" onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     
                     <div>
                         <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{dict.nav.products}</h4>
-                        <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '1.4rem' }}>
+                        <ul className="desktop-footer-link-list desktop-footer-product-list">
                             {productLinks.map((item) => (
-                                <li key={item.id}>
-                                    <Link prefetch={false} href={l(item.href)} style={{ transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>
+                                <li key={item.href}>
+                                    <Link prefetch={false} href={l(item.href)} className="desktop-footer-link" onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = '#888'}>
                                         {item.label}
                                     </Link>
                                 </li>

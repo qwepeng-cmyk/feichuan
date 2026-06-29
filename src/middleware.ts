@@ -66,8 +66,7 @@ function normalizedBrandPath(pathname: string) {
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const isInternalDefaultLocaleRewrite =
-        request.nextUrl.searchParams.get('ntetDefaultLocale') === '1' ||
-        request.headers.get('x-ntet-default-locale') === '1';
+        request.nextUrl.searchParams.get('ntetDefaultLocale') === '1';
 
     // --- Admin Authentication Protection ---
     // Protect all /admin/* routes EXCEPT /admin/login
@@ -132,9 +131,7 @@ export function middleware(request: NextRequest) {
     }
 
     if (isInternalDefaultLocaleRewrite) {
-        const nextUrl = request.nextUrl.clone();
-        nextUrl.searchParams.delete('ntetDefaultLocale');
-        return NextResponse.rewrite(nextUrl);
+        return NextResponse.next();
     }
 
     // 2. Check if the pathname has another valid locale prefix (e.g., /ru)
@@ -157,14 +154,7 @@ export function middleware(request: NextRequest) {
     });
     defaultLocaleUrl.searchParams.set('ntetDefaultLocale', '1');
 
-    const requestHeaders = new Headers(request.headers);
-    requestHeaders.set('x-ntet-default-locale', '1');
-
-    return NextResponse.rewrite(defaultLocaleUrl, {
-        request: {
-            headers: requestHeaders,
-        },
-    });
+    return NextResponse.rewrite(defaultLocaleUrl);
 }
 
 export const config = {

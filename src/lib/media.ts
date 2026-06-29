@@ -19,7 +19,7 @@ const MEDIA_IMAGE_BY_ID: Record<string, string> = {
   'industrial-uav-redundancy-2026': '/case_banner/4-home.webp',
   'tethered-uav-persistent-surveillance-2026': '/cases/asian-games-security/main-home.webp',
   'border-surveillance-uav-network-2026': '/solutions/01/Drone Border Patrol-home.webp',
-  'low-altitude-economy-2026-outlook': '/media/news/low-altitude-economy-2026-card.webp',
+  'low-altitude-economy-2026-outlook': '/solutions/infrastructure-protection/airport-airspace-monitoring/airport-airspace-monitoring.webp',
   'multi-sensor-cuas-architecture-2026': '/cases/airport-security-application/main-home.webp',
   'cuas-critical-infrastructure-deployment-2026': '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
 };
@@ -44,9 +44,15 @@ export const getAllMedia = unstable_cache(
       }
     }).filter(Boolean)
       .filter(item => isPublicComplianceContent('media', item.id))
-      .map(item => sanitizeRecordForTier(item, getComplianceTier('media', item.id)));
+      .map(item => sanitizeRecordForTier(item, getComplianceTier('media', item.id)))
+      .sort((a, b) => {
+        const aTime = Date.parse(a.date || '');
+        const bTime = Date.parse(b.date || '');
+        if (Number.isNaN(aTime) || Number.isNaN(bTime)) return 0;
+        return bTime - aTime;
+      });
   },
-  ['all-media-arabic-retranslate-20260611'],
+  ['all-media-news-first-card-hydro-20260629'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -55,7 +61,7 @@ export const getAllMediaIds = unstable_cache(
     const rows = db.prepare('SELECT id FROM media WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.id).filter(id => isPublicComplianceContent('media', id));
   },
-  ['media-ids-arabic-retranslate-20260611'],
+  ['media-ids-news-first-card-hydro-20260629'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -73,6 +79,6 @@ export const getMediaById = unstable_cache(
       return null;
     }
   },
-  ['media-detail-arabic-retranslate-20260611'],
+  ['media-detail-news-first-card-hydro-20260629'],
   { revalidate: 3600, tags: ['media'] }
 );

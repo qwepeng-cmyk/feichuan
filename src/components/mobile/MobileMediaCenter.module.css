@@ -114,13 +114,45 @@
     padding: 12px;
 }
 
+.metaRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 7px;
+}
+
 .date {
     font-size: 11px;
     color: #315ba4;
     font-weight: 700;
-    margin-bottom: 6px;
     line-height: 1.25;
-    min-height: 28px;
+    min-height: 0;
+}
+
+.category {
+    flex-shrink: 0;
+    max-width: 56px;
+    padding: 3px 5px;
+    border: 1px solid #d8e2f0;
+    background: #f3f7fc;
+    color: #315ba4;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.summary {
+    margin: 8px 0 0;
+    color: #657184;
+    font-size: 11px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 50px;
 }
 
 .cardContent h3 {

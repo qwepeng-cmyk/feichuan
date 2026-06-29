@@ -18,6 +18,24 @@ interface NewsItem {
     [key: string]: any;
 }
 
+function stripMediaHtml(html = '') {
+    return html
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function getMediaCardSummary(news: NewsItem, locale: string) {
+    const localizedSummary = news?.[`summary_${locale}`] || news?.summary_en || news?.summary;
+    const source = localizedSummary || stripMediaHtml(news?.[`content_${locale}`] || news?.content_en || news?.content || '');
+    if (source.length <= 118) return source;
+    return `${source.slice(0, 118).replace(/\s+\S*$/, '')}...`;
+}
+
 export default function MobileMediaCenter({ 
     newsData,
     locale,
@@ -94,14 +112,20 @@ export default function MobileMediaCenter({
                     {paginatedNews.map((news) => {
                         const newsTitle = getLocalizedMediaTitle(news, locale);
                         const newsDate = getLocalizedMediaDate(news.date, locale);
+                        const categoryLabel = CATEGORIES.find(cat => cat.id === news.category)?.label || news.category;
+                        const newsSummary = getMediaCardSummary(news, locale);
                         return (
                             <Link prefetch={false} href={localePath(locale, `/media/${news.id}`)} key={news.id} className={styles.card}>
                                 <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden' }}>
                                     <Image src={news.image} alt={newsTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                 </div>
                                 <div className={styles.cardContent}>
-                                    <div className={styles.date}>{newsDate}</div>
+                                    <div className={styles.metaRow}>
+                                        <div className={styles.date}>{newsDate}</div>
+                                        {categoryLabel && <div className={styles.category}>{categoryLabel}</div>}
+                                    </div>
                                     <h3>{newsTitle}</h3>
+                                    {newsSummary && <p className={styles.summary}>{newsSummary}</p>}
                                 </div>
                             </Link>
                         );

@@ -1063,6 +1063,46 @@ header.site-header.header-inner .mega-menu > .accessory-mega-container {
     margin-bottom: 20px;
 }
 
+.desktop-footer-shell {
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 0 clamp(32px, 5vw, 72px);
+}
+
+.desktop-footer-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.55fr) minmax(320px, 1.35fr) minmax(220px, 0.95fr);
+    gap: clamp(32px, 4vw, 72px);
+    align-items: start;
+    margin-bottom: 60px;
+}
+
+.desktop-footer-link-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 22px;
+    font-size: 1.35rem;
+    line-height: 1.35;
+}
+
+.desktop-footer-link-list li {
+    min-width: 0;
+}
+
+.desktop-footer-link {
+    display: inline-flex;
+    max-width: 100%;
+    color: inherit;
+    overflow-wrap: anywhere;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 1180px) and (min-width: 992px) {
+    .desktop-footer-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+}
+
 /* SHARED */
 .btn {
     display: inline-flex;
