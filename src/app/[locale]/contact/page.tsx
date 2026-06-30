@@ -84,7 +84,7 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                         <section className="contact-main-content" style={{ padding: '80px 0' }}>
                             <div className="container">
                                 <div style={{ display: 'grid', gridTemplateColumns: '2.2fr 1fr', gap: '40px' }}>
-                                    <div className="contact-form-area" style={{ background: '#fff' }}>
+                                    <div id="inquiry" className="contact-form-area" style={{ background: '#fff' }}>
                                         <InquiryForm dict={dict} />
                                     </div>
 

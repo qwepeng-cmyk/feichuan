@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Send } from 'lucide-react';
+import { MessageSquareText, Phone } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import WhatsAppLeadButton from './WhatsAppLeadButton';
-import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
+import { CONTACT_PHONE_DISPLAY } from '@/lib/contactSettings';
 import styles from './DesktopFloatingContact.module.css';
 
 type FloatingContactProps = {
@@ -24,69 +24,32 @@ function WhatsAppIcon() {
 
 export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
   const pathname = usePathname();
-  const labels = dict?.inquiry || {};
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSending, setIsSending] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    countryCode: '',
-    whatsapp: '',
-    message: '',
-  });
+  const [isPhoneOpen, setIsPhoneOpen] = useState(false);
 
-  const submitMessage = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const countryCode = formData.countryCode.trim();
+  const contactPath = (() => {
+    const localeSegment = pathname.split('/').filter(Boolean)[0];
+    const localePrefix = ['ru', 'es', 'ar'].includes(localeSegment) ? `/${localeSegment}` : '';
+    return `${localePrefix}/contact#inquiry`;
+  })();
 
-    if (!/^\+\d{1,4}$/.test(countryCode)) {
-      alert('Please enter a valid country code, for example +86.');
+  const jumpToInquiry = () => {
+    const target = document.querySelector<HTMLElement>('#inquiry, .contact-form-area .inquiry-container, .inquiry-container');
+
+    if (target) {
+      setIsPhoneOpen(false);
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.setTimeout(() => {
+        const field = target.querySelector<HTMLElement>('textarea[name="message"], input[name="name"], textarea, input');
+        field?.focus({ preventScroll: true });
+      }, 450);
       return;
     }
 
-    setIsSending(true);
-
-    try {
-      const response = await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          company: '',
-          email: formData.email,
-          contactMethod: 'WhatsApp',
-          countryCode,
-          phone: formData.whatsapp,
-          demands: ['Desktop floating message'],
-          message: formData.message,
-          pagePath: pathname,
-        }),
-      });
-      const result = await response.json().catch(() => null);
-
-      if (!response.ok || result?.success !== true) {
-        throw new Error(result?.error || 'Message submit failed');
-      }
-
-      setStatus('sent');
-      trackGoogleAdsFormConversion({
-        conversion_source: 'desktop_floating_message',
-        form_name: 'desktop_floating_message',
-        inquiry_id: result.inquiryId,
-        page_path: pathname,
-      });
-      setFormData({ name: '', email: '', countryCode: '', whatsapp: '', message: '' });
-    } catch (error) {
-      console.error('Floating message submit failed:', error);
-      alert('Something went wrong. Please try again.');
-    } finally {
-      setIsSending(false);
-    }
+    window.location.href = contactPath;
   };
 
   return (
-    <aside className={`${styles.shell} ${isOpen ? styles.open : ''}`} aria-label="Quick contact">
+    <aside className={`${styles.shell} ${isPhoneOpen ? styles.phoneOpen : ''}`} aria-label="Quick contact">
       <div className={styles.actions}>
         <WhatsAppLeadButton
           sourceLabel="desktop_floating_whatsapp"
@@ -99,89 +62,30 @@ export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
 
         <button
           type="button"
-          className={`${styles.actionButton} ${styles.message}`}
-          aria-expanded={isOpen}
-          aria-controls="desktop-floating-message-panel"
+          className={`${styles.actionButton} ${styles.phone}`}
+          aria-expanded={isPhoneOpen}
+          aria-controls="desktop-floating-phone-panel"
           onClick={() => {
-            setIsOpen((current) => !current);
-            if (!isOpen) setStatus('idle');
+            setIsPhoneOpen((current) => !current);
           }}
         >
-          <Mail size={25} strokeWidth={2.4} />
-          <span>Message</span>
+          <Phone size={25} strokeWidth={2.5} />
+          <span>Phone</span>
+        </button>
+
+        <button
+          type="button"
+          className={`${styles.actionButton} ${styles.message}`}
+          onClick={jumpToInquiry}
+        >
+          <MessageSquareText size={25} strokeWidth={2.4} />
+          <span>Leave Message</span>
         </button>
       </div>
 
-      <div id="desktop-floating-message-panel" className={styles.panel} aria-hidden={!isOpen}>
-        {status === 'sent' ? (
-          <div className={styles.success}>
-            <strong>{labels.submitted?.title || 'SUBMITTED SUCCESSFULLY!'}</strong>
-            <p>{labels.submitted?.subtitle || 'Thank you. Our team will get back to you soon.'}</p>
-            <button type="button" onClick={() => setStatus('idle')}>
-              {labels.submitted?.backButton || 'Send Another Message'}
-            </button>
-          </div>
-        ) : (
-          <form className={styles.form} onSubmit={submitMessage}>
-            <input
-              type="text"
-              name="name"
-              placeholder={`${labels.name || 'Your Name'} *`}
-              value={formData.name}
-              onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))}
-              autoComplete="name"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder={`${labels.email || 'Email'} *`}
-              value={formData.email}
-              onChange={(event) => setFormData((prev) => ({ ...prev, email: event.target.value }))}
-              autoComplete="email"
-              required
-            />
-            <div className={styles.phoneRow}>
-              <input
-                type="tel"
-                name="countryCode"
-                placeholder={`${labels.countryCode || 'Country Code'} *`}
-                value={formData.countryCode}
-                onChange={(event) => {
-                  const rawValue = event.target.value.replace(/[^\d+]/g, '');
-                  const normalizedValue = rawValue.startsWith('+') ? rawValue : `+${rawValue.replace(/\+/g, '')}`;
-                  setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) }));
-                }}
-                inputMode="tel"
-                autoComplete="tel-country-code"
-                required
-                aria-label={labels.countryCode || 'Country Code'}
-              />
-              <input
-                type="tel"
-                name="whatsapp"
-                placeholder="WhatsApp *"
-                value={formData.whatsapp}
-                onChange={(event) => setFormData((prev) => ({ ...prev, whatsapp: event.target.value }))}
-                inputMode="tel"
-                autoComplete="tel"
-                required
-              />
-            </div>
-            <span className={styles.privacy}>Your privacy is important to us - we never sell or share your information.</span>
-            <textarea
-              name="message"
-              placeholder={`${labels.messageLabel || 'Message'} *`}
-              value={formData.message}
-              onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value }))}
-              required
-            />
-            <button type="submit" className={styles.submitButton} disabled={isSending}>
-              {isSending ? 'Sending...' : 'Send Now!'}
-              {!isSending && <Send size={17} strokeWidth={2.5} />}
-            </button>
-          </form>
-        )}
+      <div id="desktop-floating-phone-panel" className={styles.phonePanel} aria-hidden={!isPhoneOpen}>
+        <span>{dict?.contact?.salesHotline || 'Sales Hotline'}</span>
+        <a href={`tel:${CONTACT_PHONE_DISPLAY.replace(/[^\d+]/g, '')}`}>{CONTACT_PHONE_DISPLAY}</a>
       </div>
     </aside>
   );

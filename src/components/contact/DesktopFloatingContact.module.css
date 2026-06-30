@@ -10,7 +10,7 @@
     z-index: 3600;
     display: block;
     width: 68px;
-    height: 138px;
+    height: 208px;
     transform: translateY(-50%);
     overflow: visible;
     font-family: var(--font-outfit), "Segoe UI", sans-serif;
@@ -65,139 +65,51 @@
     background: #11a20b;
   }
 
-  .message {
-    background: #0676bf;
+  .phone {
+    background: #163a72;
   }
 
-  .panel {
+  .message {
+    background: #ff8a00;
+  }
+
+  .phonePanel {
     position: absolute;
-    top: 0;
+    top: 70px;
     right: 68px;
-    width: 286px;
-    min-height: 321px;
+    width: 230px;
+    min-height: 68px;
+    padding: 13px 16px;
+    border-left: 4px solid #163a72;
     background: #fff;
-    border: 1px solid #0676bf;
-    border-right: 0;
-    box-shadow: 0 20px 50px rgba(6, 31, 70, 0.16);
+    box-shadow: 0 18px 42px rgba(6, 31, 70, 0.16);
     opacity: 0;
     pointer-events: none;
     transform: translateX(16px);
     transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .open .panel {
+  .phoneOpen .phonePanel {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(0);
   }
 
-  .form {
-    padding: 14px 10px 15px;
-    display: grid;
-    gap: 10px;
-  }
-
-  .form input,
-  .form textarea {
-    width: 100%;
-    border: 1px solid #edf0f4;
-    border-radius: 0;
-    background: #f6f7f9;
-    color: #253143;
-    font-size: 14px;
-    line-height: 1.25;
-    outline: none;
-    padding: 12px 14px;
-    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .form input {
-    height: 43px;
-  }
-
-  .phoneRow {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 8px;
-  }
-
-  .form textarea {
-    min-height: 86px;
-    resize: vertical;
-  }
-
-  .form input:focus,
-  .form textarea:focus {
-    border-color: #315ba4;
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(49, 91, 164, 0.11);
-  }
-
-  .privacy {
-    margin-top: -7px;
-    color: #8a9099;
+  .phonePanel span {
+    display: block;
+    margin-bottom: 4px;
+    color: #647184;
     font-size: 12px;
-    line-height: 1.35;
+    font-weight: 750;
+    text-transform: uppercase;
   }
 
-  .submitButton {
-    height: 35px;
-    border: 0;
-    border-radius: 0;
-    background: #0676bf;
-    color: #fff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 16px;
+  .phonePanel a {
+    color: #10233f;
+    font-size: 18px;
     font-weight: 850;
-    cursor: pointer;
-    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .submitButton:hover {
-    background: #315ba4;
-    transform: translateY(-1px);
-  }
-
-  .submitButton:disabled {
-    background: #9aa9bb;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .success {
-    min-height: 321px;
-    padding: 28px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    color: #253143;
-    text-align: center;
-  }
-
-  .success strong {
-    color: #0f9f3d;
-    font-size: 17px;
     line-height: 1.25;
+    text-decoration: none;
   }
 
-  .success p {
-    margin: 0;
-    color: #667184;
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  .success button {
-    height: 34px;
-    border: 1px solid #0676bf;
-    background: #fff;
-    color: #0676bf;
-    font-size: 13px;
-    font-weight: 800;
-    cursor: pointer;
-  }
 }

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { solutions as homeSolutions } from '@/constants/homeData';
 import { localizedField } from '@/lib/localization';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
@@ -29,6 +30,10 @@ export default function Footer({
     visibleProductCategoryIds?: ProductCategoryId[];
 }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const pathname = usePathname();
+    const normalizedPathname = pathname.replace(/\/$/, '') || '/';
+    const localizedHomePath = locale === 'en' ? '/' : `/${locale}`;
+    const isHomeFooter = normalizedPathname === localizedHomePath;
     const prioritySolutionLinks: FooterLink[] = [
         { href: '/solutions', label: dict.solutions?.pageTitle || dict.nav.solutions },
         { href: '/solutions/low-altitude-airspace-monitoring', label: 'Low-Altitude Airspace Monitoring' },
@@ -61,7 +66,7 @@ export default function Footer({
 
     return (
         <footer className="footer desktop-footer" style={{ background: '#111', color: '#888', padding: '100px 0 40px' }}>
-            <div className="desktop-footer-shell">
+            <div className={`desktop-footer-shell ${isHomeFooter ? 'desktop-footer-shell-home' : 'desktop-footer-shell-inner'}`}>
                 <div className="desktop-footer-grid">
                     <div>
                         <div style={{ position: 'relative', width: '168px', height: '56px', marginBottom: '30px' }}>

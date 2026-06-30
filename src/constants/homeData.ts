@@ -533,6 +533,23 @@ if (substationSolutionIndex !== -1 && substationSolutionIndex !== substationSolu
     solutions.splice(substationSolutionTargetIndex, 0, substationSolution);
 }
 
+const homepagePrioritySolutionIds = [
+    "02_InfrastructureProtection",
+    "03_KeyAreaSecurity"
+];
+
+const homepagePrioritySolutionSet = new Set(homepagePrioritySolutionIds);
+const homepagePrioritySolutions = homepagePrioritySolutionIds
+    .map((id) => solutions.find((solution) => solution.id === id))
+    .filter((solution): solution is (typeof solutions)[number] => Boolean(solution));
+
+solutions.splice(
+    0,
+    solutions.length,
+    ...homepagePrioritySolutions,
+    ...solutions.filter((solution) => !homepagePrioritySolutionSet.has(solution.id))
+);
+
 export const homepageSolutions = solutions;
 
 [

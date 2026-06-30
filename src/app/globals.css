@@ -260,7 +260,7 @@ header.site-header.header-home .nav-item:hover .nav-link::after {
     border-top: 1px solid var(--border);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
     /* display:none when closed prevents Next.js <Link> viewport prefetch from firing
-       on dozens of mega-menu URLs (fixes very slow overseas loads while “loading”). */
+       on dozens of mega-menu URLs (fixes very slow overseas loads while "loading"). */
     display: none;
     opacity: 0;
     visibility: hidden;
@@ -605,6 +605,21 @@ header.site-header.header-inner .mega-menu > .accessory-mega-container {
     margin-bottom: 14px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--border);
+}
+
+.solution-right-grid {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 44px;
+}
+
+.solution-topic-column {
+    grid-column: 1 / -1;
+}
+
+.solution-topic-title {
+    margin-bottom: 12px;
 }
 
 .mega-sub-header {
@@ -1064,25 +1079,39 @@ header.site-header.header-inner .mega-menu > .accessory-mega-container {
 }
 
 .desktop-footer-shell {
-    max-width: 1520px;
+    max-width: 1240px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.desktop-footer-shell-home {
+    max-width: 1520px;
     padding: 0 clamp(32px, 5vw, 72px);
 }
 
 .desktop-footer-grid {
     display: grid;
-    grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.55fr) minmax(320px, 1.35fr) minmax(220px, 0.95fr);
-    gap: clamp(32px, 4vw, 72px);
+    grid-template-columns: minmax(220px, 1.15fr) minmax(260px, 1fr) minmax(230px, 0.95fr) minmax(220px, 1.1fr);
+    gap: clamp(28px, 3vw, 44px);
     align-items: start;
     margin-bottom: 60px;
 }
 
+.desktop-footer-shell-home .desktop-footer-grid {
+    grid-template-columns: minmax(220px, 0.9fr) minmax(360px, 1.55fr) minmax(320px, 1.35fr) minmax(220px, 0.95fr);
+    gap: clamp(32px, 4vw, 72px);
+}
+
 .desktop-footer-link-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px 22px;
     font-size: 1.35rem;
     line-height: 1.35;
+}
+
+.desktop-footer-shell-home .desktop-footer-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .desktop-footer-link-list li {
@@ -1099,6 +1128,10 @@ header.site-header.header-inner .mega-menu > .accessory-mega-container {
 
 @media (max-width: 1180px) and (min-width: 992px) {
     .desktop-footer-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .desktop-footer-shell-home .desktop-footer-grid {
         grid-template-columns: 0.9fr 1.1fr;
     }
 }
@@ -1591,7 +1624,7 @@ header#site-header.scrolled {
 }
 
 .series-link.active::before {
-    content: '✓';
+    content: '\2713';
     margin-right: 8px;
 }
 
@@ -2086,7 +2119,7 @@ header#site-header.scrolled {
         left: 0 !important;
     }
     
-    /* 修正容器可能带来的偏移 */
+    /* Fix container offsets that can appear on small screens */
     .container, .container-wide {
         max-width: 100vw !important;
         padding-left: 15px !important;

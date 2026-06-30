@@ -507,21 +507,29 @@ export default function Header({
                                             </ul>
                                         </div>
                                     </div>
-                                    <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/02_InfrastructureProtection")}>{dict?.megaMenu?.infrastructure}</Link></h3>
-                                        <ul className="mega-list">
-                                            <li><Link prefetch={false} href={l("/solutions/chemical-plant-protection")}>{dict?.megaMenu?.chemicalPlantProtection || 'Chemical Plant Protection'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/oil-production-base-protection")}>{dict?.megaMenu?.oilProductionBaseProtection || 'Oil Production Base Protection'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/hydroelectric-dam-protection")}>{dict?.megaMenu?.hydroelectricDamProtection || 'Hydroelectric Dam Protection'}</Link></li>
-                                        </ul>
-                                    </div>
-                                    <div className="mega-column">
-                                        <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/03_KeyAreaSecurity")}>{dict?.megaMenu?.keyArea}</Link></h3>
-                                        <ul className="mega-list">
-                                            <li><Link prefetch={false} href={l("/solutions/judicial-sector-security")}>{dict?.megaMenu?.judicialSectorSecurity || 'Judicial Sector Security'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/sports-event-security")}>{dict?.megaMenu?.sportsEventSecurity || 'Sports Event Security'}</Link></li>
-                                            <li><Link prefetch={false} href={l("/solutions/airport-security-protection")}>{dict?.megaMenu?.airportSecurityProtection || 'Airport Security Protection'}</Link></li>
-                                        </ul>
+                                    <div className="solution-right-grid">
+                                        <div className="mega-column">
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/02_InfrastructureProtection")}>{dict?.megaMenu?.infrastructure}</Link></h3>
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/solutions/chemical-plant-protection")}>{dict?.megaMenu?.chemicalPlantProtection || 'Chemical Plant Protection'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/oil-production-base-protection")}>{dict?.megaMenu?.oilProductionBaseProtection || 'Oil Production Base Protection'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/hydroelectric-dam-protection")}>{dict?.megaMenu?.hydroelectricDamProtection || 'Hydroelectric Dam Protection'}</Link></li>
+                                            </ul>
+                                        </div>
+                                        <div className="mega-column">
+                                            <h3 className="mega-title"><Link prefetch={false} href={l("/solutions/category/03_KeyAreaSecurity")}>{dict?.megaMenu?.keyArea}</Link></h3>
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/solutions/judicial-sector-security")}>{dict?.megaMenu?.judicialSectorSecurity || 'Judicial Sector Security'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/sports-event-security")}>{dict?.megaMenu?.sportsEventSecurity || 'Sports Event Security'}</Link></li>
+                                                <li><Link prefetch={false} href={l("/solutions/airport-security-protection")}>{dict?.megaMenu?.airportSecurityProtection || 'Airport Security Protection'}</Link></li>
+                                            </ul>
+                                        </div>
+                                        <div className="mega-column solution-topic-column">
+                                            <h3 className="mega-title solution-topic-title">{dict?.megaMenu?.specialTopics || 'Special Topics'}</h3>
+                                            <ul className="mega-list">
+                                                <li><Link prefetch={false} href={l("/solutions/low-altitude-airspace-monitoring")}>{dict?.megaMenu?.lowAltitudeAirspaceMonitoring || 'Low-Altitude Airspace Monitoring Solution'}</Link></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
