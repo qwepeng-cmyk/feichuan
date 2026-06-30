@@ -61,11 +61,11 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     metadataBase: new URL(baseUrl),
     icons: {
       icon: [
-        { url: '/favicon.ico?v=20260630-ntet-n', sizes: 'any' },
-        { url: '/icon.png?v=20260630-ntet-n', type: 'image/png', sizes: '512x512' },
+        { url: '/favicon.ico?v=20260630-ntet-logo', sizes: 'any' },
+        { url: '/icon.png?v=20260630-ntet-logo', type: 'image/png', sizes: '512x512' },
       ],
-      shortcut: '/favicon.ico?v=20260630-ntet-n',
-      apple: '/apple-touch-icon.png?v=20260630-ntet-n',
+      shortcut: '/favicon.ico?v=20260630-ntet-logo',
+      apple: '/apple-touch-icon.png?v=20260630-ntet-logo',
     },
     alternates: {
       canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
