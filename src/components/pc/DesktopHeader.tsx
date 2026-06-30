@@ -269,7 +269,9 @@ export default function Header({
                         alignItems: 'center', 
                         height: '100%' 
                     }}>
-                        <div>Email: {CONTACT_EMAIL}</div>
+                        <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                            Email: {CONTACT_EMAIL}
+                        </a>
                         
                         {/* Language Selector with Dropdown */}
                         <div className="lang-switch-top" style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}>
