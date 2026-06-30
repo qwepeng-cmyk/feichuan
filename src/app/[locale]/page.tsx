@@ -11,8 +11,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/',
-        fallbackTitle: 'Industrial UAV Systems & Low-Altitude Monitoring',
-        fallbackDescription: 'Industrial UAV platforms, airspace monitoring equipment, event records, and compliant response operations for infrastructure operators.',
+        fallbackTitle: 'Industrial UAV & C-UAS Systems',
+        fallbackDescription: 'Industrial UAV platforms, C-UAS detection systems, low-altitude airspace monitoring, and security screening equipment for infrastructure and public-site operators.',
     });
 }
 

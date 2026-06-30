@@ -10,8 +10,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/solutions',
-        fallbackTitle: 'Industrial UAV Solutions',
-        fallbackDescription: 'UAV solutions for inspection, patrol, emergency support, and low-altitude airspace monitoring.',
+        fallbackTitle: 'Industrial UAV & C-UAS Solutions',
+        fallbackDescription: 'Mission-ready UAV and C-UAS detection solutions for inspection, emergency support, airport airspace monitoring, and site security workflows.',
     });
 }
 

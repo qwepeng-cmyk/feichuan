@@ -6,7 +6,7 @@ export const solutionCenterGroups = [
     eyebrowKey: 'uavIndustryApplications',
     fallbackEyebrow: 'UAV Industry Applications',
     descriptionKey: 'uavInspectionPatrolDesc',
-    fallbackDescription: 'Recurring aerial patrol, corridor inspection, and field monitoring operations for utilities, water resources, and coastal teams.',
+    fallbackDescription: 'Recurring aerial patrol, corridor inspection, and field monitoring for utilities, water resources, coastal teams, and industrial assets.',
     categoryHref: undefined,
     handles: [
       'power-line-uav-intelligent-inspection-solution',
@@ -38,7 +38,7 @@ export const solutionCenterGroups = [
     eyebrowKey: 'infrastructure',
     fallbackEyebrow: 'Infrastructure Protection',
     descriptionKey: 'criticalInfrastructureDesc',
-    fallbackDescription: 'Airspace monitoring and perimeter intelligence for energy, petrochemical, and water-conservancy facilities.',
+    fallbackDescription: 'UAV inspection, airspace monitoring, and perimeter intelligence for energy, petrochemical, water-conservancy, and industrial facilities.',
     categoryHref: '/solutions/category/02_InfrastructureProtection',
     handles: [
       'chemical-plant-protection',
@@ -53,7 +53,7 @@ export const solutionCenterGroups = [
     eyebrowKey: 'keyArea',
     fallbackEyebrow: 'Key Area Security',
     descriptionKey: 'keyAreaSecurityDesc',
-    fallbackDescription: 'Integrated security operations for judicial sites, major events, airport checkpoints, and transport hubs.',
+    fallbackDescription: 'Security screening, EO/IR monitoring, and low-altitude airspace awareness for judicial sites, major events, airport checkpoints, and transport hubs.',
     categoryHref: '/solutions/category/03_KeyAreaSecurity',
     handles: [
       'judicial-sector-security',

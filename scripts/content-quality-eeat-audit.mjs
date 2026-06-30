@@ -50,7 +50,6 @@ const RESTRICTED_PUBLIC_TERMS = [
   /\bjammer\b/i,
   /\bjamming\b/i,
   /\bspoofing\b/i,
-  /\bcounter[-\s]?uas\b/i,
   /\bcounter[-\s]?uav\b/i,
   /\banti[-\s]?uav\b/i,
   /\banti[-\s]?drone\b/i,

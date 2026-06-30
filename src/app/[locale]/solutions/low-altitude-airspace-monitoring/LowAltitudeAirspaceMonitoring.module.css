@@ -36,7 +36,7 @@
   padding: 0;
   background:
     linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.98) 30%, rgba(255,255,255,0.78) 43%, rgba(255,255,255,0.22) 59%, rgba(255,255,255,0) 74%),
-    url('/products/02-drone-detection/low-altitude-monitoring-command-center-hero.webp') center center / cover no-repeat;
+    url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero.webp') center top / cover no-repeat;
   overflow: hidden;
 }
 
@@ -121,7 +121,7 @@
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-top: 24px;
 }
 
@@ -132,7 +132,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 0 18px;
+  padding: 0 22px;
   border-radius: 3px;
   font-size: 14px;
   font-weight: 900;
@@ -158,6 +158,14 @@
   border-color: #25D366;
   background: #25D366;
   box-shadow: 0 16px 28px rgba(37, 211, 102, 0.2);
+}
+
+.heroActions .primaryCta {
+  min-width: 226px;
+}
+
+.heroActions .secondaryCta {
+  min-width: 170px;
 }
 
 .primaryCta:hover,
@@ -256,7 +264,10 @@
 .equipmentSection,
 .workflowSection,
 .packageSection,
-.inquirySection {
+.inquirySection,
+.problemSection,
+.architectureSection,
+.faqSection {
   padding: 64px max(20px, calc((100vw - 1240px) / 2 + 20px));
 }
 
@@ -348,6 +359,31 @@
   font-weight: 900;
 }
 
+.equipmentBody ul {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.equipmentBody li {
+  color: #3e4d61;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.equipmentBody li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  background: var(--landing-orange);
+  vertical-align: 2px;
+}
+
 .workflowSection {
   background: #fff;
 }
@@ -385,6 +421,211 @@
   color: var(--landing-muted);
   font-size: 16px;
   line-height: 1.6;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  margin-bottom: 13px;
+  color: var(--landing-blue);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.problemSection {
+  scroll-margin-top: 118px;
+  position: relative;
+  display: block;
+  padding: 58px max(24px, calc((100vw - 1240px) / 2 + 24px)) 64px;
+  background:
+    linear-gradient(180deg, rgba(5, 19, 38, 0.88) 0%, rgba(5, 19, 38, 0.94) 100%),
+    url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero.webp') center center / cover no-repeat;
+  border-bottom: 1px solid #e9eef7;
+  overflow: hidden;
+}
+
+.problemSection::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  bottom: -120px;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(79, 222, 255, 0.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 42%, rgba(79, 222, 255, 0.28) 0 3px, transparent 4px),
+    radial-gradient(circle at 60% 35%, rgba(79, 222, 255, 0.24) 0 3px, transparent 4px),
+    radial-gradient(circle at 48% 66%, rgba(79, 222, 255, 0.24) 0 3px, transparent 4px);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.problemIntro {
+  position: relative;
+  z-index: 1;
+  max-width: 940px;
+  margin: 0 0 34px;
+  padding: 0;
+  background: transparent;
+  border-left: 0;
+}
+
+.problemIntro h2 {
+  margin: 0;
+  color: #63f7ff;
+  font-size: clamp(34px, 3vw, 50px);
+  line-height: 1.08;
+  font-weight: 900;
+  text-shadow: 0 0 24px rgba(79, 222, 255, 0.28);
+}
+
+.problemIntro p {
+  max-width: 780px;
+  margin: 12px 0 0;
+  color: #d7e8f7;
+  font-size: 17px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.problemGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 34px 28px;
+}
+
+.problemCard {
+  min-width: 0;
+  margin: 0;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.problemCard:hover {
+  transform: translateY(-4px);
+}
+
+.problemCard img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 7 / 4;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid rgba(216, 229, 249, 0.28);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.26);
+}
+
+.problemCard figcaption {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 14px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.38;
+  font-weight: 800;
+}
+
+.problemCard figcaption span {
+  flex: 0 0 auto;
+  line-height: 1;
+}
+
+.architectureSection {
+  background: #06162f;
+}
+
+.architectureSection .sectionHeader h2 {
+  color: #fff;
+}
+
+.architectureSection .sectionHeader h2::after {
+  background: var(--landing-orange);
+}
+
+.architectureSection .sectionEyebrow {
+  color: #9fc0f4;
+}
+
+.architectureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.architectureStep {
+  position: relative;
+  min-height: 292px;
+  padding: 30px 24px 28px;
+  background: #0b2347;
+}
+
+.architectureStep svg {
+  color: #ffb15d;
+  margin-bottom: 22px;
+}
+
+.architectureNumber {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.architectureStep h3 {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.architectureStep p {
+  margin: 0;
+  color: #c8d8ee;
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+.faqSection {
+  background: #fff;
+  border-top: 1px solid #e9eef7;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.faqItem {
+  padding: 26px 28px;
+  background: #f8fbff;
+  border: 1px solid #d8e1ef;
+  border-radius: 6px;
+}
+
+.faqItem h3 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 19px;
+  line-height: 1.28;
+  font-weight: 900;
+}
+
+.faqItem p {
+  margin: 0;
+  color: var(--landing-muted);
+  font-size: 15px;
+  line-height: 1.62;
 }
 
 .scenarioSection,
@@ -714,7 +955,7 @@
   padding: 28px 16px 18px;
   background:
     linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.94) 46%, rgba(255,255,255,0.34) 76%, rgba(255,255,255,0.16) 100%),
-    url('/products/02-drone-detection/low-altitude-monitoring-command-center-hero.webp') 58% center / cover no-repeat;
+    url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero.webp') 58% top / cover no-repeat;
   overflow: hidden;
 }
 
@@ -790,6 +1031,9 @@
 .mobileActions .secondaryCta {
   width: 100%;
   min-height: 46px;
+  padding: 0 14px;
+  white-space: normal;
+  text-align: center;
 }
 
 .mobileBlock {
@@ -903,6 +1147,63 @@
   font-size: 13px;
   line-height: 1.28;
   font-weight: 900;
+}
+
+.mobileEquipmentCard p {
+  margin: 7px 0 0;
+  color: var(--landing-blue);
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mobileArchitectureList,
+.mobileFaqList {
+  display: grid;
+  gap: 12px;
+}
+
+.mobileArchitectureStep {
+  display: grid;
+  grid-template-columns: 38px 38px minmax(0, 1fr);
+  gap: 12px;
+  align-items: flex-start;
+  padding: 18px 14px;
+  background: #fff;
+  border: 1px solid #dfe8f5;
+}
+
+.mobileArchitectureStep strong {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--landing-blue);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.mobileArchitectureStep svg {
+  color: var(--landing-orange);
+  margin-top: 3px;
+}
+
+.mobileArchitectureStep h3 {
+  margin: 0 0 6px;
+  color: #111827;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.mobileArchitectureStep p {
+  margin: 0;
+  color: var(--landing-muted);
+  font-size: 13px;
+  line-height: 1.52;
 }
 
 .mobileTimeline {
@@ -1021,6 +1322,44 @@
 }
 
 @media (max-width: 991px) {
+  .problemSection {
+    scroll-margin-top: 116px;
+    padding: 34px 16px 42px;
+  }
+
+  .problemIntro {
+    margin-bottom: 22px;
+  }
+
+  .problemIntro h2 {
+    font-size: 29px;
+  }
+
+  .problemIntro p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .problemGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .problemCard {
+    box-shadow: none;
+  }
+
+  .problemCard img {
+    aspect-ratio: 7 / 4.4;
+  }
+
+  .problemCard figcaption {
+    gap: 7px;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
   .scenarioSection,
   .conversionSection {
     padding: 36px 16px;
@@ -1095,6 +1434,33 @@
 
   .deliverablesPanel h3 {
     font-size: 19px;
+  }
+
+  .architectureSection,
+  .faqSection {
+    padding: 42px 16px;
+  }
+
+  .architectureGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .architectureStep {
+    min-height: auto;
+    padding: 24px 18px;
+  }
+
+  .faqItem {
+    padding: 22px 18px;
+  }
+
+  .faqItem h3 {
+    font-size: 17px;
+  }
+
+  .faqItem p {
+    font-size: 14px;
   }
 
   .mobilePage :global(.product-breadcrumb-nav) {

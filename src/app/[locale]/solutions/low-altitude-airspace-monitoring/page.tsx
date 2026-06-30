@@ -32,64 +32,122 @@ import OpenLinksInNewTab from './OpenLinksInNewTab';
 import styles from './LowAltitudeAirspaceMonitoring.module.css';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
-const pageTitle = 'Drone Detection & Low-Altitude Airspace Monitoring';
+const pageTitle = 'Low-Altitude Airspace Security & C-UAS Monitoring';
 const pageDescription =
-  'RF detection, drone radar, EO tracking, Remote ID monitoring, alerts, and event records for airports, refineries, power plants, ports, prisons, and large perimeter sites.';
+  'Low-altitude airspace monitoring, C-UAS sensing layers, visual verification, command linkage, and event records for airports, refineries, power plants, ports, controlled facilities, and large perimeter sites.';
 
 const heroPoints = [
-  'Detect unauthorized drone activity',
-  'Track and verify targets with RF, radar, and EO',
-  'Generate alerts and event records',
-  'Request site-based system design and quotation',
+  'Site airspace security architecture for critical facilities',
+  'RF, radar, EO, and Remote ID inputs in one plan',
+  'Alert review, command linkage, and event records',
+  'Site-based layout, equipment list, and quotation',
+];
+
+const incidentGallery = [
+  {
+    caption: 'Public-site night event',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/public-site-night-event.webp',
+  },
+  {
+    caption: 'Aircraft operation disruption',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/aircraft-operation-disruption.webp',
+  },
+  {
+    caption: 'Maritime critical-operation exposure',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/maritime-critical-operation.webp',
+  },
+  {
+    caption: 'Energy facility exposure',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/energy-facility-exposure.webp',
+  },
+  {
+    caption: 'Perimeter overflight',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/perimeter-overflight.webp',
+  },
+  {
+    caption: 'Restricted airspace intrusion',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/restricted-airspace-intrusion.webp',
+  },
+  {
+    caption: 'Utility corridor incident',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/utility-corridor-incident.webp',
+  },
+  {
+    caption: 'Public-building drone sighting',
+    image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/public-building-sighting.webp',
+  },
 ];
 
 const systemLayers = [
   {
-    title: 'RF Detection',
-    text: 'Detect drone control and video signals for early warning.',
+    title: 'RF Awareness',
+    text: 'Monitor drone control and video signals for early warning and source analysis.',
     icon: RadioTower,
   },
   {
-    title: 'Radar Detection',
-    text: 'Detect and locate low-altitude drones in real time.',
+    title: 'Low-Altitude Radar Coverage',
+    text: 'Locate low-altitude activity across wide areas and long perimeters.',
     icon: Target,
   },
   {
-    title: 'Optical Tracking',
-    text: 'Verify and track targets with high-resolution imaging.',
+    title: 'Visual Verification',
+    text: 'Confirm and follow targets with high-resolution electro-optical imaging.',
     icon: ScanSearch,
   },
   {
-    title: 'Remote ID',
-    text: 'Read available Remote ID broadcasts for identity clues.',
+    title: 'Remote ID Monitoring',
+    text: 'Read available Remote ID broadcasts for identity clues and operator review.',
     icon: Contact,
   },
   {
     title: 'Command Linkage',
-    text: 'Integrate with command systems for coordination.',
+    text: 'Connect alerts and target status with command-room coordination workflows.',
     icon: Monitor,
   },
   {
     title: 'Event Records',
-    text: 'Record events and export comprehensive logs.',
+    text: 'Record alerts, target tracks, review notes, and exportable event logs.',
     icon: FileClock,
+  },
+];
+
+const architectureSteps = [
+  {
+    title: 'Airspace Sensing Layer',
+    text: 'RF, radar, optical, and Remote ID inputs are selected according to site size, perimeter shape, and operating risk.',
+    icon: Radio,
+  },
+  {
+    title: 'Fusion & Review Layer',
+    text: 'The system helps operators compare signal, position, and visual clues before raising an actionable alert.',
+    icon: Target,
+  },
+  {
+    title: 'Command Linkage',
+    text: 'Alarm outputs, map views, and event status can support command rooms, patrol teams, and existing security workflows.',
+    icon: Monitor,
+  },
+  {
+    title: 'Evidence Records',
+    text: 'Event records support review, reporting, procurement justification, and later system optimization.',
+    icon: ClipboardList,
   },
 ];
 
 const workflow = [
   {
-    title: 'Detect',
-    text: 'Detect drone activity with RF, radar, and Remote ID inputs.',
+    title: 'Monitor',
+    text: 'Build low-altitude awareness with RF, radar, EO, and Remote ID inputs.',
     icon: Radio,
   },
   {
     title: 'Verify',
-    text: 'Classify and verify targets with multi-sensor fusion.',
+    text: 'Classify and confirm targets with visual and multi-sensor review.',
     icon: Target,
   },
   {
-    title: 'Track',
-    text: 'Track movement and generate real-time alerts.',
+    title: 'Coordinate',
+    text: 'Link alerts, maps, and target status to the operator workflow.',
     icon: ScanSearch,
   },
   {
@@ -104,36 +162,36 @@ const packages = [
     title: 'Fixed Industrial Site',
     meta: 'Energy, chemical, logistics, and industrial parks',
     image: '/cases/brazil-refinery-airspace-monitoring/main.webp?v=2026060102',
-    points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
+    points: ['Tank farm and perimeter monitoring', 'RF + radar + EO verification', 'Command-room alert records'],
   },
   {
     title: 'Public Venue',
-    meta: 'Event, stadium, transport, and key-area operations',
+    meta: 'Event, stadium, transport, and controlled-site operations',
     image: '/cases/asian-games-security/main-home.webp',
-    points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
+    points: ['Temporary or fixed deployment', 'Crowd-area airspace awareness', 'Event-time alert review'],
   },
   {
     title: 'Airport / Large Perimeter',
-    meta: 'Wide boundary coverage and layered drone detection',
+    meta: 'Wide boundary coverage and layered airspace awareness',
     image: '/cases/airport-security-application/main.webp?v=2026060102',
-    points: ['RF Detection', 'Radar Detection', 'Optical Tracking', 'Command Linkage', 'Event Records'],
+    points: ['Runway and apron boundary coverage', 'Wide-area radar coverage', 'Visual target verification'],
   },
 ];
 
 const siteScenarios = [
   {
     title: 'Airport / Runway Protection',
-    text: 'Layer RF, radar, EO, and records around runways, aprons, and boundary zones.',
+    text: 'Plan RF, radar, EO, and event records around runways, aprons, boundary roads, and operation zones.',
     icon: Plane,
   },
   {
     title: 'Oil & Gas / Refinery Protection',
-    text: 'Monitor low-altitude activity around process units, tank farms, and logistics areas.',
+    text: 'Monitor low-altitude activity around process units, tank farms, loading areas, and logistics gates.',
     icon: Factory,
   },
   {
     title: 'Power Plant & Substation Protection',
-    text: 'Support early detection and alert workflows for critical energy facilities.',
+    text: 'Support early warning, alert review, and command workflows for critical energy facilities.',
     icon: Zap,
   },
   {
@@ -142,8 +200,8 @@ const siteScenarios = [
     icon: Ship,
   },
   {
-    title: 'Prison / Key Area Security',
-    text: 'Detect and verify drone activity around restricted zones and controlled facilities.',
+    title: 'Controlled Facility / Key Area Security',
+    text: 'Monitor and verify low-altitude activity around controlled zones and high-value facilities.',
     icon: Landmark,
   },
   {
@@ -154,27 +212,29 @@ const siteScenarios = [
 ];
 
 const deliverables = [
-  'Recommended detection architecture',
-  'Equipment list: RF / radar / EO / Remote ID',
-  'Estimated coverage layout',
-  'Quotation and product brochure',
+  'Recommended low-altitude airspace monitoring architecture',
+  'Sensor and equipment list: RF / radar / EO / Remote ID',
+  'Estimated coverage layout and deployment notes',
+  'Quotation, product brochure, and matching datasheets',
   'Integration discussion for command systems',
 ];
 
 const relatedEquipment = [
   {
     title: 'Stationary RF Detection System',
-    role: 'RF detection layer',
+    role: 'RF awareness layer',
     image: '/products/02-drone-detection/stationary-rf-detection-system.webp',
     href: '/products/stationary-rf-detection-system',
     imageClass: 'equipmentImageRf',
+    points: ['Fixed-site signal monitoring', 'Early warning layer'],
   },
   {
     title: 'Low-Altitude Detection Radar',
-    role: 'Radar detection layer',
+    role: 'Radar coverage layer',
     image: '/products/02-drone-detection/low-altitude-detection-radar.webp',
     href: '/products/low-altitude-detection-radar-ku-band',
     imageClass: 'equipmentImageRadar',
+    points: ['Wide-area airspace coverage', 'Track and position support'],
   },
   {
     title: 'Electro-Optical Tracking System',
@@ -182,13 +242,38 @@ const relatedEquipment = [
     image: '/products/02-drone-detection/electro-optical-tracking-system.webp',
     href: '/products/composite-electro-optical-tracking-system',
     imageClass: 'equipmentImageOptical',
+    points: ['Visual target confirmation', 'Day and night tracking support'],
   },
   {
     title: 'UAV Remote ID Monitoring System',
-    role: 'Identity detection layer',
+    role: 'Identity awareness layer',
     image: '/products/02-drone-detection/portable-rf-detection-case.webp',
     href: '/products/uav-remote-id-monitoring-system',
     imageClass: 'equipmentImagePortable',
+    points: ['Remote ID information reading', 'Portable field deployment'],
+  },
+];
+
+const faqs = [
+  {
+    question: 'What is included in an N-TET low-altitude airspace security solution?',
+    answer:
+      'N-TET can combine RF monitoring, low-altitude radar, electro-optical verification, Remote ID monitoring, command linkage, and event records according to the site type and coverage requirement.',
+  },
+  {
+    question: 'Which sites are suitable for this low-altitude airspace monitoring page?',
+    answer:
+      'Typical sites include airports, refineries, power plants, substations, ports, logistics parks, controlled facilities, stadiums, and temporary event venues.',
+  },
+  {
+    question: 'Can N-TET provide a layout and quotation instead of only a product list?',
+    answer:
+      'Yes. Share the site type, country, perimeter condition, and preferred contact method, and N-TET can prepare a recommended architecture, equipment list, and quotation path.',
+  },
+  {
+    question: 'How should RF monitoring, radar, EO tracking, and Remote ID be selected?',
+    answer:
+      'RF monitoring is useful for early signal awareness, radar supports wide-area positioning, EO tracking supports visual verification, and Remote ID can provide identity clues when broadcasts are available.',
   },
 ];
 
@@ -199,11 +284,14 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     fallbackTitle: `${pageTitle} | N-TET`,
     fallbackDescription: pageDescription,
     fallbackKeywords: [
-      'drone detection system',
+      'C-UAS systems',
+      'Counter-UAS detection',
+      'Counter-UAS technology',
+      'C-UAS detection system',
       'drone detector',
       'drone radar',
       'UAV detection system',
-      'drone detection equipment',
+      'C-UAS detection equipment',
       'RF detection system',
       'low-altitude detection radar',
       'electro-optical tracking system',
@@ -242,7 +330,7 @@ function Breadcrumbs({
 
 function HeroVisual() {
   return (
-    <div className={styles.heroVisual} aria-label="Drone detection equipment composition">
+    <div className={styles.heroVisual} aria-label="Low-altitude airspace monitoring equipment composition">
       <Image
         src="/products/02-drone-detection/stationary-rf-detection-system.webp"
         alt="Stationary RF detection unit"
@@ -284,7 +372,7 @@ function ScenarioEntrance() {
     <section className={styles.scenarioSection}>
       <div className={styles.sectionHeader}>
         <h2>Choose by Site Type</h2>
-        <p>Select the operating environment closest to your site, then request a detection layout and quotation.</p>
+        <p>Select the operating environment closest to your site, then request a monitoring layout and quotation.</p>
       </div>
       <div className={styles.scenarioGrid}>
         {siteScenarios.map((item) => {
@@ -306,13 +394,43 @@ function ScenarioEntrance() {
   );
 }
 
+function SiteProblemSection() {
+  return (
+    <section className={styles.problemSection}>
+      <div className={styles.problemIntro}>
+        <h2>Unauthorized Drone Events Are Increasing</h2>
+        <p>
+          Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.
+        </p>
+      </div>
+      <div className={styles.problemGrid}>
+        {incidentGallery.map((item) => (
+          <figure className={styles.problemCard} key={item.caption}>
+            <Image
+              src={item.image}
+              alt={item.caption}
+              width={420}
+              height={240}
+              sizes="(max-width: 640px) 100vw, (max-width: 991px) 50vw, 25vw"
+            />
+            <figcaption>
+              <span aria-hidden="true">&bull;</span>
+              {item.caption}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ConversionPrompt({ inquiryHref = '#inquiry' }: { inquiryHref?: string }) {
   return (
     <section className={styles.conversionSection}>
       <div className={styles.conversionGrid}>
         <div className={styles.conversionPanel}>
-          <span className={styles.conversionEyebrow}>Site-based quotation path</span>
-          <h2>Get a Detection Layout for Your Site</h2>
+          <span className={styles.conversionEyebrow}>Site-based C-UAS quotation path</span>
+          <h2>Get a Site Airspace Plan and Equipment Match</h2>
           <p>
             Share the site type, country, perimeter condition, and preferred contact method. N-TET can respond
             with a practical system recommendation instead of a generic product list.
@@ -351,14 +469,14 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.heroSection}>
         <div className={styles.heroCopy}>
-          <span className={styles.heroEyebrow}>Low-Altitude Airspace Monitoring</span>
+          <span className={styles.heroEyebrow}>Low-Altitude Airspace Security Plan</span>
           <h1>
-            <span className={styles.titleLine}>Drone Detection System</span>
-            <span className={styles.titleLine}>for Critical Sites</span>
+            <span className={styles.titleLine}>Low-Altitude Airspace</span>
+            <span className={styles.titleLine}>Security for Critical Sites</span>
           </h1>
           <p>
-            RF detection, drone radar, EO tracking, and Remote ID monitoring for airports, refineries, power
-            plants, ports, prisons, and large perimeter sites.
+            C-UAS monitoring, RF awareness, drone radar, EO verification, Remote ID monitoring, command linkage,
+            and event records for airports, refineries, power plants, ports, controlled facilities, and large perimeter sites.
           </p>
           <ul className={styles.heroPoints}>
             {heroPoints.map((item) => (
@@ -370,16 +488,18 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
           </ul>
           <div className={styles.heroActions}>
             <Link prefetch={false} href="#inquiry" className={styles.primaryCta}>
-              Get Site Assessment
+              Get Site Plan & Quote
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <WhatsAppLeadButton sourceLabel="low_altitude_landing_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
-              WhatsApp Consultation
+              WhatsApp Chat
             </WhatsAppLeadButton>
           </div>
         </div>
         <HeroVisual />
       </section>
+
+      <SiteProblemSection />
 
       <ScenarioEntrance />
 
@@ -387,7 +507,8 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section id="equipment" className={styles.layerSection}>
         <div className={styles.sectionHeader}>
-          <h2>Detection Architecture</h2>
+          <h2>Low-Altitude Airspace Security Architecture</h2>
+          <p>Use the architecture to match search intent with a real procurement plan: site risk first, then sensing layers, alerts, command linkage, and records.</p>
         </div>
         <div className={styles.layerGrid}>
           {systemLayers.map((item) => {
@@ -405,9 +526,30 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
         </div>
       </section>
 
+      <section className={styles.architectureSection}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionEyebrow}>System flow</span>
+          <h2>From Sensor Inputs to Operator Decisions</h2>
+        </div>
+        <div className={styles.architectureGrid}>
+          {architectureSteps.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <article className={styles.architectureStep} key={item.title}>
+                <div className={styles.architectureNumber}>{String(index + 1).padStart(2, '0')}</div>
+                <Icon size={38} strokeWidth={1.8} aria-hidden="true" />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
       <section className={styles.equipmentSection}>
         <div className={styles.sectionHeader}>
-          <h2>Related Equipment</h2>
+          <h2>Equipment Layers for Airspace Monitoring</h2>
+          <p>Each equipment layer has a clear role in the complete site airspace security plan.</p>
         </div>
         <div className={styles.equipmentGrid}>
           {relatedEquipment.map((item) => (
@@ -424,6 +566,11 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
               <div className={styles.equipmentBody}>
                 <span>{item.role}</span>
                 <h3>{item.title}</h3>
+                <ul>
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </Link>
           ))}
@@ -432,7 +579,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.workflowSection}>
         <div className={styles.sectionHeader}>
-          <h2>From Drone Detection to Event Records</h2>
+          <h2>From Airspace Awareness to Event Records</h2>
         </div>
         <div className={styles.workflowTrack}>
           {workflow.map((item, index) => (
@@ -450,7 +597,8 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.packageSection}>
         <div className={styles.sectionHeader}>
-          <h2>Solutions for Different Sites</h2>
+          <h2>Solutions for Different Critical Sites</h2>
+          <p>These entry points help buyers choose the closest operating scene before sharing site details.</p>
         </div>
         <div className={styles.packageGrid}>
           {packages.map((item) => (
@@ -474,6 +622,21 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
         </div>
       </section>
 
+      <section className={styles.faqSection}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionEyebrow}>Buyer questions</span>
+          <h2>Low-Altitude Airspace Security FAQ</h2>
+        </div>
+        <div className={styles.faqGrid}>
+          {faqs.map((item) => (
+            <article className={styles.faqItem} key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="inquiry" className={styles.inquirySection}>
         <InquiryForm dict={dict} />
       </section>
@@ -488,11 +651,11 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.mobileHero}>
         <h1>
-          <span className={styles.nowrap}>Drone Detection &</span>
-          <span className={styles.mobileTitleLine}>Low-Altitude</span>
+          <span className={styles.nowrap}>Low-Altitude</span>
+          <span className={styles.mobileTitleLine}>Airspace Security</span>
           <span className={styles.mobileTitleLine}>Monitoring</span>
         </h1>
-        <p>RF detection, drone radar, EO tracking, and Remote ID monitoring for airports, refineries, power plants, and large perimeter sites.</p>
+        <p>C-UAS monitoring, RF awareness, drone radar, EO verification, Remote ID monitoring, and event records for critical sites.</p>
         <ul className={styles.heroPoints}>
           {heroPoints.slice(0, 3).map((item) => (
             <li key={item}>
@@ -504,13 +667,15 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
         <HeroVisual />
         <div className={styles.mobileActions}>
           <Link prefetch={false} href="#mobile-inquiry" className={styles.primaryCta}>
-            Get Site Assessment
+            Get Site Plan & Quote
           </Link>
-          <Link prefetch={false} href="#mobile-equipment" className={styles.secondaryCta}>
-            View Equipment
-          </Link>
+          <WhatsAppLeadButton sourceLabel="low_altitude_mobile_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
+            WhatsApp Chat
+          </WhatsAppLeadButton>
         </div>
       </section>
+
+      <SiteProblemSection />
 
       <ScenarioEntrance />
 
@@ -519,7 +684,7 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
       <section id="mobile-equipment" className={styles.mobileBlock}>
         <div className={styles.mobileSectionTitle}>
           <span>System Layers</span>
-          <h2>Detection Architecture</h2>
+          <h2>Airspace Security Architecture</h2>
         </div>
         <div className={styles.mobileLayerGrid}>
           {systemLayers.map((item) => {
@@ -536,7 +701,29 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.mobileBlock}>
         <div className={styles.mobileSectionTitle}>
-          <h2>Related Equipment</h2>
+          <span>System Flow</span>
+          <h2>Sensor Inputs to Decisions</h2>
+        </div>
+        <div className={styles.mobileArchitectureList}>
+          {architectureSteps.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <article className={styles.mobileArchitectureStep} key={item.title}>
+                <strong>{String(index + 1).padStart(2, '0')}</strong>
+                <Icon size={28} strokeWidth={1.9} aria-hidden="true" />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className={styles.mobileBlock}>
+        <div className={styles.mobileSectionTitle}>
+          <h2>Monitoring Equipment Layers</h2>
         </div>
         <div className={styles.mobileEquipmentGrid}>
           {relatedEquipment.map((item) => (
@@ -549,6 +736,7 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
                 className={`${styles.mobileEquipmentImage} ${styles[item.imageClass]}`}
               />
               <h3>{item.title}</h3>
+              <p>{item.role}</p>
             </Link>
           ))}
         </div>
@@ -581,7 +769,7 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
       <section className={styles.mobileBlock}>
         <div className={styles.mobileSectionTitle}>
           <span>Site Packages</span>
-          <h2>Choose by Site Type</h2>
+          <h2>Critical Site Packages</h2>
         </div>
         <div className={styles.mobilePackages}>
           {packages.map((item) => (
@@ -594,6 +782,21 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
                   <li key={point}>{point}</li>
                 ))}
               </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.mobileBlock}>
+        <div className={styles.mobileSectionTitle}>
+          <span>FAQ</span>
+          <h2>Airspace Security FAQ</h2>
+        </div>
+        <div className={styles.mobileFaqList}>
+          {faqs.map((item) => (
+            <article className={styles.faqItem} key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
             </article>
           ))}
         </div>
@@ -614,11 +817,42 @@ export default async function LowAltitudeAirspaceMonitoringPage({ params }: { pa
     { name: dict.nav.solutions || 'Solutions', url: pageUrl(locale, '/solutions') },
     { name: pageTitle, url: pageUrl(locale, `/solutions/${pageHandle}`) },
   ];
+  const pageAbsoluteUrl = pageUrl(locale, `/solutions/${pageHandle}`);
+  const jsonLdGraph = [
+    {
+      '@type': 'Service',
+      '@id': `${pageAbsoluteUrl}#service`,
+      name: pageTitle,
+      description: pageDescription,
+      serviceType: 'low-altitude airspace security and C-UAS monitoring',
+      provider: {
+        '@type': 'Organization',
+        name: 'N-TET',
+        url: pageUrl(locale, '/'),
+      },
+      areaServed: 'Global',
+      url: pageAbsoluteUrl,
+      mainEntityOfPage: pageAbsoluteUrl,
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageAbsoluteUrl}#faq`,
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    },
+    breadcrumbSchema(breadcrumbs),
+  ];
 
   return (
     <>
       <OpenLinksInNewTab />
-      <JsonLd data={{ '@context': 'https://schema.org', '@graph': [breadcrumbSchema(breadcrumbs)] }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@graph': jsonLdGraph }} />
       <style dangerouslySetInnerHTML={{ __html: `
         .mobile_only { display: none !important; }
         .pc_only { display: block !important; }

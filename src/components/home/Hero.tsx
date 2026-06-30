@@ -14,8 +14,8 @@ const Hero = () => {
       ></video>
       <div className="hero-overlay"></div>
       <div className="container hero-content">
-        <h1 className="hero-title">Industrial UAV Systems<br />for Low-Altitude Operations</h1>
-        <p className="hero-subtitle">Industrial UAV platforms, airspace awareness, event records, and compliant response operations for infrastructure sites.</p>
+        <h1 className="hero-title">Industrial UAV &<br />C-UAS Systems</h1>
+        <p className="hero-subtitle">N-TET builds two core system lines: industrial UAV platforms for inspection and emergency missions, and C-UAS detection / low-altitude airspace monitoring for airports, energy facilities, and public sites.</p>
         <a href="#" className="btn btn-orange">Discover Solutions</a>
       </div>
     </section>

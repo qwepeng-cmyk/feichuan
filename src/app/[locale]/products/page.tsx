@@ -11,8 +11,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/products',
-        fallbackTitle: 'Industrial UAV Systems & Monitoring Equipment',
-        fallbackDescription: 'Explore N-TET industrial UAV systems, tethered emergency drones, inspection UAVs, low-altitude monitoring equipment, and security screening products.',
+        fallbackTitle: 'Industrial UAV & C-UAS Equipment',
+        fallbackDescription: 'Explore N-TET industrial UAV platforms, C-UAS detection sensors, low-altitude monitoring systems, security screening equipment, and UAV components organized by mission.',
     });
 }
 

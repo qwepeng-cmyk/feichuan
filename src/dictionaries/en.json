@@ -13,8 +13,8 @@
   },
   "home": {
     "hero": {
-      "title": "Industrial UAV Systems<br/>for Low-Altitude Operations",
-      "subtitle": "Industrial UAV platforms, airspace situational awareness, event records, and compliant response operations for infrastructure, utilities, and public sites.",
+      "title": "Industrial UAV &<br/>C-UAS Systems",
+      "subtitle": "N-TET builds two core system lines: industrial UAV platforms for inspection and emergency missions, and C-UAS detection / low-altitude airspace monitoring for airports, energy facilities, and public sites.",
       "button": "Explore Solutions"
     },
     "sections": {
@@ -34,13 +34,13 @@
       "successCase": "Deployment Evidence"
     },
     "about": {
-      "content": "Beijing Non-traditional Equipment Technology Co., Ltd. develops industrial UAV platforms, airspace monitoring equipment, inspection operations, and intelligent screening systems for infrastructure and public operations."
+      "content": "Beijing Non-traditional Equipment Technology Co., Ltd. develops industrial UAV platforms, C-UAS detection and low-altitude airspace monitoring equipment, inspection operations, and intelligent screening systems for infrastructure and public operations."
     }
   },
   "products": {
-    "pageTitle": "Industrial UAV Systems & Field Equipment",
-    "bannerTitle": "Industrial UAV Systems & Field Equipment",
-    "bannerDesc": "Browse industrial UAV platforms, low-altitude monitoring equipment, security screening systems, drone accessories, and UAV components.",
+    "pageTitle": "Industrial UAV & C-UAS Equipment",
+    "bannerTitle": "Industrial UAV & C-UAS Equipment",
+    "bannerDesc": "Browse industrial UAV platforms, C-UAS detection sensors, low-altitude monitoring systems, security screening equipment, and UAV components organized by mission.",
     "getPrice": "Get Price",
     "getQuotation": "Get quotation",
     "getQuote": "Get a Quote",
@@ -56,7 +56,7 @@
     "relatedEquipment": "Related Equipment",
     "categories": {
       "uav": "UAV & Drone Systems",
-      "droneDetection": "Drone Detection & Tracking",
+      "droneDetection": "C-UAS Detection & Tracking",
       "security": "Security Screening",
       "engineeringMaterials": "Engineering Materials",
       "medical": "Field Hospitals",
@@ -68,7 +68,7 @@
     "title": "Drone Accessories",
     "pageTitle": "Drone Accessories & UAV Components",
     "bannerTitle": "Drone Accessories & UAV Components",
-    "bannerDesc": "Browse gimbals, propulsion modules, data links, batteries, controllers, and flight-control components for industrial UAV platforms.",
+    "bannerDesc": "Flight-control, propulsion, data-link, power, and EO payload components for industrial UAV integration, maintenance, and local assembly.",
     "categories": {
       "electro-optical-gimbals": "Electro-Optical Gimbals",
       "uav-engines": "UAV Engines",
@@ -82,11 +82,11 @@
   },
   "solutions": {
     "pageTitle": "Industrial UAV Solutions",
-    "bannerTitle": "Industrial UAV Solutions",
-    "bannerDesc": "Industrial UAV solutions for inspection and patrol, emergency response drone operations, critical infrastructure protection, key area security, and low-altitude airspace monitoring.",
-    "bannerSubtitle": "Industrial UAV solutions for inspection and patrol, emergency response drone operations, critical infrastructure protection, key area security, and low-altitude airspace monitoring.",
-    "seoIntroTitle": "Industrial UAV Solutions for Inspection, Emergency Response, Low-Altitude Monitoring, and Security Operations",
-    "seoIntroBody": "N-TET lists UAV inspection solutions, drone power line inspection, pipeline inspection drones, water conservancy monitoring UAV operations, emergency response drone operations, search and rescue drone support, firefighting drone support, critical infrastructure protection, key area security, airport airspace monitoring, event security monitoring, and low-altitude monitoring solutions.",
+    "bannerTitle": "Industrial UAV & C-UAS Solutions",
+    "bannerDesc": "Mission-ready UAV and C-UAS detection solutions for inspection, emergency response, airport airspace monitoring, and critical-site security.",
+    "bannerSubtitle": "Mission-ready UAV and C-UAS detection solutions for inspection, emergency response, airport airspace monitoring, and critical-site security.",
+    "seoIntroTitle": "Industrial UAV and C-UAS Solutions for Inspection, Emergency Response, and Site Security",
+    "seoIntroBody": "N-TET organizes solution pages by operating task: power line and pipeline UAV inspection, water conservancy monitoring, emergency communication, search and rescue support, firefighting support, airport airspace monitoring, event security monitoring, and low-altitude monitoring for critical sites.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
@@ -101,11 +101,11 @@
     }
   },
   "cases": {
-    "pageTitle": "UAV Deployment Cases",
-    "bannerTitle": "UAV Deployment Cases",
-    "bannerDesc": "Deployment references for UAV inspection cases, emergency response operations, critical infrastructure protection, key area security, and low altitude monitoring case work.",
+    "pageTitle": "UAV & C-UAS Deployment Cases",
+    "bannerTitle": "UAV & C-UAS Deployment Cases",
+    "bannerDesc": "Field references showing how N-TET systems support UAV inspection routes, emergency response missions, C-UAS detection, low-altitude monitoring, and infrastructure security operations.",
     "seoIntroTitle": "UAV Deployment and Low-Altitude Monitoring Cases",
-    "seoIntroBody": "Browse UAV deployment cases and low-altitude monitoring cases. References include power line UAV patrol, water conservancy UAV patrol, refinery monitoring cases, emergency support cases, airport airspace monitoring, event security monitoring, and low-altitude monitoring case examples.",
+    "seoIntroBody": "Browse UAV deployment and C-UAS monitoring cases. References include power line patrol, water conservancy patrol, refinery monitoring, emergency support, airport airspace monitoring, event security monitoring, and low-altitude monitoring examples.",
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
@@ -135,14 +135,14 @@
         "oceania": "Oceania"
       }
     },
-    "bannerSubtitle": "Deployment references for UAV inspection cases, emergency response operations, critical infrastructure protection, key area security, and low altitude monitoring case work."
+    "bannerSubtitle": "Field references showing how N-TET systems support UAV inspection routes, emergency response missions, C-UAS detection, low-altitude monitoring, and infrastructure security operations."
   },
   "media": {
-    "pageTitle": "Industrial UAV News",
-    "bannerTitle": "Industrial UAV News",
-    "bannerDesc": "Industrial UAV news, low altitude economy analysis, tethered UAV surveillance notes, industrial UAV redundancy updates, and border surveillance UAV network planning.",
-    "bannerSubtitle": "Industrial UAV news, low altitude economy analysis, tethered UAV surveillance notes, industrial UAV redundancy updates, and border surveillance UAV network planning.",
-    "seoIntroTitle": "Industrial UAV News and Low Altitude Economy Updates",
+    "pageTitle": "Industrial UAV & C-UAS News",
+    "bannerTitle": "Industrial UAV & C-UAS Insights",
+    "bannerDesc": "Engineering notes and market updates on UAV operations, C-UAS detection, low-altitude economy planning, monitoring architecture, and project delivery.",
+    "bannerSubtitle": "Engineering notes and market updates on UAV operations, C-UAS detection, low-altitude economy planning, monitoring architecture, and project delivery.",
+    "seoIntroTitle": "Industrial UAV & C-UAS News and Low Altitude Economy Updates",
     "seoIntroBody": "Follow N-TET coverage of low altitude economy development, tethered UAV surveillance, industrial UAV redundancy, and border surveillance UAV network design for infrastructure, public-site, and emergency operations.",
     "latest": "Latest",
     "corporate": "Corporate News",
@@ -157,15 +157,15 @@
     }
   },
   "about": {
-    "pageTitle": "Company Profile",
-    "bannerTitle": "Company Profile",
-    "bannerDesc": "Integrated UAV systems, low-altitude monitoring, and inspection operations for infrastructure operators.",
+    "pageTitle": "About N-TET",
+    "bannerTitle": "About N-TET",
+    "bannerDesc": "An engineering-driven supplier focused on industrial UAV platforms, C-UAS detection, low-altitude airspace monitoring, and security screening systems.",
     "companyProfile": "Company Profile",
-    "companyDesc1": "Beijing Non-traditional Equipment Technology Co., Ltd. is headquartered in Beijing and focuses on industrial UAV systems, airspace monitoring, intelligent inspection, and site-screening technologies.",
-    "companyDesc2": "The company connects engineering development, field deployment experience, and partner resources to support infrastructure operators, utilities, emergency teams, and public-site managers.",
-    "companyDesc3": "We help customers turn sensing, inspection, records, and response coordination into practical operating procedures.",
+    "companyDesc1": "Beijing Non-traditional Equipment Technology Co., Ltd. is headquartered in Beijing and focuses on industrial UAV systems, C-UAS detection, low-altitude airspace monitoring, intelligent inspection, and site-screening technologies.",
+    "companyDesc2": "The company connects UAV platforms, C-UAS detection sensors, low-altitude monitoring equipment, field deployment experience, and partner resources for infrastructure operators, utilities, emergency teams, and public-site managers.",
+    "companyDesc3": "We help customers translate UAV flight platforms, airspace data, inspection records, and monitoring events into practical operating procedures.",
     "rdTeam": "R&D Team",
-    "rdTeamDesc": "Driving innovation with technical expertise and deep industry experience.",
+    "rdTeamDesc": "Engineering support for UAV platforms, monitoring equipment, payload integration, and project delivery.",
     "rdRatio": "R&D Team Ratio",
     "rdExperience": "The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience.",
     "rdSystem": "R&D System",
@@ -174,16 +174,16 @@
     "uavReliability": "UAV Reliability Design",
     "uavReliabilityDesc": "Adopting redundant flight control architecture, ensuring stable operation of UAVs in complex environments.",
     "intelligentAlgo": "Intelligent Algorithms",
-    "intelligentAlgoDesc": "Technology based on multi-sensor fusion, effectively dealing with various illegal UAV intrusions.",
+    "intelligentAlgoDesc": "Multi-sensor fusion for low-altitude target detection, visual verification, and alert review workflows.",
     "aiRecognition": "AI Recognition Technology",
     "aiRecognitionDesc": "AI-based image analysis technology, providing comprehensive optical visual system solutions."
   },
   "contact": {
-    "pageTitle": "Industrial UAV Quote",
-    "bannerTitle": "Industrial UAV Quote",
-    "bannerDesc": "Talk with N-TET as a UAV system supplier about drone inspection solution planning, emergency response UAV projects, low altitude monitoring equipment, and project-specific deployment needs.",
-    "seoIntroTitle": "Industrial UAV Quote and Project Consultation",
-    "seoIntroBody": "Use this contact page to request an industrial UAV quote, compare UAV system supplier options, discuss a drone inspection solution, or plan emergency response UAV and low altitude monitoring equipment requirements with the N-TET team.",
+    "pageTitle": "Industrial UAV & C-UAS Quote",
+    "bannerTitle": "Industrial UAV & C-UAS Quote",
+    "bannerDesc": "Talk with N-TET about industrial UAV platforms, C-UAS detection systems, emergency response UAV projects, low-altitude monitoring equipment, and project-specific requirements.",
+    "seoIntroTitle": "Industrial UAV & C-UAS Quote and Project Consultation",
+    "seoIntroBody": "Use this contact page to request an industrial UAV quote, compare C-UAS detection system options, discuss a drone inspection solution, or plan emergency response UAV and low altitude monitoring equipment requirements with the N-TET team.",
     "directContact": "Direct Contact",
     "consultation": "Consultation",
     "whatsapp": "WhatsApp",
@@ -194,7 +194,7 @@
   },
   "footer": {
     "companyName": "N-TET",
-    "tagline": "Industrial UAV Systems & Drone Detection",
+    "tagline": "Industrial UAV & C-UAS Systems",
     "quickLinks": "Quick Links",
     "contactInfo": "Contact Info",
     "copyright": "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved."
@@ -210,7 +210,7 @@
     "phone": "Phone Number",
     "inquiryType": "Inquiry Type:",
     "messageLabel": "Project Details / Message",
-    "messagePlaceholder": "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., drone detection, security screening).",
+    "messagePlaceholder": "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., C-UAS detection, security screening).",
     "submit": "SUBMIT INQUIRY",
     "submitting": "SUBMITTING...",
     "submitted": {
@@ -291,8 +291,8 @@
   },
   "megaMenu": {
     "uavSystems": "UAV & Drone Systems",
-    "droneDetection": "Drone Detection & Tracking",
-    "securityScreening": "Security Screening & Policing",
+    "droneDetection": "C-UAS Detection & Tracking",
+    "securityScreening": "Security Screening",
     "engineeringMaterials": "Engineering Materials",
     "fieldHospitals": "Field & Mobile Hospitals",
     "perimeterSurveillance": "Perimeter Surveillance",
@@ -359,9 +359,9 @@
     "emergencyDisaster": "Emergency & Disaster Rescue",
     "chemicalPlantProtection": "Chemical Plant Protection",
     "oilProductionBaseProtection": "Oil Production Base Protection",
-    "powerGenerationFacilityAirspace": "Power Generation Facility Drone Detection",
+    "powerGenerationFacilityAirspace": "Power Facility Airspace Monitoring",
     "hydroelectricDamProtection": "Hydroelectric Dam Protection",
-    "airportAirspaceMonitoring": "Airport Drone Detection",
+    "airportAirspaceMonitoring": "Airport Airspace Monitoring",
     "judicialSectorSecurity": "Judicial Sector Security",
     "sportsEventSecurity": "Large Sports Event Security",
     "airportSecurityProtection": "Airport Security Protection",
@@ -385,13 +385,13 @@
   },
   "solutionCenterGroups": {
     "uavInspectionPatrol": "UAV Inspection & Patrol",
-    "uavInspectionPatrolDesc": "Recurring aerial patrol, corridor inspection, and field monitoring operations for utilities, water resources, and coastal teams.",
+    "uavInspectionPatrolDesc": "Recurring aerial patrol, corridor inspection, and field monitoring for utilities, water resources, coastal teams, and industrial assets.",
     "uavEmergencyResponse": "UAV Emergency Response",
     "uavEmergencyResponseDesc": "Rapid aerial response for firefighting support, search and rescue, post-disaster communications, and night emergency lighting.",
     "criticalInfrastructure": "Critical Infrastructure Protection",
-    "criticalInfrastructureDesc": "Airspace monitoring and perimeter intelligence for energy, petrochemical, and water-conservancy facilities.",
+    "criticalInfrastructureDesc": "UAV inspection, airspace monitoring, and perimeter intelligence for energy, petrochemical, water-conservancy, and industrial facilities.",
     "keyAreaSecurity": "Key Area Security",
-    "keyAreaSecurityDesc": "Integrated security operations for judicial sites, major events, airport checkpoints, and transport hubs."
+    "keyAreaSecurityDesc": "Security screening, EO/IR monitoring, and low-altitude airspace awareness for judicial sites, major events, airport checkpoints, and transport hubs."
   },
   "regions": {
     "all": "All",

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
+import FactoryShow from '@/components/about/FactoryShow';
 import MobileAboutUs from '@/components/mobile/MobileAboutUs';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
@@ -14,8 +15,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/about',
-        fallbackTitle: 'About N-TET | Industrial UAV Systems Integrator & Solution Provider',
-        fallbackDescription: 'Learn about N-TET engineering, integration, and solution delivery capabilities for industrial UAV systems, low-altitude monitoring equipment, and security technologies.',
+        fallbackTitle: 'About N-TET | Industrial UAV & C-UAS Integrator',
+        fallbackDescription: 'Learn how N-TET connects industrial UAV platforms, C-UAS detection, low-altitude monitoring, security screening, and project delivery for infrastructure and public-site operators.',
         image: '/about/about_banner.jpg',
     });
 }
@@ -107,6 +108,8 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                                 </div>
                             </div>
                         </section>
+
+                        <FactoryShow dict={dict} />
 
                         <section style={{ padding: '100px 0', backgroundColor: '#f8fafc' }}>
                             <div className="container">

@@ -14,7 +14,7 @@
   "home": {
     "hero": {
       "title": "Sistemas UAV industriales<br/>para operaciones de baja altitud",
-      "subtitle": "Plataformas UAV industriales, conciencia situacional del espacio aéreo, registros de eventos y flujos de respuesta para infraestructura, servicios públicos y operaciones públicas.",
+      "subtitle": "Desde plataformas UAV industriales hasta monitoreo aéreo de baja altitud, N-TET ayuda a equipos de infraestructura y sitios públicos a inspeccionar, verificar y documentar operaciones de campo.",
       "button": "Explorar soluciones"
     },
     "sections": {
@@ -40,7 +40,7 @@
   "products": {
     "pageTitle": "Sistemas UAV industriales y equipos de campo",
     "bannerTitle": "Sistemas UAV industriales y equipos de campo",
-    "bannerDesc": "Explore plataformas UAV industriales, equipos de monitoreo de baja altitud, sistemas de inspeccion de seguridad, materiales de ingenieria, equipos medicos de campo, accesorios para drones y componentes UAV.",
+    "bannerDesc": "Explore plataformas UAV, cargas útiles de sensores, sistemas de monitoreo de baja altitud, equipos de inspección de seguridad y componentes UAV organizados por misión.",
     "getPrice": "Solicitar precio",
     "getQuotation": "Solicitar cotización",
     "getQuote": "Solicitar cotización",
@@ -68,7 +68,7 @@
     "title": "Accesorios para drones",
     "pageTitle": "Accesorios para drones y componentes UAV",
     "bannerTitle": "Accesorios para drones y componentes UAV",
-    "bannerDesc": "Explore gimbals, módulos de propulsión, enlaces de datos, baterías, controles y componentes de control de vuelo para plataformas UAV industriales.",
+    "bannerDesc": "Control de vuelo, propulsión, enlaces de datos, energía y cargas EO para integración, mantenimiento y ensamblaje local de UAV industriales.",
     "categories": {
       "electro-optical-gimbals": "Gimbals electro-ópticos",
       "uav-engines": "Motores UAV",
@@ -140,8 +140,8 @@
   "solutions": {
     "pageTitle": "Soluciones UAV industriales",
     "bannerTitle": "Soluciones UAV industriales",
-    "bannerDesc": "Soluciones UAV industriales para inspeccion y patrullaje, operaciones con drones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y monitoreo de baja altitud.",
-    "bannerSubtitle": "Soluciones UAV industriales para inspeccion y patrullaje, operaciones con drones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y monitoreo de baja altitud.",
+    "bannerDesc": "Soluciones listas para proyecto que conectan inspección UAV, respuesta de emergencia, monitoreo aéreo de baja altitud y flujos de seguridad de sitio para operadores de infraestructura.",
+    "bannerSubtitle": "Soluciones listas para proyecto que conectan inspección UAV, respuesta de emergencia, monitoreo aéreo de baja altitud y flujos de seguridad de sitio para operadores de infraestructura.",
     "industryNeeds": "Necesidades de la industria",
     "applicationScenes": "Escenarios de aplicación",
     "recommendedProducts": "Productos recomendados",
@@ -154,13 +154,13 @@
       "security": "Seguridad de áreas clave",
       "emergency": "Emergencia y rescate ante desastres"
     },
-    "seoIntroTitle": "Soluciones UAV industriales para inspeccion, respuesta de emergencia, monitoreo de baja altitud y seguridad",
-    "seoIntroBody": "N-TET lista soluciones de inspeccion UAV, inspeccion de lineas electricas con drones, drones de inspeccion de tuberias, monitoreo hidrico con UAV, drones de respuesta de emergencia, equipos de busqueda y rescate, apoyo contra incendios, proteccion de infraestructura critica, seguridad de areas clave, monitoreo aereo aeroportuario, monitoreo de eventos y soluciones de monitoreo de baja altitud."
+    "seoIntroTitle": "Soluciones UAV industriales para inspección, respuesta de emergencia, monitoreo de baja altitud y seguridad de sitio",
+    "seoIntroBody": "N-TET organiza las soluciones por tarea operativa: inspección UAV de líneas eléctricas y tuberías, monitoreo hídrico, comunicación de emergencia, apoyo de búsqueda y rescate, apoyo contra incendios, monitoreo aéreo aeroportuario, monitoreo de eventos y monitoreo de baja altitud para sitios críticos."
   },
   "cases": {
     "pageTitle": "Casos de despliegue UAV",
     "bannerTitle": "Casos de despliegue UAV",
-    "bannerDesc": "Referencias de despliegue para casos de inspeccion UAV, operaciones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y casos de monitoreo de baja altitud.",
+    "bannerDesc": "Referencias de campo que muestran cómo los sistemas N-TET apoyan rutas de inspección, respuesta de emergencia, monitoreo de baja altitud y seguridad de infraestructura.",
     "region": "Región:",
     "solutionFilter": "Soluciones:",
     "all": "Todos",
@@ -190,15 +190,15 @@
         "oceania": "Oceanía"
       }
     },
-    "bannerSubtitle": "Referencias de despliegue para casos de inspeccion UAV, operaciones de respuesta de emergencia, proteccion de infraestructura critica, seguridad de areas clave y casos de monitoreo de baja altitud.",
+    "bannerSubtitle": "Referencias de campo que muestran cómo los sistemas N-TET apoyan rutas de inspección, respuesta de emergencia, monitoreo de baja altitud y seguridad de infraestructura.",
     "seoIntroTitle": "Casos de despliegue UAV y monitoreo de baja altitud",
-    "seoIntroBody": "Explore casos de despliegue UAV y casos de monitoreo de baja altitud. Las referencias incluyen patrullaje UAV de lineas electricas, patrullaje UAV hidrico, casos de monitoreo de refinerias, casos de apoyo de emergencia, monitoreo aereo aeroportuario, monitoreo de eventos y casos de monitoreo de baja altitud."
+    "seoIntroBody": "Explore casos de despliegue UAV y monitoreo de baja altitud. Las referencias incluyen patrullaje de líneas eléctricas, monitoreo hídrico, monitoreo de refinerías, apoyo de emergencia, monitoreo aéreo aeroportuario, monitoreo de eventos y proyectos de infraestructura."
   },
   "media": {
     "pageTitle": "Perspectivas y actualizaciones",
-    "bannerTitle": "Perspectivas y actualizaciones",
-    "bannerDesc": "Actualizaciones de la empresa, notas técnicas y perspectivas de la industria sobre operaciones UAV y monitoreo aéreo.",
-    "bannerSubtitle": "Actualizaciones de la empresa, notas técnicas y perspectivas de la industria sobre operaciones UAV y monitoreo aéreo.",
+    "bannerTitle": "Perspectivas de UAV industriales",
+    "bannerDesc": "Notas de ingeniería y actualizaciones de mercado sobre operaciones UAV, planificación de baja altitud, arquitectura de monitoreo y entrega de proyectos.",
+    "bannerSubtitle": "Notas de ingeniería y actualizaciones de mercado sobre operaciones UAV, planificación de baja altitud, arquitectura de monitoreo y entrega de proyectos.",
     "latest": "Último",
     "corporate": "Noticias corporativas",
     "productTech": "Producto y tecnología",
@@ -212,26 +212,26 @@
     }
   },
   "about": {
-    "pageTitle": "Perfil de la empresa",
-    "bannerTitle": "Perfil de la empresa",
-    "bannerDesc": "Sistemas UAV integrados, monitoreo de baja altitud y flujos de inspección para operadores de infraestructura.",
+    "pageTitle": "Acerca de N-TET",
+    "bannerTitle": "Acerca de N-TET",
+    "bannerDesc": "Proveedor orientado a ingeniería que conecta plataformas UAV, monitoreo aéreo, inspección de seguridad y entrega de proyectos para infraestructura y sitios públicos.",
     "companyProfile": "Perfil de la empresa",
     "companyDesc1": "Beijing Non-traditional Equipment Technology Co., Ltd. tiene sede en Beijing y actúa como integrador de sistemas UAV industriales y proveedor de soluciones para monitoreo del espacio aéreo, inspección inteligente y tecnologías de revisión en sitio.",
-    "companyDesc2": "La empresa conecta desarrollo de ingeniería, experiencia de despliegue en campo y recursos de socios para apoyar a operadores de infraestructura, servicios públicos, equipos de emergencia y gestores de sitios.",
-    "companyDesc3": "Ayudamos a los clientes a convertir sensado, inspección, registros y coordinación de respuesta en flujos operativos prácticos.",
+    "companyDesc2": "La empresa conecta plataformas aéreas, equipos de sensores, experiencia de despliegue en campo y recursos de socios para apoyar a operadores de infraestructura, servicios públicos, equipos de emergencia y gestores de sitios.",
+    "companyDesc3": "Ayudamos a los clientes a convertir plataformas de vuelo, datos de sensores, registros de inspección y coordinación de respuesta en procedimientos operativos prácticos.",
     "rdTeam": "Equipo de I+D",
-    "rdTeamDesc": "Driving innovation with technical expertise and deep industry experience. de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+    "rdTeamDesc": "Soporte de ingeniería para plataformas UAV, equipos de monitoreo, integración de cargas útiles y entrega de proyectos.",
     "rdRatio": "Proporción del equipo de I+D",
-    "rdExperience": "The core RyD team is led by 10+ senior industry experts, with an average of over de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+    "rdExperience": "El equipo principal combina experiencia en plataformas UAV, sensores, integración de sistemas y entrega de proyectos internacionales.",
     "rdSystem": "Sistema de I+D",
-    "rdSystemDesc": "A reliability design system built based on intelligent industrial standards. de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+    "rdSystemDesc": "Un sistema de diseño de confiabilidad basado en requisitos industriales, pruebas de campo e integración mantenible.",
     "coreCapabilities": "Capacidades principales",
     "uavReliability": "Diseño de confiabilidad UAV",
-    "uavReliabilityDesc": "Adopting redundant flight control architecture, ensuring stable operation of UAV de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+    "uavReliabilityDesc": "Arquitecturas de control de vuelo redundantes y selección de componentes para operaciones UAV en entornos complejos.",
     "intelligentAlgo": "Algoritmos inteligentes",
-    "intelligentAlgoDesc": "Technology based on multi-sensor fusion, effectively dealing with various illega de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+    "intelligentAlgoDesc": "Fusión multisensor para detección de objetivos de baja altitud, verificación visual y revisión de alertas.",
     "aiRecognition": "Tecnología de reconocimiento con IA",
-    "aiRecognitionDesc": "AI-based image analysis technology, providing comprehensive optical visual syste de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos."
+    "aiRecognitionDesc": "Análisis de imagen con IA para revisión visual, identificación de objetivos y flujos de monitoreo asistidos por operadores."
   },
   "contact": {
     "pageTitle": "Contáctenos",
@@ -247,14 +247,14 @@
   },
   "footer": {
     "companyName": "N-TET",
-    "tagline": "Sistemas UAV industriales y monitoreo aéreo",
+    "tagline": "Sistemas UAV industriales y monitoreo de baja altitud",
     "quickLinks": "Enlaces rápidos",
     "contactInfo": "Información de contacto",
     "copyright": "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados."
   },
   "inquiry": {
     "title": "Solicitar solución y cotización",
-    "subtitle": "Please fill out the form below, and we can satisfy any of your needs including e de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
+    "subtitle": "Complete el formulario y nuestro equipo revisará sus necesidades de selección de equipos, diseño de solución, soporte técnico o servicio posventa.",
     "name": "Nombre",
     "company": "Empresa",
     "email": "Correo electrónico",
@@ -345,7 +345,7 @@
   "megaMenu": {
     "uavSystems": "Sistemas UAV y drones",
     "droneDetection": "Monitoreo del espacio aéreo de baja altitud",
-    "securityScreening": "Inspección de seguridad y control de acceso",
+    "securityScreening": "Inspección de seguridad",
     "engineeringMaterials": "Materiales de ingeniería",
     "fieldHospitals": "Hospitales de campaña y móviles",
     "perimeterSurveillance": "Vigilancia perimetral",

@@ -1,10 +1,10 @@
 export const products = [
     {
-        top: "Industrial UAV Inspection",
+        top: "Utility UAV Inspection",
         top_ru: "БПЛА и беспилотные системы",
         main: "Power Grid Inspection Drone",
         main_ru: "Дрон для мониторинга водных ресурсов",
-        desc: "VTOL UAV platform for transmission corridors, tower inspection, thermal patrols, route mapping, and post-disaster infrastructure checks.",
+        desc: "VTOL UAV platform for utility corridors, tower inspection, thermal patrols, route mapping, and post-disaster infrastructure checks.",
         desc_ru: "Интеллектуальная система, специально разработанная для управления водной средой и гидротехническими проектами, оснащенная мультироторной летающей платформой и высокоточными датчиками мониторинга.",
         img: "/products/uav-systems/FC-DLXJ-01-Power-Grid-Inspection-Drone.webp",
         mobileImg: "/products/uav-systems/FC-DLXJ-01-Power-Grid-Inspection-Drone.webp",
@@ -14,7 +14,7 @@ export const products = [
         handle: "fc-dlxj-01-power-grid-inspection-drone"
     },
     {
-        top: "Emergency UAV Response",
+        top: "Emergency UAV Operations",
         top_ru: "Обнаружение дронов и мониторинг воздушного пространства",
         main: "Emergency Response Drone",
         main_ru: "Стационарная система радиочастотного обнаружения",
@@ -28,7 +28,7 @@ export const products = [
         handle: "fc-yjzc-01-emergency-reconnaissance-drone"
     },
     {
-        top: "Environmental UAV Monitoring",
+        top: "Water & Environmental Monitoring",
         top_ru: "Досмотр и общественная безопасность",
         main: "Water Conservancy Monitoring UAV",
         main_ru: "Интеллектуальный портал обнаружения телефонов FC-H",
@@ -42,11 +42,11 @@ export const products = [
         handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Low-Altitude Airspace Monitoring",
+        top: "Airspace Monitoring Sensors",
         top_ru: "Оборонное проектирование",
         main: "Stationary RF Detection System",
         main_ru: "Стальной мост Бейли",
-        desc: "Fixed-site RF awareness system for low-altitude activity detection, airspace alerts, and event records around industrial facilities.",
+        desc: "Fixed-site RF awareness system for low-altitude activity detection, alert review, and event records around industrial facilities.",
         desc_ru: "Всемирно признанная модульная стальная ферменная система, сочетающая высокую грузоподъемность и простоту сборки для инфраструктуры и аварийно-спасательных работ.",
         img: "/products/02-drone-detection/stationary-rf-detection-system.webp",
         mobileImg: "/products/02-drone-detection/stationary-rf-detection-system.webp",
@@ -56,7 +56,7 @@ export const products = [
         handle: "stationary-rf-detection-system"
     },
     {
-        top: "Low-Altitude Radar",
+        top: "Low-Altitude Radar Layer",
         top_ru: "Полевые и мобильные госпитали",
         main: "Low-Altitude Detection Radar (Ku-Band)",
         main_ru: "Контейнерная система медицинской помощи",
@@ -70,7 +70,7 @@ export const products = [
         handle: "low-altitude-detection-radar-ku-band"
     },
     {
-        top: "Electro-Optical Tracking",
+        top: "Visual Tracking Layer",
         top_ru: "Охрана периметра и территорий",
         main: "Electro-Optical Tracking System",
         main_ru: "Система радарно-оптического слияния",
@@ -555,37 +555,37 @@ export const homepageSolutions = solutions;
 [
     {
         index: 0,
-        top: "Industrial UAV Inspection",
+        top: "Utility UAV Inspection",
         main: "Power Grid Inspection Drone",
-        desc: "VTOL UAV platform for transmission corridors, tower inspection, thermal patrols, route mapping, and post-disaster infrastructure checks."
+        desc: "VTOL UAV platform for utility corridors, tower inspection, thermal patrols, route mapping, and post-disaster infrastructure checks."
     },
     {
         index: 1,
-        top: "Emergency UAV Response",
+        top: "Emergency UAV Operations",
         main: "Emergency Response Drone",
         desc: "Rapid-deployment UAV for disaster reconnaissance, field assessment, command support, and wide-area emergency observation."
     },
     {
         index: 2,
-        top: "Environmental UAV Monitoring",
+        top: "Water & Environmental Monitoring",
         main: "Water Conservancy Monitoring UAV",
         desc: "Multi-rotor UAV for river-lake patrols, hydraulic project observation, flood-season inspection, and water-environment evidence capture."
     },
     {
         index: 3,
-        top: "Low-Altitude Airspace Monitoring",
+        top: "Airspace Monitoring Sensors",
         main: "Stationary RF Detection System",
-        desc: "Fixed-site RF awareness system for low-altitude activity detection, airspace alerts, and event records around industrial facilities."
+        desc: "Fixed-site RF awareness system for low-altitude activity detection, alert review, and event records around industrial facilities."
     },
     {
         index: 4,
-        top: "Low-Altitude Radar",
+        top: "Low-Altitude Radar Layer",
         main: "Low-Altitude Detection Radar (Ku-Band)",
         desc: "Ku-band radar for low-altitude target detection, trajectory awareness, and layered monitoring with optical and RF systems."
     },
     {
         index: 5,
-        top: "Electro-Optical Tracking",
+        top: "Visual Tracking Layer",
         main: "Electro-Optical Tracking System",
         desc: "EO tracking unit for visual confirmation, target observation, and coordinated low-altitude monitoring workflows."
     }

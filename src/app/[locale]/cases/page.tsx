@@ -10,8 +10,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/cases',
-        fallbackTitle: 'UAV Deployment Cases',
-        fallbackDescription: 'Deployment references for UAV inspection, patrol, emergency support, and low-altitude airspace monitoring.',
+        fallbackTitle: 'UAV & C-UAS Deployment Cases',
+        fallbackDescription: 'Field references for UAV inspection routes, emergency support, C-UAS detection, low-altitude monitoring, and security operations across infrastructure sites.',
     });
 }
 

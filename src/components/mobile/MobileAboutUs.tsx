@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from './MobileAboutUs.module.css';
+import FactoryShow from '@/components/about/FactoryShow';
 import MobileInquiryForm from './MobileInquiryForm';
 import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
@@ -57,6 +58,8 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
                     <p>{d.companyDesc3}</p>
                 </div>
             </section>
+
+            <FactoryShow dict={dict} />
 
             {/* 3. R&D Team */}
             <section className={styles.rdSection}>

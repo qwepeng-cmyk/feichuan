@@ -21,7 +21,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     locale: params.locale,
     path: '/accessories',
     fallbackTitle: 'Drone Accessories & UAV Components',
-    fallbackDescription: 'Browse N-TET UAV accessories including gimbals, engines, data links, propellers, motors, batteries, remote controllers, and flight controllers.',
+    fallbackDescription: 'Browse N-TET UAV components for flight control, propulsion, data links, power systems, EO payloads, integration, and maintenance.',
   });
 }
 
