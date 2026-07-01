@@ -919,38 +919,24 @@ function Breadcrumbs({
 function HeroVisual({ locale }: { locale: Locale }) {
   return (
     <div className={styles.heroVisual} aria-label={copy(locale, 'C-UAS System Composition for Low-Altitude Sites')}>
-      <Image
-        src="/products/02-drone-detection/stationary-rf-detection-system.webp"
-        alt={copy(locale, 'Stationary RF Identification System')}
-        width={300}
-        height={210}
-        className={`${styles.deviceImage} ${styles.deviceRf}`}
-        priority
-      />
-      <Image
-        src="/products/02-drone-detection/low-altitude-detection-radar.webp"
-        alt={copy(locale, 'Low-Altitude Early-Warning Radar (Ku-Band)')}
-        width={360}
-        height={230}
-        className={`${styles.deviceImage} ${styles.deviceRadar}`}
-        priority
-      />
-      <Image
-        src="/products/02-drone-detection/electro-optical-tracking-system.webp"
-        alt={copy(locale, 'Electro-Optical Tracking System')}
-        width={260}
-        height={220}
-        className={`${styles.deviceImage} ${styles.deviceOptical}`}
-        priority
-      />
-      <Image
-        src="/products/02-drone-detection/portable-rf-detection-case.webp"
-        alt={copy(locale, 'Portable RF Identification System')}
-        width={290}
-        height={220}
-        className={`${styles.deviceImage} ${styles.devicePortable}`}
-        priority
-      />
+      <div className={styles.heroDevicePanel}>
+        <Image
+          src="/products/02-drone-detection/stationary-rf-detection-system.webp"
+          alt={copy(locale, 'Stationary RF Identification System')}
+          width={300}
+          height={210}
+          className={`${styles.deviceImage} ${styles.deviceRf}`}
+          priority
+        />
+        <Image
+          src="/products/02-drone-detection/low-altitude-detection-radar.webp"
+          alt={copy(locale, 'Low-Altitude Early-Warning Radar (Ku-Band)')}
+          width={360}
+          height={230}
+          className={`${styles.deviceImage} ${styles.deviceRadar}`}
+          priority
+        />
+      </div>
     </div>
   );
 }

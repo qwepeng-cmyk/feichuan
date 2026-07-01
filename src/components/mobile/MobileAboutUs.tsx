@@ -13,7 +13,7 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
         pageTitle: "Company Profile",
         bannerTitle: "ABOUT US",
         companyProfile: "Company Profile",
-        companyDesc1: "Beijing Non-traditional Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.",
+        companyDesc1: "N-TET focuses on UAV applications and low-altitude security. As a professional low-altitude security and UAV systems integrator, we provide comprehensive, intelligent industry solutions for customers worldwide. We combine RF sensing, visual multi-source perception, and AI intelligent algorithms across two core tracks: UAV industry operations and the prevention and management of unauthorized low-altitude targets. Backed by mature deployment experience across our full product portfolio, we support urban security, infrastructure protection, energy mapping, emergency rescue, and other scenarios with one-stop service from solution design and equipment delivery to onsite deployment, long-term operation and maintenance, and training.",
         rdTeam: "R&D Team",
         rdRatio: "R&D Team Ratio",
         rdExperience: "The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience.",

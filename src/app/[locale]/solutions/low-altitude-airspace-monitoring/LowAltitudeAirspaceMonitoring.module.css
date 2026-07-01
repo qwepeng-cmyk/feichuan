@@ -179,38 +179,34 @@
   min-height: 530px;
 }
 
+.heroDevicePanel {
+  position: absolute;
+  left: -230px;
+  bottom: 54px;
+  width: 560px;
+  height: 178px;
+  z-index: 2;
+  pointer-events: none;
+}
+
 .deviceImage {
   position: absolute;
+  height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 20px 22px rgba(0, 0, 0, 0.22));
+  background: transparent;
+  filter: drop-shadow(0 20px 18px rgba(0, 0, 0, 0.24));
 }
 
 .deviceRf {
-  left: 7%;
-  bottom: 22px;
-  width: 178px;
-  height: auto;
+  left: 52px;
+  bottom: 0;
+  width: 230px;
 }
 
 .deviceRadar {
-  left: 27%;
-  bottom: 32px;
-  width: 220px;
-  height: auto;
-}
-
-.deviceOptical {
-  left: 57%;
-  bottom: 25px;
-  width: 190px;
-  height: auto;
-}
-
-.devicePortable {
-  right: 4%;
-  bottom: 28px;
-  width: 198px;
-  height: auto;
+  right: 54px;
+  bottom: 10px;
+  width: 230px;
 }
 
 .layerSection {
@@ -1143,32 +1139,28 @@
 }
 
 .mobileHero .heroVisual {
-  min-height: 150px;
-  margin-top: 2px;
+  min-height: 126px;
+  margin-top: 6px;
+}
+
+.mobileHero .heroDevicePanel {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 126px;
 }
 
 .mobileHero .deviceRf {
   left: 8%;
-  bottom: 17px;
-  width: 118px;
+  bottom: 8px;
+  width: 146px;
 }
 
 .mobileHero .deviceRadar {
-  left: 31%;
-  bottom: 22px;
-  width: 142px;
-}
-
-.mobileHero .deviceOptical {
-  left: 61%;
-  bottom: 15px;
-  width: 118px;
-}
-
-.mobileHero .devicePortable {
-  right: 5%;
-  bottom: 16px;
-  width: 118px;
+  right: 7%;
+  bottom: 14px;
+  width: 146px;
 }
 
 .mobileActions {
@@ -1698,12 +1690,21 @@
     padding-left: max(20px, calc((100vw - 1140px) / 2 + 20px));
   }
 
-  .deviceRf {
-    left: 1%;
+  .heroDevicePanel {
+    left: -210px;
+    bottom: 52px;
+    width: 520px;
+    height: 158px;
   }
 
-  .devicePortable {
-    right: 0;
+  .deviceRf {
+    left: 44px;
+    width: 214px;
+  }
+
+  .deviceRadar {
+    right: 44px;
+    width: 214px;
   }
 
   .layerCard {

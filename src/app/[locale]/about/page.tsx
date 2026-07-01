@@ -9,7 +9,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
@@ -30,7 +30,6 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
     });
     const bannerTitle = seoTarget.h1 || dict.about.bannerTitle;
     const profileHeading = seoTarget.overviewHeading || dict.about.companyProfile;
-    const keywordIntro = buildKeywordIntro(seoTarget, dict.about.bannerTitle, locale);
 
     return (
         <>
@@ -89,11 +88,6 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                                             <span style={{ display: 'block', width: '60px', height: '4px', background: '#315ba4', marginTop: '15px' }}></span>
                                         </h2>
                                         <div style={{ fontSize: '1.8rem', color: '#475569', lineHeight: 1.8, textAlign: 'left' }}>
-                                            {keywordIntro && (
-                                                <p style={{ marginBottom: '20px', color: '#263241', fontWeight: 650 }}>
-                                                    {keywordIntro}
-                                                </p>
-                                            )}
                                             <p style={{ marginBottom: '20px' }}>
                                                 {dict.about.companyDesc1}
                                             </p>
