@@ -325,7 +325,7 @@ const relatedEquipment = [
   {
     title: 'Handheld RF Identification System',
     role: 'Mobile inspection',
-    image: '/products/02-drone-detection/handheld-rf-detection-system.webp',
+    image: '/products/02-drone-detection/handheld-rf-detection-system-pl280h.webp',
     href: '/products/handheld-rf-detection-system-mini',
     imageClass: 'equipmentImageHandheld',
     points: ['Handheld signal identification', 'Flexible perimeter patrol support'],
