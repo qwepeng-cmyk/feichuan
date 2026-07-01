@@ -1,27 +1,32 @@
 {
-  "title": "Airspace Monitoring Case of a Power Plant in Pakistan",
-  "title_en": "Airspace Monitoring Case of a Power Plant in Pakistan",
-  "description": "2024 Airspace Monitoring Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a low-altitude airspace monitoring plan for the facility perimeter and core operation zones. Stationary spectrum detection equipment supports continuous awareness of nearby aerial activity, while navigation-signal analysis provides reference data for authorized review. The command platform links alerts, map views, operator notes, and response status so the site team can maintain traceable event records and coordinate with established facility procedures.",
-  "description_en": "2024 Airspace Monitoring Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a low-altitude airspace monitoring plan for the facility perimeter and core operation zones. Stationary spectrum detection equipment supports continuous awareness of nearby aerial activity, while navigation-signal analysis provides reference data for authorized review. The command platform links alerts, map views, operator notes, and response status so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "title": "C-UAS Case of a Power Plant in Pakistan",
+  "title_en": "C-UAS Case of a Power Plant in Pakistan",
+  "description": "2024 C-UAS Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a C-UAS early-warning plan for the facility perimeter and core operation zones. Stationary spectrum identification equipment supports continuous awareness of nearby aerial activity, while signal verification provides reference data for authorized review. The command platform links alerts, map views, operator notes, positioning records, tracking status, and response protocols so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "description_en": "2024 C-UAS Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a C-UAS early-warning plan for the facility perimeter and core operation zones. Stationary spectrum identification equipment supports continuous awareness of nearby aerial activity, while signal verification provides reference data for authorized review. The command platform links alerts, map views, operator notes, positioning records, tracking status, and response protocols so the site team can maintain traceable event records and coordinate with established facility procedures.",
   "devices": [
-    "Stationary Spectrum Detection Equipment",
-    "Navigation-Signal Analysis Equipment",
+    "Stationary Spectrum Identification Equipment",
+    "Signal Verification Equipment",
     "Command and Control Platform Software"
   ],
   "devices_en": [
-    "Stationary Spectrum Detection Equipment",
-    "Navigation-Signal Analysis Equipment",
+    "Stationary Spectrum Identification Equipment",
+    "Signal Verification Equipment",
     "Command and Control Platform Software"
   ],
-  "main_image": "/cases/pakistan-power-plant-airspace-monitoring/main.webp",
+  "main_image": "/cases/pakistan-power-plant-airspace-monitoring/main-home.webp",
   "case_images": [],
-  "recommendedProductHandles": [],
+  "recommendedProductHandles": [
+    "stationary-active-rf-defense-system",
+    "omni-directional-rf-event-logging",
+    "directional-rf-event-logging",
+    "uav-navigation-airspace-data-verification-system"
+  ],
   "handle": "pakistan-power-plant-airspace-monitoring",
-  "title_ru": "Airspace Monitoring Case of a Power Plant in Pakistan",
-  "description_ru": "2024 Airspace Monitoring Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a low-altitude airspace monitoring plan for the facility perimeter and core operation zones. Stationary spectrum detection equipment supports continuous awareness of nearby aerial activity, while navigation-signal analysis provides reference data for authorized review. The command platform links alerts, map views, operator notes, and response status so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "title_ru": "C-UAS Case of a Power Plant in Pakistan",
+  "description_ru": "2024 C-UAS Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a C-UAS early-warning plan for the facility perimeter and core operation zones. Stationary spectrum identification equipment supports continuous awareness of nearby aerial activity, while signal verification provides reference data for authorized review. The command platform links alerts, map views, operator notes, positioning records, tracking status, and response protocols so the site team can maintain traceable event records and coordinate with established facility procedures.",
   "devices_ru": [
-    "Stationary Spectrum Detection Equipment",
-    "Navigation-Signal Analysis Equipment",
+    "Stationary Spectrum Identification Equipment",
+    "Signal Verification Equipment",
     "Command and Control Platform Software"
   ],
   "region_ru": "Asia",
@@ -58,5 +63,11 @@
       "label": "Output",
       "value": "Operator notes, timestamps, map records, and review reports"
     }
+  ],
+  "recommended_product_handles": [
+    "stationary-active-rf-defense-system",
+    "omni-directional-rf-event-logging",
+    "directional-rf-event-logging",
+    "uav-navigation-airspace-data-verification-system"
   ]
 }

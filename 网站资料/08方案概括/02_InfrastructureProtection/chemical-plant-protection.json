@@ -1,8 +1,8 @@
 {
   "product_name": "Chemical Plant Protection",
   "product_name_en": "Chemical Plant Protection",
-  "summary": "Chemical plant low-altitude security content, reorganized from the critical infrastructure protection proposal.",
-  "summary_en": "A layered low-altitude security solution for chemical plants, tank farms, loading areas, hazardous-material storage zones, and petrochemical park perimeters. The process helps operators detect abnormal low-altitude activity, identify and locate the target, track it with visual confirmation, issue graded alerts, and support coordinated site handling.",
+  "summary": "A layered C-UAS solution for chemical plants, tank farms, loading areas, hazardous-material storage zones, and petrochemical park perimeters. The process helps operators detect abnormal low-altitude activity, identify and locate the target, track it with visual confirmation, issue graded warnings, and support coordinated site response plans.",
+  "summary_en": "A layered C-UAS solution for chemical plants, tank farms, loading areas, hazardous-material storage zones, and petrochemical park perimeters. The process helps operators detect abnormal low-altitude activity, identify and locate the target, track it with visual confirmation, issue graded warnings, and support coordinated site response plans.",
   "key_application": "Chemical plants, petrochemical parks, storage tank areas, loading zones, hazardous-material warehouses, pipe corridors, and restricted industrial perimeters.",
   "key_application_en": "Chemical plants, petrochemical parks, storage tank areas, loading zones, hazardous-material warehouses, pipe corridors, and restricted industrial perimeters.",
   "key_parameter_1": "Perception layer: RF sensing, Remote ID monitoring, low-altitude radar, and EO/thermal confirmation can be combined according to site risk and terrain.",
@@ -17,7 +17,7 @@
     "industry_pain_points": [
       "Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.",
       "Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.",
-      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams."
+      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded warnings, and site-level handling across duty teams."
     ],
     "uav_industry_upgrade": [
       "RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.",
@@ -41,8 +41,8 @@
         "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
       },
       {
-        "name": "Alert Linkage",
-        "description": "Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
+        "name": "Warning Linkage",
+        "description": "Send graded warnings to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
         "image": "/solutions/chemical-plant-protection/module-loading-area-pier.webp"
       },
       {
@@ -51,7 +51,7 @@
         "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
       }
     ],
-    "typical_outputs": "Low-altitude target alerts, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
+    "typical_outputs": "Low-altitude target warnings, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
   },
   "parameters_en": {
     "operation_upgrade_eyebrow": "Low-Altitude Security Operations",
@@ -61,7 +61,7 @@
     "industry_pain_points": [
       "Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.",
       "Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.",
-      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams."
+      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded warnings, and site-level handling across duty teams."
     ],
     "uav_industry_upgrade": [
       "RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.",
@@ -85,8 +85,8 @@
         "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
       },
       {
-        "name": "Alert Linkage",
-        "description": "Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
+        "name": "Warning Linkage",
+        "description": "Send graded warnings to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
         "image": "/solutions/chemical-plant-protection/module-loading-area-pier.webp"
       },
       {
@@ -95,7 +95,7 @@
         "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
       }
     ],
-    "typical_outputs": "Low-altitude target alerts, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
+    "typical_outputs": "Low-altitude target warnings, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
   },
   "detail_sections": {
     "operation_upgrade_eyebrow": "Low-Altitude Security Operations",
@@ -105,7 +105,7 @@
     "industry_pain_points": [
       "Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.",
       "Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.",
-      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams."
+      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded warnings, and site-level handling across duty teams."
     ],
     "uav_industry_upgrade": [
       "RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.",
@@ -129,8 +129,8 @@
         "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
       },
       {
-        "name": "Alert Linkage",
-        "description": "Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
+        "name": "Warning Linkage",
+        "description": "Send graded warnings to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
         "image": "/solutions/chemical-plant-protection/module-loading-area-pier.webp"
       },
       {
@@ -140,9 +140,9 @@
       }
     ]
   },
-  "detail_html": "<h2>Industry Pain Points</h2><ul><li>Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.</li><li>Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.</li><li>Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams.</li></ul><h2>Low-Altitude Security Operations</h2><ul><li>RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.</li><li>EO and thermal tracking helps confirm the target, follow movement trends, and reduce uncertainty in steam, dust, low-light, and complex industrial backgrounds.</li><li>Platform linkage turns separate detection and visual inputs into a shared alert picture for the security room, patrol team, and on-duty site personnel.</li></ul><h2>Solution Modules</h2><ul><li><strong>Perimeter Detection</strong>: Build a low-altitude perception layer around plant boundaries, tank areas, loading points, and restricted industrial zones.</li><li><strong>Target Identification</strong>: Use RF sensing, Remote ID data, and low-altitude radar as complementary inputs to identify abnormal aerial activity and provide location context to the security room.</li><li><strong>Visual Tracking and Confirmation</strong>: Use visible-light and thermal observation to confirm target type, track movement trends, and support operator judgment in complex industrial backgrounds.</li><li><strong>Alert Linkage</strong>: Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.</li><li><strong>Coordinated Site Handling</strong>: Support patrol verification, duty-team notification, emergency liaison, and other site procedures so operators can act from the same alert context.</li></ul>",
-  "detail_html_en": "<h2>Industry Pain Points</h2><ul><li>Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.</li><li>Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.</li><li>Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams.</li></ul><h2>Low-Altitude Security Operations</h2><ul><li>RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.</li><li>EO and thermal tracking helps confirm the target, follow movement trends, and reduce uncertainty in steam, dust, low-light, and complex industrial backgrounds.</li><li>Platform linkage turns separate detection and visual inputs into a shared alert picture for the security room, patrol team, and on-duty site personnel.</li></ul><h2>Solution Modules</h2><ul><li><strong>Perimeter Detection</strong>: Build a low-altitude perception layer around plant boundaries, tank areas, loading points, and restricted industrial zones.</li><li><strong>Target Identification</strong>: Use RF sensing, Remote ID data, and low-altitude radar as complementary inputs to identify abnormal aerial activity and provide location context to the security room.</li><li><strong>Visual Tracking and Confirmation</strong>: Use visible-light and thermal observation to confirm target type, track movement trends, and support operator judgment in complex industrial backgrounds.</li><li><strong>Alert Linkage</strong>: Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.</li><li><strong>Coordinated Site Handling</strong>: Support patrol verification, duty-team notification, emergency liaison, and other site procedures so operators can act from the same alert context.</li></ul>",
-  "main_image": "/solutions/infrastructure protection/Chemical Plant Area Protection/Chemical Plant Area Protection.webp",
+  "detail_html": "<h2>Industry Pain Points</h2><ul><li>Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.</li><li>Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.</li><li>Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded warnings, and site-level handling across duty teams.</li></ul><h2>Low-Altitude Security Operations</h2><ul><li>RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.</li><li>EO and thermal tracking helps confirm the target, follow movement trends, and reduce uncertainty in steam, dust, low-light, and complex industrial backgrounds.</li><li>Platform linkage turns separate detection and visual inputs into a shared alert picture for the security room, patrol team, and on-duty site personnel.</li></ul><h2>Solution Modules</h2><ul><li><strong>Perimeter Detection</strong>: Build a low-altitude perception layer around plant boundaries, tank areas, loading points, and restricted industrial zones.</li><li><strong>Target Identification</strong>: Use RF sensing, Remote ID data, and low-altitude radar as complementary inputs to identify abnormal aerial activity and provide location context to the security room.</li><li><strong>Visual Tracking and Confirmation</strong>: Use visible-light and thermal observation to confirm target type, track movement trends, and support operator judgment in complex industrial backgrounds.</li><li><strong>Warning Linkage</strong>: Send graded warnings to the security room with map context, target status, and zone information so duty teams can understand the event quickly.</li><li><strong>Coordinated Site Handling</strong>: Support patrol verification, duty-team notification, emergency liaison, and other site procedures so operators can act from the same alert context.</li></ul>",
+  "detail_html_en": "<h2>Industry Pain Points</h2><ul><li>Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.</li><li>Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.</li><li>Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded warnings, and site-level handling across duty teams.</li></ul><h2>Low-Altitude Security Operations</h2><ul><li>RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.</li><li>EO and thermal tracking helps confirm the target, follow movement trends, and reduce uncertainty in steam, dust, low-light, and complex industrial backgrounds.</li><li>Platform linkage turns separate detection and visual inputs into a shared alert picture for the security room, patrol team, and on-duty site personnel.</li></ul><h2>Solution Modules</h2><ul><li><strong>Perimeter Detection</strong>: Build a low-altitude perception layer around plant boundaries, tank areas, loading points, and restricted industrial zones.</li><li><strong>Target Identification</strong>: Use RF sensing, Remote ID data, and low-altitude radar as complementary inputs to identify abnormal aerial activity and provide location context to the security room.</li><li><strong>Visual Tracking and Confirmation</strong>: Use visible-light and thermal observation to confirm target type, track movement trends, and support operator judgment in complex industrial backgrounds.</li><li><strong>Warning Linkage</strong>: Send graded warnings to the security room with map context, target status, and zone information so duty teams can understand the event quickly.</li><li><strong>Coordinated Site Handling</strong>: Support patrol verification, duty-team notification, emergency liaison, and other site procedures so operators can act from the same alert context.</li></ul>",
+  "main_image": "/cases/brazil-refinery-airspace-monitoring/main-home.webp?v=2026061801",
   "handle": "chemical-plant-protection",
   "category_primary": "Infrastructure Protection",
   "recommended_products": [
@@ -165,7 +165,7 @@
     "Industry_pain_points": [
       "Chemical and petrochemical sites contain storage tanks, loading points, pipe corridors, control rooms, and restricted process zones where low-altitude intrusion can quickly become a safety, privacy, or continuity concern.",
       "Large plant footprints, night shifts, steam, dust, high structures, and complex perimeter roads make it difficult for patrol teams and fixed cameras to discover small aerial targets in time.",
-      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded alerts, and site-level handling across duty teams."
+      "Operators need a clear low-altitude response process that connects early discovery, target identification, visual confirmation, graded warnings, and site-level handling across duty teams."
     ],
     "Uav_industry_upgrade": [
       "RF sensing, Remote ID monitoring, and low-altitude radar help discover abnormal aerial activity around plant boundaries, tank areas, loading zones, and process corridors.",
@@ -189,8 +189,8 @@
         "image": "/solutions/chemical-plant-protection/module-command-refinery-pond.webp"
       },
       {
-        "name": "Alert Linkage",
-        "description": "Send graded alerts to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
+        "name": "Warning Linkage",
+        "description": "Send graded warnings to the security room with map context, target status, and zone information so duty teams can understand the event quickly.",
         "image": "/solutions/chemical-plant-protection/module-loading-area-pier.webp"
       },
       {
@@ -199,7 +199,7 @@
         "image": "/solutions/chemical-plant-protection/module-response-chemical-plant-nara.webp"
       }
     ],
-    "Typical_outputs": "Low-altitude target alerts, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
+    "Typical_outputs": "Low-altitude target warnings, visual confirmation snapshots, target movement status, zone-level prompts, and site handling notifications."
   },
   "detail_html_es": "<h4>Características</h4><ul><li>Planta química Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Planta química Protection de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
 }

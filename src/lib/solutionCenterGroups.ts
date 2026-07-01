@@ -74,4 +74,8 @@ export const solutionCenterImageByHandle: Record<string, string> = {
   'disaster-site-search-rescue-reconnaissance-uav-solution': '/solutions/solutions/Disaster-Site Search, Rescue & Reconnaissance.webp',
   'post-disaster-emergency-communication-support-uav-solution': '/solutions/solutions/Post-Disaster Emergency Communication Support.webp',
   'night-emergency-lighting-support-uav-solution': '/solutions/solutions/Night Emergency Lighting Support.webp',
+  'chemical-plant-protection': '/cases/brazil-refinery-airspace-monitoring/main-home.webp',
+  'oil-production-base-protection': '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
+  'sports-event-security': '/cases/asian-games-security/main.webp',
+  'airport-security-protection': '/cases/airport-security-application/main-home.webp',
 };

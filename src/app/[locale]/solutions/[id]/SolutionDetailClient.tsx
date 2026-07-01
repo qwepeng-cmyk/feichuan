@@ -250,7 +250,7 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
   {
     match: 'oil-production-base-protection',
     images: [
-      '/products/02-drone-detection/drone-detection-home.webp',
+      '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
       '/products/02-drone-detection/stationary-rf-detection-system.webp',
       '/products/02-drone-detection/electro-optical-tracking-system.webp',
       '/products/02-drone-detection/low-altitude-detection-radar.webp',
@@ -260,7 +260,7 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
   {
     match: 'airport-security-protection',
     images: [
-      '/solutions/solutions/Airport Security Protection.webp',
+      '/cases/airport-security-application/main-home.webp',
       '/products/02-drone-detection/stationary-rf-detection-system.webp',
       '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
       '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
@@ -280,7 +280,7 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
   {
     match: 'sports-event-security',
     images: [
-      '/solutions/solutions/Large Sports Event Security.webp',
+      '/cases/asian-games-security/main.webp',
       '/products/02-drone-detection/stationary-rf-detection-system.webp',
       '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
       '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',

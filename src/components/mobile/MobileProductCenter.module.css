@@ -3,6 +3,7 @@
     max-width: 100vw;
     background: #fff;
     padding-top: 108px; /* Room for Main Header */
+    padding-bottom: 88px;
     overflow-x: hidden;
 }
 
@@ -56,7 +57,7 @@
     z-index: 90;
     background: #ffffff;
     border-bottom: 1px solid #eee;
-    height: 80px;
+    height: 78px;
     overflow: hidden;
 }
 
@@ -81,12 +82,13 @@
 .tabTrack {
     display: flex;
     overflow-x: auto;
-    padding: 10px 8px 10px 10px;
-    gap: 8px;
+    padding: 10px 14px;
+    gap: 10px;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     height: 100%;
     align-items: center;
+    scroll-snap-type: x proximity;
 }
 
 .tabTrack::-webkit-scrollbar { display: none; }
@@ -99,17 +101,18 @@
     gap: 4px;
     background: transparent;
     border: none;
-    padding: 0;
-    width: 102px;
-    min-width: 102px;
+    padding: 0 2px;
+    width: clamp(82px, 17.5vw, 104px);
+    min-width: clamp(82px, 17.5vw, 104px);
     flex: 0 0 auto;
+    scroll-snap-align: start;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #315ba4;
 }
 
 .iconBox {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,19 +120,19 @@
 }
 
 .iconBox svg {
-    width: 32px !important;
-    height: 32px !important;
+    width: 30px !important;
+    height: 30px !important;
 }
 
 .tabText {
-    font-size: 9px;
+    font-size: 8.8px;
     font-weight: 800;
     text-transform: uppercase;
     opacity: 0.7;
     white-space: normal;
     text-align: center;
     line-height: 1.1;
-    max-width: 96px;
+    max-width: 100%;
     overflow-wrap: anywhere;
     hyphens: auto;
 }

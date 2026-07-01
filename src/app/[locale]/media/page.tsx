@@ -10,7 +10,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/media',
         fallbackTitle: 'Industrial UAV & C-UAS Insights',
-        fallbackDescription: 'Read N-TET engineering notes on UAV operations, C-UAS detection, low-altitude economy planning, monitoring architecture, and project delivery.',
+        fallbackDescription: 'Read N-TET engineering notes on UAV operations, C-UAS systems, low-altitude economy planning, sensor architecture, and project delivery.',
     });
 }
 

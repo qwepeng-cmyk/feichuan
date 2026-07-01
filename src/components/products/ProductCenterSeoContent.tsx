@@ -18,7 +18,7 @@ const CONTENT: Record<string, LocaleContent> = {
     eyebrow: 'Product range',
     title: 'Industrial UAV Systems, Monitoring Equipment, Accessories, and Field Equipment',
     intro: [
-      'N-TET product families include industrial UAV platforms, low-altitude monitoring equipment, security screening systems, drone accessories, and UAV components.',
+      'N-TET product families include industrial UAV platforms, C-UAS equipment, early-warning sensor layers, security screening systems, drone accessories, and UAV components.',
       'Product pages list product type, model, payload, endurance, operating radius, sensor, data link, power module, compatible accessories, and available spare parts where the source data provides them.',
     ],
     cards: [

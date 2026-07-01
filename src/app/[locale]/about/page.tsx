@@ -16,7 +16,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/about',
         fallbackTitle: 'About N-TET | Industrial UAV & C-UAS Integrator',
-        fallbackDescription: 'Learn how N-TET connects industrial UAV platforms, C-UAS detection, low-altitude monitoring, security screening, and project delivery for infrastructure and public-site operators.',
+        fallbackDescription: 'Learn how N-TET supplies industrial UAV platforms, C-UAS systems, low-altitude security equipment, security screening, and project delivery for critical-site operators.',
         image: '/about/about_banner.jpg',
     });
 }
@@ -97,12 +97,6 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                                             <p style={{ marginBottom: '20px' }}>
                                                 {dict.about.companyDesc1}
                                             </p>
-                                            <p style={{ marginBottom: '20px' }}>
-                                                {dict.about.companyDesc2}
-                                            </p>
-                                            <p>
-                                                {dict.about.companyDesc3}
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +109,6 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                             <div className="container">
                                 <div style={{ textAlign: 'center', marginBottom: '80px' }}>
                                     <h2 style={{ fontSize: '3.6rem', fontWeight: 800, color: '#0f172a', marginBottom: '15px' }}>{dict.about.rdTeam}</h2>
-                                    <p style={{ fontSize: '1.8rem', color: '#64748b' }}>{dict.about.rdTeamDesc}</p>
                                 </div>
 
                                 <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', gap: '60px' }}>
@@ -127,12 +120,12 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                                         boxShadow: '0 20px 40px rgba(49, 91, 164, 0.2)'
                                     }}>
                                         <div style={{ fontSize: '7.2rem', fontWeight: 900, marginBottom: '10px' }}>70%</div>
-                                        <h3 style={{ fontSize: '2.4rem', fontWeight: 700, marginBottom: '30px' }}>{dict.about.rdRatio}</h3>
+                                        <h3 style={{ fontSize: '2.4rem', fontWeight: 700, marginBottom: '30px', color: '#fff' }}>{dict.about.rdRatio}</h3>
                                         <p style={{ fontSize: '1.6rem', lineHeight: 1.6, opacity: 0.9, marginBottom: '40px' }}>
                                             {dict.about.rdExperience}
                                         </p>
                                         <div style={{ paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
-                                            <h4 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                            <h4 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px', color: '#fff' }}>
                                                 <Settings size={20} /> {dict.about.rdSystem}
                                             </h4>
                                             <p style={{ fontSize: '1.5rem', opacity: 0.85, lineHeight: 1.5 }}>

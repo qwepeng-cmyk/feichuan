@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/products',
         fallbackTitle: 'Industrial UAV & C-UAS Equipment',
-        fallbackDescription: 'Explore N-TET industrial UAV platforms, C-UAS detection sensors, low-altitude monitoring systems, security screening equipment, and UAV components organized by mission.',
+        fallbackDescription: 'Explore N-TET industrial UAV platforms, C-UAS sensors, early-warning equipment, security screening systems, and UAV components organized by mission.',
     });
 }
 
@@ -20,10 +20,10 @@ async function ProductsDataWrapper({ locale, dict }: { locale: Locale; dict: any
     const categoriesData = await getAllProducts(locale);
     return (
         <>
-            <div className="pc_only">
+            <div className="pc_only product-center-desktop-only">
                 <DesktopProductCenter categoriesData={categoriesData} locale={locale} dict={dict} />
             </div>
-            <div className="mobile_only">
+            <div className="mobile_only product-center-mobile-only">
                 <MobileProductCenterLoader locale={locale} dict={dict} />
             </div>
         </>
@@ -37,11 +37,16 @@ export default async function ProductCenterPage({ params }: { params: { locale: 
     return (
         <>
             <style dangerouslySetInnerHTML={{ __html: `
-                .mobile_only { display: none !important; }
-                .pc_only { display: block !important; }
+                .product-center-mobile-only { display: none !important; }
+                .product-center-desktop-only { display: block !important; }
                 @media (max-width: 991px) {
-                    .mobile_only { display: block !important; }
-                    .pc_only { display: none !important; }
+                    .product-center-mobile-only { display: block !important; }
+                    .product-center-desktop-only {
+                        display: none !important;
+                        visibility: hidden !important;
+                        height: 0 !important;
+                        overflow: hidden !important;
+                    }
                 }
             `}} />
 

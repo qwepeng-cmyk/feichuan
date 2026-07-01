@@ -25,7 +25,7 @@ const DETECTION_CASE_ORDER = [
 ];
 
 const CASE_DISPLAY_ORDER = new Map<string, number>(
-  [...UAV_CASE_ORDER, ...DETECTION_CASE_ORDER].map((handle, index) => [handle, index])
+  [...DETECTION_CASE_ORDER, ...UAV_CASE_ORDER].map((handle, index) => [handle, index])
 );
 
 export function getCaseDisplayRank(item: CaseDisplayItem) {

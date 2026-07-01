@@ -14,21 +14,18 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
         bannerTitle: "ABOUT US",
         companyProfile: "Company Profile",
         companyDesc1: "Beijing Non-traditional Equipment Technology Co., Ltd. is headquartered in the Lize Financial Business District of Beijing. It is a high-tech enterprise focusing on the field of unmanned systems and intelligent security.",
-        companyDesc2: "Based on technological innovation, the company integrates global high-quality resources and market networks, and is committed to building an efficient and collaborative industrial ecosystem.",
-        companyDesc3: "We uphold the development mission of \"Connecting Technology with Applications, Integrating Domestic and International Markets\" to provide top-tier integrated security services for global customers.",
         rdTeam: "R&D Team",
-        rdTeamDesc: "Driving innovation with technical expertise and deep industry experience.",
         rdRatio: "R&D Team Ratio",
         rdExperience: "The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience.",
         rdSystem: "R&D System",
         rdSystemDesc: "A reliability design system built based on intelligent industrial standards.",
         coreCapabilities: "Core Capabilities",
-        uavReliability: "UAV Reliability Design",
-        uavReliabilityDesc: "Adopting redundant flight control architecture, combined with lightweight materials and adaptive control algorithms, ensuring stable operation of UAVs in complex environments.",
-        intelligentAlgo: "Intelligent Algorithms",
-        intelligentAlgoDesc: "Technology based on multi-sensor fusion, achieving fast threat identification and dynamic interference strategy optimization, effectively dealing with UAV intrusions.",
-        aiRecognition: "AI Recognition Tech",
-        aiRecognitionDesc: "AI-based image analysis and processing technology, providing comprehensive optical visual system solutions in all-weather and complex environments."
+        uavReliability: "Full-Scenario Coverage",
+        uavReliabilityDesc: "Defining a new level for industry applications. We work to make UAVs a core productivity tool across energy inspection, emergency rescue, smart city governance, and customized all-weather low-altitude operations.",
+        intelligentAlgo: "Full-Dimensional Airspace Protection",
+        intelligentAlgoDesc: "Reshaping low-altitude airspace management standards. For different site-security needs, we address unauthorized UAV activity, disorderly low-altitude flights, privacy exposure, and safety risks through integrated R&D, solution customization, deployment, and operation support.",
+        aiRecognition: "Dual UAV & C-UAS R&D Insight",
+        aiRecognitionDesc: "Because we understand UAV development, we understand protection better. With both UAV engineering and C-UAS capabilities, we use aircraft-design insight to strengthen low-altitude defense thinking and stay one step ahead of emerging site-security risks."
     };
 
     return (
@@ -54,8 +51,6 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
 
                 <div className={styles.profileText}>
                     <p>{d.companyDesc1}</p>
-                    <p>{d.companyDesc2}</p>
-                    <p>{d.companyDesc3}</p>
                 </div>
             </section>
 
@@ -65,7 +60,6 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
             <section className={styles.rdSection}>
                 <div className={styles.rdHeader}>
                     <h2>{d.rdTeam}</h2>
-                    <p>{d.rdTeamDesc}</p>
                 </div>
 
                 {/* Left Box: Team Stats (Mobile View) */}

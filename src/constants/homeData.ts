@@ -42,7 +42,7 @@ export const products = [
         handle: "fc-sljc-01-water-conservancy-monitoring-drone"
     },
     {
-        top: "Airspace Monitoring Sensors",
+        top: "C-UAS Sensor Layers",
         top_ru: "Оборонное проектирование",
         main: "Stationary RF Detection System",
         main_ru: "Стальной мост Бейли",
@@ -74,7 +74,7 @@ export const products = [
         top_ru: "Охрана периметра и территорий",
         main: "Electro-Optical Tracking System",
         main_ru: "Система радарно-оптического слияния",
-        desc: "EO tracking unit for visual confirmation, target observation, and coordinated low-altitude monitoring workflows.",
+        desc: "EO tracking unit for visual confirmation, target observation, positioning review, and C-UAS tracking workflows.",
         desc_ru: "Панорамный пост наблюдения большой площади, объединяющий четырехсторонний радар с фазированной решеткой и PTZ-камеру, сочетающий активное радарное обнаружение с визуальным интеллектом для надежного мониторинга в сложных условиях.",
         img: "/products/02-drone-detection/electro-optical-tracking-system.webp",
         mobileImg: "/products/02-drone-detection/electro-optical-tracking-system.webp",
@@ -334,21 +334,21 @@ export const homeCases: any[] = [
         handle: "lidar-tree-obstruction-uav-inspection"
     },
     {
-        title: "Airport Low-Altitude Airspace Monitoring Application",
-        title_ru: "Airport Low-Altitude Airspace Monitoring Application",
-        img: "/cases/airport-security-application/main.webp",
+        title: "Airport C-UAS Application",
+        title_ru: "Airport C-UAS Application",
+        img: "/cases/airport-security-application/main-home.webp",
         handle: "airport-security-application"
     },
     {
-        title: "Airspace Monitoring Case of a Power Plant in Pakistan",
-        title_ru: "Airspace Monitoring Case of a Power Plant in Pakistan",
-        img: "/cases/pakistan-power-plant-airspace-monitoring/main.webp",
+        title: "C-UAS Case of a Power Plant in Pakistan",
+        title_ru: "C-UAS Case of a Power Plant in Pakistan",
+        img: "/cases/pakistan-power-plant-airspace-monitoring/main-home.webp",
         handle: "pakistan-power-plant-low-altitude-monitoring"
     },
     {
-        title: "Airspace Monitoring Case of a Refinery in Brazil",
-        title_ru: "Airspace Monitoring Case of a Refinery in Brazil",
-        img: "/cases/brazil-refinery-airspace-monitoring/main.webp",
+        title: "C-UAS Case of a Refinery in Brazil",
+        title_ru: "C-UAS Case of a Refinery in Brazil",
+        img: "/cases/brazil-refinery-airspace-monitoring/main-home.webp",
         handle: "brazil-refinery-low-altitude-monitoring"
     }
 ];
@@ -512,15 +512,15 @@ Object.assign(homeCases[4], { title_ar: "دورية UAV طارئة لخطوط ا
 Object.assign(homeCases[5], { title_ar: "تفتيش UAV بعيد المدى لخطوط الطاقة في تشاوتشينغ" });
 Object.assign(homeCases[3], {
     title_es: "Aplicacion de monitoreo del espacio aereo de baja altitud en aeropuertos",
-    title_ar: "Airport Low-Altitude Airspace Monitoring Application"
+    title_ar: "Airport C-UAS Application"
 });
 Object.assign(homeCases[4], {
     title_es: "Caso de monitoreo del espacio aereo en una central electrica de Pakistan",
-    title_ar: "Airspace Monitoring Case of a Power Plant in Pakistan"
+    title_ar: "C-UAS Case of a Power Plant in Pakistan"
 });
 Object.assign(homeCases[5], {
     title_es: "Caso de monitoreo del espacio aereo en una refineria de Brasil",
-    title_ar: "Airspace Monitoring Case of a Refinery in Brazil"
+    title_ar: "C-UAS Case of a Refinery in Brazil"
 });
 
 const substationSolutionIndex = solutions.findIndex(
@@ -573,7 +573,7 @@ export const homepageSolutions = solutions;
     },
     {
         index: 3,
-        top: "Airspace Monitoring Sensors",
+        top: "C-UAS Sensor Layers",
         main: "Stationary RF Detection System",
         desc: "Fixed-site RF awareness system for low-altitude activity detection, alert review, and event records around industrial facilities."
     },
@@ -587,7 +587,7 @@ export const homepageSolutions = solutions;
         index: 5,
         top: "Visual Tracking Layer",
         main: "Electro-Optical Tracking System",
-        desc: "EO tracking unit for visual confirmation, target observation, and coordinated low-altitude monitoring workflows."
+        desc: "EO tracking unit for visual confirmation, target observation, positioning review, and C-UAS tracking workflows."
     }
 ].forEach(({ index, top, main, desc }) => {
     Object.assign(products[index], {

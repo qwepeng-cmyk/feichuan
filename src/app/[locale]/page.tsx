@@ -12,7 +12,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/',
         fallbackTitle: 'Industrial UAV & C-UAS Systems',
-        fallbackDescription: 'Industrial UAV platforms, C-UAS detection systems, low-altitude airspace monitoring, and security screening equipment for infrastructure and public-site operators.',
+        fallbackDescription: 'Industrial UAV platforms, C-UAS systems, early-warning equipment, and security screening systems for infrastructure and public-site operators.',
     });
 }
 

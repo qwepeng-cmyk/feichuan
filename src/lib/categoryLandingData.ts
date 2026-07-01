@@ -47,12 +47,12 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     name_en: 'Critical Infrastructure Protection',
     name_ru: 'Защита инфраструктуры',
     bannerImage: '/solutions/infrastructure protection banner bg.png',
-    industryNeeds_en: 'Power substations, dams, oil and gas sites, chemical plants, and industrial parks now need both routine inspection and low-altitude airspace awareness. N-TET combines UAV inspection, RF monitoring, low-altitude radar, EO tracking, alert review, and event records so site teams can detect nearby aerial activity, confirm what is happening, and coordinate with existing security procedures.',
+    industryNeeds_en: 'Power substations, dams, oil and gas sites, chemical plants, and industrial parks need C-UAS coverage for low-altitude risk awareness around sensitive operating areas. N-TET combines RF monitoring, low-altitude radar, EO identification and tracking, alert review, event records, and site response plans so security teams can detect nearby aerial activity, identify and locate the target, track its movement, and coordinate with existing security procedures.',
     industryNeeds_ru: 'С развитием беспилотных технологий низковысотная активность вокруг критически важных объектов стала более частой. Для электроподстанций, плотин ГЭС, нефтегазовых и химических объектов важно заранее видеть воздушную обстановку, подтверждать события визуально и вести проверяемые записи. Решения N-TET объединяют радарный мониторинг, оптико-электронное наблюдение, журналы событий и согласованные рабочие процессы реагирования для поддержки служб безопасности.',
     applicationScenes: [
-      { title: '机场低空监测应用', title_en: 'Airport Airspace Monitoring', title_ru: 'Мониторинг воздушного пространства аэропорта' },
-      { title: '发电设施低空监测', title_en: 'Power Facility Airspace Monitoring', title_ru: 'Мониторинг энергетических объектов' },
-      { title: '天然气设施低空监测', title_en: 'Natural Gas Facility Airspace Monitoring', title_ru: 'Мониторинг газовой инфраструктуры' },
+      { title: '机场低空监测应用', title_en: 'Chemical Plant C-UAS', title_ru: 'Мониторинг воздушного пространства аэропорта' },
+      { title: '发电设施低空监测', title_en: 'Oil Production Base C-UAS', title_ru: 'Мониторинг энергетических объектов' },
+      { title: '天然气设施低空监测', title_en: 'Hydroelectric Dam C-UAS', title_ru: 'Мониторинг газовой инфраструктуры' },
     ],
     products: [
       { name: '低空雷达监测系统', name_en: 'Low-Altitude Radar Monitoring System' },
@@ -71,12 +71,12 @@ const categoryLandingData: Record<string, CategoryLandingData> = {
     name_en: 'Key Area Security',
     name_ru: 'Безопасность объектов',
     bannerImage: '/solutions/key area security banner bg.png',
-    industryNeeds_en: 'Airports, large events, judicial facilities, transport hubs, and other key areas combine dense foot traffic, vehicle movement, restricted rooms, and low-altitude airspace exposure. N-TET organizes site security around three layers: screening for people and goods, EO/IR and perimeter monitoring, and low-altitude airspace awareness with traceable event records.',
+    industryNeeds_en: 'Airports, large events, judicial facilities, transport hubs, and other key areas combine dense foot traffic, vehicle movement, restricted rooms, and low-altitude exposure. N-TET organizes site security around three layers: screening for people and goods, EO/IR perimeter monitoring, and C-UAS processes for detection, identification, location, tracking, graded warning, and traceable event records.',
     industryNeeds_ru: 'Критически важные зоны, такие как аэропорты, судебные учреждения и места проведения крупных спортивных мероприятий, требуют особого контроля из-за плотного потока людей и сложных операционных процессов. Современная система безопасности должна объединять видеонаблюдение, низковысотный мониторинг, досмотровое оборудование, регистрацию событий и согласованные процедуры реагирования. Решения N-TET помогают службам безопасности быстрее проверять персонал, грузы и воздушные события без публикации чувствительных технических деталей.',
     applicationScenes: [
-      { title: '要地安保', title_en: 'Key Area Security', title_ru: 'Безопасность объектов' },
-      { title: '赛事保障', title_en: 'Event Security', title_ru: 'Безопасность мероприятий' },
-      { title: '交通枢纽安保', title_en: 'Transport Hub Security', title_ru: 'Безопасность транспортных узлов' },
+      { title: '要地安保', title_en: 'Judicial Sector C-UAS', title_ru: 'Безопасность объектов' },
+      { title: '赛事保障', title_en: 'Large Event C-UAS', title_ru: 'Безопасность мероприятий' },
+      { title: '交通枢纽安保', title_en: 'Airport Security C-UAS', title_ru: 'Безопасность транспортных узлов' },
     ],
     products: [
       { name: '固定式无线电侦测设备', name_en: 'Fixed Radio Detection Equipment' },

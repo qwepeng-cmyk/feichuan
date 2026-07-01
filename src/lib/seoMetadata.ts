@@ -24,20 +24,20 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/': {
     title: 'Industrial UAV & C-UAS Systems | N-TET',
     description:
-      'N-TET provides industrial UAV platforms, C-UAS detection systems, low-altitude airspace monitoring, and security screening equipment for infrastructure and public-site operators.',
+      'N-TET provides industrial UAV platforms, C-UAS systems, early-warning equipment, and security screening systems for infrastructure and public-site operators.',
     keywords: [
       'industrial UAV systems',
       'low altitude monitoring',
       'UAV inspection drone',
       'emergency response UAV',
-      'C-UAS detection equipment',
+      'C-UAS equipment',
       'security screening systems',
     ],
   },
   '/products': {
     title: 'Industrial UAV & C-UAS Equipment | N-TET Products',
     description:
-      'Explore N-TET industrial UAV platforms, C-UAS detection sensors, low-altitude monitoring systems, security screening equipment, and UAV components organized by mission.',
+      'Explore N-TET industrial UAV platforms, C-UAS sensors, early-warning equipment, security screening systems, and UAV components organized by mission.',
     keywords: [
       'industrial UAV systems',
       'UAV inspection drone',
@@ -67,7 +67,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/solutions': {
     title: 'Industrial UAV Solutions & Low-Altitude Monitoring | N-TET',
     description:
-      'N-TET mission-ready solutions cover UAV inspection, emergency response, C-UAS detection, airport airspace monitoring, and critical-site security.',
+      'N-TET mission-ready solutions cover UAV inspection, emergency response, C-UAS workflows, airport C-UAS, and critical-site security.',
     keywords: [
       'industrial UAV solutions',
       'UAV inspection solutions',
@@ -96,29 +96,47 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/solutions/category/02_InfrastructureProtection': {
-    title: 'Critical Infrastructure UAV Monitoring Solutions | N-TET',
+    title: 'Critical Infrastructure C-UAS Solutions | N-TET',
     description:
-      'UAV and low-altitude monitoring solutions for power lines, substations, oil and gas facilities, pipelines, chemical plants, dams, and water conservancy sites.',
+      'C-UAS and low-altitude security workflows for oil and gas facilities, chemical plants, hydroelectric dams, substations, and other critical infrastructure sites.',
     keywords: [
-      'drone power line inspection',
-      'pipeline inspection drones',
-      'oil and gas drone inspection',
-      'chemical plant monitoring',
-      'water conservancy monitoring UAV',
+      'critical infrastructure C-UAS',
+      'chemical plant C-UAS',
+      'oil production base C-UAS',
+      'hydroelectric dam C-UAS',
+      'low altitude warning',
+      'target identification',
+      'target tracking',
       'low altitude monitoring equipment',
     ],
   },
   '/solutions/category/03_KeyAreaSecurity': {
-    title: 'Key Area Security & Airspace Monitoring Solutions | N-TET',
+    title: 'Key Area C-UAS & Security Screening Solutions | N-TET',
     description:
-      'Integrated security screening, electro-optical surveillance, and low-altitude airspace monitoring for airports, events, judicial facilities, and transport hubs.',
+      'C-UAS, low-altitude warning, perimeter awareness, and security screening workflows for airports, large events, judicial facilities, and transport hubs.',
     keywords: [
-      'airport airspace monitoring',
-      'event security monitoring',
-      'key area security',
-      'smart security screening',
-      'low altitude monitoring equipment',
+      'key area C-UAS',
+      'airport C-UAS',
+      'large event C-UAS',
+      'judicial sector C-UAS',
+      'security screening systems',
+      'low altitude warning',
       'electro optical surveillance',
+    ],
+  },
+  '/solutions/chemical-plant-protection': {
+    title: 'Chemical Plant C-UAS Solution | N-TET',
+    description:
+      'Chemical plant C-UAS workflow for low-altitude risk detection, target identification, location, tracking, warning, and site response planning.',
+    keywords: [
+      'chemical plant C-UAS',
+      'chemical plant anti drone',
+      'chemical plant monitoring',
+      'low altitude warning',
+      'target identification',
+      'target tracking',
+      'RF monitoring',
+      'EO tracking',
     ],
   },
   '/solutions/category/04_EmergencyRescue': {
@@ -186,19 +204,6 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
       'drone lighting company',
     ],
   },
-  '/solutions/chemical-plant-protection': {
-    title: 'Pipeline Inspection Drone & Chemical Plant Monitoring Solution',
-    description:
-      'UAV and airspace monitoring solution for chemical plants, oil and gas sites, pipelines, and industrial facilities requiring inspection and event awareness.',
-    keywords: [
-      'pipeline inspection drones',
-      'UAV pipeline inspection',
-      'oil and gas drone inspection',
-      'drone inspection for oil and gas',
-      'drone pipeline inspection',
-      'chemical plant monitoring',
-    ],
-  },
   '/solutions/uav-maritime-patrol': {
     title: 'Border Patrol UAV & Maritime Coastal Monitoring Solution',
     description:
@@ -251,7 +256,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/cases': {
     title: 'UAV & C-UAS Deployment Cases | N-TET',
     description:
-      'Review N-TET deployment references for UAV inspection routes, emergency support, C-UAS detection, low-altitude monitoring, and security operations across infrastructure sites.',
+      'Review N-TET deployment references for UAV inspection routes, emergency support, C-UAS workflows, early warning, identification, positioning, tracking, and security operations across infrastructure sites.',
     keywords: [
       'UAV and C-UAS deployment cases',
       'UAV inspection cases',
@@ -267,7 +272,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/media': {
     title: 'Industrial UAV & C-UAS News | N-TET',
     description:
-      'Read N-TET engineering notes and market updates on UAV operations, C-UAS detection, low-altitude economy planning, monitoring architecture, and project delivery.',
+      'Read N-TET engineering notes and market updates on UAV operations, C-UAS systems, low-altitude economy planning, sensor architecture, and project delivery.',
     keywords: [
       'industrial UAV news',
       'low altitude economy',
@@ -279,11 +284,12 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/about': {
     title: 'About N-TET | Industrial UAV & C-UAS Integrator',
     description:
-      'Learn how N-TET connects UAV platforms, C-UAS detection, low-altitude monitoring, security screening, and project delivery for infrastructure and public-site operators.',
+      'Learn how N-TET supplies UAV platforms, C-UAS systems, low-altitude security equipment, security screening, and project delivery for critical-site operators.',
     keywords: [
       'industrial UAV and C-UAS integrator',
       'low altitude monitoring solution provider',
       'UAV system supplier',
+      'C-UAS equipment',
       'security technology integrator',
       'N-TET',
     ],
@@ -291,7 +297,7 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
   '/contact': {
     title: 'Industrial UAV & C-UAS Quote | N-TET',
     description:
-      'Request an industrial UAV or C-UAS quote from N-TET for UAV platform selection, emergency response UAV projects, low-altitude monitoring equipment, and security screening systems.',
+      'Request an industrial UAV or C-UAS quote from N-TET for UAV platform selection, emergency response UAV projects, low-altitude security equipment, and security screening systems.',
     keywords: [
       'industrial UAV and C-UAS quote',
       'UAV system supplier',
@@ -367,7 +373,7 @@ const PRODUCT_KEYWORD_HINTS: Record<string, string[]> = {
 
 const PRODUCT_CATEGORY_KEYWORDS: Record<string, string[]> = {
   'uav-drone-systems': ['industrial UAV systems', 'UAV inspection drone', 'emergency response UAV'],
-  'drone-detection': ['low altitude monitoring equipment', 'C-UAS detection equipment', 'airspace monitoring system'],
+  'drone-detection': ['C-UAS equipment', 'early warning equipment', 'target identification and tracking system'],
   'security-screening': ['security screening equipment', 'X-ray baggage scanner', 'walk-through metal detector'],
   'engineering-materials': ['engineering materials', 'Bailey steel bridge', 'infrastructure support equipment'],
   'field-hospitals': ['field hospital system', 'containerized medical rescue system', 'emergency medical shelter'],

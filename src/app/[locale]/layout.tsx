@@ -190,7 +190,7 @@ s0.parentNode.insertBefore(s1,s0);
         <JsonLd data={siteGraphSchema(locale)} />
         {children}
         <Footer locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
-        <DesktopFloatingContact dict={dict} />
+        <DesktopFloatingContact />
 
         {/* MOBILE STICKY BAR */}
         <div className="mobile_only">

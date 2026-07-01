@@ -1,27 +1,27 @@
 {
-  "title": "Airspace Monitoring Case of a Group Factory in Nigeria",
-  "title_en": "Airspace Monitoring Case of a Group Factory in Nigeria",
-  "description": "2025 Airspace Monitoring Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile low-altitude monitoring operation for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum detection equipment supports flexible coverage across large sites, while navigation-signal analysis and the command platform help operators review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to monitoring, situational awareness, event records, and process coordination.",
-  "description_en": "2025 Airspace Monitoring Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile low-altitude monitoring operation for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum detection equipment supports flexible coverage across large sites, while navigation-signal analysis and the command platform help operators review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to monitoring, situational awareness, event records, and process coordination.",
+  "title": "C-UAS Case of a Group Factory in Nigeria",
+  "title_en": "C-UAS Case of a Group Factory in Nigeria",
+  "description": "2025 C-UAS Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile C-UAS early-warning operation for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum identification equipment supports flexible coverage across large sites, while signal verification and the command platform help operators identify, position, track, review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to early warning, identification, positioning, tracking, event records, and process coordination.",
+  "description_en": "2025 C-UAS Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile C-UAS early-warning operation for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum identification equipment supports flexible coverage across large sites, while signal verification and the command platform help operators identify, position, track, review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to early warning, identification, positioning, tracking, event records, and process coordination.",
   "devices": [
-    "Mobile Spectrum Detection Equipment",
-    "Navigation-Signal Analysis Equipment",
+    "Mobile Spectrum Identification Equipment",
+    "Signal Verification Equipment",
     "Command and Control Platform"
   ],
   "devices_en": [
-    "Mobile Spectrum Detection Equipment",
-    "Navigation-Signal Analysis Equipment",
+    "Mobile Spectrum Identification Equipment",
+    "Signal Verification Equipment",
     "Command and Control Platform"
   ],
   "main_image": "/cases/nigeria-factory-airspace-monitoring/main.webp",
   "case_images": [],
   "recommendedProductHandles": [],
   "handle": "nigeria-factory-airspace-monitoring",
-  "title_ru": "Airspace Monitoring Case of a Group Factory in Nigeria",
-  "description_ru": "2025 Airspace Monitoring Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Detection Equipment\nNavigation-Signal Analysis Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile low-altitude monitoring operation for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum detection equipment supports flexible coverage across large sites, while navigation-signal analysis and the command platform help operators review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to monitoring, situational awareness, event records, and process coordination.",
+  "title_ru": "C-UAS Case of a Group Factory in Nigeria",
+  "description_ru": "2025 C-UAS Case of a Group Factory in Nigeria\nEquipment Used:\nMobile Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform\nProject Introduction:\nIn 2025, this industrial-park project deployed a mobile C-UAS early-warning operation for production areas, logistics roads, and perimeter checkpoints. Mobile spectrum identification equipment supports flexible coverage across large sites, while signal verification and the command platform help operators identify, position, track, review airspace events, retain records, and coordinate compliant response procedures. The public-facing description is limited to early warning, identification, positioning, tracking, event records, and process coordination.",
   "devices_ru": [
-    "Mobile Spectrum Detection Equipment",
-    "Navigation-Signal Analysis Equipment",
+    "Mobile Spectrum Identification Equipment",
+    "Signal Verification Equipment",
     "Command and Control Platform"
   ],
   "region_ru": "Africa",

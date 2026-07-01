@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/cases',
         fallbackTitle: 'UAV & C-UAS Deployment Cases',
-        fallbackDescription: 'Field references for UAV inspection routes, emergency support, C-UAS detection, low-altitude monitoring, and security operations across infrastructure sites.',
+        fallbackDescription: 'Field references for UAV inspection routes, emergency support, C-UAS workflows, early warning, identification, positioning, tracking, and security operations across infrastructure sites.',
     });
 }
 

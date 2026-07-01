@@ -1,29 +1,34 @@
 {
-  "title": "Airport Low-Altitude Airspace Monitoring Application",
-  "title_en": "Airport Low-Altitude Airspace Monitoring Application",
-  "description": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
-  "description_en": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
+  "title": "Airport C-UAS Application",
+  "title_en": "Airport C-UAS Application",
+  "description": "Airport C-UAS Application\nFor airport perimeter airspace management, the system combines RF identification, low-altitude radar, EO tracking, event logging, and command platform integration. It supports anti drone early warning, target identification, positioning review, alert review, tracking status, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
+  "description_en": "Airport C-UAS Application\nFor airport perimeter airspace management, the system combines RF identification, low-altitude radar, EO tracking, event logging, and command platform integration. It supports anti drone early warning, target identification, positioning review, alert review, tracking status, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
   "devices": [
     "Stationary Spectrum Detection Equipment",
-    "Portable Airspace Monitoring Equipment",
+    "Portable C-UAS Equipment",
     "Command and Control Platform"
   ],
   "devices_en": [
     "Stationary Spectrum Detection Equipment",
-    "Portable Airspace Monitoring Equipment",
+    "Portable C-UAS Equipment",
     "Command and Control Platform"
   ],
-  "main_image": "/cases/airport-security-application/main.webp",
+  "main_image": "/cases/airport-security-application/main-home.webp",
   "case_images": [
     "/cases/airport-security-application/杭州萧山机场低空安保.webp"
   ],
-  "recommendedProductHandles": [],
+  "recommendedProductHandles": [
+    "stationary-rf-detection-system",
+    "portable-integrated-detection-event-logging-low-altitude-monitoring-basic",
+    "low-altitude-3d-pulse-doppler-radar",
+    "composite-electro-optical-tracking-system"
+  ],
   "handle": "airport-security-application",
-  "title_ru": "Airport Low-Altitude Airspace Monitoring Application",
-  "description_ru": "Airport Low-Altitude Airspace Monitoring Application\nFor airport perimeter airspace management, the system combines radio-spectrum analysis, airspace situational display, event logging, and command platform integration. It supports continuous monitoring, target classification, alert review, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
+  "title_ru": "Airport C-UAS Application",
+  "description_ru": "Airport C-UAS Application\nFor airport perimeter airspace management, the system combines RF identification, low-altitude radar, EO tracking, event logging, and command platform integration. It supports anti drone early warning, target identification, positioning review, alert review, tracking status, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
   "devices_ru": [
     "Stationary Spectrum Detection Equipment",
-    "Portable Airspace Monitoring Equipment",
+    "Portable C-UAS Equipment",
     "Command and Control Platform"
   ],
   "region_ru": "Asia",
@@ -60,5 +65,11 @@
       "label": "Output",
       "value": "Operator notes, timestamps, map records, and review reports"
     }
+  ],
+  "recommended_product_handles": [
+    "stationary-rf-detection-system",
+    "portable-integrated-detection-event-logging-low-altitude-monitoring-basic",
+    "low-altitude-3d-pulse-doppler-radar",
+    "composite-electro-optical-tracking-system"
   ]
 }

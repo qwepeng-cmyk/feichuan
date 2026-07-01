@@ -32,7 +32,7 @@ export const getAllCases = unstable_cache(
       .filter(row => isPublicComplianceContent('case', row.handle))
       .map(row => sanitizeRecordForTier(row, getComplianceTier('case', row.handle)));
   },
-  ['all-cases-uav-refresh-20260526-arabic-case-snapshot-20260611-carousel-dedupe-main-no-figure-captions-20260615'],
+  ['all-cases-uav-refresh-20260701-related-cuas-products-v3'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -41,7 +41,7 @@ export const getAllCaseHandles = unstable_cache(
     const rows = db.prepare('SELECT handle FROM cases WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.handle).filter(handle => handle && isPublicComplianceContent('case', handle));
   },
-  ['case-handles-uav-refresh-20260526-arabic-case-snapshot-20260611-carousel-dedupe-main-no-figure-captions-20260615'],
+  ['case-handles-uav-refresh-20260701-related-cuas-products-v3'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -61,6 +61,6 @@ export const getCaseByHandle = unstable_cache(
         return sanitizeRecordForTier(row, getComplianceTier('case', handle));
     }
   },
-  ['case-detail-uav-refresh-20260526-arabic-case-snapshot-20260611-carousel-dedupe-main-no-figure-captions-20260615'],
+  ['case-detail-uav-refresh-20260701-related-cuas-products-v3'],
   { revalidate: 3600, tags: ['cases'] }
 );

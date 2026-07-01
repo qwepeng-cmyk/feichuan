@@ -262,17 +262,14 @@
 }
 
 .equipmentSection,
-.workflowSection,
 .packageSection,
 .inquirySection,
-.problemSection,
-.architectureSection,
-.faqSection {
+.problemSection {
   padding: 64px max(20px, calc((100vw - 1240px) / 2 + 20px));
 }
 
 .equipmentSection {
-  background: #fff;
+  background: #f5f8fc;
   padding-top: 58px;
   padding-bottom: 68px;
 }
@@ -284,7 +281,7 @@
 }
 
 .equipmentCard {
-  min-height: 292px;
+  min-height: 314px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -302,43 +299,61 @@
 }
 
 .equipmentImageWrap {
-  height: 168px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   background: #f8fbff;
   border-bottom: 1px solid #e4ebf5;
+  overflow: hidden;
 }
 
 .equipmentImage {
   width: 100%;
-  height: 130px;
+  height: 118px;
   object-fit: contain;
+  transform-origin: center;
 }
 
 .equipmentImageRf {
   max-width: 148px;
   max-height: 126px;
+  transform: scale(1.22);
 }
 
 .equipmentImageRadar {
   max-width: 176px;
   max-height: 118px;
+  transform: scale(1.08);
 }
 
 .equipmentImageOptical {
   max-width: 154px;
   max-height: 130px;
+  transform: scale(1.16);
 }
 
 .equipmentImagePortable {
   max-width: 138px;
   max-height: 120px;
+  transform: scale(1.46);
+}
+
+.equipmentImageHandheld {
+  max-width: 126px;
+  max-height: 118px;
+  transform: scale(1.68);
+}
+
+.equipmentImageDirectional {
+  max-width: 126px;
+  max-height: 118px;
+  transform: scale(1.62);
 }
 
 .equipmentBody {
-  padding: 20px 18px 22px;
+  padding: 18px 17px 20px;
 }
 
 .equipmentBody span {
@@ -354,7 +369,7 @@
 .equipmentBody h3 {
   margin: 0;
   color: #111827;
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.28;
   font-weight: 900;
 }
@@ -369,7 +384,7 @@
 
 .equipmentBody li {
   color: #3e4d61;
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.35;
   font-weight: 800;
 }
@@ -382,10 +397,6 @@
   margin-right: 8px;
   background: var(--landing-orange);
   vertical-align: 2px;
-}
-
-.workflowSection {
-  background: #fff;
 }
 
 .sectionHeader {
@@ -534,102 +545,327 @@
   line-height: 1;
 }
 
-.architectureSection {
+.compositionSection {
+  padding: 58px max(24px, calc((100vw - 1240px) / 2 + 24px)) 64px;
   background: #06162f;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 }
 
-.architectureSection .sectionHeader h2 {
-  color: #fff;
+.compositionHeader {
+  max-width: 820px;
+  margin: 0 auto 34px;
+  text-align: center;
 }
 
-.architectureSection .sectionHeader h2::after {
-  background: var(--landing-orange);
-}
-
-.architectureSection .sectionEyebrow {
+.compositionHeader .sectionEyebrow {
   color: #9fc0f4;
 }
 
-.architectureGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.architectureStep {
-  position: relative;
-  min-height: 292px;
-  padding: 30px 24px 28px;
-  background: #0b2347;
-}
-
-.architectureStep svg {
-  color: #ffb15d;
-  margin-bottom: 22px;
-}
-
-.architectureNumber {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  color: rgba(255, 255, 255, 0.22);
-  font-size: 36px;
-  line-height: 1;
+.compositionHeader h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(30px, 2.7vw, 44px);
+  line-height: 1.08;
   font-weight: 900;
 }
 
-.architectureStep h3 {
-  margin: 0 0 14px;
+.compositionHeader h2::after {
+  content: '';
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin: 16px auto 0;
+  background: var(--landing-orange);
+}
+
+.compositionHeader p {
+  max-width: 760px;
+  margin: 18px auto 0;
+  color: #cbdcf1;
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.compositionFlow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 0;
+}
+
+.compositionNode {
+  display: contents;
+}
+
+.compositionCard {
+  min-height: 318px;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px 24px;
+  background: rgba(11, 35, 71, 0.92);
+  border: 1px dashed rgba(79, 222, 255, 0.62);
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.2);
+}
+
+.compositionCard h3 {
+  margin: 0 0 16px;
   color: #fff;
-  font-size: 22px;
+  font-size: 23px;
+  line-height: 1.18;
+  font-weight: 900;
+}
+
+.compositionCard ul {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.compositionCard li {
+  position: relative;
+  padding-left: 18px;
+  color: #d9e9fb;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.compositionCard li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.48em;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #65f7ff;
+}
+
+.compositionImages {
+  min-height: 112px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.compositionImageLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(86px, 31%, 132px);
+  aspect-ratio: 1.618 / 1;
+  max-width: 31%;
+  padding: 8px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(184, 229, 255, 0.3) 0, rgba(66, 130, 192, 0.24) 36%, rgba(5, 19, 41, 0.96) 78%),
+    linear-gradient(145deg, #0d284f 0%, #071830 100%);
+  border: 1px solid rgba(101, 247, 255, 0.28);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), filter 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compositionImageLink:hover,
+.compositionImageLink:focus-visible {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 12px 18px rgba(75, 207, 255, 0.28));
+  outline: none;
+}
+
+.compositionImage {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.14) contrast(1.08) drop-shadow(0 10px 14px rgba(0, 0, 0, 0.36));
+  mix-blend-mode: normal;
+}
+
+.compositionImageStatic {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.compositionImageStatic .compositionImage {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 112px;
+  object-fit: cover;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.compositionPlus {
+  display: grid;
+  place-items: center;
+  color: #1086df;
+  font-size: 68px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.deploymentSection {
+  padding: 58px max(24px, calc((100vw - 1240px) / 2 + 24px)) 64px;
+  background: #071a35;
+  border-top: 1px solid rgba(79, 222, 255, 0.14);
+  overflow: hidden;
+}
+
+.deploymentHeader {
+  max-width: 860px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.deploymentHeader .sectionEyebrow {
+  color: #9fc0f4;
+}
+
+.deploymentHeader h2 {
+  margin: 0;
+  color: #63f7ff;
+  font-size: clamp(30px, 2.7vw, 44px);
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.deploymentHeader p {
+  max-width: 790px;
+  margin: 14px auto 0;
+  color: #d5e4f6;
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.deploymentGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.deploymentCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(9, 34, 70, 0.95);
+  border: 1px solid rgba(76, 147, 224, 0.38);
+}
+
+.deploymentTitleBar {
+  min-height: 98px;
+  padding: 20px 22px 18px;
+  background: #163d9c;
+  text-align: center;
+}
+
+.deploymentTitleBar h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 21px;
   line-height: 1.2;
   font-weight: 900;
 }
 
-.architectureStep p {
-  margin: 0;
-  color: #c8d8ee;
-  font-size: 15px;
-  line-height: 1.62;
+.deploymentTitleBar p {
+  margin: 8px 0 0;
+  color: #d9e8ff;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 800;
 }
 
-.faqSection {
-  background: #fff;
-  border-top: 1px solid #e9eef7;
-}
-
-.faqGrid {
+.deploymentImageWrap {
+  min-height: 210px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  place-items: center;
+  padding: 28px 24px 18px;
 }
 
-.faqItem {
-  padding: 26px 28px;
-  background: #f8fbff;
-  border: 1px solid #d8e1ef;
-  border-radius: 6px;
+.deploymentImageLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 330px;
+  aspect-ratio: 1.618 / 1;
+  padding: 14px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(184, 229, 255, 0.28) 0, rgba(66, 130, 192, 0.22) 36%, rgba(5, 19, 41, 0.96) 78%),
+    linear-gradient(145deg, #0d284f 0%, #071830 100%);
+  border: 1px solid rgba(101, 247, 255, 0.28);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), filter 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faqItem h3 {
-  margin: 0 0 12px;
-  color: #111827;
-  font-size: 19px;
-  line-height: 1.28;
+.deploymentImageLink:hover,
+.deploymentImageLink:focus-visible {
+  transform: translateY(-5px);
+  filter: drop-shadow(0 14px 20px rgba(75, 207, 255, 0.26));
+  outline: none;
+}
+
+.deploymentImageStatic {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border: 1px solid rgba(101, 247, 255, 0.28);
+  border-radius: 4px;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+}
+
+.deploymentImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.14) contrast(1.08) drop-shadow(0 12px 16px rgba(0, 0, 0, 0.36));
+  mix-blend-mode: normal;
+}
+
+.deploymentVehicleImage {
+  display: block;
+  object-fit: cover;
+  filter: none;
+}
+
+.deploymentSteps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: auto;
+  padding: 0 20px 24px;
+}
+
+.deploymentSteps span {
+  min-width: 88px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  color: #fff;
+  background: #05a7df;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.15;
   font-weight: 900;
+  text-align: center;
 }
 
-.faqItem p {
-  margin: 0;
-  color: var(--landing-muted);
-  font-size: 15px;
-  line-height: 1.62;
-}
-
-.scenarioSection,
-.conversionSection {
+.scenarioSection {
   padding: 58px max(20px, calc((100vw - 1240px) / 2 + 20px));
 }
 
@@ -689,183 +925,28 @@
   line-height: 1.55;
 }
 
-.conversionSection {
-  background: linear-gradient(180deg, #f6faff 0%, #fff 100%);
-  border-bottom: 1px solid #e9eef7;
-}
-
-.conversionGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 24px;
-  align-items: stretch;
-}
-
-.conversionPanel,
-.deliverablesPanel {
-  padding: 32px;
-  background: #fff;
-  border: 1px solid #d8e1ef;
-  border-radius: 6px;
-  box-shadow: 0 14px 32px rgba(18, 50, 92, 0.08);
-}
-
-.conversionEyebrow {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--landing-blue);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.conversionPanel h2 {
-  margin: 0 0 14px;
-  color: #111827;
-  font-size: 31px;
-  line-height: 1.18;
-  font-weight: 900;
-}
-
-.conversionPanel p {
-  max-width: 720px;
-  margin: 0;
-  color: var(--landing-muted);
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.quickFields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px 0 24px;
-}
-
-.quickFields span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 13px;
-  color: #17345c;
-  background: #f3f7ff;
-  border: 1px solid #d7e5fb;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.deliverablesPanel h3 {
-  margin: 0 0 18px;
-  color: #111827;
-  font-size: 22px;
-  line-height: 1.25;
-  font-weight: 900;
-}
-
-.deliverablesPanel ul {
-  display: grid;
-  gap: 13px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.deliverablesPanel li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: #253852;
-  font-size: 15px;
-  line-height: 1.45;
-  font-weight: 800;
-}
-
-.deliverablesPanel li svg {
-  flex: 0 0 auto;
-  margin-top: 1px;
-  color: var(--landing-blue);
-}
-
-.workflowTrack {
+.packageSection {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  max-width: 1060px;
-  margin: 0 auto;
+  padding-top: 74px;
+  padding-bottom: 80px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(238, 244, 251, 0) 22%),
+    linear-gradient(145deg, #eef4fb 0%, #f7fbff 58%, #fff 100%);
+  border-top: 1px solid #d5e2f2;
 }
 
-.workflowTrack::before {
+.packageSection::before {
   content: "";
   position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 24px;
-  border-top: 2px dashed #cfd3db;
+  top: 0;
+  left: max(20px, calc((100vw - 1240px) / 2 + 20px));
+  right: max(20px, calc((100vw - 1240px) / 2 + 20px));
+  height: 4px;
+  background: linear-gradient(90deg, var(--landing-blue), rgba(0, 71, 173, 0.1));
 }
 
-.workflowStep {
-  position: relative;
-  min-height: 245px;
-  padding: 0 32px;
-  text-align: center;
-}
-
-.workflowStep:not(:last-child)::after {
-  content: ">";
-  position: absolute;
-  right: -8px;
-  top: 108px;
-  color: #b6bdc9;
-  font-size: 58px;
-  line-height: 1;
-  font-weight: 300;
-}
-
-.stepNumber {
-  position: relative;
-  z-index: 1;
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 30px;
-  color: #fff;
-  background: var(--landing-blue);
-  border-radius: 50%;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.workflowIcon {
-  width: 72px;
-  height: 72px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 20px;
-  color: var(--landing-blue);
-}
-
-.workflowStep h3 {
-  margin: 0 0 12px;
-  color: #111827;
-  font-size: 22px;
-  line-height: 1.2;
-  font-weight: 900;
-}
-
-.workflowStep p {
-  max-width: 205px;
-  margin: 0 auto;
-  color: #1e293b;
-  font-size: 15px;
-  line-height: 1.52;
-}
-
-.packageSection {
-  background: linear-gradient(180deg, #f6faff 0%, #fff 100%);
+.packageSection .sectionHeader {
+  margin-bottom: 46px;
 }
 
 .packageGrid {
@@ -931,6 +1012,60 @@
   font-size: 15px;
   font-weight: 900;
   text-decoration: none;
+}
+
+.caseReferenceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.caseReferenceCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caseReferenceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(18, 50, 92, 0.11);
+}
+
+.caseReferenceImageBox {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.caseReferenceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caseReferenceBody {
+  min-width: 0;
+  padding: 25px;
+  text-align: center;
+}
+
+.caseReferenceBody h4 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 700;
 }
 
 .inquirySection {
@@ -1045,6 +1180,26 @@
   background: #f7fbff;
 }
 
+.mobileOperationsBlock {
+  position: relative;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(238, 244, 251, 0) 24%),
+    linear-gradient(145deg, #eef4fb 0%, #f7fbff 66%, #fff 100%) !important;
+  border-top: 1px solid #d5e2f2;
+}
+
+.mobileOperationsBlock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--landing-blue), rgba(0, 71, 173, 0.1));
+}
+
 .mobileSectionTitle {
   margin-bottom: 20px;
   text-align: center;
@@ -1124,21 +1279,37 @@
 .mobileEquipmentImage.equipmentImageRf {
   max-width: 166px;
   max-height: 122px;
+  transform: scale(1.14);
 }
 
 .mobileEquipmentImage.equipmentImageRadar {
   max-width: 184px;
   max-height: 120px;
+  transform: scale(1.04);
 }
 
 .mobileEquipmentImage.equipmentImageOptical {
   max-width: 164px;
   max-height: 124px;
+  transform: scale(1.1);
 }
 
 .mobileEquipmentImage.equipmentImagePortable {
   max-width: 152px;
   max-height: 122px;
+  transform: scale(1.28);
+}
+
+.mobileEquipmentImage.equipmentImageHandheld {
+  max-width: 136px;
+  max-height: 122px;
+  transform: scale(1.36);
+}
+
+.mobileEquipmentImage.equipmentImageDirectional {
+  max-width: 136px;
+  max-height: 122px;
+  transform: scale(1.34);
 }
 
 .mobileEquipmentCard h3 {
@@ -1158,100 +1329,6 @@
   text-transform: uppercase;
 }
 
-.mobileArchitectureList,
-.mobileFaqList {
-  display: grid;
-  gap: 12px;
-}
-
-.mobileArchitectureStep {
-  display: grid;
-  grid-template-columns: 38px 38px minmax(0, 1fr);
-  gap: 12px;
-  align-items: flex-start;
-  padding: 18px 14px;
-  background: #fff;
-  border: 1px solid #dfe8f5;
-}
-
-.mobileArchitectureStep strong {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  background: var(--landing-blue);
-  border-radius: 50%;
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.mobileArchitectureStep svg {
-  color: var(--landing-orange);
-  margin-top: 3px;
-}
-
-.mobileArchitectureStep h3 {
-  margin: 0 0 6px;
-  color: #111827;
-  font-size: 17px;
-  line-height: 1.25;
-  font-weight: 900;
-}
-
-.mobileArchitectureStep p {
-  margin: 0;
-  color: var(--landing-muted);
-  font-size: 13px;
-  line-height: 1.52;
-}
-
-.mobileTimeline {
-  display: grid;
-  gap: 12px;
-}
-
-.mobileStep {
-  display: grid;
-  grid-template-columns: 42px 42px minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
-  padding: 18px 14px;
-  background: #fff;
-  border: 1px solid #dfe8f5;
-}
-
-.mobileStep strong {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  background: var(--landing-blue);
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: 900;
-}
-
-.mobileStepIcon {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  color: var(--landing-blue);
-  background: #f4f8ff;
-  border: 1px solid #d8e6fb;
-  border-radius: 50%;
-}
-
-.mobileStep h3 {
-  margin: 0 0 6px;
-  color: #111827;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.mobileStep p,
 .mobilePackageCard p {
   margin: 0;
   color: var(--landing-muted);
@@ -1316,6 +1393,59 @@
   vertical-align: 2px;
 }
 
+.mobileCaseReferences {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 24px;
+}
+
+.mobileCaseCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.mobileCaseImageBox {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.mobileCaseImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobileCaseBody {
+  min-width: 0;
+  padding: 12px;
+  text-align: center;
+}
+
+.mobileCaseCard h3 {
+  margin: 0;
+  height: 36px;
+  overflow: hidden;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 800;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .mobileInquirySection {
   padding: 34px 12px 42px;
   background: #fff;
@@ -1360,13 +1490,105 @@
     line-height: 1.35;
   }
 
-  .scenarioSection,
-  .conversionSection {
+  .compositionSection,
+  .deploymentSection {
+    padding: 36px 16px 42px;
+  }
+
+  .compositionHeader,
+  .deploymentHeader {
+    margin-bottom: 22px;
+    text-align: left;
+  }
+
+  .compositionHeader h2,
+  .deploymentHeader h2 {
+    font-size: 28px;
+  }
+
+  .compositionHeader h2::after {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .compositionHeader p,
+  .deploymentHeader p {
+    font-size: 14px;
+  }
+
+  .compositionFlow,
+  .deploymentGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .compositionNode {
+    display: grid;
+    gap: 12px;
+  }
+
+  .compositionCard {
+    min-height: auto;
+    padding: 22px 18px;
+  }
+
+  .compositionCard h3,
+  .deploymentTitleBar h3 {
+    font-size: 19px;
+  }
+
+  .compositionCard li {
+    font-size: 13px;
+  }
+
+  .compositionImages {
+    min-height: 94px;
+  }
+
+  .compositionImage {
+    height: 100%;
+  }
+
+  .compositionImageStatic .compositionImage {
+    height: 104px;
+  }
+
+  .compositionPlus {
+    min-height: 20px;
+    font-size: 34px;
+  }
+
+  .deploymentTitleBar {
+    min-height: auto;
+    padding: 18px 16px;
+  }
+
+  .deploymentImageWrap {
+    min-height: 150px;
+    padding: 20px 18px 12px;
+  }
+
+  .deploymentImage {
+    height: 100%;
+  }
+
+  .deploymentSteps {
+    justify-content: flex-start;
+    padding: 0 16px 20px;
+  }
+
+  .deploymentSteps span {
+    min-width: 0;
+    min-height: 34px;
+    font-size: 12px;
+  }
+
+  .scenarioSection {
     padding: 36px 16px;
   }
 
-  .scenarioSection .sectionHeader,
-  .conversionSection .sectionHeader {
+  .scenarioSection .sectionHeader {
     margin-bottom: 22px;
   }
 
@@ -1375,8 +1597,7 @@
     font-size: 14px;
   }
 
-  .scenarioGrid,
-  .conversionGrid {
+  .scenarioGrid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -1400,67 +1621,6 @@
 
   .scenarioCard p {
     font-size: 13px;
-  }
-
-  .conversionPanel,
-  .deliverablesPanel {
-    padding: 22px 18px;
-    box-shadow: none;
-  }
-
-  .conversionPanel h2 {
-    font-size: 24px;
-  }
-
-  .conversionPanel p,
-  .deliverablesPanel li {
-    font-size: 14px;
-  }
-
-  .quickFields {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    margin: 18px 0 20px;
-  }
-
-  .quickFields span {
-    justify-content: center;
-    min-height: 34px;
-    padding: 0 8px;
-    text-align: center;
-    font-size: 12px;
-  }
-
-  .deliverablesPanel h3 {
-    font-size: 19px;
-  }
-
-  .architectureSection,
-  .faqSection {
-    padding: 42px 16px;
-  }
-
-  .architectureGrid,
-  .faqGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .architectureStep {
-    min-height: auto;
-    padding: 24px 18px;
-  }
-
-  .faqItem {
-    padding: 22px 18px;
-  }
-
-  .faqItem h3 {
-    font-size: 17px;
-  }
-
-  .faqItem p {
-    font-size: 14px;
   }
 
   .mobilePage :global(.product-breadcrumb-nav) {

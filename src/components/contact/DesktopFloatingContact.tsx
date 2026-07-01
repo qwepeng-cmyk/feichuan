@@ -1,15 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { MessageSquareText, Phone } from 'lucide-react';
+import { MessageSquareText } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import WhatsAppLeadButton from './WhatsAppLeadButton';
-import { CONTACT_PHONE_DISPLAY } from '@/lib/contactSettings';
 import styles from './DesktopFloatingContact.module.css';
-
-type FloatingContactProps = {
-  dict?: any;
-};
 
 function WhatsAppIcon() {
   return (
@@ -22,9 +16,8 @@ function WhatsAppIcon() {
   );
 }
 
-export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
+export default function DesktopFloatingContact() {
   const pathname = usePathname();
-  const [isPhoneOpen, setIsPhoneOpen] = useState(false);
 
   const contactPath = (() => {
     const localeSegment = pathname.split('/').filter(Boolean)[0];
@@ -36,7 +29,6 @@ export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
     const target = document.querySelector<HTMLElement>('#inquiry, .contact-form-area .inquiry-container, .inquiry-container');
 
     if (target) {
-      setIsPhoneOpen(false);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       window.setTimeout(() => {
         const field = target.querySelector<HTMLElement>('textarea[name="message"], input[name="name"], textarea, input');
@@ -49,7 +41,7 @@ export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
   };
 
   return (
-    <aside className={`${styles.shell} ${isPhoneOpen ? styles.phoneOpen : ''}`} aria-label="Quick contact">
+    <aside className={styles.shell} aria-label="Quick contact">
       <div className={styles.actions}>
         <WhatsAppLeadButton
           sourceLabel="desktop_floating_whatsapp"
@@ -62,30 +54,12 @@ export default function DesktopFloatingContact({ dict }: FloatingContactProps) {
 
         <button
           type="button"
-          className={`${styles.actionButton} ${styles.phone}`}
-          aria-expanded={isPhoneOpen}
-          aria-controls="desktop-floating-phone-panel"
-          onClick={() => {
-            setIsPhoneOpen((current) => !current);
-          }}
-        >
-          <Phone size={25} strokeWidth={2.5} />
-          <span>Phone</span>
-        </button>
-
-        <button
-          type="button"
           className={`${styles.actionButton} ${styles.message}`}
           onClick={jumpToInquiry}
         >
           <MessageSquareText size={25} strokeWidth={2.4} />
           <span>Leave Message</span>
         </button>
-      </div>
-
-      <div id="desktop-floating-phone-panel" className={styles.phonePanel} aria-hidden={!isPhoneOpen}>
-        <span>{dict?.contact?.salesHotline || 'Sales Hotline'}</span>
-        <a href={`tel:${CONTACT_PHONE_DISPLAY.replace(/[^\d+]/g, '')}`}>{CONTACT_PHONE_DISPLAY}</a>
       </div>
     </aside>
   );

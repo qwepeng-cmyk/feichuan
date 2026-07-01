@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
         locale: params.locale,
         path: '/solutions',
         fallbackTitle: 'Industrial UAV & C-UAS Solutions',
-        fallbackDescription: 'Mission-ready UAV and C-UAS detection solutions for inspection, emergency support, airport airspace monitoring, and site security workflows.',
+        fallbackDescription: 'Mission-ready UAV and C-UAS solutions for inspection, emergency support, airport C-UAS, and site security workflows.',
     });
 }
 

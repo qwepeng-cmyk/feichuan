@@ -2,14 +2,14 @@
   "product_name": "水电大坝低空安全防护",
   "product_name_en": "Hydroelectric Dam Protection",
   "product_name_ru": "Защита гидроэлектрических плотин",
-  "summary": "????????????????????????????????????????????????????????????????????????????????????????????????????????????",
-  "summary_en": "A low-altitude security operation for hydroelectric dams, reservoirs, powerhouses, spillways, and inspection routes. Based on critical infrastructure protection requirements, it focuses on low-altitude awareness, target confirmation, track following, alert linkage, and dispatch coordination for complex terrain, water reflection, and fog-prone dam environments.",
+  "summary": "A C-UAS operation for hydroelectric dams, reservoirs, powerhouses, spillways, and inspection routes. Based on critical infrastructure protection requirements, it focuses on low-altitude awareness, target identification, location, tracking, warning linkage, and dispatch coordination for complex terrain, water reflection, and fog-prone dam environments.",
+  "summary_en": "A C-UAS operation for hydroelectric dams, reservoirs, powerhouses, spillways, and inspection routes. Based on critical infrastructure protection requirements, it focuses on low-altitude awareness, target identification, location, tracking, warning linkage, and dispatch coordination for complex terrain, water reflection, and fog-prone dam environments.",
   "summary_ru": "Процесс низковысотной безопасности для гидроэлектрических плотин, водохранилищ, машинных залов, водосбросов и инспекционных маршрутов. Он основан на логике защиты критической инфраструктуры и охватывает наблюдение, подтверждение цели, сопровождение, согласование тревог и разбор событий в сложном рельефе, при бликах воды и тумане.",
   "key_application": "水电大坝、库区岸线、厂房周界、溢洪道、取水口、闸口、巡检道路、输变电接口和运行调度值守场景。",
   "key_application_en": "Hydroelectric dams, reservoir shorelines, powerhouse perimeters, spillways, intake areas, gates, inspection roads, grid-interface zones, and operations duty rooms.",
   "key_application_ru": "Гидроэлектрические плотины, берега водохранилищ, периметры машинных залов, водосбросы, водозаборы, ворота, инспекционные дороги, узлы подключения к энергосети и дежурные диспетчерские.",
   "key_parameter_1": "????????????????????????????????????",
-  "key_parameter_1_en": "Operating Chain: low-altitude anomaly discovery, target identification confirmation, continuous track following, alert linkage, and dispatch coordination.",
+  "key_parameter_1_en": "Operating Chain: low-altitude detection, target identification, location, continuous tracking, warning linkage, and dispatch coordination.",
   "key_parameter_1_ru": "Цепочка процесса: обнаружение низковысотной аномалии, подтверждение цели, непрерывное сопровождение, уведомление о риске и замкнутый разбор события.",
   "key_parameter_2": "环境适配：结合可视化画面、热成像辅助与人工复核，降低水面反光、雾气、鸟类活动和复杂地形带来的影响。",
   "key_parameter_2_en": "Dam-Environment Adaptation: visual review, thermal assistance, and operator confirmation help reduce the impact of water reflection, fog, bird activity, and complex terrain.",
@@ -72,22 +72,22 @@
     "operation_upgrade_title": "Low-Altitude Security Operations for Dam Operations",
     "solution_modules": [
       {
-        "name": "Low-Altitude Anomaly Discovery",
+        "name": "Low-Altitude Detection",
         "description": "Creates an early event-awareness entry around the dam body, reservoir bank, powerhouse perimeter, and inspection roads.",
         "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
       },
       {
-        "name": "Target Identification Confirmation",
+        "name": "Target Identification and Location",
         "description": "Combines clear visual review, thermal assistance, and operator verification to confirm target context and reduce environmental misjudgment.",
         "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
       },
       {
-        "name": "Continuous Track Following",
+        "name": "Continuous Target Tracking",
         "description": "Maintains the movement path, approach direction, dwell position, and associated risk area as a visible event timeline.",
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Alert Linkage and Dispatch Coordination",
+        "name": "Warning Linkage and Dispatch Coordination",
         "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
         "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
@@ -152,22 +152,22 @@
     "operation_upgrade_title": "Low-Altitude Security Operations for Dam Operations",
     "solution_modules": [
       {
-        "name": "Low-Altitude Anomaly Discovery",
+        "name": "Low-Altitude Detection",
         "description": "Creates an early event-awareness entry around the dam body, reservoir bank, powerhouse perimeter, and inspection roads.",
         "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
       },
       {
-        "name": "Target Identification Confirmation",
+        "name": "Target Identification and Location",
         "description": "Combines clear visual review, thermal assistance, and operator verification to confirm target context and reduce environmental misjudgment.",
         "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
       },
       {
-        "name": "Continuous Track Following",
+        "name": "Continuous Target Tracking",
         "description": "Maintains the movement path, approach direction, dwell position, and associated risk area as a visible event timeline.",
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Alert Linkage and Dispatch Coordination",
+        "name": "Warning Linkage and Dispatch Coordination",
         "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
         "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
@@ -189,7 +189,7 @@
   "product_name_es": "Presa hidroeléctrica Protection",
   "summary_es": "Presa hidroeléctrica Protection de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
   "key_application_es": "Aplicaciones principales: Hydroelectric dams; Reservoir shorelines; Powerhouse perimeters; Spillways; Intake areas; Gates.",
-  "key_parameter_1_es": "Operating Chain: low-altitude anomaly discovery, target identification confirmation, continuous track following, alert linkage, and dispatch coordination.",
+  "key_parameter_1_es": "Operating Chain: low-altitude detection, target identification, location, continuous tracking, warning linkage, and dispatch coordination.",
   "key_parameter_2_es": "Dam-Environment Adaptation: visual review, thermal assistance, and operator confirmation help reduce the impact of water reflection, fog, bird activity, and complex terrain.",
   "parameters_es": {
     "Industry_pain_points": [
@@ -209,22 +209,22 @@
     "Operation_upgrade_title": "Baja altitud seguridad Operating Plan for Dam Operations",
     "Solution_modules": [
       {
-        "name": "Low-Altitude Anomaly Discovery",
+        "name": "Low-Altitude Detection",
         "description": "Creates an early event-awareness entry around the dam body, reservoir bank, powerhouse perimeter, and inspection roads.",
         "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
       },
       {
-        "name": "Target Identification Confirmation",
+        "name": "Target Identification and Location",
         "description": "Combines clear visual review, thermal assistance, and operator verification to confirm target context and reduce environmental misjudgment.",
         "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
       },
       {
-        "name": "Continuous Track Following",
+        "name": "Continuous Target Tracking",
         "description": "Maintains the movement path, approach direction, dwell position, and associated risk area as a visible event timeline.",
         "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Alert Linkage and Dispatch Coordination",
+        "name": "Warning Linkage and Dispatch Coordination",
         "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
         "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
