@@ -1014,11 +1014,26 @@
   text-decoration: none;
 }
 
+.caseSectionHeader {
+  margin: 54px 0 24px;
+  padding-top: 30px;
+  border-top: 1px solid #d8e4f3;
+  text-align: center;
+}
+
+.caseSectionHeader h3 {
+  margin: 0;
+  color: var(--landing-blue);
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
 .caseReferenceGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40px;
-  margin-top: 48px;
+  margin-top: 0;
 }
 
 .caseReferenceCard {
@@ -1391,6 +1406,21 @@
   background: var(--landing-blue);
   border-radius: 50%;
   vertical-align: 2px;
+}
+
+.mobileCaseSectionTitle {
+  margin: 26px 0 14px;
+  padding-top: 20px;
+  border-top: 1px solid #d8e4f3;
+  text-align: center;
+}
+
+.mobileCaseSectionTitle h3 {
+  margin: 0;
+  color: var(--landing-blue);
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 900;
 }
 
 .mobileCaseReferences {
