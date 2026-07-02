@@ -219,7 +219,7 @@ function syncDatabaseIfChanged() {
       `merged=${mergeResult.inserted} localAfter=${mergeResult.localCountAfter}`
     );
   } catch (error) {
-    console.warn(`Could not merge remote inquiries before DB sync: ${error instanceof Error ? error.message : error}`);
+    throw new Error(`Could not merge remote inquiries before DB sync: ${error instanceof Error ? error.message : error}`);
   }
 
   const localHash = sha256(localDb);
