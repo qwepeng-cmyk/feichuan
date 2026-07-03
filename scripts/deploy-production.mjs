@@ -63,6 +63,8 @@ function withSshpass(command, args) {
 
 function ssh(remoteCommand, options = {}) {
   const [command, args] = withSshpass('ssh', [
+    '-F',
+    '/dev/null',
     '-o',
     'StrictHostKeyChecking=accept-new',
     remote,
@@ -73,6 +75,8 @@ function ssh(remoteCommand, options = {}) {
 
 function scp(local, remotePath) {
   const [command, args] = withSshpass('scp', [
+    '-F',
+    '/dev/null',
     '-o',
     'StrictHostKeyChecking=accept-new',
     local,
@@ -83,6 +87,8 @@ function scp(local, remotePath) {
 
 function scpFromRemote(remotePath, local) {
   const [command, args] = withSshpass('scp', [
+    '-F',
+    '/dev/null',
     '-o',
     'StrictHostKeyChecking=accept-new',
     `${remote}:${remotePath}`,
@@ -96,7 +102,7 @@ function rsyncPublic() {
     '-az',
     '--checksum',
     '-e',
-    'ssh -o StrictHostKeyChecking=accept-new',
+    'ssh -F /dev/null -o StrictHostKeyChecking=accept-new',
     'public/',
     `${remote}:${deployPath}/public/`,
   ]);
