@@ -93,7 +93,7 @@ export default function MobileHome({
                     preload="metadata"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#000', filter: 'brightness(1.18) saturate(1.08)' }}
                 >
-                    <source src="/index_banner_bg_4.mp4" type="video/mp4" />
+                    <source src="/index_banner_bg_3.mp4" type="video/mp4" />
                 </video>
                 <div style={{
                     position: 'absolute',
@@ -265,22 +265,23 @@ export default function MobileHome({
                                 border: '1px solid #f0f0f0',
                                 textDecoration: 'none',
                                 display: 'flex',
-                                flexDirection: 'column'
+                                flexDirection: 'column',
+                                overflow: 'hidden'
                             }}>
                                 <div style={{
-                                    aspectRatio: '4 / 3',
+                                    aspectRatio: '16 / 11',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     overflow: 'hidden',
-                                    padding: '15px',
+                                    padding: '12px',
                                     position: 'relative'
                                 }}>
                                     <Image
                                         src={item.mobileImg || item.img}
                                         alt={productTitle}
                                         fill
-                                        style={{ objectFit: 'contain', padding: '15px' }}
+                                        style={{ objectFit: 'contain', padding: '10px' }}
                                         sizes="45vw"
                                     />
                                 </div>

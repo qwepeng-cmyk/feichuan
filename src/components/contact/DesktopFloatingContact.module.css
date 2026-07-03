@@ -5,12 +5,11 @@
 @media (min-width: 992px) {
   .shell {
     position: fixed;
-    top: 50%;
+    top: calc(50% - 92px);
     right: 0;
     z-index: 3600;
     display: block;
     width: 68px;
-    height: 138px;
     transform: translateY(-50%);
     overflow: visible;
     font-family: var(--font-outfit), "Segoe UI", sans-serif;
@@ -28,7 +27,7 @@
     border: 0;
     border-radius: 5px 0 0 5px;
     margin-top: 2px;
-    padding: 9px 4px 7px;
+    padding: 8px 4px 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,10 +44,12 @@
     margin-top: 0;
   }
 
-  .actionButton:hover {
+  .actionButton:hover,
+  .actionButton:focus-visible {
     transform: translateX(-4px);
     filter: saturate(1.08);
     box-shadow: 0 14px 28px rgba(5, 25, 54, 0.2);
+    outline: none;
   }
 
   .actionButton span {
@@ -61,6 +62,29 @@
     overflow-wrap: anywhere;
   }
 
+  .consult {
+    background: #315ba4;
+  }
+
+  .consultOnline {
+    animation: consultPulse 1.45s ease-in-out infinite;
+  }
+
+  @keyframes consultPulse {
+    0%,
+    100% {
+      background: #315ba4;
+      box-shadow: 0 10px 22px rgba(5, 25, 54, 0.14);
+      filter: brightness(1);
+    }
+
+    50% {
+      background: #4f7fd0;
+      box-shadow: 0 14px 30px rgba(49, 91, 164, 0.32);
+      filter: brightness(1.08);
+    }
+  }
+
   .whatsapp {
     background: #11a20b;
   }
@@ -69,4 +93,21 @@
     background: #ff8a00;
   }
 
+  .top {
+    background: #eef3fb;
+    color: #8e98a8;
+  }
+
+  .top span {
+    color: #9aa3b1;
+    font-size: 17px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .top:hover,
+  .top:focus-visible {
+    color: #315ba4;
+    filter: saturate(1.02);
+  }
 }

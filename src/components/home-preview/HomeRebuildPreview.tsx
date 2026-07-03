@@ -67,7 +67,7 @@ export default function HomeRebuildPreview({
           playsInline
           preload="metadata"
         >
-          <source src="/index_banner_bg_4.mp4" type="video/mp4" />
+          <source src="/index_banner_bg_3.mp4" type="video/mp4" />
         </video>
         <div className={styles.heroShade} />
         <div className={styles.heroGrid} />

@@ -17,7 +17,7 @@ export default function MobileCases({ locale, dict, homeCases }: MobileCasesProp
     }
 
     return (
-        <section style={{ padding: '40px 15px', background: '#fff', minHeight: '720px' }}>
+        <section style={{ padding: '40px 15px', background: '#fff' }}>
             <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.cases}</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '12px' }}>
                 {homeCases.slice(0, 6).map((item, idx) => {
@@ -25,7 +25,7 @@ export default function MobileCases({ locale, dict, homeCases }: MobileCasesProp
                     return (
                         <Link key={item.handle || idx} href={localePath(locale, `/cases/${item.handle}`)} style={{
                             position: 'relative',
-                            height: '190px',
+                            aspectRatio: '5 / 4',
                             overflow: 'hidden',
                             borderRadius: '0',
                             boxShadow: '0 4px 15px rgba(0,0,0,0.1)',

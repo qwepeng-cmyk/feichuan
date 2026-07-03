@@ -160,7 +160,7 @@ export default function DesktopHome({
                     preload="metadata"
                     style={{ backgroundColor: '#000' }}
                 >
-                    <source src="/index_banner_bg_4.mp4" type="video/mp4" />
+                    <source src="/index_banner_bg_3.mp4" type="video/mp4" />
                 </video>
                 <div className="hero-overlay"></div>
                 <div className="container-wide hero-content">

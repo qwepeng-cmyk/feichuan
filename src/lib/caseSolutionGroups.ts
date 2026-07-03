@@ -9,6 +9,14 @@ interface CaseSolutionGroupInput {
 }
 
 export const caseSolutionGroups = solutionCenterGroups;
+export const caseCenterSolutionGroups = [
+  'critical-infrastructure-protection',
+  'key-area-security',
+  'uav-inspection-patrol',
+  'uav-emergency-response',
+]
+  .map((id) => solutionCenterGroups.find((group) => group.id === id))
+  .filter(Boolean) as typeof solutionCenterGroups[number][];
 
 const CASE_GROUP_BY_HANDLE: Record<string, SolutionCenterGroupId> = {
   'anhui-flood-season-uav-patrol': 'uav-inspection-patrol',
@@ -17,8 +25,14 @@ const CASE_GROUP_BY_HANDLE: Record<string, SolutionCenterGroupId> = {
   'southern-grid-wildfire-uav-inspection': 'uav-inspection-patrol',
   'wildfire-emergency-transmission-line-uav-patrol': 'uav-inspection-patrol',
   'zhaoqing-long-distance-power-line-uav-inspection': 'uav-inspection-patrol',
+  'brazil-refinery-airspace-monitoring': 'critical-infrastructure-protection',
+  'brazil-refinery-low-altitude-monitoring': 'critical-infrastructure-protection',
   'brazil-refinery-anti-uav': 'critical-infrastructure-protection',
+  'nigeria-factory-airspace-monitoring': 'critical-infrastructure-protection',
+  'nigeria-factory-low-altitude-monitoring': 'critical-infrastructure-protection',
   'nigeria-factory-anti-uav': 'critical-infrastructure-protection',
+  'pakistan-power-plant-airspace-monitoring': 'critical-infrastructure-protection',
+  'pakistan-power-plant-low-altitude-monitoring': 'critical-infrastructure-protection',
   'pakistan-power-plant-anti-uav': 'critical-infrastructure-protection',
   'water-conservancy-security': 'critical-infrastructure-protection',
   'airport-security-application': 'key-area-security',

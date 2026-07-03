@@ -6,7 +6,7 @@ import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
-import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { caseCenterSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
 import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 
@@ -36,7 +36,7 @@ export default function MobileCaseCenter({
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.allSolutions || 'All Solutions' },
-        ...caseSolutionGroups.map((group) => ({
+        ...caseCenterSolutionGroups.map((group) => ({
             id: group.id,
             name: dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel
         }))

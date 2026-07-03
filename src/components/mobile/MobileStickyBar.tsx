@@ -25,9 +25,8 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
         }}>
             {/* Get Solution */}
             <Link href={l("/contact")} style={{
-                flex: '0 1 calc((100vw - 42px) / 2)',
+                flex: '1 1 0',
                 minWidth: 0,
-                maxWidth: 'calc((100vw - 42px) / 2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -47,9 +46,8 @@ export default function MobileStickyBar({ locale, dict }: { locale: string; dict
 
             {/* WhatsApp / Chat */}
             <WhatsAppLeadButton sourceLabel="mobile_sticky_whatsapp" style={{
-                flex: '0 1 calc((100vw - 42px) / 2)',
+                flex: '1 1 0',
                 minWidth: 0,
-                maxWidth: 'calc((100vw - 42px) / 2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

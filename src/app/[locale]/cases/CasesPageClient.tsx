@@ -6,7 +6,7 @@ import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
-import { caseSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import { caseCenterSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
 import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
@@ -44,7 +44,7 @@ export default function CasesPageClient({
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.all },
-        ...caseSolutionGroups.map((group) => ({
+        ...caseCenterSolutionGroups.map((group) => ({
             id: group.id,
             name: dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel
         }))

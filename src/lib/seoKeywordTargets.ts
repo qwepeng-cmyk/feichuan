@@ -20,7 +20,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     primary: 'industrial UAV and C-UAS systems integrator',
     secondary: ['C-UAS equipment', 'anti drone', 'early warning equipment', 'UAV system supplier', 'security technology integrator'],
     h1: 'Industrial UAV & C-UAS Systems Integrator',
-    overviewHeading: 'Industrial UAV and C-UAS Integration Capabilities',
+    overviewHeading: 'Low-Altitude Security and UAV System Integration',
     intro: 'N-TET integrates industrial UAV platforms with C-UAS systems, low-altitude radar, RF identification, EO tracking, Remote ID review, and command-platform linkage for airports, energy sites, public venues, and other critical facilities.',
     source: 'google_ads_keywords',
   },

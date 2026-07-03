@@ -1,9 +1,23 @@
 'use client';
 
-import { MessageSquareText } from 'lucide-react';
+import { ArrowUp, MessageCircle, PencilLine } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import WhatsAppLeadButton from './WhatsAppLeadButton';
 import styles from './DesktopFloatingContact.module.css';
+
+declare global {
+  interface Window {
+    openZoosUrl?: (url?: string, data?: string) => void;
+    LR_showminiDiv?: (islrminimin?: number, data?: string) => void;
+    lrminiMax?: () => void;
+    LR_HideInvite?: () => void;
+    clickopenmini?: number;
+    LiveReceptionCode_isonline?: boolean;
+    LR_robot?: string;
+    dataLayer?: Array<Record<string, unknown>>;
+  }
+}
 
 function WhatsAppIcon() {
   return (
@@ -18,6 +32,19 @@ function WhatsAppIcon() {
 
 export default function DesktopFloatingContact() {
   const pathname = usePathname();
+  const [isBusinessChatOnline, setIsBusinessChatOnline] = useState(false);
+
+  useEffect(() => {
+    const updateOnlineState = () => {
+      const hasOnlineAgent = window.LiveReceptionCode_isonline === true;
+      const hasRobotFallback = typeof window.LR_robot === 'string' && window.LR_robot.length > 0;
+      setIsBusinessChatOnline(hasOnlineAgent || hasRobotFallback);
+    };
+
+    updateOnlineState();
+    const timer = window.setInterval(updateOnlineState, 2000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const contactPath = (() => {
     const localeSegment = pathname.split('/').filter(Boolean)[0];
@@ -40,9 +67,71 @@ export default function DesktopFloatingContact() {
     window.location.href = contactPath;
   };
 
+  const openBusinessChat = () => {
+    if (typeof window === 'undefined') return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'ntet_business_chat_open',
+      event_category: 'lead',
+      event_label: 'desktop_floating_business_chat',
+      page_path: pathname,
+    });
+
+    const hideInvitePanels = () => {
+      window.LR_HideInvite?.();
+      ['LRfloater0', 'LRfloater1', 'LRdiv0', 'LRdiv1'].forEach((id) => {
+        const panel = document.getElementById(id);
+        if (panel) {
+          panel.style.display = 'none';
+        }
+      });
+    };
+
+    const openMiniChat = () => {
+      if (typeof window.LR_showminiDiv !== 'function') {
+        return false;
+      }
+
+      window.clickopenmini = 1;
+      hideInvitePanels();
+      window.LR_showminiDiv(0);
+      window.lrminiMax?.();
+      hideInvitePanels();
+      window.setTimeout(() => window.lrminiMax?.(), 400);
+      window.setTimeout(hideInvitePanels, 500);
+      window.setTimeout(hideInvitePanels, 1200);
+      return true;
+    };
+
+    if (openMiniChat()) return;
+
+    let attempts = 0;
+    const retryTimer = window.setInterval(() => {
+      attempts += 1;
+      if (openMiniChat() || attempts >= 8) {
+        window.clearInterval(retryTimer);
+      }
+    }, 250);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <aside className={styles.shell} aria-label="Quick contact">
       <div className={styles.actions}>
+        <button
+          type="button"
+          className={`${styles.actionButton} ${styles.consult} ${isBusinessChatOnline ? styles.consultOnline : ''}`}
+          onClick={openBusinessChat}
+          aria-label="Open business chat"
+        >
+          <MessageCircle size={25} strokeWidth={2.5} />
+          <span>Consult</span>
+        </button>
+
         <WhatsAppLeadButton
           sourceLabel="desktop_floating_whatsapp"
           className={`${styles.actionButton} ${styles.whatsapp}`}
@@ -56,9 +145,20 @@ export default function DesktopFloatingContact() {
           type="button"
           className={`${styles.actionButton} ${styles.message}`}
           onClick={jumpToInquiry}
+          aria-label="Leave a message"
         >
-          <MessageSquareText size={25} strokeWidth={2.4} />
+          <PencilLine size={25} strokeWidth={2.4} />
           <span>Leave Message</span>
+        </button>
+
+        <button
+          type="button"
+          className={`${styles.actionButton} ${styles.top}`}
+          onClick={scrollToTop}
+          aria-label="Back to top"
+        >
+          <ArrowUp size={24} strokeWidth={2.6} />
+          <span>Top</span>
         </button>
       </div>
     </aside>

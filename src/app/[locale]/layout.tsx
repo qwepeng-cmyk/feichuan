@@ -30,9 +30,7 @@ const fallbackTracking = {
   gtmEnabled: true,
 };
 
-const tawkPropertyId = '6a1e6979734ebd1c2f45a821';
-const tawkWidgetId = '1jq3co0p8';
-const shouldLoadTawk = process.env.NEXT_PUBLIC_DISABLE_TAWK !== 'true';
+const shouldLoadZoosnet = process.env.NEXT_PUBLIC_DISABLE_ZOOSNET !== 'true';
 
 async function loadTrackingSettings() {
   try {
@@ -158,18 +156,82 @@ gtag('config', '${gaMeasurementId}');`,
           </>
         )}
 
-        {shouldLoadTawk && (
+        {shouldLoadZoosnet && (
           <Script
-            id="tawk-to"
+            id="zoosnet-business-chat"
+            src="https://drt.zoosnet.net/JS/LsJS.aspx?siteid=DRT78957152&float=1&lng=en"
+            strategy="afterInteractive"
+          />
+        )}
+
+        {shouldLoadZoosnet && (
+          <Script
+            id="zoosnet-mobile-image-fix"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
-              __html: `var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}';
-s1.charset='UTF-8';
-s0.parentNode.insertBefore(s1,s0);
+              __html: `(function(){
+var pcSrc='https://drt.zoosnet.net/site/78957152/onlineimgsrc_en.png';
+var mobileSrc='https://drt.zoosnet.net/site/78957152/mobileonlineimgsrc_en.png';
+var mobileWidth='68px';
+var mediaQuery=window.matchMedia('(max-width: 991px)');
+function patchZoosnetImage(){
+  var isMobile=mediaQuery.matches;
+  var root=document.getElementById('LRdiv0');
+  if(root){
+    if(isMobile){
+      root.style.width='0';
+      root.style.height='0';
+      root.style.maxWidth='100vw';
+      root.style.overflow='visible';
+    }else{
+      root.style.width='';
+      root.style.height='';
+      root.style.maxWidth='';
+      root.style.overflow='';
+    }
+  }
+  var images=document.querySelectorAll('#LRfloater0 img,#LRdiv0 img');
+  images.forEach(function(img){
+    if(!/onlineimgsrc_en\\.png|mobileonlineimgsrc_en\\.png/.test(img.src)) return;
+    img.src=isMobile?mobileSrc:pcSrc;
+    if(isMobile){
+      img.style.width=mobileWidth;
+      img.style.height='auto';
+      img.style.maxWidth=mobileWidth;
+      img.style.display='block';
+      var floater=img.closest('#LRfloater0');
+      if(floater){
+        floater.style.width=mobileWidth;
+        floater.style.height='auto';
+        floater.style.maxWidth=mobileWidth;
+        floater.style.overflow='visible';
+      }
+    }else{
+      img.style.width='';
+      img.style.height='';
+      img.style.maxWidth='';
+      img.style.display='';
+      var desktopFloater=img.closest('#LRfloater0');
+      if(desktopFloater){
+        desktopFloater.style.width='';
+        desktopFloater.style.height='';
+        desktopFloater.style.maxWidth='';
+        desktopFloater.style.overflow='';
+      }
+    }
+  });
+  if(isMobile){
+    document.documentElement.style.overflowX='hidden';
+    document.body.style.overflowX='hidden';
+  }
+}
+patchZoosnetImage();
+window.setInterval(patchZoosnetImage,500);
+if(mediaQuery.addEventListener){
+  mediaQuery.addEventListener('change',patchZoosnetImage);
+}else if(mediaQuery.addListener){
+  mediaQuery.addListener(patchZoosnetImage);
+}
 })();`,
             }}
           />
