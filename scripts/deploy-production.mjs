@@ -35,6 +35,21 @@ const localTar = process.env.DEPLOY_TAR || join(sourceRoot, 'scratch', 'next-dep
 const remoteTar = '/tmp/next-deploy.tar.gz';
 const zoneName = process.env.ZONE_NAME || 'n-tet.com';
 const skipCloudflarePurge = process.env.SKIP_CF_PURGE === '1';
+const deployRsyncBwlimit = process.env.DEPLOY_RSYNC_BWLIMIT || '500';
+const sshOptions = [
+  '-F',
+  '/dev/null',
+  '-o',
+  'StrictHostKeyChecking=accept-new',
+  '-o',
+  'ConnectTimeout=15',
+  '-o',
+  'ServerAliveInterval=10',
+  '-o',
+  'ServerAliveCountMax=3',
+  '-o',
+  'TCPKeepAlive=yes',
+];
 
 function step(title) {
   console.log(`\n==> ${title}`);
@@ -61,12 +76,14 @@ function withSshpass(command, args) {
   return process.env.SSHPASS ? ['sshpass', ['-e', command, ...args]] : [command, args];
 }
 
+function rsyncRemoteShell() {
+  const sshCommand = ['ssh', ...sshOptions].join(' ');
+  return process.env.SSHPASS ? `sshpass -e ${sshCommand}` : sshCommand;
+}
+
 function ssh(remoteCommand, options = {}) {
   const [command, args] = withSshpass('ssh', [
-    '-F',
-    '/dev/null',
-    '-o',
-    'StrictHostKeyChecking=accept-new',
+    ...sshOptions,
     remote,
     remoteCommand,
   ]);
@@ -75,10 +92,7 @@ function ssh(remoteCommand, options = {}) {
 
 function scp(local, remotePath) {
   const [command, args] = withSshpass('scp', [
-    '-F',
-    '/dev/null',
-    '-o',
-    'StrictHostKeyChecking=accept-new',
+    ...sshOptions,
     local,
     `${remote}:${remotePath}`,
   ]);
@@ -87,10 +101,7 @@ function scp(local, remotePath) {
 
 function scpFromRemote(remotePath, local) {
   const [command, args] = withSshpass('scp', [
-    '-F',
-    '/dev/null',
-    '-o',
-    'StrictHostKeyChecking=accept-new',
+    ...sshOptions,
     `${remote}:${remotePath}`,
     local,
   ]);
@@ -98,15 +109,27 @@ function scpFromRemote(remotePath, local) {
 }
 
 function rsyncPublic() {
-  const [command, args] = withSshpass('rsync', [
+  run('rsync', [
     '-az',
     '--checksum',
     '-e',
-    'ssh -F /dev/null -o StrictHostKeyChecking=accept-new',
+    rsyncRemoteShell(),
     'public/',
     `${remote}:${deployPath}/public/`,
   ]);
-  run(command, args);
+}
+
+function rsyncUpload(local, remotePath) {
+  run('rsync', [
+    '-azP',
+    '--partial',
+    '--append-verify',
+    `--bwlimit=${deployRsyncBwlimit}`,
+    '-e',
+    rsyncRemoteShell(),
+    local,
+    `${remote}:${remotePath}`,
+  ]);
 }
 
 function prepareBuildRoot() {
@@ -297,7 +320,8 @@ const localTarHash = sha256(localTar);
 console.log(`Local tar sha256: ${localTarHash}`);
 
 step('Upload .next package');
-scp(localTar, remoteTar);
+console.log(`Using rsync bandwidth limit: ${deployRsyncBwlimit} KB/s. Set DEPLOY_RSYNC_BWLIMIT to override.`);
+rsyncUpload(localTar, remoteTar);
 const remoteTarHash = remoteSha256(remoteTar);
 if (remoteTarHash !== localTarHash) {
   throw new Error(`Deploy tar hash mismatch. local=${localTarHash} remote=${remoteTarHash}`);
