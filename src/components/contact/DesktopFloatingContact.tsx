@@ -32,7 +32,26 @@ function WhatsAppIcon() {
 
 export default function DesktopFloatingContact() {
   const pathname = usePathname();
+  const [isBusinessChatEnabled, setIsBusinessChatEnabled] = useState(false);
   const [isBusinessChatOnline, setIsBusinessChatOnline] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetch('/api/site/chat-settings', { cache: 'no-store' })
+      .then((res) => res.json())
+      .then((json) => {
+        if (!isMounted) return;
+        setIsBusinessChatEnabled(Boolean(json?.success && json?.data?.zoosnetEnabled));
+      })
+      .catch(() => {
+        if (isMounted) setIsBusinessChatEnabled(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     const updateOnlineState = () => {
@@ -69,6 +88,7 @@ export default function DesktopFloatingContact() {
 
   const openBusinessChat = () => {
     if (typeof window === 'undefined') return;
+    if (!isBusinessChatEnabled) return;
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -122,15 +142,17 @@ export default function DesktopFloatingContact() {
   return (
     <aside className={styles.shell} aria-label="Quick contact">
       <div className={styles.actions}>
-        <button
-          type="button"
-          className={`${styles.actionButton} ${styles.consult} ${isBusinessChatOnline ? styles.consultOnline : ''}`}
-          onClick={openBusinessChat}
-          aria-label="Open business chat"
-        >
-          <MessageCircle size={25} strokeWidth={2.5} />
-          <span>Consult</span>
-        </button>
+        {isBusinessChatEnabled && (
+          <button
+            type="button"
+            className={`${styles.actionButton} ${styles.consult} ${isBusinessChatOnline ? styles.consultOnline : ''}`}
+            onClick={openBusinessChat}
+            aria-label="Open business chat"
+          >
+            <MessageCircle size={25} strokeWidth={2.5} />
+            <span>Consult</span>
+          </button>
+        )}
 
         <WhatsAppLeadButton
           sourceLabel="desktop_floating_whatsapp"

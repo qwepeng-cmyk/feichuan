@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Mail, Save, Settings } from 'lucide-react';
+import { Mail, MessageCircle, Save, Settings } from 'lucide-react';
 
 type TrackingForm = {
     gaMeasurementId: string;
@@ -20,6 +20,10 @@ type EmailForm = {
     hasSmtpPass: boolean;
     fromEmail: string;
     receiverEmail: string;
+};
+
+type ChatForm = {
+    zoosnetEnabled: boolean;
 };
 
 const card: React.CSSProperties = {
@@ -83,16 +87,24 @@ const emptyEmail: EmailForm = {
     receiverEmail: '',
 };
 
+const emptyChat: ChatForm = {
+    zoosnetEnabled: true,
+};
+
 export default function AdminSettingsPage() {
     const [trackingForm, setTrackingForm] = useState<TrackingForm>(emptyTracking);
     const [emailForm, setEmailForm] = useState<EmailForm>(emptyEmail);
+    const [chatForm, setChatForm] = useState<ChatForm>(emptyChat);
     const [loading, setLoading] = useState(true);
     const [savingTracking, setSavingTracking] = useState(false);
     const [savingEmail, setSavingEmail] = useState(false);
+    const [savingChat, setSavingChat] = useState(false);
     const [trackingMessage, setTrackingMessage] = useState('');
     const [emailMessage, setEmailMessage] = useState('');
+    const [chatMessage, setChatMessage] = useState('');
     const [trackingError, setTrackingError] = useState('');
     const [emailError, setEmailError] = useState('');
+    const [chatError, setChatError] = useState('');
 
     useEffect(() => {
         let isMounted = true;
@@ -100,8 +112,9 @@ export default function AdminSettingsPage() {
         Promise.all([
             fetch('/api/admin/settings/tracking').then((res) => res.json()),
             fetch('/api/admin/settings/email').then((res) => res.json()),
+            fetch('/api/admin/settings/chat').then((res) => res.json()),
         ])
-            .then(([trackingJson, emailJson]) => {
+            .then(([trackingJson, emailJson, chatJson]) => {
                 if (!isMounted) return;
 
                 if (trackingJson.success) {
@@ -115,11 +128,18 @@ export default function AdminSettingsPage() {
                 } else {
                     setEmailError(emailJson.error || 'Failed to load email settings.');
                 }
+
+                if (chatJson.success) {
+                    setChatForm(chatJson.data);
+                } else {
+                    setChatError(chatJson.error || 'Failed to load chat settings.');
+                }
             })
             .catch(() => {
                 if (!isMounted) return;
                 setTrackingError('Failed to connect to settings APIs.');
                 setEmailError('Failed to connect to settings APIs.');
+                setChatError('Failed to connect to settings APIs.');
             })
             .finally(() => {
                 if (isMounted) setLoading(false);
@@ -177,6 +197,31 @@ export default function AdminSettingsPage() {
             setEmailError('Failed to save email settings.');
         } finally {
             setSavingEmail(false);
+        }
+    };
+
+    const saveChat = async () => {
+        setSavingChat(true);
+        setChatMessage('');
+        setChatError('');
+
+        try {
+            const res = await fetch('/api/admin/settings/chat', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(chatForm),
+            });
+            const json = await res.json();
+            if (json.success) {
+                setChatForm(json.data);
+                setChatMessage('Business chat settings saved.');
+            } else {
+                setChatError(json.error || 'Failed to save chat settings.');
+            }
+        } catch {
+            setChatError('Failed to save chat settings.');
+        } finally {
+            setSavingChat(false);
         }
     };
 
@@ -265,6 +310,53 @@ export default function AdminSettingsPage() {
                     >
                         <Save size={18} />
                         {savingTracking ? 'Saving...' : 'Save Tracking'}
+                    </button>
+                </section>
+
+                <section style={card}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '22px' }}>
+                        <MessageCircle size={20} color="#315ba4" />
+                        <h2 style={{ margin: 0, color: '#1e293b', fontSize: '1.7rem', fontWeight: 800 }}>Business Chat</h2>
+                    </div>
+
+                    {chatMessage && <div style={{ marginBottom: '18px', color: '#047857', fontSize: '1.3rem', fontWeight: 700 }}>{chatMessage}</div>}
+                    {chatError && <div style={{ marginBottom: '18px', color: '#be123c', fontSize: '1.3rem', fontWeight: 700 }}>{chatError}</div>}
+
+                    <div style={{ display: 'grid', gap: '18px' }}>
+                        <label style={checkboxLabel}>
+                            <input
+                                type="checkbox"
+                                checked={chatForm.zoosnetEnabled}
+                                onChange={(e) => setChatForm((prev) => ({ ...prev, zoosnetEnabled: e.target.checked }))}
+                            />
+                            Enable Zoosnet business chat
+                        </label>
+
+                        <div style={{ padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
+                            When disabled, the public site will not load the Zoosnet script or its mobile icon patch.
+                        </div>
+                    </div>
+
+                    <button
+                        onClick={saveChat}
+                        disabled={savingChat}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            marginTop: '24px',
+                            padding: '12px 24px',
+                            border: 0,
+                            borderRadius: '8px',
+                            background: savingChat ? '#94a3b8' : '#315ba4',
+                            color: '#fff',
+                            fontSize: '1.35rem',
+                            fontWeight: 800,
+                            cursor: savingChat ? 'not-allowed' : 'pointer',
+                        }}
+                    >
+                        <Save size={18} />
+                        {savingChat ? 'Saving...' : 'Save Chat Settings'}
                     </button>
                 </section>
 

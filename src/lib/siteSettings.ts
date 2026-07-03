@@ -7,11 +7,19 @@ export interface TrackingSettings {
   gtmEnabled: boolean;
 }
 
+export interface ChatSettings {
+  zoosnetEnabled: boolean;
+}
+
 const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
   gaMeasurementId: 'G-ZS6XC2TFCG',
   gaEnabled: true,
   gtmContainerId: 'GTM-PJN9QQWN',
   gtmEnabled: true,
+};
+
+const DEFAULT_CHAT_SETTINGS: ChatSettings = {
+  zoosnetEnabled: true,
 };
 
 function parseBoolean(value: unknown, fallback: boolean) {
@@ -52,4 +60,28 @@ export function updateTrackingSettings(settings: TrackingSettings) {
   });
 
   transaction();
+}
+
+export function getChatSettings(): ChatSettings {
+  const rows = db.prepare(
+    "SELECT key, value FROM site_settings WHERE key LIKE 'chat.%'"
+  ).all() as Array<{ key: string; value: string | null }>;
+
+  const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
+
+  return {
+    zoosnetEnabled: parseBoolean(values['chat.zoosnetEnabled'], DEFAULT_CHAT_SETTINGS.zoosnetEnabled),
+  };
+}
+
+export function updateChatSettings(settings: ChatSettings) {
+  const update = db.prepare(`
+    INSERT INTO site_settings (key, value, updated_at)
+    VALUES (?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(key) DO UPDATE SET
+      value = excluded.value,
+      updated_at = CURRENT_TIMESTAMP
+  `);
+
+  update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
 }
