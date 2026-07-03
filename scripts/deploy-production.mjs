@@ -32,7 +32,6 @@ const deployPath = process.env.DEPLOY_PATH || '/www/wwwroot/n-tet.com';
 const remote = `${deployUser}@${deployHost}`;
 const buildRoot = process.env.DEPLOY_BUILD_ROOT || (sourceRoot.startsWith('/mnt/') ? legacyBuildRoot : sourceRoot);
 const localTar = process.env.DEPLOY_TAR || join(sourceRoot, 'scratch', 'next-deploy.tar.gz');
-const remoteTar = '/tmp/next-deploy.tar.gz';
 const zoneName = process.env.ZONE_NAME || 'n-tet.com';
 const skipCloudflarePurge = process.env.SKIP_CF_PURGE === '1';
 const deployRsyncBwlimit = process.env.DEPLOY_RSYNC_BWLIMIT || '500';
@@ -177,6 +176,10 @@ function remoteSha256(file) {
   return ssh(`sha256sum ${file} | awk '{print $1}'`, { capture: true });
 }
 
+function remoteDeployTar(hash) {
+  return `/tmp/next-deploy-${hash}.tar.gz`;
+}
+
 function mergeRemoteInquiriesIntoLocal(localDb, remoteDb) {
   if (!existsSync(remoteDb)) return { remoteCount: 0, localCountBefore: 0, inserted: 0, localCountAfter: 0 };
 
@@ -318,8 +321,10 @@ mkdirSync(dirname(localTar), { recursive: true });
 run('tar', ['-czf', localTar, '.next'], { cwd: buildRoot });
 const localTarHash = sha256(localTar);
 console.log(`Local tar sha256: ${localTarHash}`);
+const remoteTar = remoteDeployTar(localTarHash);
 
 step('Upload .next package');
+console.log(`Remote package path: ${remoteTar}`);
 console.log(`Using rsync bandwidth limit: ${deployRsyncBwlimit} KB/s. Set DEPLOY_RSYNC_BWLIMIT to override.`);
 rsyncUpload(localTar, remoteTar);
 const remoteTarHash = remoteSha256(remoteTar);
