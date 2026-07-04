@@ -17,6 +17,7 @@ export async function PUT(request: Request) {
 
     updateChatSettings({
       zoosnetEnabled: Boolean(body.zoosnetEnabled),
+      messageBoxEnabled: Boolean(body.messageBoxEnabled),
     });
 
     return NextResponse.json({ success: true, data: getChatSettings() });

@@ -9,6 +9,9 @@ export async function POST(request: Request) {
     try {
         const body = await request.json();
         const referer = request.headers.get('referer') || 'Direct';
+        const sourcePage = typeof body.sourcePage === 'string' && body.sourcePage.trim()
+            ? body.sourcePage.trim()
+            : referer;
         const demands = Array.isArray(body.demands) ? body.demands : [];
 
         const insert = db.prepare(`
@@ -27,7 +30,7 @@ export async function POST(request: Request) {
             body.phone || '',
             JSON.stringify(demands),
             body.message || '',
-            referer
+            sourcePage
         );
         const inquiryId = Number(result.lastInsertRowid);
         const savedInquiry = db.prepare(`
@@ -50,7 +53,7 @@ export async function POST(request: Request) {
                 phone: body.phone || '',
                 demands,
                 message: body.message || '',
-                sourcePage: referer,
+                sourcePage,
             });
         } catch (emailError) {
             console.error('Inquiry saved, but email notification failed:', emailError);

@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import DesktopFloatingContact from "@/components/contact/DesktopFloatingContact";
+import FloatingMessageBox from "@/components/contact/FloatingMessageBox";
 import ZoosnetBusinessChat from "@/components/contact/ZoosnetBusinessChat";
 import LocaleDocumentState from "@/components/LocaleDocumentState";
 import type { Metadata } from "next";
@@ -172,6 +173,7 @@ gtag('config', '${gaMeasurementId}');`,
         {children}
         <Footer locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
         <DesktopFloatingContact />
+        <FloatingMessageBox />
 
         {/* MOBILE STICKY BAR */}
         <div className="mobile_only">

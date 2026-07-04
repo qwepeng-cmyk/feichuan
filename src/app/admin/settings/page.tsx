@@ -24,6 +24,7 @@ type EmailForm = {
 
 type ChatForm = {
     zoosnetEnabled: boolean;
+    messageBoxEnabled: boolean;
 };
 
 const card: React.CSSProperties = {
@@ -89,6 +90,7 @@ const emptyEmail: EmailForm = {
 
 const emptyChat: ChatForm = {
     zoosnetEnabled: true,
+    messageBoxEnabled: false,
 };
 
 export default function AdminSettingsPage() {
@@ -332,8 +334,17 @@ export default function AdminSettingsPage() {
                             Enable Zoosnet business chat
                         </label>
 
+                        <label style={checkboxLabel}>
+                            <input
+                                type="checkbox"
+                                checked={chatForm.messageBoxEnabled}
+                                onChange={(e) => setChatForm((prev) => ({ ...prev, messageBoxEnabled: e.target.checked }))}
+                            />
+                            Enable floating message box
+                        </label>
+
                         <div style={{ padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
-                            When disabled, the public site will not load the Zoosnet script or its mobile icon patch.
+                            Zoosnet and the floating message box can be controlled separately. Use the message box when live chat is offline or disabled.
                         </div>
                     </div>
 

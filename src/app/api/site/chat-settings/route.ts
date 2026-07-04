@@ -12,6 +12,7 @@ export async function GET() {
       success: true,
       data: {
         zoosnetEnabled: canLoadZoosnet && settings.zoosnetEnabled,
+        messageBoxEnabled: settings.messageBoxEnabled,
       },
     });
   } catch {

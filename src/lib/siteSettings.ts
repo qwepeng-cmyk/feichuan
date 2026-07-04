@@ -9,6 +9,7 @@ export interface TrackingSettings {
 
 export interface ChatSettings {
   zoosnetEnabled: boolean;
+  messageBoxEnabled: boolean;
 }
 
 const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
@@ -20,6 +21,7 @@ const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
 
 const DEFAULT_CHAT_SETTINGS: ChatSettings = {
   zoosnetEnabled: true,
+  messageBoxEnabled: false,
 };
 
 function parseBoolean(value: unknown, fallback: boolean) {
@@ -71,6 +73,7 @@ export function getChatSettings(): ChatSettings {
 
   return {
     zoosnetEnabled: parseBoolean(values['chat.zoosnetEnabled'], DEFAULT_CHAT_SETTINGS.zoosnetEnabled),
+    messageBoxEnabled: parseBoolean(values['chat.messageBoxEnabled'], DEFAULT_CHAT_SETTINGS.messageBoxEnabled),
   };
 }
 
@@ -84,4 +87,5 @@ export function updateChatSettings(settings: ChatSettings) {
   `);
 
   update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
+  update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
 }
