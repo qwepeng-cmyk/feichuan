@@ -3,7 +3,7 @@
 import { MessageSquareText, Minus, Send } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import type { CSSProperties, FormEvent } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './FloatingMessageBox.module.css';
 
 type ChatSettingsResponse = {
@@ -21,10 +21,15 @@ const emptyForm = {
   message: '',
 };
 
+const AUTO_OPEN_DELAY_MS = 20000;
+const AUTO_OPEN_SESSION_KEY = 'ntet-floating-message-auto-opened';
+
 export default function FloatingMessageBox() {
   const pathname = usePathname();
+  const visitStartedAt = useRef(Date.now());
   const [enabled, setEnabled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [minimized, setMinimized] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -53,6 +58,8 @@ export default function FloatingMessageBox() {
   useEffect(() => {
     if (!isDesktop) {
       setEnabled(false);
+      setIsVisible(false);
+      setMinimized(false);
       setPanelHeight(null);
       return;
     }
@@ -73,6 +80,32 @@ export default function FloatingMessageBox() {
       isMounted = false;
     };
   }, [isDesktop]);
+
+  useEffect(() => {
+    if (!enabled || !isDesktop) {
+      setIsVisible(false);
+      setMinimized(false);
+      return;
+    }
+
+    if (isVisible) return;
+
+    if (window.sessionStorage.getItem(AUTO_OPEN_SESSION_KEY) === 'true') {
+      setIsVisible(true);
+      return;
+    }
+
+    const elapsed = Date.now() - visitStartedAt.current;
+    const delay = Math.max(0, AUTO_OPEN_DELAY_MS - elapsed);
+    const autoOpenTimer = window.setTimeout(() => {
+      window.sessionStorage.setItem(AUTO_OPEN_SESSION_KEY, 'true');
+      setIsVisible(true);
+    }, delay);
+
+    return () => {
+      window.clearTimeout(autoOpenTimer);
+    };
+  }, [enabled, isDesktop, isVisible]);
 
   useEffect(() => {
     if (!enabled || !isDesktop) return;
@@ -149,7 +182,7 @@ export default function FloatingMessageBox() {
     }
   };
 
-  if (!enabled) return null;
+  if (!enabled || !isVisible) return null;
 
   const shellStyle = panelHeight
     ? ({ '--floating-message-height': `${panelHeight}px` } as CSSProperties)
