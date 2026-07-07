@@ -209,54 +209,6 @@
   width: 230px;
 }
 
-.layerSection {
-  background: linear-gradient(180deg, #f8fbff 0%, #fff 100%);
-  padding: 54px max(20px, calc((100vw - 1240px) / 2 + 20px)) 62px;
-  border-bottom: 1px solid #e9eef7;
-}
-
-.layerGrid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  align-items: stretch;
-}
-
-.layerCard {
-  min-height: 210px;
-  padding: 0 24px;
-  text-align: center;
-  border-right: 1px solid #cfd9e9;
-}
-
-.layerCard:last-child {
-  border-right: 0;
-}
-
-.layerIcon {
-  width: 78px;
-  height: 78px;
-  display: grid;
-  place-items: center;
-  margin: 0 auto 18px;
-  color: var(--landing-blue);
-}
-
-.layerCard h3 {
-  margin: 0 0 14px;
-  color: var(--landing-blue);
-  font-size: 19px;
-  line-height: 1.25;
-  font-weight: 900;
-}
-
-.layerCard p {
-  max-width: 145px;
-  margin: 0 auto;
-  color: #172238;
-  font-size: 15px;
-  line-height: 1.65;
-}
-
 .equipmentSection,
 .packageSection,
 .inquirySection,
@@ -432,11 +384,12 @@
 
 .sectionEyebrow {
   display: inline-flex;
-  margin-bottom: 13px;
+  margin-bottom: 16px;
   color: var(--landing-blue);
-  font-size: 12px;
+  font-size: 15px;
+  line-height: 1.2;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -497,6 +450,89 @@
   font-weight: 800;
 }
 
+.problemIntro .sectionEyebrow {
+  color: #9fc0f4;
+}
+
+.painPointGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.painPointCard {
+  min-height: 258px;
+  padding: 26px 24px 24px;
+  background: rgba(8, 32, 67, 0.84);
+  border: 1px solid rgba(99, 247, 255, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 18px 34px rgba(0, 0, 0, 0.18);
+}
+
+.painPointIcon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  color: #63f7ff;
+  background: rgba(99, 247, 255, 0.1);
+  border: 1px solid rgba(99, 247, 255, 0.36);
+}
+
+.painPointCard h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.painPointCard p {
+  margin: 0;
+  color: #cfdeee;
+  font-size: 14px;
+  line-height: 1.52;
+}
+
+.painPointCard ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.painPointCard li {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #e7f7ff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.problemNote {
+  position: relative;
+  z-index: 1;
+  margin: -10px 0 34px;
+  padding: 16px 20px;
+  color: #ffd45c;
+  background: rgba(8, 32, 67, 0.72);
+  border: 1px solid rgba(99, 247, 255, 0.24);
+  border-left: 5px solid var(--landing-orange);
+  font-size: 17px;
+  line-height: 1.48;
+  font-weight: 900;
+}
+
 .problemGrid {
   position: relative;
   z-index: 1;
@@ -539,6 +575,133 @@
 .problemCard figcaption span {
   flex: 0 0 auto;
   line-height: 1;
+}
+
+.approachSection {
+  padding: 64px max(24px, calc((100vw - 1240px) / 2 + 24px)) 70px;
+  background:
+    linear-gradient(180deg, #fff 0%, #f7fbff 100%);
+  border-bottom: 1px solid #dfe8f5;
+}
+
+.approachHeader {
+  max-width: 850px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.approachHeader h2 {
+  margin: 0;
+  color: var(--landing-blue);
+  font-size: clamp(30px, 2.7vw, 44px);
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.approachHeader p {
+  max-width: 760px;
+  margin: 18px auto 0;
+  color: var(--landing-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.approachGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.approachCard {
+  position: relative;
+  min-height: 352px;
+  padding: 30px 28px 28px;
+  background: #fff;
+  border: 1px solid #d8e1ef;
+  border-top: 5px solid var(--landing-blue);
+  box-shadow: 0 18px 38px rgba(18, 50, 92, 0.08);
+}
+
+.approachIndex {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  color: rgba(0, 71, 173, 0.12);
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.approachIcon {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  color: var(--landing-blue);
+  background: #eef6ff;
+  border: 1px solid #d6e5fb;
+}
+
+.approachCard span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--landing-orange);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.approachCard h3 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 24px;
+  line-height: 1.16;
+  font-weight: 900;
+}
+
+.approachCard p {
+  margin: 0;
+  color: var(--landing-muted);
+  font-size: 14px;
+  line-height: 1.52;
+}
+
+.approachCard ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approachCard li {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #13243c;
+  background: #f3f7fd;
+  border: 1px solid #e0e9f6;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.approachNote {
+  max-width: 1040px;
+  margin: 24px auto 0;
+  padding: 18px 22px;
+  color: #13243c;
+  background: linear-gradient(90deg, #f2f7ff 0%, #ffffff 100%);
+  border: 1px solid #d8e5f6;
+  border-left: 5px solid var(--landing-orange);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 900;
+  text-align: center;
 }
 
 .compositionSection {
@@ -585,37 +748,138 @@
 
 .compositionFlow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) 44px minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 .compositionNode {
-  display: contents;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 12px;
 }
 
 .compositionCard {
-  min-height: 318px;
-  display: flex;
-  flex-direction: column;
-  padding: 28px 26px 24px;
+  width: 100%;
+  min-height: 206px;
+  display: grid;
+  grid-template-columns: 56px minmax(210px, 0.84fr) minmax(260px, 1fr) minmax(250px, 0.88fr);
+  gap: 18px 24px;
+  align-items: center;
+  padding: 28px 30px;
   background: rgba(11, 35, 71, 0.92);
   border: 1px dashed rgba(79, 222, 255, 0.62);
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.2);
 }
 
+.sensingCompositionCard {
+  min-height: 520px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: start;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(48, 142, 202, 0.26) 0%, rgba(9, 29, 58, 0) 52%),
+    linear-gradient(180deg, rgba(13, 38, 73, 0.98) 0%, rgba(6, 22, 47, 0.96) 100%);
+}
+
+.controlCompositionCard {
+  min-height: 430px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: start;
+  background:
+    radial-gradient(ellipse at 50% 115%, rgba(48, 142, 202, 0.23) 0%, rgba(9, 29, 58, 0) 54%),
+    linear-gradient(180deg, rgba(15, 40, 72, 0.98) 0%, rgba(7, 24, 48, 0.96) 100%);
+}
+
+.integratedCompositionCard {
+  min-height: 570px;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: start;
+  background:
+    radial-gradient(ellipse at 50% 116%, rgba(48, 142, 202, 0.25) 0%, rgba(9, 29, 58, 0) 55%),
+    linear-gradient(180deg, rgba(14, 40, 73, 0.98) 0%, rgba(6, 22, 47, 0.96) 100%);
+}
+
+.compositionLabel {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: start;
+  margin: 0;
+  color: #06162f;
+  background: #63f7ff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.sensingCompositionCard .compositionLabel,
+.controlCompositionCard .compositionLabel,
+.integratedCompositionCard .compositionLabel {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
 .compositionCard h3 {
-  margin: 0 0 16px;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0 0 10px;
   color: #fff;
-  font-size: 23px;
+  font-size: 21px;
   line-height: 1.18;
   font-weight: 900;
 }
 
+.sensingCompositionCard h3,
+.controlCompositionCard h3,
+.integratedCompositionCard h3 {
+  margin-bottom: 8px;
+  font-size: 26px;
+}
+
+.compositionCard strong {
+  grid-column: 2;
+  grid-row: 2;
+  display: block;
+  color: #63f7ff;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.sensingCompositionCard > strong,
+.controlCompositionCard > strong,
+.integratedCompositionCard > strong {
+  color: #f0a126;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.compositionCard p {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 0;
+  color: #cbdcf1;
+  font-size: 13px;
+  line-height: 1.48;
+}
+
+.sensingCompositionCard > p,
+.controlCompositionCard > p,
+.integratedCompositionCard > p {
+  max-width: 900px;
+  color: #d7e7f7;
+}
+
 .compositionCard ul {
+  grid-column: 3;
+  grid-row: 1 / span 3;
   display: grid;
   gap: 10px;
-  margin: 0 0 22px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -640,12 +904,14 @@
 }
 
 .compositionImages {
-  min-height: 112px;
+  grid-column: 4;
+  grid-row: 1 / span 3;
+  min-height: 128px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   gap: 12px;
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .compositionImageLink {
@@ -655,13 +921,10 @@
   width: clamp(86px, 31%, 132px);
   aspect-ratio: 1.618 / 1;
   max-width: 31%;
-  padding: 8px;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(184, 229, 255, 0.3) 0, rgba(66, 130, 192, 0.24) 36%, rgba(5, 19, 41, 0.96) 78%),
-    linear-gradient(145deg, #0d284f 0%, #071830 100%);
-  border: 1px solid rgba(101, 247, 255, 0.28);
+  padding: 5px;
+  background: #f8f9fa;
+  border: 1px solid rgba(226, 232, 240, 0.86);
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   overflow: hidden;
   isolation: isolate;
   transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), filter 0.22s cubic-bezier(0.4, 0, 0.2, 1);
@@ -679,8 +942,489 @@
   max-width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(1.14) contrast(1.08) drop-shadow(0 10px 14px rgba(0, 0, 0, 0.36));
+  filter: none;
   mix-blend-mode: normal;
+  transition: transform 0.5s ease;
+}
+
+.compositionImageLink:hover .compositionImage,
+.compositionImageLink:focus-visible .compositionImage {
+  transform: scale(1.05);
+}
+
+.sensingPptGrid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.sensingPptCard {
+  min-width: 0;
+  min-height: 258px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px 16px;
+  color: inherit;
+  text-decoration: none;
+  background:
+    linear-gradient(180deg, rgba(43, 73, 98, 0.74) 0%, rgba(21, 43, 64, 0.82) 100%);
+  border: 1px solid rgba(139, 169, 190, 0.42);
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.03), 0 18px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sensingPptCard:hover,
+.sensingPptCard:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(101, 247, 255, 0.72);
+  outline: none;
+}
+
+.sensingPptImageBox {
+  height: 124px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  margin-bottom: 12px;
+  background: #f8f9fa;
+  border: 1px solid rgba(226, 232, 240, 0.86);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sensingPptImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.5s ease;
+}
+
+.sensingPptCard:nth-child(3) .sensingPptImage,
+.sensingPptCard:nth-child(4) .sensingPptImage {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sensingPptCard:nth-child(3) .sensingPptImage {
+  object-position: center;
+}
+
+.sensingPptCard:nth-child(4) .sensingPptImage {
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+
+.sensingPptCard:hover .sensingPptImage,
+.sensingPptCard:focus-visible .sensingPptImage,
+.controlPptCard:hover .controlPptImage,
+.controlPptCard:focus-visible .controlPptImage {
+  transform: scale(1.05);
+}
+
+.sensingPptCard h4 {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-align: center;
+}
+
+.sensingPptCard ul {
+  display: grid;
+  gap: 7px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sensingPptCard li {
+  position: relative;
+  padding-left: 13px;
+  color: #d6e6f3;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.sensingPptCard li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  background: #63f7ff;
+}
+
+.sensingPptNote {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.sensingPptNote strong {
+  color: #f0a126;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.sensingPptNote span {
+  color: #e4f0fb;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.controlPptGroupTitle {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 23px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.controlPptGrid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 26px;
+}
+
+.controlPptCard {
+  min-width: 0;
+  min-height: 258px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  padding: 16px 14px 18px;
+  background:
+    linear-gradient(180deg, rgba(43, 73, 98, 0.74) 0%, rgba(21, 43, 64, 0.82) 100%);
+  border: 1px solid rgba(139, 169, 190, 0.42);
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.03), 0 18px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.24s cubic-bezier(0.4, 0, 0.2, 1), filter 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.controlPptCard:hover,
+.controlPptCard:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(101, 247, 255, 0.72);
+  filter: drop-shadow(0 16px 22px rgba(87, 214, 255, 0.22));
+  outline: none;
+}
+
+.controlPptImageBox {
+  width: 100%;
+  height: 132px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  margin-bottom: 16px;
+  background: #f8f9fa;
+  border: 1px solid rgba(226, 232, 240, 0.86);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.controlPptImage {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 116px !important;
+  display: block;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.5s ease;
+}
+
+.controlPptCard:nth-child(1) .controlPptImage {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 116px !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.controlPptCard:nth-child(2) .controlPptImage {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 116px !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.controlPptCard:nth-child(3) .controlPptImage {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 116px !important;
+  object-fit: contain;
+  object-position: center;
+}
+
+.controlPptCard h4 {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-align: center;
+}
+
+.controlPptCard > span {
+  width: 72px;
+  height: 1px;
+  margin: 16px 0 18px;
+  background: rgba(204, 222, 233, 0.42);
+}
+
+.controlPptCard ul {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.controlPptCard li {
+  position: relative;
+  padding-left: 13px;
+  color: #e0edf9;
+  font-size: 13px;
+  line-height: 1.42;
+  font-weight: 800;
+}
+
+.controlPptCard li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 5px;
+  height: 5px;
+  background: #63f7ff;
+}
+
+.controlPptNote {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 7px;
+  margin-top: 8px;
+  padding: 0 26px;
+}
+
+.controlPptNote strong {
+  color: #f0b22d;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.controlPptNote span {
+  color: #f0f7ff;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.integratedPptGrid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1.28fr) minmax(0, 0.86fr);
+  gap: 22px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.integratedPptGroup {
+  min-width: 0;
+  padding: 18px 16px 16px;
+  background:
+    linear-gradient(180deg, rgba(43, 73, 98, 0.55) 0%, rgba(21, 43, 64, 0.7) 100%);
+  border: 1px solid rgba(139, 169, 190, 0.42);
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.03), 0 18px 30px rgba(0, 0, 0, 0.16);
+}
+
+.integratedPptGroup h4 {
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.22;
+  font-weight: 900;
+}
+
+.integratedPptCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.integratedPptGroup:nth-child(2) .integratedPptCards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.integratedPptGroup:nth-child(3) .integratedPptCards {
+  grid-template-columns: 1fr;
+}
+
+.integratedPptCard {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  padding: 12px 10px 14px;
+  background:
+    linear-gradient(180deg, rgba(43, 73, 98, 0.72) 0%, rgba(21, 43, 64, 0.82) 100%);
+  border: 1px solid rgba(139, 169, 190, 0.42);
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.03), 0 14px 24px rgba(0, 0, 0, 0.14);
+  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.24s cubic-bezier(0.4, 0, 0.2, 1), filter 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.integratedPptCard:hover,
+.integratedPptCard:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(101, 247, 255, 0.72);
+  filter: drop-shadow(0 16px 22px rgba(87, 214, 255, 0.22));
+  outline: none;
+}
+
+.integratedPptImageBox,
+.integratedPptSceneBox {
+  width: 100%;
+  height: 106px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  margin-bottom: 13px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.integratedPptImageBox {
+  background: #f8f9fa;
+  border: 1px solid rgba(226, 232, 240, 0.86);
+}
+
+.integratedPptSceneBox {
+  background: linear-gradient(180deg, rgba(227, 239, 248, 0.14), rgba(15, 37, 63, 0.28));
+  border: 1px solid rgba(139, 169, 190, 0.34);
+}
+
+.integratedPptImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+  transition: transform 0.5s ease;
+}
+
+.integratedPptSceneBox .integratedPptImage {
+  object-fit: cover;
+}
+
+.integratedPptCard:hover .integratedPptImage,
+.integratedPptCard:focus-visible .integratedPptImage {
+  transform: scale(1.05);
+}
+
+.integratedPptCard h5 {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: 900;
+  text-align: center;
+}
+
+.integratedPptCard > span {
+  width: 62px;
+  height: 1px;
+  margin: 13px auto 14px;
+  background: rgba(204, 222, 233, 0.42);
+}
+
+.integratedPptCard p {
+  min-height: 54px;
+  margin: 0 0 12px;
+  color: #e0edf9;
+  font-size: 12px;
+  line-height: 1.42;
+  font-weight: 800;
+}
+
+.integratedPptCard ul {
+  display: grid;
+  gap: 7px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.integratedPptCard li {
+  position: relative;
+  padding-left: 13px;
+  color: #f1f7ff;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.integratedPptCard li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  background: #63f7ff;
+}
+
+.integratedPptNote {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.integratedPptNote strong {
+  color: #f0b22d;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.integratedPptNote span {
+  color: #f0f7ff;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .compositionImageStatic {
@@ -702,8 +1446,10 @@
 .compositionPlus {
   display: grid;
   place-items: center;
+  width: 44px;
+  height: 44px;
   color: #1086df;
-  font-size: 68px;
+  font-size: 42px;
   line-height: 1;
   font-weight: 600;
 }
@@ -859,66 +1605,6 @@
   line-height: 1.15;
   font-weight: 900;
   text-align: center;
-}
-
-.scenarioSection {
-  padding: 58px max(20px, calc((100vw - 1240px) / 2 + 20px));
-}
-
-.scenarioSection {
-  background: #fff;
-  border-bottom: 1px solid #e9eef7;
-}
-
-.scenarioGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.scenarioCard {
-  min-height: 150px;
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
-  gap: 16px;
-  align-items: flex-start;
-  padding: 24px;
-  background: #fff;
-  border: 1px solid #d8e1ef;
-  border-radius: 6px;
-  box-shadow: 0 10px 26px rgba(18, 50, 92, 0.06);
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.scenarioCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 36px rgba(18, 50, 92, 0.12);
-}
-
-.scenarioIcon {
-  width: 54px;
-  height: 54px;
-  display: grid;
-  place-items: center;
-  color: var(--landing-blue);
-  background: #f1f6ff;
-  border: 1px solid #d6e5fb;
-  border-radius: 50%;
-}
-
-.scenarioCard h3 {
-  margin: 0 0 9px;
-  color: #111827;
-  font-size: 19px;
-  line-height: 1.25;
-  font-weight: 900;
-}
-
-.scenarioCard p {
-  margin: 0;
-  color: var(--landing-muted);
-  font-size: 14px;
-  line-height: 1.55;
 }
 
 .packageSection {
@@ -1224,37 +1910,6 @@
   display: none;
 }
 
-.mobileLayerGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: #dbe4f0;
-  border: 1px solid #dbe4f0;
-}
-
-.mobileLayerCard {
-  min-height: 138px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 10px;
-  text-align: center;
-  background: #fff;
-}
-
-.mobileLayerCard svg {
-  color: var(--landing-blue);
-}
-
-.mobileLayerCard h3 {
-  margin: 12px 0 0;
-  color: var(--landing-blue);
-  font-size: 15px;
-  line-height: 1.22;
-  font-weight: 900;
-}
-
 .mobileEquipmentGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1474,6 +2129,11 @@
 }
 
 @media (max-width: 991px) {
+  .sectionEyebrow {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
   .problemSection {
     scroll-margin-top: 116px;
     padding: 34px 16px 42px;
@@ -1490,6 +2150,37 @@
   .problemIntro p {
     font-size: 14px;
     line-height: 1.5;
+  }
+
+  .painPointGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .painPointCard {
+    min-height: auto;
+    padding: 20px 18px;
+  }
+
+  .painPointIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+  }
+
+  .painPointCard h3 {
+    font-size: 22px;
+  }
+
+  .painPointCard p {
+    font-size: 13px;
+  }
+
+  .problemNote {
+    margin: -8px 0 24px;
+    padding: 14px 16px;
+    font-size: 14px;
   }
 
   .problemGrid {
@@ -1510,6 +2201,54 @@
     margin-top: 8px;
     font-size: 12px;
     line-height: 1.35;
+  }
+
+  .approachSection {
+    padding: 36px 16px 42px;
+  }
+
+  .approachHeader {
+    margin-bottom: 22px;
+    text-align: left;
+  }
+
+  .approachHeader h2 {
+    font-size: 28px;
+  }
+
+  .approachHeader p {
+    font-size: 14px;
+  }
+
+  .approachGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .approachCard {
+    min-height: auto;
+    padding: 24px 18px 22px;
+  }
+
+  .approachIndex {
+    top: 18px;
+    right: 18px;
+    font-size: 46px;
+  }
+
+  .approachCard h3 {
+    font-size: 21px;
+  }
+
+  .approachCard ul {
+    grid-template-columns: 1fr;
+  }
+
+  .approachNote {
+    margin-top: 16px;
+    padding: 15px 16px;
+    font-size: 14px;
+    text-align: left;
   }
 
   .compositionSection,
@@ -1552,7 +2291,36 @@
 
   .compositionCard {
     min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     padding: 22px 18px;
+  }
+
+  .sensingCompositionCard,
+  .controlCompositionCard,
+  .integratedCompositionCard {
+    min-height: auto;
+  }
+
+  .compositionCard strong {
+    min-height: auto;
+  }
+
+  .compositionCard h3,
+  .compositionCard strong,
+  .compositionCard p,
+  .compositionCard ul,
+  .compositionImages {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .compositionLabel {
+    grid-column: auto;
+    grid-row: auto;
+    align-self: flex-start;
+    margin-bottom: 14px;
   }
 
   .compositionCard h3,
@@ -1566,6 +2334,168 @@
 
   .compositionImages {
     min-height: 94px;
+  }
+
+  .sensingPptGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .sensingPptCard {
+    min-height: auto;
+    padding: 16px 14px;
+  }
+
+  .sensingPptImageBox {
+    box-sizing: border-box;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    padding: 10px;
+  }
+
+  .sensingPptImage,
+  .sensingPptCard:nth-child(3) .sensingPptImage,
+  .sensingPptCard:nth-child(4) .sensingPptImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .sensingPptCard h4 {
+    min-height: auto;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .sensingPptNote strong,
+  .sensingPptNote span {
+    font-size: 13px;
+  }
+
+  .controlPptGroupTitle {
+    font-size: 18px;
+  }
+
+  .controlPptGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 14px;
+    padding: 0;
+  }
+
+  .controlPptCard {
+    min-height: auto;
+    align-items: stretch;
+    padding: 16px 14px;
+    background:
+      linear-gradient(180deg, rgba(43, 73, 98, 0.62) 0%, rgba(21, 43, 64, 0.74) 100%);
+    border: 1px solid rgba(139, 169, 190, 0.34);
+  }
+
+  .controlPptImageBox {
+    box-sizing: border-box;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .controlPptImage,
+  .controlPptCard:nth-child(1) .controlPptImage,
+  .controlPptCard:nth-child(2) .controlPptImage,
+  .controlPptCard:nth-child(3) .controlPptImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain;
+  }
+
+  .controlPptCard h4 {
+    min-height: auto;
+    justify-content: flex-start;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .controlPptCard > span {
+    width: 64px;
+    margin: 12px 0;
+  }
+
+  .controlPptNote {
+    padding: 0;
+  }
+
+  .controlPptNote strong {
+    font-size: 15px;
+  }
+
+  .controlPptNote span {
+    font-size: 13px;
+  }
+
+  .integratedPptGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .integratedPptGroup {
+    padding: 16px 14px;
+  }
+
+  .integratedPptGroup h4 {
+    font-size: 18px;
+  }
+
+  .integratedPptCards,
+  .integratedPptGroup:nth-child(2) .integratedPptCards,
+  .integratedPptGroup:nth-child(3) .integratedPptCards {
+    grid-template-columns: 1fr;
+  }
+
+  .integratedPptImageBox {
+    box-sizing: border-box;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    padding: 10px;
+  }
+
+  .integratedPptImageBox .integratedPptImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .integratedPptSceneBox {
+    height: 126px;
+  }
+
+  .integratedPptCard h5 {
+    min-height: auto;
+    justify-content: flex-start;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .integratedPptCard > span {
+    width: 64px;
+    margin: 12px 0;
+  }
+
+  .integratedPptCard p {
+    min-height: auto;
+    font-size: 13px;
+  }
+
+  .integratedPptNote strong {
+    font-size: 15px;
+  }
+
+  .integratedPptNote span {
+    font-size: 13px;
   }
 
   .compositionImage {
@@ -1606,43 +2536,9 @@
     font-size: 12px;
   }
 
-  .scenarioSection {
-    padding: 36px 16px;
-  }
-
-  .scenarioSection .sectionHeader {
-    margin-bottom: 22px;
-  }
-
   .sectionHeader p {
     margin-top: 22px;
     font-size: 14px;
-  }
-
-  .scenarioGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .scenarioCard {
-    min-height: auto;
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 14px;
-    padding: 18px 16px;
-    box-shadow: none;
-  }
-
-  .scenarioIcon {
-    width: 44px;
-    height: 44px;
-  }
-
-  .scenarioCard h3 {
-    font-size: 17px;
-  }
-
-  .scenarioCard p {
-    font-size: 13px;
   }
 
   .mobilePage :global(.product-breadcrumb-nav) {
@@ -1680,9 +2576,6 @@
     font-size: 22px;
   }
 
-  .mobileLayerCard h3 {
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 1180px) and (min-width: 992px) {
@@ -1707,7 +2600,4 @@
     width: 214px;
   }
 
-  .layerCard {
-    padding: 0 14px;
-  }
 }

@@ -3,19 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
-  Building2,
   CheckCircle2,
   ClipboardList,
-  Factory,
-  FileClock,
-  Landmark,
-  Plane,
   RadioTower,
   Route,
   ScanSearch,
-  Ship,
   Target,
-  Zap,
 } from 'lucide-react';
 import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
 import InquiryForm from '@/components/products/InquiryForm';
@@ -153,9 +146,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Directional RF site unit': 'Направленный RF-модуль объекта',
     'Directional RF event logging': 'Регистрация направленных RF-событий',
     'Supports positioning and response review': 'Поддерживает позиционирование и проверку реагирования',
-    'Choose by Site Type': 'Выберите тип объекта',
-    'Select the operating environment closest to your site, then request a C-UAS layout and quotation.':
-      'Выберите рабочую среду, наиболее близкую к вашему объекту, затем запросите схему C-UAS и коммерческое предложение.',
     'Unauthorized Drone Events Are Increasing': 'Количество несанкционированных событий с дронами растет',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'Типовые ситуации для охраняемых объектов, транспортных зон, общественных зданий, инженерных коридоров и критичных операций.',
@@ -177,7 +167,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
       'Для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров. N-TET помогает спланировать C-UAS по реальным условиям объекта: сенсорное оборудование, проверка оператором, записи платформы и стационарные, мобильные на автомобиле или переносные варианты развертывания.',
     'Get Site Layout & Quote': 'Получить схему объекта и предложение',
     'WhatsApp Chat': 'Чат WhatsApp',
-    'Low-Altitude C-UAS Workflow': 'Процесс C-UAS для низких высот',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'Основано на стационарных и мобильных схемах работы: спланировать объект, поднять раннее предупреждение, идентифицировать, позиционировать, сопровождать, координировать реагирование и сохранять проверяемые записи.',
     'C-UAS Equipment for Site Plans': 'Оборудование C-UAS для планов объектов',
@@ -202,7 +191,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Water Conservancy Facility Low-Altitude C-UAS': 'C-UAS низких высот для водохозяйственного объекта',
     'Learn More': 'Подробнее',
     'Airspace Security': 'Безопасность воздушного пространства',
-    'Workflow': 'Процесс',
     'C-UAS Equipment Options': 'Варианты оборудования C-UAS',
     'Site Operations': 'Операции на объекте',
     'View': 'Открыть',
@@ -325,9 +313,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Directional RF site unit': 'Unidad RF direccional del sitio',
     'Directional RF event logging': 'Registro de eventos RF direccionales',
     'Supports positioning and response review': 'Soporta posicionamiento y revisión de respuesta',
-    'Choose by Site Type': 'Elegir por tipo de sitio',
-    'Select the operating environment closest to your site, then request a C-UAS layout and quotation.':
-      'Seleccione el entorno operativo más cercano a su sitio y solicite un diseño C-UAS y una cotización.',
     'Unauthorized Drone Events Are Increasing': 'Los eventos no autorizados con drones están aumentando',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'Patrones observados en sitios controlados, áreas de transporte, edificios públicos, corredores de servicios y operaciones críticas.',
@@ -349,7 +334,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
       'Para aeropuertos, refinerías, plantas eléctricas, puertos, recintos y grandes perímetros. N-TET ayuda a planificar una configuración C-UAS desde condiciones reales del sitio: equipos de sensado, revisión del operador, registros de plataforma y opciones fijas, móviles en vehículo o portátiles.',
     'Get Site Layout & Quote': 'Solicitar diseño del sitio y cotización',
     'WhatsApp Chat': 'Chat por WhatsApp',
-    'Low-Altitude C-UAS Workflow': 'Flujo C-UAS de baja altitud',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'Adaptado a patrones de operación fija y móvil: planificar el sitio, activar alerta temprana, identificar, posicionar, seguir, coordinar respuesta y conservar registros revisables.',
     'C-UAS Equipment for Site Plans': 'Equipos C-UAS para planes de sitio',
@@ -374,7 +358,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Water Conservancy Facility Low-Altitude C-UAS': 'C-UAS de baja altitud para instalación hidráulica',
     'Learn More': 'Más información',
     'Airspace Security': 'Seguridad aérea',
-    'Workflow': 'Flujo de trabajo',
     'C-UAS Equipment Options': 'Opciones de equipos C-UAS',
     'Site Operations': 'Operaciones del sitio',
     'View': 'Ver',
@@ -497,9 +480,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Directional RF site unit': 'وحدة RF اتجاهية للموقع',
     'Directional RF event logging': 'تسجيل أحداث RF اتجاهية',
     'Supports positioning and response review': 'يدعم تحديد الموقع ومراجعة الاستجابة',
-    'Choose by Site Type': 'اختر حسب نوع الموقع',
-    'Select the operating environment closest to your site, then request a C-UAS layout and quotation.':
-      'اختر بيئة التشغيل الأقرب إلى موقعك، ثم اطلب مخطط C-UAS وعرض السعر.',
     'Unauthorized Drone Events Are Increasing': 'أحداث الطائرات بدون طيار غير المصرح بها في ازدياد',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'أنماط تظهر في المواقع الخاضعة للسيطرة ومناطق النقل والمباني العامة وممرات الخدمات والعمليات الحرجة.',
@@ -521,7 +501,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
       'للمطارات والمصافي ومحطات الطاقة والموانئ والمرافق والمحيطات الواسعة. تساعد N-TET في تخطيط إعداد C-UAS من ظروف الموقع الفعلية: معدات الاستشعار، مراجعة المشغل، سجلات المنصة، وخيارات النشر الثابتة أو المتنقلة بالمركبة أو المحمولة.',
     'Get Site Layout & Quote': 'اطلب مخطط الموقع وعرض السعر',
     'WhatsApp Chat': 'محادثة WhatsApp',
-    'Low-Altitude C-UAS Workflow': 'سير عمل C-UAS منخفض الارتفاع',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'مقتبس من أنماط التشغيل الثابتة والمتحركة: تخطيط الموقع، إطلاق الإنذار المبكر، التعريف، تحديد الموقع، التتبع، تنسيق الاستجابة، والاحتفاظ بسجلات قابلة للمراجعة.',
     'C-UAS Equipment for Site Plans': 'معدات C-UAS لخطط المواقع',
@@ -546,7 +525,6 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Water Conservancy Facility Low-Altitude C-UAS': 'C-UAS منخفض الارتفاع لمنشأة مائية',
     'Learn More': 'اعرف المزيد',
     'Airspace Security': 'أمن المجال الجوي',
-    'Workflow': 'سير العمل',
     'C-UAS Equipment Options': 'خيارات معدات C-UAS',
     'Site Operations': 'عمليات الموقع',
     'View': 'عرض',
@@ -558,11 +536,49 @@ function copy(locale: Locale, value: string) {
   return localizedStrings[locale]?.[value] || value;
 }
 
-const heroPoints = [
-  'Fixed, vehicle-mobile, or portable coverage',
-  'RF, radar, EO, and Remote ID in one plan',
-  'Early warning, identify, position, track, and handle',
-  'Site layout, equipment list, records, and quote',
+const painPoints = [
+  {
+    title: 'Cannot See',
+    text: 'Where is it flying? Who is operating it? Low-altitude targets are hard to perceive across complex sites.',
+    points: ['Urban blind zones', 'Weak small-target signals', 'Incomplete sensing coverage'],
+    icon: ScanSearch,
+  },
+  {
+    title: 'Cannot Identify',
+    text: 'Authorized flights, unknown targets, and risky activity are difficult to separate in real time.',
+    points: ['Unclear identity', 'Visual background confusion', 'Weather and signal complexity'],
+    icon: Target,
+  },
+  {
+    title: 'Cannot Control',
+    text: 'After detection, single-device handling and manual workflows are often not timely, precise, or traceable.',
+    points: ['Slow response chain', 'Multi-team coordination', 'Traceable records needed'],
+    icon: Route,
+  },
+];
+
+const solutionPillars = [
+  {
+    title: 'See Clearly',
+    subtitle: 'Multi-source sensing',
+    text: 'Use multi-source sensing to make low-altitude activity visible across the protected site.',
+    points: ['Wireless RF detection', 'Low-altitude radar', 'EO identification', 'Remote ID'],
+    icon: RadioTower,
+  },
+  {
+    title: 'Identify Clearly',
+    subtitle: 'Intelligent judgement',
+    text: 'Combine tracks, features, identity clues, and risk levels so operators can judge the event with context.',
+    points: ['Identification and tracking algorithms', 'Feature and type analysis', 'Target identity verification', 'Threat-level assessment'],
+    icon: ScanSearch,
+  },
+  {
+    title: 'Control Reliably',
+    subtitle: 'Precise approved response',
+    text: 'Connect approved response options, field teams, and platform records into a coordinated handling loop.',
+    points: ['RF signal control', 'Navigation-signal guidance', 'Physical capture option', 'Directed-energy option'],
+    icon: ClipboardList,
+  },
 ];
 
 const incidentGallery = [
@@ -600,79 +616,157 @@ const incidentGallery = [
   },
 ];
 
-const systemLayers = [
+const equipmentCapabilityGroups = [
   {
-    title: 'Site Plan',
-    text: 'Define perimeter zones, key areas, operator roles, alert contacts, and a practical C-UAS layout before selecting equipment.',
-    icon: ClipboardList,
-  },
-  {
-    title: 'Early Warning',
-    text: 'Use RF, radar, EO, and Remote ID inputs to raise early warning when low-altitude activity appears near the site.',
-    icon: RadioTower,
-  },
-  {
-    title: 'Identification',
-    text: 'Compare signal, position, visual, and available identity clues so operators can classify the event before response.',
-    icon: ScanSearch,
-  },
-  {
-    title: 'Positioning',
-    text: 'Show the target position and activity area on the map to support command-room review and field coordination.',
-    icon: Target,
-  },
-  {
-    title: 'Tracking',
-    text: 'Keep the movement path, status changes, and review notes visible as the event moves across the perimeter.',
-    icon: Route,
-  },
-  {
-    title: 'Response & Records',
-    text: 'Link alerts, operator notes, and event records for response review, reporting, and later system optimization.',
-    icon: FileClock,
-  },
-];
-
-const compositionCards = [
-  {
-    title: 'Airspace Sensing Module',
-    points: ['RF signal awareness', 'Low-altitude radar coverage', 'Electro-optical verification'],
-    images: [
+    label: 'A',
+    title: 'Sensing & Detection',
+    subtitle: 'Multi-source fusion for all-site awareness',
+    text: 'Build the first layer with RF detection, low-altitude radar, EO tracking, and Remote ID recognition so different target types can be noticed and reviewed.',
+    sensingCards: [
       {
+        title: 'Wireless RF Detection',
+        points: ['Detection range up to 10 km', '800+ model library', 'Protocol parsing and direction finding'],
         src: '/products/02-drone-detection/stationary-rf-detection-system.webp',
         alt: 'Stationary RF awareness unit',
         href: '/products/stationary-rf-detection-system',
       },
       {
+        title: 'Low-Altitude Radar',
+        points: ['Multi-target tracking', 'Detects silent drones', 'Range, bearing, speed, and altitude'],
         src: '/products/02-drone-detection/low-altitude-detection-radar.webp',
         alt: 'Low-altitude radar unit',
         href: '/products/low-altitude-detection-radar-ku-band',
       },
       {
+        title: 'Electro-Optical Identification',
+        points: ['Visual evidence capture', 'Day / night tracking options', 'Target category recognition'],
         src: '/products/02-drone-detection/electro-optical-tracking-system.webp',
         alt: 'Electro-optical verification unit',
         href: '/products/composite-electro-optical-tracking-system',
       },
-    ],
-  },
-  {
-    title: 'Review & Coordination Module',
-    points: ['Multi-source alert review', 'Visual confirmation workflow', 'Patrol and command-room coordination'],
-    images: [
       {
-        src: '/products/02-drone-detection/portable-rf-detection-case.webp',
-        alt: 'Portable field C-UAS kit',
-        href: '/products/portable-rf-detection-case',
-      },
-      {
+        title: 'Remote ID Monitoring Device',
+        points: ['Reads electronic identity', 'Filters authorized UAV activity', 'Supports Remote ID compliance review'],
         src: '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp',
-        alt: 'Remote ID review equipment',
+        alt: 'Remote ID monitoring equipment',
         href: '/products/uav-remote-id-monitoring-system',
       },
     ],
+    note: 'Pursue single-device sensing performance while emphasizing multi-technology coordination.',
+    summary:
+      'RF detection, radar, EO, protocol parsing, and Remote ID can be selected according to the site scenario, then fused to strengthen low-altitude awareness.',
   },
   {
+    label: 'B',
+    title: 'Response & Control',
+    subtitle: 'Soft response equipment for full-site handling',
+    text: 'Use fixed, navigation-signal, and portable response equipment according to site rules, deployment time, and operator approval workflow.',
+    controlGroupLabel: 'Soft Response (Electromagnetic Means)',
+    controlCards: [
+      {
+        title: 'Fixed C-UAS Site Unit',
+        points: ['Control and video-link bands', 'Key-band and model-profile setup', 'Remote supervision and guard duty'],
+        src: '/products/rf-systems/stationary-rf-analysis-unit.webp',
+        alt: 'Fixed C-UAS site unit',
+        href: '/products/stationary-active-rf-defense-system',
+      },
+      {
+        title: 'C-UAS Signal Verification System',
+        points: ['Navigation-signal scenario support', 'Guide activity away from protected lines', 'Compact, low-disruption deployment'],
+        src: '/products/rf-systems/navigation-signal-analysis-system.webp',
+        alt: 'C-UAS signal verification equipment',
+        href: '/products/uav-navigation-airspace-data-verification-system',
+      },
+      {
+        title: 'Portable C-UAS Field Shield',
+        points: ['Ready-to-use field support', 'Single-person temporary deployment', 'Simple operation for approved sites'],
+        src: '/products/rf-systems/portable-rf-field-unit.webp',
+        alt: 'Portable response shield equipment',
+        href: '/products/portable-low-altitude-monitoring-event-logging-shield',
+      },
+    ],
+    note: 'Soft response first; hard response only as fallback.',
+    summary:
+      'Typical sites prioritize electromagnetic response methods because they are easier to approve, lower-disruption, and lower-collateral when used under local authorization.',
+  },
+  {
+    label: 'C',
+    title: 'Detection-and-Response Integrated Units',
+    subtitle: 'Detection, identification, and response in one unit',
+    text: 'Use integrated portable, fixed-site, and vehicle-mobile units when the site needs sensing, operator confirmation, and approved response in one deployable system.',
+    integratedGroups: [
+      {
+        title: 'Single-Operator',
+        cards: [
+          {
+            title: 'Backpack Detection-and-Response Kit',
+            text: 'Single-operator sensing, positioning, tracking, and response support.',
+            points: ['Accurate field use', 'Portable deployment', 'Lightweight operation'],
+            src: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp',
+            alt: 'Backpack integrated C-UAS field kit',
+            href: '/products/portable-integrated-detection-event-logging-pro-low-altitude-monitoring',
+          },
+          {
+            title: 'Portable Detection-and-Response Unit',
+            text: 'Hand-carried unit for visual operation and rapid approved response.',
+            points: ['Visual operation', 'Automatic response support', 'Rugged outdoor build'],
+            src: '/products/rf-systems/portable-navigation-signal-analysis-unit.webp',
+            alt: 'Portable C-UAS field unit',
+            href: '/products/portable-active-rf-defense-system',
+          },
+        ],
+      },
+      {
+        title: 'Fixed-Site',
+        cards: [
+          {
+            title: 'Fixed Detection-and-Response Unit',
+            text: 'Integrated high-performance site equipment for key-area coverage.',
+            points: ['Multiple response profiles', 'Key-area protection', 'Precise event handling'],
+            src: '/products/rf-systems/stationary-rf-analysis-unit.webp',
+            alt: 'Fixed detection and response site unit',
+            href: '/products/stationary-active-rf-defense-system',
+          },
+          {
+            title: 'Fixed Detection-Guidance-Response Unit',
+            text: 'Full-band sensing with low-disruption guidance workflows.',
+            points: ['High-performance design', 'Long-range approved response', 'Self-built profile library'],
+            src: '/products/rf-systems/navigation-signal-analysis-system.webp',
+            alt: 'Fixed signal verification and guidance unit',
+            href: '/products/uav-navigation-airspace-data-verification-system',
+          },
+          {
+            title: 'Radar-Vision Integrated Unit',
+            text: 'Radar and optical fusion for target search and visual confirmation.',
+            points: ['Radar wide-area search', 'RF and visual correlation', 'EO confirmation'],
+            src: '/products/surveillance/FC-RDS500-4R-Radar-Vision-Sentinel.webp',
+            alt: 'Radar vision fusion system',
+            href: '/products/fc-rds500-4r-radar-vision-sentinel',
+          },
+        ],
+      },
+      {
+        title: 'Mobile Vehicle',
+        cards: [
+          {
+            title: 'Vehicle-Mobile C-UAS Unit',
+            text: 'Vehicle-mounted sensing and response equipment for mobile patrol and temporary coverage.',
+            points: ['On-site calibration', 'Platform mobility', 'Configurable equipment'],
+            src: '/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp',
+            alt: 'Vehicle-mobile C-UAS unit',
+          },
+        ],
+      },
+    ],
+    note: 'Detection, identification, and response are designed as one integrated workflow.',
+    summary:
+      'From single-operator field kits to fixed-site systems and mobile vehicle deployments, equipment can be selected by scenario and deployed as a compact operating system.',
+  },
+  {
+    label: 'D',
     title: 'Low-Altitude Management Platform',
+    subtitle: 'Unified command, map, alert, and records',
+    text: 'Connect radar, RF, EO, Remote ID, operator review, response linkage, and event records on one platform.',
     points: ['Fixed command workstation', 'Mobile operator access', 'Map, alert, and record management'],
     images: [
       {
@@ -680,33 +774,6 @@ const compositionCards = [
         alt: 'Low-altitude management platform interface',
       },
     ],
-  },
-];
-
-const deploymentModes = [
-  {
-    title: 'Fixed Site Coverage',
-    subtitle: 'Always-on coverage for planned perimeters',
-    image: '/products/02-drone-detection/stationary-rf-detection-system.webp',
-    alt: 'Fixed low-altitude C-UAS equipment',
-    href: '/products/stationary-rf-detection-system',
-    steps: ['Plan', 'Early Warning', 'Identification', 'Positioning', 'Tracking', 'Handling'],
-  },
-  {
-    title: 'Vehicle-Mobile Option',
-    subtitle: 'Mobile coverage for temporary or changing sites',
-    image: '/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp',
-    alt: 'Vehicle-mobile C-UAS equipment',
-    imageClass: 'deploymentVehicleImage',
-    steps: ['Plan', 'Early Warning', 'Identification', 'Handling'],
-  },
-  {
-    title: 'Portable Field Option',
-    subtitle: 'Flexible support for field teams and temporary tasks',
-    image: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp',
-    alt: 'Integrated C-UAS field kit pro',
-    href: '/products/portable-integrated-detection-event-logging-pro-low-altitude-monitoring',
-    steps: ['Flexible Setup', 'Quick Response'],
   },
 ];
 
@@ -761,106 +828,6 @@ const caseReferences = [
     title: 'Water Conservancy Facility Low-Altitude C-UAS',
     image: '/cases/water-conservancy-security/main.webp',
     href: '/cases/water-conservancy-security',
-  },
-];
-
-const siteScenarios = [
-  {
-    title: 'Airport / Runway Protection',
-    text: 'Plan RF, radar, EO, and event records around runways, aprons, boundary roads, and operation zones.',
-    icon: Plane,
-  },
-  {
-    title: 'Oil & Gas / Refinery Protection',
-    text: 'Support early warning, identification, and tracking around process units, tank farms, loading areas, and logistics gates.',
-    icon: Factory,
-  },
-  {
-    title: 'Power Plant & Substation Protection',
-    text: 'Support early warning, alert review, and command workflows for critical energy facilities.',
-    icon: Zap,
-  },
-  {
-    title: 'Port & Border Perimeter Coverage',
-    text: 'Build wide-area awareness for docks, storage yards, border zones, and long perimeters.',
-    icon: Ship,
-  },
-  {
-    title: 'Controlled Facility / Key Area Security',
-    text: 'Identify, locate, and review low-altitude activity around controlled zones and high-value facilities.',
-    icon: Landmark,
-  },
-  {
-    title: 'Stadium & Event Airspace Security',
-    text: 'Support temporary or fixed C-UAS plans for venues, events, and public operations.',
-    icon: Building2,
-  },
-];
-
-const relatedEquipment = [
-  {
-    title: 'Stationary RF Identification System',
-    role: 'Fixed RF early warning',
-    image: '/products/02-drone-detection/stationary-rf-detection-system.webp',
-    href: '/products/stationary-rf-detection-system',
-    imageClass: 'equipmentImageRf',
-    points: ['Fixed-site RF awareness', 'Early warning and event records'],
-  },
-  {
-    title: 'Low-Altitude Early-Warning Radar (Ku-Band)',
-    role: 'Wide-area positioning',
-    image: '/products/02-drone-detection/low-altitude-detection-radar.webp',
-    href: '/products/low-altitude-detection-radar-ku-band',
-    imageClass: 'equipmentImageRadar',
-    points: ['Wide-area low-altitude coverage', 'Positioning and tracking support'],
-  },
-  {
-    title: 'Low-Altitude Early-Warning Radar (X-Band)',
-    role: 'Extended radar option',
-    image: '/products/02-drone-detection/low-altitude-detection-radar-x-band.webp',
-    href: '/products/low-altitude-3d-pulse-doppler-radar',
-    imageClass: 'equipmentImageRadar',
-    points: ['3D target positioning support', 'Track review for larger perimeters'],
-  },
-  {
-    title: 'Electro-Optical Tracking System',
-    role: 'Visual identification',
-    image: '/products/02-drone-detection/electro-optical-tracking-system.webp',
-    href: '/products/composite-electro-optical-tracking-system',
-    imageClass: 'equipmentImageOptical',
-    points: ['Visual identification and review', 'Day and night tracking support'],
-  },
-  {
-    title: 'UAV Remote ID Recognition System',
-    role: 'Identity review',
-    image: '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp',
-    href: '/products/uav-remote-id-monitoring-system',
-    imageClass: 'equipmentImagePortable',
-    points: ['Remote ID information reading', 'Operator review and records'],
-  },
-  {
-    title: 'Portable RF Identification System',
-    role: 'Field verification',
-    image: '/products/02-drone-detection/portable-rf-detection-case.webp',
-    href: '/products/portable-rf-detection-case',
-    imageClass: 'equipmentImagePortable',
-    points: ['Portable field deployment', 'Event review and handover support'],
-  },
-  {
-    title: 'Handheld RF Identification System',
-    role: 'Mobile signal review',
-    image: '/products/02-drone-detection/handheld-rf-detection-system-pl280h.webp',
-    href: '/products/handheld-rf-detection-system-mini',
-    imageClass: 'equipmentImageHandheld',
-    points: ['Handheld signal identification', 'Flexible perimeter patrol support'],
-  },
-  {
-    title: 'Directional RF Event Logging Unit',
-    role: 'Directional RF site review',
-    image: '/products/rf-systems/directional-rf-unit.webp',
-    href: '/products/directional-rf-event-logging',
-    imageClass: 'equipmentImageDirectional',
-    points: ['Directional RF event logging', 'Positioning and response review support'],
   },
 ];
 
@@ -941,41 +908,37 @@ function HeroVisual({ locale }: { locale: Locale }) {
   );
 }
 
-function ScenarioEntrance({ locale }: { locale: Locale }) {
-  return (
-    <section className={styles.scenarioSection}>
-      <div className={styles.sectionHeader}>
-        <h2>{copy(locale, 'Choose by Site Type')}</h2>
-        <p>{copy(locale, 'Select the operating environment closest to your site, then request a C-UAS layout and quotation.')}</p>
-      </div>
-      <div className={styles.scenarioGrid}>
-        {siteScenarios.map((item) => {
-          const Icon = item.icon;
-          return (
-            <article className={styles.scenarioCard} key={item.title}>
-              <div className={styles.scenarioIcon}>
-                <Icon size={28} strokeWidth={1.9} aria-hidden="true" />
-              </div>
-              <div>
-                <h3>{copy(locale, item.title)}</h3>
-                <p>{copy(locale, item.text)}</p>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
 function SiteProblemSection({ locale }: { locale: Locale }) {
   return (
     <section className={styles.problemSection}>
       <div className={styles.problemIntro}>
-        <h2>{copy(locale, 'Unauthorized Drone Events Are Increasing')}</h2>
+        <span className={styles.sectionEyebrow}>{copy(locale, 'Core challenge')}</span>
+        <h2>{copy(locale, 'Cannot See, Cannot Identify, Cannot Control')}</h2>
         <p>
-          {copy(locale, 'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.')}
+          {copy(locale, 'Fast-growing UAV activity and slower management tools create low-altitude blind zones. Site teams first need to see targets, identify events, and keep the handling process under control.')}
         </p>
+      </div>
+      <div className={styles.painPointGrid}>
+        {painPoints.map((item) => {
+          const Icon = item.icon;
+          return (
+            <article className={styles.painPointCard} key={item.title}>
+              <div className={styles.painPointIcon}>
+                <Icon size={30} strokeWidth={1.9} aria-hidden="true" />
+              </div>
+              <h3>{copy(locale, item.title)}</h3>
+              <p>{copy(locale, item.text)}</p>
+              <ul>
+                {item.points.map((point) => (
+                  <li key={point}>{copy(locale, point)}</li>
+                ))}
+              </ul>
+            </article>
+          );
+        })}
+      </div>
+      <div className={styles.problemNote}>
+        {copy(locale, 'Airports, route operations, key-site security, major events, and urban low-altitude management all need a system-level low-altitude security solution.')}
       </div>
       <div className={styles.problemGrid}>
         {incidentGallery.map((item) => (
@@ -998,121 +961,223 @@ function SiteProblemSection({ locale }: { locale: Locale }) {
   );
 }
 
-function SystemCompositionSection({ locale }: { locale: Locale }) {
+function SolutionApproachSection({ locale }: { locale: Locale }) {
   return (
-    <section className={styles.compositionSection}>
-      <div className={styles.compositionHeader}>
-        <span className={styles.sectionEyebrow}>{copy(locale, 'System composition')}</span>
-        <h2>{copy(locale, 'C-UAS System Composition for Low-Altitude Sites')}</h2>
+    <section className={styles.approachSection}>
+      <div className={styles.approachHeader}>
+        <span className={styles.sectionEyebrow}>{copy(locale, 'N-TET solution approach')}</span>
+        <h2>{copy(locale, 'See Clearly, Identify Clearly, Control Reliably')}</h2>
         <p>
-          {copy(locale, 'A practical site plan combines sensing equipment, operator review, field coordination, and platform records so the buyer can confirm coverage and quotation scope.')}
+          {copy(locale, 'Build an end-to-end closed loop around multi-source sensing, intelligent judgement, and coordinated on-site handling.')}
         </p>
       </div>
-      <div className={styles.compositionFlow}>
-        {compositionCards.map((item, index) => (
-          <div className={styles.compositionNode} key={item.title}>
-            <article className={styles.compositionCard}>
+      <div className={styles.approachGrid}>
+        {solutionPillars.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <article className={styles.approachCard} key={item.title}>
+              <div className={styles.approachIndex}>{String(index + 1).padStart(2, '0')}</div>
+              <div className={styles.approachIcon}>
+                <Icon size={34} strokeWidth={1.8} aria-hidden="true" />
+              </div>
+              <span>{copy(locale, item.subtitle)}</span>
               <h3>{copy(locale, item.title)}</h3>
+              <p>{copy(locale, item.text)}</p>
               <ul>
                 {item.points.map((point) => (
                   <li key={point}>{copy(locale, point)}</li>
                 ))}
               </ul>
-              <div className={styles.compositionImages}>
-                {item.images.map((image) => {
-                  const imageElement = (
-                    <Image
-                      src={image.src}
-                      alt={copy(locale, image.alt)}
-                      width={260}
-                      height={150}
-                      className={styles.compositionImage}
-                    />
-                  );
-
-                  if (!('href' in image)) {
-                    return (
-                      <div key={image.src} className={styles.compositionImageStatic}>
-                        {imageElement}
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <Link
-                      key={image.src}
-                      prefetch={false}
-                      href={localePath(locale, image.href)}
-                      className={styles.compositionImageLink}
-                      aria-label={`${copy(locale, 'View')} ${copy(locale, image.alt)}`}
-                    >
-                      {imageElement}
-                    </Link>
-                  );
-                })}
-              </div>
             </article>
-            {index < compositionCards.length - 1 ? (
-              <span className={styles.compositionPlus} aria-hidden="true">+</span>
-            ) : null}
-          </div>
-        ))}
+          );
+        })}
+      </div>
+      <div className={styles.approachNote}>
+        {copy(locale, 'Multi-source fusion, heterogeneous networking, system-level coordination, and a visual command platform support efficient human-machine collaboration.')}
       </div>
     </section>
   );
 }
 
-function DeploymentModesSection({ locale }: { locale: Locale }) {
+function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
   return (
-    <section className={styles.deploymentSection}>
-      <div className={styles.deploymentHeader}>
-        <span className={styles.sectionEyebrow}>{copy(locale, 'Coverage modes')}</span>
-        <h2>{copy(locale, 'Fixed and Mobile Coverage Options')}</h2>
+    <section className={styles.compositionSection}>
+      <div className={styles.compositionHeader}>
+        <span className={styles.sectionEyebrow}>{copy(locale, 'Equipment capability')}</span>
+        <h2>{copy(locale, 'Equipment Is Organized Around the Operating Loop')}</h2>
         <p>
-          {copy(locale, 'Different sites can choose a fixed, vehicle-mobile, or portable setup according to perimeter size, deployment time, and operator workflow.')}
+          {copy(locale, 'Equipment is organized around the operating loop: sensing and detection first, verified handling second, integrated units third, and a command platform to close the loop.')}
         </p>
       </div>
-      <div className={styles.deploymentGrid}>
-        {deploymentModes.map((item) => (
-          <article className={styles.deploymentCard} key={item.title}>
-            <div className={styles.deploymentTitleBar}>
+      <div className={styles.compositionFlow}>
+        {equipmentCapabilityGroups.map((item, index) => (
+          <div className={styles.compositionNode} key={item.title}>
+            <article
+              className={`${styles.compositionCard} ${'sensingCards' in item ? styles.sensingCompositionCard : ''} ${'controlCards' in item ? styles.controlCompositionCard : ''} ${'integratedGroups' in item ? styles.integratedCompositionCard : ''}`}
+            >
+              <span className={styles.compositionLabel}>{copy(locale, item.label)}</span>
               <h3>{copy(locale, item.title)}</h3>
-              <p>{copy(locale, item.subtitle)}</p>
-            </div>
-            <div className={styles.deploymentImageWrap}>
-              {'href' in item ? (
-                <Link
-                  prefetch={false}
-                  href={localePath(locale, item.href)}
-                  className={styles.deploymentImageLink}
-                  aria-label={`${copy(locale, 'View')} ${copy(locale, item.alt)}`}
-                >
-                  <Image
-                    src={item.image}
-                    alt={copy(locale, item.alt)}
-                    width={360}
-                    height={220}
-                    className={styles.deploymentImage}
-                  />
-                </Link>
+              <strong>{copy(locale, item.subtitle)}</strong>
+              <p>{copy(locale, item.text)}</p>
+              {'sensingCards' in item ? (
+                <>
+                  <div className={styles.sensingPptGrid}>
+                    {item.sensingCards!.map((card) => (
+                      <Link
+                        key={card.title}
+                        prefetch={false}
+                        href={localePath(locale, card.href)}
+                        className={styles.sensingPptCard}
+                        aria-label={`${copy(locale, 'View')} ${copy(locale, card.title)}`}
+                      >
+                        <div className={styles.sensingPptImageBox}>
+                          <Image src={card.src} alt={copy(locale, card.alt)} width={260} height={150} className={styles.sensingPptImage} />
+                        </div>
+                        <h4>{copy(locale, card.title)}</h4>
+                        <ul>
+                          {card.points.map((point) => (
+                            <li key={point}>{copy(locale, point)}</li>
+                          ))}
+                        </ul>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className={styles.sensingPptNote}>
+                    <strong>{copy(locale, item.note!)}</strong>
+                    <span>{copy(locale, item.summary!)}</span>
+                  </div>
+                </>
+              ) : 'controlCards' in item ? (
+                <>
+                  <div className={styles.controlPptGroupTitle}>{copy(locale, item.controlGroupLabel!)}</div>
+                  <div className={styles.controlPptGrid}>
+                    {item.controlCards!.map((card) => (
+                      <Link
+                        key={card.title}
+                        prefetch={false}
+                        href={localePath(locale, card.href)}
+                        className={styles.controlPptCard}
+                        aria-label={`${copy(locale, 'View')} ${copy(locale, card.title)}`}
+                      >
+                        <div className={styles.controlPptImageBox}>
+                          <Image src={card.src} alt={copy(locale, card.alt)} width={260} height={150} className={styles.controlPptImage} />
+                        </div>
+                        <h4>{copy(locale, card.title)}</h4>
+                        <span aria-hidden="true" />
+                        <ul>
+                          {card.points.map((point) => (
+                            <li key={point}>{copy(locale, point)}</li>
+                          ))}
+                        </ul>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className={styles.controlPptNote}>
+                    <strong>{copy(locale, item.note!)}</strong>
+                    <span>{copy(locale, item.summary!)}</span>
+                  </div>
+                </>
+              ) : 'integratedGroups' in item ? (
+                <>
+                  <div className={styles.integratedPptGrid}>
+                    {item.integratedGroups!.map((group) => (
+                      <section className={styles.integratedPptGroup} key={group.title}>
+                        <h4>{copy(locale, group.title)}</h4>
+                        <div className={styles.integratedPptCards}>
+                          {group.cards.map((card) => {
+                            const isProductCard = 'href' in card;
+                            const cardContent = (
+                              <>
+                                <div className={isProductCard ? styles.integratedPptImageBox : styles.integratedPptSceneBox}>
+                                  <Image src={card.src} alt={copy(locale, card.alt)} width={260} height={150} className={styles.integratedPptImage} />
+                                </div>
+                                <h5>{copy(locale, card.title)}</h5>
+                                <span aria-hidden="true" />
+                                <p>{copy(locale, card.text)}</p>
+                                <ul>
+                                  {card.points.map((point) => (
+                                    <li key={point}>{copy(locale, point)}</li>
+                                  ))}
+                                </ul>
+                              </>
+                            );
+
+                            if (!isProductCard) {
+                              return (
+                                <article key={card.title} className={styles.integratedPptCard}>
+                                  {cardContent}
+                                </article>
+                              );
+                            }
+
+                            return (
+                              <Link
+                                key={card.title}
+                                prefetch={false}
+                                href={localePath(locale, card.href)}
+                                className={styles.integratedPptCard}
+                                aria-label={`${copy(locale, 'View')} ${copy(locale, card.title)}`}
+                              >
+                                {cardContent}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                  <div className={styles.integratedPptNote}>
+                    <strong>{copy(locale, item.note!)}</strong>
+                    <span>{copy(locale, item.summary!)}</span>
+                  </div>
+                </>
               ) : (
-                <div className={styles.deploymentImageStatic}>
-                  <Image
-                    src={item.image}
-                    alt={copy(locale, item.alt)}
-                    width={624}
-                    height={416}
-                    className={`${styles.deploymentImage} ${styles[item.imageClass]}`}
-                  />
-                </div>
+                <>
+                  <ul>
+                    {item.points.map((point) => (
+                      <li key={point}>{copy(locale, point)}</li>
+                    ))}
+                  </ul>
+                  <div className={styles.compositionImages}>
+                    {item.images.map((image) => {
+                      const imageElement = (
+                        <Image
+                          src={image.src}
+                          alt={copy(locale, image.alt)}
+                          width={260}
+                          height={150}
+                          className={styles.compositionImage}
+                        />
+                      );
+
+                      if (!('href' in image)) {
+                        return (
+                          <div key={image.src} className={styles.compositionImageStatic}>
+                            {imageElement}
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <Link
+                          key={image.src}
+                          prefetch={false}
+                          href={localePath(locale, String(image.href))}
+                          className={styles.compositionImageLink}
+                          aria-label={`${copy(locale, 'View')} ${copy(locale, image.alt)}`}
+                        >
+                          {imageElement}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </>
               )}
-            </div>
-            <div className={styles.deploymentSteps}>
-              {item.steps.map((step) => (
-                <span key={step}>{copy(locale, step)}</span>
-              ))}
-            </div>
-          </article>
+            </article>
+            {index < equipmentCapabilityGroups.length - 1 ? (
+              <span className={styles.compositionPlus} aria-hidden="true">+</span>
+            ) : null}
+          </div>
         ))}
       </div>
     </section>
@@ -1132,16 +1197,8 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
             <span className={styles.titleLine}>{copy(locale, 'Security for Critical Sites')}</span>
           </h1>
           <p>
-            {copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.')}
+            {copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps turn real site conditions into a practical C-UAS and low-altitude security plan.')}
           </p>
-          <ul className={styles.heroPoints}>
-            {heroPoints.map((item) => (
-              <li key={item}>
-                <CheckCircle2 size={16} aria-hidden="true" />
-                {copy(locale, item)}
-              </li>
-            ))}
-          </ul>
           <div className={styles.heroActions}>
             <Link prefetch={false} href="#inquiry" className={styles.primaryCta}>
               {copy(locale, 'Get Site Layout & Quote')}
@@ -1157,63 +1214,9 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <SiteProblemSection locale={locale} />
 
-      <SystemCompositionSection locale={locale} />
+      <SolutionApproachSection locale={locale} />
 
-      <DeploymentModesSection locale={locale} />
-
-      <ScenarioEntrance locale={locale} />
-
-      <section id="equipment" className={styles.layerSection}>
-        <div className={styles.sectionHeader}>
-          <h2>{copy(locale, 'C-UAS Planning and Review Steps')}</h2>
-          <p>{copy(locale, 'Start with the site layout, then connect early warning, identification, positioning, tracking, response review, and event records into one operating process.')}</p>
-        </div>
-        <div className={styles.layerGrid}>
-          {systemLayers.map((item) => {
-            const Icon = item.icon;
-            return (
-              <article className={styles.layerCard} key={item.title}>
-                <div className={styles.layerIcon}>
-                  <Icon size={52} strokeWidth={1.8} aria-hidden="true" />
-                </div>
-                <h3>{copy(locale, item.title)}</h3>
-                <p>{copy(locale, item.text)}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className={styles.equipmentSection}>
-        <div className={styles.sectionHeader}>
-          <h2>{copy(locale, 'C-UAS Equipment Options')}</h2>
-          <p>{copy(locale, 'Select RF, radar, EO, Remote ID, fixed-site, mobile, or portable equipment according to perimeter size, coverage range, review workflow, and record requirements.')}</p>
-        </div>
-        <div className={styles.equipmentGrid}>
-          {relatedEquipment.map((item) => (
-            <Link prefetch={false} href={localePath(locale, item.href)} className={styles.equipmentCard} key={item.title}>
-              <div className={styles.equipmentImageWrap}>
-                <Image
-                  src={item.image}
-                  alt={copy(locale, item.title)}
-                  width={280}
-                  height={180}
-                  className={`${styles.equipmentImage} ${styles[item.imageClass]}`}
-                />
-              </div>
-              <div className={styles.equipmentBody}>
-                <span>{copy(locale, item.role)}</span>
-                <h3>{copy(locale, item.title)}</h3>
-                <ul>
-                  {item.points.map((point) => (
-                    <li key={point}>{copy(locale, point)}</li>
-                  ))}
-                </ul>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <EquipmentCapabilitySection locale={locale} />
 
       <section className={styles.packageSection}>
         <div className={styles.sectionHeader}>
@@ -1275,15 +1278,7 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
           <span className={styles.mobileTitleLine}>{copy(locale, 'Airspace Security')}</span>
           <span className={styles.mobileTitleLine}>C-UAS</span>
         </h1>
-        <p>{copy(locale, 'C-UAS site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.')}</p>
-        <ul className={styles.heroPoints}>
-          {heroPoints.slice(0, 3).map((item) => (
-            <li key={item}>
-              <CheckCircle2 size={15} aria-hidden="true" />
-              {copy(locale, item)}
-            </li>
-          ))}
-        </ul>
+        <p>{copy(locale, 'Practical C-UAS and low-altitude security planning for critical sites, based on real site conditions.')}</p>
         <HeroVisual locale={locale} />
         <div className={styles.mobileActions}>
           <Link prefetch={false} href="#mobile-inquiry" className={styles.primaryCta}>
@@ -1297,50 +1292,9 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <SiteProblemSection locale={locale} />
 
-      <SystemCompositionSection locale={locale} />
+      <SolutionApproachSection locale={locale} />
 
-      <DeploymentModesSection locale={locale} />
-
-      <ScenarioEntrance locale={locale} />
-
-      <section id="mobile-equipment" className={styles.mobileBlock}>
-        <div className={styles.mobileSectionTitle}>
-          <span>{copy(locale, 'Workflow')}</span>
-          <h2>{copy(locale, 'C-UAS Planning and Review Steps')}</h2>
-        </div>
-        <div className={styles.mobileLayerGrid}>
-          {systemLayers.map((item) => {
-            const Icon = item.icon;
-            return (
-              <article key={item.title} className={styles.mobileLayerCard}>
-                <Icon size={34} strokeWidth={1.9} aria-hidden="true" />
-                <h3>{copy(locale, item.title)}</h3>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className={styles.mobileBlock}>
-        <div className={styles.mobileSectionTitle}>
-          <h2>{copy(locale, 'C-UAS Equipment Options')}</h2>
-        </div>
-        <div className={styles.mobileEquipmentGrid}>
-          {relatedEquipment.map((item) => (
-            <Link prefetch={false} href={localePath(locale, item.href)} className={styles.mobileEquipmentCard} key={item.title}>
-              <Image
-                src={item.image}
-                alt={copy(locale, item.title)}
-                width={180}
-                height={120}
-                className={`${styles.mobileEquipmentImage} ${styles[item.imageClass]}`}
-              />
-              <h3>{copy(locale, item.title)}</h3>
-              <p>{copy(locale, item.role)}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <EquipmentCapabilitySection locale={locale} />
 
       <section className={`${styles.mobileBlock} ${styles.mobileOperationsBlock}`}>
         <div className={styles.mobileSectionTitle}>
