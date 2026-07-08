@@ -178,11 +178,34 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'C-UAS Scenarios by Site Type': 'Сценарии C-UAS по типу объекта',
     'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.':
       'Сначала выберите наиболее близкий тип объекта. Затем N-TET подберет стационарное, мобильное на автомобиле или переносное оборудование под периметр, дальность покрытия, процесс проверки и требования к предложению.',
+    'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.':
+      'Используйте эти сценарии объектов, чтобы сопоставить сенсорное покрытие, процесс проверки и разрешенные варианты реагирования для критически важных операций безопасности на малых высотах.',
     'Site Scenarios': 'Сценарии объектов',
     'Project Case References': 'Референсные проекты',
+    'Industrial & Energy Sites': 'Промышленные и энергетические объекты',
     'Energy, chemical, logistics, and industrial parks': 'Энергетика, химия, логистика и промышленные парки',
+    'Coverage sites: nuclear power plants, substations, energy storage sites, oil and gas pipelines, chemical parks':
+      'Объекты покрытия: АЭС, подстанции, объекты хранения энергии, нефтегазовые трубопроводы, химические парки',
+    'Wide-area low-altitude detection': 'Широкозонное обнаружение на малых высотах',
+    'Early warning and threat-level review': 'Раннее предупреждение и оценка уровня угрозы',
+    'Authorized response coordination': 'Координация разрешенного реагирования',
+    '24/7 automated site watch': 'Автоматическое наблюдение за объектом 24/7',
+    'Discuss Site Setup': 'Обсудить конфигурацию объекта',
     'Event, stadium, transport, and controlled-site operations': 'Мероприятия, стадионы, транспорт и контролируемые площадки',
+    'Coverage sites: multi-city games, stadiums, media centers, transport hubs, and major public events':
+      'Объекты покрытия: игры в нескольких городах, стадионы, медиацентры, транспортные узлы и крупные общественные мероприятия',
+    'Multi-city coordinated coverage': 'Координированное покрытие нескольких городов',
+    'Multi-type event protection': 'Защита мероприятий разных типов',
+    'Flexible fixed, portable, and vehicle-mobile deployment': 'Гибкое стационарное, переносное и автомобильное развертывание',
+    'Post-event reuse for recurring major activities': 'Повторное использование после события для регулярных крупных мероприятий',
     'Wide boundary coverage and layered airspace awareness': 'Широкое покрытие границ и многоуровневый контроль воздушного пространства',
+    'Airport Airspace Security': 'Безопасность воздушного пространства аэропорта',
+    'Application rollout: routine airport airspace security for multiple airport sites':
+      'Тиражирование: регулярная безопасность воздушного пространства для нескольких аэропортовых объектов',
+    'Remote ID monitoring and whitelist review': 'Мониторинг Remote ID и проверка белого списка',
+    '20 MHz-6 GHz RF detection matrix': 'Матрица RF-обнаружения 20 МГц-6 ГГц',
+    'Radar, RF, and EO data fusion platform': 'Платформа слияния данных радара, RF и EO',
+    'Fixed and portable response with airport EMC design': 'Стационарное и переносное реагирование с EMC-дизайном для аэропорта',
     'Asian Games Low-Altitude C-UAS Application': 'Применение C-UAS низких высот на Азиатских играх',
     'C-UAS Case of a Group Factory in Nigeria': 'Кейс C-UAS для группового завода в Нигерии',
     'C-UAS Case of a Power Plant in Pakistan': 'Кейс C-UAS для электростанции в Пакистане',
@@ -345,11 +368,34 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'C-UAS Scenarios by Site Type': 'Escenarios C-UAS por tipo de sitio',
     'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.':
       'Elija primero el tipo de sitio más cercano. N-TET puede ajustar equipos fijos, móviles en vehículo o portátiles al perímetro, rango de cobertura, flujo de revisión y necesidades de cotización.',
+    'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.':
+      'Use estos escenarios de sitio para ajustar la cobertura de detección, el flujo de revisión y las opciones de respuesta aprobadas para operaciones críticas de seguridad de baja altitud.',
     'Site Scenarios': 'Escenarios de sitio',
     'Project Case References': 'Referencias de proyectos',
+    'Industrial & Energy Sites': 'Sitios industriales y energéticos',
     'Energy, chemical, logistics, and industrial parks': 'Energía, química, logística y parques industriales',
+    'Coverage sites: nuclear power plants, substations, energy storage sites, oil and gas pipelines, chemical parks':
+      'Sitios cubiertos: centrales nucleares, subestaciones, sitios de almacenamiento de energía, oleoductos y gasoductos, parques químicos',
+    'Wide-area low-altitude detection': 'Detección de baja altitud en área amplia',
+    'Early warning and threat-level review': 'Alerta temprana y revisión del nivel de amenaza',
+    'Authorized response coordination': 'Coordinación de respuesta autorizada',
+    '24/7 automated site watch': 'Vigilancia automatizada del sitio 24/7',
+    'Discuss Site Setup': 'Comentar configuración del sitio',
     'Event, stadium, transport, and controlled-site operations': 'Eventos, estadios, transporte y operaciones en sitios controlados',
+    'Coverage sites: multi-city games, stadiums, media centers, transport hubs, and major public events':
+      'Sitios cubiertos: juegos multiciudad, estadios, centros de medios, nodos de transporte y grandes eventos públicos',
+    'Multi-city coordinated coverage': 'Cobertura coordinada en varias ciudades',
+    'Multi-type event protection': 'Protección para eventos de varios tipos',
+    'Flexible fixed, portable, and vehicle-mobile deployment': 'Despliegue flexible fijo, portátil y móvil en vehículo',
+    'Post-event reuse for recurring major activities': 'Reutilización posterior al evento para actividades importantes recurrentes',
     'Wide boundary coverage and layered airspace awareness': 'Cobertura de límites amplios y conciencia aérea por capas',
+    'Airport Airspace Security': 'Seguridad del espacio aéreo aeroportuario',
+    'Application rollout: routine airport airspace security for multiple airport sites':
+      'Despliegue replicado: seguridad rutinaria del espacio aéreo aeroportuario para varios sitios aeroportuarios',
+    'Remote ID monitoring and whitelist review': 'Monitoreo Remote ID y revisión de lista blanca',
+    '20 MHz-6 GHz RF detection matrix': 'Matriz de detección RF de 20 MHz-6 GHz',
+    'Radar, RF, and EO data fusion platform': 'Plataforma de fusión de datos de radar, RF y EO',
+    'Fixed and portable response with airport EMC design': 'Respuesta fija y portátil con diseño EMC para aeropuerto',
     'Asian Games Low-Altitude C-UAS Application': 'Aplicación C-UAS de baja altitud en los Juegos Asiáticos',
     'C-UAS Case of a Group Factory in Nigeria': 'Caso C-UAS de una fábrica de grupo en Nigeria',
     'C-UAS Case of a Power Plant in Pakistan': 'Caso C-UAS de una planta eléctrica en Pakistán',
@@ -512,11 +558,34 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'C-UAS Scenarios by Site Type': 'سيناريوهات C-UAS حسب نوع الموقع',
     'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.':
       'اختر أولا نوع الموقع الأقرب. بعدها يمكن لـ N-TET مطابقة المعدات الثابتة أو المتنقلة بالمركبة أو المحمولة مع المحيط ونطاق التغطية وسير المراجعة واحتياجات عرض السعر.',
+    'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.':
+      'استخدم سيناريوهات المواقع هذه لمطابقة تغطية الاستشعار وسير المراجعة وخيارات الاستجابة المعتمدة لعمليات الأمن الحرجة منخفضة الارتفاع.',
     'Site Scenarios': 'سيناريوهات الموقع',
     'Project Case References': 'مراجع مشاريع',
+    'Industrial & Energy Sites': 'المواقع الصناعية ومواقع الطاقة',
     'Energy, chemical, logistics, and industrial parks': 'الطاقة والكيميائيات واللوجستيات والمناطق الصناعية',
+    'Coverage sites: nuclear power plants, substations, energy storage sites, oil and gas pipelines, chemical parks':
+      'مواقع التغطية: محطات الطاقة النووية، المحطات الفرعية، مواقع تخزين الطاقة، خطوط النفط والغاز، المجمعات الكيميائية',
+    'Wide-area low-altitude detection': 'كشف واسع النطاق على الارتفاعات المنخفضة',
+    'Early warning and threat-level review': 'إنذار مبكر ومراجعة مستوى التهديد',
+    'Authorized response coordination': 'تنسيق الاستجابة المعتمدة',
+    '24/7 automated site watch': 'مراقبة آلية للموقع على مدار 24/7',
+    'Discuss Site Setup': 'مناقشة إعداد الموقع',
     'Event, stadium, transport, and controlled-site operations': 'الفعاليات والملاعب والنقل وعمليات المواقع الخاضعة للسيطرة',
+    'Coverage sites: multi-city games, stadiums, media centers, transport hubs, and major public events':
+      'مواقع التغطية: ألعاب متعددة المدن، الملاعب، المراكز الإعلامية، مراكز النقل، والفعاليات العامة الكبرى',
+    'Multi-city coordinated coverage': 'تغطية منسقة متعددة المدن',
+    'Multi-type event protection': 'حماية للفعاليات متعددة الأنواع',
+    'Flexible fixed, portable, and vehicle-mobile deployment': 'نشر مرن ثابت ومحمول ومتنقل بالمركبة',
+    'Post-event reuse for recurring major activities': 'إعادة استخدام ما بعد الحدث للفعاليات الكبرى المتكررة',
     'Wide boundary coverage and layered airspace awareness': 'تغطية حدود واسعة ووعي جوي متعدد الطبقات',
+    'Airport Airspace Security': 'أمن المجال الجوي للمطار',
+    'Application rollout: routine airport airspace security for multiple airport sites':
+      'تطبيق قابل للتكرار: أمن المجال الجوي الروتيني للمطارات عبر مواقع مطارات متعددة',
+    'Remote ID monitoring and whitelist review': 'مراقبة Remote ID ومراجعة القائمة البيضاء',
+    '20 MHz-6 GHz RF detection matrix': 'مصفوفة كشف RF من 20 MHz إلى 6 GHz',
+    'Radar, RF, and EO data fusion platform': 'منصة دمج بيانات الرادار و RF و EO',
+    'Fixed and portable response with airport EMC design': 'استجابة ثابتة ومحمولة مع تصميم EMC للمطار',
     'Asian Games Low-Altitude C-UAS Application': 'تطبيق C-UAS منخفض الارتفاع في الألعاب الآسيوية',
     'C-UAS Case of a Group Factory in Nigeria': 'حالة C-UAS لمصنع مجموعة في نيجيريا',
     'C-UAS Case of a Power Plant in Pakistan': 'حالة C-UAS لمحطة طاقة في باكستان',
@@ -779,22 +848,37 @@ const equipmentCapabilityGroups = [
 
 const packages = [
   {
-    title: 'Industrial Site Perimeter',
-    meta: 'Energy, chemical, logistics, and industrial parks',
+    title: 'Industrial & Energy Sites',
+    meta: 'Coverage sites: nuclear power plants, substations, energy storage sites, oil and gas pipelines, chemical parks',
     image: '/cases/brazil-refinery-airspace-monitoring/main-home.webp',
-    points: ['Perimeter and key-area awareness', 'Early warning and visual review', 'Patrol support and event records'],
+    points: [
+      'Wide-area low-altitude detection',
+      'Early warning and threat-level review',
+      'Authorized response coordination',
+      '24/7 automated site watch',
+    ],
   },
   {
     title: 'Public Venue & Event Site',
-    meta: 'Event, stadium, transport, and controlled-site operations',
+    meta: 'Coverage sites: multi-city games, stadiums, media centers, transport hubs, and major public events',
     image: '/cases/asian-games-security/main-home.webp',
-    points: ['Temporary or fixed coverage plan', 'Crowd-area and perimeter awareness', 'Event-time response coordination'],
+    points: [
+      'Multi-city coordinated coverage',
+      'Multi-type event protection',
+      'Flexible fixed, portable, and vehicle-mobile deployment',
+      'Post-event reuse for recurring major activities',
+    ],
   },
   {
-    title: 'Airport & Large Perimeter',
-    meta: 'Wide boundary coverage and multi-source airspace awareness',
+    title: 'Airport Airspace Security',
+    meta: 'Application rollout: routine airport airspace security for multiple airport sites',
     image: '/cases/airport-security-application/main-home.webp',
-    points: ['Runway, apron, and boundary review', 'Wide-area positioning and tracking', 'Visual identification and records'],
+    points: [
+      'Remote ID monitoring and whitelist review',
+      '20 MHz-6 GHz RF detection matrix',
+      'Radar, RF, and EO data fusion platform',
+      'Fixed and portable response with airport EMC design',
+    ],
   },
 ];
 
@@ -1221,13 +1305,14 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
       <section className={styles.packageSection}>
         <div className={styles.sectionHeader}>
           <h2>{copy(locale, 'C-UAS Scenarios by Site Type')}</h2>
-          <p>{copy(locale, 'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.')}</p>
+          <p>{copy(locale, 'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.')}</p>
         </div>
         <div className={styles.packageGrid}>
           {packages.map((item) => (
             <article className={styles.packageCard} key={item.title}>
               <Image src={item.image} alt="" width={420} height={230} className={styles.packageImage} />
               <h3>{copy(locale, item.title)}</h3>
+              <p className={styles.packageMeta}>{copy(locale, item.meta)}</p>
               <ul>
                 {item.points.map((point) => (
                   <li key={point}>
@@ -1237,7 +1322,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
                 ))}
               </ul>
               <Link prefetch={false} href="#inquiry" className={styles.learnMore}>
-                {copy(locale, 'Request Layout')}
+                {copy(locale, 'Discuss Site Setup')}
                 <ArrowRight size={14} aria-hidden="true" />
               </Link>
             </article>
@@ -1308,7 +1393,7 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
               <h3>{copy(locale, item.title)}</h3>
               <p>{copy(locale, item.meta)}</p>
               <ul>
-                {item.points.slice(0, 3).map((point) => (
+                {item.points.map((point) => (
                   <li key={point}>{copy(locale, point)}</li>
                 ))}
               </ul>

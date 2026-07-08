@@ -29,14 +29,14 @@
 
 .heroSection {
   position: relative;
-  min-height: 530px;
+  min-height: 636px;
   display: grid;
   grid-template-columns: minmax(760px, 0.6fr) minmax(0, 0.4fr);
   align-items: stretch;
   padding: 0;
   background:
-    linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.98) 30%, rgba(255,255,255,0.78) 43%, rgba(255,255,255,0.22) 59%, rgba(255,255,255,0) 74%),
-    url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero.webp') center top / cover no-repeat;
+    linear-gradient(90deg, rgba(5, 18, 39, 0.58) 0%, rgba(5, 18, 39, 0.38) 36%, rgba(5, 18, 39, 0.12) 62%, rgba(5, 18, 39, 0) 84%),
+    url('/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp') center center / cover no-repeat;
   overflow: hidden;
 }
 
@@ -44,16 +44,17 @@
   position: relative;
   z-index: 2;
   max-width: 790px;
-  padding: 48px 0 52px max(20px, calc((100vw - 1240px) / 2 + 20px));
+  padding: 96px 0 52px max(20px, calc((100vw - 1240px) / 2 + 20px));
 }
 
 .heroCopy h1,
 .mobileHero h1 {
   margin: 0 0 20px;
-  color: var(--landing-blue);
+  color: #fff;
   font-size: clamp(38px, 2.25vw, 44px);
   line-height: 1.08;
   font-weight: 900;
+  text-shadow: 0 3px 18px rgba(0, 18, 47, 0.72);
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
@@ -69,9 +70,9 @@
   min-height: 28px;
   margin-bottom: 14px;
   padding: 0 12px;
-  color: var(--landing-blue);
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid #cfe0f7;
+  color: #fff;
+  background: rgba(5, 26, 58, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.46);
   border-radius: 999px;
   font-size: 13px;
   line-height: 1;
@@ -87,9 +88,10 @@
 .heroCopy p {
   max-width: 660px;
   margin: 0;
-  color: #1f2d42;
+  color: rgba(255, 255, 255, 0.94);
   font-size: 17px;
   line-height: 1.62;
+  text-shadow: 0 2px 12px rgba(0, 18, 47, 0.62);
 }
 
 .heroPoints {
@@ -176,7 +178,7 @@
 .heroVisual {
   position: relative;
   z-index: 1;
-  min-height: 530px;
+  min-height: 636px;
 }
 
 .heroDevicePanel {
@@ -187,6 +189,7 @@
   height: 178px;
   z-index: 2;
   pointer-events: none;
+  display: none;
 }
 
 .deviceImage {
@@ -1653,17 +1656,26 @@
 }
 
 .packageCard h3 {
-  margin: 28px 24px 18px;
+  margin: 28px 24px 10px;
   color: #111827;
   font-size: 22px;
   line-height: 1.25;
   font-weight: 900;
 }
 
+.packageMeta {
+  min-height: 44px;
+  margin: 0 24px 18px;
+  color: #40546f;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
 .packageCard ul {
   display: grid;
   gap: 10px;
-  min-height: 142px;
+  min-height: 152px;
   margin: 0 24px;
   padding: 0 0 22px;
   list-style: none;
@@ -1784,10 +1796,12 @@
 
 .mobileHero {
   position: relative;
-  padding: 28px 16px 18px;
+  min-height: 552px;
+  box-sizing: border-box;
+  padding: 76px 16px 18px;
   background:
-    linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.94) 46%, rgba(255,255,255,0.34) 76%, rgba(255,255,255,0.16) 100%),
-    url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero.webp') 58% top / cover no-repeat;
+    linear-gradient(90deg, rgba(5, 18, 39, 0.62) 0%, rgba(5, 18, 39, 0.42) 54%, rgba(5, 18, 39, 0.14) 82%, rgba(5, 18, 39, 0.04) 100%),
+    url('/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp') 34% center / cover no-repeat;
   overflow: hidden;
 }
 
@@ -1808,7 +1822,7 @@
 .mobileHero p {
   max-width: 640px;
   margin: 0;
-  color: #1f2d42;
+  color: rgba(255, 255, 255, 0.94);
   font-size: 15px;
   line-height: 1.48;
 }
@@ -2580,7 +2594,7 @@
 
 @media (max-width: 1180px) and (min-width: 992px) {
   .heroCopy {
-    padding-left: max(20px, calc((100vw - 1140px) / 2 + 20px));
+    padding: 96px 0 52px max(20px, calc((100vw - 1140px) / 2 + 20px));
   }
 
   .heroDevicePanel {
