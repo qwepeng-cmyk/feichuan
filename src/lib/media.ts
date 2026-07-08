@@ -52,7 +52,7 @@ export const getAllMedia = unstable_cache(
         return bTime - aTime;
       });
   },
-  ['all-media-news-first-card-hydro-20260629'],
+  ['all-media-news-low-altitude-editorial-20260708'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -61,7 +61,7 @@ export const getAllMediaIds = unstable_cache(
     const rows = db.prepare('SELECT id FROM media WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.id).filter(id => isPublicComplianceContent('media', id));
   },
-  ['media-ids-news-first-card-hydro-20260629'],
+  ['media-ids-news-low-altitude-editorial-20260708'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -79,6 +79,6 @@ export const getMediaById = unstable_cache(
       return null;
     }
   },
-  ['media-detail-news-first-card-hydro-20260629'],
+  ['media-detail-news-low-altitude-editorial-20260708'],
   { revalidate: 3600, tags: ['media'] }
 );

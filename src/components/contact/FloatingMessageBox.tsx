@@ -200,8 +200,8 @@ export default function FloatingMessageBox() {
           <div className={styles.header}>
               <div>
                 <p className={styles.eyebrow}>Quick Message</p>
-              <h2 className={styles.title}>Get a Fast Project Recommendation</h2>
-              <p className={styles.headerText}>Tell us your site type and challenge. Our team will suggest the right solution shortly.</p>
+              <h2 className={styles.title}>Find the Right C-UAS Setup for Your Site</h2>
+              <p className={styles.headerText}>Tell us your site type, project stage, or equipment needs. We can send suitable options, specs, or a quick quotation.</p>
             </div>
             <button type="button" className={styles.iconButton} onClick={() => setMinimized(true)} aria-label="Minimize message box">
               <Minus size={18} />
@@ -267,14 +267,14 @@ export default function FloatingMessageBox() {
                 className={styles.textarea}
                 value={formData.message}
                 onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value.slice(0, 700) }))}
-                placeholder="Tell us your project, site type, or equipment you are looking for."
+                placeholder="Example: airport perimeter, prison, border site, event security, or request brochure / specs / quotation."
                 required
               />
             </label>
 
             {status === 'success' && <p className={styles.success}>Message received. Our team will get back to you soon.</p>}
             {status === 'error' && <p className={styles.error}>{errorMessage}</p>}
-            <p className={styles.note}>A short message is enough. We can confirm details by email or WhatsApp.</p>
+            <p className={styles.note}>A short message is enough. Our team can follow up by email or WhatsApp.</p>
 
             <button type="submit" className={styles.submitButton} disabled={isSending}>
               <Send size={16} />

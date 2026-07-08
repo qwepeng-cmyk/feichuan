@@ -10,27 +10,28 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
     const pathname = usePathname();
     const d = dict?.inquiry || {
-        title: "Get Solution & Quotation",
-        subtitle: "Please fill out the form below, and we can satisfy any of your needs including equipment selection, custom solution design, technical support, or after-sales service. We will contact you as soon as possible.",
+        title: "Get Product Information & Pricing",
+        subtitle: "Tell us what you are looking for. Our team can send product information, technical specs, brochures, or quotation details.",
         name: "Name",
         company: "Company Name",
         email: "E-mail",
         contactMethod: "Contact Method",
         countryCode: "Country Code",
         phone: "Phone Number",
-        inquiryType: "Inquiry Type:",
-        messageLabel: "Project Details / Message",
-        messagePlaceholder: "Please provide details about your project, requirements, or any specific systems you are interested in (e.g., drone detection, security screening).",
+        inquiryType: "What do you need?",
+        messageLabel: "Message",
+        messagePlaceholder: "Tell us the product type, application, quantity, or information you need. Example: brochure, specs, quotation, or help choosing the right equipment.",
         submit: "SUBMIT INQUIRY",
         submitting: "SUBMITTING...",
         submitted: "SUBMITTED SUCCESSFULLY!",
         failed: "Failed to submit. Please try again.",
         types: [
-            "Product Pricing & Quotation",
-            "Request a Custom Solution",
-            "Product Brochures & Tech Specs",
-            "Partnership / Distributor Application",
-            "Technical & After-Sales Support"
+            "Product Information",
+            "Technical Specs",
+            "Product Brochure",
+            "Pricing / Quotation",
+            "Engineer Support",
+            "Distributor / Partnership"
         ]
     };
 

@@ -42,7 +42,7 @@ export default async function ProductDetailPage() {
     const navItems = [
         { id: 'overview', label: 'Overview' },
         { id: 'specs', label: 'Technical Specifications' },
-        { id: 'inquiry', label: 'Get Solution & Quotation' },
+        { id: 'inquiry', label: 'Product Info & Pricing' },
     ];
 
     return (

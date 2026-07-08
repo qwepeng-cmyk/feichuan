@@ -48,7 +48,7 @@
     "whatsapp": "WhatsApp",
     "overview": "Resumen",
     "technicalSpecs": "Especificaciones técnicas",
-    "getSolution": "Solicitar solución y cotización",
+    "getSolution": "Info de producto y precios",
     "parameter": "Parámetro",
     "description": "Descripción",
     "features": "Características",
@@ -253,17 +253,17 @@
     "copyright": "(c) 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados."
   },
   "inquiry": {
-    "title": "Solicitar solución y cotización",
-    "subtitle": "Complete el formulario y nuestro equipo revisará sus necesidades de selección de equipos, diseño de solución, soporte técnico o servicio posventa.",
+    "title": "Solicitar información de producto y precios",
+    "subtitle": "Díganos qué está buscando. Nuestro equipo puede enviar información de producto, especificaciones técnicas, folletos o detalles de cotización.",
     "name": "Nombre",
     "company": "Empresa",
     "email": "Correo electrónico",
     "contactMethod": "Método de contacto",
     "countryCode": "Código de país",
     "phone": "Teléfono",
-    "inquiryType": "Tipo de consulta:",
-    "messageLabel": "Detalles del proyecto / mensaje",
-    "messagePlaceholder": "Comparta detalles de su proyecto, requisitos o sistemas de interés, por ejemplo UAV de inspección, monitoreo de baja altitud o inspección de seguridad.",
+    "inquiryType": "¿Qué necesita?",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Indique el tipo de producto, aplicación, cantidad o información que necesita. Ejemplo: folleto, especificaciones, cotización o ayuda para elegir el equipo adecuado.",
     "submit": "ENVIAR CONSULTA",
     "submitting": "ENVIANDO...",
     "submitted": {
@@ -273,11 +273,12 @@
     },
     "failed": "No se pudo enviar. Inténtelo nuevamente.",
     "types": [
-      "Precio y cotización de producto",
-      "Solicitar una solución personalizada",
-      "Folletos y especificaciones técnicas",
-      "Solicitud de alianza o distribución",
-      "Soporte técnico y posventa"
+      "Información de producto",
+      "Especificaciones técnicas",
+      "Folleto de producto",
+      "Precio / cotización",
+      "Soporte de ingeniería",
+      "Distribución / alianza"
     ],
     "selectCode": "Seleccione código...",
     "contactMethods": {
