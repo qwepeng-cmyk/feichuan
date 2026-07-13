@@ -25,7 +25,7 @@ import styles from './LowAltitudeAirspaceMonitoring.module.css';
 const pageHandle = 'low-altitude-airspace-monitoring';
 const pageTitle = 'Low-Altitude Airspace Security & C-UAS';
 const pageDescription =
-  'C-UAS and anti drone site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, response review, records, and quotation support.';
+  'C-UAS, anti drone, and drone detection site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, response review, records, and quotation support.';
 
 const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
   ru: {
@@ -925,7 +925,12 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
       'C-UAS systems',
       'C-UAS technology',
       'anti drone',
+      'anti drone system',
+      'anti drone systems',
       'anti drone solution',
+      'anti drone detection',
+      'anti drone equipment',
+      'anti drone radar',
       'Drone detection and tracking',
       'drone detector',
       'drone radar',
@@ -1088,9 +1093,15 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
     <section className={styles.compositionSection}>
       <div className={styles.compositionHeader}>
         <span className={styles.sectionEyebrow}>{copy(locale, 'Equipment capability')}</span>
-        <h2>{copy(locale, 'Equipment Is Organized Around the Operating Loop')}</h2>
+        <h2>
+          {locale === 'en'
+            ? 'C-UAS, Anti Drone and Drone Detection System Options'
+            : copy(locale, 'Equipment Is Organized Around the Operating Loop')}
+        </h2>
         <p>
-          {copy(locale, 'Equipment is organized around the operating loop: sensing and detection first, verified handling second, integrated units third, and a command platform to close the loop.')}
+          {locale === 'en'
+            ? 'Compare anti drone system, anti drone equipment, fixed-site, vehicle-mounted, portable, and handheld drone detector options across RF drone detection, anti drone radar, UAV radar, Remote ID monitoring, EO tracking, and command-platform integration.'
+            : copy(locale, 'Equipment is organized around the operating loop: sensing and detection first, verified handling second, integrated units third, and a command platform to close the loop.')}
         </p>
       </div>
       <div className={styles.compositionFlow}>
@@ -1277,11 +1288,17 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
         <div className={styles.heroCopy}>
           <span className={styles.heroEyebrow}>{copy(locale, 'C-UAS Site Security Plan')}</span>
           <h1>
-            <span className={styles.titleLine}>{copy(locale, 'Low-Altitude Airspace')}</span>
-            <span className={styles.titleLine}>{copy(locale, 'Security for Critical Sites')}</span>
+            <span className={styles.titleLine}>
+              {locale === 'en' ? 'C-UAS and Anti Drone Detection Systems' : copy(locale, 'Low-Altitude Airspace')}
+            </span>
+            <span className={styles.titleLine}>
+              {locale === 'en' ? 'for Critical Sites' : copy(locale, 'Security for Critical Sites')}
+            </span>
           </h1>
           <p>
-            {copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps turn real site conditions into a practical C-UAS and low-altitude security plan.')}
+            {locale === 'en'
+              ? 'N-TET designs C-UAS systems, anti drone systems, and drone detection systems for airports, refineries, power plants, ports, venues, and large perimeters, combining RF drone detection, anti drone radar, Remote ID monitoring, EO verification, and site alert workflows.'
+              : copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps turn real site conditions into a practical C-UAS and low-altitude security plan.')}
           </p>
           <div className={styles.heroActions}>
             <Link prefetch={false} href="#inquiry" className={styles.primaryCta}>
@@ -1359,11 +1376,15 @@ function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.mobileHero}>
         <h1>
-          <span className={styles.nowrap}>{copy(locale, 'Low-Altitude')}</span>
-          <span className={styles.mobileTitleLine}>{copy(locale, 'Airspace Security')}</span>
-          <span className={styles.mobileTitleLine}>C-UAS</span>
+          <span className={styles.nowrap}>{locale === 'en' ? 'C-UAS and Anti Drone' : copy(locale, 'Low-Altitude')}</span>
+          <span className={styles.mobileTitleLine}>{locale === 'en' ? 'Detection Systems' : copy(locale, 'Airspace Security')}</span>
+          <span className={styles.mobileTitleLine}>{locale === 'en' ? 'for Critical Sites' : 'C-UAS'}</span>
         </h1>
-        <p>{copy(locale, 'Practical C-UAS and low-altitude security planning for critical sites, based on real site conditions.')}</p>
+        <p>
+          {locale === 'en'
+            ? 'C-UAS systems, anti drone systems, and drone detection systems combining RF drone detection, anti drone radar, Remote ID monitoring, EO verification, and site alert workflows.'
+            : copy(locale, 'Practical C-UAS and low-altitude security planning for critical sites, based on real site conditions.')}
+        </p>
         <HeroVisual locale={locale} />
         <div className={styles.mobileActions}>
           <Link prefetch={false} href="#mobile-inquiry" className={styles.primaryCta}>

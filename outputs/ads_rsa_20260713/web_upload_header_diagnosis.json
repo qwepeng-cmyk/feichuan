@@ -1,0 +1,17 @@
+{
+  "resultsWorkbook": [
+    [
+      "Google Ads returned an XLSX container with no worksheet after the header-row parsing failure."
+    ]
+  ],
+  "checks": {
+    "sheets": 1,
+    "headerInFirstRow": true,
+    "firstDataRow": "Ad",
+    "dataRows": 82,
+    "missingDki": 0,
+    "hasCommentRows": false
+  },
+  "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+  "firstRows": "{\"kind\":\"table\",\"sheet\":\"Ads\",\"address\":\"A1:P5\",\"rows\":5,\"cols\":16,\"values\":[[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\"],[\"Ad\",\"Edit\",\"Enabled\",\"23997736928\",\"C-UAS 南美 短语\",\"199066681138\",\"Counter UAS Technology\",\"815261261706\",\"Responsive search ad\",\"DKI_RSA_20260713\",\"{KeyWord:C-UAS}\",\"Get {KeyWord:C-UAS}\",\"View {KeyWord:C-UAS}\",\"Explore {KeyWord:C-UAS}\",\"Compare {KeyWord:C-UAS}\",\"Deploy {KeyWord:C-UAS}\"],[\"Ad\",\"Edit\",\"Enabled\",\"23958771807\",\"Drone Detection System 中东 精准\",\"196427274134\",\"Remote ID & Drone Identification\",\"814736510143\",\"Responsive search ad\",\"DKI_RSA_20260713\",\"{KeyWord:Remote ID}\",\"Get {KeyWord:Remote ID}\",\"View {KeyWord:Remote ID}\",\"Explore {KeyWord:Remote ID}\",\"Compare {KeyWord:Remote ID}\",\"Deploy {KeyWord:Remote ID}\"],[\"Ad\",\"Edit\",\"Enabled\",\"23997736985\",\"C-UAS 南美 精准\",\"199066680458\",\"Counter UAS Technology\",\"815261352867\",\"Responsive search ad\",\"DKI_RSA_20260713\",\"{KeyWord:C-UAS}\",\"Get {KeyWord:C-UAS}\",\"View {KeyWord:C-UAS}\",\"Explore {KeyWord:C-UAS}\",\"Compare {KeyWord:C-UAS}\",\"Deploy {KeyWord:C-UAS}\"],[\"Ad\",\"Edit\",\"Enabled\",\"23997736928\",\"C-UAS 南美 短语\",\"196951894966\",\"Counter Drone Equipment\",\"816241616099\",\"Responsive search ad\",\"DKI_RSA_20260713\",\"{KeyWord:C-UAS}\",\"Get {KeyWord:C-UAS}\",\"View {KeyWord:C-UAS}\",\"Explore {KeyWord:C-UAS}\",\"Compare {KeyWord:C-UAS}\",\"Deploy {KeyWord:C-UAS}\"]]}"
+}
