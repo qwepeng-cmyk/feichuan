@@ -145,8 +145,8 @@
 
 .primaryCta {
   color: #fff;
-  background: var(--landing-orange);
-  box-shadow: 0 16px 28px rgba(255, 122, 0, 0.25);
+  background: #b45309;
+  box-shadow: 0 16px 28px rgba(180, 83, 9, 0.28);
 }
 
 .secondaryCta {

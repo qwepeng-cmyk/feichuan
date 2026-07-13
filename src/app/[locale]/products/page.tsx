@@ -1,32 +1,29 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { getAllProducts } from '@/lib/products';
-import DesktopProductCenter from '@/components/pc/DesktopProductCenter';
-import MobileProductCenterLoader from '@/components/products/MobileProductCenterLoader';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import CuasProductCenter from '@/components/products/CuasProductCenter';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
         locale: params.locale,
         path: '/products',
-        fallbackTitle: 'Industrial UAV & C-UAS Equipment',
-        fallbackDescription: 'Explore N-TET industrial UAV platforms, C-UAS sensors, early-warning equipment, security screening systems, and UAV components organized by mission.',
+        fallbackTitle: 'Professional C-UAS Equipment',
+        fallbackDescription: 'Explore portable, fixed-site and vehicle-mounted C-UAS equipment plus unified airspace monitoring platforms for detection, identification and tracking.',
     });
 }
 
 async function ProductsDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {
     const categoriesData = await getAllProducts(locale);
     return (
-        <>
-            <div className="pc_only product-center-desktop-only">
-                <DesktopProductCenter categoriesData={categoriesData} locale={locale} dict={dict} />
-            </div>
-            <div className="mobile_only product-center-mobile-only">
-                <MobileProductCenterLoader locale={locale} dict={dict} />
-            </div>
-        </>
+        <CuasProductCenter
+            products={categoriesData['drone-detection'] || []}
+            opticalProducts={categoriesData['perimeter-intelligence'] || []}
+            locale={locale}
+            dict={dict}
+        />
     );
 }
 

@@ -149,18 +149,17 @@ function MobileUavGroupedCatalog({
                 <div style={{ height: '1px', background: '#d9e2ef', flex: 1 }} />
             </div>
             <div style={{ display: 'grid', gap: '26px' }}>
-                {groups.map((group, groupIndex) => (
+                {groups.map((group) => (
                     <div key={`${field}-${group.name}`}>
                         <h4 style={{ margin: '0 0 12px', fontSize: '12px', fontWeight: 900, color: '#315ba4', textTransform: 'uppercase' }}>
                             {group.name}
                         </h4>
                         <div className={styles.grid}>
-                            {group.items.map((product, idx) => (
+                            {group.items.map((product) => (
                                 <MobileProductCard
                                     key={`${field}-${group.name}-${product.handle}`}
                                     product={product}
                                     locale={locale}
-                                    priority={field === 'missionApplication' && groupIndex === 0 && idx < 2}
                                 />
                             ))}
                         </div>
@@ -194,12 +193,11 @@ function MobileMissionApplicationCatalog({
                 <div style={{ height: '1px', background: '#d9e2ef', flex: 1 }} />
             </div>
             <div className={styles.grid}>
-                {missionProducts.map((product, idx) => (
+                {missionProducts.map((product) => (
                     <MobileProductCard
                         key={`mission-${product.handle}`}
                         product={product}
                         locale={locale}
-                        priority={idx < 2}
                     />
                 ))}
             </div>
@@ -432,12 +430,11 @@ export default function MobileProductCenter({
                             </>
                         ) : (
                             <div className={styles.grid}>
-                                {categoriesData[category.id]?.map((product: Product, idx: number) => (
+                                {categoriesData[category.id]?.map((product: Product) => (
                                     <MobileProductCard
-                                        key={idx}
+                                        key={product.handle}
                                         product={product}
                                         locale={locale}
-                                        priority={category.id === categoryList[0]?.id && idx < 2}
                                     />
                                 ))}
                             </div>

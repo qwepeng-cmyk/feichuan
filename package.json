@@ -23,7 +23,8 @@
     "monitor:seo": "node scripts/seo-monitoring-snapshot.mjs",
     "deploy:check-public": "node scripts/check-public-sync.mjs",
     "deploy:production": "node scripts/deploy-production.mjs",
-    "cf:purge": "node scripts/cloudflare-purge-cache.mjs"
+    "cf:purge": "node scripts/cloudflare-purge-cache.mjs",
+    "cf:cache-public": "node scripts/cloudflare-public-html-cache.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.2",

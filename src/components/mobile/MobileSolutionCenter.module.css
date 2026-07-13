@@ -7,7 +7,7 @@
 .banner {
     height: 120px;
     width: 100%;
-    background-image: url('/solutions/solution_banner.webp');
+    background-image: url('/solutions/cuas-applications/banner/solution_center_banner.webp');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -42,125 +42,17 @@
     margin: 0;
 }
 
-.stickyNav {
-    position: relative;
-    width: 100%;
-    z-index: 90;
-    background: #ffffff;
-    border-bottom: 1px solid #eee;
-    height: 80px;
-    overflow: hidden;
-}
-
-.stickyNav:not(.fixed) {
-    margin-top: 12px;
-}
-
-.stickyNav.fixed {
-    position: fixed;
-    top: 108px;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.stickyNav::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 38px;
-    pointer-events: none;
-    background: linear-gradient(90deg, rgba(255,255,255,0), #ffffff 82%);
-}
-
-.tabTrack {
-    display: flex;
-    gap: 8px;
-    padding: 10px 8px 10px 10px;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    height: 100%;
-    align-items: center;
-    overflow-x: auto;
-}
-
-.tabTrack::-webkit-scrollbar {
-    display: none;
-}
-
-.tabItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    background: transparent;
-    border: none;
-    padding: 0;
-    width: 148px;
-    min-width: 148px;
-    flex: 0 0 auto;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: #315ba4;
-}
-
-.iconBox {
-    width: 48px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.58;
-}
-
-.iconBox svg {
-    width: 48px !important;
-    height: 32px !important;
-    object-fit: contain;
-}
-
-.tabText {
-    font-size: 8.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    opacity: 0.7;
-    white-space: normal;
-    text-align: center;
-    line-height: 1.1;
-    letter-spacing: 0;
-    height: auto;
-    display: block;
-    max-width: 136px;
-    word-break: normal;
-    overflow-wrap: anywhere;
-    hyphens: auto;
-}
-
-.tabItem:first-child .iconBox,
-.tabItem:nth-child(2) .iconBox {
-    opacity: 0.68;
-}
-
-.tabItem:first-child.active .iconBox,
-.tabItem:nth-child(2).active .iconBox {
-    color: #315ba4;
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
-.tabItem.active .iconBox,
-.tabItem.active .tabText {
-    opacity: 1;
-}
-
 .listContainer {
     padding-top: 0;
 }
 
 .categorySection {
     padding: 30px 15px;
+}
+
+.overviewSection {
+    padding-top: 28px;
+    padding-bottom: 48px;
 }
 
 .categorySection.priority {

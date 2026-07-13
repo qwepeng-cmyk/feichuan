@@ -8,6 +8,7 @@ import styles from './MobileHeader.module.css';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { languageLabels } from '@/lib/localization';
 import { i18n } from '@/i18n/config';
+import { cuasText } from '@/lib/cuasLocaleCopy';
 
 export default function MobileHeader({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
@@ -45,12 +46,12 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link prefetch={false} href={l("/")} className={styles.logo}>
-                    <Image src={logoSrc} alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto' }} />
+                    <Image src={logoSrc} alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
                 </Link>
                 <button
                     className={styles.burger}
                     onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-label={cuasText(locale, menuOpen ? 'Close navigation menu' : 'Open navigation menu')}
                     aria-expanded={menuOpen}
                 >
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>

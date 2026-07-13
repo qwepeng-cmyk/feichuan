@@ -112,7 +112,7 @@ function UavGroupedCatalog({
             </div>
 
             <div style={{ display: 'grid', gap: '44px' }}>
-                {groups.map((group, groupIndex) => (
+                {groups.map((group) => (
                     <div key={group.name}>
                         <h4 style={{
                             fontSize: '1.8rem',
@@ -129,13 +129,12 @@ function UavGroupedCatalog({
                             gridTemplateColumns: 'repeat(3, 1fr)',
                             gap: '30px'
                         }}>
-                            {group.items.map((product, idx) => (
+                            {group.items.map((product) => (
                                 <ProductGridCard
                                     key={`${field}-${group.name}-${product.handle}`}
                                     product={product}
                                     locale={locale}
                                     dict={dict}
-                                    priority={field === 'missionApplication' && groupIndex === 0 && idx < 3}
                                 />
                             ))}
                         </div>
@@ -173,13 +172,12 @@ function MissionApplicationCatalog({
                 gridTemplateColumns: 'repeat(3, 1fr)',
                 gap: '30px'
             }}>
-                {missionProducts.map((product, idx) => (
+                {missionProducts.map((product) => (
                     <ProductGridCard
                         key={`mission-${product.handle}`}
                         product={product}
                         locale={locale}
                         dict={dict}
-                        priority={idx < 3}
                     />
                 ))}
             </div>
@@ -366,7 +364,7 @@ export default function DesktopProductCenter({
                 display: 'flex',
                 alignItems: 'center'
             }}>
-                <Image src="/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp" fill sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 38%', filter: 'saturate(1.04) contrast(1.05)' }} priority alt={bannerTitle} />
+                <Image src="/solutions/cuas-applications/banner/product_center_banner.webp" fill sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 38%', filter: 'saturate(1.04) contrast(1.05)' }} priority alt={bannerTitle} />
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(90deg, rgba(5,18,37,0.54) 0%, rgba(5,18,37,0.34) 36%, rgba(5,18,37,0.08) 66%, rgba(5,18,37,0.02) 100%)', zIndex: 1 }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <div style={{ maxWidth: '750px' }}>

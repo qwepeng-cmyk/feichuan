@@ -1,13 +1,19 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
 import styles from './MobileSolutionCenter.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { localizedField } from '@/lib/localization';
-import { solutionCenterGroups, solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
+import {
+    englishCuasSolutionCenterGroups,
+    solutionCenterCardImageByHandle,
+    solutionCenterGroups,
+    solutionCenterImageByHandle,
+} from '@/lib/solutionCenterGroups';
+import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
 
 interface Solution {
     id: string;
@@ -129,7 +135,18 @@ export default function MobileSolutionCenter({
         )
     };
 
-    const t = (group: typeof solutionCenterGroups[number], field: 'label' | 'eyebrow' | 'description') => {
+    type ActiveGroup = (typeof solutionCenterGroups)[number] | (typeof englishCuasSolutionCenterGroups)[number];
+    const useCuasCenter = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const activeGroups: readonly ActiveGroup[] = useCuasCenter ? englishCuasSolutionCenterGroups : solutionCenterGroups;
+    const defaultCuasIcon = (
+        <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" aria-hidden="true">
+            <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
+            <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+            <g transform="translate(62, 0)">{ICON_CAMERA}</g>
+        </svg>
+    );
+
+    const t = (group: ActiveGroup, field: 'label' | 'eyebrow' | 'description') => {
         if (field === 'label') {
             return dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel;
         }
@@ -141,105 +158,69 @@ export default function MobileSolutionCenter({
 
     const displayGroups = useMemo(() => {
         const solutionsById = new Map(allSolutions.map((solution) => [solution.id, solution]));
-        return solutionCenterGroups
+        return activeGroups
             .map((group) => ({
                 id: group.id,
                 name: t(group, 'label'),
                 categoryHref: group.categoryHref,
-                icon: GROUP_ICONS[group.id],
+                icon: GROUP_ICONS[group.id] || defaultCuasIcon,
                 solutions: group.handles
                     .map((handle) => solutionsById.get(handle))
                     .filter(Boolean) as Solution[],
             }))
             .filter((group) => group.solutions.length > 0);
-    }, [allSolutions, dict]);
-
-    const categoryList = useMemo(() => displayGroups.map((group) => ({
-        id: group.id,
-        name: group.name,
-        icon: group.icon
-    })), [displayGroups]);
-
-    const [activeCategory, setActiveCategory] = useState<string>(categoryList[0]?.id || '');
-    const [isFixed, setIsFixed] = useState(false);
-    const bannerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (bannerRef.current) {
-                const bannerBottom = bannerRef.current.getBoundingClientRect().bottom;
-                setIsFixed(bannerBottom <= 108);
-            }
-
-            const sections = categoryList.map(cat => document.getElementById(`mobile-sol-${cat.id}`));
-            const scrollPos = window.scrollY + 250;
-
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i];
-                if (section) {
-                    const top = section.getBoundingClientRect().top + window.pageYOffset;
-                    if (scrollPos >= top - 200) {
-                        setActiveCategory(categoryList[i].id);
-                        break;
-                    }
-                }
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [categoryList]);
-
-    const scrollToCategory = (id: string) => {
-        const element = document.getElementById(`mobile-sol-${id}`);
-        if (element) {
-            const totalOffset = 198;
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - totalOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-            setActiveCategory(id);
-        }
-    };
+    }, [allSolutions, dict, locale]);
 
     const getSolutionTitle = (solution: Solution) => localizedField(solution, 'product_name', locale) || localizedField(solution, 'title', locale);
+    const overviewSolutions = Array.from(new Map(
+        displayGroups.flatMap((group) => group.solutions).map((solution) => [solution.id, solution])
+    ).values());
 
     const shouldUseProductImageTreatment = (image?: string) => (
         Boolean(image?.includes('/products/uav-systems/'))
     );
 
-    return (
+    return localizeCuasTree(locale, (
         <div className={styles.wrapper}>
-            <section className={styles.banner} ref={bannerRef}>
+            <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
                 <div className={styles.bannerContent}>
                     <div className={styles.bannerTitle}>{dict.solutions.bannerTitle}</div>
                 </div>
             </section>
 
-            {isFixed && <div style={{ height: '80px' }}></div>}
-
-            <div className={`${styles.stickyNav} ${isFixed ? styles.fixed : ''}`}>
-                <div className={styles.tabTrack}>
-                    {categoryList.map((cat) => (
-                        <button
-                            key={cat.id}
-                            type="button"
-                            className={`${styles.tabItem} ${activeCategory === cat.id ? styles.active : ''}`}
-                            onClick={() => scrollToCategory(cat.id)}
-                        >
-                            <div className={styles.iconBox}>{cat.icon}</div>
-                            <span className={styles.tabText}>{cat.name}</span>
-                        </button>
-                    ))}
-                </div>
-            </div>
-
             <div className={styles.listContainer}>
-                {displayGroups.map((group, groupIndex) => (
+                {useCuasCenter ? (
+                    <section className={`${styles.categorySection} ${styles.overviewSection}`}>
+                        <div className={styles.grid}>
+                            {overviewSolutions.map((sol) => {
+                                const solTitle = getSolutionTitle(sol);
+                                const centerImage = solutionCenterCardImageByHandle[sol.id] || solutionCenterImageByHandle[sol.id] || sol.main_image;
+                                const productImageTreatment = shouldUseProductImageTreatment(centerImage);
+                                return (
+                                    <Link prefetch={false} href={localePath(locale, `/solutions/${sol.id}`)} key={sol.id} className={styles.card}>
+                                        <div className={styles.imageBox}>
+                                            <Image
+                                                src={centerImage || '/images/solutions/placeholder.jpg'}
+                                                alt={solTitle}
+                                                fill
+                                                style={{
+                                                    objectFit: productImageTreatment ? 'contain' : 'cover',
+                                                    padding: productImageTreatment ? '5px' : 0,
+                                                    mixBlendMode: productImageTreatment ? 'multiply' : 'normal'
+                                                }}
+                                                sizes="50vw"
+                                            />
+                                        </div>
+                                        <div className={styles.cardInfo}>
+                                            <h3>{solTitle}</h3>
+                                        </div>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </section>
+                ) : displayGroups.map((group, groupIndex) => (
                     <section key={group.id} id={`mobile-sol-${group.id}`} className={`${styles.categorySection} ${groupIndex < 2 ? styles.priority : ''}`}>
                         <div className={styles.sectionHeader}>
                             <h2>{group.name}</h2>
@@ -247,7 +228,7 @@ export default function MobileSolutionCenter({
                         </div>
 
                         <div className={styles.grid}>
-                            {group.solutions.map((sol, idx) => {
+                            {group.solutions.map((sol) => {
                                 const solTitle = getSolutionTitle(sol);
                                 const centerImage = solutionCenterImageByHandle[sol.id] || sol.main_image;
                                 const productImageTreatment = shouldUseProductImageTreatment(centerImage);
@@ -264,7 +245,6 @@ export default function MobileSolutionCenter({
                                                     mixBlendMode: productImageTreatment ? 'multiply' : 'normal'
                                                 }}
                                                 sizes="(max-width: 768px) 100vw, 50vw"
-                                                priority={groupIndex === 0 && idx < 2}
                                             />
                                         </div>
                                         <div className={styles.cardInfo}>
@@ -285,5 +265,5 @@ export default function MobileSolutionCenter({
 
             <MobileInquiryForm dict={dict} />
         </div>
-    );
+    ));
 }

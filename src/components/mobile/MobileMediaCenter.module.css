@@ -8,7 +8,7 @@
 .banner {
     height: 136px;
     width: 100%;
-    background-image: url('/media/news-center-expo-banner.webp');
+    background-image: url('/solutions/cuas-applications/banner/media_center_banner.webp');
     background-size: cover;
     background-position: 62% center;
     position: relative;
@@ -71,7 +71,7 @@
 }
 
 .tabItem.active {
-    background: #3b82f6; /* Matched to PC active background */
+    background: #315ba4;
     color: #fff; /* Matched to PC active text */
 }
 

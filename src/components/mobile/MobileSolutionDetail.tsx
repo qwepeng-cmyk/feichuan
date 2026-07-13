@@ -461,7 +461,11 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
     const hasStructuredSolutionContent = painPoints.length > 0 || upgradeItems.length > 0 || modules.length > 0;
     const contentLabels = {
         ...solutionLabels,
+        industryPainPoints: typeof sectionData.industry_pain_points_title === 'string'
+            ? sectionData.industry_pain_points_title
+            : seoTarget.overviewHeading || solutionLabels.industryPainPoints,
         upgradeTitle: typeof sectionData.operation_upgrade_title === 'string' ? sectionData.operation_upgrade_title : solutionLabels.upgradeTitle,
+        solutionModules: typeof sectionData.solution_modules_title === 'string' ? sectionData.solution_modules_title : solutionLabels.solutionModules,
     };
 
     let gallery = [];

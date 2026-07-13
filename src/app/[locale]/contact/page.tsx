@@ -15,9 +15,9 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/contact',
-        fallbackTitle: 'Contact N-TET | Industrial UAV & C-UAS Systems',
-        fallbackDescription: 'Contact N-TET for UAV platform selection, C-UAS systems, emergency response UAV projects, early-warning equipment, and security screening systems.',
-        image: '/about/contact_banner.png',
+        fallbackTitle: 'Request C-UAS Equipment Pricing & System Proposal | N-TET',
+        fallbackDescription: 'Request C-UAS equipment pricing, product documents or a system configuration review for portable, fixed-site and vehicle-mounted projects.',
+        image: '/index/about_bg.webp',
     });
 }
 
@@ -48,7 +48,7 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                         <section className="contact-banner" style={{ 
                             height: '35vh', 
                             minHeight: '280px', 
-                            background: "url('/about/contact_banner.png') center center / cover no-repeat", 
+                            background: "url('/index/about_bg.webp') center center / cover no-repeat",
                             position: 'relative', 
                             overflow: 'hidden',
                             display: 'flex',

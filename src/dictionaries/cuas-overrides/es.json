@@ -1,0 +1,94 @@
+{
+  "home": {
+    "about": {
+      "content": "N-TET es un fabricante y proveedor de sistemas profesional de equipos C-UAS con sede en Beijing. Proporcionamos equipos portátiles, fijos y montados en vehículos, integración de múltiples sensores, configuración de plataformas de comando, pruebas, documentación y entrega internacional coordinada para aeropuertos, instalaciones de energía, sitios industriales y lugares públicos importantes."
+    }
+  },
+  "products": {
+    "pageTitle": "Equipo C-UAS profesional",
+    "bannerTitle": "Equipo C-UAS profesional",
+    "bannerDesc": "Busque equipos C-UAS portátiles, de sitio fijo, montados en vehículos y basados ​​en plataformas para detección, identificación, seguimiento y operaciones coordinadas en el sitio."
+  },
+  "accessories": {
+    "pageTitle": "Componentes UAV para la integración de sistemas",
+    "bannerTitle": "Componentes UAV para la integración de sistemas",
+    "bannerDesc": "Componentes de control de vuelo, propulsión, enlace de datos, potencia y carga útil EO para integración de sistemas, mantenimiento y montaje local."
+  },
+  "solutions": {
+    "pageTitle": "Soluciones integradas del sistema C-UAS",
+    "bannerTitle": "Soluciones integradas del sistema C-UAS",
+    "bannerDesc": "Soluciones C-UAS para detección, identificación, seguimiento, monitoreo del espacio aéreo de aeropuertos y seguridad de sitios críticos a baja altitud.",
+    "bannerSubtitle": "Soluciones C-UAS para detección, identificación, seguimiento, monitoreo del espacio aéreo de aeropuertos y seguridad de sitios críticos a baja altitud.",
+    "seoIntroTitle": "Soluciones C-UAS para la seguridad de sitios y espacios aéreos críticos",
+    "seoIntroBody": "N-TET organiza las páginas de la solución C-UAS por sitio protegido: instalaciones de energía, operaciones petroquímicas, sitios hidroeléctricos, aeropuertos, eventos importantes e instalaciones públicas de acceso controlado. Cada flujo de trabajo se centra en la detección, identificación, seguimiento, revisión de alertas y coordinación a nivel de sitio."
+  },
+  "cases": {
+    "pageTitle": "Referencias de implementación de C-UAS",
+    "bannerTitle": "Referencias de implementación de C-UAS",
+    "bannerDesc": "Referencias de campo que muestran cómo los sistemas N-TET respaldan los flujos de trabajo de C-UAS, alerta temprana, identificación, posicionamiento, seguimiento y operaciones de seguridad de infraestructura.",
+    "seoIntroTitle": "Casos de implementación de C-UAS y monitoreo a baja altitud",
+    "seoIntroBody": "Explore casos de implementación de C-UAS para aeropuertos, instalaciones eléctricas, refinerías, sitios industriales, eventos importantes e infraestructura de conservación de agua. Las referencias se centran en alerta temprana, identificación, posicionamiento, seguimiento, revisión de alertas y coordinación del sitio.",
+    "bannerSubtitle": "Referencias de campo que muestran cómo los sistemas N-TET respaldan los flujos de trabajo de C-UAS, alerta temprana, identificación, posicionamiento, seguimiento y operaciones de seguridad de infraestructura.",
+    "confidentialityNote": "Por razones de confidencialidad, la mayoría de las implementaciones de proyectos no se pueden revelar públicamente. Los casos que se muestran aquí son referencias seleccionadas aprobadas para revisión externa."
+  },
+  "media": {
+    "pageTitle": "C-UAS Ingeniería y conocimientos sobre proyectos",
+    "bannerTitle": "C-UAS Ingeniería y conocimientos sobre proyectos",
+    "bannerDesc": "Notas sobre equipos, revisiones de integración de sistemas e información sobre la entrega de proyectos del equipo C-UAS de N-TET.",
+    "bannerSubtitle": "Notas sobre equipos, revisiones de integración de sistemas e información sobre la entrega de proyectos del equipo C-UAS de N-TET.",
+    "seoIntroTitle": "Noticias C-UAS y actualizaciones del espacio aéreo a baja altitud",
+    "seoIntroBody": "Siga la cobertura de N-TET sobre planificación del sitio C-UAS, detección de radar y RF, verificación EO/IR, identificación remota, integración de sensores y entrega de proyectos.",
+    "corporate": "Proyectos y entrega",
+    "productTech": "Equipos y tecnología",
+    "industryInsights": "Aplicaciones y operaciones",
+    "categories": {
+      "corporate": "Proyectos y entrega",
+      "product": "Equipos y tecnología",
+      "industry": "Aplicaciones y operaciones"
+    }
+  },
+  "about": {
+    "pageTitle": "Fabricante de equipos C-UAS y proveedor de sistemas",
+    "bannerTitle": "Fabricante de equipos C-UAS y proveedor de sistemas",
+    "bannerDesc": "Un fabricante profesional de equipos C-UAS y proveedor de sistemas con sede en Beijing que respalda la configuración, pruebas, documentación y entrega internacional de equipos.",
+    "companyDesc1": "N-TET es un fabricante y proveedor de sistemas profesional de equipos C-UAS con sede en Beijing. Proporcionamos equipos portátiles, fijos y montados en vehículos, integración de múltiples sensores, configuración de plataformas de comando, pruebas, documentación y entrega internacional coordinada para aeropuertos, instalaciones de energía, sitios industriales y lugares públicos importantes."
+  },
+  "contact": {
+    "pageTitle": "Solicite una propuesta de sistema y precio de equipo C-UAS",
+    "bannerTitle": "Solicite una propuesta de sistema y precio de equipo C-UAS",
+    "bannerDesc": "Comparta el equipo, el formulario de implementación, la aplicación o el sitio que está revisando. N-TET puede proporcionar información sobre productos, precios y una propuesta de sistema específica para el proyecto.",
+    "seoIntroTitle": "Propuesta de sistema y precio de equipo C-UAS",
+    "seoIntroBody": "Utilice esta página de contacto para solicitar precios de equipos C-UAS, documentos de productos o una revisión de la configuración del sistema para proyectos portátiles, de sitio fijo y montados en vehículos.",
+    "address": "Edificio Financiero Jujie, calle Lize, distrito de Fengtai, Pekín, China"
+  },
+  "footer": {
+    "tagline": "Fabricante profesional de equipos C-UAS y proveedor de sistemas",
+    "copyright": "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados."
+  },
+  "inquiry": {
+    "title": "¡Consigue una defensa experta con drones!",
+    "subtitle": "Díganos el equipo, aplicación o sitio que está revisando. Nuestro equipo puede proporcionar información sobre productos, documentos técnicos, precios y soporte de configuración.",
+    "phone": "Teléfono/WhatsApp",
+    "inquiryType": "¿Cómo podemos ayudar? (Opcional)",
+    "submit": "ENVIAR CONSULTA C-UAS",
+    "submitted": {
+      "subtitle": "Gracias por su consulta. Nuestro equipo C-UAS revisará el equipo y la información del proyecto que usted proporcionó."
+    },
+    "types": [
+      "Precio / Cotización de Equipos",
+      "Especificaciones del producto / Folleto",
+      "Configuración del sistema/revisión del sitio",
+      "Distribuidor / Asociación"
+    ],
+    "phonePlaceholder": "Incluya el código de país, p.e. +1 555 123 4567"
+  },
+  "solutionCenterGroups": {
+    "uavInspectionPatrol": "Monitoreo del espacio aéreo a baja altitud",
+    "uavInspectionPatrolDesc": "Flujos de trabajo de monitoreo de C-UAS para detección de baja altitud, revisión de objetivos, verificación visual y registros de eventos en el espacio aéreo.",
+    "uavEmergencyResponse": "Coordinación del sistema C-UAS",
+    "uavEmergencyResponseDesc": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y transferencia del equipo operativo.",
+    "criticalInfrastructureDesc": "Detección, identificación, seguimiento y revisión de alertas de C-UAS para instalaciones energéticas, petroquímicas, hidroeléctricas e industriales.",
+    "keyAreaSecurity": "Área clave Seguridad C-UAS",
+    "keyAreaSecurityDesc": "Conciencia del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, eventos importantes, sitios judiciales e instalaciones de acceso controlado."
+  }
+}

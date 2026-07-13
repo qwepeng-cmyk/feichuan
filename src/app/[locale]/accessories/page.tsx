@@ -20,7 +20,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
   return buildSeoMetadata({
     locale: params.locale,
     path: '/accessories',
-    fallbackTitle: 'Drone Accessories & UAV Components',
+    fallbackTitle: 'UAV Components for System Integration',
     fallbackDescription: 'Browse N-TET UAV components for flight control, propulsion, data links, power systems, EO payloads, integration, and maintenance.',
   });
 }

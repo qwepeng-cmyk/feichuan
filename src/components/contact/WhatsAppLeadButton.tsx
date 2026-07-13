@@ -20,12 +20,15 @@ interface WhatsAppLeadButtonProps {
   style?: React.CSSProperties;
   sourceLabel?: string;
   ariaLabel?: string;
+  productName?: string;
+  productHandle?: string;
+  ctaLocation?: string;
 }
 
 const modalCopy = {
   en: {
-    eyebrow: 'WhatsApp Consultation',
-    title: 'Confirm your contact details',
+    eyebrow: 'C-UAS Product Consultation',
+    title: 'Talk to a C-UAS Product Specialist',
     helper: "Enter your WhatsApp number first. We'll open WhatsApp with a ready-to-send message.",
     nameLabel: 'Name *',
     phoneLabel: 'WhatsApp / Phone *',
@@ -116,6 +119,13 @@ const optionalMessageCopy = {
   },
 };
 
+const saveErrorCopy = {
+  en: 'We could not save your contact details. Please check your connection and try again.',
+  ru: 'Не удалось сохранить контактные данные. Проверьте соединение и повторите попытку.',
+  es: 'No pudimos guardar sus datos. Revise la conexion e intentelo de nuevo.',
+  ar: 'تعذر حفظ بيانات الاتصال. تحقق من الاتصال وحاول مرة أخرى.',
+};
+
 function getCopy(pathname: string) {
   const segment = pathname.split('/').filter(Boolean)[0];
   if (segment === 'ru' || segment === 'es' || segment === 'ar') {
@@ -132,16 +142,28 @@ function getOptionalMessageCopy(pathname: string) {
   return optionalMessageCopy.en;
 }
 
+function getSaveErrorCopy(pathname: string) {
+  const segment = pathname.split('/').filter(Boolean)[0];
+  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
+    return saveErrorCopy[segment];
+  }
+  return saveErrorCopy.en;
+}
+
 export default function WhatsAppLeadButton({
   children,
   className,
   style,
   sourceLabel = 'whatsapp_cta',
   ariaLabel,
+  productName,
+  productHandle,
+  ctaLocation,
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
   const copy = getCopy(pathname);
   const messageCopy = getOptionalMessageCopy(pathname);
+  const saveError = getSaveErrorCopy(pathname);
   const [isOpen, setIsOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
@@ -168,7 +190,10 @@ export default function WhatsAppLeadButton({
     event.preventDefault();
     setError('');
     setIsOpen(true);
-    track('ntet_whatsapp_lead_open');
+    track('ntet_whatsapp_lead_open', {
+      product_handle: productHandle,
+      cta_location: ctaLocation,
+    });
   };
 
   const closeModal = () => {
@@ -176,12 +201,21 @@ export default function WhatsAppLeadButton({
     setIsOpen(false);
   };
 
-  const openWhatsApp = (leadMessage = '') => {
+  const openWhatsApp = (leadMessage = '', reservedWindow?: Window | null) => {
     const cleanMessage = leadMessage.trim();
-    const message = cleanMessage
-      ? `${CONTACT_WHATSAPP_MESSAGE}\n\n${messageCopy.whatsappPrefix}: ${cleanMessage}`
-      : CONTACT_WHATSAPP_MESSAGE;
+    const contextLines = [
+      productName ? `Equipment: ${productName}` : '',
+      productHandle ? `Reference: ${productHandle}` : '',
+      `Page: ${pathname}`,
+      cleanMessage ? `${messageCopy.whatsappPrefix}: ${cleanMessage}` : '',
+    ].filter(Boolean);
+    const message = `${CONTACT_WHATSAPP_MESSAGE}\n\n${contextLines.join('\n')}`;
     const url = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    if (reservedWindow && !reservedWindow.closed) {
+      reservedWindow.location.href = url;
+      return;
+    }
+
     const opened = window.open(url, '_blank');
     if (opened) {
       opened.opener = null;
@@ -217,39 +251,54 @@ export default function WhatsAppLeadButton({
     }
 
     setIsSending(true);
-    setIsOpen(false);
-    openWhatsApp(leadMessage);
+    const reservedWindow = window.open('', '_blank');
+    if (reservedWindow) {
+      reservedWindow.opener = null;
+    }
 
-    fetch('/api/whatsapp-leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      keepalive: true,
-      body: JSON.stringify({
-        ...formData,
-        sourceLabel,
-        pagePath: pathname,
-      }),
-    })
-      .then(async (response) => {
-        const result = await response.json().catch(() => null);
-        if (!response.ok || result?.success !== true) {
-          throw new Error(result?.error || 'Failed to save WhatsApp lead');
-        }
-        track('ntet_whatsapp_lead_submit', { inquiry_id: result.inquiryId });
-        trackGoogleAdsFormConversion({
-          conversion_source: sourceLabel,
-          form_name: 'whatsapp_pre_chat',
-          inquiry_id: result.inquiryId,
-          page_path: pathname,
-        });
-      })
-      .catch((err) => {
-        console.error('WhatsApp lead capture failed:', err);
-        track('ntet_whatsapp_lead_error');
-      })
-      .finally(() => {
-        setIsSending(false);
+    try {
+      const response = await fetch('/api/whatsapp-leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          ...formData,
+          sourceLabel,
+          pagePath: pathname,
+          productName,
+          productHandle,
+          ctaLocation,
+        }),
       });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || result?.success !== true || !result?.inquiryId) {
+        throw new Error(result?.error || 'Failed to save WhatsApp lead');
+      }
+
+      track('ntet_whatsapp_lead_submit', {
+        inquiry_id: result.inquiryId,
+        product_handle: productHandle,
+        cta_location: ctaLocation,
+      });
+      trackGoogleAdsFormConversion({
+        conversion_source: sourceLabel,
+        form_name: 'whatsapp_pre_chat',
+        inquiry_id: result.inquiryId,
+        page_path: pathname,
+      });
+      setIsOpen(false);
+      openWhatsApp(leadMessage, reservedWindow);
+    } catch (err) {
+      if (reservedWindow && !reservedWindow.closed) {
+        reservedWindow.close();
+      }
+      console.error('WhatsApp lead capture failed:', err);
+      setError(saveError);
+      track('ntet_whatsapp_lead_error');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -333,7 +382,7 @@ export default function WhatsAppLeadButton({
                 />
               </label>
 
-              {error && <p className={styles.error}>{error}</p>}
+              {error && <p className={styles.error} role="alert">{error}</p>}
 
               <div className={styles.actions}>
                 <button type="submit" className={styles.submitButton} disabled={isSending}>

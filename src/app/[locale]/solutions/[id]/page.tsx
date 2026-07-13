@@ -14,10 +14,19 @@ import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { englishCuasSolutionHandles, getCuasSolution } from '@/lib/cuasSolutionCatalog';
+import { getCuasIndustryPageData } from '@/lib/cuasIndustryPageData';
+import CuasIndustryDefensePage from '@/components/solutions/CuasIndustryDefensePage';
+
+async function getLocalizedSolution(id: string, locale: Locale) {
+  const catalogSolution = getCuasSolution(id, locale);
+  if (catalogSolution) return catalogSolution;
+  return getSolutionById(id);
+}
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
-  return handles
+  return Array.from(new Set([...handles, ...englishCuasSolutionHandles]))
     .filter((id) => isPublicComplianceContent('solution', id))
     .map((id) => ({
       id,
@@ -26,7 +35,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
   if (!isPublicComplianceContent('solution', params.id)) return {};
-  const solution = await getSolutionById(params.id);
+  const solution = await getLocalizedSolution(params.id, params.locale);
   if (!solution) return {};
 
   const title = solution[`product_name_${params.locale}`] || solution.product_name_en || solution.title_en;
@@ -49,7 +58,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
     notFound();
   }
 
-  const solution = await getSolutionById(id);
+  const solution = await getLocalizedSolution(id, locale);
   if (!solution) {
     notFound();
   }
@@ -120,6 +129,21 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
     { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
   ];
 
+  const industryPageData = getCuasIndustryPageData(id, locale);
+  if (industryPageData) {
+    return (
+      <>
+        <JsonLd data={jsonLd} />
+        <CuasIndustryDefensePage
+          solution={solution}
+          pageData={industryPageData}
+          locale={locale}
+          dict={dict}
+        />
+      </>
+    );
+  }
+
   return (
     <>
       <JsonLd data={jsonLd} />
@@ -156,7 +180,7 @@ export default async function SolutionDetailPage({ params }: { params: { id: str
     notFound();
   }
 
-  const solution = await getSolutionById(id);
+  const solution = await getLocalizedSolution(id, locale);
   if (!solution) {
     notFound();
   }

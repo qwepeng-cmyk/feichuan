@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import WhatsAppLeadButton from './WhatsAppLeadButton';
 import styles from './DesktopFloatingContact.module.css';
+import { cuasText } from '@/lib/cuasLocaleCopy';
 
 declare global {
   interface Window {
@@ -30,8 +31,15 @@ function WhatsAppIcon() {
   );
 }
 
-export default function DesktopFloatingContact() {
+const floatingCopy: Record<string, { quickContact: string; consult: string; openChat: string; leaveMessage: string; leaveMessageLabel: string; top: string; topLabel: string }> = {
+  ru: { quickContact: 'Быстрый контакт', consult: 'Консультация', openChat: 'Открыть бизнес-чат', leaveMessage: 'Оставить сообщение', leaveMessageLabel: 'Оставить сообщение', top: 'Наверх', topLabel: 'Вернуться наверх' },
+  es: { quickContact: 'Contacto rápido', consult: 'Consulta', openChat: 'Abrir chat comercial', leaveMessage: 'Dejar mensaje', leaveMessageLabel: 'Dejar un mensaje', top: 'Arriba', topLabel: 'Volver arriba' },
+  ar: { quickContact: 'اتصال سريع', consult: 'استشارة', openChat: 'فتح محادثة الأعمال', leaveMessage: 'ترك رسالة', leaveMessageLabel: 'ترك رسالة', top: 'أعلى', topLabel: 'العودة إلى الأعلى' },
+};
+
+export default function DesktopFloatingContact({ locale = 'en' }: { locale?: string }) {
   const pathname = usePathname();
+  const copy = floatingCopy[locale] || { quickContact: 'Quick contact', consult: 'Consult', openChat: 'Open business chat', leaveMessage: 'Leave Message', leaveMessageLabel: 'Leave a message', top: 'Top', topLabel: 'Back to top' };
   const [isBusinessChatEnabled, setIsBusinessChatEnabled] = useState(false);
   const [isBusinessChatOnline, setIsBusinessChatOnline] = useState(false);
 
@@ -140,24 +148,24 @@ export default function DesktopFloatingContact() {
   };
 
   return (
-    <aside className={styles.shell} aria-label="Quick contact">
+    <aside className={styles.shell} aria-label={copy.quickContact}>
       <div className={styles.actions}>
         {isBusinessChatEnabled && (
           <button
             type="button"
             className={`${styles.actionButton} ${styles.consult} ${isBusinessChatOnline ? styles.consultOnline : ''}`}
             onClick={openBusinessChat}
-            aria-label="Open business chat"
+            aria-label={copy.openChat}
           >
             <MessageCircle size={25} strokeWidth={2.5} />
-            <span>Consult</span>
+            <span>{copy.consult}</span>
           </button>
         )}
 
         <WhatsAppLeadButton
           sourceLabel="desktop_floating_whatsapp"
           className={`${styles.actionButton} ${styles.whatsapp}`}
-          ariaLabel="Open WhatsApp contact"
+          ariaLabel={cuasText(locale, 'Open WhatsApp contact')}
         >
           <WhatsAppIcon />
           <span>WhatsApp</span>
@@ -167,20 +175,20 @@ export default function DesktopFloatingContact() {
           type="button"
           className={`${styles.actionButton} ${styles.message}`}
           onClick={jumpToInquiry}
-          aria-label="Leave a message"
+          aria-label={copy.leaveMessageLabel}
         >
           <PencilLine size={25} strokeWidth={2.4} />
-          <span>Leave Message</span>
+          <span>{copy.leaveMessage}</span>
         </button>
 
         <button
           type="button"
           className={`${styles.actionButton} ${styles.top}`}
           onClick={scrollToTop}
-          aria-label="Back to top"
+          aria-label={copy.topLabel}
         >
           <ArrowUp size={24} strokeWidth={2.6} />
-          <span>Top</span>
+          <span>{copy.top}</span>
         </button>
       </div>
     </aside>

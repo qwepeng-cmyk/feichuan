@@ -545,8 +545,14 @@ function StructuredSolutionContent({
   });
   const labels = {
     ...baseLabels,
+    industryEyebrow: typeof sectionData.industry_pain_points_eyebrow === 'string' ? sectionData.industry_pain_points_eyebrow : baseLabels.industryEyebrow,
+    industryPainPoints: typeof sectionData.industry_pain_points_title === 'string'
+      ? sectionData.industry_pain_points_title
+      : seoTarget.overviewHeading || baseLabels.industryPainPoints,
     upgradeEyebrow: typeof sectionData.operation_upgrade_eyebrow === 'string' ? sectionData.operation_upgrade_eyebrow : baseLabels.upgradeEyebrow,
     upgradeTitle: typeof sectionData.operation_upgrade_title === 'string' ? sectionData.operation_upgrade_title : baseLabels.upgradeTitle,
+    modulesEyebrow: typeof sectionData.solution_modules_eyebrow === 'string' ? sectionData.solution_modules_eyebrow : baseLabels.modulesEyebrow,
+    solutionModules: typeof sectionData.solution_modules_title === 'string' ? sectionData.solution_modules_title : baseLabels.solutionModules,
     modulesIntro: typeof sectionData.solution_modules_intro === 'string' ? sectionData.solution_modules_intro : baseLabels.modulesIntro,
   };
 
@@ -565,7 +571,7 @@ function StructuredSolutionContent({
       <SolutionVisualSection
         id="details"
         eyebrow={labels.industryEyebrow}
-        title={seoTarget.overviewHeading || labels.industryPainPoints}
+        title={labels.industryPainPoints}
         items={painPoints}
         image={painPointsImage}
       />
@@ -685,7 +691,7 @@ export default function SolutionDetailClient({
                   )}
 
                 <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
-                  <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
+                  <a href="#inquiry" className="btn-cta" style={{ background: '#b45309', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                     {dict.products.getQuotation}
                   </a>
                   <WhatsAppLeadButton sourceLabel="solution_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>

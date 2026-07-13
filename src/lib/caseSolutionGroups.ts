@@ -1,4 +1,5 @@
 import {
+  englishCuasSolutionCenterGroups,
   solutionCenterGroups,
   type SolutionCenterGroupId,
 } from './solutionCenterGroups';
@@ -17,6 +18,9 @@ export const caseCenterSolutionGroups = [
 ]
   .map((id) => solutionCenterGroups.find((group) => group.id === id))
   .filter(Boolean) as typeof solutionCenterGroups[number][];
+export const englishCuasCaseCenterSolutionGroups = englishCuasSolutionCenterGroups;
+
+type EnglishCuasSolutionCenterGroupId = (typeof englishCuasSolutionCenterGroups)[number]['id'];
 
 const CASE_GROUP_BY_HANDLE: Record<string, SolutionCenterGroupId> = {
   'anhui-flood-season-uav-patrol': 'uav-inspection-patrol',
@@ -46,6 +50,18 @@ const LEGACY_CATEGORY_TO_GROUP: Record<string, SolutionCenterGroupId> = {
   '04_EmergencyRescue': 'uav-emergency-response',
 };
 
+const ENGLISH_CUAS_CASE_GROUP_BY_HANDLE: Record<string, EnglishCuasSolutionCenterGroupId> = {
+  'airport-security-application': 'airports',
+  'asian-games-security': 'mass-events',
+  'water-conservancy-security': 'critical-infrastructure',
+  'pakistan-power-plant-airspace-monitoring': 'power-plants',
+  'pakistan-power-plant-low-altitude-monitoring': 'power-plants',
+  'brazil-refinery-airspace-monitoring': 'critical-infrastructure',
+  'brazil-refinery-low-altitude-monitoring': 'critical-infrastructure',
+  'nigeria-factory-airspace-monitoring': 'enterprises',
+  'nigeria-factory-low-altitude-monitoring': 'enterprises',
+};
+
 export function getCaseSolutionGroupId(item: CaseSolutionGroupInput): SolutionCenterGroupId | undefined {
   if (item.handle && CASE_GROUP_BY_HANDLE[item.handle]) {
     return CASE_GROUP_BY_HANDLE[item.handle];
@@ -59,4 +75,9 @@ export function getCaseSolutionGroupId(item: CaseSolutionGroupInput): SolutionCe
   }
 
   return LEGACY_CATEGORY_TO_GROUP[categoryId];
+}
+
+export function getEnglishCuasCaseSolutionGroupId(item: CaseSolutionGroupInput): EnglishCuasSolutionCenterGroupId | undefined {
+  if (!item.handle) return undefined;
+  return ENGLISH_CUAS_CASE_GROUP_BY_HANDLE[item.handle];
 }

@@ -63,6 +63,19 @@ export const solutionCenterGroups = [
   },
 ] as const;
 
+export const englishCuasSolutionCenterGroups = [
+  { id: 'critical-infrastructure', labelKey: 'cuasCriticalInfrastructure', fallbackLabel: 'Critical Infrastructure', eyebrowKey: 'infrastructure', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasCriticalInfrastructureDesc', fallbackDescription: 'Layered airspace awareness for essential facilities and complex industrial perimeters.', categoryHref: undefined, handles: ['critical-infrastructure-airspace-monitoring'] },
+  { id: 'power-plants', labelKey: 'cuasPowerPlants', fallbackLabel: 'Power Plants', eyebrowKey: 'infrastructure', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasPowerPlantsDesc', fallbackDescription: 'Continuous monitoring for generation sites, switchyards, dams and renewable assets.', categoryHref: undefined, handles: ['power-plant-airspace-monitoring'] },
+  { id: 'airports', labelKey: 'cuasAirports', fallbackLabel: 'Airports', eyebrowKey: 'keyArea', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasAirportsDesc', fallbackDescription: 'Multi-sensor airport perimeter and approach-area awareness with operator verification.', categoryHref: undefined, handles: ['airport-security-protection'] },
+  { id: 'borders', labelKey: 'cuasBorders', fallbackLabel: 'Borders', eyebrowKey: 'keyArea', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasBordersDesc', fallbackDescription: 'Fixed, mobile and portable monitoring for remote sectors and changing field operations.', categoryHref: undefined, handles: ['border-airspace-monitoring'] },
+  { id: 'public-safety', labelKey: 'cuasPublicSafety', fallbackLabel: 'Public Safety', eyebrowKey: 'keyArea', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasPublicSafetyDesc', fallbackDescription: 'Deployable airspace awareness for municipal operations and temporary public-security zones.', categoryHref: undefined, handles: ['public-safety-airspace-monitoring'] },
+  { id: 'prisons', labelKey: 'cuasPrisons', fallbackLabel: 'Prisons', eyebrowKey: 'keyArea', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasPrisonsDesc', fallbackDescription: 'Persistent perimeter monitoring for correctional and detention facilities.', categoryHref: undefined, handles: ['correctional-facility-airspace-monitoring'] },
+  { id: 'ports', labelKey: 'cuasPorts', fallbackLabel: 'Port Security', eyebrowKey: 'infrastructure', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasPortsDesc', fallbackDescription: 'Coastal and terminal airspace awareness for ports, harbors and logistics zones.', categoryHref: undefined, handles: ['port-airspace-monitoring'] },
+  { id: 'mass-events', labelKey: 'cuasMassEvents', fallbackLabel: 'Mass Events', eyebrowKey: 'keyArea', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasMassEventsDesc', fallbackDescription: 'Rapidly deployable monitoring for stadiums, festivals and major gatherings.', categoryHref: undefined, handles: ['mass-event-airspace-monitoring'] },
+  { id: 'vip-private-property', labelKey: 'cuasVipPrivateProperty', fallbackLabel: 'VIP & Private Property', eyebrowKey: 'keyArea', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasVipPrivatePropertyDesc', fallbackDescription: 'Discreet fixed, portable or mobile awareness for private and temporary locations.', categoryHref: undefined, handles: ['vip-private-property-airspace-monitoring'] },
+  { id: 'enterprises', labelKey: 'cuasEnterprises', fallbackLabel: 'Enterprises', eyebrowKey: 'infrastructure', fallbackEyebrow: 'C-UAS Applications', descriptionKey: 'cuasEnterprisesDesc', fallbackDescription: 'Configurable monitoring for factories, campuses, warehouses and research facilities.', categoryHref: undefined, handles: ['enterprise-airspace-monitoring'] },
+] as const;
+
 export type SolutionCenterGroupId = (typeof solutionCenterGroups)[number]['id'];
 
 export const solutionCenterImageByHandle: Record<string, string> = {
@@ -77,5 +90,27 @@ export const solutionCenterImageByHandle: Record<string, string> = {
   'chemical-plant-protection': '/cases/brazil-refinery-airspace-monitoring/main-home.webp',
   'oil-production-base-protection': '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
   'sports-event-security': '/cases/asian-games-security/main.webp',
-  'airport-security-protection': '/cases/airport-security-application/main-home.webp',
+  'airport-security-protection': '/solutions/cuas-applications/airport-security-protection/hero.webp',
+  'critical-infrastructure-airspace-monitoring': '/solutions/cuas-applications/critical-infrastructure-airspace-monitoring/hero.webp',
+  'power-plant-airspace-monitoring': '/solutions/cuas-applications/power-plant-airspace-monitoring/hero.webp',
+  'border-airspace-monitoring': '/solutions/cuas-applications/border-airspace-monitoring/hero.webp',
+  'public-safety-airspace-monitoring': '/solutions/cuas-applications/public-safety-airspace-monitoring/hero.webp',
+  'correctional-facility-airspace-monitoring': '/solutions/cuas-applications/correctional-facility-airspace-monitoring/hero.webp',
+  'port-airspace-monitoring': '/solutions/cuas-applications/port-airspace-monitoring/hero.webp',
+  'mass-event-airspace-monitoring': '/solutions/cuas-applications/mass-event-airspace-monitoring/hero.webp',
+  'vip-private-property-airspace-monitoring': '/solutions/cuas-applications/vip-private-property-airspace-monitoring/hero.webp',
+  'enterprise-airspace-monitoring': '/solutions/cuas-applications/enterprise-airspace-monitoring/hero.webp',
+};
+
+export const solutionCenterCardImageByHandle: Record<string, string> = {
+  'critical-infrastructure-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/01 Critical Infrastructure.webp',
+  'power-plant-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/02 Power Plants.webp',
+  'airport-security-protection': '/solutions/cuas-applications/cuas_solution_center/03 Airports.webp',
+  'border-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/04 Borders.webp',
+  'public-safety-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/05 Public Safety.webp',
+  'correctional-facility-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/06 Prisons.webp',
+  'port-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/07 Ports.webp',
+  'mass-event-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/08 Mass Events.webp',
+  'vip-private-property-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/09 VIPs & Private Property.webp',
+  'enterprise-airspace-monitoring': '/solutions/cuas-applications/cuas_solution_center/10 Enterprises.webp',
 };

@@ -1,0 +1,33 @@
+{
+  "cache_type": "performance-audit-summary",
+  "analyzed_at": "2026-07-13T13:46:32+08:00",
+  "domain": "n-tet.com",
+  "scope": "live",
+  "verdict": "usable_but_needs_improvement",
+  "lighthouse_score": null,
+  "core_web_vitals": {
+    "lcp": null,
+    "inp": null,
+    "cls": null,
+    "status": "unavailable"
+  },
+  "routes": [
+    {"path": "/", "ttfb_median_ms": 626, "document_total_median_ms": 821, "html_transfer_bytes": 34298, "first_party_js_bytes": 178157},
+    {"path": "/products", "ttfb_median_ms": 641, "document_total_median_ms": 796, "html_transfer_bytes": 26733, "first_party_js_bytes": 180130},
+    {"path": "/solutions", "ttfb_median_ms": 628, "document_total_median_ms": 878, "html_transfer_bytes": 33360, "first_party_js_bytes": 194640},
+    {"path": "/cases", "ttfb_median_ms": 647, "document_total_median_ms": 839, "html_transfer_bytes": 25772, "first_party_js_bytes": 193239},
+    {"path": "/media", "ttfb_median_ms": 837, "document_total_median_ms": 1088, "html_transfer_bytes": 42180, "first_party_js_bytes": 191841}
+  ],
+  "issues": [
+    {"priority": "P1", "issue": "Cloudflare HTML cache is DYNAMIC while Next.js cache is HIT"},
+    {"priority": "P1", "issue": "GTM and standalone gtag both load the same GA4 measurement ID"},
+    {"priority": "P1", "issue": "Too many high-priority images on product, solution, and case listing pages"},
+    {"priority": "P2", "issue": "Homepage autoplay video is 3.06 MB on the live site"},
+    {"priority": "P2", "issue": "Default-English /en routes add a 301 redirect"}
+  ],
+  "limitations": [
+    "PageSpeed Insights API returned HTTP 429 quota exceeded",
+    "Browser performance timeline access was blocked by enterprise network policy",
+    "No Lighthouse score or CWV value was inferred"
+  ]
+}

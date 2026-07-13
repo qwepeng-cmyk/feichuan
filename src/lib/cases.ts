@@ -32,7 +32,7 @@ export const getAllCases = unstable_cache(
       .filter(row => isPublicComplianceContent('case', row.handle))
       .map(row => sanitizeRecordForTier(row, getComplianceTier('case', row.handle)));
   },
-  ['all-cases-uav-refresh-20260701-related-cuas-products-v3'],
+  ['all-cases-uav-refresh-20260701-related-cuas-products-v4-asian-games-stadium-image'],
   { revalidate: 3600, tags: ['cases'] }
 );
 
@@ -61,6 +61,6 @@ export const getCaseByHandle = unstable_cache(
         return sanitizeRecordForTier(row, getComplianceTier('case', handle));
     }
   },
-  ['case-detail-uav-refresh-20260701-related-cuas-products-v3'],
+  ['case-detail-uav-refresh-20260701-related-cuas-products-v4-asian-games-stadium-image'],
   { revalidate: 3600, tags: ['cases'] }
 );

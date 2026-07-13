@@ -52,7 +52,7 @@ export const getAllMedia = unstable_cache(
         return bTime - aTime;
       });
   },
-  ['all-media-news-low-altitude-editorial-20260708'],
+  ['all-media-news-cuas-archive-20260713-v3'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -61,7 +61,7 @@ export const getAllMediaIds = unstable_cache(
     const rows = db.prepare('SELECT id FROM media WHERE COALESCE(is_published, 1) = 1').all() as any[];
     return rows.map(r => r.id).filter(id => isPublicComplianceContent('media', id));
   },
-  ['media-ids-news-low-altitude-editorial-20260708'],
+  ['media-ids-news-cuas-archive-20260713-v3'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -79,6 +79,6 @@ export const getMediaById = unstable_cache(
       return null;
     }
   },
-  ['media-detail-news-low-altitude-editorial-20260708'],
+  ['media-detail-news-cuas-archive-20260713-v3'],
   { revalidate: 3600, tags: ['media'] }
 );

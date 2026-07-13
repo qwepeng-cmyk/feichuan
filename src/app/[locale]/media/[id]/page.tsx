@@ -90,8 +90,9 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                         <div className="container" style={{ maxWidth: '1100px' }}>
                             <header style={{ textAlign: 'center', marginBottom: '48px' }}>
                                 <h1 style={{ fontSize: '4.6rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '22px', letterSpacing: 0 }}>{newsTitle}</h1>
-                                <div style={{ fontSize: '1.7rem', color: '#666', fontWeight: 500 }}>
-                                    <time dateTime={news.date}>{newsDate}</time>
+                                <div style={{ fontSize: '1.55rem', color: '#666', fontWeight: 500, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px 14px' }}>
+                                    <span>Published <time dateTime={news.date}>{newsDate}</time></span>
+                                    {locale === 'en' && <span aria-label="Reviewed by N-TET C-UAS Engineering Team">Reviewed by N-TET C-UAS Engineering Team</span>}
                                 </div>
                             </header>
 

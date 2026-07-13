@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
@@ -8,25 +8,31 @@ import { localeFromPathname } from '@/lib/localization';
 export default function InquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
     const pathname = usePathname();
+    const formId = useId();
+    const fieldIds = {
+        name: `${formId}-name`,
+        company: `${formId}-company`,
+        email: `${formId}-email`,
+        phone: `${formId}-phone`,
+        message: `${formId}-message`,
+    };
     const d = dict?.inquiry || {
-        title: "Get Product Information & Pricing",
-        subtitle: "Tell us what you are looking for. Our team can send product information, technical specs, brochures, or quotation details.",
+        title: "Get Expert Drone Defense!",
+        subtitle: "Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.",
         name: "Name",
         company: "Company Name",
         email: "E-mail",
-        contactMethod: "Contact Method",
         countryCode: "Country Code",
-        phone: "Phone Number",
-        inquiryType: "What do you need?",
+        phone: "Phone / WhatsApp",
+        phonePlaceholder: "Include country code, e.g. +1 555 123 4567",
+        inquiryType: "How can we help? (Optional)",
         messageLabel: "Message",
         messagePlaceholder: "Tell us the product type, application, quantity, or information you need. Example: brochure, specs, quotation, or help choosing the right equipment.",
-        submit: "SUBMIT INQUIRY",
+        submit: "SUBMIT C-UAS INQUIRY",
         types: [
-            "Product Information",
-            "Technical Specs",
-            "Product Brochure",
-            "Pricing / Quotation",
-            "Engineer Support",
+            "Equipment Pricing / Quotation",
+            "Product Specifications / Brochure",
+            "System Configuration / Site Review",
             "Distributor / Partnership"
         ],
         selectCode: "Select Code...",
@@ -93,7 +99,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         name: '',
         company: '',
         email: '',
-        contactMethod: 'WhatsApp',
+        contactMethod: 'Not specified',
         countryCode: '',
         phone: '',
         demands: [] as string[],
@@ -131,7 +137,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                     name: '',
                     company: '',
                     email: '',
-                    contactMethod: 'WhatsApp',
+                    contactMethod: 'Not specified',
                     countryCode: '',
                     phone: '',
                     demands: [],
@@ -159,7 +165,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                     {d.submitted?.title || "SUBMITTED SUCCESSFULLY!"}
                 </h2>
                 <p style={{ fontSize: '1.8rem', color: '#666', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.6' }}>
-                    {d.submitted?.subtitle || "Thank you for your inquiry. Our team will review your requirements and get back to you within 24 hours."}
+                    {d.submitted?.subtitle || "Thank you for your inquiry. Our C-UAS team will review the equipment and project information you provided."}
                 </p>
                 <button 
                     onClick={() => setIsSubmitted(false)}
@@ -190,8 +196,9 @@ export default function InquiryForm({ dict }: { dict?: any }) {
             <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
                 <div className="form-grid">
                     <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.name}</label>
+                        <label className="form-label" htmlFor={fieldIds.name}><span style={{ color: 'red' }}>*</span> {d.name}</label>
                         <input
+                            id={fieldIds.name}
                             type="text"
                             required
                             className="form-input"
@@ -201,8 +208,9 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                         />
                     </div>
                     <div className="form-group">
-                        <label className="form-label">{d.company}</label>
+                        <label className="form-label" htmlFor={fieldIds.company}>{d.company}</label>
                         <input
+                            id={fieldIds.company}
                             type="text"
                             className="form-input"
                             style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
@@ -213,8 +221,9 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.email}</label>
+                    <label className="form-label" htmlFor={fieldIds.email}><span style={{ color: 'red' }}>*</span> {d.email}</label>
                     <input
+                        id={fieldIds.email}
                         type="email"
                         required
                         className="form-input"
@@ -224,104 +233,22 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                     />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.5fr', gap: '20px', marginBottom: '30px' }}>
-                    <div className="form-group">
-                        <label className="form-label">{d.contactMethod}</label>
-                        <select
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}
-                            value={formData.contactMethod}
-                            onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
-                        >
-                            <option value="WhatsApp">{d.contactMethods.whatsapp}</option>
-                            <option value="Phone">{d.contactMethods.phone}</option>
-                            <option value="WeChat">{d.contactMethods.wechat}</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.countryCode}</label>
-                        <select
-                            required
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}
-                            value={formData.countryCode}
-                            onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-                        >
-                            <option value="">{d.selectCode}</option>
-                            
-                            <optgroup label={d.regions.asia}>
-                                <option value="+86">{d.countries.china} (+86)</option>
-                                <option value="+971">{d.countries.uae} (+971)</option>
-                                <option value="+966">{d.countries.saudiArabia} (+966)</option>
-                                <option value="+98">{d.countries.iran} (+98)</option>
-                                <option value="+90">{d.countries.turkey} (+90)</option>
-                                <option value="+974">{d.countries.qatar} (+974)</option>
-                                <option value="+968">{d.countries.oman} (+968)</option>
-                                <option value="+965">{d.countries.kuwait} (+965)</option>
-                                <option value="+964">{d.countries.iraq} (+964)</option>
-                                <option value="+91">{d.countries.india} (+91)</option>
-                                <option value="+81">{d.countries.japan} (+81)</option>
-                                <option value="+82">{d.countries.southKorea} (+82)</option>
-                                <option value="+65">{d.countries.singapore} (+65)</option>
-                                <option value="+60">{d.countries.malaysia} (+60)</option>
-                                <option value="+998">{d.countries.uzbekistan} (+998)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.europe}>
-                                <option value="+7">{d.countries.russiaKazakhstan} (+7)</option>
-                                <option value="+375">{d.countries.belarus} (+375)</option>
-                                <option value="+44">{d.countries.uk} (+44)</option>
-                                <option value="+49">{d.countries.germany} (+49)</option>
-                                <option value="+33">{d.countries.france} (+33)</option>
-                                <option value="+39">{d.countries.italy} (+39)</option>
-                                <option value="+34">{d.countries.spain} (+34)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.southAmerica}>
-                                <option value="+55">{d.countries.brazil} (+55)</option>
-                                <option value="+54">{d.countries.argentina} (+54)</option>
-                                <option value="+57">{d.countries.colombia} (+57)</option>
-                                <option value="+56">{d.countries.chile} (+56)</option>
-                                <option value="+51">{d.countries.peru} (+51)</option>
-                                <option value="+593">{d.countries.ecuador} (+593)</option>
-                                <option value="+58">{d.countries.venezuela} (+58)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.africa}>
-                                <option value="+20">{d.countries.egypt} (+20)</option>
-                                <option value="+213">{d.countries.algeria} (+213)</option>
-                                <option value="+212">{d.countries.morocco} (+212)</option>
-                                <option value="+234">{d.countries.nigeria} (+234)</option>
-                                <option value="+27">{d.countries.southAfrica} (+27)</option>
-                                <option value="+254">{d.countries.kenya} (+254)</option>
-                                <option value="+251">{d.countries.ethiopia} (+251)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.northAmerica}>
-                                <option value="+1">{d.countries.usaCanada} (+1)</option>
-                                <option value="+52">{d.countries.mexico} (+52)</option>
-                                <option value="+61">{d.countries.australia} (+61)</option>
-                                <option value="+64">{d.countries.newZealand} (+64)</option>
-                            </optgroup>
-
-                            <option value="other">{d.regions.other}</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.phone}</label>
-                        <input
-                            type="text"
-                            required
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        />
-                    </div>
+                <div className="form-group" style={{ marginBottom: '30px' }}>
+                    <label className="form-label" htmlFor={fieldIds.phone}><span style={{ color: 'red' }}>*</span> {d.phone}</label>
+                    <input
+                        id={fieldIds.phone}
+                        type="tel"
+                        required
+                        className="form-input"
+                        style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder={d.phonePlaceholder || 'Include country code, e.g. +1 555 123 4567'}
+                    />
                 </div>
 
                 <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.inquiryType}</label>
+                    <label className="form-label">{d.inquiryType}</label>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
                         {d.types.map((opt: string) => (
                             <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1.5rem', color: '#444' }}>
@@ -338,8 +265,9 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.messageLabel}</label>
+                    <label className="form-label" htmlFor={fieldIds.message}><span style={{ color: 'red' }}>*</span> {d.messageLabel}</label>
                     <textarea
+                        id={fieldIds.message}
                         required
                         className="form-input form-textarea"
                         style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '120px' }}
@@ -355,7 +283,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                     className="btn-submit" 
                     style={{ 
                         borderRadius: '0', 
-                        background: isSending ? '#999' : 'var(--accent)', 
+                        background: isSending ? '#999' : 'var(--cta)',
                         textTransform: 'uppercase',
                         cursor: isSending ? 'not-allowed' : 'pointer'
                     }}

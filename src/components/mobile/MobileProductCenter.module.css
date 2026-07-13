@@ -13,7 +13,7 @@
     width: 100%;
     background-image:
         linear-gradient(90deg, rgba(5,18,37,0.72), rgba(5,18,37,0.18)),
-        url('/solutions/solutions/power-line-uav-intelligent-inspection-banner-drone-clarity-v2.webp');
+        url('/solutions/cuas-applications/banner/product_center_banner.webp');
     background-size: cover;
     background-position: center 38%;
     position: relative;
@@ -304,7 +304,7 @@
 .formSubmit {
     margin-top: 20px;
     padding: 18px;
-    background: #ff9800; /* PC Match Yellow */
+    background: #b45309;
     color: #fff;
     border: none;
     font-size: 16px;

@@ -2,14 +2,19 @@
 
 import type { ReactNode } from 'react';
 import MobileSolutionCenter from '@/components/mobile/MobileSolutionCenter';
-import CategoryNav from '@/components/products/CategoryNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { localizedField } from '@/lib/localization';
-import { solutionCenterGroups, solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
+import {
+    englishCuasSolutionCenterGroups,
+    solutionCenterCardImageByHandle,
+    solutionCenterGroups,
+    solutionCenterImageByHandle,
+} from '@/lib/solutionCenterGroups';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
 
 interface Solution {
     id: string;
@@ -148,7 +153,18 @@ export default function SolutionCenterClient({
         )
     };
 
-    const t = (group: typeof solutionCenterGroups[number], field: 'label' | 'eyebrow' | 'description') => {
+    type ActiveGroup = (typeof solutionCenterGroups)[number] | (typeof englishCuasSolutionCenterGroups)[number];
+    const useCuasCenter = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const activeGroups: readonly ActiveGroup[] = useCuasCenter ? englishCuasSolutionCenterGroups : solutionCenterGroups;
+    const defaultCuasIcon = (
+        <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }} aria-hidden="true">
+            <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
+            <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
+            <g transform="translate(62, 0)">{ICON_CAMERA}</g>
+        </svg>
+    );
+
+    const t = (group: ActiveGroup, field: 'label' | 'eyebrow' | 'description') => {
         if (field === 'label') {
             return dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel;
         }
@@ -159,31 +175,28 @@ export default function SolutionCenterClient({
     };
 
     const solutionsById = new Map(allSolutions.map((solution) => [solution.id, solution]));
-    const displayGroups: DisplayGroup[] = solutionCenterGroups
+    const displayGroups: DisplayGroup[] = activeGroups
         .map((group) => ({
             id: group.id,
             name: t(group, 'label'),
             categoryHref: group.categoryHref,
-            icon: GROUP_ICONS[group.id],
+            icon: GROUP_ICONS[group.id] || defaultCuasIcon,
             solutions: group.handles
                 .map((handle) => solutionsById.get(handle))
                 .filter(Boolean) as Solution[],
         }))
         .filter((group) => group.solutions.length > 0);
 
-    const categoryList = displayGroups.map((group) => ({
-        id: group.id,
-        name: group.name,
-        icon: group.icon
-    }));
-
     const getSolutionTitle = (solution: Solution) => localizedField(solution, 'product_name', locale) || localizedField(solution, 'title', locale);
+    const overviewSolutions = Array.from(new Map(
+        displayGroups.flatMap((group) => group.solutions).map((solution) => [solution.id, solution])
+    ).values());
 
     const shouldUseProductImageTreatment = (image?: string) => (
         Boolean(image?.includes('/products/uav-systems/'))
     );
 
-    return (
+    return localizeCuasTree(locale, (
         <>
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -299,7 +312,7 @@ export default function SolutionCenterClient({
                         display: 'flex',
                         alignItems: 'center'
                     }}>
-                        <Image src="/solutions/solution_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
+                        <Image src="/solutions/cuas-applications/banner/solution_center_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.22)', zIndex: 1 }} />
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '750px' }}>
@@ -308,14 +321,45 @@ export default function SolutionCenterClient({
                             </div>
                         </div>
                         <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
-                            <Image src="/logo1-small.webp" alt="N-TET industrial UAV solutions emblem" fill style={{ objectFit: 'contain' }} />
+                            <Image src="/logo1-small.webp" alt="N-TET C-UAS solutions emblem" fill style={{ objectFit: 'contain' }} />
                         </div>
                     </section>
 
-                    <CategoryNav categories={categoryList} />
-
                     <div className="solution-lists-wrap" style={{ padding: '48px 0 20px' }}>
-                        {displayGroups.map((group, groupIndex) => (
+                        {useCuasCenter ? (
+                            <section className="solution-center-section solution-center-overview">
+                                <div className="container">
+                                    <div className="solution-center-grid">
+                                        {overviewSolutions.map((sol) => {
+                                            const solTitle = getSolutionTitle(sol);
+                                            const centerImage = solutionCenterCardImageByHandle[sol.id] || solutionCenterImageByHandle[sol.id] || sol.main_image;
+                                            const productImageTreatment = shouldUseProductImageTreatment(centerImage);
+
+                                            return (
+                                                <Link prefetch={false} href={localePath(locale, `/solutions/${sol.id}`)} key={sol.id} className="solution-center-card p-card-sbm">
+                                                    <div className="solution-center-card-media p-card-img">
+                                                        <Image
+                                                            src={centerImage || '/images/solutions/placeholder.jpg'}
+                                                            alt={solTitle}
+                                                            fill
+                                                            style={{
+                                                                objectFit: productImageTreatment ? 'contain' : 'cover',
+                                                                padding: productImageTreatment ? '5px' : 0,
+                                                                mixBlendMode: productImageTreatment ? 'multiply' : 'normal'
+                                                            }}
+                                                            sizes="(max-width: 1200px) 50vw, 33vw"
+                                                        />
+                                                    </div>
+                                                    <div className="solution-center-card-body p-card-content">
+                                                        <h3>{solTitle}</h3>
+                                                    </div>
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </section>
+                        ) : displayGroups.map((group, groupIndex) => (
                             <section key={group.id} id={group.id} className={`solution-center-section ${groupIndex < 2 ? 'priority' : ''}`}>
                                 <div className="container">
                                     <div className="solution-center-section-title">
@@ -324,7 +368,7 @@ export default function SolutionCenterClient({
                                     </div>
 
                                     <div className="solution-center-grid">
-                                        {group.solutions.map((sol, idx) => {
+                                        {group.solutions.map((sol) => {
                                             const solTitle = getSolutionTitle(sol);
                                             const centerImage = solutionCenterImageByHandle[sol.id] || sol.main_image;
                                             const productImageTreatment = shouldUseProductImageTreatment(centerImage);
@@ -342,7 +386,6 @@ export default function SolutionCenterClient({
                                                                 mixBlendMode: productImageTreatment ? 'multiply' : 'normal'
                                                             }}
                                                             sizes="(max-width: 1200px) 50vw, 33vw"
-                                                            priority={groupIndex === 0 && idx < 4}
                                                         />
                                                     </div>
                                                     <div className="solution-center-card-body p-card-content">
@@ -376,5 +419,5 @@ export default function SolutionCenterClient({
                 <MobileSolutionCenter allSolutions={allSolutions} locale={locale} dict={dict} />
             </div>
         </>
-    );
+    ));
 }

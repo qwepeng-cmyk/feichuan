@@ -1,36 +1,52 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { getAllSolutions } from '@/lib/solutions';
 import SolutionCenterClient from './SolutionCenterClient';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { getCuasSolutions } from '@/lib/cuasSolutionCatalog';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
         locale: params.locale,
         path: '/solutions',
-        fallbackTitle: 'Industrial UAV & C-UAS Solutions',
-        fallbackDescription: 'Mission-ready UAV and C-UAS solutions for inspection, emergency support, airport C-UAS, and site security workflows.',
+        fallbackTitle: 'Integrated C-UAS System Solutions',
+        fallbackDescription: 'C-UAS detection, identification, tracking and airspace-monitoring solutions for airports, energy facilities, industrial operations and major public venues.',
     });
 }
 
 async function SolutionsDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {
-    const allSolutions = await getAllSolutions();
+    const pageSolutions = getCuasSolutions(locale);
     
     // Convert to a plain object array for safety during serialization
-    const serializedSolutions = allSolutions.map(s => ({
+    const serializedSolutions = pageSolutions.map(s => ({
         id: s.id,
+        handle: s.handle,
         title_en: s.title_en,
         product_name_en: s.product_name_en,
         product_name_ru: s.product_name_ru,
+        product_name_es: s.product_name_es,
+        product_name_ar: s.product_name_ar,
         summary_en: s.summary_en,
         summary_ru: s.summary_ru,
+        summary_es: s.summary_es,
+        summary_ar: s.summary_ar,
         main_image: s.main_image || undefined,
         category_id: s.category_id
     }));
+    const clientDict = {
+        inquiry: dict.inquiry,
+        solutions: {
+            bannerTitle: dict.solutions.bannerTitle,
+            bannerSubtitle: dict.solutions.bannerSubtitle,
+            exploreAll: dict.solutions.exploreAll,
+        },
+        solutionCenterGroups: {
+            ...(dict.solutionCenterGroups || {}),
+        },
+    };
 
-    return <SolutionCenterClient allSolutions={serializedSolutions} locale={locale} dict={dict} />;
+    return <SolutionCenterClient allSolutions={serializedSolutions} locale={locale} dict={clientDict} />;
 }
 
 export default async function SolutionCenterPage({ params }: { params: { locale: Locale } }) {

@@ -172,7 +172,7 @@ gtag('config', '${gaMeasurementId}');`,
         <JsonLd data={siteGraphSchema(locale)} />
         {children}
         <Footer locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
-        <DesktopFloatingContact />
+        <DesktopFloatingContact locale={locale} />
         <FloatingMessageBox />
 
         {/* MOBILE STICKY BAR */}

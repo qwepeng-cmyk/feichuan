@@ -1,0 +1,192 @@
+{
+  "ntet-requirements-to-cuas-configuration-2024": {
+    "title_ru": "В N-TET: как превратить требования C-UAS в проверяемую конфигурацию",
+    "summary_ru": "N-TET структурирует требования C-UAS по охраняемым зонам, ролям операторов, данным датчиков, интерфейсам, ограничениям и открытым вопросам, чтобы покупатель мог проверить исходные допущения до выбора оборудования.",
+    "content_ru": "<p>Проверяемая конфигурация C-UAS начинается с эксплуатационных требований, а не со списка устройств. N-TET сначала отделяет охраняемую территорию от зоны, которую реально можно наблюдать, затем уточняет, кто будет пользоваться системой, какие данные нужны операторам, как они будут проверять тревоги и какие существующие системы питания, сети, монтажа, карт, камер и записей нужно учитывать. Такой подход не предполагает, что анкета устранит все неизвестные. Он делает их видимыми, чтобы покупатель мог отличить подтвержденные требования, характеристики продукта, допущения по объекту, дополнительные функции и вопросы, требующие обследования или испытания.</p><h2>Что N-TET уточняет в первую очередь?</h2><ul><li>Какие активы, секторы, высоты и периоды работы требуют мониторинга?</li><li>Какие разрешенные полеты и обычные операции объекта следует учитывать?</li><li>Какие данные должны создавать тревогу, дополнять ее и поддерживать визуальную проверку?</li><li>Кто проверяет, передает, комментирует, закрывает и хранит событие?</li><li>Какие ограничения питания, сети, монтажа, карт, времени и учетных записей уже существуют?</li></ul><h2>Как распределяются роли датчиков?</h2><p>Remote ID, RF, радар и EO/IR связываются с разными задачами, а не рассматриваются как взаимозаменяемые круги покрытия. N-TET фиксирует, какой источник может предоставить идентификационные, радиочастотные, траекторные или визуальные данные и что видит оператор, если источник отсутствует или расходится с другой записью.</p><h2>Почему опции отделяют от основного объема?</h2><p>Переносная, стационарная и автомобильная конфигурации могут использовать одинаковые категории оборудования, но предъявляют разные требования к перевозке, установке, времени работы, сети, обслуживанию и персоналу. Разделение базовой конфигурации, альтернатив и опций упрощает проверку стоимости и ответственности.</p><h2>Что должно входить в результат?</h2><p>Результат должен включать краткое описание объема, схему системы, матрицу ролей датчиков, перечень оборудования и опций, реестр интерфейсов, допущения по объекту, рабочий процесс, пункты валидации и журнал открытых вопросов. Показатели остаются связанными с заявленными условиями и не превращаются в гарантию покрытия объекта.</p><p><a href=\"/ru/about\">Профиль компании N-TET</a> описывает открытые возможности в области оборудования, интеграции, испытаний и документации. Они поддерживают дисциплинированную проверку, но не заменяют знания покупателя об объекте, местные правила и итоговую валидацию.</p>",
+    "title_es": "Dentro de N-TET: convertir los requisitos C-UAS en una configuración revisable",
+    "summary_es": "N-TET organiza los requisitos C-UAS por zonas protegidas, funciones operativas, evidencias de sensores, interfaces, limitaciones y preguntas abiertas para revisar los supuestos antes de elegir el equipo.",
+    "content_es": "<p>Una configuración C-UAS revisable comienza por los requisitos operativos, no por una lista de dispositivos. N-TET separa primero el área protegida de la zona que puede observarse de forma realista y después pregunta quién utilizará el sistema, qué evidencias necesita, cómo se revisarán las alertas y qué sistemas existentes de alimentación, red, montaje, mapas, cámaras y registros intervienen. El método no promete resolver todas las incógnitas mediante un cuestionario; las hace visibles para distinguir requisitos confirmados, especificaciones, supuestos del sitio, funciones opcionales y cuestiones que requieren una inspección o ensayo.</p><h2>¿Qué pregunta primero N-TET?</h2><ul><li>¿Qué activos, sectores, alturas y periodos necesitan vigilancia?</li><li>¿Qué vuelos autorizados y actividades normales debe esperar el operador?</li><li>¿Qué evidencias deben crear una alerta, enriquecerla y permitir su revisión visual?</li><li>¿Quién revisa, escala, anota, cierra y conserva un evento?</li><li>¿Qué limitaciones existen en alimentación, red, montaje, mapas, tiempo y cuentas?</li></ul><h2>¿Cómo se asignan las funciones de los sensores?</h2><p>Remote ID, RF, radar y EO/IR se vinculan a preguntas distintas, no se tratan como círculos de cobertura intercambiables. N-TET documenta qué fuente puede aportar identidad, radio, movimiento o imagen y qué verá el operador si falta una fuente o no coincide con otro registro.</p><h2>¿Por qué se separan las opciones del alcance básico?</h2><p>Las configuraciones portátil, fija y vehicular pueden compartir categorías de equipo, pero tienen necesidades diferentes de transporte, instalación, autonomía, red, mantenimiento y personal. Separar la base, las alternativas y las opciones facilita revisar costes y responsabilidades.</p><h2>¿Qué debe incluir el resultado?</h2><p>Debe incluir un resumen del alcance, diagrama del sistema, matriz de funciones, lista de equipos y opciones, registro de interfaces, supuestos del sitio, flujo operativo, puntos de validación y preguntas abiertas. Los valores de rendimiento siguen ligados a sus condiciones y no se convierten en garantías de cobertura.</p><p>El <a href=\"/es/about\">perfil de N-TET</a> describe sus capacidades públicas de equipos, integración, ensayos y documentación. Estas capacidades apoyan una revisión disciplinada, pero no sustituyen el conocimiento del comprador, las normas locales ni la validación final.</p>",
+    "title_ar": "داخل N-TET: تحويل متطلبات C-UAS إلى تكوين قابل للمراجعة",
+    "summary_ar": "تنظم N-TET متطلبات C-UAS وفق المناطق المحمية والأدوار التشغيلية وأدلة المستشعرات والواجهات والقيود والأسئلة المفتوحة لمراجعة الافتراضات قبل اختيار المعدات.",
+    "content_ar": "<p>يبدأ تكوين C-UAS القابل للمراجعة بالمتطلبات التشغيلية، لا بقائمة أجهزة. تفصل N-TET أولاً بين المنطقة المحمية والمنطقة التي يمكن مراقبتها واقعياً، ثم تسأل من سيستخدم النظام وما الأدلة المطلوبة وكيف ستُراجع التنبيهات وما أنظمة الطاقة والشبكة والتركيب والخرائط والكاميرات والسجلات القائمة. لا يفترض هذا الأسلوب أن الاستبيان يحل كل مجهول، بل يجعله واضحاً لتمييز المتطلبات المؤكدة والمواصفات وافتراضات الموقع والوظائف الاختيارية والأسئلة التي تحتاج إلى مسح أو اختبار.</p><h2>ما الذي تسأل عنه N-TET أولاً؟</h2><ul><li>ما الأصول والقطاعات والارتفاعات وفترات التشغيل التي تحتاج إلى مراقبة؟</li><li>ما الرحلات المصرح بها وأنشطة الموقع المعتادة؟</li><li>ما الأدلة التي تنشئ التنبيه وتثريه وتدعم المراجعة المرئية؟</li><li>من يراجع الحدث ويصعّده ويعلق عليه ويغلقه ويحتفظ به؟</li><li>ما قيود الطاقة والشبكة والتركيب والخرائط والوقت والحسابات القائمة؟</li></ul><h2>كيف تُوزع أدوار المستشعرات؟</h2><p>يرتبط Remote ID وRF والرادار وEO/IR بأسئلة مختلفة ولا تُعامل كدوائر تغطية متبادلة. وتوثق N-TET المصدر الذي يقدم الهوية أو النشاط الراديوي أو الحركة أو الصورة، وما يراه المشغل عند غياب مصدر أو اختلافه مع سجل آخر.</p><h2>لماذا تُفصل الخيارات عن النطاق الأساسي؟</h2><p>قد تتشارك التكوينات المحمولة والثابتة والمركبة فئات المعدات، لكنها تختلف في النقل والإعداد ومدة التشغيل والشبكة والصيانة والكوادر. ويسهل فصل الأساس والبدائل والخيارات مراجعة التكلفة والمسؤولية.</p><h2>ماذا يجب أن يتضمن الناتج؟</h2><p>ينبغي أن يتضمن ملخص النطاق ومخطط النظام ومصفوفة أدوار المستشعرات وقائمة المعدات والخيارات وسجل الواجهات وافتراضات الموقع وسير التشغيل وعناصر التحقق والأسئلة المفتوحة. وتظل قيم الأداء مرتبطة بشروطها ولا تتحول إلى ضمان لتغطية الموقع.</p><p>يصف <a href=\"/ar/about\">ملف N-TET</a> قدراتها العامة في المعدات والتكامل والاختبار والوثائق. وتدعم هذه القدرات مراجعة منظمة، لكنها لا تستبدل معرفة المشتري بالموقع أو القواعد المحلية أو التحقق النهائي.</p>"
+  },
+  "cuas-concept-of-operations-before-procurement-2024": {
+    "title_ru": "Что должна определять концепция эксплуатации C-UAS до закупки",
+    "summary_ru": "До выбора оборудования концепция эксплуатации C-UAS должна определить пользователей, источники тревог, проверку разрешенных полетов, подтверждение, ответственность, записи, обслуживание и валидацию.",
+    "content_ru": "<p>Концепция эксплуатации C-UAS объясняет, как персонал, датчики, программное обеспечение, существующие системы и утвержденные процедуры взаимодействуют при обычном мониторинге и проверке тревоги. Ее следует подготовить до того, как решения о закупке станет сложно изменить. Документу не нужно предсказывать каждое событие; он должен определить пользователей, значение тревог, доступные данные, проверку разрешенной активности, визуальное подтверждение, ответственность за следующее решение и итоговую запись.</p><h2>Кто пользуется системой?</h2><p>Определите операторов, руководителей, инженерную или ИТ-поддержку, уполномоченных проверяющих и владельца эксплуатационной политики. Зафиксируйте смены, передачу дежурства, роли, обучение, контакты для эскалации и действия, требующие утверждения.</p><h2>Что создает и подтверждает тревогу?</h2><p>Первичное наблюдение может поступить от Remote ID, RF, радара, существующей камеры или другого утвержденного источника. Затем определяется, какие данные добавляют идентификационный, траекторный или визуальный контекст. Отсутствующие или противоречивые данные должны оставаться видимыми.</p><h2>Как учитывается разрешенная активность?</h2><p>План должен указать источник данных о разрешенных полетах, ответственного за их обновление и действия оператора при несовпадении расписания, идентификатора, маршрута и наблюдений. На среду тревог также влияют подрядчики, обслуживание, испытания, птицы, транспорт, оборудование и погода.</p><h2>Какие записи и проверки нужны?</h2><ul><li>Время, источник, трасса или идентификатор, изображения и состояние системы.</li><li>Заметки, изменения статуса, проверка разрешения и причина закрытия.</li><li>Ролевой доступ, сроки хранения, экспорт и история аудита.</li><li>Изменения конфигурации, повторяющиеся ложные сигналы, слепые зоны и обслуживание.</li></ul><h2>Как проверять концепцию?</h2><p>Используйте репрезентативные маршруты, цели, секторы, погоду, фоновую активность и смены в рамках местных правил. Фиксируйте, что испытание подтверждает, а что нет. Концепция должна обновляться, когда реальные данные выявляют лишние тревоги, отсутствующие интерфейсы, неясную ответственность или новые условия.</p><p>Эти вопросы можно сопоставить с открытыми <a href=\"/ru/solutions\">сценариями C-UAS N-TET</a> до определения конфигурации.</p>",
+    "title_es": "Qué debe definir un concepto de operaciones C-UAS antes de la compra",
+    "summary_es": "Antes de fijar el hardware, el concepto de operaciones debe definir usuarios, fuentes de alerta, comprobación de vuelos autorizados, confirmación, responsabilidades, registros, mantenimiento y validación.",
+    "content_es": "<p>Un concepto de operaciones C-UAS explica cómo colaboran personas, sensores, software, sistemas existentes y procedimientos aprobados durante la vigilancia normal y la revisión de alertas. Debe redactarse antes de que las decisiones de compra sean difíciles de cambiar. No necesita predecir cada evento; debe definir usuarios, significado de alertas, evidencias, comprobación de actividad autorizada, confirmación visual, responsabilidad de la siguiente decisión y registro final.</p><h2>¿Quiénes son los usuarios?</h2><p>Identifique operadores, supervisores, soporte técnico o de TI, revisores autorizados y la organización responsable de la política. Defina turnos, entregas, roles, formación, contactos de escalado y acciones que requieren aprobación.</p><h2>¿Qué crea y confirma una alerta?</h2><p>La primera observación puede proceder de Remote ID, RF, radar, una cámara existente u otra fuente aprobada. Después se define qué evidencia añade identidad, movimiento o contexto visual. La información ausente o contradictoria debe seguir visible.</p><h2>¿Cómo se gestiona la actividad autorizada?</h2><p>El plan debe indicar la fuente de vuelos permitidos, quién la mantiene y qué hacer si horario, identidad, ruta y sensores no coinciden. Contratistas, mantenimiento, ensayos, aves, vehículos, maquinaria y clima también afectan al entorno de alertas.</p><h2>¿Qué registros y revisiones se necesitan?</h2><ul><li>Hora, fuente, traza o identidad, imágenes y estado del sistema.</li><li>Notas, cambios de estado, comprobaciones y motivo de cierre.</li><li>Acceso por roles, conservación, exportación e historial de auditoría.</li><li>Cambios de configuración, falsas señales repetidas, zonas ciegas y mantenimiento.</li></ul><h2>¿Cómo se valida el concepto?</h2><p>Utilice rutas, objetivos, sectores, clima, actividad de fondo y turnos representativos dentro de las normas locales. Registre qué demuestra la prueba y qué no. El concepto debe evolucionar cuando los datos reales revelen alertas excesivas, interfaces ausentes, responsabilidades poco claras o nuevas condiciones.</p><p>Estas preguntas pueden compararse con los <a href=\"/es/solutions\">escenarios C-UAS de N-TET</a> antes de definir una configuración.</p>",
+    "title_ar": "ما الذي يجب أن يحدده مفهوم تشغيل C-UAS قبل الشراء",
+    "summary_ar": "يجب أن يحدد مفهوم التشغيل المستخدمين ومصادر التنبيه وفحص الرحلات المصرح بها والتأكيد والمسؤوليات والسجلات والصيانة والتحقق قبل اعتماد الأجهزة.",
+    "content_ar": "<p>يشرح مفهوم تشغيل C-UAS كيف يتعاون الأشخاص والمستشعرات والبرمجيات والأنظمة القائمة والإجراءات المعتمدة أثناء المراقبة العادية ومراجعة التنبيهات. ويجب إعداده قبل صعوبة تغيير قرارات الشراء. لا يحتاج إلى توقع كل حدث، بل إلى تحديد المستخدمين ومعنى التنبيه والأدلة وفحص النشاط المصرح والتأكيد المرئي ومسؤول القرار التالي والسجل النهائي.</p><h2>من هم المستخدمون؟</h2><p>حدد المشغلين والمشرفين والدعم الهندسي أو التقني والمراجعين المخولين والجهة المالكة للسياسة. وحدد الورديات والتسليم والأدوار والتدريب وجهات التصعيد والإجراءات التي تحتاج إلى موافقة.</p><h2>ما الذي ينشئ التنبيه ويؤكده؟</h2><p>قد تأتي الملاحظة الأولى من Remote ID أو RF أو الرادار أو كاميرا قائمة أو مصدر معتمد آخر. ثم يُحدد الدليل الذي يضيف الهوية أو الحركة أو الصورة. ويجب أن تبقى الأدلة المفقودة أو المتعارضة واضحة.</p><h2>كيف يُدار النشاط المصرح؟</h2><p>يجب أن يسمي الخطة مصدر معلومات الرحلات المسموحة والمسؤول عن تحديثها وما يفعله المشغل عند اختلاف الجدول أو الهوية أو المسار عن المستشعرات. كما تؤثر أعمال المقاولين والصيانة والاختبارات والطيور والمركبات والطقس في التنبيهات.</p><h2>ما السجلات والمراجعات المطلوبة؟</h2><ul><li>الوقت والمصدر والمسار أو الهوية والصور وحالة النظام.</li><li>ملاحظات المشغل وتغيرات الحالة وفحص التصريح وسبب الإغلاق.</li><li>الوصول حسب الدور ومدة الاحتفاظ والتصدير وسجل التدقيق.</li><li>تغيرات التكوين والإشارات الكاذبة المتكررة والنقاط العمياء والصيانة.</li></ul><h2>كيف يُتحقق من المفهوم؟</h2><p>استخدم مسارات وأهدافاً وقطاعات وطقساً ونشاطاً وورديات ممثلة ضمن القواعد المحلية. وسجل ما يثبته الاختبار وما لا يثبته. ويجب تحديث المفهوم عند ظهور تنبيهات زائدة أو واجهات ناقصة أو مسؤولية غير واضحة أو ظروف جديدة.</p><p>يمكن مقارنة هذه الأسئلة مع <a href=\"/ar/solutions\">سيناريوهات C-UAS من N-TET</a> قبل تحديد التكوين.</p>"
+  },
+  "drone-detection-range-site-coverage-2025": {
+    "title_ru": "Дальность обнаружения дрона — не покрытие объекта: руководство покупателя",
+    "summary_ru": "Опубликованная дальность — это результат испытания или параметр продукта. Покрытие зависит от цели, высоты, рельефа, помех, расположения датчика, погоды, RF-условий и порядка подтверждения.",
+    "title_es": "El alcance de detección no es la cobertura del sitio: guía para compradores",
+    "summary_es": "Una distancia publicada es un resultado de ensayo o un parámetro. La cobertura depende del objetivo, la altura, el terreno, el entorno, la posición del sensor, el clima, las condiciones RF y la confirmación.",
+    "title_ar": "مدى كشف الطائرة ليس تغطية الموقع: دليل للمشترين",
+    "summary_ar": "المسافة المنشورة نتيجة اختبار أو قيمة للمنتج. أما التغطية فتعتمد على الهدف والارتفاع والتضاريس والازدحام وموقع المستشعر والطقس وبيئة RF وسير التأكيد."
+  },
+  "ntet-multi-sensor-configuration-method-2025": {
+    "title_ru": "Как N-TET распределяет роли в мультисенсорной конфигурации C-UAS",
+    "summary_ru": "N-TET начинает конфигурацию с распределения ролей Remote ID, RF, радара, EO/IR и платформы управления, а не с добавления устройств без рабочего процесса.",
+    "title_es": "Cómo asigna N-TET las funciones en una configuración C-UAS multisensor",
+    "summary_es": "N-TET empieza asignando funciones de evidencia a Remote ID, RF, radar, EO/IR y la plataforma de gestión, en lugar de añadir dispositivos sin un flujo operativo.",
+    "title_ar": "كيف توزع N-TET الأدوار في تكوين C-UAS متعدد المستشعرات",
+    "summary_ar": "تبدأ N-TET بتحديد أدوار Remote ID وRF والرادار وEO/IR ومنصة الإدارة بدلاً من إضافة أجهزة بلا سير عمل واضح."
+  },
+  "ntet-cuas-interface-review-2024": {
+    "title_ru": "В N-TET: проверка питания, сети и монтажных интерфейсов",
+    "summary_ru": "N-TET проверяет питание, заземление, сеть, синхронизацию времени, монтаж, условия среды, доступ и обслуживание, поскольку одного выбора датчика недостаточно.",
+    "title_es": "Dentro de N-TET: revisión de alimentación, red y montaje",
+    "summary_es": "N-TET revisa alimentación, puesta a tierra, red, tiempo, montaje, entorno, acceso y mantenimiento, porque seleccionar sensores no basta para operar una configuración C-UAS.",
+    "title_ar": "داخل N-TET: مراجعة الطاقة والشبكة وواجهات التركيب",
+    "summary_ar": "تراجع N-TET الطاقة والتأريض والشبكة والتوقيت والتركيب والبيئة والوصول والصيانة لأن اختيار المستشعر وحده لا يجعل تكوين C-UAS قابلاً للتشغيل."
+  },
+  "critical-infrastructure-monitoring-record-chain-2026": {
+    "title_ru": "Мониторинг воздушного пространства критической инфраструктуры: записи обнаружения, подтверждения и реагирования",
+    "summary_ru": "Записи C-UAS должны разделять раннее обнаружение, подтверждение EO/IR или оператором, утвержденное реагирование и разбор события, чтобы процесс оставался проверяемым.",
+    "title_es": "Vigilancia aérea de infraestructuras críticas: registros de detección, confirmación y respuesta",
+    "summary_es": "Los registros C-UAS deben separar la detección temprana, la confirmación EO/IR o del operador, la respuesta aprobada y la revisión posterior para mantener un flujo auditable.",
+    "title_ar": "مراقبة المجال الجوي للبنية الحيوية: سجلات الكشف والتأكيد والاستجابة",
+    "summary_ar": "ينبغي أن تفصل سجلات C-UAS بين الكشف المبكر وتأكيد EO/IR أو المشغل والاستجابة المعتمدة والمراجعة اللاحقة ليظل سير العمل قابلاً للتدقيق."
+  },
+  "ntet-equipment-bench-checks-2025": {
+    "title_ru": "В N-TET: что должны подтверждать стендовые проверки оборудования",
+    "summary_ru": "Стендовая проверка подтверждает идентификацию, питание, интерфейсы, запуск, сетевую связь, время, тревоги, журналы и документацию до дальнейшей оценки системы.",
+    "title_es": "Dentro de N-TET: qué deben confirmar las comprobaciones en banco",
+    "summary_es": "Una comprobación en banco confirma identidad, alimentación, interfaces, arranque, red, hora, alarmas, registros y documentación antes de evaluar el sistema.",
+    "title_ar": "داخل N-TET: ما الذي يجب أن تؤكده فحوص المعدات على المنضدة",
+    "summary_ar": "يؤكد الفحص المنظم الهوية والطاقة والواجهات وبدء التشغيل واتصال الشبكة والوقت والتنبيهات والسجلات والوثائق قبل تقييم النظام."
+  },
+  "site-photo-review-before-system-layout-2026": {
+    "title_ru": "Как N-TET проверяет фотографии объекта до проектирования C-UAS",
+    "summary_ru": "Фотографии помогают оценить слепые зоны, места монтажа, покрытие RF и радара, линию видимости EO/IR, кабельные трассы и доступ оператора.",
+    "title_es": "Cómo revisa N-TET las fotos del sitio antes de diseñar C-UAS",
+    "summary_es": "Las fotos ayudan a evaluar zonas ciegas, posiciones de montaje, cobertura RF y radar, línea de visión EO/IR, cableado y acceso del operador.",
+    "title_ar": "كيف تراجع N-TET صور الموقع قبل تصميم C-UAS",
+    "summary_ar": "تساعد الصور في تقييم النقاط العمياء ومواقع التركيب وتغطية RF والرادار وخط رؤية EO/IR ومسارات الكابلات ووصول المشغل."
+  },
+  "ntet-uav-engineering-cuas-perspective-2026": {
+    "title_ru": "В N-TET: как инженерный опыт UAV помогает проверять системы C-UAS",
+    "summary_ru": "N-TET учитывает конструкцию UAV, каналы данных, полезную нагрузку, навигацию, профиль миссии, обслуживание и поведение оператора, чтобы сделать проверку C-UAS реалистичнее.",
+    "title_es": "Dentro de N-TET: cómo la ingeniería UAV orienta las revisiones C-UAS",
+    "summary_es": "N-TET analiza plataforma, enlaces de datos, cargas, navegación, perfiles de misión, mantenimiento y comportamiento del operador para hacer más realistas las revisiones C-UAS.",
+    "title_ar": "داخل N-TET: كيف تدعم هندسة UAV مراجعات C-UAS",
+    "summary_ar": "تستخدم N-TET أسئلة عن الهيكل وروابط البيانات والحمولات والملاحة وملفات المهام والصيانة وسلوك المشغل لجعل مراجعات C-UAS أكثر واقعية."
+  },
+  "project-inquiry-review-low-altitude-monitoring-2026": {
+    "title_ru": "Проектный отдел N-TET: что мы проверяем перед предложением C-UAS",
+    "summary_ru": "Практическое предложение начинается с границ объекта, слепых зон, ролей датчиков, проверки оператором, утверждения реагирования и записей событий.",
+    "title_es": "Oficina de proyectos N-TET: qué comprobamos antes de una propuesta C-UAS",
+    "summary_es": "Una propuesta práctica comienza por los límites, zonas ciegas, funciones de sensores, revisión del operador, aprobación de respuesta y registros de eventos.",
+    "title_ar": "مكتب مشاريع N-TET: ما نراجعه قبل مقترح C-UAS",
+    "summary_ar": "يبدأ المقترح العملي بحدود الموقع والنقاط العمياء وأدوار المستشعرات ومراجعة المشغل واعتماد الاستجابة وسجلات الأحداث."
+  },
+  "eo-ir-payload-selection-field-note-2026": {
+    "title_ru": "Выбор полезной нагрузки EO/IR для визуального подтверждения C-UAS",
+    "summary_ru": "Выбор EO/IR зависит от дистанции подтверждения, поля зрения, стабилизации, дневных и ночных условий, работы оператора и требований к записи событий.",
+    "title_es": "Selección de cargas EO/IR para confirmación visual C-UAS",
+    "summary_es": "La selección depende de la distancia de confirmación, el campo de visión, la estabilización, las condiciones diurnas y nocturnas, el flujo del operador y los registros.",
+    "title_ar": "اختيار حمولة EO/IR للتأكيد المرئي في C-UAS",
+    "summary_ar": "يعتمد الاختيار على مسافة التأكيد ومجال الرؤية والتثبيت وظروف النهار والليل وسير عمل المشغل ومتطلبات سجل الحدث."
+  },
+  "low-altitude-economy-operations-owner-2026": {
+    "title_ru": "Планирование мониторинга воздушного пространства: ответственный за тревоги и записи",
+    "summary_ru": "Мониторинг полезен, когда у тревог, Remote ID, данных EO/IR и записей реагирования есть четкий ответственный за проверку и дальнейшие действия.",
+    "title_es": "Planificación de vigilancia aérea: responsable de alertas y registros",
+    "summary_es": "La vigilancia aporta valor cuando las alertas, Remote ID, evidencias EO/IR y registros de respuesta tienen un responsable claro de revisión y seguimiento.",
+    "title_ar": "تخطيط مراقبة المجال الجوي: مسؤول التنبيهات والسجلات",
+    "summary_ar": "تتحقق قيمة المراقبة عندما يكون للتنبيهات وRemote ID وأدلة EO/IR وسجلات الاستجابة مسؤول واضح عن المراجعة والمتابعة."
+  },
+  "weather-terrain-urban-clutter-drone-detection-2025": {
+    "title_ru": "Как погода, рельеф и городские помехи влияют на обнаружение дронов",
+    "summary_ru": "Дождь, жара, блики, ветер, рельеф, здания, растительность, RF-шум, птицы, транспорт и монтаж меняют характеристики обнаружения и должны учитываться в заявлениях о покрытии.",
+    "title_es": "Cómo afectan el clima, el terreno y el entorno urbano a la detección",
+    "summary_es": "Lluvia, calor, reflejos, viento, terreno, edificios, vegetación, ruido RF, aves, vehículos y montaje cambian el rendimiento y deben figurar en toda afirmación de cobertura.",
+    "title_ar": "كيف يؤثر الطقس والتضاريس والازدحام الحضري في كشف الطائرات",
+    "summary_ar": "يغير المطر والحرارة والوهج والرياح والتضاريس والمباني والنباتات وضوضاء RF والطيور والمركبات وموقع التركيب أداء الكشف، ويجب إدراجها في تقديرات التغطية."
+  },
+  "remote-id-rf-detection-complementary-2025": {
+    "title_ru": "Remote ID и RF-обнаружение: почему для мониторинга нужны оба источника",
+    "summary_ru": "Remote ID и RF отвечают на разные вопросы. Идентификационные передачи, радиоактивность, радарные трассы и визуальное подтверждение следует рассматривать как дополняющие данные.",
+    "title_es": "Remote ID y detección RF: por qué la vigilancia necesita ambas",
+    "summary_es": "Remote ID y RF responden a preguntas distintas. Las emisiones de identidad, la actividad de radio, las trazas de radar y la confirmación visual son evidencias complementarias.",
+    "title_ar": "Remote ID وكشف RF: لماذا تحتاج المراقبة إلى كليهما",
+    "summary_ar": "يجيب Remote ID وRF عن أسئلة مختلفة. وتُعد بيانات الهوية والنشاط الراديوي ومسارات الرادار والتأكيد المرئي أدلة متكاملة."
+  },
+  "ntet-portable-fixed-vehicle-cuas-review-2025": {
+    "title_ru": "В N-TET: сравнение переносных, стационарных и автомобильных C-UAS",
+    "summary_ru": "N-TET сравнивает конфигурации по времени работы, цели покрытия, питанию, сети, персоналу, мобильности и требованиям к записям.",
+    "title_es": "Dentro de N-TET: comparación de C-UAS portátil, fijo y vehicular",
+    "summary_es": "N-TET compara las configuraciones por tiempo operativo, cobertura, alimentación, red, personal, movilidad y requisitos de registro.",
+    "title_ar": "داخل N-TET: مقارنة C-UAS المحمول والثابت والمركب",
+    "summary_ar": "تقارن N-TET التكوينات وفق زمن التشغيل وهدف التغطية والطاقة والشبكة والكوادر والتنقل ومتطلبات السجلات."
+  },
+  "cuas-event-logging-data-retention-2026": {
+    "title_ru": "Регистрация событий и хранение данных C-UAS: что должен определить оператор",
+    "summary_ru": "Записи должны связывать данные датчиков, время, трассы, изображения, заметки, статусы, контекст конфигурации, контроль доступа, сроки хранения и ответственность за проверку.",
+    "title_es": "Registro de eventos y retención de datos C-UAS: qué debe definir el operador",
+    "summary_es": "Los registros deben relacionar evidencias, horas, trazas, imágenes, notas, estados, configuración, acceso, reglas de conservación y responsabilidad de revisión.",
+    "title_ar": "تسجيل أحداث C-UAS والاحتفاظ بالبيانات: ما الذي يجب تحديده",
+    "summary_ar": "ينبغي أن تربط السجلات أدلة المستشعرات والتوقيت والمسارات والصور والملاحظات والحالات وسياق التكوين والوصول ومدة الاحتفاظ ومسؤولية المراجعة."
+  },
+  "cuas-alert-quality-operator-context-2024": {
+    "title_ru": "Почему качество тревог C-UAS зависит от контекста оператора",
+    "summary_ru": "Качество тревог зависит от данных датчиков, разрешенных полетов, активности объекта, понятных статусов, нагрузки оператора и обратной связи, отделяющей наблюдения от выводов.",
+    "title_es": "Por qué la calidad de las alertas C-UAS depende del contexto del operador",
+    "summary_es": "Depende de la evidencia, los vuelos permitidos, la actividad del sitio, estados claros, carga del operador y un ciclo que separe observaciones de conclusiones.",
+    "title_ar": "لماذا تعتمد جودة تنبيهات C-UAS على سياق المشغل",
+    "summary_ar": "تعتمد الجودة على أدلة المستشعرات والرحلات المصرح بها ونشاط الموقع وتسميات الحالة وعبء المشغل والتغذية الراجعة التي تفصل الملاحظة عن الاستنتاج."
+  },
+  "ntet-cuas-assumptions-open-questions-2024": {
+    "title_ru": "В N-TET: как сохранять видимыми допущения и открытые вопросы",
+    "summary_ru": "N-TET разделяет подтвержденные требования, характеристики, допущения по объекту, решения покупателя и открытые вопросы, чтобы проверка оставалась прослеживаемой.",
+    "title_es": "Dentro de N-TET: mantener visibles los supuestos y preguntas abiertas",
+    "summary_es": "N-TET separa requisitos confirmados, especificaciones, supuestos del sitio, decisiones del comprador y preguntas abiertas para mantener la revisión trazable.",
+    "title_ar": "داخل N-TET: إبقاء الافتراضات والأسئلة المفتوحة واضحة",
+    "summary_ar": "تفصل N-TET المتطلبات المؤكدة والمواصفات وافتراضات الموقع وقرارات المشتري والأسئلة المفتوحة لتظل المراجعات قابلة للتتبع."
+  },
+  "cuas-detection-technology-comparison-2024": {
+    "title_ru": "Как сравнивать технологии обнаружения C-UAS без упрощения до одной дальности",
+    "summary_ru": "Сравнение должно учитывать тип данных, допущения о цели, ограничения среды, геометрию покрытия, нагрузку оператора и метод проверки, а не одну дальность.",
+    "title_es": "Cómo comparar tecnologías C-UAS sin reducirlas a una sola distancia",
+    "summary_es": "Deben compararse por tipo de evidencia, supuestos del objetivo, límites ambientales, geometría, carga del operador y validación, no por una sola cifra.",
+    "title_ar": "كيف تقارن تقنيات كشف C-UAS دون اختزالها في رقم مدى واحد",
+    "summary_ar": "تُقارن التقنيات حسب نوع الدليل وافتراضات الهدف والقيود البيئية وهندسة التغطية وعبء المشغل وطريقة التحقق، لا برقم مدى واحد."
+  },
+  "ntet-cuas-technical-documentation-2025": {
+    "title_ru": "В N-TET: техническая документация, которую покупатель может проверить",
+    "summary_ru": "N-TET строит документацию вокруг объема, допущений, интерфейсов, ролей датчиков, конфигурации, рабочего процесса, открытых вопросов и полевой проверки.",
+    "title_es": "Dentro de N-TET: documentación técnica que el comprador puede revisar",
+    "summary_es": "N-TET estructura la documentación por alcance, supuestos, interfaces, funciones de sensores, configuración, operación, preguntas abiertas y validación de campo.",
+    "title_ar": "داخل N-TET: وثائق فنية يمكن للمشتري مراجعتها فعلياً",
+    "summary_ar": "تنظم N-TET الوثائق حول النطاق والافتراضات والواجهات وأدوار المستشعرات والتكوين والتشغيل والأسئلة المفتوحة والتحقق الميداني."
+  },
+  "low-altitude-economy-2026-outlook": {
+    "title_ru": "Мониторингу низковысотного пространства нужен замкнутый цикл безопасности",
+    "summary_ru": "Проекты должны связывать обнаружение, идентификацию, проверку оператором, утвержденное реагирование и записи событий, а не сводиться к разовой покупке устройства.",
+    "title_es": "La vigilancia de baja altitud necesita un ciclo operativo de seguridad",
+    "summary_es": "Los proyectos deben conectar detección, identificación, revisión del operador, respuesta aprobada y registros, en lugar de tratar la vigilancia como una compra puntual.",
+    "title_ar": "تحتاج مراقبة الارتفاعات المنخفضة إلى دورة تشغيل أمنية",
+    "summary_ar": "يجب أن تربط المشاريع الكشف والتحديد ومراجعة المشغل والاستجابة المعتمدة وسجلات الأحداث بدلاً من اعتبار المراقبة شراء جهاز لمرة واحدة."
+  },
+  "radar-rf-optical-nuisance-alert-reduction-2026": {
+    "title_ru": "Радар, RF и EO/IR: практические рекомендации по снижению ложных тревог",
+    "summary_ru": "Мультисенсорный мониторинг эффективнее, когда радар, RF, EO/IR, Remote ID и правила операторов настроены под объект, а не работают как изолированные устройства.",
+    "title_es": "Radar, RF y EO/IR: notas prácticas para reducir falsas alertas",
+    "summary_es": "La vigilancia multisensor es más eficaz cuando radar, RF, EO/IR, Remote ID y reglas del operador se ajustan al sitio y no se tratan como equipos aislados.",
+    "title_ar": "الرادار وRF وEO/IR: ملاحظات عملية لتقليل الإنذارات الكاذبة",
+    "summary_ar": "تكون المراقبة أقوى عند ضبط الرادار وRF وEO/IR وRemote ID وقواعد المشغل وفق الموقع بدلاً من التعامل معها كأجهزة منفصلة."
+  },
+  "cuas-site-survey-critical-infrastructure-2025": {
+    "title_ru": "Контрольный список обследования объекта C-UAS для критической инфраструктуры",
+    "summary_ru": "Обследование должно фиксировать охраняемые активы, направления подхода, горизонты датчиков, RF-условия, места монтажа, питание, сеть, роли операторов и требования к данным.",
+    "title_es": "Lista de inspección C-UAS para infraestructuras críticas",
+    "summary_es": "La inspección debe documentar activos, aproximaciones, horizontes de sensores, condiciones RF, montaje, alimentación, red, funciones del operador y evidencias requeridas.",
+    "title_ar": "قائمة مسح موقع C-UAS للبنية التحتية الحيوية",
+    "summary_ar": "يجب أن يوثق المسح الأصول المحمية واتجاهات الاقتراب وآفاق المستشعرات وبيئة RF ونقاط التركيب والطاقة والشبكة وأدوار المشغل ومتطلبات الأدلة."
+  }
+}

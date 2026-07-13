@@ -18,7 +18,7 @@ export default function MobileCases({ locale, dict, homeCases }: MobileCasesProp
 
     return (
         <section style={{ padding: '40px 15px', background: '#fff' }}>
-            <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.cases}</h2>
+            <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#315ba4', fontWeight: 800 }}>{dict.home.sections.cases}</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '12px' }}>
                 {homeCases.slice(0, 6).map((item, idx) => {
                     const caseTitle = localizedField(item, 'title', locale);

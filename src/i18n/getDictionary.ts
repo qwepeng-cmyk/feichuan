@@ -1,4 +1,5 @@
 import type { Locale } from './config';
+import { getCuasDictionaryOverrides, mergeLocaleDictionary } from '@/lib/cuasLocaleCopy';
 
 // We enumerate manually so webpack can static-analyze imports
 const dictionaries = {
@@ -10,5 +11,6 @@ const dictionaries = {
 
 export const getDictionary = async (locale: Locale) => {
   const loader = dictionaries[locale] || dictionaries.en;
-  return loader();
+  const dictionary = await loader();
+  return mergeLocaleDictionary(dictionary, getCuasDictionaryOverrides(locale));
 };

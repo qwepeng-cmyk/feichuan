@@ -9,8 +9,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/media',
-        fallbackTitle: 'Industrial UAV & C-UAS Insights',
-        fallbackDescription: 'Read N-TET engineering notes on UAV operations, C-UAS systems, low-altitude economy planning, sensor architecture, and project delivery.',
+        fallbackTitle: 'C-UAS Company & Industry News',
+        fallbackDescription: 'Read N-TET company updates and industry analysis on C-UAS systems, low-altitude airspace monitoring, sensor roles, planning, and operator workflows.',
     });
 }
 

@@ -22,6 +22,9 @@ export async function POST(request: Request) {
     const leadMessage = cleanShortMessage(body.message);
     const sourceLabel = cleanText(body.sourceLabel) || 'whatsapp_cta';
     const pagePath = cleanText(body.pagePath);
+    const productName = cleanText(body.productName);
+    const productHandle = cleanText(body.productHandle);
+    const ctaLocation = cleanText(body.ctaLocation);
     const referer = request.headers.get('referer') || pagePath || 'Direct';
 
     if (!name || !phone) {
@@ -46,6 +49,9 @@ export async function POST(request: Request) {
       '',
       `Source CTA: ${sourceLabel}`,
       `Page path: ${pagePath || referer}`,
+      productName ? `Product/configuration: ${productName}` : '',
+      productHandle ? `Product handle: ${productHandle}` : '',
+      ctaLocation ? `CTA location: ${ctaLocation}` : '',
       `Visitor WhatsApp/phone: ${displayPhone || 'Not provided'}`,
       leadMessage ? `Visitor message: ${leadMessage}` : '',
     ].filter(Boolean).join('\n');

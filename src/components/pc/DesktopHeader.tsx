@@ -9,6 +9,19 @@ import { languageLabels } from '@/lib/localization';
 import { i18n } from '@/i18n/config';
 import { CONTACT_EMAIL } from '@/lib/contactSettings';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
+import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import {
+    Building2,
+    CalendarDays,
+    Factory,
+    Globe2,
+    Landmark,
+    Plane,
+    ShieldCheck,
+    Ship,
+    UserRoundCheck,
+    Zap,
+} from 'lucide-react';
 
 export default function Header({
     locale,
@@ -21,6 +34,7 @@ export default function Header({
 }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
+    const useCuasNavigation = ['en', 'ru', 'es', 'ar'].includes(locale);
 
     const pathname = usePathname();
     const pathSegments = pathname.split('/').filter(Boolean);
@@ -62,6 +76,18 @@ export default function Header({
     const showFieldHospitals = hasProductCategory('field-hospitals');
     const showProductMiniPair = showEngineeringMaterials || showFieldHospitals;
     const uavCategoryPath = "/products#uav-drone-systems";
+    const englishSolutionMenuItems = [
+        { label: 'Critical Infrastructure', href: '/solutions/critical-infrastructure-airspace-monitoring', icon: Factory },
+        { label: 'Power Plants', href: '/solutions/power-plant-airspace-monitoring', icon: Zap },
+        { label: 'Airport', href: '/solutions/airport-security-protection', icon: Plane },
+        { label: 'Border', href: '/solutions/border-airspace-monitoring', icon: Globe2 },
+        { label: 'Public Safety', href: '/solutions/public-safety-airspace-monitoring', icon: ShieldCheck },
+        { label: 'Prison', href: '/solutions/correctional-facility-airspace-monitoring', icon: Landmark },
+        { label: 'Port Security', href: '/solutions/port-airspace-monitoring', icon: Ship },
+        { label: 'Mass Events', href: '/solutions/mass-event-airspace-monitoring', icon: CalendarDays },
+        { label: "VIP's and Private Property", href: '/solutions/vip-private-property-airspace-monitoring', icon: UserRoundCheck },
+        { label: 'Enterprises', href: '/solutions/enterprise-airspace-monitoring', icon: Building2 },
+    ];
     const multiRotorGroup = {
         title: dict.megaMenu.multiRotor,
         image: "/products/uav-systems/FC-YJTX-01-Emergency-Communication-Drone.png",
@@ -131,6 +157,48 @@ export default function Header({
         engineering: "/products/04-engineering-materials/bailey-bridge-steel-prefab.webp",
         perimeter: "/products/surveillance/FC-DMS10-Series-Smart-Electronic-Sentinel.webp",
     };
+    const cuasProductMegaGroups: Array<{
+        title: string;
+        href: string;
+        items: Array<{ label: string; href: string; image?: string }>;
+    }> = [
+        {
+            title: 'Mobile / Portable C-UAS',
+            href: '/products#portable-cuas-devices',
+            items: [
+                { label: 'PL280H Handheld RF Detection System', href: '/products/handheld-rf-detection-system-mini', image: '/products/02-drone-detection/handheld-rf-detection-system-pl280h.webp' },
+                { label: 'Portable RF Identification System', href: '/products/portable-rf-detection-case', image: '/products/02-drone-detection/portable-rf-detection-case.webp' },
+                { label: 'Portable C-UAS Field Shield', href: '/products/portable-low-altitude-monitoring-event-logging-shield', image: '/products/rf-systems/portable-rf-field-unit.webp' },
+                { label: 'Integrated C-UAS Field Kit', href: '/products/portable-integrated-detection-event-logging-low-altitude-monitoring-basic', image: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp' },
+            ],
+        },
+        {
+            title: 'Fixed-Site C-UAS',
+            href: '/products#fixed-site-cuas-systems',
+            items: [
+                { label: 'Stationary RF Identification System', href: '/products/stationary-rf-detection-system', image: '/products/02-drone-detection/stationary-rf-detection-system.webp' },
+                { label: 'Low-Altitude Early-Warning Radar (Ku-Band)', href: '/products/low-altitude-detection-radar-ku-band', image: '/products/02-drone-detection/low-altitude-detection-radar.webp' },
+                { label: 'Low-Altitude Early-Warning Radar (X-Band)', href: '/products/low-altitude-3d-pulse-doppler-radar', image: '/products/02-drone-detection/low-altitude-detection-radar-x-band.webp' },
+                { label: 'Electro-Optical (EO) Tracking System', href: '/products/composite-electro-optical-tracking-system', image: '/products/02-drone-detection/electro-optical-tracking-system.webp' },
+                { label: 'UAV Remote ID Recognition System', href: '/products/uav-remote-id-monitoring-system', image: '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp' },
+                { label: 'C-UAS Signal Verification System', href: '/products/uav-navigation-airspace-data-verification-system', image: '/products/rf-systems/navigation-signal-analysis-system.webp' },
+            ],
+        },
+        {
+            title: 'Vehicle-Mounted C-UAS',
+            href: '/products#vehicle-mounted-cuas',
+            items: [
+                { label: 'Vehicle-Mounted C-UAS Configuration', href: '/products#vehicle-mounted-cuas', image: '/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp' },
+            ],
+        },
+        {
+            title: 'C-UAS Control Platform',
+            href: '/products#cuas-control-platform',
+            items: [
+                { label: 'C-UAS Control Platform Configuration', href: '/products#cuas-control-platform', image: '/solutions/low-altitude-airspace-monitoring/ppt-platform-interface.webp' },
+            ],
+        },
+    ];
     const renderMegaImage = (src: string, alt: string, variant = "standard") => (
         <span className={`mega-title-image mega-title-image-${variant}`} aria-hidden="true">
             <Image
@@ -256,7 +324,7 @@ export default function Header({
             ],
         },
     ];
-    return (
+    return localizeCuasTree(locale, (
         <header id="site-header" className={headerClass} style={{
             position: 'fixed',
             top: 0,
@@ -264,7 +332,7 @@ export default function Header({
             right: 0,
             zIndex: 1000,
             '--mega-top': !isHome ? '112px' : '80px',
-            background: isHome && !scrolled ? 'transparent' : '#fff',
+            background: isHome && !scrolled ? 'transparent' : '#000f24',
             display: 'flex',
             flexDirection: 'column',
             margin: 0,
@@ -274,12 +342,13 @@ export default function Header({
             {/* Top Bar - Now INSIDE fixed header to ensure zero gaps */}
             {!isHome && (
                 <div className="top-bar" style={{ 
-                    background: '#444444', 
-                    color: 'rgba(255,255,255,0.8)', 
+                    background: '#071a33',
+                    color: 'rgba(255,255,255,0.76)',
                     fontSize: '12px', 
                     height: '32px',
                     width: '100%',
-                    display: 'block' // Ensure it's a block container
+                    display: 'block',
+                    borderBottom: '1px solid rgba(118, 158, 216, 0.22)'
                 }}>
                     <div className="container" style={{ 
                         display: 'flex', 
@@ -302,12 +371,15 @@ export default function Header({
                                 position: 'absolute',
                                 top: '100%',
                                 right: 0,
-                                background: '#444',
+                                background: '#fff',
+                                color: '#24364d',
                                 listStyle: 'none',
                                 padding: '10px 0',
                                 margin: 0,
                                 width: '120px',
-                                boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                                border: '1px solid #dfe6f0',
+                                borderTop: '2px solid #315ba4',
+                                boxShadow: '0 18px 36px rgba(0,15,36,0.18)',
                                 display: 'none',
                                 zIndex: 1001
                             }}>
@@ -322,8 +394,11 @@ export default function Header({
                                     display: block !important;
                                 }
                                 .lang-dropdown-inner li:hover {
-                                    background: #555;
-                                    color: #fff;
+                                    background: #eef4fb;
+                                    color: #315ba4;
+                                }
+                                .lang-dropdown-inner li a {
+                                    color: inherit;
                                 }
                             `}</style>
                         </div>
@@ -370,6 +445,39 @@ export default function Header({
                             <Link prefetch={false} href={l("/products")} className="nav-link">{dict?.nav?.products || 'Products'}</Link>
                             <div className="mega-menu">
                                 <div className={`container product-mega-container product-mega-container-v2 ${isHome ? 'home-mega-container' : 'inner-mega-container'}`}>
+                                    {useCuasNavigation ? (
+                                    <div className="product-mega-cuas-grid">
+                                        {cuasProductMegaGroups.map((group) => (
+                                            <div className="product-mega-cuas-card" key={group.title}>
+                                                <div className="product-mega-cuas-body">
+                                                    <h3 className="mega-title">
+                                                        <Link prefetch={false} href={l(group.href)}>{group.title}</Link>
+                                                    </h3>
+                                                    <ul className="mega-list product-mega-cuas-list">
+                                                        {group.items.map((item) => (
+                                                            <li key={item.href}>
+                                                                <Link prefetch={false} href={l(item.href)} className="product-mega-cuas-item">
+                                                                    <span>{item.label}</span>
+                                                                    {item.image && (
+                                                                        <span className="product-mega-cuas-thumb">
+                                                                            <Image
+                                                                                src={item.image}
+                                                                                alt={item.label}
+                                                                                width={220}
+                                                                                height={120}
+                                                                                className="product-mega-cuas-thumb-media"
+                                                                            />
+                                                                        </span>
+                                                                    )}
+                                                                </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    ) : (
                                     <div className="product-mega-columns product-mega-columns-v2">
                                     {showUavSystems && (
                                     <div className="mega-column product-mega-primary">
@@ -512,14 +620,36 @@ export default function Header({
                                     </div>
                                     )}
                                     </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
 
                         <div className={`nav-item ${pathname.startsWith(l('/solutions')) ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                             <Link prefetch={false} href={l("/solutions")} className="nav-link">{dict?.nav?.solutions || 'Solutions'}</Link>
-                            <div className="mega-menu">
+                            <div className={`mega-menu solutions-mega-menu ${useCuasNavigation ? 'solutions-mega-menu-english' : ''}`}>
+                                {useCuasNavigation ? (
+                                <div className={`solutions-mega-shell ${isHome ? 'home-mega-container' : 'inner-mega-container'}`}>
+                                    <div className="solutions-mega-grid">
+                                        {englishSolutionMenuItems.map((item) => {
+                                            const Icon = item.icon;
+                                            return (
+                                                <Link
+                                                    prefetch={false}
+                                                    href={l(item.href)}
+                                                    className="solutions-mega-card"
+                                                    key={item.href}
+                                                >
+                                                    <Icon className="solutions-mega-icon" strokeWidth={1.35} aria-hidden="true" />
+                                                    <span>{item.label}</span>
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                                ) : (
                                 <div className={`container ${isHome ? 'home-mega-container' : 'inner-mega-container'}`} style={{ display: 'grid', gridTemplateColumns: 'minmax(460px, 1.7fr) minmax(200px, 0.9fr) minmax(200px, 0.9fr)', gap: '44px', padding: '25px 32px' }}>
+                                    <>
                                     <div className="mega-column">
                                         <h3 className="mega-title"><Link prefetch={false} href={l("/solutions")}>{dict?.megaMenu?.uavIndustryApplications || 'UAV Industry Applications'}</Link></h3>
                                         <div className="mega-split-grid">
@@ -561,7 +691,9 @@ export default function Header({
                                             </ul>
                                         </div>
                                     </div>
+                                    </>
                                 </div>
+                                )}
                             </div>
                         </div>
 
@@ -600,5 +732,5 @@ export default function Header({
                 </div>
             </div>
         </header>
-    );
+    ));
 }
