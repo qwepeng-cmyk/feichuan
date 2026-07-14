@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -52,6 +52,8 @@ export default function Header({
         return pathname === homePath || pathname === `${homePath}/`;
     });
     const [scrolled, setScrolled] = useState(false);
+    const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+    const languageMenuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,6 +67,32 @@ export default function Header({
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        setIsLanguageMenuOpen(false);
+    }, [pathname]);
+
+    useEffect(() => {
+        if (!isLanguageMenuOpen) return;
+
+        const handlePointerDown = (event: PointerEvent) => {
+            if (!languageMenuRef.current?.contains(event.target as Node)) {
+                setIsLanguageMenuOpen(false);
+            }
+        };
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setIsLanguageMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('pointerdown', handlePointerDown);
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('pointerdown', handlePointerDown);
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [isLanguageMenuOpen]);
 
     const headerClass = `site-header ${isHome ? 'header-home' : 'header-inner'} ${scrolled ? 'scrolled' : ''}`;
     const hasProductCategory = (categoryId: ProductCategoryId) => hasVisibleProductCategory(visibleProductCategoryIds, categoryId);
@@ -361,13 +389,43 @@ export default function Header({
                         </a>
                         
                         {/* Language Selector with Dropdown */}
-                        <div className="lang-switch-top" style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}>
-                            <div className="lang-switch-top-trigger" style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}>
+                        <div
+                            ref={languageMenuRef}
+                            className="lang-switch-top"
+                            onMouseEnter={() => setIsLanguageMenuOpen(true)}
+                            onMouseLeave={() => setIsLanguageMenuOpen(false)}
+                            onBlur={(event) => {
+                                if (!event.currentTarget.contains(event.relatedTarget)) {
+                                    setIsLanguageMenuOpen(false);
+                                }
+                            }}
+                            style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}
+                        >
+                            <button
+                                type="button"
+                                className="lang-switch-top-trigger"
+                                aria-haspopup="menu"
+                                aria-expanded={isLanguageMenuOpen}
+                                aria-controls="desktop-language-menu"
+                                onClick={() => setIsLanguageMenuOpen((open) => !open)}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '5px',
+                                    height: '100%',
+                                    padding: '0 8px',
+                                    border: 0,
+                                    background: 'transparent',
+                                    color: 'inherit',
+                                    font: 'inherit',
+                                    cursor: 'pointer'
+                                }}
+                            >
                                 {dict.nav.selectLanguage} <svg style={{ width: '12px', height: '12px' }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z"></path>
                                 </svg>
-                            </div>
-                            <ul className="lang-dropdown-inner" style={{
+                            </button>
+                            <ul id="desktop-language-menu" role="menu" className="lang-dropdown-inner" style={{
                                 position: 'absolute',
                                 top: '100%',
                                 right: 0,
@@ -380,24 +438,35 @@ export default function Header({
                                 border: '1px solid #dfe6f0',
                                 borderTop: '2px solid #315ba4',
                                 boxShadow: '0 18px 36px rgba(0,15,36,0.18)',
-                                display: 'none',
+                                display: isLanguageMenuOpen ? 'block' : 'none',
                                 zIndex: 1001
                             }}>
                                 {languageLinks.map((item) => (
-                                    <li key={item.locale} style={{ padding: '8px 20px', cursor: 'pointer' }}>
-                                        <Link prefetch={false} href={item.href}>{languageLabels[item.locale]}</Link>
+                                    <li key={item.locale} role="none" style={{ cursor: 'pointer' }}>
+                                        <Link
+                                            prefetch={false}
+                                            href={item.href}
+                                            role="menuitem"
+                                            aria-current={item.locale === locale ? 'page' : undefined}
+                                            onClick={() => setIsLanguageMenuOpen(false)}
+                                        >
+                                            {languageLabels[item.locale]}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
                             <style jsx>{`
-                                .lang-switch-top:hover .lang-dropdown-inner {
-                                    display: block !important;
+                                .lang-switch-top-trigger:focus-visible {
+                                    outline: 2px solid rgba(255, 255, 255, 0.9);
+                                    outline-offset: -2px;
                                 }
                                 .lang-dropdown-inner li:hover {
                                     background: #eef4fb;
                                     color: #315ba4;
                                 }
                                 .lang-dropdown-inner li a {
+                                    display: block;
+                                    padding: 8px 20px;
                                     color: inherit;
                                 }
                             `}</style>

@@ -33,7 +33,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next-home-3012/types/**/*.ts",
-    ".next-perf-fix/types/**/*.ts"
+    ".next-perf-fix/types/**/*.ts",
+    ".next-language-fix/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
