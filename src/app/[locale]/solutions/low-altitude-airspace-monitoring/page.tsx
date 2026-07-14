@@ -10,22 +10,22 @@ import {
   ScanSearch,
   Target,
 } from 'lucide-react';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
-import InquiryForm from '@/components/products/InquiryForm';
-import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import JsonLd from '@/components/seo/JsonLd';
+import IntentLandingPage from '@/components/solutions/IntentLandingPage';
 import { getDictionary } from '@/i18n/getDictionary';
 import { type Locale } from '@/i18n/config';
+import { droneDetectorLanding } from '@/lib/intentLandingPages';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { breadcrumbSchema, pageUrl } from '@/lib/structuredData';
-import OpenLinksInNewTab from './OpenLinksInNewTab';
+import DeferredInquiryForm from './DeferredInquiryForm';
 import styles from './LowAltitudeAirspaceMonitoring.module.css';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
 const pageTitle = 'Low-Altitude Airspace Security & C-UAS';
 const pageDescription =
-  'C-UAS, anti drone, and drone detection site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, response review, records, and quotation support.';
+  'C-UAS, counter-UAS, anti drone, and drone detection site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, response review, records, and quotation support.';
 
 const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
   ru: {
@@ -924,6 +924,9 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     fallbackKeywords: [
       'C-UAS systems',
       'C-UAS technology',
+      'counter-UAS system',
+      'counter drone system',
+      'counter drone detection',
       'anti drone',
       'anti drone system',
       'anti drone systems',
@@ -969,31 +972,6 @@ function Breadcrumbs({
         </div>
       </div>
     </nav>
-  );
-}
-
-function HeroVisual({ locale }: { locale: Locale }) {
-  return (
-    <div className={styles.heroVisual} aria-label={copy(locale, 'C-UAS System Composition for Low-Altitude Sites')}>
-      <div className={styles.heroDevicePanel}>
-        <Image
-          src="/products/02-drone-detection/stationary-rf-detection-system.webp"
-          alt={copy(locale, 'Stationary RF Identification System')}
-          width={300}
-          height={210}
-          className={`${styles.deviceImage} ${styles.deviceRf}`}
-          priority
-        />
-        <Image
-          src="/products/02-drone-detection/low-altitude-detection-radar.webp"
-          alt={copy(locale, 'Low-Altitude Early-Warning Radar (Ku-Band)')}
-          width={360}
-          height={230}
-          className={`${styles.deviceImage} ${styles.deviceRadar}`}
-          priority
-        />
-      </div>
-    </div>
   );
 }
 
@@ -1095,12 +1073,12 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
         <span className={styles.sectionEyebrow}>{copy(locale, 'Equipment capability')}</span>
         <h2>
           {locale === 'en'
-            ? 'C-UAS, Anti Drone and Drone Detection System Options'
+            ? 'C-UAS, Counter-Drone and Anti Drone Detection Options'
             : copy(locale, 'Equipment Is Organized Around the Operating Loop')}
         </h2>
         <p>
           {locale === 'en'
-            ? 'Compare anti drone system, anti drone equipment, fixed-site, vehicle-mounted, portable, and handheld drone detector options across RF drone detection, anti drone radar, UAV radar, Remote ID monitoring, EO tracking, and command-platform integration.'
+            ? 'Compare C-UAS, counter-UAS, counter drone, and anti drone system options across fixed-site, vehicle-mounted, portable, and handheld RF detection, radar, Remote ID monitoring, EO tracking, and command-platform integration.'
             : copy(locale, 'Equipment is organized around the operating loop: sensing and detection first, verified handling second, integrated units third, and a command platform to close the loop.')}
         </p>
       </div>
@@ -1124,6 +1102,8 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
                         href={localePath(locale, card.href)}
                         className={styles.sensingPptCard}
                         aria-label={`${copy(locale, 'View')} ${copy(locale, card.title)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <div className={styles.sensingPptImageBox}>
                           <Image src={card.src} alt={copy(locale, card.alt)} width={260} height={150} className={styles.sensingPptImage} />
@@ -1153,6 +1133,8 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
                         href={localePath(locale, card.href)}
                         className={styles.controlPptCard}
                         aria-label={`${copy(locale, 'View')} ${copy(locale, card.title)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <div className={styles.controlPptImageBox}>
                           <Image src={card.src} alt={copy(locale, card.alt)} width={260} height={150} className={styles.controlPptImage} />
@@ -1212,6 +1194,8 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
                                 href={localePath(locale, card.href)}
                                 className={styles.integratedPptCard}
                                 aria-label={`${copy(locale, 'View')} ${copy(locale, card.title)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
                                 {cardContent}
                               </Link>
@@ -1260,6 +1244,8 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
                           href={localePath(locale, String(image.href))}
                           className={styles.compositionImageLink}
                           aria-label={`${copy(locale, 'View')} ${copy(locale, image.alt)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           {imageElement}
                         </Link>
@@ -1279,12 +1265,21 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
   );
 }
 
-function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
+function Landing({ locale, dict }: { locale: Locale; dict: any }) {
   return (
-    <main className={`${styles.page} ${styles.desktopPage}`}>
+    <main className={`${styles.page} ${styles.responsivePage}`}>
       <Breadcrumbs locale={locale} homeLabel={dict.nav.home} solutionsLabel={dict.nav.solutions} />
 
       <section className={styles.heroSection}>
+        <Image
+          src="/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.heroBackdrop}
+        />
+        <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroCopy}>
           <span className={styles.heroEyebrow}>{copy(locale, 'C-UAS Site Security Plan')}</span>
           <h1>
@@ -1297,7 +1292,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
           </h1>
           <p>
             {locale === 'en'
-              ? 'N-TET designs C-UAS systems, anti drone systems, and drone detection systems for airports, refineries, power plants, ports, venues, and large perimeters, combining RF drone detection, anti drone radar, Remote ID monitoring, EO verification, and site alert workflows.'
+              ? 'N-TET plans C-UAS and counter-UAS systems, anti drone systems, and drone detection systems for airports, refineries, power plants, ports, venues, and large perimeters, combining RF drone detection, radar, Remote ID monitoring, EO verification, and site alert workflows.'
               : copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps turn real site conditions into a practical C-UAS and low-altitude security plan.')}
           </p>
           <div className={styles.heroActions}>
@@ -1310,7 +1305,6 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
             </WhatsAppLeadButton>
           </div>
         </div>
-        <HeroVisual locale={locale} />
       </section>
 
       <SiteProblemSection locale={locale} />
@@ -1350,7 +1344,14 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
         </div>
         <div className={styles.caseReferenceGrid}>
           {caseReferences.map((item) => (
-            <Link prefetch={false} href={localePath(locale, item.href)} className={styles.caseReferenceCard} key={item.href}>
+            <Link
+              prefetch={false}
+              href={localePath(locale, item.href)}
+              className={styles.caseReferenceCard}
+              key={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className={styles.caseReferenceImageBox}>
                 <Image src={item.image} alt={copy(locale, item.title)} fill sizes="(max-width: 1200px) 33vw, 400px" className={styles.caseReferenceImage} />
               </div>
@@ -1363,83 +1364,7 @@ function DesktopLanding({ locale, dict }: { locale: Locale; dict: any }) {
       </section>
 
       <section id="inquiry" className={styles.inquirySection}>
-        <InquiryForm dict={dict} />
-      </section>
-    </main>
-  );
-}
-
-function MobileLanding({ locale, dict }: { locale: Locale; dict: any }) {
-  return (
-    <main className={`${styles.page} ${styles.mobilePage}`}>
-      <Breadcrumbs locale={locale} homeLabel={dict.nav.home} solutionsLabel={dict.nav.solutions} />
-
-      <section className={styles.mobileHero}>
-        <h1>
-          <span className={styles.nowrap}>{locale === 'en' ? 'C-UAS and Anti Drone' : copy(locale, 'Low-Altitude')}</span>
-          <span className={styles.mobileTitleLine}>{locale === 'en' ? 'Detection Systems' : copy(locale, 'Airspace Security')}</span>
-          <span className={styles.mobileTitleLine}>{locale === 'en' ? 'for Critical Sites' : 'C-UAS'}</span>
-        </h1>
-        <p>
-          {locale === 'en'
-            ? 'C-UAS systems, anti drone systems, and drone detection systems combining RF drone detection, anti drone radar, Remote ID monitoring, EO verification, and site alert workflows.'
-            : copy(locale, 'Practical C-UAS and low-altitude security planning for critical sites, based on real site conditions.')}
-        </p>
-        <HeroVisual locale={locale} />
-        <div className={styles.mobileActions}>
-          <Link prefetch={false} href="#mobile-inquiry" className={styles.primaryCta}>
-            {copy(locale, 'Get Site Layout & Quote')}
-          </Link>
-          <WhatsAppLeadButton sourceLabel="low_altitude_mobile_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
-            {copy(locale, 'WhatsApp Chat')}
-          </WhatsAppLeadButton>
-        </div>
-      </section>
-
-      <SiteProblemSection locale={locale} />
-
-      <SolutionApproachSection locale={locale} />
-
-      <EquipmentCapabilitySection locale={locale} />
-
-      <section className={`${styles.mobileBlock} ${styles.mobileOperationsBlock}`}>
-        <div className={styles.mobileSectionTitle}>
-          <span>{copy(locale, 'Site Scenarios')}</span>
-          <h2>{copy(locale, 'C-UAS Scenarios by Site Type')}</h2>
-        </div>
-        <div className={styles.mobilePackages}>
-          {packages.map((item) => (
-            <article key={item.title} className={styles.mobilePackageCard}>
-              <Image src={item.image} alt={copy(locale, item.title)} width={420} height={205} className={styles.mobilePackageImage} />
-              <h3>{copy(locale, item.title)}</h3>
-              <p>{copy(locale, item.meta)}</p>
-              <ul>
-                {item.points.map((point) => (
-                  <li key={point}>{copy(locale, point)}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-        <div className={styles.mobileCaseSectionTitle}>
-          <h3>{copy(locale, 'Project Case References')}</h3>
-        </div>
-        <div className={styles.mobileCaseReferences}>
-          {caseReferences.map((item) => (
-            <Link prefetch={false} href={localePath(locale, item.href)} className={styles.mobileCaseCard} key={item.href}>
-              <div className={styles.mobileCaseImageBox}>
-                <Image src={item.image} alt={copy(locale, item.title)} fill sizes="50vw" className={styles.mobileCaseImage} />
-              </div>
-              <div className={styles.mobileCaseBody}>
-                <h3>{copy(locale, item.title)}</h3>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section id="mobile-inquiry" className={styles.mobileInquirySection}>
-        <MobileInquiryForm dict={dict} />
+        <DeferredInquiryForm dict={dict} />
       </section>
     </main>
   );
@@ -1470,27 +1395,31 @@ export default async function LowAltitudeAirspaceMonitoringPage({ params }: { pa
       url: pageAbsoluteUrl,
       mainEntityOfPage: pageAbsoluteUrl,
     },
+    ...(locale === 'en'
+      ? [{
+          '@type': 'FAQPage',
+          '@id': `${pageAbsoluteUrl}#faq`,
+          mainEntity: droneDetectorLanding.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer,
+            },
+          })),
+        }]
+      : []),
     breadcrumbSchema(breadcrumbs),
   ];
 
   return (
     <>
-      <OpenLinksInNewTab />
       <JsonLd data={{ '@context': 'https://schema.org', '@graph': jsonLdGraph }} />
-      <style dangerouslySetInnerHTML={{ __html: `
-        .mobile_only { display: none !important; }
-        .pc_only { display: block !important; }
-        @media (max-width: 991px) {
-          .mobile_only { display: block !important; }
-          .pc_only { display: none !important; }
-        }
-      `}} />
-      <div className="pc_only">
-        <DesktopLanding locale={locale} dict={dict} />
-      </div>
-      <div className="mobile_only">
-        <MobileLanding locale={locale} dict={dict} />
-      </div>
+      {locale === 'en' ? (
+        <IntentLandingPage config={droneDetectorLanding} locale={locale} dict={dict} />
+      ) : (
+        <Landing locale={locale} dict={dict} />
+      )}
     </>
   );
 }

@@ -4,7 +4,7 @@ import ProductGallery from '@/components/products/ProductGallery';
 import InPageNav from '@/components/products/InPageNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import { getProductByHandle } from '@/lib/products';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import { notFound } from 'next/navigation';
 
 export const metadata = {

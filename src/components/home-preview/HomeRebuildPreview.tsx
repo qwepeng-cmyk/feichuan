@@ -12,7 +12,7 @@ import {
   MapPin,
   ShieldCheck,
 } from "lucide-react";
-import WhatsAppLeadButton from "@/components/contact/WhatsAppLeadButton";
+import WhatsAppLeadButton from "@/components/contact/DeferredWhatsAppLeadButton";
 import { localePath } from "@/lib/localePath";
 import { localizeCuasTree } from "@/lib/cuasLocaleCopy";
 import styles from "./HomeRebuildPreview.module.css";

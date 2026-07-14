@@ -11,7 +11,7 @@ import OptimizedRichText from '@/components/common/OptimizedRichText';
 import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 function renderParameterValue(value: unknown): React.ReactNode {

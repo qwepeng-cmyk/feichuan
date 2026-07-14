@@ -18,7 +18,7 @@ import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {

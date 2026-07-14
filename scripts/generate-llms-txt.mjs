@@ -13,7 +13,40 @@ import {
 const db = openDb();
 const rows = getAllPublishedContent(db);
 const publicRows = rows.filter((row) => row.tier !== 'restricted');
-const groups = Object.groupBy(publicRows, (row) => row.type);
+
+const staticIntentPages = [
+  {
+    type: 'solution',
+    route: 'solutions',
+    handle: 'low-altitude-airspace-monitoring',
+    title: 'Drone Detector Systems for Critical Sites',
+    summary: 'Compare RF sensing, low-altitude radar, Remote ID and EO/IR confirmation in a site-specific detection and authorized-response workflow.',
+    tier: 'normal',
+  },
+  {
+    type: 'solution',
+    route: 'solutions',
+    handle: 'drone-radar-detection',
+    title: 'Drone Detection Radar for Low-Altitude Site Monitoring',
+    summary: 'Compare Ku-band and X-band radar options for early warning, target tracking and handoff to RF and EO/IR confirmation.',
+    tier: 'normal',
+  },
+  {
+    type: 'solution',
+    route: 'solutions',
+    handle: 'portable-drone-detection',
+    title: 'Portable Drone Detectors for Mobile and Temporary Deployment',
+    summary: 'Compare handheld and transportable RF detection options for patrol, temporary-event and site-assessment workflows.',
+    tier: 'normal',
+  },
+];
+
+const staticHandles = new Set(staticIntentPages.map((page) => `${page.type}:${page.handle}`));
+const allPublicRows = [
+  ...publicRows.filter((row) => !staticHandles.has(`${row.type}:${row.handle}`)),
+  ...staticIntentPages,
+];
+const groups = Object.groupBy(allPublicRows, (row) => row.type);
 
 const labels = {
   product: 'Products',
@@ -78,4 +111,4 @@ for (const locale of LOCALES) {
 }
 
 writeTextFile(join(process.cwd(), 'public', 'llms.txt'), lines.join('\n'));
-console.log(`Generated public/llms.txt with ${publicRows.length} public records; excluded ${rows.length - publicRows.length} restricted records.`);
+console.log(`Generated public/llms.txt with ${allPublicRows.length} public records; excluded ${rows.length - publicRows.length} restricted records.`);

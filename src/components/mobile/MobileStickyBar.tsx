@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 
 export default function MobileStickyBar({ locale, dict }: { locale: string; dict: any }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;

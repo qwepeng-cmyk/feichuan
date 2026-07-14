@@ -24,9 +24,9 @@ const emptyForm = {
 const AUTO_OPEN_DELAY_MS = 20000;
 const AUTO_OPEN_SESSION_KEY = 'ntet-floating-message-auto-opened';
 
-export default function FloatingMessageBox() {
+export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedAtMs?: number }) {
   const pathname = usePathname();
-  const visitStartedAt = useRef(Date.now());
+  const visitStartedAt = useRef(visitStartedAtMs ?? Date.now());
   const [enabled, setEnabled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isVisible, setIsVisible] = useState(false);

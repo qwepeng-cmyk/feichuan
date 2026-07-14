@@ -37,6 +37,9 @@ const PRODUCT_TIERS: Record<string, ComplianceTier> = {
 };
 
 const SOLUTION_TIERS: Record<string, ComplianceTier> = {
+  'low-altitude-airspace-monitoring': 'normal',
+  'drone-radar-detection': 'normal',
+  'portable-drone-detection': 'normal',
   'critical-infrastructure-airspace-monitoring': 'neutral_seo',
   'power-plant-airspace-monitoring': 'neutral_seo',
   'border-airspace-monitoring': 'neutral_seo',
@@ -111,7 +114,6 @@ interface DbComplianceTerm {
 const TEXT_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\bAnti[-\s]?UAV\b/gi, 'C-UAS'],
   [/\bAnti[-\s]?Drone\b/gi, 'anti drone'],
-  [/\bCounter[-\s]?UAV\b/gi, 'C-UAS'],
   [/\bJammers?\b/gi, 'RF scanners'],
   [/\bJamming\b/gi, 'RF signal analysis'],
   [/\bSignal Blockers?\b/gi, 'RF signal analyzers'],
@@ -188,7 +190,6 @@ export const RESTRICTED_TERMS: RegExp[] = [
   /\breturn\s+to\s+home\b/i,
   /\bprecision\s+strike\b/i,
   /\bstrike\b/i,
-  /\bcounter[-\s]?uav\b/i,
   /\bweapon\b/i,
   /\bgun\b/i,
   /\bshoot down\b/i,

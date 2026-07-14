@@ -4,7 +4,12 @@ import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 import { i18n, type Locale } from '@/i18n/config';
 
 const SITE_URL = 'https://n-tet.com';
-const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact'];
+const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
+const ENGLISH_INTENT_PATHS = [
+  '/solutions/low-altitude-airspace-monitoring',
+  '/solutions/drone-radar-detection',
+  '/solutions/portable-drone-detection',
+];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';
 
@@ -80,6 +85,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const locale of i18n.locales) {
     for (const path of STATIC_PATHS) {
       entries.push(sitemapEntry(locale, path, path === '/' ? 1 : 0.8));
+    }
+
+    if (locale === 'en') {
+      for (const path of ENGLISH_INTENT_PATHS) {
+        entries.push(sitemapEntry(locale, path, 0.85));
+      }
     }
 
     for (const categoryId of solutionCategories()) {

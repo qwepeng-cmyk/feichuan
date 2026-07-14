@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './MobileContact.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 
 export default function MobileContact({ dict }: { dict?: any }) {
     const d = dict?.contact || {

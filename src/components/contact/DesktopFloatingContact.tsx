@@ -3,7 +3,7 @@
 import { ArrowUp, MessageCircle, PencilLine } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import WhatsAppLeadButton from './WhatsAppLeadButton';
+import WhatsAppLeadButton from './DeferredWhatsAppLeadButton';
 import styles from './DesktopFloatingContact.module.css';
 import { cuasText } from '@/lib/cuasLocaleCopy';
 
@@ -97,6 +97,8 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
   const openBusinessChat = () => {
     if (typeof window === 'undefined') return;
     if (!isBusinessChatEnabled) return;
+
+    window.dispatchEvent(new Event('ntet:load-business-chat'));
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({

@@ -21,6 +21,12 @@ N-TET 必须保留 A/B/C 内容边界：
 - B `neutral_seo`：允许信息型 SEO/GEO 和引用优化，但不能作为广告落地页。
 - C `restricted`：不能进入广告可达路径、`llms.txt`、公开 Schema、sitemap 或自动内容扩展。
 
+广告行业术语口径（2026-07-14）：
+
+- `anti drone` / `anti-drone`、`counter drone`、`counter-UAS` / `counter-UAV`、`C-UAS` 允许用于 A 层广告承接页、广告文案、SEO/GEO 与公开 Schema；这些词本身不再构成 restricted 命中。
+- `jammer` / `jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down` 等主动干扰、诱骗、迫降或武器化能力词仍保持限制。
+- 路径或内容是否属于 B/C 层仍按具体能力与 `src/lib/complianceTaxonomy.ts` 的记录判断，不能仅凭 `anti-drone`、`counter` 或 `C-UAS` 字样判层。
+
 Schema 生成规则：
 
 - A/B：生成并公开输出 Schema，可以写入公开页面 HTML 中的服务端 JSON-LD。

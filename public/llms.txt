@@ -3,7 +3,7 @@
 > N-TET provides UAV systems, low-altitude monitoring, industrial security, and engineering-material content for international buyers and project teams.
 
 Canonical site: https://n-tet.com
-Generated: 2026-07-13
+Generated: 2026-07-14
 
 Compliance boundary: this file excludes restricted C-tier content, admin routes, preview routes, and advertising-unsafe paths. B-tier neutral SEO content may appear only as informational public content.
 
@@ -182,6 +182,9 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 - [Urban High-Rise Firefighting & Rescue](https://n-tet.com/solutions/urban-high-rise-firefighting-emergency-uav-solution) - An integrated tethered firefighting UAV solution built around vehicle-mounted power and liquid supply, a high-payload tethered UAV, and airborne resp...
 - [Water Conservancy & River-Lake Monitoring](https://n-tet.com/solutions/water-conservancy-river-lake-uav-monitoring-solution) - A six-rotor UAV monitoring solution for smart water management, covering river-lake supervision, flood-season hydrology, hydraulic-facility inspectio...
 - [Water Conservancy Monitoring UAV Solution](https://n-tet.com/solutions/water-conservancy-monitoring-uav-solution) - A UAV monitoring solution for rivers, lakes, reservoirs, flood-control tasks, water-facility inspection, water-quality sampling, pollution tracing, a...
+- [Drone Detector Systems for Critical Sites](https://n-tet.com/solutions/low-altitude-airspace-monitoring) - Compare RF sensing, low-altitude radar, Remote ID and EO/IR confirmation in a site-specific detection and authorized-response workflow.
+- [Drone Detection Radar for Low-Altitude Site Monitoring](https://n-tet.com/solutions/drone-radar-detection) - Compare Ku-band and X-band radar options for early warning, target tracking and handoff to RF and EO/IR confirmation.
+- [Portable Drone Detectors for Mobile and Temporary Deployment](https://n-tet.com/solutions/portable-drone-detection) - Compare handheld and transportable RF detection options for patrol, temporary-event and site-assessment workflows.
 
 ## Cases
 

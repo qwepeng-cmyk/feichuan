@@ -1,9 +1,9 @@
-import { FileBlob, SpreadsheetFile } from "@oai/artifact-tool";
+import { FileBlob, SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 
 const root = "D:/fc-cuas/outputs/ads_rsa_20260713";
 const sourceReportFile = `${root}/ads.xlsx`;
 const rewrittenFile = `${root}/N-TET_RSA_DKI_Ads_20260713.xlsx`;
-const outputFile = `${root}/N-TET_RSA_DKI_GoogleAds网页上传_中文表头_20260713.xlsx`;
+const outputFile = `${root}/NTET_RSA_DKI_WebUpload_Action_FirstRow_20260713.xlsx`;
 
 const reportWorkbook = await SpreadsheetFile.importXlsx(await FileBlob.load(sourceReportFile));
 const reportSheet = reportWorkbook.worksheets.getItemAt(0);
@@ -122,18 +122,44 @@ if (missingOriginal || missingDki || longHeadlines || longDescriptions) {
   throw new Error(JSON.stringify({ missingOriginal, missingDki, longHeadlines, longDescriptions }));
 }
 
-// 保留 Google Ads 原始报告的标题行、日期行和第 3 行中文字段；只替换数据行。
-reportSheet.getRange("A4:CF200").clear({ applyTo: "contents" });
-reportSheet.getRangeByIndexes(3, 0, outputRows.length, reportHeaders.length).values = outputRows;
-reportSheet.freezePanes.freezeRows(3);
+// 网页批量上传：第 1 行必须直接是字段名，并明确指定 Action=Edit。
+// 仅保留修改 RSA 必需的可编辑字段和定位字段，排除展示次数、费用、广告效力等只读报告列。
+const selectedReportHeaders = [
+  "广告状态",
+  "最终到达网址",
+  ...headlineReportHeaders.flatMap((header, index) => [header, headlinePositionReportHeaders[index]]),
+  ...descriptionReportHeaders.flatMap((header, index) => [header, descriptionPositionReportHeaders[index]]),
+  "路径 1",
+  "路径 2",
+  "跟踪模板",
+  "最终到达网址后缀",
+  "自定义参数",
+  "广告系列",
+  "广告组",
+  "广告类型",
+  "广告系列 ID",
+  "广告 ID",
+  "广告组 ID",
+  "最终到达移动网址",
+];
+const uploadHeaders = ["Action", ...selectedReportHeaders];
+const uploadRows = outputRows.map((row) => [
+  "Edit",
+  ...selectedReportHeaders.map((header) => row[reportIndex.get(header)] ?? null),
+]);
 
-const output = await SpreadsheetFile.exportXlsx(reportWorkbook);
+const uploadWorkbook = Workbook.create();
+const uploadSheet = uploadWorkbook.worksheets.add("Ads");
+uploadSheet.getRangeByIndexes(0, 0, 1, uploadHeaders.length).values = [uploadHeaders];
+uploadSheet.getRangeByIndexes(1, 0, uploadRows.length, uploadHeaders.length).values = uploadRows;
+
+const output = await SpreadsheetFile.exportXlsx(uploadWorkbook);
 await output.save(outputFile);
 
 const verifyWorkbook = await SpreadsheetFile.importXlsx(await FileBlob.load(outputFile));
 const verifySheet = verifyWorkbook.worksheets.getItemAt(0);
 const verifyUsed = verifySheet.getUsedRange().values;
-const verifyHeaders = verifyUsed[2].map((value) => String(value ?? ""));
+const verifyHeaders = verifyUsed[0].map((value) => String(value ?? ""));
 const formulaErrors = await verifyWorkbook.inspect({
   kind: "match",
   searchTerm: "#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A",
@@ -142,26 +168,32 @@ const formulaErrors = await verifyWorkbook.inspect({
 });
 const keyRange = await verifyWorkbook.inspect({
   kind: "table",
-  range: `${verifySheet.name}!A1:CF6`,
+  range: `${verifySheet.name}!A1:AZ6`,
   include: "values,formulas",
   tableMaxRows: 6,
-  tableMaxCols: 84,
+  tableMaxCols: 52,
   maxChars: 12000,
 });
 
-if (verifyWorkbook.worksheets.items.length !== 1 || verifyHeaders[0] !== "广告状态" || verifyHeaders[63] !== "广告系列") {
-  throw new Error("导出后的 Google Ads 中文标题行验证失败");
+if (
+  verifyWorkbook.worksheets.items.length !== 1 ||
+  verifyHeaders[0] !== "Action" ||
+  verifyHeaders[1] !== "广告状态" ||
+  verifyUsed[1][0] !== "Edit" ||
+  verifyUsed.length !== 83
+) {
+  throw new Error("导出后的 Google Ads 首行字段或 Action=Edit 验证失败");
 }
 
 console.log(JSON.stringify({
   outputFile,
   rows: outputRows.length,
   sheets: verifyWorkbook.worksheets.items.length,
-  row1: verifyUsed[0][0],
-  row2: verifyUsed[1][0],
-  row3First: verifyHeaders[0],
-  row3Campaign: verifyHeaders[63],
-  row3AdId: verifyHeaders[77],
+  firstHeader: verifyHeaders[0],
+  secondHeader: verifyHeaders[1],
+  firstAction: verifyUsed[1][0],
+  campaignIdHeader: verifyHeaders.includes("广告系列 ID"),
+  adIdHeader: verifyHeaders.includes("广告 ID"),
   missingOriginal,
   missingDki,
   longHeadlines,

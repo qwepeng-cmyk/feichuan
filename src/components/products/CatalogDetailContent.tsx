@@ -8,7 +8,7 @@ import OptimizedRichText from '@/components/common/OptimizedRichText';
 import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';

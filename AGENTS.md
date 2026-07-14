@@ -84,6 +84,12 @@ DB 路径用 `scripts/update-db-refs.mjs` 批量同步，硬编码文件需手�
 - Cloudflare 免费套餐还可以继续做页面级缓存：优先考虑 `/products*`、`/solutions*`、`/cases*`、`/media*` 的 Cache Everything / Edge TTL；必须排除 `/api*`、`/admin*`、表单提交和需要动态状态的路径。
 - 服务器只有 4GB 内存，仍然不要在服务器跑 `npm run build`；速度优化后的构建产物继续按本地 WSL build、打包 `.next`、上传服务器、PM2 restart 的流程走。
 
+## 广告合规术语口径（2026-07-14）
+
+- `anti drone` / `anti-drone`、`counter drone`、`counter-UAS` / `counter-UAV`、`C-UAS` 是允许公开用于 A 层广告承接页、广告文案、SEO/GEO 与 Schema 的行业类别词，不能仅因命中这些词就判为 restricted。
+- 放开行业类别词不等于放开主动能力词。`jammer` / `jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down` 等主动干扰、诱骗、迫降或武器化表述继续按现有 A/B/C 规则限制。
+- 内容层级仍以 `src/lib/complianceTaxonomy.ts` 为准；公开风险审计和关键词覆盖矩阵必须与上述术语口径保持一致。
+
 ## Frontend Design Skill（前端设计规范）
 
 > 来源：Anthropic 官方 `anthropics/skills` — Frontend Design (S-rank, 72K+ stars)

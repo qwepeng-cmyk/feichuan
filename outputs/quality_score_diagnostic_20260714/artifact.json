@@ -1,0 +1,1658 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "DKI 广告上线后的质量得分诊断",
+    "description": "对比 2026 年 7 月 14 日快照与此前 7 天、30 天关键词报告，并给出着陆页优化优先级。",
+    "generatedAt": "2026-07-14T10:05:00+08:00",
+    "sources": [
+      {
+        "id": "score_comparison",
+        "label": "Google Ads keyword reports — July 14 snapshot vs. 7-day and 30-day baselines",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "executed_at": "2026-07-14T10:05:00+08:00",
+          "sql": "SELECT * FROM headline_metrics;\nSELECT * FROM metric_movement;\nSELECT * FROM keyword_changes;",
+          "description": "Google Ads keyword reports — July 14 snapshot vs. 7-day and 30-day baselines",
+          "tables_used": [
+            "headline_metrics",
+            "metric_movement",
+            "keyword_changes"
+          ]
+        }
+      },
+      {
+        "id": "current_export",
+        "label": "Google Ads keyword report — July 14, 2026",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "executed_at": "2026-07-14T10:05:00+08:00",
+          "sql": "SELECT * FROM headline_metrics;\nSELECT * FROM ad_group_scores ORDER BY averageQualityScore DESC;",
+          "description": "Google Ads keyword report — July 14, 2026",
+          "tables_used": [
+            "headline_metrics",
+            "ad_group_scores"
+          ]
+        }
+      },
+      {
+        "id": "impression_share_analysis",
+        "label": "Google Ads keyword impression-share analysis — 7-day and 30-day comparison",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "executed_at": "2026-07-14T10:05:00+08:00",
+          "sql": "SELECT * FROM impression_share_headline;\nSELECT * FROM impression_share_match_type;\nSELECT * FROM impression_share_campaigns ORDER BY impressions7 DESC;\nSELECT * FROM impression_share_priority_groups ORDER BY impressions7 DESC;",
+          "description": "Google Ads keyword impression-share analysis — 7-day and 30-day comparison",
+          "tables_used": [
+            "impression_share_headline",
+            "impression_share_match_type",
+            "impression_share_campaigns",
+            "impression_share_priority_groups"
+          ]
+        }
+      },
+      {
+        "id": "landing_audit",
+        "label": "N-TET landing-page content, response, payload, and source audit",
+        "href": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "executed_at": "2026-07-14T10:05:00+08:00",
+          "sql": "SELECT * FROM technical_audit ORDER BY priority ASC;\nSELECT * FROM landing_plan ORDER BY intent ASC;",
+          "description": "N-TET landing-page content, response, payload, and source audit",
+          "tables_used": [
+            "technical_audit",
+            "landing_plan"
+          ]
+        }
+      },
+      {
+        "id": "compliance_taxonomy",
+        "label": "N-TET advertising compliance taxonomy",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "executed_at": "2026-07-14T10:05:00+08:00",
+          "sql": "SELECT * FROM guardrail_risks ORDER BY category ASC;",
+          "description": "N-TET advertising compliance taxonomy",
+          "tables_used": [
+            "guardrail_risks"
+          ]
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "card_avg_qs",
+        "dataset": "headline_metrics",
+        "description": "81 个有当前质量得分的关键词；与 30 天基线快照比较。",
+        "sourceId": "score_comparison",
+        "metrics": [
+          {
+            "label": "当前平均质量得分",
+            "field": "currentAverageQualityScore",
+            "format": "number"
+          },
+          {
+            "label": "此前快照",
+            "field": "priorAverageQualityScore",
+            "format": "number"
+          },
+          {
+            "label": "变化",
+            "field": "averageScoreDelta",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "card_scored_coverage",
+        "dataset": "headline_metrics",
+        "description": "大部分新词尚无可用质量得分，当前覆盖率很低。",
+        "sourceId": "current_export",
+        "metrics": [
+          {
+            "label": "有评分关键词",
+            "field": "scoredKeywords",
+            "format": "number"
+          },
+          {
+            "label": "占全部关键词",
+            "field": "scoringCoverage",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "card_landing_low",
+        "dataset": "headline_metrics",
+        "description": "所有可评分关键词的着陆页体验仍低于平均水平。",
+        "sourceId": "current_export",
+        "metrics": [
+          {
+            "label": "着陆页低于平均",
+            "field": "landingPageBelowAverage",
+            "format": "number"
+          },
+          {
+            "label": "可评分词占比",
+            "field": "landingPageBelowAverageRate",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "card_ad_relevance_change",
+        "dataset": "headline_metrics",
+        "description": "新 DKI 广告上线后，当前快照中还没有广告相关性分项上升。",
+        "sourceId": "score_comparison",
+        "metrics": [
+          {
+            "label": "广告相关性改善",
+            "field": "adRelevanceImproved",
+            "format": "number"
+          },
+          {
+            "label": "广告相关性下降",
+            "field": "adRelevanceWorsened",
+            "format": "number",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "card_search_is",
+        "dataset": "impression_share_headline",
+        "description": "最近7天相对于重叠的30天窗口；按关键词估算的可参与展示机会汇总。",
+        "sourceId": "impression_share_analysis",
+        "metrics": [
+          {
+            "label": "最近7天搜索展示份额",
+            "field": "searchIS7",
+            "format": "percent"
+          },
+          {
+            "label": "30天口径",
+            "field": "searchIS30",
+            "format": "percent"
+          },
+          {
+            "label": "变化",
+            "field": "searchISDelta",
+            "format": "percent",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "card_rank_loss",
+        "dataset": "impression_share_headline",
+        "description": "份额损失主要来自广告评级；报告未包含预算损失字段。",
+        "sourceId": "impression_share_analysis",
+        "metrics": [
+          {
+            "label": "最近7天评级损失",
+            "field": "lostRankIS7",
+            "format": "percent"
+          },
+          {
+            "label": "30天口径",
+            "field": "lostRankIS30",
+            "format": "percent"
+          },
+          {
+            "label": "变化",
+            "field": "lostRankISDelta",
+            "format": "percent",
+            "signed": true
+          }
+        ]
+      },
+      {
+        "id": "card_phrase_mix",
+        "dataset": "impression_share_headline",
+        "description": "词组匹配流量占比快速上升，拉低了账户整体展示份额。",
+        "sourceId": "impression_share_analysis",
+        "metrics": [
+          {
+            "label": "最近7天词组流量占比",
+            "field": "phraseMix7",
+            "format": "percent"
+          },
+          {
+            "label": "30天口径",
+            "field": "phraseMix30",
+            "format": "percent"
+          },
+          {
+            "label": "7月14日",
+            "field": "phraseMixCurrent",
+            "format": "percent"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "chart_ad_group_qs",
+        "title": "Average quality score by ad group",
+        "subtitle": "81 scored keywords in the July 14, 2026 snapshot; score scale 1–10",
+        "intent": "comparison",
+        "question": "Which ad groups currently carry the weakest and strongest average keyword quality scores?",
+        "rationale": "A sorted horizontal bar chart supports comparison across long ad-group labels without implying a time trend.",
+        "comparisonContext": {
+          "grain": "ad group",
+          "denominator": "keywords with nonblank current quality scores",
+          "unit": "quality-score points"
+        },
+        "type": "horizontalBar",
+        "dataset": "ad_group_scores",
+        "sourceId": "current_export",
+        "encodings": {
+          "x": {
+            "field": "adGroup",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "Ad group"
+          },
+          "y": {
+            "field": "averageQualityScore",
+            "type": "quantitative",
+            "aggregate": "none",
+            "format": "number",
+            "label": "Average quality score"
+          },
+          "tooltip": [
+            {
+              "field": "averageQualityScore",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Average score"
+            },
+            {
+              "field": "scoredKeywords",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Scored keywords"
+            },
+            {
+              "field": "adRelevanceLow",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Ad relevance below average"
+            },
+            {
+              "field": "expectedCtrLow",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Expected CTR below average"
+            }
+          ]
+        },
+        "valueFormat": "number",
+        "unit": "points",
+        "layout": "full",
+        "labels": {
+          "values": "all"
+        },
+        "maxRows": 14,
+        "palette": {
+          "kind": "sequential"
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "sort": "descending",
+          "showValues": true,
+          "categoryLabelPolicy": "wrap"
+        },
+        "surface": {
+          "surface": "export",
+          "viewMode": "both",
+          "showControls": false
+        }
+      },
+      {
+        "id": "chart_impression_share_matchtype",
+        "title": "Search impression share by match type",
+        "subtitle": "June 13–July 12 versus July 6–12, values in percent",
+        "intent": "comparison",
+        "question": "Did recent impression-share deterioration occur within match types, or because the traffic mix changed?",
+        "rationale": "Four directly labeled horizontal bars show that each match type was stable while phrase traffic took a larger share of impressions.",
+        "comparisonContext": {
+          "grain": "match type × reporting window",
+          "denominator": "estimated eligible search impressions for keywords with reported search impression share",
+          "unit": "percent"
+        },
+        "type": "horizontalBar",
+        "dataset": "impression_share_match_type",
+        "sourceId": "impression_share_analysis",
+        "encodings": {
+          "x": {
+            "field": "category",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "Match type and window"
+          },
+          "y": {
+            "field": "searchIS",
+            "type": "quantitative",
+            "aggregate": "none",
+            "format": "number",
+            "label": "Search impression share"
+          },
+          "tooltip": [
+            {
+              "field": "searchIS",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Search impression share (%)"
+            },
+            {
+              "field": "rankLoss",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Lost to rank (%)"
+            },
+            {
+              "field": "impressions",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Impressions"
+            },
+            {
+              "field": "clicks",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Clicks"
+            },
+            {
+              "field": "ctr",
+              "type": "quantitative",
+              "format": "percent",
+              "label": "CTR"
+            }
+          ]
+        },
+        "valueFormat": "number",
+        "unit": "%",
+        "layout": "full",
+        "labels": {
+          "values": "all"
+        },
+        "maxRows": 4,
+        "palette": {
+          "kind": "sequential"
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "sort": "none",
+          "showValues": true,
+          "categoryLabelPolicy": "wrap"
+        },
+        "surface": {
+          "surface": "export",
+          "viewMode": "both",
+          "showControls": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "table_metric_movement",
+        "title": "Quality-score component movement",
+        "subtitle": "Matched keywords in the July 14 snapshot versus the June 13–July 12 export",
+        "dataset": "metric_movement",
+        "density": "spacious",
+        "sourceId": "score_comparison",
+        "defaultSort": {
+          "field": "improved",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "metric",
+            "label": "指标",
+            "type": "text"
+          },
+          {
+            "field": "comparableKeywords",
+            "label": "可比关键词",
+            "format": "number"
+          },
+          {
+            "field": "improved",
+            "label": "改善",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "unchanged",
+            "label": "不变",
+            "format": "number"
+          },
+          {
+            "field": "worsened",
+            "label": "下降",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "conclusion",
+            "label": "结论",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "table_keyword_changes",
+        "title": "Keywords showing score-history movement",
+        "subtitle": "Only two keyword histories changed; neither generated traffic on July 14",
+        "dataset": "keyword_changes",
+        "density": "spacious",
+        "sourceId": "score_comparison",
+        "defaultSort": {
+          "field": "currentQualityScore",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "keyword",
+            "label": "关键词",
+            "type": "text"
+          },
+          {
+            "field": "campaign",
+            "label": "广告系列",
+            "type": "text"
+          },
+          {
+            "field": "priorQualityScore",
+            "label": "此前",
+            "format": "number"
+          },
+          {
+            "field": "currentQualityScore",
+            "label": "当前",
+            "format": "number"
+          },
+          {
+            "field": "changedComponent",
+            "label": "变化来源",
+            "type": "text"
+          },
+          {
+            "field": "july14Impressions",
+            "label": "当日展示",
+            "format": "number"
+          },
+          {
+            "field": "july14Clicks",
+            "label": "当日点击",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "table_impression_share_campaigns",
+        "title": "Campaign impression-share performance",
+        "subtitle": "July 6–12; search-share delta compares with the June 13–July 12 window",
+        "dataset": "impression_share_campaigns",
+        "density": "spacious",
+        "sourceId": "impression_share_analysis",
+        "defaultSort": {
+          "field": "impressions7",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "campaign",
+            "label": "广告系列",
+            "type": "text"
+          },
+          {
+            "field": "impressions7",
+            "label": "7天展示",
+            "format": "number"
+          },
+          {
+            "field": "clicks7",
+            "label": "点击",
+            "format": "number"
+          },
+          {
+            "field": "ctr7",
+            "label": "CTR",
+            "format": "percent"
+          },
+          {
+            "field": "searchIS7",
+            "label": "搜索展示份额",
+            "format": "percent"
+          },
+          {
+            "field": "searchISDelta",
+            "label": "对30天变化",
+            "format": "percent",
+            "movement": true
+          },
+          {
+            "field": "rankLoss7",
+            "label": "评级损失",
+            "format": "percent"
+          },
+          {
+            "field": "topIS7",
+            "label": "页首份额",
+            "format": "percent"
+          },
+          {
+            "field": "absTopIS7",
+            "label": "绝对页首份额",
+            "format": "percent"
+          },
+          {
+            "field": "clickShare7",
+            "label": "点击份额",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "table_impression_share_priority_groups",
+        "title": "Highest-volume campaign and ad-group combinations",
+        "subtitle": "July 6–12; sorted by impressions to separate high-volume opportunities from long-tail noise",
+        "dataset": "impression_share_priority_groups",
+        "density": "dense",
+        "sourceId": "impression_share_analysis",
+        "defaultSort": {
+          "field": "impressions7",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "campaignAdGroup",
+            "label": "广告系列｜广告组",
+            "type": "text"
+          },
+          {
+            "field": "impressions7",
+            "label": "展示",
+            "format": "number"
+          },
+          {
+            "field": "clicks7",
+            "label": "点击",
+            "format": "number"
+          },
+          {
+            "field": "ctr7",
+            "label": "CTR",
+            "format": "percent"
+          },
+          {
+            "field": "searchIS7",
+            "label": "搜索展示份额",
+            "format": "percent"
+          },
+          {
+            "field": "rankLoss7",
+            "label": "评级损失",
+            "format": "percent"
+          },
+          {
+            "field": "topIS7",
+            "label": "页首份额",
+            "format": "percent"
+          },
+          {
+            "field": "absTopIS7",
+            "label": "绝对页首份额",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "table_technical_audit",
+        "title": "Landing-page audit priorities",
+        "subtitle": "Active A-tier landing page, measured and inspected on July 14, 2026",
+        "dataset": "technical_audit",
+        "density": "spacious",
+        "sourceId": "landing_audit",
+        "defaultSort": {
+          "field": "priority",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "priority",
+            "label": "优先级",
+            "format": "number"
+          },
+          {
+            "field": "area",
+            "label": "问题",
+            "type": "text"
+          },
+          {
+            "field": "evidence",
+            "label": "证据",
+            "type": "text"
+          },
+          {
+            "field": "impact",
+            "label": "影响",
+            "type": "text"
+          },
+          {
+            "field": "action",
+            "label": "动作",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "table_landing_plan",
+        "title": "Proposed A-tier intent landing pages",
+        "subtitle": "Static destination plan for broad, radar, RF, and portable/handheld search intent",
+        "dataset": "landing_plan",
+        "density": "spacious",
+        "sourceId": "landing_audit",
+        "defaultSort": {
+          "field": "intent",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "intent",
+            "label": "意图簇",
+            "type": "text"
+          },
+          {
+            "field": "targetPage",
+            "label": "建议页面",
+            "type": "text"
+          },
+          {
+            "field": "heroFocus",
+            "label": "首屏主题",
+            "type": "text"
+          },
+          {
+            "field": "proofAboveFold",
+            "label": "首屏证据",
+            "type": "text"
+          },
+          {
+            "field": "compliance",
+            "label": "合规边界",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "table_guardrails",
+        "title": "N-TET risk and compliance checks",
+        "subtitle": "Advertising, SEO, GEO, and public-visibility implications of the proposed landing-page work",
+        "dataset": "guardrail_risks",
+        "density": "spacious",
+        "sourceId": "compliance_taxonomy",
+        "defaultSort": {
+          "field": "category",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "category",
+            "label": "风险类别",
+            "type": "text"
+          },
+          {
+            "field": "finding",
+            "label": "发现",
+            "type": "text"
+          },
+          {
+            "field": "status",
+            "label": "状态",
+            "type": "text"
+          },
+          {
+            "field": "action",
+            "label": "建议",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# DKI 广告上线后的质量得分诊断"
+      },
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "sourceId": "score_comparison",
+        "body": "## Executive Summary\n\n- **暂时没有证据证明 DKI 已经显著提升质量得分。** 81 个可评分关键词中，80 个质量得分不变，只有 1 个从 1 分升到 3 分；广告相关性 81/81 完全没变。\n- **最近7天搜索展示份额约59.7%，比30天口径低5.7个百分点。** 但精准匹配和词组匹配各自的份额基本稳定；下降主要来自流量结构变化——词组匹配展示占比从30天口径的26.9%升到最近7天的43.9%，7月14日进一步升到64.9%。\n- **词组匹配的扩量效率明显弱于精准匹配，尤其是中东。** 最近7天精准匹配搜索展示份额约72.9%、评级损失27.1%；词组匹配分别约48.8%和51.2%。其中 C‑UAS 中东短语仅约33.0%展示份额、67.0%因评级损失，CTR 1.9%。\n- **着陆页体验仍是最一致的短板，且7月14日展示份额尚无可用值。** 81 个可评分关键词全部为‘低于平均水平’；最新一天94次展示的份额字段全部为 `--`，应在72小时和7天后复查。"
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "card_avg_qs",
+          "card_scored_coverage",
+          "card_landing_low",
+          "card_ad_relevance_change"
+        ]
+      },
+      {
+        "id": "score_finding",
+        "type": "markdown",
+        "sourceId": "current_export",
+        "body": "## 质量得分几乎没有变化，低分集中在宽泛系统意图\n\n**当前平均质量得分为 2.86，仍处在偏低水平。** Anti Drone Systems、Drone Defense Systems 等广告组最弱；Drone Detection Radar 的平均分相对较高。图表只比较当前截面，不把三个导出窗口误当作连续趋势。"
+      },
+      {
+        "id": "score_chart",
+        "type": "chart",
+        "chartId": "chart_ad_group_qs",
+        "layout": "full"
+      },
+      {
+        "id": "impression_share_finding",
+        "type": "markdown",
+        "sourceId": "impression_share_analysis",
+        "body": "## 展示份额下降主要是流量结构变化，不是两种匹配方式同时恶化\n\n**最近7天搜索展示份额约59.7%，低于30天口径的65.4%；因评级损失由34.6%升至40.3%。** 但分开看，精准匹配从75.3%变为72.9%，词组匹配从48.5%变为48.8%，两类内部都相对稳定。账户整体下降的主要原因，是最近7天词组匹配贡献了43.9%的展示，高于30天口径的26.9%；到7月14日，词组匹配已经占64.9%的展示。\n\n**这意味着词组匹配确实正在成为主要流量来源，但它进入拍卖后的竞争力明显弱于精准匹配。** 应把精准匹配继续作为稳定覆盖和高意图基础，把词组匹配作为受控扩量层，并按地域、意图和搜索词质量单独治理。"
+      },
+      {
+        "id": "impression_share_metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "card_search_is",
+          "card_rank_loss",
+          "card_phrase_mix"
+        ]
+      },
+      {
+        "id": "impression_share_chart",
+        "type": "chart",
+        "chartId": "chart_impression_share_matchtype",
+        "layout": "full"
+      },
+      {
+        "id": "impression_share_regions",
+        "type": "markdown",
+        "sourceId": "impression_share_analysis",
+        "body": "## 真正的评级瓶颈集中在中东词组系列\n\n**C‑UAS 南美短语仍有约68.2%的搜索展示份额，评级损失31.8%，CTR 5.8%，可以继续扩量。** 相比之下，C‑UAS 中东短语只有约33.0%的搜索展示份额，67.0%因评级损失；页首份额约13.2%、绝对页首约7.3%，CTR 仅1.9%。其中中东短语的 Anti Drone Equipment 和 Counter UAS Technology 组合，搜索展示份额分别约27.4%和26.4%，评级损失都超过72%。\n\n**Drone Detection Radar 是值得优先承接的高质量意图。** 最近7天该广告组汇总32次展示、6次点击，CTR 18.8%，搜索展示份额约76.6%；南美和中东两个雷达组合分别贡献20/4和12/2次展示/点击。它不是当前最大的评级问题，更大的机会在于用雷达专页承接并提高询盘率。"
+      },
+      {
+        "id": "impression_share_campaign_table",
+        "type": "table",
+        "tableId": "table_impression_share_campaigns",
+        "layout": "full"
+      },
+      {
+        "id": "impression_share_group_table",
+        "type": "table",
+        "tableId": "table_impression_share_priority_groups",
+        "layout": "full"
+      },
+      {
+        "id": "dki_finding",
+        "type": "markdown",
+        "sourceId": "score_comparison",
+        "body": "## DKI 尚未反映到广告相关性\n\n**新广告语上线后，广告相关性分项没有一个关键词改善，也没有下降。** `[handheld drone detector]` 的 1→3 分来自预期点击率由低于平均升至平均；它当天没有展示或点击，所以只能视为评分刷新，不能视为已验证的流量效果。"
+      },
+      {
+        "id": "movement_table",
+        "type": "table",
+        "tableId": "table_metric_movement",
+        "layout": "full"
+      },
+      {
+        "id": "keyword_table",
+        "type": "table",
+        "tableId": "table_keyword_changes",
+        "layout": "full"
+      },
+      {
+        "id": "landing_finding",
+        "type": "markdown",
+        "sourceId": "landing_audit",
+        "body": "## 着陆页问题不是缺少关键词，而是页面过重且承担太多意图\n\n**当前 A 层页面已经在标题、H1 和正文中覆盖 C‑UAS、anti drone system、drone detection、radar 与 RF detection。** 更可能的瓶颈是：80 个有评分关键词跨 14 个广告组都进入同一个大而全页面；同一 HTML 又同时渲染桌面和移动两套完整页面。首包约 292 KB、原始脚本传输约 862 KB，实测 TTFB 约 1.12 秒。\n\n**因此优化顺序应是：先减重与拆意图，再补可信证据，最后才是文案微调。**"
+      },
+      {
+        "id": "technical_table",
+        "type": "table",
+        "tableId": "table_technical_audit",
+        "layout": "full"
+      },
+      {
+        "id": "landing_plan_text",
+        "type": "markdown",
+        "body": "## 保留一个宽泛页，再增加 3 个精准 A 层承接页\n\n**不要把所有词继续塞进一个页面，也不要直接把 B 层产品详情页当广告最终网址。** 保留现有页面承接 broad C‑UAS / anti drone system；为 radar、RF、portable/handheld 分别建立静态 A 层解决方案页。每页首屏只回答一个意图，并放入 3–5 个带条件的技术证据、部署流程、案例和明确 CTA。"
+      },
+      {
+        "id": "landing_plan_table",
+        "type": "table",
+        "tableId": "table_landing_plan",
+        "layout": "full"
+      },
+      {
+        "id": "execution_order",
+        "type": "markdown",
+        "body": "## 建议执行顺序\n\n1. **保持精准匹配作为稳定主干。** 最近7天精准匹配搜索展示份额约72.9%，明显高于词组匹配的48.8%；不要为了追求词组流量而削弱精准预算和出价。\n2. **把中东词组系列作为第一治理对象。** 优先收紧搜索词、补否定词、保留设备购买意图，并提高广告组与落地页的一致性；不要对全部中东短语关键词统一加价。只有高意图词仍因评级损失时，再做小幅分层提价。\n3. **南美词组系列继续观察扩量。** 其展示份额和CTR明显好于中东；保留当前覆盖，同时按实际搜索词把有效变体回收到精准匹配。\n4. **今天先修合规与测量。** 把 `[drone detection using rf]` 的 B 层产品最终网址改到 A 层页面；保留当前 DKI 广告至少72小时。下次导出增加‘因预算损失的搜索展示份额’，以区分评级和预算约束。\n5. **本周做性能和意图页。** 合并桌面/移动重复 DOM，延迟加载非首屏交互；优先建立 radar、RF、portable/handheld A层页面。Drone Detection Radar 已有较好点击表现，应以提升询盘率为目标，而不是简单追求更多展示。\n6. **72小时与7天复查。** 同时比较广告相关性、着陆页体验、搜索展示份额、评级损失、有效搜索词和询盘；质量得分与展示份额都是诊断指标，不是最终业务目标。"
+      },
+      {
+        "id": "guardrails_text",
+        "type": "markdown",
+        "body": "## N‑TET 合规与公开可见性检查\n\n**页面优化必须继续遵守 A/B/C 边界。** 新广告承接页应明确登记为 A 层；B 层可用于公开 SEO/GEO，但不作为广告最终网址；C 层继续排除。"
+      },
+      {
+        "id": "guardrails_table",
+        "type": "table",
+        "tableId": "table_guardrails",
+        "layout": "full"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## Further Questions\n\n- 72小时后，广告相关性是否开始从低于平均转为平均或高于平均？\n- 中东词组系列的低份额有多少来自预算，而不是评级？下次需补充‘因预算损失的搜索展示份额’字段。\n- 新增 radar / RF / portable 页面后，着陆页体验是否按意图簇改善，并转化为有效询盘？\n- 哪些词组搜索词拿到展示但持续低CTR或无询盘，应该否定、降价，还是回收到精准匹配？"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "sourceId": "score_comparison",
+        "body": "## Caveats and Assumptions\n\n- 7月14日报告是一天窗口；94次展示的展示份额字段全部为 `--`，因此最新变化只能用流量结构判断，不能直接计算当天搜索展示份额。\n- 最近7天与30天窗口相互重叠，不是两个独立时期。文中展示份额对比用于识别近期结构变化，不应被解读为严格的环比。\n- 搜索展示份额和评级损失按关键词报告值反推可参与展示机会后汇总；页首、绝对页首和点击份额因缺少各自的资格分母，仅作按展示量加权的方向指标。`<10%`和`>90%`按中点估算，但基线中只有1个产生展示的搜索份额记录使用阈值。\n- 报告未包含‘因预算损失的搜索展示份额’，所以当前证据只能确认评级损失很重要，不能完全排除预算限制。\n- 只有81/2,397个关键词有当前质量得分，评分覆盖率仅3.38%；页面速度数据也不能替代多地区真实用户 Core Web Vitals。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-14T10:05:00+08:00",
+    "status": "ready",
+    "datasets": {
+      "headline_metrics": [
+        {
+          "currentAverageQualityScore": 2.86,
+          "priorAverageQualityScore": 2.84,
+          "averageScoreDelta": 0.02,
+          "scoredKeywords": 81,
+          "scoringCoverage": 0.03379224030037547,
+          "landingPageBelowAverage": 81,
+          "landingPageBelowAverageRate": 1,
+          "adRelevanceImproved": 0,
+          "adRelevanceWorsened": 0
+        }
+      ],
+      "ad_group_scores": [
+        {
+          "adGroup": "Drone Detection Radar",
+          "averageQualityScore": 5.13,
+          "scoredKeywords": 8,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 3,
+          "adRelevanceAverage": 1,
+          "adRelevanceHigh": 4,
+          "expectedCtrLow": 1,
+          "landingPageLow": 8
+        },
+        {
+          "adGroup": "Drone Tracking",
+          "averageQualityScore": 5,
+          "scoredKeywords": 1,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 0,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 1,
+          "expectedCtrLow": 0,
+          "landingPageLow": 1
+        },
+        {
+          "adGroup": "Remote ID & Drone Identification",
+          "averageQualityScore": 4.33,
+          "scoredKeywords": 3,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 0,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 3,
+          "expectedCtrLow": 2,
+          "landingPageLow": 3
+        },
+        {
+          "adGroup": "Drone Detection System",
+          "averageQualityScore": 3.8,
+          "scoredKeywords": 10,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 2,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 8,
+          "expectedCtrLow": 5,
+          "landingPageLow": 10
+        },
+        {
+          "adGroup": "C-UAS Systems",
+          "averageQualityScore": 3,
+          "scoredKeywords": 14,
+          "impressionsOnJuly14": 7,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 4,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 10,
+          "expectedCtrLow": 11,
+          "landingPageLow": 14
+        },
+        {
+          "adGroup": "Anti UAV Systems",
+          "averageQualityScore": 3,
+          "scoredKeywords": 2,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 2,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 0,
+          "expectedCtrLow": 1,
+          "landingPageLow": 2
+        },
+        {
+          "adGroup": "UAV Detection Systems",
+          "averageQualityScore": 3,
+          "scoredKeywords": 1,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 0,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 1,
+          "expectedCtrLow": 1,
+          "landingPageLow": 1
+        },
+        {
+          "adGroup": "Counter UAS Technology",
+          "averageQualityScore": 2.64,
+          "scoredKeywords": 11,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 1,
+          "adRelevanceAverage": 2,
+          "adRelevanceHigh": 8,
+          "expectedCtrLow": 11,
+          "landingPageLow": 11
+        },
+        {
+          "adGroup": "Anti Drone Solution",
+          "averageQualityScore": 2.5,
+          "scoredKeywords": 4,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 0,
+          "adRelevanceAverage": 2,
+          "adRelevanceHigh": 2,
+          "expectedCtrLow": 4,
+          "landingPageLow": 4
+        },
+        {
+          "adGroup": "Counter Drone Systems",
+          "averageQualityScore": 2,
+          "scoredKeywords": 4,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 4,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 0,
+          "expectedCtrLow": 2,
+          "landingPageLow": 4
+        },
+        {
+          "adGroup": "C-UAV Systems",
+          "averageQualityScore": 2,
+          "scoredKeywords": 2,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 0,
+          "adRelevanceAverage": 2,
+          "adRelevanceHigh": 0,
+          "expectedCtrLow": 2,
+          "landingPageLow": 2
+        },
+        {
+          "adGroup": "Anti Drone Systems",
+          "averageQualityScore": 1.69,
+          "scoredKeywords": 16,
+          "impressionsOnJuly14": 3,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 15,
+          "adRelevanceAverage": 1,
+          "adRelevanceHigh": 0,
+          "expectedCtrLow": 12,
+          "landingPageLow": 16
+        },
+        {
+          "adGroup": "Drone Defender",
+          "averageQualityScore": 1.5,
+          "scoredKeywords": 2,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 1,
+          "adRelevanceAverage": 1,
+          "adRelevanceHigh": 0,
+          "expectedCtrLow": 2,
+          "landingPageLow": 2
+        },
+        {
+          "adGroup": "Drone Defense Systems",
+          "averageQualityScore": 1,
+          "scoredKeywords": 3,
+          "impressionsOnJuly14": 0,
+          "clicksOnJuly14": 0,
+          "adRelevanceLow": 3,
+          "adRelevanceAverage": 0,
+          "adRelevanceHigh": 0,
+          "expectedCtrLow": 3,
+          "landingPageLow": 3
+        }
+      ],
+      "metric_movement": [
+        {
+          "metric": "质量得分",
+          "comparableKeywords": 81,
+          "improved": 1,
+          "unchanged": 80,
+          "worsened": 0,
+          "conclusion": "仅 1 个词上升，整体变化极小"
+        },
+        {
+          "metric": "广告相关性",
+          "comparableKeywords": 81,
+          "improved": 0,
+          "unchanged": 81,
+          "worsened": 0,
+          "conclusion": "DKI 尚未反映到该分项"
+        },
+        {
+          "metric": "着陆页体验",
+          "comparableKeywords": 81,
+          "improved": 0,
+          "unchanged": 81,
+          "worsened": 0,
+          "conclusion": "81 个词仍全部低于平均水平"
+        },
+        {
+          "metric": "预期点击率",
+          "comparableKeywords": 81,
+          "improved": 1,
+          "unchanged": 80,
+          "worsened": 0,
+          "conclusion": "仅 handheld drone detector 升至平均水平"
+        }
+      ],
+      "keyword_changes": [
+        {
+          "keyword": "[handheld drone detector]",
+          "campaign": "Drone Detection System 南美 精准",
+          "priorQualityScore": 1,
+          "currentQualityScore": 3,
+          "changedComponent": "预期点击率：低于平均 → 平均",
+          "july14Impressions": 0,
+          "july14Clicks": 0
+        },
+        {
+          "keyword": "[drone detectors]",
+          "campaign": "Drone Detection System 中东 精准",
+          "priorQualityScore": 3,
+          "currentQualityScore": 5,
+          "changedComponent": "仅历史质量得分/历史预期点击率更新；当前质量得分未变化",
+          "july14Impressions": 0,
+          "july14Clicks": 0
+        }
+      ],
+      "impression_share_headline": [
+        {
+          "searchIS7": 0.5975,
+          "searchIS30": 0.6543,
+          "searchISDelta": -0.0569,
+          "lostRankIS7": 0.4025,
+          "lostRankIS30": 0.3457,
+          "lostRankISDelta": 0.0569,
+          "phraseMix7": 0.4395,
+          "phraseMix30": 0.2686,
+          "phraseMixCurrent": 0.6489,
+          "currentShareCoverage": 0
+        }
+      ],
+      "impression_share_match_type": [
+        {
+          "category": "精准匹配 · 30天",
+          "matchType": "精准匹配",
+          "period": "30天",
+          "searchIS": 75.3,
+          "rankLoss": 24.7,
+          "impressions": 768,
+          "clicks": 56,
+          "ctr": 0.0729
+        },
+        {
+          "category": "精准匹配 · 7天",
+          "matchType": "精准匹配",
+          "period": "7天",
+          "searchIS": 72.9,
+          "rankLoss": 27.1,
+          "impressions": 352,
+          "clicks": 20,
+          "ctr": 0.0568
+        },
+        {
+          "category": "词组匹配 · 30天",
+          "matchType": "词组匹配",
+          "period": "30天",
+          "searchIS": 48.5,
+          "rankLoss": 51.5,
+          "impressions": 282,
+          "clicks": 12,
+          "ctr": 0.0426
+        },
+        {
+          "category": "词组匹配 · 7天",
+          "matchType": "词组匹配",
+          "period": "7天",
+          "searchIS": 48.8,
+          "rankLoss": 51.2,
+          "impressions": 276,
+          "clicks": 12,
+          "ctr": 0.0435
+        }
+      ],
+      "impression_share_campaigns": [
+        {
+          "campaign": "C-UAS 南美 短语",
+          "impressions7": 173,
+          "clicks7": 10,
+          "ctr7": 0.0578,
+          "searchIS7": 0.6817,
+          "searchIS30": 0.6719,
+          "searchISDelta": 0.0098,
+          "rankLoss7": 0.3183,
+          "topIS7": 0.4938,
+          "absTopIS7": 0.2838,
+          "clickShare7": 0.3686
+        },
+        {
+          "campaign": "Drone Detection System 南美 精准",
+          "impressions7": 110,
+          "clicks7": 11,
+          "ctr7": 0.1,
+          "searchIS7": 0.8585,
+          "searchIS30": 0.8523,
+          "searchISDelta": 0.0062,
+          "rankLoss7": 0.1415,
+          "topIS7": 0.6921,
+          "absTopIS7": 0.5128,
+          "clickShare7": 0.5934
+        },
+        {
+          "campaign": "C-UAS 中东 短语",
+          "impressions7": 103,
+          "clicks7": 2,
+          "ctr7": 0.0194,
+          "searchIS7": 0.3305,
+          "searchIS30": 0.3284,
+          "searchISDelta": 0.0021,
+          "rankLoss7": 0.6695,
+          "topIS7": 0.1319,
+          "absTopIS7": 0.0731,
+          "clickShare7": 0.1767
+        },
+        {
+          "campaign": "C-UAS 南美 精准",
+          "impressions7": 88,
+          "clicks7": 5,
+          "ctr7": 0.0568,
+          "searchIS7": 0.6354,
+          "searchIS30": 0.6375,
+          "searchISDelta": -0.0021,
+          "rankLoss7": 0.3646,
+          "topIS7": 0.4717,
+          "absTopIS7": 0.367,
+          "clickShare7": 0.6124
+        },
+        {
+          "campaign": "Anti Drone  南美 精准",
+          "impressions7": 75,
+          "clicks7": 2,
+          "ctr7": 0.0267,
+          "searchIS7": 0.866,
+          "searchIS30": 0.8372,
+          "searchISDelta": 0.0288,
+          "rankLoss7": 0.134,
+          "topIS7": 0.7253,
+          "absTopIS7": 0.5533,
+          "clickShare7": 0.784
+        },
+        {
+          "campaign": "Anti Drone  中东 精准",
+          "impressions7": 28,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.5384,
+          "searchIS30": 0.439,
+          "searchISDelta": 0.0994,
+          "rankLoss7": 0.4616,
+          "topIS7": 0.4123,
+          "absTopIS7": 0.2043,
+          "clickShare7": null
+        },
+        {
+          "campaign": "Drone Detection System 中东 精准",
+          "impressions7": 26,
+          "clicks7": 2,
+          "ctr7": 0.0769,
+          "searchIS7": 0.8387,
+          "searchIS30": 0.7492,
+          "searchISDelta": 0.0895,
+          "rankLoss7": 0.1613,
+          "topIS7": 0.8962,
+          "absTopIS7": 0.3731,
+          "clickShare7": 0.4532
+        },
+        {
+          "campaign": "C-UAS 中东 精准",
+          "impressions7": 25,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.5455,
+          "searchIS30": 0.5208,
+          "searchISDelta": 0.0246,
+          "rankLoss7": 0.4545,
+          "topIS7": 0.4229,
+          "absTopIS7": 0.3667,
+          "clickShare7": null
+        }
+      ],
+      "impression_share_priority_groups": [
+        {
+          "campaignAdGroup": "Drone Detection System 南美 精准 | Drone Detection System",
+          "impressions7": 81,
+          "clicks7": 6,
+          "ctr7": 0.0741,
+          "searchIS7": 0.8804,
+          "rankLoss7": 0.1196,
+          "topIS7": 0.7656,
+          "absTopIS7": 0.5615
+        },
+        {
+          "campaignAdGroup": "C-UAS 南美 短语 | Anti Drone Equipment",
+          "impressions7": 63,
+          "clicks7": 4,
+          "ctr7": 0.0635,
+          "searchIS7": 0.7016,
+          "rankLoss7": 0.2984,
+          "topIS7": 0.5408,
+          "absTopIS7": 0.321
+        },
+        {
+          "campaignAdGroup": "C-UAS 南美 精准 | C-UAS Systems",
+          "impressions7": 61,
+          "clicks7": 3,
+          "ctr7": 0.0492,
+          "searchIS7": 0.6005,
+          "rankLoss7": 0.3995,
+          "topIS7": 0.4265,
+          "absTopIS7": 0.3373
+        },
+        {
+          "campaignAdGroup": "C-UAS 南美 短语 | C-UAS Systems",
+          "impressions7": 56,
+          "clicks7": 4,
+          "ctr7": 0.0714,
+          "searchIS7": 0.7143,
+          "rankLoss7": 0.2857,
+          "topIS7": 0.3667,
+          "absTopIS7": 0.235
+        },
+        {
+          "campaignAdGroup": "C-UAS 中东 短语 | Anti Drone Equipment",
+          "impressions7": 46,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.2743,
+          "rankLoss7": 0.7257,
+          "topIS7": 0.1005,
+          "absTopIS7": 0.05
+        },
+        {
+          "campaignAdGroup": "Anti Drone  南美 精准 | Anti Drone Solution",
+          "impressions7": 31,
+          "clicks7": 1,
+          "ctr7": 0.0323,
+          "searchIS7": 0.9466,
+          "rankLoss7": 0.0534,
+          "topIS7": 0.8938,
+          "absTopIS7": 0.686
+        },
+        {
+          "campaignAdGroup": "C-UAS 南美 精准 | Counter UAS Technology",
+          "impressions7": 26,
+          "clicks7": 2,
+          "ctr7": 0.0769,
+          "searchIS7": 0.7222,
+          "rankLoss7": 0.2778,
+          "topIS7": 0.592,
+          "absTopIS7": 0.4478
+        },
+        {
+          "campaignAdGroup": "Anti Drone  南美 精准 | Anti Drone Systems",
+          "impressions7": 22,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.7103,
+          "rankLoss7": 0.2897,
+          "topIS7": 0.5193,
+          "absTopIS7": 0.3246
+        },
+        {
+          "campaignAdGroup": "Drone Detection System 南美 精准 | Drone Detection Radar",
+          "impressions7": 20,
+          "clicks7": 4,
+          "ctr7": 0.2,
+          "searchIS7": 0.8065,
+          "rankLoss7": 0.1935,
+          "topIS7": 0.5742,
+          "absTopIS7": 0.4325
+        },
+        {
+          "campaignAdGroup": "C-UAS 南美 短语 | Counter UAS Technology",
+          "impressions7": 20,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.4486,
+          "rankLoss7": 0.5514,
+          "topIS7": 0.3181,
+          "absTopIS7": 0.2824
+        },
+        {
+          "campaignAdGroup": "C-UAS 中东 短语 | Counter UAS Technology",
+          "impressions7": 14,
+          "clicks7": 1,
+          "ctr7": 0.0714,
+          "searchIS7": 0.2642,
+          "rankLoss7": 0.7358,
+          "topIS7": 0.1229,
+          "absTopIS7": 0.05
+        },
+        {
+          "campaignAdGroup": "C-UAS 中东 短语 | Counter Drone Equipment",
+          "impressions7": 14,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.375,
+          "rankLoss7": 0.625,
+          "topIS7": 0.05,
+          "absTopIS7": 0.05
+        },
+        {
+          "campaignAdGroup": "Anti Drone  中东 精准 | Anti Drone Systems",
+          "impressions7": 14,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.5185,
+          "rankLoss7": 0.4815,
+          "topIS7": 0.4032,
+          "absTopIS7": 0.0675
+        },
+        {
+          "campaignAdGroup": "C-UAS 中东 精准 | C-UAS Systems",
+          "impressions7": 13,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.4815,
+          "rankLoss7": 0.5185,
+          "topIS7": 0.3731,
+          "absTopIS7": 0.2692
+        },
+        {
+          "campaignAdGroup": "C-UAS 南美 短语 | Drone Detector Equipment",
+          "impressions7": 13,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 1,
+          "rankLoss7": 0,
+          "topIS7": 0.782,
+          "absTopIS7": 0.2243
+        },
+        {
+          "campaignAdGroup": "Drone Detection System 中东 精准 | Drone Detection Radar",
+          "impressions7": 12,
+          "clicks7": 2,
+          "ctr7": 0.1667,
+          "searchIS7": 0.7059,
+          "rankLoss7": 0.2941,
+          "topIS7": 0.8542,
+          "absTopIS7": 0.2792
+        },
+        {
+          "campaignAdGroup": "Anti Drone  南美 精准 | Drone Defense Systems",
+          "impressions7": 12,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.8824,
+          "rankLoss7": 0.1176,
+          "topIS7": 0.32,
+          "absTopIS7": 0.32
+        },
+        {
+          "campaignAdGroup": "Drone Detection System 中东 精准 | Drone Detection System",
+          "impressions7": 11,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 1,
+          "rankLoss7": 0,
+          "topIS7": 1,
+          "absTopIS7": 0.5636
+        },
+        {
+          "campaignAdGroup": "C-UAS 中东 精准 | Counter UAS Technology",
+          "impressions7": 11,
+          "clicks7": 0,
+          "ctr7": 0,
+          "searchIS7": 0.625,
+          "rankLoss7": 0.375,
+          "topIS7": 0.43,
+          "absTopIS7": 0.43
+        },
+        {
+          "campaignAdGroup": "C-UAS 中东 短语 | C-UAV Systems",
+          "impressions7": 10,
+          "clicks7": 1,
+          "ctr7": 0.1,
+          "searchIS7": 0.5714,
+          "rankLoss7": 0.4286,
+          "topIS7": 0.2857,
+          "absTopIS7": 0.1429
+        }
+      ],
+      "technical_audit": [
+        {
+          "priority": 1,
+          "area": "响应式重复渲染",
+          "evidence": "同一请求同时输出 DesktopLanding 和 MobileLanding，仅用 CSS 隐藏其一；包含两套询盘表单",
+          "impact": "HTML、DOM、可交互组件与维护成本重复，移动端尤其吃亏",
+          "action": "改为单一语义 DOM + 响应式 CSS；至少不要同时 SSR 两套完整页面"
+        },
+        {
+          "priority": 2,
+          "area": "首包与服务响应",
+          "evidence": "HTML 291,746 bytes；实测 TTFB 1.12s；Cloudflare HTML 状态为 DYNAMIC",
+          "impact": "拖慢移动端首屏，降低点击后的页面体验稳定性",
+          "action": "对静态解决方案 GET 页面启用边缘缓存，排除 API、表单与管理路径"
+        },
+        {
+          "priority": 3,
+          "area": "JavaScript 负载",
+          "evidence": "页面引用 16 个站内脚本，原始传输合计约 862 KB；表单、WhatsApp 与全局布局占主要交互负担",
+          "impact": "弱网设备解析和执行时间偏长，可能影响 LCP/INP",
+          "action": "延迟加载下方表单与非首屏交互，拆分大共享 chunk，移除首屏不需要的客户端代码"
+        },
+        {
+          "priority": 4,
+          "area": "关键词—页面意图",
+          "evidence": "80 个有评分关键词集中到同一个宽泛 A 层页面，跨 14 个广告组；页面虽覆盖主要术语，但 handheld/portable 意图不够突出",
+          "impact": "Google 看到的是一个大而全页面，难以确认每个搜索意图的首屏匹配度",
+          "action": "按 broad C-UAS、radar、RF、portable/handheld 拆成静态 A 层承接页"
+        },
+        {
+          "priority": 5,
+          "area": "信任与决策信息",
+          "evidence": "已抓取页面有技术能力和规格，但缺少完整买家 FAQ、测试条件、项目证据、认证/服务承诺的集中展示",
+          "impact": "用户难以快速判断方案可信度和适用边界",
+          "action": "增加带测试条件的规格、部署案例、交付流程、公司与售后信息、隐私和表单用途说明"
+        }
+      ],
+      "landing_plan": [
+        {
+          "intent": "Broad C-UAS / anti drone system",
+          "targetPage": "/solutions/low-altitude-airspace-monitoring",
+          "heroFocus": "C-UAS and Anti Drone Detection Systems for Critical Sites",
+          "proofAboveFold": "RF + radar + Remote ID + EO；场景；站点方案与报价",
+          "compliance": "A 层；保留为宽泛系统词承接页"
+        },
+        {
+          "intent": "Drone radar / UAV detection radar",
+          "targetPage": "/solutions/drone-radar-detection",
+          "heroFocus": "Drone Radar Detection for Low-Altitude Site Monitoring",
+          "proofAboveFold": "探测对象、距离测试条件、覆盖扇区、雷达与 RF/EO 协同",
+          "compliance": "新建并明确登记为 A 层；不使用主动反制表述"
+        },
+        {
+          "intent": "RF drone detection / spectrum detection",
+          "targetPage": "/solutions/rf-drone-detection",
+          "heroFocus": "RF Drone Detection and Spectrum Monitoring",
+          "proofAboveFold": "频段、方向发现、协议解析、Remote ID、固定/便携部署",
+          "compliance": "A 层；不要把 B 层 product URL 作为广告最终网址"
+        },
+        {
+          "intent": "Handheld / portable / vehicle detector",
+          "targetPage": "/solutions/portable-drone-detection",
+          "heroFocus": "Portable and Handheld Drone Detection for Field Teams",
+          "proofAboveFold": "重量/续航/部署时间/使用流程/适用场景，注明测试与限制",
+          "compliance": "A 层；只承接监测、识别与事件记录能力"
+        }
+      ],
+      "guardrail_risks": [
+        {
+          "category": "Advertising compliance risk",
+          "finding": "[drone detection using rf] 今天有 4 次展示，最终网址为 B 层 stationary-rf-detection-system 产品页",
+          "status": "需修正",
+          "action": "改回 A 层低空监测页，或新建 A 层 RF detection 解决方案页"
+        },
+        {
+          "category": "SEO risk",
+          "finding": "拆分静态意图页可能产生内容重复与关键词内耗",
+          "status": "可控",
+          "action": "每页只服务一个明确意图，设置独立 title/H1/canonical 与实质差异内容"
+        },
+        {
+          "category": "GEO / AI visibility risk",
+          "finding": "泛化营销句多于可验证的测试条件时，AI 引用价值有限",
+          "status": "可优化",
+          "action": "加入测试条件、适用边界、传感器比较表和可核验项目证据"
+        },
+        {
+          "category": "Public visibility leaks",
+          "finding": "本次关键词流量未发现 C 层最终网址；但 B/C 路径仍需持续从广告最终网址中排除",
+          "status": "未发现 C 层泄漏",
+          "action": "上传前自动校验 final URL 对照 complianceTaxonomy"
+        }
+      ]
+    },
+    "accessIssues": []
+  },
+  "sources": [
+    {
+      "id": "score_comparison",
+      "label": "Google Ads keyword reports — July 14 snapshot vs. 7-day and 30-day baselines",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "executed_at": "2026-07-14T10:05:00+08:00",
+        "sql": "SELECT * FROM headline_metrics;\nSELECT * FROM metric_movement;\nSELECT * FROM keyword_changes;",
+        "description": "Google Ads keyword reports — July 14 snapshot vs. 7-day and 30-day baselines",
+        "tables_used": [
+          "headline_metrics",
+          "metric_movement",
+          "keyword_changes"
+        ]
+      }
+    },
+    {
+      "id": "current_export",
+      "label": "Google Ads keyword report — July 14, 2026",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "executed_at": "2026-07-14T10:05:00+08:00",
+        "sql": "SELECT * FROM headline_metrics;\nSELECT * FROM ad_group_scores ORDER BY averageQualityScore DESC;",
+        "description": "Google Ads keyword report — July 14, 2026",
+        "tables_used": [
+          "headline_metrics",
+          "ad_group_scores"
+        ]
+      }
+    },
+    {
+      "id": "impression_share_analysis",
+      "label": "Google Ads keyword impression-share analysis — 7-day and 30-day comparison",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "executed_at": "2026-07-14T10:05:00+08:00",
+        "sql": "SELECT * FROM impression_share_headline;\nSELECT * FROM impression_share_match_type;\nSELECT * FROM impression_share_campaigns ORDER BY impressions7 DESC;\nSELECT * FROM impression_share_priority_groups ORDER BY impressions7 DESC;",
+        "description": "Google Ads keyword impression-share analysis — 7-day and 30-day comparison",
+        "tables_used": [
+          "impression_share_headline",
+          "impression_share_match_type",
+          "impression_share_campaigns",
+          "impression_share_priority_groups"
+        ]
+      }
+    },
+    {
+      "id": "landing_audit",
+      "label": "N-TET landing-page content, response, payload, and source audit",
+      "href": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "executed_at": "2026-07-14T10:05:00+08:00",
+        "sql": "SELECT * FROM technical_audit ORDER BY priority ASC;\nSELECT * FROM landing_plan ORDER BY intent ASC;",
+        "description": "N-TET landing-page content, response, payload, and source audit",
+        "tables_used": [
+          "technical_audit",
+          "landing_plan"
+        ]
+      }
+    },
+    {
+      "id": "compliance_taxonomy",
+      "label": "N-TET advertising compliance taxonomy",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "executed_at": "2026-07-14T10:05:00+08:00",
+        "sql": "SELECT * FROM guardrail_risks ORDER BY category ASC;",
+        "description": "N-TET advertising compliance taxonomy",
+        "tables_used": [
+          "guardrail_risks"
+        ]
+      }
+    }
+  ]
+}

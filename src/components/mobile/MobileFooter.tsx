@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 import { getFooterProductLinks, getFooterSolutionLinks } from '@/lib/footerLinks';
 import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
@@ -106,8 +106,11 @@ export default function MobileFooter({
                 </div>
             </div>
 
-            <div style={{ marginTop: '60px', textAlign: 'center', color: 'rgba(255,255,255,0.48)', fontSize: '12px', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '20px' }}>
+            <div className="mobile-footer-legal">
                 <p>{dict.footer.copyright}</p>
+                <Link prefetch={false} href={l('/privacy-policy')} className="footer-privacy-link">
+                    {dict.footer.privacyPolicy}
+                </Link>
             </div>
         </footer>
     ));

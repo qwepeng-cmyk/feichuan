@@ -22,7 +22,7 @@ import {
     Wrench,
 } from 'lucide-react';
 import FactoryShow from '@/components/about/FactoryShow';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
 import InquiryForm from '@/components/products/InquiryForm';
 import { localePath } from '@/lib/localePath';

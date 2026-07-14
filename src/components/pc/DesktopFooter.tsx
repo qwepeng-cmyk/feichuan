@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 import { getFooterProductLinks, getFooterSolutionLinks } from '@/lib/footerLinks';
 import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
@@ -85,8 +85,11 @@ export default function Footer({
                     </div>
                 </div>
                 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '40px', textAlign: 'center', fontSize: '1.3rem', color: 'rgba(255,255,255,0.48)' }}>
-                    {dict.footer.copyright}
+                <div className="desktop-footer-legal">
+                    <p>{dict.footer.copyright}</p>
+                    <Link prefetch={false} href={l('/privacy-policy')} className="footer-privacy-link">
+                        {dict.footer.privacyPolicy}
+                    </Link>
                 </div>
             </div>
         </footer>

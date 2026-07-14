@@ -83,6 +83,9 @@ const BASELINE_TIERS = {
     'handheld-integrated-multi-band-jammer-gun': 'restricted',
   },
   solution: {
+    'low-altitude-airspace-monitoring': 'normal',
+    'drone-radar-detection': 'normal',
+    'portable-drone-detection': 'normal',
     'chemical-plant-protection': 'neutral_seo',
     'hydroelectric-dam-protection': 'neutral_seo',
     'oil-production-base-protection': 'neutral_seo',

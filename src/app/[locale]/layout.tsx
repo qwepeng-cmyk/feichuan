@@ -4,8 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import DesktopFloatingContact from "@/components/contact/DesktopFloatingContact";
-import FloatingMessageBox from "@/components/contact/FloatingMessageBox";
-import ZoosnetBusinessChat from "@/components/contact/ZoosnetBusinessChat";
+import DeferredContactTools from "@/components/contact/DeferredContactTools";
 import LocaleDocumentState from "@/components/LocaleDocumentState";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
@@ -155,8 +154,6 @@ gtag('config', '${gaMeasurementId}');`,
             />
           </>
         )}
-        <ZoosnetBusinessChat />
-
         {gtmContainerId && (
           <noscript>
             <iframe
@@ -173,7 +170,7 @@ gtag('config', '${gaMeasurementId}');`,
         {children}
         <Footer locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
         <DesktopFloatingContact locale={locale} />
-        <FloatingMessageBox />
+        <DeferredContactTools />
 
         {/* MOBILE STICKY BAR */}
         <div className="mobile_only">

@@ -1,97 +1,72 @@
-# N-TET 线上速度审查
+# 低空监测着陆页本地性能优化报告
 
-- 审查时间：2026-07-13（Asia/Shanghai）
-- 目标站点：https://n-tet.com/
-- 抽查页面：首页、产品中心、解决方案、案例中心、媒体中心
-- 测量方式：每页 7 次线上 HTTPS 采样、响应头与静态资源检查、当前仓库实现核对
-- 限制：PageSpeed Insights 当日配额返回 429；浏览器性能时间线受企业网络策略阻止，因此本报告不提供 Lighthouse 分数，也不推测 LCP、INP 或 CLS。
+- 生成时间：2026-07-14 15:06（Asia/Shanghai）
+- 页面：`/solutions/low-altitude-airspace-monitoring`
+- 验证范围：本地源码、Next.js 生产构建与本地生产预览
+- 未执行：生产部署、Cloudflare Cache Rule、线上 TTFB 复测
 
 ## 结论
 
-网站不是不可用或严重卡死，Next.js 页面缓存和静态资源缓存都在工作；但冷访问仍有明显优化空间。当前主要瓶颈不是首方 JavaScript，而是 HTML 没有在 Cloudflare 边缘缓存、分析脚本重复加载、列表页高优先级图片过多，以及首页 3.06 MB 自动播放视频带来的加载尾部。
+优先级 1 和本地可完成的优先级 2/3 已收口。页面现在只输出一套响应式语义 DOM；询盘表单、WhatsApp 留资弹窗、Zoosnet 和浮动留言框均不再进入首屏业务代码；目标页废弃的双端 CSS 已清理。
 
-综合判断：**可用，但尚未达到稳定的“快站”水平，优先完成边缘 HTML 缓存与跟踪脚本去重。**
+Next.js 14.1.0 生产构建以退出码 0 完成，共生成 870/870 个静态页面。英文目标页继续通过关键词承接审计（strong/100），公开风险门禁对目标页返回 `ok`。
 
-## 线上采样
+## 前后指标
 
-以下为当前测量网络路径中的 7 次中位数；“总耗时”指 HTML 文档传输完成，不等于浏览器可交互时间。
-
-| 页面 | TTFB 中位数 | TTFB 范围 | HTML 总耗时中位数 | gzip HTML | 原始 HTML 约 |
-|---|---:|---:|---:|---:|---:|
-| `/` | 0.626 s | 0.597–1.074 s | 0.821 s | 34.3 KB | 234 KB |
-| `/products` | 0.641 s | 0.574–0.728 s | 0.796 s | 26.7 KB | 165 KB |
-| `/solutions` | 0.628 s | 0.595–0.810 s | 0.878 s | 33.4 KB | 183 KB |
-| `/cases` | 0.647 s | 0.595–0.832 s | 0.839 s | 25.8 KB | 149 KB |
-| `/media` | 0.837 s | 0.620–1.078 s | 1.088 s | 42.2 KB | 210 KB |
-
-首方静态代码体积处于中等水平：每页 16–19 个 JavaScript 文件，当前采样路径下合计约 178–195 KB；CSS 约 11–13 KB。它不是目前最大的矛盾。
-
-## 主要问题
-
-### P1：HTML 仍然动态回源
-
-所有抽查页面都返回：
-
-- `X-Nextjs-Cache: HIT`
-- `Cache-Control: s-maxage=3600, stale-while-revalidate`
-- `Cf-Cache-Status: DYNAMIC`
-
-这说明应用层缓存命中，但 Cloudflare 没有缓存 HTML。每个冷访问仍需走到源站，导致 TTFB 基本停留在 0.6–0.8 秒。直连源站抽查也在约 0.64–1.16 秒区间，进一步说明边缘 HTML 缓存是最直接的杠杆。
-
-建议为公开 GET 页面设置 Cache Rule / Cache Everything，Edge TTL 可先用 1 小时；至少覆盖 `/`、`/products*`、`/solutions*`、`/cases*`、`/media*`，明确排除 `/api*`、`/admin*`、表单提交及任何用户状态页面。发布后验证 `Cf-Cache-Status: HIT` 与 `Age`。
-
-### P1：GTM 与独立 gtag 重复
-
-线上同时加载：
-
-- `gtm.js?id=GTM-PJN9QQWN`：本次响应体约 419 KB
-- `gtag/js?id=G-ZS6XC2TFCG`：本次响应体约 550 KB
-
-GTM 容器代码中已经包含同一个 `G-ZS6XC2TFCG`，因此当前 GA4 路径存在明确重复。两份响应在本次路径合计约 0.97 MB，还会增加解析、执行和第三方请求成本。
-
-建议保留 GTM 作为唯一入口，确认 GA4 与 Ads 转化标签均由容器继续触发后，删除布局中的独立 gtag 加载。上线前后必须核对 GA4 实时流与 Google Ads 转化，避免数据中断或重复计数。
-
-### P1：列表页图片优先级过量
-
-| 页面 | `fetchpriority=high` 图片标签 | 唯一高优先级图片 | 唯一图片合计 |
+| 指标 | 原始审计 | 第一轮本地优化 | 最终本地构建 |
 |---|---:|---:|---:|
-| `/products` | 7 | 5 | 714 KB |
-| `/solutions` | 10 | 6 | 819 KB |
-| `/cases` | 14 | 8 | 490 KB |
+| HTML | 291,746 B | 200,198 B | 199,029 B |
+| 初始脚本数 | 16 | 15 | 14 |
+| Next.js First Load JS | 未记录 | 105 KB | 99.9 KB |
+| 目标页 CSS | 未记录 | 63,644 B | 43,549 B |
+| 首包 H1 | 重复 | 1 | 1 |
+| 首包表单 | 2 套页面表单 | 0 | 0 |
 
-桌面和移动组件同时存在于服务端 HTML，仅靠 CSS 隐藏其中一套；两套组件又各自给多张卡片设置 `priority`。这会把本应延迟加载的图片推到首屏竞争队列，尤其不利于移动网络上的 LCP。
+最终 HTML 比原始审计减少 92,717 B，约 31.8%。目标页 CSS 比第一轮构建减少 20,095 B，约 31.6%。
 
-建议每个列表页只保留横幅/LCP 图片和最多 1 张真实首屏卡片为高优先级，目标是每页 1–2 个图片 preload。隐藏布局中的卡片不要设置 `priority`。
+## JavaScript 拆分
 
-### P2：首页视频拖长加载尾部
+以下功能已成为按需加载 chunk，不在目标页初始 14 个脚本中：
 
-线上首页使用 `/index_banner_bg_3.mp4`，文件 3,061,884 字节（约 3.06 MB）。它已正确获得一年 immutable 缓存且 Cloudflare 命中，但首次访问仍需下载。当前工作树拟使用的 `/index_banner_bg_5.mp4` 为 2,840,734 字节，约小 7%，仍接近 2.84 MB。
+- WhatsApp 留资弹窗与提交/Ads 转化逻辑：12,366 B，仅首次点击 WhatsApp CTA 后加载。
+- 浮动留言框：7,827 B，在浏览器空闲后加载，原 20 秒展示计时保持以页面访问时间为准。
+- Zoosnet 业务聊天加载器：2,029 B，在浏览器空闲或用户主动打开业务聊天时加载。
+- 页面底部询盘表单：继续使用 IntersectionObserver，在接近询盘区时加载。
 
-建议保留 poster，继续使用 `preload="metadata"`，并为移动端提供更低码率/更短版本或静态首屏；还可针对 `prefers-reduced-data` / `prefers-reduced-motion` 停止自动下载。不要通过磁盘裁剪破坏原图，适配继续由前端完成。
+Google Ads 转化口径未改变：`/api/whatsapp-leads` 成功返回 `inquiryId` 后，原 `trackGoogleAdsFormConversion` 才执行。普通 WhatsApp 点击仍不计作表单转化。
 
-### P2：默认英文 `/en/*` 会多一次 301
+## 响应式与交互验证
 
-站点英文默认路由是无前缀路径。`/en/products`、`/en/solutions`、`/en/cases`、`/en/media` 都先 301 到无前缀地址。广告、站内链接、邮件和外链应直接使用 `/products` 等 canonical URL，避免首访额外往返。
+- 430 px 本地浏览器：1 个 H1、0 个初始表单、无横向溢出。
+- WhatsApp 首次点击后弹窗成功出现。
+- 关闭弹窗后再次点击可重新打开。
+- 点击 `Get Site Layout & Quote` 后，延迟询盘表单成功加载。
+- 未提交测试询盘，避免向本地数据库写入虚假线索。
 
-## 已做得好的部分
+## 本地响应
 
-- 图片、视频等静态资源返回 `Cache-Control: public, max-age=31536000, immutable`。
-- 抽查视频与 WebP 均为 `Cf-Cache-Status: HIT`，说明静态资源 CDN 缓存有效。
-- HTML gzip 生效，首方 JS/CSS 体积不是当前首要问题。
-- 在线聊天与浮动消息框当前均关闭，`/api/site/chat-settings` 返回两项 `false`，本轮没有把 Zoosnet 计入负载。
+生产预览 5 次 warm curl 的 TTFB 为 42.7、17.6、17.0、16.2、16.0 ms，中位数约 17.0 ms。该结果只代表本机应用层，不等同于公网或 Cloudflare TTFB。
 
-## 建议实施顺序
+## 门禁结果
 
-1. 配置 Cloudflare 公开页面 HTML 边缘缓存，并验证命中。
-2. 合并跟踪链路：保留 GTM，移除重复 gtag，验证 GA4/Ads。
-3. 把产品、解决方案、案例页图片 preload 压到每页 1–2 个。
-4. 给移动首页提供轻量视频或静态首屏策略。
-5. PageSpeed 配额恢复后重新测移动/桌面 Lighthouse；浏览器策略允许时补录真实 LCP、CLS 与交互 INP。
+- TypeScript：通过。
+- `next build`：退出码 0，870/870 页面完成。
+- SEO audit：0 warnings。
+- Schema audit：184 个公开候选。
+- Keyword landing audit：英文目标页 strong/100。
+- Public risk：目标页 en/ru/ar 均为 `ok`；全站仍有 3 个其他既有页面命中受限模式。
+- Internal links：仍有 3 条既有数据引用问题，与本次着陆页性能改动无关。
+- E-E-A-T：1 条其他产品短摘要警告，与目标页无关。
 
-## Core Web Vitals 状态
+## 上传后仍需人工完成
 
-- LCP：本轮不可测，不推测
-- INP：本轮不可测，不以 TBT 代替
-- CLS：本轮不可测，不推测
-- CrUX 字段数据：PageSpeed API 429，未取得
+1. 按项目既有方式上传本地 `.next/`，不要在 4 GB 服务器上构建。
+2. 上线后确认目标页 HTML 约 199,029 B、1 个 H1、0 个初始表单、14 个初始脚本。
+3. 如需完成优先级 2 的线上部分，为该着陆页及 `ru/es/ar` 版本启用 Cloudflare HTML Edge Cache，并排除 RSC、prefetch、API、admin 与表单 POST。
+4. 连续访问同一 URL，确认 `CF-Cache-Status: MISS` 后转为 `HIT`，并出现 `Age` 响应头。
+5. 再测公网 TTFB；不要用本地约 17 ms 代替线上结果。
+6. 上线后手工复核 WhatsApp 弹窗、询盘提交成功、GA4/Ads 转化及移动端 430 px 页面。
 
+## Core Web Vitals 限制
+
+本轮没有新的 CrUX 或 Lighthouse 数据，因此不编造 LCP、INP、CLS。代码体积、构建输出和本地 TTFB应与真实用户 CWV 分开解读。

@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-interface WhatsAppLeadButtonProps {
+export interface WhatsAppLeadButtonProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -23,6 +23,8 @@ interface WhatsAppLeadButtonProps {
   productName?: string;
   productHandle?: string;
   ctaLocation?: string;
+  initiallyOpen?: boolean;
+  renderTrigger?: boolean;
 }
 
 const modalCopy = {
@@ -159,12 +161,14 @@ export default function WhatsAppLeadButton({
   productName,
   productHandle,
   ctaLocation,
+  initiallyOpen = false,
+  renderTrigger = true,
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
   const copy = getCopy(pathname);
   const messageCopy = getOptionalMessageCopy(pathname);
   const saveError = getSaveErrorCopy(pathname);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
@@ -303,17 +307,19 @@ export default function WhatsAppLeadButton({
 
   return (
     <>
-      <a
-        href={CONTACT_WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-        style={style}
-        aria-label={ariaLabel}
-        onClick={openModal}
-      >
-        {children}
-      </a>
+      {renderTrigger && (
+        <a
+          href={CONTACT_WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={className}
+          style={style}
+          aria-label={ariaLabel}
+          onClick={openModal}
+        >
+          {children}
+        </a>
+      )}
 
       {isOpen && createPortal(
         <div className={styles.modalBackdrop} role="presentation">

@@ -9,7 +9,7 @@ import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({

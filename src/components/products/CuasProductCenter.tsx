@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import CategoryNav from '@/components/products/CategoryNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import ProductGridCard from '@/components/products/ProductGridCard';
