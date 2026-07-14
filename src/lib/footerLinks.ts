@@ -28,10 +28,19 @@ export function getFooterSolutionLinks(locale: string, dict: any): FooterLink[] 
     label: dict.megaMenu?.lowAltitudeAirspaceMonitoring || 'Low-Altitude Airspace Monitoring Solution',
   };
 
+  const englishIntentLandingLinks: FooterLink[] = locale === 'en'
+    ? [
+        { href: '/solutions/drone-detector', label: 'Drone Detector' },
+        { href: '/solutions/drone-radar-detection', label: 'Drone Radar Detection' },
+        { href: '/solutions/portable-drone-detection', label: 'Portable Drone Detection' },
+      ]
+    : [];
+
   if (['en', 'ru', 'es', 'ar'].includes(locale)) {
     return uniqueLinks([
       solutionIndex,
       lowAltitudeTopic,
+      ...englishIntentLandingLinks,
       ...englishCuasSolutionCenterGroups.map((group) => ({
         href: `/solutions/${group.handles[0]}`,
         label: dict.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel,

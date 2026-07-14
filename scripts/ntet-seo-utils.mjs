@@ -84,6 +84,7 @@ const BASELINE_TIERS = {
   },
   solution: {
     'low-altitude-airspace-monitoring': 'normal',
+    'drone-detector': 'normal',
     'drone-radar-detection': 'normal',
     'portable-drone-detection': 'normal',
     'chemical-plant-protection': 'neutral_seo',

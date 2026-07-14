@@ -28,6 +28,7 @@ const publicPaths = [
   '/en/solutions',
   '/ar/solutions',
   '/en/solutions/low-altitude-airspace-monitoring',
+  '/en/solutions/drone-detector',
   '/en/solutions/drone-radar-detection',
   '/en/solutions/portable-drone-detection',
   '/ru/solutions/low-altitude-airspace-monitoring',

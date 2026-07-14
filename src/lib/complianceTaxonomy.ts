@@ -38,6 +38,7 @@ const PRODUCT_TIERS: Record<string, ComplianceTier> = {
 
 const SOLUTION_TIERS: Record<string, ComplianceTier> = {
   'low-altitude-airspace-monitoring': 'normal',
+  'drone-detector': 'normal',
   'drone-radar-detection': 'normal',
   'portable-drone-detection': 'normal',
   'critical-infrastructure-airspace-monitoring': 'neutral_seo',

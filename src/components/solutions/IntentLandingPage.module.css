@@ -190,10 +190,10 @@
 
 .productGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
 .productGridTwo { max-width: 1040px; }
-.productCard { display: grid; grid-template-columns: minmax(190px, .8fr) minmax(0, 1.2fr); min-height: 360px; color: inherit; text-decoration: none; border: 1px solid #d9e1ec; background: #fff; box-shadow: 0 14px 40px rgba(16,40,77,.06); transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1); }
+.productCard { display: grid; grid-template-rows: auto 1fr; min-height: 0; color: inherit; text-decoration: none; border: 1px solid #d9e1ec; background: #fff; box-shadow: 0 14px 40px rgba(16,40,77,.06); transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s cubic-bezier(.4,0,.2,1); }
 .productCard:hover { transform: translateY(-10px); box-shadow: 0 26px 54px rgba(16,40,77,.15); }
-.productImageBox { position: relative; min-height: 100%; background: linear-gradient(160deg, #eff5fb, #fff); overflow: hidden; }
-.productImage { object-fit: contain; padding: 28px 20px; mix-blend-mode: multiply; transition: transform .4s cubic-bezier(.4,0,.2,1); }
+.productImageBox { position: relative; width: 100%; min-height: 0; aspect-ratio: 1.618 / 1; background: #f8f9fa; overflow: hidden; isolation: isolate; }
+.productImage { object-fit: contain; padding: 5px; mix-blend-mode: multiply; transition: transform .4s cubic-bezier(.4,0,.2,1); }
 .productCard:hover .productImage { transform: scale(1.06); }
 .productBody { padding: 34px 30px; }
 .productBody h3 { margin: 0; font: 600 25px/1.18 Georgia, serif; }
@@ -214,9 +214,11 @@
 .tableWrap tr > *:last-child { border-right: 0; }
 
 .workflowSection { padding: 112px max(7vw, calc((100vw - 1180px) / 2)); color: #fff; background: #0b1931; }
+.workflowSection ::selection { color: #fff; background: rgba(89, 216, 255, .34); }
 .sectionIntroLight { margin-bottom: 58px; }
 .sectionNumberLight { color: var(--intent-cyan); }
 .sectionKickerLight { color: var(--intent-cyan); margin-bottom: 12px; }
+.sectionIntroLight h2 { color: #fff; }
 .sectionIntroLight p { color: #b9c8dc; }
 .workflowGrid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .workflowStep { position: relative; min-height: 300px; padding: 30px 26px; border-top: 1px solid rgba(255,255,255,.3); border-right: 1px solid rgba(255,255,255,.16); background: linear-gradient(180deg, rgba(255,255,255,.04), transparent); }
@@ -224,14 +226,14 @@
 .workflowStep:not(:last-child)::after { content: "→"; position: absolute; right: -14px; top: 50%; z-index: 2; display: grid; place-items: center; width: 28px; height: 28px; color: #0b1931; background: var(--intent-cyan); border-radius: 50%; font-weight: 900; }
 .workflowTopline { display: flex; justify-content: space-between; align-items: center; color: var(--intent-cyan); }
 .workflowTopline span { font: 700 13px/1 "Bahnschrift Condensed", "DIN Condensed", sans-serif; letter-spacing: .15em; }
-.workflowStep h3 { margin: 64px 0 15px; font: 500 28px/1.1 Georgia, serif; }
+.workflowStep h3 { margin: 64px 0 15px; color: #f7fbff; font: 500 28px/1.1 Georgia, serif; }
 .workflowStep p { margin: 0; color: #bfccdd; line-height: 1.68; }
 .workflowNote { max-width: 900px; margin: 34px 0 0; display: flex; gap: 12px; color: #b9c8dc; font-size: 13px; line-height: 1.6; }
 .workflowNote svg { flex: 0 0 auto; color: var(--intent-cyan); margin-top: 2px; }
 
 .scenarioGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-.scenarioCard { display: grid; grid-template-columns: minmax(220px, .85fr) minmax(0, 1.15fr); min-height: 430px; border: 1px solid #d9e1ec; background: #fff; overflow: hidden; }
-.scenarioImageBox { position: relative; min-height: 100%; overflow: hidden; }
+.scenarioCard { display: grid; grid-template-rows: auto 1fr; min-height: 0; border: 1px solid #d9e1ec; background: #fff; overflow: hidden; }
+.scenarioImageBox { position: relative; width: 100%; min-height: 0; aspect-ratio: 1.618 / 1; overflow: hidden; background: #f8f9fa; }
 .scenarioImage { object-fit: cover; transition: transform .5s cubic-bezier(.4,0,.2,1); }
 .scenarioCard:hover .scenarioImage { transform: scale(1.06); }
 .scenarioBody { padding: 38px 34px; }
@@ -243,6 +245,7 @@
 .scenarioBody a { text-decoration: none; }
 
 .faqInquiry { width: 100%; padding: 112px max(7vw, calc((100vw - 1180px) / 2)); display: grid; grid-template-columns: minmax(0,.85fr) minmax(480px,1.15fr); gap: 64px; background: var(--intent-paper); }
+.faqColumn > .sectionNumber { display: block; width: 78px; }
 .faqColumn > .sectionKicker { margin: 22px 0 12px; }
 .faqList { margin-top: 34px; border-top: 1px solid #cbd5e3; }
 .faqList details { border-bottom: 1px solid #cbd5e3; }
@@ -252,6 +255,9 @@
 .faqList details[open] summary span { transform: rotate(45deg); }
 .faqList details p { margin: -4px 0 22px; color: #5f6b80; line-height: 1.7; }
 .inquiryColumn { padding: 38px; background: #fff; border-top: 4px solid var(--intent-blue); box-shadow: 0 24px 60px rgba(16,40,77,.12); scroll-margin-top: 80px; }
+.inquiryMarker { display: grid; grid-template-columns: 78px minmax(0,1fr); gap: 20px; align-items: start; margin-bottom: 28px; }
+.inquiryMarker .sectionNumber { display: block; width: 78px; }
+.inquiryMarker .sectionKicker { margin-top: 15px; }
 .inquiryHeading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
 .inquiryHeading > svg { flex: 0 0 auto; color: var(--intent-blue); margin-top: 6px; }
 .inquiryHeading h2 { font-size: clamp(30px,3vw,44px); }
@@ -266,8 +272,7 @@
 @media (max-width: 1100px) {
   .hero { grid-template-columns: 1fr 420px; }
   .productCard, .scenarioCard { grid-template-columns: 1fr; }
-  .productImageBox { min-height: 260px; }
-  .scenarioImageBox { min-height: 280px; }
+  .productImageBox, .scenarioImageBox { min-height: 0; }
   .faqInquiry { grid-template-columns: 1fr; }
 }
 
@@ -307,13 +312,13 @@
   .applicationGrid article:last-child { border-bottom: 0; }
   .applicationGrid h3 { margin-top: 24px; }
   .productCard { grid-template-columns: 1fr; }
-  .productImageBox { min-height: 240px; }
+  .productImageBox { min-height: 0; }
   .productBody, .scenarioBody { padding: 28px 24px; }
   .workflowGrid { grid-template-columns: 1fr; }
   .workflowStep { min-height: 250px; border-right: 0; }
   .workflowStep h3 { margin-top: 42px; }
   .scenarioCard { grid-template-columns: 1fr; }
-  .scenarioImageBox { min-height: 220px; }
+  .scenarioImageBox { min-height: 0; }
   .inquiryColumn { padding: 24px 18px; }
 }
 

@@ -96,6 +96,8 @@ export default function IntentLandingPage({
               href={localePath(locale, product.href)}
               className={styles.productCard}
               key={product.href}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className={styles.productImageBox}>
                 <Image src={product.image} alt={product.imageAlt} fill sizes="(max-width: 720px) 88vw, 420px" className={styles.productImage} />
@@ -106,7 +108,7 @@ export default function IntentLandingPage({
                 <ul>
                   {product.facts.map((fact) => <li key={fact}><BadgeCheck size={15} aria-hidden="true" />{fact}</li>)}
                 </ul>
-                <span className={styles.textLink}>View published product details <ArrowUpRight size={16} aria-hidden="true" /></span>
+                <span className={styles.textLink}>View product details <ArrowUpRight size={16} aria-hidden="true" /></span>
               </div>
             </Link>
           ))}
@@ -168,7 +170,7 @@ export default function IntentLandingPage({
         </div>
         <p className={styles.workflowNote}>
           <Siren size={18} aria-hidden="true" />
-          Public response content covers authorized alert escalation and site procedure coordination; specific active-response methods are intentionally excluded.
+          Define escalation contacts, decision authority, site procedures and record-retention requirements before commissioning.
         </p>
       </section>
 
@@ -192,8 +194,14 @@ export default function IntentLandingPage({
                 <h3>{scenario.title}</h3>
                 <p>{scenario.summary}</p>
                 <ul>{scenario.points.map((point) => <li key={point}>{point}</li>)}</ul>
-                <Link prefetch={false} href={localePath(locale, scenario.href)} className={styles.textLink}>
-                  Review public case <ArrowUpRight size={16} aria-hidden="true" />
+                <Link
+                  prefetch={false}
+                  href={localePath(locale, scenario.href)}
+                  className={styles.textLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {scenario.linkLabel || 'View case details'} <ArrowUpRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </article>
@@ -203,8 +211,8 @@ export default function IntentLandingPage({
 
       <section className={styles.faqInquiry} aria-labelledby="faq-heading">
         <div className={styles.faqColumn}>
-          <span className={styles.sectionNumber}>06–07</span>
-          <span className={styles.sectionKicker}>FAQ & PROJECT INQUIRY</span>
+          <span className={styles.sectionNumber} aria-hidden="true">06</span>
+          <span className={styles.sectionKicker}>FAQ</span>
           <h2 id="faq-heading">{config.faqHeading}</h2>
           <div className={styles.faqList}>
             {config.faqs.map((faq, index) => (
@@ -216,6 +224,10 @@ export default function IntentLandingPage({
           </div>
         </div>
         <div id="inquiry" className={styles.inquiryColumn}>
+          <div className={styles.inquiryMarker} aria-hidden="true">
+            <span className={styles.sectionNumber}>07</span>
+            <span className={styles.sectionKicker}>PROJECT INQUIRY</span>
+          </div>
           <div className={styles.inquiryHeading}>
             <BadgeCheck size={24} aria-hidden="true" />
             <div>

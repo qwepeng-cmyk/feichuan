@@ -7,6 +7,7 @@ const SITE_URL = 'https://n-tet.com';
 const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
 const ENGLISH_INTENT_PATHS = [
   '/solutions/low-altitude-airspace-monitoring',
+  '/solutions/drone-detector',
   '/solutions/drone-radar-detection',
   '/solutions/portable-drone-detection',
 ];

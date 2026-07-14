@@ -12,10 +12,8 @@ import {
 } from 'lucide-react';
 import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
 import JsonLd from '@/components/seo/JsonLd';
-import IntentLandingPage from '@/components/solutions/IntentLandingPage';
 import { getDictionary } from '@/i18n/getDictionary';
 import { type Locale } from '@/i18n/config';
-import { droneDetectorLanding } from '@/lib/intentLandingPages';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { breadcrumbSchema, pageUrl } from '@/lib/structuredData';
@@ -1395,31 +1393,13 @@ export default async function LowAltitudeAirspaceMonitoringPage({ params }: { pa
       url: pageAbsoluteUrl,
       mainEntityOfPage: pageAbsoluteUrl,
     },
-    ...(locale === 'en'
-      ? [{
-          '@type': 'FAQPage',
-          '@id': `${pageAbsoluteUrl}#faq`,
-          mainEntity: droneDetectorLanding.faqs.map((faq) => ({
-            '@type': 'Question',
-            name: faq.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: faq.answer,
-            },
-          })),
-        }]
-      : []),
     breadcrumbSchema(breadcrumbs),
   ];
 
   return (
     <>
       <JsonLd data={{ '@context': 'https://schema.org', '@graph': jsonLdGraph }} />
-      {locale === 'en' ? (
-        <IntentLandingPage config={droneDetectorLanding} locale={locale} dict={dict} />
-      ) : (
-        <Landing locale={locale} dict={dict} />
-      )}
+      <Landing locale={locale} dict={dict} />
     </>
   );
 }

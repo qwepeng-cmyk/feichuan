@@ -47,6 +47,14 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     source: 'google_ads_keywords',
   },
   '/solutions/low-altitude-airspace-monitoring': {
+    primary: 'low-altitude airspace monitoring',
+    secondary: ['low altitude monitoring system', 'airspace monitoring solution', 'low altitude security', 'C-UAS site planning'],
+    h1: 'Low-Altitude Airspace Security & C-UAS',
+    overviewHeading: 'Low-Altitude Airspace Monitoring for Critical Sites',
+    intro: 'Plan a practical low-altitude monitoring workflow around site conditions, sensing coverage, identity and visual verification, command coordination, authorized response and event records.',
+    source: 'google_ads_keywords',
+  },
+  '/solutions/drone-detector': {
     primary: 'drone detector system',
     secondary: ['drone detector', 'drone detection system', 'C-UAS detection system', 'RF drone detection', 'Remote ID monitoring'],
     h1: 'Drone Detector Systems for Critical Sites',
@@ -63,11 +71,11 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     source: 'google_ads_keywords',
   },
   '/solutions/portable-drone-detection': {
-    primary: 'portable drone detector',
-    secondary: ['handheld drone detector', 'mobile drone detector', 'portable RF drone detection', 'field drone detector'],
-    h1: 'Portable & Handheld Drone Detection for Field Teams',
-    overviewHeading: 'Portable and Handheld RF Drone Detector Options',
-    intro: 'Compare hand-carried and handheld passive RF drone detector options by operator role, frequency coverage, endurance, weight, alert method and field-to-command handoff.',
+    primary: 'portable C-UAS system',
+    secondary: ['portable drone detector', 'handheld drone detector', 'integrated C-UAS field kit', 'vehicle mounted C-UAS', 'mobile counter drone system'],
+    h1: 'Portable C-UAS Systems for Handheld, Integrated & Vehicle-Mounted Deployment',
+    overviewHeading: 'Handheld, Integrated and Vehicle-Mounted C-UAS Options',
+    intro: 'Compare handheld detectors, hand-carried RF identification systems, integrated C-UAS field kits and vehicle-mounted configurations by operator role, readiness time, power, mobility, evidence workflow and response authorization.',
     source: 'google_ads_keywords',
   },
   '/cases': {
