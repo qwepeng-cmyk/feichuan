@@ -146,6 +146,99 @@ header.site-header.header-inner .nav-item {
     height: 100%;
 }
 
+/* Inner-page language menu */
+.lang-switch-top-trigger:hover {
+    background: rgba(49, 91, 164, 0.16) !important;
+}
+
+.lang-switch-top-trigger:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.9);
+    outline-offset: -2px;
+}
+
+#desktop-language-menu li + li {
+    margin-top: 2px;
+}
+
+#desktop-language-menu .language-option {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) 14px;
+    align-items: center;
+    gap: 10px;
+    min-height: 38px;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    color: #24364d;
+    text-decoration: none;
+    text-align: start;
+    transition: background 180ms cubic-bezier(0.4, 0, 0.2, 1), border-color 180ms cubic-bezier(0.4, 0, 0.2, 1), color 180ms cubic-bezier(0.4, 0, 0.2, 1), transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#desktop-language-menu .language-option:hover,
+#desktop-language-menu .language-option:focus-visible {
+    background: #e9f1fb;
+    border-color: rgba(49, 91, 164, 0.18);
+    color: #214f94;
+    outline: none;
+    transform: translateX(2px);
+}
+
+#desktop-language-menu .language-option.is-current {
+    background: #dfeaf8;
+    border-color: rgba(49, 91, 164, 0.22);
+    color: #173f7b;
+    font-weight: 600;
+}
+
+#desktop-language-menu .language-code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 22px;
+    border: 1px solid #cbd9eb;
+    background: rgba(255, 255, 255, 0.78);
+    color: #315ba4;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+}
+
+#desktop-language-menu .language-name {
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#desktop-language-menu .language-current-mark {
+    color: #315ba4;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+@keyframes ntet-language-menu-in {
+    from {
+        opacity: 0;
+        transform: translateY(-5px) scaleY(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #desktop-language-menu,
+    #desktop-language-menu .language-option {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 .logo img.logo-light {
     display: block;
     height: 54px;

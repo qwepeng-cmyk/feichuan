@@ -1,0 +1,28 @@
+{
+  "keyword": {
+    "inputFile": "D:/fc-cuas/outputs/ads_url_relevance_20260715/NTET_Keyword_Final_URL_Edit_Upload_20260715.xlsx",
+    "outputFile": "D:/fc-cuas/outputs/ads_url_relevance_20260715/NTET_Keyword_Final_URL_Edit_WebUpload_ActionFirst_20260715.xlsx",
+    "sheetName": "Keywords",
+    "rows": 1643,
+    "columns": 18,
+    "firstHeader": "Action",
+    "secondHeader": "Row Type",
+    "firstAction": "Edit",
+    "firstRowType": "Keyword",
+    "formulaErrors": 0,
+    "firstRows": "{\"kind\":\"table\",\"sheet\":\"Keywords\",\"address\":\"A1:R5\",\"rows\":5,\"cols\":18,\"values\":[[\"Action\",\"Row Type\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Edit\",\"Keyword\",\"Enabled\",null,\"Drone Detection System 南美 精准\",null,\"Remote ID & Drone Identification\",null,\"uav identification system\",\"Exact match\",\"URL_RELEVANCE_20260715\",null,null,\"https://n-tet.com/solutions/drone-detector\",null,null,null,null],[\"Edit\",\"Keyword\",\"Enabled\",null,\"Drone Detection System 南美 精准\",null,\"Drone Detection System\",null,\"drone detection software\",\"Exact match\",\"URL_RELEVANCE_20260715\",null,null,\"https://n-tet.com/solutions/drone-detector\",null,null,null,null],[\"Edit\",\"Keyword\",\"Enabled\",null,\"Drone Detection System 南美 精准\",null,\"Drone Detection System\",null,\"long range drone detector\",\"Exact match\",\"URL_RELEVANCE_20260715\",null,null,\"https://n-tet.com/solutions/drone-detector\",null,null,null,null],[\"Edit\",\"Keyword\",\"Enabled\",null,\"Drone Detection System 南美 精准\",null,\"Drone Detection System\",null,\"multi sensor uav detection system\",\"Exact match\",\"URL_RELEVANCE_20260715\",null,null,\"https://n-tet.com/solutions/drone-detector\",null,null,null,null]]}"
+  },
+  "rsa": {
+    "inputFile": "D:/fc-cuas/outputs/ads_url_relevance_20260715/NTET_RSA_Final_URL_Edit_Upload_20260715.xlsx",
+    "outputFile": "D:/fc-cuas/outputs/ads_url_relevance_20260715/NTET_RSA_Final_URL_Edit_WebUpload_ActionFirst_20260715.xlsx",
+    "sheetName": "Ads",
+    "rows": 69,
+    "columns": 55,
+    "firstHeader": "Action",
+    "secondHeader": "Row Type",
+    "firstAction": "Edit",
+    "firstRowType": "Ad",
+    "formulaErrors": 0,
+    "firstRows": "{\"kind\":\"table\",\"sheet\":\"Ads\",\"address\":\"A1:O5\",\"rows\":5,\"cols\":15,\"values\":[[\"Action\",\"Row Type\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\"],[\"Edit\",\"Ad\",\"Enabled\",\"23968413076\",\"Drone Detection System 南美 精准\",\"196732942486\",\"UAV Detection Systems\",\"815049275726\",null,\"URL_RELEVANCE_20260715\",null,null,null,null,null],[\"Edit\",\"Ad\",\"Enabled\",\"24029856911\",\"Drone Detection System 英语 精准\",\"197688430945\",\"Drone Detection System\",\"816843524525\",null,\"URL_RELEVANCE_20260715\",null,null,null,null,null],[\"Edit\",\"Ad\",\"Enabled\",\"23968413076\",\"Drone Detection System 南美 精准\",\"196427273894\",\"Drone Detection System\",\"814704717999\",null,\"URL_RELEVANCE_20260715\",null,null,null,null,null],[\"Edit\",\"Ad\",\"Enabled\",\"23968413076\",\"Drone Detection System 南美 精准\",\"196427273254\",\"RF Spectrum Detection\",\"813689171967\",null,\"URL_RELEVANCE_20260715\",null,null,null,null,null]]}"
+  }
+}

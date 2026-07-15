@@ -23,10 +23,6 @@ const factoryImages = [
         src: '/about/factory-show/counter-uas-solutions-china.webp',
         alt: 'C-UAS equipment prepared for configuration checks',
     },
-    {
-        src: '/about/factory-show/uav-solution-china.webp',
-        alt: 'C-UAS equipment testing and inspection resources',
-    },
 ];
 
 export default function FactoryShow({ dict, locale = 'en' }: { dict?: any; locale?: string }) {

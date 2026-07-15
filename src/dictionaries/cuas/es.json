@@ -12,7 +12,7 @@
     "Portable RF Field Unit": "Unidad de campo RF portátil",
     "RF FIELD PRO": "CAMPO RF PRO",
     "Portable RF Analysis Unit": "Unidad de análisis de RF portátil",
-    "NAV FIELD": "CAMPO DE NAVIDAD",
+    "NAV FIELD": "CAMPO DE NAVEGACIÓN",
     "Portable Navigation Signal Analyzer": "Analizador de señal de navegación portátil",
     "Fixed-Site C-UAS Systems": "Sistemas C-UAS de sitio fijo",
     "Fixed-Site C-UAS": "C-UAS de sitio fijo",
@@ -38,7 +38,7 @@
     "Vehicle-Mounted Counter-Drone System": "Sistema de contradrones montado en un vehículo",
     "VEHICLE RF": "VEHÍCULO RF",
     "Vehicle-Mounted RF Analysis Unit": "Unidad de análisis de RF montada en vehículo",
-    "MOBILE NAV": "NAVIDAD MÓVIL",
+    "MOBILE NAV": "NAVEGACIÓN MÓVIL",
     "Vehicle Navigation Signal Analysis System": "Sistema de análisis de señales de navegación del vehículo",
     "C-UAS Control Platform": "Plataforma de control C-UAS",
     "Control Platform": "Plataforma de control",
@@ -282,4 +282,3 @@
     }
   }
 }
-

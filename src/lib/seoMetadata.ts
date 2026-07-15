@@ -331,9 +331,9 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/media': {
-    title: 'C-UAS Company & Industry News | N-TET',
+    title: 'C-UAS Engineering Notes & Buyer Guides | N-TET',
     description:
-      'Read N-TET company updates and industry analysis on C-UAS planning, detection technologies, sensor integration, and operator workflows.',
+      'Read documented N-TET engineering methods, equipment notes, buyer guides and industry analysis on C-UAS planning, sensor integration, testing and operator workflows.',
     keywords: [
       'C-UAS news',
       'counter drone detection',
@@ -472,10 +472,10 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ["casos de despliegue UAV", "casos de inspeccion UAV", "patrullaje UAV de lineas electricas", "caso de monitoreo de baja altitud", "caso de apoyo de emergencia", "proteccion de infraestructura critica", "seguridad de areas clave"],
     },
     '/media': {
-      title: 'Noticias sobre UAV industriales y monitoreo de baja altitud | N-TET',
+      title: 'Notas de ingeniería C-UAS y guías para compradores | N-TET',
       description:
-        'Lea notas de ingeniería y actualizaciones de N-TET sobre operaciones UAV, planificación de baja altitud, arquitectura de monitoreo y entrega de proyectos.',
-      keywords: ['noticias UAV industriales', 'economía de baja altitud', 'UAV cautivo', 'monitoreo de infraestructura'],
+        'Lea métodos de ingeniería documentados, notas de equipos, guías para compradores y análisis del sector sobre planificación, integración y pruebas de C-UAS.',
+      keywords: ['notas de ingeniería C-UAS', 'guía para compradores C-UAS', 'análisis del sector C-UAS', 'detección de drones', 'integración de sistemas C-UAS'],
     },
     '/about': {
       title: 'Acerca de N-TET | Integrador de UAV industriales y monitoreo',
@@ -491,6 +491,11 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
     },
   },
   ru: {
+    '/media': {
+      title: 'Инженерные материалы C-UAS и руководства для заказчиков | N-TET',
+      description: 'Изучите документированные инженерные методы N-TET, заметки об оборудовании, руководства для заказчиков и отраслевые обзоры по планированию, интеграции и испытаниям C-UAS.',
+      keywords: ['инженерные материалы C-UAS', 'руководство для заказчиков C-UAS', 'анализ отрасли C-UAS', 'обнаружение дронов', 'интеграция систем C-UAS'],
+    },
     '/cases': {
       title: "Кейсы внедрения БПЛА и мониторинг низкой высоты | N-TET",
       description: "Изучите полевые примеры N-TET для маршрутов инспекции БПЛА, аварийной поддержки, низковысотного мониторинга и безопасности инфраструктурных объектов.",
@@ -536,10 +541,10 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ["حالات نشر UAV", "حالات تفتيش UAV", "دوريات UAV لخطوط الكهرباء", "حالات مراقبة الارتفاع المنخفض", "حالات الدعم الطارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية"],
     },
     '/media': {
-      title: 'رؤى وتحديثات UAV الصناعية | N-TET',
+      title: 'ملاحظات هندسية وأدلة للمشترين حول C-UAS | N-TET',
       description:
-        'اقرأ ملاحظات هندسية وتحديثات من N-TET حول عمليات UAV وتخطيط الارتفاع المنخفض وبنية المراقبة وتسليم المشروعات.',
-      keywords: ['رؤى وتحديثات UAV الصناعية', 'أخبار UAV صناعية', 'اقتصاد الارتفاع المنخفض', 'UAV مربوط', 'مراقبة البنية التحتية'],
+        'اقرأ أساليب N-TET الهندسية الموثقة وملاحظات المعدات وأدلة المشترين وتحليلات القطاع حول تخطيط أنظمة C-UAS وتكاملها واختبارها.',
+      keywords: ['ملاحظات هندسية C-UAS', 'دليل مشتري C-UAS', 'تحليل قطاع C-UAS', 'كشف الطائرات بدون طيار', 'تكامل أنظمة C-UAS'],
     },
     '/about': {
       title: 'عن N-TET | تكامل UAV صناعي ومراقبة',

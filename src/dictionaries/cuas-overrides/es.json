@@ -32,19 +32,19 @@
     "confidentialityNote": "Por razones de confidencialidad, la mayoría de las implementaciones de proyectos no se pueden revelar públicamente. Los casos que se muestran aquí son referencias seleccionadas aprobadas para revisión externa."
   },
   "media": {
-    "pageTitle": "C-UAS Ingeniería y conocimientos sobre proyectos",
-    "bannerTitle": "C-UAS Ingeniería y conocimientos sobre proyectos",
-    "bannerDesc": "Notas sobre equipos, revisiones de integración de sistemas e información sobre la entrega de proyectos del equipo C-UAS de N-TET.",
-    "bannerSubtitle": "Notas sobre equipos, revisiones de integración de sistemas e información sobre la entrega de proyectos del equipo C-UAS de N-TET.",
-    "seoIntroTitle": "Noticias C-UAS y actualizaciones del espacio aéreo a baja altitud",
-    "seoIntroBody": "Siga la cobertura de N-TET sobre planificación del sitio C-UAS, detección de radar y RF, verificación EO/IR, identificación remota, integración de sensores y entrega de proyectos.",
-    "corporate": "Proyectos y entrega",
+    "pageTitle": "Dentro de N-TET: notas de ingeniería C-UAS",
+    "bannerTitle": "Dentro de N-TET: notas de ingeniería C-UAS",
+    "bannerDesc": "Métodos de ingeniería documentados, notas de equipos, guías para compradores y análisis del sector del equipo C-UAS de N-TET.",
+    "bannerSubtitle": "Métodos de ingeniería documentados, notas de equipos, guías para compradores y análisis del sector del equipo C-UAS de N-TET.",
+    "seoIntroTitle": "Notas de ingeniería C-UAS y guías para compradores",
+    "seoIntroBody": "Descubra cómo N-TET revisa la planificación C-UAS, la detección RF y radar, la verificación EO/IR, Remote ID, la integración de sensores, las pruebas y los flujos de trabajo del operador.",
+    "corporate": "Dentro de N-TET",
     "productTech": "Equipos y tecnología",
-    "industryInsights": "Aplicaciones y operaciones",
+    "industryInsights": "Guías para compradores y el sector",
     "categories": {
-      "corporate": "Proyectos y entrega",
+      "corporate": "Dentro de N-TET",
       "product": "Equipos y tecnología",
-      "industry": "Aplicaciones y operaciones"
+      "industry": "Guías para compradores y el sector"
     }
   },
   "about": {

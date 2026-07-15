@@ -5,10 +5,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import styles from './MobileProductCenter.module.css';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
+import { getContactMethod, getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
 
-export default function MobileInquiryForm({ dict }: { dict?: any }) {
+export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: any; variant?: 'page' | 'drawer' }) {
     const router = useRouter();
     const pathname = usePathname();
+    const ux = getInquiryFormUxCopy(pathname);
     const formId = useId();
     const fieldIds = {
         name: `${formId}-name`,
@@ -62,16 +64,34 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
     };
 
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [contactError, setContactError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const email = formData.email.trim();
+        const phone = formData.phone.trim();
+
+        if (!email || !phone) {
+            setContactError(ux.contactRequiredError);
+            return;
+        }
+
+        setContactError('');
         setSubmitStatus('loading');
         
         try {
             const res = await fetch('/api/inquiries', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    name: formData.name.trim(),
+                    email,
+                    phone,
+                    message: formData.message.trim(),
+                    contactMethod: getContactMethod(email, phone),
+                    sourcePage: pathname,
+                })
             });
             
             const result = await res.json().catch(() => null);
@@ -93,21 +113,22 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
     };
 
     return (
-        <div className={styles.inquiryContainer}>
-            <h2 id="inquiry-title" className={styles.formTitle}>{d.title}</h2>
-            <p className={styles.formSubtitle}>
-                {d.subtitle}
-            </p>
+        <div className={`${styles.inquiryContainer} ${variant === 'drawer' ? styles.inquiryDrawer : ''}`}>
+            {variant === 'page' && (
+                <>
+                    <h2 id="inquiry-title" className={styles.formTitle}>{d.title}</h2>
+                    <p className={styles.formSubtitle}>{d.subtitle}</p>
+                </>
+            )}
 
             <form onSubmit={handleSubmit} className={styles.formWrapper}>
                 <div className={styles.formField}>
                     <label className={styles.formLabel} htmlFor={fieldIds.name}>
-                        <span>*</span>{d.name}
+                        {d.name} <small>({ux.optional})</small>
                     </label>
                     <input
                         id={fieldIds.name}
                         type="text"
-                        required
                         className={styles.formInput}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -115,17 +136,19 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                     />
                 </div>
 
-                <div className={styles.formField}>
-                    <label className={styles.formLabel} htmlFor={fieldIds.company}>{d.company}</label>
-                    <input
-                        id={fieldIds.company}
-                        type="text"
-                        className={styles.formInput}
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder=""
-                    />
-                </div>
+                {variant === 'page' && (
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel} htmlFor={fieldIds.company}>{d.company}</label>
+                        <input
+                            id={fieldIds.company}
+                            type="text"
+                            className={styles.formInput}
+                            value={formData.company}
+                            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                            placeholder=""
+                        />
+                    </div>
+                )}
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel} htmlFor={fieldIds.email}>
@@ -137,8 +160,12 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                         required
                         className={styles.formInput}
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) => {
+                            setFormData({ ...formData, email: e.target.value });
+                            if (e.target.value.trim() || formData.phone.trim()) setContactError('');
+                        }}
                         placeholder="yourname@example.com"
+                        aria-invalid={Boolean(contactError)}
                     />
                 </div>
 
@@ -152,35 +179,40 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                         required
                         className={styles.formInput}
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) => {
+                            setFormData({ ...formData, phone: e.target.value });
+                            if (e.target.value.trim() || formData.email.trim()) setContactError('');
+                        }}
                         placeholder={d.phonePlaceholder ?? 'Include country code, e.g. +1 555 123 4567'}
+                        aria-invalid={Boolean(contactError)}
                     />
                 </div>
 
+                {contactError && <p className={styles.contactError} role="alert">{contactError}</p>}
+
                 <div className={styles.formField}>
                     <label className={styles.formLabel}>{d.inquiryType}</label>
-                    <div className={styles.formCheckboxGroup}>
-                        {d.types.map((opt: string) => (
-                            <label key={opt} className={styles.formCheckboxLabel}>
-                                <input
-                                    type="checkbox"
-                                    className={styles.formCheckbox}
-                                    checked={formData.demands.includes(opt)}
-                                    onChange={() => toggleDemand(opt)}
-                                />
+                    <div className={styles.quickOptions}>
+                        {ux.quickTypes.map((opt) => (
+                            <button
+                                key={opt}
+                                type="button"
+                                className={`${styles.quickOption} ${formData.demands.includes(opt) ? styles.quickOptionActive : ''}`}
+                                aria-pressed={formData.demands.includes(opt)}
+                                onClick={() => toggleDemand(opt)}
+                            >
                                 {opt}
-                            </label>
+                            </button>
                         ))}
                     </div>
                 </div>
 
                 <div className={styles.formField}>
                     <label className={styles.formLabel} htmlFor={fieldIds.message}>
-                        <span>*</span>{d.messageLabel}
+                        {d.messageLabel} <small>({ux.optional})</small>
                     </label>
                     <textarea
                         id={fieldIds.message}
-                        required
                         className={styles.formTextarea}
                         placeholder={d.messagePlaceholder}
                         value={formData.message}
@@ -195,6 +227,7 @@ export default function MobileInquiryForm({ dict }: { dict?: any }) {
                             ? (typeof d.submitted === 'string' ? d.submitted : d.submitted?.title || 'SUBMITTED SUCCESSFULLY!')
                             : d.submit}
                 </button>
+                <p className={styles.privacyNote}>{ux.privacyNote}</p>
                 {submitStatus === 'error' && <div style={{color: 'red', marginTop: '10px', textAlign: 'center'}}>{d.failed}</div>}
             </form>
         </div>

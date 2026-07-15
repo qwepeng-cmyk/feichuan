@@ -127,7 +127,9 @@ COUNTRY_AR = {
 EXACT = {
     "Home": "الرئيسية",
     "Products": "المنتجات",
+    "Product": "المنتج",
     "Drone Accessories": "ملحقات الطائرات بدون طيار",
+    "Access Control Turnstiles": "بوابات التحكم في الدخول",
     "Solutions": "الحلول",
     "Cases": "الحالات",
     "Media": "المركز الإعلامي",
@@ -279,7 +281,7 @@ PHRASE_AR = {
     "Power Grid Inspection Drone": "طائرة UAV لتفتيش شبكة الكهرباء",
     "Oil & Gas Pipeline Inspection Drone": "طائرة UAV لتفتيش خطوط النفط والغاز",
     "Stationary RF Detection System": "نظام ثابت لكشف ترددات RF",
-    "Hand-carried RF Detection System": "نظام محمول لكشف ترددات RF",
+    "Hand-carried RF Detection System": "نظام محمول لكشف إشارات الترددات الراديوية (RF)",
     "Handheld RF Detection System": "جهاز يدوي لكشف ترددات RF",
     "Portable RF Detection Case": "حقيبة محمولة لكشف ترددات RF",
     "Electro-Optical (EO) Tracking System": "نظام تتبع كهروبصري EO",
@@ -327,6 +329,50 @@ PHRASE_AR = {
     "From Refineries to Substations: How Critical Infrastructure Is Adopting Airspace Monitoring in 2026": "من المصافي إلى المحطات الفرعية: اعتماد البنية التحتية الحرجة على مراقبة المجال الجوي في 2026",
     "Tethered UAVs: Continuous Aerial Monitoring for Events and Remote Sites": "UAV المربوطة: مراقبة جوية مستمرة للفعاليات والمواقع البعيدة",
     "UAV and EO/IR Networks Improve Remote Patrol Visibility": "شبكات UAV وEO/IR تعزز وضوح الدوريات عن بُعد",
+}
+
+PRODUCT_AR_OVERRIDES = {
+    "portable-rf-detection-case": {
+        "product_name_ar": "نظام محمول لكشف إشارات الترددات الراديوية (RF)",
+        "summary_ar": (
+            "يوفر النظام المحمول لكشف إشارات الترددات الراديوية تغطية كاملة للنطاق من 300 ميجاهرتز "
+            "إلى 6000 ميجاهرتز. ويتيح كشف الطائرات المسيّرة ضمن نطاقه وتحديد هويتها وموقعها وتتبعها، "
+            "مع إصدار تنبيهات صوتية ومرئية. يدخل الجهاز وضع التشغيل تلقائياً بعد تشغيله، ويتميز بسهولة "
+            "الحمل وسرعة الانتشار الميداني."
+        ),
+        "key_application_ar": (
+            "التطبيق: كشف سلبي دون بث إشارات كهرومغناطيسية؛ تعرّف متعدد الأنماط عبر تحليل الطيف "
+            "وفك ترميز البروتوكولات؛ مناسب للفرق المتنقلة والاستجابة السريعة."
+        ),
+        "key_parameter_1_ar": "نصف قطر الكشف: 5 كم",
+        "key_parameter_2_ar": "نطاق تردد التشغيل: 300–6000 ميجاهرتز",
+        "parameters_ar": {
+            "نطاق التردد": "300–6000 ميجاهرتز",
+            "وضع الكشف": "كشف سلبي، تحليل الطيف، فك ترميز البروتوكولات",
+            "زاوية الكشف": "360° أفقياً",
+            "نصف قطر الكشف": "5 كم",
+            "دقة تحديد الاتجاه": "≤3° (RMS)",
+            "زمن التعرّف": "≤3 ثوانٍ",
+            "مقاس الشاشة": "13.3 بوصة",
+            "مصدر الطاقة": "بطارية/محوّل طاقة",
+            "درجة الحماية": "IP65",
+            "القدرة القصوى": "80 واط",
+            "مدة تشغيل البطارية": "5 ساعات",
+            "الوزن": "16 كجم",
+            "درجة حرارة التشغيل": "من ‎-20°م إلى ‎+55°م",
+        },
+        "detail_html_ar": (
+            "<h4>الميزات والمزايا</h4><ul>"
+            "<li><strong>تشغيل سلبي:</strong> يستقبل النظام الإشارات فقط ولا يبث إشارات كهرومغناطيسية.</li>"
+            "<li><strong>تحليل تفصيلي:</strong> يتيح التعرّف على الرقم التسلسلي والطراز والسرعة والارتفاع "
+            "والموقع ومسار الطائرة المسيّرة، إضافة إلى موقع وحدة التحكم.</li>"
+            "<li><strong>إدارة قوائم السماح والحظر:</strong> يمكن تمييز الطائرات المصرّح بها لتقليل الإنذارات غير الضرورية.</li>"
+            "<li><strong>تتبع عدة أهداف:</strong> يعرض مسارات عدة طائرات مسيّرة في الوقت نفسه بألوان مختلفة.</li>"
+            "<li><strong>تكامل شبكي:</strong> يدعم إرسال بيانات الكشف إلى منصة قيادة خلفية.</li>"
+            "<li><strong>سهولة الحمل:</strong> يتيح تصميم الحقيبة حمل النظام بواسطة شخص واحد ونشره سريعاً في الموقع.</li>"
+            "</ul>"
+        ),
+    },
 }
 
 WORD_AR = {
@@ -1005,6 +1051,7 @@ def sync_database(conn):
             "parameters_ar": convert_jsonish(rget(row, "parameters_en")),
             "detail_html_ar": detail_html_ar(source_name, rget(row, "summary_en")),
         }
+        values.update(PRODUCT_AR_OVERRIDES.get(rget(row, "handle"), {}))
         raw = sync_product_raw(load_raw(row), values)
         conn.execute(
             """UPDATE products SET product_name_ar=?, summary_ar=?, key_application_ar=?, key_parameter_1_ar=?,

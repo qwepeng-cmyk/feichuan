@@ -367,35 +367,60 @@ export default function HomeRebuildPreview({
     const track = solutionTrackRef.current;
     if (!track) return;
 
+    let pendingDrag = false;
     let dragging = false;
     let startX = 0;
     let startLeft = 0;
+    let activePointerId: number | null = null;
+    let suppressNextClick = false;
 
     const startDrag = (event: PointerEvent) => {
-      dragging = true;
+      if (track.scrollWidth <= track.clientWidth) return;
+      pendingDrag = true;
+      dragging = false;
       startX = event.clientX;
       startLeft = track.scrollLeft;
-      track.classList.add("is-dragging");
-      track.setPointerCapture(event.pointerId);
+      activePointerId = event.pointerId;
     };
 
     const dragMove = (event: PointerEvent) => {
-      if (!dragging) return;
+      if (!pendingDrag || activePointerId !== event.pointerId) return;
+      const delta = event.clientX - startX;
+      if (!dragging && Math.abs(delta) < 8) return;
+      if (!dragging) {
+        dragging = true;
+        track.classList.add("is-dragging");
+        track.setPointerCapture(event.pointerId);
+      }
+      event.preventDefault();
       track.scrollLeft = startLeft - (event.clientX - startX);
     };
 
     const stopDrag = (event: PointerEvent) => {
+      if (dragging) {
+        suppressNextClick = true;
+      }
+      pendingDrag = false;
       dragging = false;
+      activePointerId = null;
       track.classList.remove("is-dragging");
       if (track.hasPointerCapture(event.pointerId)) {
         track.releasePointerCapture(event.pointerId);
       }
     };
 
+    const cancelClickAfterDrag = (event: MouseEvent) => {
+      if (!suppressNextClick) return;
+      suppressNextClick = false;
+      event.preventDefault();
+      event.stopPropagation();
+    };
+
     track.addEventListener("pointerdown", startDrag);
     track.addEventListener("pointermove", dragMove);
     track.addEventListener("pointerup", stopDrag);
     track.addEventListener("pointercancel", stopDrag);
+    track.addEventListener("click", cancelClickAfterDrag, true);
     track.addEventListener("scroll", updateActiveSolution, { passive: true });
     window.addEventListener("resize", updateActiveSolution);
     updateActiveSolution();
@@ -405,6 +430,7 @@ export default function HomeRebuildPreview({
       track.removeEventListener("pointermove", dragMove);
       track.removeEventListener("pointerup", stopDrag);
       track.removeEventListener("pointercancel", stopDrag);
+      track.removeEventListener("click", cancelClickAfterDrag, true);
       track.removeEventListener("scroll", updateActiveSolution);
       window.removeEventListener("resize", updateActiveSolution);
     };

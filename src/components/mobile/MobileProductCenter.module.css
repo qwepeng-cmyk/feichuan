@@ -265,6 +265,88 @@
     margin-right: 4px;
 }
 
+.formLabel small {
+    color: #77869a;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.inquiryDrawer {
+    padding: 18px 18px calc(30px + env(safe-area-inset-bottom));
+    border-top: 0;
+}
+
+.inquiryDrawer .formWrapper {
+    gap: 16px;
+}
+
+.inquiryDrawer .formTextarea {
+    height: 88px;
+}
+
+.contactRequirement {
+    margin: -2px 0 -4px;
+    color: #52647a;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.contactRequirement span {
+    margin-right: 5px;
+    color: #c52c36;
+    font-weight: 800;
+}
+
+.contactError {
+    margin: -8px 0 0;
+    color: #b42318;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.quickOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.quickOption {
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 1px solid #c9d5e5;
+    border-radius: 999px;
+    background: #fff;
+    color: #38506b;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1), background 180ms cubic-bezier(0.4, 0, 0.2, 1), color 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quickOptionActive {
+    border-color: #315ba4;
+    background: #e7effa;
+    color: #224d8f;
+}
+
+.privacyNote {
+    position: relative;
+    margin: -10px 0 0;
+    padding-left: 22px;
+    color: #637287;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.privacyNote::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #23824e;
+    font-weight: 900;
+}
+
 .formInput, .formSelect, .formTextarea {
     width: 100%;
     padding: 14px;

@@ -139,22 +139,22 @@
     "bannerSubtitle": "Field references showing how N-TET systems support C-UAS workflows, early warning, identification, positioning, tracking, and infrastructure security operations."
   },
   "media": {
-    "pageTitle": "C-UAS Company & Industry News",
-    "bannerTitle": "C-UAS Company & Industry News",
-    "bannerDesc": "Company methods, equipment notes and industry analysis from N-TET's C-UAS team.",
-    "bannerSubtitle": "Company methods, equipment notes and industry analysis from N-TET's C-UAS team.",
-    "seoIntroTitle": "C-UAS Company News and Industry Updates",
-    "seoIntroBody": "Follow N-TET company notes and industry coverage of C-UAS planning, RF and radar detection, EO/IR verification, Remote ID, sensor integration, testing, and operator workflows.",
+    "pageTitle": "Inside N-TET: C-UAS Engineering & Industry Notes",
+    "bannerTitle": "Inside N-TET: C-UAS Engineering & Industry Notes",
+    "bannerDesc": "Documented engineering methods, equipment notes, buyer guides and industry analysis from N-TET's C-UAS team.",
+    "bannerSubtitle": "Documented engineering methods, equipment notes, buyer guides and industry analysis from N-TET's C-UAS team.",
+    "seoIntroTitle": "C-UAS Engineering Notes and Buyer Guides",
+    "seoIntroBody": "Explore how N-TET reviews C-UAS planning, RF and radar detection, EO/IR verification, Remote ID, sensor integration, testing, documentation and operator workflows.",
     "latest": "Latest",
-    "corporate": "Company News",
+    "corporate": "Inside N-TET",
     "productTech": "Equipment & Technology",
-    "industryInsights": "Industry News",
+    "industryInsights": "Buyer & Industry Guides",
     "updatesFound": "updates found",
     "categories": {
       "latest": "Latest",
-      "corporate": "Company News",
+      "corporate": "Inside N-TET",
       "product": "Equipment & Technology",
-      "industry": "Industry News"
+      "industry": "Buyer & Industry Guides"
     }
   },
   "about": {

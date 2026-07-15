@@ -34,7 +34,9 @@
     ".next/types/**/*.ts",
     ".next-home-3012/types/**/*.ts",
     ".next-perf-fix/types/**/*.ts",
-    ".next-language-fix/types/**/*.ts"
+    ".next-language-fix/types/**/*.ts",
+    ".next-language-preview/types/**/*.ts",
+    ".next-codex-media-proof/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

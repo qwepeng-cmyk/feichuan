@@ -27,9 +27,9 @@ export async function POST(request: Request) {
     const ctaLocation = cleanText(body.ctaLocation);
     const referer = request.headers.get('referer') || pagePath || 'Direct';
 
-    if (!name || !phone) {
+    if (!phone) {
       return NextResponse.json(
-        { success: false, error: 'Name and WhatsApp phone are required' },
+        { success: false, error: 'WhatsApp phone is required' },
         { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
       );
     }
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
     `);
 
     const result = insert.run(
-      name,
+      name || 'WhatsApp visitor',
       '',
       storedEmail,
       'WhatsApp Pre-chat',
@@ -79,7 +79,7 @@ export async function POST(request: Request) {
 
     try {
       await sendInquiryNotification({
-        name,
+        name: name || 'WhatsApp visitor',
         company: '',
         email: storedEmail,
         contactMethod: 'WhatsApp Pre-chat',

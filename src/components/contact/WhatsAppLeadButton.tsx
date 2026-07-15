@@ -6,6 +6,7 @@ import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { CONTACT_WHATSAPP_MESSAGE, CONTACT_WHATSAPP_NUMBER, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
 import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
+import { getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
 import styles from './WhatsAppLeadButton.module.css';
 
 declare global {
@@ -35,7 +36,7 @@ const modalCopy = {
     nameLabel: 'Name *',
     phoneLabel: 'WhatsApp / Phone *',
     countryCodeAria: 'Country code',
-    countryCodePlaceholder: 'e.g. +1',
+    countryCodePlaceholder: 'Country Code',
     phonePlaceholder: 'WhatsApp number, or full number with +',
     saving: 'Saving...',
     submit: 'Open WhatsApp',
@@ -166,6 +167,7 @@ export default function WhatsAppLeadButton({
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
   const copy = getCopy(pathname);
+  const ux = getInquiryFormUxCopy(pathname);
   const messageCopy = getOptionalMessageCopy(pathname);
   const saveError = getSaveErrorCopy(pathname);
   const [isOpen, setIsOpen] = useState(initiallyOpen);
@@ -238,11 +240,6 @@ export default function WhatsAppLeadButton({
     const leadMessage = formData.message.trim();
     const hasInternationalPrefix = /^\+/.test(phone);
     const hasUsableCountryCode = /^\+\d{1,4}$/.test(countryCode);
-
-    if (!name) {
-      setError(copy.nameError);
-      return;
-    }
 
     if (!phone) {
       setError(copy.phoneError);
@@ -338,13 +335,12 @@ export default function WhatsAppLeadButton({
               <p className={styles.helper}>{copy.helper}</p>
 
               <label className={styles.field}>
-                <span className={styles.label}>{copy.nameLabel}</span>
+                <span className={styles.label}>{copy.nameLabel.replace(/\s*\*$/, '')} <small>({ux.optional})</small></span>
                 <input
                   className={styles.input}
                   value={formData.name}
                   onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))}
                   autoComplete="name"
-                  required
                 />
               </label>
 
@@ -397,6 +393,7 @@ export default function WhatsAppLeadButton({
                 </button>
                 <span className={styles.note}>{copy.note}</span>
               </div>
+              <p className={styles.privacyNote}>{ux.privacyNote}</p>
             </form>
           </div>
         </div>,

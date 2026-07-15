@@ -1,0 +1,126 @@
+{
+  "batchSize": 100,
+  "totalRows": 1643,
+  "batchCount": 17,
+  "files": [
+    {
+      "batch": 1,
+      "firstDataRow": 1,
+      "lastDataRow": 100,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_01_Rows_0001-0100.xlsx"
+    },
+    {
+      "batch": 2,
+      "firstDataRow": 101,
+      "lastDataRow": 200,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_02_Rows_0101-0200.xlsx"
+    },
+    {
+      "batch": 3,
+      "firstDataRow": 201,
+      "lastDataRow": 300,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_03_Rows_0201-0300.xlsx"
+    },
+    {
+      "batch": 4,
+      "firstDataRow": 301,
+      "lastDataRow": 400,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_04_Rows_0301-0400.xlsx"
+    },
+    {
+      "batch": 5,
+      "firstDataRow": 401,
+      "lastDataRow": 500,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_05_Rows_0401-0500.xlsx"
+    },
+    {
+      "batch": 6,
+      "firstDataRow": 501,
+      "lastDataRow": 600,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_06_Rows_0501-0600.xlsx"
+    },
+    {
+      "batch": 7,
+      "firstDataRow": 601,
+      "lastDataRow": 700,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_07_Rows_0601-0700.xlsx"
+    },
+    {
+      "batch": 8,
+      "firstDataRow": 701,
+      "lastDataRow": 800,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_08_Rows_0701-0800.xlsx"
+    },
+    {
+      "batch": 9,
+      "firstDataRow": 801,
+      "lastDataRow": 900,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_09_Rows_0801-0900.xlsx"
+    },
+    {
+      "batch": 10,
+      "firstDataRow": 901,
+      "lastDataRow": 1000,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_10_Rows_0901-1000.xlsx"
+    },
+    {
+      "batch": 11,
+      "firstDataRow": 1001,
+      "lastDataRow": 1100,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_11_Rows_1001-1100.xlsx"
+    },
+    {
+      "batch": 12,
+      "firstDataRow": 1101,
+      "lastDataRow": 1200,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_12_Rows_1101-1200.xlsx"
+    },
+    {
+      "batch": 13,
+      "firstDataRow": 1201,
+      "lastDataRow": 1300,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_13_Rows_1201-1300.xlsx"
+    },
+    {
+      "batch": 14,
+      "firstDataRow": 1301,
+      "lastDataRow": 1400,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_14_Rows_1301-1400.xlsx"
+    },
+    {
+      "batch": 15,
+      "firstDataRow": 1401,
+      "lastDataRow": 1500,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_15_Rows_1401-1500.xlsx"
+    },
+    {
+      "batch": 16,
+      "firstDataRow": 1501,
+      "lastDataRow": 1600,
+      "dataRowCount": 100,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_16_Rows_1501-1600.xlsx"
+    },
+    {
+      "batch": 17,
+      "firstDataRow": 1601,
+      "lastDataRow": 1643,
+      "dataRowCount": 43,
+      "outputPath": "D:\\fc-cuas\\outputs\\ads_url_relevance_20260715\\keyword_batches_100\\NTET_Keyword_URL_Edit_Batch_17_Rows_1601-1643.xlsx"
+    }
+  ]
+}

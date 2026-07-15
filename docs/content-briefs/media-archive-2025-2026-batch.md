@@ -28,7 +28,7 @@
 | Jul 17, 2025 | industry | weather terrain drone detection | How Weather, Terrain, and Urban Clutter Affect Drone Detection |
 | Aug 21, 2025 | corporate | C-UAS technical documentation | Inside N-TET: Technical Documentation Buyers Can Actually Review |
 | Oct 16, 2025 | industry | drone detection range vs coverage | Drone Detection Range Is Not Site Coverage: A Buyer's Guide |
-| Nov 20, 2025 | corporate | multi-sensor C-UAS configuration | How N-TET Assigns Roles in a Multi-Sensor C-UAS Configuration |
+| Nov 20, 2025 | corporate | multi-sensor C-UAS configuration | Inside N-TET: How We Assign Roles in a Multi-Sensor C-UAS Configuration |
 | Feb 19, 2026 | industry | C-UAS event logging | C-UAS Event Logging and Data Retention: What Operators Should Define |
 | Mar 19, 2026 | corporate | UAV engineering for C-UAS | Inside N-TET: How UAV Engineering Informs C-UAS System Reviews |
 

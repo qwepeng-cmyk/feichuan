@@ -411,35 +411,50 @@ export default function Header({
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '5px',
+                                    justifyContent: 'flex-end',
+                                    gap: '8px',
                                     height: '100%',
-                                    padding: '0 8px',
+                                    minWidth: '148px',
+                                    padding: '0 12px',
                                     border: 0,
-                                    background: 'transparent',
+                                    borderInline: '1px solid rgba(126, 166, 221, 0.14)',
+                                    background: isLanguageMenuOpen ? 'rgba(49, 91, 164, 0.22)' : 'transparent',
                                     color: 'inherit',
                                     font: 'inherit',
-                                    cursor: 'pointer'
+                                    letterSpacing: '0.01em',
+                                    cursor: 'pointer',
+                                    transition: 'background 180ms cubic-bezier(0.4, 0, 0.2, 1)'
                                 }}
                             >
-                                {dict.nav.selectLanguage} <svg style={{ width: '12px', height: '12px' }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                {dict.nav.selectLanguage} <svg style={{
+                                    width: '10px',
+                                    height: '10px',
+                                    opacity: 0.78,
+                                    transform: isLanguageMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                                    transition: 'transform 180ms cubic-bezier(0.4, 0, 0.2, 1)'
+                                }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z"></path>
                                 </svg>
                             </button>
                             <ul id="desktop-language-menu" role="menu" className="lang-dropdown-inner" style={{
                                 position: 'absolute',
                                 top: '100%',
-                                right: 0,
-                                background: '#fff',
+                                insetInlineEnd: 0,
+                                background: 'linear-gradient(155deg, #ffffff 0%, #f3f7fc 100%)',
                                 color: '#24364d',
                                 listStyle: 'none',
-                                padding: '10px 0',
+                                padding: '8px',
                                 margin: 0,
-                                width: '120px',
-                                border: '1px solid #dfe6f0',
-                                borderTop: '2px solid #315ba4',
-                                boxShadow: '0 18px 36px rgba(0,15,36,0.18)',
+                                width: '190px',
+                                border: '1px solid rgba(49, 91, 164, 0.22)',
+                                borderTop: '3px solid #315ba4',
+                                borderRadius: '0 0 3px 3px',
+                                boxShadow: '0 18px 42px rgba(0, 15, 36, 0.24), 0 2px 8px rgba(0, 15, 36, 0.10)',
                                 display: isLanguageMenuOpen ? 'block' : 'none',
-                                zIndex: 1001
+                                overflow: 'hidden',
+                                zIndex: 1001,
+                                transformOrigin: 'top right',
+                                animation: isLanguageMenuOpen ? 'ntet-language-menu-in 180ms cubic-bezier(0.4, 0, 0.2, 1)' : undefined
                             }}>
                                 {languageLinks.map((item) => (
                                     <li key={item.locale} role="none" style={{ cursor: 'pointer' }}>
@@ -447,29 +462,23 @@ export default function Header({
                                             prefetch={false}
                                             href={item.href}
                                             role="menuitem"
+                                            className={`language-option${item.locale === locale ? ' is-current' : ''}`}
                                             aria-current={item.locale === locale ? 'page' : undefined}
                                             onClick={() => setIsLanguageMenuOpen(false)}
                                         >
-                                            {languageLabels[item.locale]}
+                                            <span className="language-code" dir="ltr" aria-hidden="true">
+                                                {item.locale.toUpperCase()}
+                                            </span>
+                                            <span className="language-name" dir="auto">
+                                                {languageLabels[item.locale]}
+                                            </span>
+                                            <span className="language-current-mark" aria-hidden="true">
+                                                {item.locale === locale ? '✓' : ''}
+                                            </span>
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
-                            <style jsx>{`
-                                .lang-switch-top-trigger:focus-visible {
-                                    outline: 2px solid rgba(255, 255, 255, 0.9);
-                                    outline-offset: -2px;
-                                }
-                                .lang-dropdown-inner li:hover {
-                                    background: #eef4fb;
-                                    color: #315ba4;
-                                }
-                                .lang-dropdown-inner li a {
-                                    display: block;
-                                    padding: 8px 20px;
-                                    color: inherit;
-                                }
-                            `}</style>
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ export async function sendInquiryNotification(inquiry: InquiryPayload) {
   await transporter.sendMail({
     from,
     to: settings.receiverEmail,
-    replyTo: inquiry.email,
+    ...(inquiry.email ? { replyTo: inquiry.email } : {}),
     subject: `New N-TET inquiry from ${subjectName}${subjectCompany}`,
     text: [
       'New website inquiry',

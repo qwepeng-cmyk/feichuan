@@ -87,10 +87,10 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     source: 'google_ads_keywords',
   },
   '/media': {
-    primary: 'C-UAS company and industry news',
-    secondary: ['C-UAS industry news', 'drone detection technology', 'C-UAS system integration', 'EO IR verification', 'low altitude monitoring'],
-    h1: 'C-UAS Company & Industry News',
-    overviewHeading: 'C-UAS Company Updates and Industry Analysis',
+    primary: 'C-UAS engineering notes',
+    secondary: ['C-UAS buyer guide', 'C-UAS industry analysis', 'drone detection technology', 'C-UAS system integration', 'EO IR verification', 'low altitude monitoring'],
+    h1: 'Inside N-TET: C-UAS Engineering & Industry Notes',
+    overviewHeading: 'C-UAS Engineering Notes and Buyer Guides',
     source: 'google_ads_keywords',
   },
   '/solutions/power-line-uav-intelligent-inspection-solution': {
@@ -258,10 +258,10 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
       source: "google_ads_keywords",
     },
     '/media': {
-      primary: 'noticias UAV industriales',
-      secondary: ['economía de baja altitud', 'UAV cautivo', 'monitoreo de infraestructura'],
-      h1: 'Noticias UAV industriales',
-      overviewHeading: 'Noticias UAV industriales y economía de baja altitud',
+      primary: 'notas de ingeniería C-UAS',
+      secondary: ['guía para compradores C-UAS', 'análisis del sector C-UAS', 'tecnología de detección de drones', 'integración de sistemas C-UAS', 'verificación EO/IR', 'monitoreo de baja altitud'],
+      h1: 'Dentro de N-TET: notas de ingeniería C-UAS y guías del sector',
+      overviewHeading: 'Notas de ingeniería C-UAS y guías para compradores',
       source: 'google_ads_keywords',
     },
     '/contact': {
@@ -411,10 +411,10 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
       source: "google_ads_keywords",
     },
     '/media': {
-      primary: 'رؤى وتحديثات UAV الصناعية',
-      secondary: ['اقتصاد الارتفاع المنخفض', 'UAV مربوط', 'مراقبة البنية التحتية'],
-      h1: 'رؤى وتحديثات UAV الصناعية',
-      overviewHeading: 'أخبار UAV الصناعية واقتصاد الارتفاع المنخفض',
+      primary: 'ملاحظات هندسية لأنظمة C-UAS',
+      secondary: ['دليل مشتري C-UAS', 'تحليل قطاع C-UAS', 'تقنيات كشف الطائرات بدون طيار', 'تكامل أنظمة C-UAS', 'التحقق الكهروبصري والحراري', 'مراقبة الارتفاع المنخفض'],
+      h1: 'داخل N-TET: ملاحظات هندسية وأدلة قطاع C-UAS',
+      overviewHeading: 'ملاحظات هندسية وأدلة للمشترين حول C-UAS',
       source: 'google_ads_keywords',
     },
     '/contact': {
@@ -564,10 +564,10 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
       source: "google_ads_keywords",
     },
     '/media': {
-      primary: 'новости промышленных БПЛА',
-      secondary: ['низковысотная экономика', 'привязной БПЛА', 'мониторинг инфраструктуры'],
-      h1: 'Новости промышленных БПЛА',
-      overviewHeading: 'Новости промышленных БПЛА и низковысотной экономики',
+      primary: 'инженерные материалы C-UAS',
+      secondary: ['руководство для заказчиков C-UAS', 'анализ отрасли C-UAS', 'технологии обнаружения дронов', 'интеграция систем C-UAS', 'верификация EO/IR', 'низковысотный мониторинг'],
+      h1: 'Внутри N-TET: инженерные материалы C-UAS и отраслевые обзоры',
+      overviewHeading: 'Инженерные материалы C-UAS и руководства для заказчиков',
       source: 'google_ads_keywords',
     },
     '/contact': {

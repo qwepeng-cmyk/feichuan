@@ -4,10 +4,13 @@ import { useId, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
+import { getContactMethod, getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
+import uxStyles from './InquiryForm.module.css';
 
 export default function InquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
     const pathname = usePathname();
+    const ux = getInquiryFormUxCopy(pathname);
     const formId = useId();
     const fieldIds = {
         name: `${formId}-name`,
@@ -95,6 +98,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSending, setIsSending] = useState(false);
+    const [contactError, setContactError] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         company: '',
@@ -117,6 +121,15 @@ export default function InquiryForm({ dict }: { dict?: any }) {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const email = formData.email.trim();
+        const phone = formData.phone.trim();
+
+        if (!email || !phone) {
+            setContactError(ux.contactRequiredError);
+            return;
+        }
+
+        setContactError('');
         setIsSending(true);
 
         try {
@@ -125,7 +138,15 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    name: formData.name.trim(),
+                    email,
+                    phone,
+                    message: formData.message.trim(),
+                    contactMethod: getContactMethod(email, phone),
+                    sourcePage: pathname,
+                }),
             });
 
             const result = await response.json().catch(() => null);
@@ -196,11 +217,10 @@ export default function InquiryForm({ dict }: { dict?: any }) {
             <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
                 <div className="form-grid">
                     <div className="form-group">
-                        <label className="form-label" htmlFor={fieldIds.name}><span style={{ color: 'red' }}>*</span> {d.name}</label>
+                        <label className="form-label" htmlFor={fieldIds.name}>{d.name} <small className={uxStyles.optional}>({ux.optional})</small></label>
                         <input
                             id={fieldIds.name}
                             type="text"
-                            required
                             className="form-input"
                             style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
                             value={formData.name}
@@ -229,7 +249,11 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                         className="form-input"
                         style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) => {
+                            setFormData({ ...formData, email: e.target.value });
+                            if (e.target.value.trim() || formData.phone.trim()) setContactError('');
+                        }}
+                        aria-invalid={Boolean(contactError)}
                     />
                 </div>
 
@@ -242,33 +266,38 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                         className="form-input"
                         style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) => {
+                            setFormData({ ...formData, phone: e.target.value });
+                            if (e.target.value.trim() || formData.email.trim()) setContactError('');
+                        }}
                         placeholder={d.phonePlaceholder || 'Include country code, e.g. +1 555 123 4567'}
+                        aria-invalid={Boolean(contactError)}
                     />
                 </div>
 
+                {contactError && <p className={uxStyles.contactError} role="alert">{contactError}</p>}
+
                 <div className="form-group" style={{ marginBottom: '30px' }}>
                     <label className="form-label">{d.inquiryType}</label>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
-                        {d.types.map((opt: string) => (
-                            <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1.5rem', color: '#444' }}>
-                                <input
-                                    type="checkbox"
-                                    checked={formData.demands.includes(opt)}
-                                    onChange={() => toggleDemand(opt)}
-                                    style={{ width: '18px', height: '18px', accentColor: 'var(--accent)' }}
-                                />
+                    <div className={uxStyles.quickOptions}>
+                        {ux.quickTypes.map((opt) => (
+                            <button
+                                key={opt}
+                                type="button"
+                                className={`${uxStyles.quickOption} ${formData.demands.includes(opt) ? uxStyles.quickOptionActive : ''}`}
+                                aria-pressed={formData.demands.includes(opt)}
+                                onClick={() => toggleDemand(opt)}
+                            >
                                 {opt}
-                            </label>
+                            </button>
                         ))}
                     </div>
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label" htmlFor={fieldIds.message}><span style={{ color: 'red' }}>*</span> {d.messageLabel}</label>
+                    <label className="form-label" htmlFor={fieldIds.message}>{d.messageLabel} <small className={uxStyles.optional}>({ux.optional})</small></label>
                     <textarea
                         id={fieldIds.message}
-                        required
                         className="form-input form-textarea"
                         style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '120px' }}
                         placeholder={d.messagePlaceholder}
@@ -290,6 +319,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 >
                     {isSending ? d.submitting : d.submit}
                 </button>
+                <p className={uxStyles.privacyNote}>{ux.privacyNote}</p>
             </form>
         </div>
     );

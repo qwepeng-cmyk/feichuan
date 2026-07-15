@@ -90,6 +90,12 @@
   font-weight: 750;
 }
 
+.label small {
+  color: #77869a;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 .input {
   width: 100%;
   min-height: 46px;
@@ -179,6 +185,23 @@
   color: #7a8797;
   font-size: 1.15rem;
   line-height: 1.45;
+}
+
+.privacyNote {
+  position: relative;
+  margin: -2px 0 0;
+  padding-left: 22px;
+  color: #637287;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.privacyNote::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #23824e;
+  font-weight: 900;
 }
 
 @media (max-width: 640px) {

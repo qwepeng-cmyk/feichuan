@@ -30,11 +30,11 @@
     "summary_ar": "المسافة المنشورة نتيجة اختبار أو قيمة للمنتج. أما التغطية فتعتمد على الهدف والارتفاع والتضاريس والازدحام وموقع المستشعر والطقس وبيئة RF وسير التأكيد."
   },
   "ntet-multi-sensor-configuration-method-2025": {
-    "title_ru": "Как N-TET распределяет роли в мультисенсорной конфигурации C-UAS",
+    "title_ru": "Внутри N-TET: как мы распределяем роли в мультисенсорной конфигурации C-UAS",
     "summary_ru": "N-TET начинает конфигурацию с распределения ролей Remote ID, RF, радара, EO/IR и платформы управления, а не с добавления устройств без рабочего процесса.",
-    "title_es": "Cómo asigna N-TET las funciones en una configuración C-UAS multisensor",
+    "title_es": "Dentro de N-TET: cómo asignamos funciones en una configuración C-UAS multisensor",
     "summary_es": "N-TET empieza asignando funciones de evidencia a Remote ID, RF, radar, EO/IR y la plataforma de gestión, en lugar de añadir dispositivos sin un flujo operativo.",
-    "title_ar": "كيف توزع N-TET الأدوار في تكوين C-UAS متعدد المستشعرات",
+    "title_ar": "داخل N-TET: كيف نوزع الأدوار في تكوين C-UAS متعدد المستشعرات",
     "summary_ar": "تبدأ N-TET بتحديد أدوار Remote ID وRF والرادار وEO/IR ومنصة الإدارة بدلاً من إضافة أجهزة بلا سير عمل واضح."
   },
   "ntet-cuas-interface-review-2024": {
@@ -62,15 +62,15 @@
     "summary_ar": "يؤكد الفحص المنظم الهوية والطاقة والواجهات وبدء التشغيل واتصال الشبكة والوقت والتنبيهات والسجلات والوثائق قبل تقييم النظام."
   },
   "site-photo-review-before-system-layout-2026": {
-    "title_ru": "Как N-TET проверяет фотографии объекта до проектирования C-UAS",
+    "title_ru": "Внутри N-TET: как мы анализируем фотографии объекта перед проектированием C-UAS",
     "summary_ru": "Фотографии помогают оценить слепые зоны, места монтажа, покрытие RF и радара, линию видимости EO/IR, кабельные трассы и доступ оператора.",
-    "title_es": "Cómo revisa N-TET las fotos del sitio antes de diseñar C-UAS",
+    "title_es": "Dentro de N-TET: cómo revisamos las fotos del emplazamiento antes de diseñar C-UAS",
     "summary_es": "Las fotos ayudan a evaluar zonas ciegas, posiciones de montaje, cobertura RF y radar, línea de visión EO/IR, cableado y acceso del operador.",
-    "title_ar": "كيف تراجع N-TET صور الموقع قبل تصميم C-UAS",
+    "title_ar": "داخل N-TET: كيف نراجع صور الموقع قبل تصميم C-UAS",
     "summary_ar": "تساعد الصور في تقييم النقاط العمياء ومواقع التركيب وتغطية RF والرادار وخط رؤية EO/IR ومسارات الكابلات ووصول المشغل."
   },
   "ntet-uav-engineering-cuas-perspective-2026": {
-    "title_ru": "В N-TET: как инженерный опыт UAV помогает проверять системы C-UAS",
+    "title_ru": "Внутри N-TET: как инженерный опыт UAV помогает проверять системы C-UAS",
     "summary_ru": "N-TET учитывает конструкцию UAV, каналы данных, полезную нагрузку, навигацию, профиль миссии, обслуживание и поведение оператора, чтобы сделать проверку C-UAS реалистичнее.",
     "title_es": "Dentro de N-TET: cómo la ingeniería UAV orienta las revisiones C-UAS",
     "summary_es": "N-TET analiza plataforma, enlaces de datos, cargas, navegación, perfiles de misión, mantenimiento y comportamiento del operador para hacer más realistas las revisiones C-UAS.",
@@ -78,12 +78,20 @@
     "summary_ar": "تستخدم N-TET أسئلة عن الهيكل وروابط البيانات والحمولات والملاحة وملفات المهام والصيانة وسلوك المشغل لجعل مراجعات C-UAS أكثر واقعية."
   },
   "project-inquiry-review-low-altitude-monitoring-2026": {
-    "title_ru": "Проектный отдел N-TET: что мы проверяем перед предложением C-UAS",
+    "title_ru": "Внутри N-TET: что мы проверяем перед предложением C-UAS для малых высот",
     "summary_ru": "Практическое предложение начинается с границ объекта, слепых зон, ролей датчиков, проверки оператором, утверждения реагирования и записей событий.",
-    "title_es": "Oficina de proyectos N-TET: qué comprobamos antes de una propuesta C-UAS",
+    "title_es": "Dentro de N-TET: qué comprobamos antes de una propuesta C-UAS de baja altitud",
     "summary_es": "Una propuesta práctica comienza por los límites, zonas ciegas, funciones de sensores, revisión del operador, aprobación de respuesta y registros de eventos.",
-    "title_ar": "مكتب مشاريع N-TET: ما نراجعه قبل مقترح C-UAS",
+    "title_ar": "داخل N-TET: ما نراجعه قبل مقترح C-UAS للارتفاعات المنخفضة",
     "summary_ar": "يبدأ المقترح العملي بحدود الموقع والنقاط العمياء وأدوار المستشعرات ومراجعة المشغل واعتماد الاستجابة وسجلات الأحداث."
+  },
+  "overseas-uav-project-handover-checklist-2026": {
+    "title_ru": "Передача зарубежного проекта БПЛА: контрольный список покупателя по запасным частям, полезным нагрузкам и обучению",
+    "summary_ru": "Контрольный список для покупателей по запасным частям, полезным нагрузкам, батареям, обучению, таможенной подготовке и приемочной документации для зарубежных проектов БПЛА.",
+    "title_es": "Entrega de un proyecto UAV internacional: lista de comprobación para repuestos, cargas útiles y formación",
+    "summary_es": "Lista para compradores sobre repuestos, cargas útiles, baterías, formación, preparación aduanera y documentos de aceptación para proyectos UAV internacionales.",
+    "title_ar": "تسليم مشروع UAV دولي: قائمة تحقق للمشتري لقطع الغيار والحمولات ووثائق التدريب",
+    "summary_ar": "قائمة تحقق للمشتري تشمل قطع الغيار والحمولات والبطاريات والتدريب والاستعداد الجمركي ووثائق القبول لمشاريع UAV الدولية."
   },
   "eo-ir-payload-selection-field-note-2026": {
     "title_ru": "Выбор полезной нагрузки EO/IR для визуального подтверждения C-UAS",

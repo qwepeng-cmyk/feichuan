@@ -87,5 +87,26 @@
     "Weight": "16kg",
     "Operating Temp": "-20℃ to +55℃"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Hand-carried RF detección sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Hand-carried RF detección sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Hand-carried RF detección sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Hand-carried RF detección sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>",
+  "product_name_ar": "نظام محمول لكشف إشارات الترددات الراديوية (RF)",
+  "summary_ar": "يوفر النظام المحمول لكشف إشارات الترددات الراديوية تغطية كاملة للنطاق من 300 ميجاهرتز إلى 6000 ميجاهرتز. ويتيح كشف الطائرات المسيّرة ضمن نطاقه وتحديد هويتها وموقعها وتتبعها، مع إصدار تنبيهات صوتية ومرئية. يدخل الجهاز وضع التشغيل تلقائياً بعد تشغيله، ويتميز بسهولة الحمل وسرعة الانتشار الميداني.",
+  "key_application_ar": "التطبيق: كشف سلبي دون بث إشارات كهرومغناطيسية؛ تعرّف متعدد الأنماط عبر تحليل الطيف وفك ترميز البروتوكولات؛ مناسب للفرق المتنقلة والاستجابة السريعة.",
+  "key_parameter_1_ar": "نصف قطر الكشف: 5 كم",
+  "key_parameter_2_ar": "نطاق تردد التشغيل: 300–6000 ميجاهرتز",
+  "parameters_ar": {
+    "نطاق التردد": "300–6000 ميجاهرتز",
+    "وضع الكشف": "كشف سلبي، تحليل الطيف، فك ترميز البروتوكولات",
+    "زاوية الكشف": "360° أفقياً",
+    "نصف قطر الكشف": "5 كم",
+    "دقة تحديد الاتجاه": "≤3° (RMS)",
+    "زمن التعرّف": "≤3 ثوانٍ",
+    "مقاس الشاشة": "13.3 بوصة",
+    "مصدر الطاقة": "بطارية/محوّل طاقة",
+    "درجة الحماية": "IP65",
+    "القدرة القصوى": "80 واط",
+    "مدة تشغيل البطارية": "5 ساعات",
+    "الوزن": "16 كجم",
+    "درجة حرارة التشغيل": "من ‎-20°م إلى ‎+55°م"
+  },
+  "detail_html_ar": "<h4>الميزات والمزايا</h4><ul><li><strong>تشغيل سلبي:</strong> يستقبل النظام الإشارات فقط ولا يبث إشارات كهرومغناطيسية.</li><li><strong>تحليل تفصيلي:</strong> يتيح التعرّف على الرقم التسلسلي والطراز والسرعة والارتفاع والموقع ومسار الطائرة المسيّرة، إضافة إلى موقع وحدة التحكم.</li><li><strong>إدارة قوائم السماح والحظر:</strong> يمكن تمييز الطائرات المصرّح بها لتقليل الإنذارات غير الضرورية.</li><li><strong>تتبع عدة أهداف:</strong> يعرض مسارات عدة طائرات مسيّرة في الوقت نفسه بألوان مختلفة.</li><li><strong>تكامل شبكي:</strong> يدعم إرسال بيانات الكشف إلى منصة قيادة خلفية.</li><li><strong>سهولة الحمل:</strong> يتيح تصميم الحقيبة حمل النظام بواسطة شخص واحد ونشره سريعاً في الموقع.</li></ul>"
 }
