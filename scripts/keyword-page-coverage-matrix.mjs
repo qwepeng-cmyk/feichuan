@@ -134,7 +134,8 @@ function pageType(route) {
 function pageTier(route, plannedTier) {
   if (plannedTier) return plannedTier;
   const base = stripLocale(route).replace(/^\/+/, '');
-  if (/directional-rf-jammer|omni-directional-rf-jammer|spoofing|jammer|jamming/i.test(base)) return 'restricted';
+  if (/^(?:products\/(?:directional-rf-interference-device|omni-directional-rf-interference-device)|solutions\/drone-jammer)$/i.test(base)) return 'normal';
+  if (/spoofing|jammer|jamming/i.test(base)) return 'restricted';
   if (/chemical-plant-protection|hydroelectric-dam-protection|oil-production-base-protection|airport-security-protection|judicial-sector-security|sports-event-security|stationary-rf-detection-system|portable-rf-detection-case|composite-electro-optical-tracking-system|uav-remote-id-monitoring-system|low-altitude-detection-radar/i.test(base)) return 'neutral_seo';
   return 'normal';
 }

@@ -168,7 +168,7 @@
 }
 
 .sectionKicker { color: var(--intent-blue); margin-bottom: 12px; }
-.sectionIntro h2, .sectionIntroLight h2, .faqColumn > h2, .inquiryHeading h2 {
+.sectionIntro h2, .sectionIntroLight h2, .faqColumn > h2 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(36px, 4vw, 58px);
@@ -258,10 +258,6 @@
 .inquiryMarker { display: grid; grid-template-columns: 78px minmax(0,1fr); gap: 20px; align-items: start; margin-bottom: 28px; }
 .inquiryMarker .sectionNumber { display: block; width: 78px; }
 .inquiryMarker .sectionKicker { margin-top: 15px; }
-.inquiryHeading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
-.inquiryHeading > svg { flex: 0 0 auto; color: var(--intent-blue); margin-top: 6px; }
-.inquiryHeading h2 { font-size: clamp(30px,3vw,44px); }
-.inquiryHeading p { margin: 12px 0 0; color: #687389; line-height: 1.65; }
 .inquiryHost { min-height: 430px; }
 .inquiryLoading { min-height: 430px; display: grid; place-items: center; color: #69758a; }
 .inquiryPlaceholder { display: grid; gap: 18px; padding: 20px 0; }

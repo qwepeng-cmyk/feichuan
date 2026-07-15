@@ -81,12 +81,12 @@
     }
   },
   "solutions": {
-    "pageTitle": "Integrated C-UAS System Solutions",
-    "bannerTitle": "Integrated C-UAS System Solutions",
-    "bannerDesc": "C-UAS solutions for low-altitude detection, identification, tracking, airport airspace monitoring, and critical-site security.",
-    "bannerSubtitle": "C-UAS solutions for low-altitude detection, identification, tracking, airport airspace monitoring, and critical-site security.",
-    "seoIntroTitle": "C-UAS Solutions for Critical Airspace and Site Security",
-    "seoIntroBody": "N-TET organizes C-UAS solution pages by protected site: energy facilities, petrochemical operations, hydropower sites, airports, major events, and controlled-access public facilities. Each workflow focuses on detection, identification, tracking, alert review, and site-level coordination.",
+    "pageTitle": "Drone Defense Solutions for Critical Sites",
+    "bannerTitle": "Drone Defense Solutions for Critical Sites",
+    "bannerDesc": "Integrated Counter-UAS (C-UAS) systems for drone detection, identification, tracking and coordinated response.",
+    "bannerSubtitle": "Integrated Counter-UAS (C-UAS) systems for drone detection, identification, tracking and coordinated response.",
+    "seoIntroTitle": "Counter-UAS (C-UAS) Solutions for Critical Airspace and Site Security",
+    "seoIntroBody": "N-TET organizes Counter-UAS (C-UAS) solution pages by protected site: energy facilities, petrochemical operations, hydropower sites, airports, major events, and controlled-access public facilities. Each workflow focuses on detection, identification, tracking, alert review, and site-level coordination.",
     "industryNeeds": "Industry Needs",
     "applicationScenes": "Application Scenes",
     "recommendedProducts": "Recommended Products",
@@ -199,7 +199,7 @@
     "copyright": "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved."
   },
   "inquiry": {
-    "title": "Get Expert Drone Defense!",
+    "title": "Get Expert Drone Defense Advice",
     "subtitle": "Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.",
     "name": "Name",
     "company": "Company Name",
@@ -211,7 +211,7 @@
     "inquiryType": "How can we help? (Optional)",
     "messageLabel": "Message",
     "messagePlaceholder": "Tell us the product type, application, quantity, or information you need. Example: brochure, specs, quotation, or help choosing the right equipment.",
-    "submit": "SUBMIT C-UAS INQUIRY",
+    "submit": "REQUEST EXPERT ADVICE",
     "submitting": "SUBMITTING...",
     "submitted": {
       "title": "SUBMITTED SUCCESSFULLY!",

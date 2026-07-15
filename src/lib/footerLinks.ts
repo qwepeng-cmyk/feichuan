@@ -5,6 +5,7 @@ export type FooterLink = {
   href: string;
   label: string;
   categoryId?: ProductCategoryId;
+  newTab?: boolean;
 };
 
 function productCategoryLink(categoryId: ProductCategoryId, href: string, label: string): FooterLink {
@@ -30,9 +31,13 @@ export function getFooterSolutionLinks(locale: string, dict: any): FooterLink[] 
 
   const englishIntentLandingLinks: FooterLink[] = locale === 'en'
     ? [
-        { href: '/solutions/drone-detector', label: 'Drone Detector' },
         { href: '/solutions/drone-radar-detection', label: 'Drone Radar Detection' },
         { href: '/solutions/portable-drone-detection', label: 'Portable Drone Detection' },
+        { href: '/solutions/drone-detector', label: 'Drone Detector', newTab: true },
+        { href: '/solutions/drone-defender', label: 'Drone Defender', newTab: true },
+        { href: '/solutions/drone-locator', label: 'Drone Locator', newTab: true },
+        { href: '/solutions/drone-shield', label: 'Drone Shield', newTab: true },
+        { href: '/solutions/drone-jammer', label: 'Drone Jammer', newTab: true },
       ]
     : [];
 

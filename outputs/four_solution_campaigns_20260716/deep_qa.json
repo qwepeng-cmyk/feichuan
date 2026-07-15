@@ -1,0 +1,30 @@
+{
+  "counts": {
+    "adGroups": 15,
+    "keywords": 77,
+    "rsas": 15,
+    "negatives": 86
+  },
+  "checks": {
+    "campaignRefs": true,
+    "adGroupRefs": true,
+    "exactOnly": true,
+    "keywordUrls": true,
+    "rsaUrls": true,
+    "keywordDuplicates": [],
+    "negativeDuplicates": [],
+    "allRsaAssetsUseDki": true,
+    "strongRestrictedKeywords": [],
+    "requiredJammerFormats": {
+      "portable": true,
+      "handheld": true,
+      "backpack": true,
+      "mobile": true,
+      "vehicle": true,
+      "manpack": true
+    },
+    "jammerContext": []
+  },
+  "status": "PASS",
+  "failures": []
+}

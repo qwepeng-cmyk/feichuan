@@ -1,0 +1,73 @@
+{
+  "outputPath": "D:\\fc-cuas\\outputs\\four_solution_campaigns_20260716\\N-TET_4_MiddleEast_Exact_Campaign_Upload_Formats_20260716.xlsx",
+  "qa": {
+    "campaigns": 4,
+    "adGroups": 15,
+    "keywords": 77,
+    "exactKeywords": 77,
+    "rsas": 15,
+    "negatives": 86,
+    "sourceMissing": [],
+    "duplicateKeywords": [],
+    "strongRestrictedEnabled": [],
+    "jammerFormatKeywords": [
+      "portable drone jammer",
+      "portable anti drone jammer",
+      "portable drone jammer for sale",
+      "portable drone jammer price",
+      "portable drone jammer system",
+      "man portable drone jammer",
+      "manpack drone jammer",
+      "handheld drone jammer",
+      "handheld anti drone jammer",
+      "drone jammer backpack",
+      "backpack drone jammer",
+      "portable backpack drone jammer",
+      "mobile drone jammer",
+      "vehicle drone jammer",
+      "vehicle mounted drone jammer"
+    ],
+    "headlineErrors": [],
+    "descriptionErrors": []
+  },
+  "exportChecks": [
+    {
+      "sheet": "01 Ad Groups",
+      "headersExact": true,
+      "firstRowIsHeader": true,
+      "secondRowIsData": true,
+      "dataRows": 15,
+      "expectedRows": 15,
+      "columns": 21
+    },
+    {
+      "sheet": "02 Keywords",
+      "headersExact": true,
+      "firstRowIsHeader": true,
+      "secondRowIsData": true,
+      "dataRows": 77,
+      "expectedRows": 77,
+      "columns": 18
+    },
+    {
+      "sheet": "03 RSA",
+      "headersExact": true,
+      "firstRowIsHeader": true,
+      "secondRowIsData": true,
+      "dataRows": 15,
+      "expectedRows": 15,
+      "columns": 55
+    },
+    {
+      "sheet": "04 Negatives",
+      "headersExact": true,
+      "firstRowIsHeader": true,
+      "secondRowIsData": true,
+      "dataRows": 86,
+      "expectedRows": 86,
+      "columns": 11
+    }
+  ],
+  "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+  "reviewInspect": "{\"kind\":\"table\",\"sheet\":\"05 Review\",\"address\":\"A1:J16\",\"rows\":16,\"cols\":10,\"values\":[[\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\",\"N-TET｜4个中东精准活动上传表（形态扩展版）\"],[\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\",\"四个上传页均使用官方模板字段顺序：第一行是字段名，第二行即第一条数据。活动已在账户中建立，因此本包不重复创建 Campaign；按 01 → 04 顺序导入。所有关键词均来自用户提供的4份研究表。Jammer已加入便携、手持、背包、移动和车载设备形态。\"],[null,null,null,null,null,null,null,null,null,null],[\"Campaign\",\"Landing URL\",\"Ad Groups\",\"Exact Keywords\",\"RSA\",\"Negatives\",\"Source File\",\"Source Volume Sum\",\"Max CPC USD\",\"Status\"],[\"Drone Defender 中东 精准\",\"https://n-tet.com/solutions/drone-defender\",3,15,3,15,\"drone-defender_broad-match_us_2026-07-15.xlsx\",610,0.96,\"Ready for upload\"],[\"Drone Locator 中东 精准\",\"https://n-tet.com/solutions/drone-locator\",2,8,2,21,\"drone-locator_broad-match_us_2026-07-15.xlsx\",90,1.7,\"Ready for upload\"],[\"Drone Shield 中东 精准\",\"https://n-tet.com/solutions/drone-shield\",2,7,2,20,\"drone-shield_broad-match_us_2026-07-15.xlsx\",930,1.6,\"Ready for upload\"],[\"Drone Jammer 中东 精准\",\"https://n-tet.com/solutions/drone-jammer\",8,47,8,30,\"drone-jammer_broad-match_us_2026-07-15.xlsx\",4190,0.93,\"Ready for upload\"],[\"本版已加入 Portable、Handheld、Backpack、Mobile/Vehicle 与 Manpack Drone Jammer 精准词，并分别建立广告组和DKI RSA。枪型、武器、DIY、游戏和竞品词仍排除。启用前建议确认落地页同步展示这些设备形态，以保证广告相关性和着陆页体验。\",null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null],[\"Campaign\",\"Ad Group\",\"Keyword\",\"Match Type\",\"US Volume\",\"Intent\",\"CPC USD\",\"Final URL\",\"Source File\",\"Decision\"],[\"Drone Defender 中东 精准\",\"Drone Defender Core\",\"drone defender\",\"Exact match\",320,\"Informational\",0.94,\"https://n-tet.com/solutions/drone-defender\",\"drone-defender_broad-match_us_2026-07-15.xlsx\",\"Include - source exact term\"],[\"Drone Defender 中东 精准\",\"Drone Defender Core\",\"defender drone\",\"Exact match\",140,\"Informational, Commercial\",0.94,\"https://n-tet.com/solutions/drone-defender\",\"drone-defender_broad-match_us_2026-07-15.xlsx\",\"Include - source exact term\"],[\"Drone Defender 中东 精准\",\"Drone Defender Core\",\"drone defender system\",\"Exact match\",20,null,0,\"https://n-tet.com/solutions/drone-defender\",\"drone-defender_broad-match_us_2026-07-15.xlsx\",\"Include - source exact term\"],[\"Drone Defender 中东 精准\",\"Drone Defender Core\",\"defender drones\",\"Exact match\",10,null,0,\"https://n-tet.com/solutions/drone-defender\",\"drone-defender_broad-match_us_2026-07-15.xlsx\",\"Include - source exact term\"],[\"Drone Defender 中东 精准\",\"Drone Defender Core\",\"drone defenders\",\"Exact match\",0,null,0.96,\"https://n-tet.com/solutions/drone-defender\",\"drone-defender_broad-match_us_2026-07-15.xlsx\",\"Include - source exact term\"]]}"
+}

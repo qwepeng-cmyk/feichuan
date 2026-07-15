@@ -45,7 +45,15 @@ export default function Footer({
                         <ul className="desktop-footer-link-list">
                             {solutionLinks.map((item) => (
                                 <li key={item.href}>
-                                    <Link prefetch={false} href={l(item.href)} className="desktop-footer-link" onMouseEnter={(e) => e.currentTarget.style.color = '#fff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.68)'}>
+                                    <Link
+                                        prefetch={false}
+                                        href={l(item.href)}
+                                        target={item.newTab ? '_blank' : undefined}
+                                        rel={item.newTab ? 'noopener noreferrer' : undefined}
+                                        className="desktop-footer-link"
+                                        onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
+                                        onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.68)'}
+                                    >
                                         {item.label}
                                     </Link>
                                 </li>

@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "campaigns": 5,
+    "adGroups": 12,
+    "keywords": 152,
+    "rsas": 12,
+    "negatives": 128,
+    "pauses": 158
+  },
+  "checks": {
+    "allCampaignsPaused": true,
+    "blankLocationsWhilePaused": true,
+    "allChildCampaignRefsValid": true,
+    "allAdGroupRefsValid": true,
+    "keywordTypesControlled": true,
+    "keywordDuplicateKeys": [],
+    "negativeDuplicateKeys": [],
+    "pauseDuplicateKeys": [],
+    "restrictedEnabledKeywords": [],
+    "restrictedEnabledRsaAssets": [],
+    "allRsaAssetsUseDki": true,
+    "allFinalUrlsAllowed": true,
+    "jammerOnlyInNegatives": true
+  },
+  "status": "PASS",
+  "failures": []
+}

@@ -37,6 +37,8 @@ const fixedSiteHandles = [
   'composite-electro-optical-tracking-system',
   'uav-remote-id-monitoring-system',
   'uav-navigation-airspace-data-verification-system',
+  'directional-rf-interference-device',
+  'omni-directional-rf-interference-device',
 ];
 
 function PortableIcon() {

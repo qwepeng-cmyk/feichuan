@@ -20,7 +20,7 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
         message: `${formId}-message`,
     };
     const d = dict?.inquiry || {
-        title: "Get Expert Drone Defense!",
+        title: "Get Expert Drone Defense Advice",
         subtitle: "Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.",
         name: "Name",
         company: "Company Name",
@@ -31,7 +31,7 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
         inquiryType: "How can we help? (Optional)",
         messageLabel: "Message",
         messagePlaceholder: "Tell us the product type, application, quantity, or information you need. Example: brochure, specs, quotation, or help choosing the right equipment.",
-        submit: "SUBMIT C-UAS INQUIRY",
+        submit: "REQUEST EXPERT ADVICE",
         submitting: "SUBMITTING...",
         submitted: "SUBMITTED SUCCESSFULLY!",
         failed: "Failed to submit. Please try again.",
@@ -166,6 +166,12 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
                         }}
                         placeholder="yourname@example.com"
                         aria-invalid={Boolean(contactError)}
+                        onInvalid={(event) => {
+                            if (localeFromPathname(pathname) === 'en') {
+                                event.currentTarget.setCustomValidity('Please enter a valid email address.');
+                            }
+                        }}
+                        onInput={(event) => event.currentTarget.setCustomValidity('')}
                     />
                 </div>
 
@@ -185,6 +191,12 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
                         }}
                         placeholder={d.phonePlaceholder ?? 'Include country code, e.g. +1 555 123 4567'}
                         aria-invalid={Boolean(contactError)}
+                        onInvalid={(event) => {
+                            if (localeFromPathname(pathname) === 'en') {
+                                event.currentTarget.setCustomValidity('Please enter your Phone / WhatsApp number, including the country code.');
+                            }
+                        }}
+                        onInput={(event) => event.currentTarget.setCustomValidity('')}
                     />
                 </div>
 

@@ -10,8 +10,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/solutions',
-        fallbackTitle: 'Integrated C-UAS System Solutions',
-        fallbackDescription: 'C-UAS detection, identification, tracking and airspace-monitoring solutions for airports, energy facilities, industrial operations and major public venues.',
+        fallbackTitle: 'Drone Defense & Counter-UAS Solutions',
+        fallbackDescription: 'Counter-UAS (C-UAS) drone defense solutions for detection, identification, tracking and airspace monitoring at critical sites.',
     });
 }
 

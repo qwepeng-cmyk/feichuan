@@ -210,6 +210,8 @@ export default function Header({
                 { label: 'Electro-Optical (EO) Tracking System', href: '/products/composite-electro-optical-tracking-system', image: '/products/02-drone-detection/electro-optical-tracking-system.webp' },
                 { label: 'UAV Remote ID Recognition System', href: '/products/uav-remote-id-monitoring-system', image: '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp' },
                 { label: 'C-UAS Signal Verification System', href: '/products/uav-navigation-airspace-data-verification-system', image: '/products/rf-systems/navigation-signal-analysis-system.webp' },
+                { label: 'Directional RF Jammer', href: '/products/directional-rf-interference-device', image: '/products/rf-systems/directional-rf-unit.webp' },
+                { label: 'Omni-directional RF Jammer', href: '/products/omni-directional-rf-interference-device', image: '/products/rf-systems/omni-directional-rf-unit.webp' },
             ],
         },
         {
@@ -388,98 +390,12 @@ export default function Header({
                             Email: {CONTACT_EMAIL}
                         </a>
                         
-                        {/* Language Selector with Dropdown */}
-                        <div
-                            ref={languageMenuRef}
-                            className="lang-switch-top"
-                            onMouseEnter={() => setIsLanguageMenuOpen(true)}
-                            onMouseLeave={() => setIsLanguageMenuOpen(false)}
-                            onBlur={(event) => {
-                                if (!event.currentTarget.contains(event.relatedTarget)) {
-                                    setIsLanguageMenuOpen(false);
-                                }
-                            }}
-                            style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }}
-                        >
-                            <button
-                                type="button"
-                                className="lang-switch-top-trigger"
-                                aria-haspopup="menu"
-                                aria-expanded={isLanguageMenuOpen}
-                                aria-controls="desktop-language-menu"
-                                onClick={() => setIsLanguageMenuOpen((open) => !open)}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'flex-end',
-                                    gap: '8px',
-                                    height: '100%',
-                                    minWidth: '148px',
-                                    padding: '0 12px',
-                                    border: 0,
-                                    borderInline: '1px solid rgba(126, 166, 221, 0.14)',
-                                    background: isLanguageMenuOpen ? 'rgba(49, 91, 164, 0.22)' : 'transparent',
-                                    color: 'inherit',
-                                    font: 'inherit',
-                                    letterSpacing: '0.01em',
-                                    cursor: 'pointer',
-                                    transition: 'background 180ms cubic-bezier(0.4, 0, 0.2, 1)'
-                                }}
-                            >
-                                {dict.nav.selectLanguage} <svg style={{
-                                    width: '10px',
-                                    height: '10px',
-                                    opacity: 0.78,
-                                    transform: isLanguageMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                                    transition: 'transform 180ms cubic-bezier(0.4, 0, 0.2, 1)'
-                                }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z"></path>
-                                </svg>
-                            </button>
-                            <ul id="desktop-language-menu" role="menu" className="lang-dropdown-inner" style={{
-                                position: 'absolute',
-                                top: '100%',
-                                insetInlineEnd: 0,
-                                background: 'linear-gradient(155deg, #ffffff 0%, #f3f7fc 100%)',
-                                color: '#24364d',
-                                listStyle: 'none',
-                                padding: '8px',
-                                margin: 0,
-                                width: '190px',
-                                border: '1px solid rgba(49, 91, 164, 0.22)',
-                                borderTop: '3px solid #315ba4',
-                                borderRadius: '0 0 3px 3px',
-                                boxShadow: '0 18px 42px rgba(0, 15, 36, 0.24), 0 2px 8px rgba(0, 15, 36, 0.10)',
-                                display: isLanguageMenuOpen ? 'block' : 'none',
-                                overflow: 'hidden',
-                                zIndex: 1001,
-                                transformOrigin: 'top right',
-                                animation: isLanguageMenuOpen ? 'ntet-language-menu-in 180ms cubic-bezier(0.4, 0, 0.2, 1)' : undefined
-                            }}>
-                                {languageLinks.map((item) => (
-                                    <li key={item.locale} role="none" style={{ cursor: 'pointer' }}>
-                                        <Link
-                                            prefetch={false}
-                                            href={item.href}
-                                            role="menuitem"
-                                            className={`language-option${item.locale === locale ? ' is-current' : ''}`}
-                                            aria-current={item.locale === locale ? 'page' : undefined}
-                                            onClick={() => setIsLanguageMenuOpen(false)}
-                                        >
-                                            <span className="language-code" dir="ltr" aria-hidden="true">
-                                                {item.locale.toUpperCase()}
-                                            </span>
-                                            <span className="language-name" dir="auto">
-                                                {languageLabels[item.locale]}
-                                            </span>
-                                            <span className="language-current-mark" aria-hidden="true">
-                                                {item.locale === locale ? '✓' : ''}
-                                            </span>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <Link prefetch={false} href={l("/contact")} className="top-bar-quote-link">
+                            <span>{dict?.products?.getQuote || dict?.nav?.contact || 'Get a Quote'}</span>
+                            <svg aria-hidden="true" viewBox="0 0 16 16">
+                                <path d="M4 12 12 4M6 4h6v6" />
+                            </svg>
+                        </Link>
                     </div>
                 </div>
             )}
@@ -790,6 +706,86 @@ export default function Header({
                                 </ul>
                             </div>
                         </div>
+
+                        {!isHome && (
+                            <div
+                                ref={languageMenuRef}
+                                className="nav-language-switch"
+                                onMouseEnter={() => setIsLanguageMenuOpen(true)}
+                                onMouseLeave={() => setIsLanguageMenuOpen(false)}
+                                onBlur={(event) => {
+                                    if (!event.currentTarget.contains(event.relatedTarget)) {
+                                        setIsLanguageMenuOpen(false);
+                                    }
+                                }}
+                            >
+                                <button
+                                    type="button"
+                                    className="nav-language-trigger"
+                                    aria-label={`${dict?.nav?.selectLanguage || 'Select Language'}: ${languageLabels[locale] || locale.toUpperCase()}`}
+                                    aria-haspopup="menu"
+                                    aria-expanded={isLanguageMenuOpen}
+                                    aria-controls="desktop-language-menu"
+                                    onClick={() => setIsLanguageMenuOpen((open) => !open)}
+                                >
+                                    <Globe2 className="nav-language-globe" size={15} strokeWidth={1.8} aria-hidden="true" />
+                                    <span className="nav-language-label" dir="ltr">LANG</span>
+                                    <span className="nav-language-code" dir="ltr">{locale.toUpperCase()}</span>
+                                    <svg
+                                        className="nav-language-chevron"
+                                        style={{ transform: isLanguageMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                                        viewBox="0 0 1024 1024"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z" />
+                                    </svg>
+                                </button>
+                                <ul id="desktop-language-menu" role="menu" className="lang-dropdown-inner" style={{
+                                    position: 'absolute',
+                                    top: '100%',
+                                    insetInlineEnd: 0,
+                                    background: 'linear-gradient(155deg, #ffffff 0%, #f3f7fc 100%)',
+                                    color: '#24364d',
+                                    listStyle: 'none',
+                                    padding: '8px',
+                                    margin: 0,
+                                    width: '190px',
+                                    border: '1px solid rgba(49, 91, 164, 0.22)',
+                                    borderTop: '3px solid #315ba4',
+                                    borderRadius: '0 0 3px 3px',
+                                    boxShadow: '0 18px 42px rgba(0, 15, 36, 0.24), 0 2px 8px rgba(0, 15, 36, 0.10)',
+                                    display: isLanguageMenuOpen ? 'block' : 'none',
+                                    overflow: 'hidden',
+                                    zIndex: 1001,
+                                    transformOrigin: 'top right',
+                                    animation: isLanguageMenuOpen ? 'ntet-language-menu-in 180ms cubic-bezier(0.4, 0, 0.2, 1)' : undefined
+                                }}>
+                                    {languageLinks.map((item) => (
+                                        <li key={item.locale} role="none" style={{ cursor: 'pointer' }}>
+                                            <Link
+                                                prefetch={false}
+                                                href={item.href}
+                                                role="menuitem"
+                                                className={`language-option${item.locale === locale ? ' is-current' : ''}`}
+                                                aria-current={item.locale === locale ? 'page' : undefined}
+                                                onClick={() => setIsLanguageMenuOpen(false)}
+                                            >
+                                                <span className="language-code" dir="ltr" aria-hidden="true">
+                                                    {item.locale.toUpperCase()}
+                                                </span>
+                                                <span className="language-name" dir="auto">
+                                                    {languageLabels[item.locale]}
+                                                </span>
+                                                <span className="language-current-mark" aria-hidden="true">
+                                                    {item.locale === locale ? '\u2713' : ''}
+                                                </span>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
 
                         {isHome && (
                             <div className="lang-switch">

@@ -51,7 +51,7 @@ export default function MobileStickyBar({ dict }: { locale: string; dict: any })
         style={{ ...buttonStyle, background: '#4a79d1', cursor: 'pointer', fontSize: '12px' }}
       >
         <FileText size={18} aria-hidden="true" />
-        {dict.inquiry?.title || 'Get Expert Drone Defense!'}
+        {dict.inquiry?.title || 'Get Expert Drone Defense Advice'}
       </button>
 
       <WhatsAppLeadButton

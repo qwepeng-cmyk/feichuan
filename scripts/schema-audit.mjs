@@ -68,7 +68,7 @@ const report = [
   '- A/B 层可以公开输出 Schema；C 层只保留内部候选 Schema。',
   '- C 层候选转为公开 Schema 前，必须先调整合规层级并复跑 SEO/GEO/Schema/Links 门禁。',
   '- Organization Schema 必须保持事实性：公司名、logo、URL、联系页、已验证的 sameAs。',
-  '- 公开 SEO/GEO 页面中避免出现暗示 weapon、jamming、interception、military-grade 能力的表述。',
+  '- 公开 SEO/GEO 页面中避免出现未批准的 weapon、jamming、interception、military-grade 能力表述；`directional-rf-interference-device` 与 `omni-directional-rf-interference-device` 可按已批准 A 层例外使用 Directional RF Jammer / Omni-directional RF Jammer 名称，并可在 Defender、Locator、Drone Jammer 方案语境中出现。',
 ];
 
 const reportPath = join(process.cwd(), 'docs', 'seo', `schema-audit-${todayStamp()}.md`);

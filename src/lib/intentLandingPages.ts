@@ -58,8 +58,6 @@ export type IntentLandingConfig = {
   scenarios: [IntentSolutionScenario, IntentSolutionScenario];
   faqHeading: string;
   faqs: IntentFaq[];
-  inquiryHeading: string;
-  inquiryIntro: string;
   ctaLabel: string;
 };
 
@@ -68,16 +66,16 @@ const authorizedResponse =
 
 export const droneDetectorLanding: IntentLandingConfig = {
   handle: 'drone-detector',
-  eyebrow: 'DRONE DETECTOR SYSTEMS',
-  h1: 'Drone Detector Systems for Critical Sites',
+  eyebrow: 'DRONE DETECTOR',
+  h1: 'Drone Detector for Critical Sites',
   purpose:
     'Plan a site-specific detection workflow using RF sensing, low-altitude radar, Remote ID and EO/IR confirmation—then connect verified alerts to an authorized response process.',
   heroImage: '/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp',
-  heroImageAlt: 'N-TET low-altitude radar supporting a multi-sensor drone detector system',
+  heroImageAlt: 'N-TET low-altitude radar supporting a multi-sensor drone detection configuration',
   heroFacts: ['Multi-sensor evidence', 'Site-specific configuration', 'Authorized response workflow'],
-  applicationHeading: 'Where does a drone detector system fit?',
+  applicationHeading: 'Where does a drone detector fit?',
   answerBlock:
-    'A drone detector system is not one universal sensor. A practical site configuration assigns different jobs to RF sensing, radar, Remote ID and EO/IR. RF equipment can observe relevant radio activity and, where supported, add identity or direction information. Radar can maintain movement tracks, including targets that are not transmitting a recognizable control signal. Remote ID can help operators review compatible broadcast identity data. EO/IR provides visual evidence when line of sight, weather and target presentation allow it. The useful output is a shared event: time, source, position or track, available identity, image and operator status. After confirmation, the command workflow escalates the event to the responsible team and the operator follows the site\'s approved procedure. Coverage and identification performance remain dependent on target characteristics, terrain, buildings, RF conditions, mounting and local operating rules.',
+    'A drone detector is not necessarily one universal sensor. Buyers comparing an anti drone radar detector should treat radar as one evidence layer within the wider detection workflow. A practical site configuration assigns different jobs to RF sensing, radar, Remote ID and EO/IR. RF equipment can observe relevant radio activity and, where supported, add identity or direction information. Radar can maintain movement tracks, including targets that are not transmitting a recognizable control signal. Remote ID can help operators review compatible broadcast identity data. EO/IR provides visual evidence when line of sight, weather and target presentation allow it. The useful output is a shared event: time, source, position or track, available identity, image and operator status. After confirmation, the command workflow escalates the event to the responsible team and the operator follows the site\'s approved procedure. Coverage and identification performance remain dependent on target characteristics, terrain, buildings, RF conditions, mounting and local operating rules.',
   applications: [
     { title: 'Airports & transport hubs', summary: 'Review approach sectors, boundary zones, permitted activity and command-room handoff.' },
     { title: 'Energy & industrial sites', summary: 'Combine perimeter awareness with operator review around production and logistics areas.' },
@@ -164,8 +162,6 @@ export const droneDetectorLanding: IntentLandingConfig = {
     { question: 'Does the workflow stop after an alert is recorded?', answer: 'No. After identification and confirmation, the platform escalates the event, notifies the responsible team and supports the operator\'s approved site procedure. The record preserves what was decided and what happened.' },
     { question: 'What information is needed for a site proposal?', answer: 'Provide the protected area, approach directions, operating hours, permitted flights, power and network constraints, mounting options, operator roles and required handoff procedure.' },
   ],
-  inquiryHeading: 'Request a site detection plan',
-  inquiryIntro: 'Share a site map, protected sectors, operating hours and the evidence your team needs. N-TET can return a reviewable sensor layout, equipment list and quotation scope.',
   ctaLabel: 'Request Site Plan',
 };
 
@@ -252,8 +248,6 @@ export const radarDetectionLanding: IntentLandingConfig = {
     { question: 'Why combine radar with RF and EO/IR?', answer: 'Radar contributes movement and track data; RF can add signal or identity clues; EO/IR can add visual confirmation. Correlation gives the operator a more reviewable event.' },
     { question: 'What happens after confirmation?', answer: 'The platform escalates the event to the responsible team, supports the site\'s approved procedure and records the decision and outcome.' },
   ],
-  inquiryHeading: 'Request a radar coverage review',
-  inquiryIntro: 'Send the site boundary, priority sectors, expected target types, mounting options and required interfaces. N-TET can prepare a preliminary radar and confirmation layout.',
   ctaLabel: 'Request Radar Review',
 };
 
@@ -359,7 +353,5 @@ export const portableDetectionLanding: IntentLandingConfig = {
     { question: 'Are the stated RF ranges guaranteed?', answer: 'No. Target radio activity, antenna position, obstructions, local RF noise, configuration and test conditions affect usable range. Confirm the current datasheet and validate the planned operating environment.' },
     { question: 'Can portable and vehicle-mounted equipment use the same command platform?', answer: 'They can be designed around a shared platform when interfaces, network availability, user roles, map positions, event records and offline procedures are confirmed during project review.' },
   ],
-  inquiryHeading: 'Compare portable and mobile C-UAS configurations',
-  inquiryIntro: 'Tell us the deployment method, patrol route, readiness time, operating hours, transport or vehicle limits, required sensors, command interface and response authorization. N-TET can compare handheld, hand-carried, integrated field-kit and vehicle-mounted options.',
   ctaLabel: 'Request Portable / Mobile Review',
 };

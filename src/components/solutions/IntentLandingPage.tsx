@@ -4,7 +4,8 @@ import { ArrowUpRight, BadgeCheck, Check, Eye, MapPinned, Radar, ScanSearch, Sir
 import type { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import type { IntentLandingConfig } from '@/lib/intentLandingPages';
-import DeferredSolutionInquiryForm from './DeferredSolutionInquiryForm';
+import InquiryForm from '@/components/products/InquiryForm';
+import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
 import styles from './IntentLandingPage.module.css';
 
 const workflowIcons = [Radar, ScanSearch, Eye, Siren];
@@ -228,14 +229,12 @@ export default function IntentLandingPage({
             <span className={styles.sectionNumber}>07</span>
             <span className={styles.sectionKicker}>PROJECT INQUIRY</span>
           </div>
-          <div className={styles.inquiryHeading}>
-            <BadgeCheck size={24} aria-hidden="true" />
-            <div>
-              <h2>{config.inquiryHeading}</h2>
-              <p>{config.inquiryIntro}</p>
-            </div>
+          <div className="pc_only">
+            <InquiryForm dict={dict} />
           </div>
-          <DeferredSolutionInquiryForm dict={dict} />
+          <div className="mobile_only">
+            <MobileInquiryForm dict={dict} />
+          </div>
         </div>
       </section>
     </main>

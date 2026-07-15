@@ -10,6 +10,10 @@ const ENGLISH_INTENT_PATHS = [
   '/solutions/drone-detector',
   '/solutions/drone-radar-detection',
   '/solutions/portable-drone-detection',
+  '/solutions/drone-defender',
+  '/solutions/drone-locator',
+  '/solutions/drone-shield',
+  '/solutions/drone-jammer',
 ];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';

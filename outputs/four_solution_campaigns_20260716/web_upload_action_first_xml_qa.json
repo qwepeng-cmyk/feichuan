@@ -1,0 +1,42 @@
+﻿[
+    {
+        "file":  "01_Ad_Groups_WEB_UPLOAD_ActionFirst_20260716.xlsx",
+        "firstPhysicalRowNumber":  1,
+        "firstPhysicalCell":  "A1",
+        "firstHeader":  "Action",
+        "secondHeader":  "Row Type",
+        "firstRowCellCount":  21,
+        "hasPreHeaderRow":  false,
+        "mergedCells":  1
+    },
+    {
+        "file":  "02_Keywords_WEB_UPLOAD_ActionFirst_20260716.xlsx",
+        "firstPhysicalRowNumber":  1,
+        "firstPhysicalCell":  "A1",
+        "firstHeader":  "Action",
+        "secondHeader":  "Row Type",
+        "firstRowCellCount":  18,
+        "hasPreHeaderRow":  false,
+        "mergedCells":  1
+    },
+    {
+        "file":  "03_RSA_DKI_WEB_UPLOAD_ActionFirst_20260716.xlsx",
+        "firstPhysicalRowNumber":  1,
+        "firstPhysicalCell":  "A1",
+        "firstHeader":  "Action",
+        "secondHeader":  "Row Type",
+        "firstRowCellCount":  55,
+        "hasPreHeaderRow":  false,
+        "mergedCells":  1
+    },
+    {
+        "file":  "04_Negatives_WEB_UPLOAD_ActionFirst_20260716.xlsx",
+        "firstPhysicalRowNumber":  1,
+        "firstPhysicalCell":  "A1",
+        "firstHeader":  "Action",
+        "secondHeader":  "Row Type",
+        "firstRowCellCount":  11,
+        "hasPreHeaderRow":  false,
+        "mergedCells":  1
+    }
+]

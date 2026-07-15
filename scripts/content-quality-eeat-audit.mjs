@@ -50,9 +50,6 @@ const RESTRICTED_PUBLIC_TERMS = [
   /\bjammer\b/i,
   /\bjamming\b/i,
   /\bspoofing\b/i,
-  /\bcounter[-\s]?uav\b/i,
-  /\banti[-\s]?uav\b/i,
-  /\banti[-\s]?drone\b/i,
   /\bweapon\b/i,
   /\bshoot down\b/i,
   /\bforced?\s+landing\b/i,
@@ -60,6 +57,33 @@ const RESTRICTED_PUBLIC_TERMS = [
   /反制/i,
   /干扰/i,
 ];
+
+function isApprovedJammerTerm(route, pattern) {
+  const base = route.replace(/^\/(?:en|ru|es|ar)(?=\/|$)/, '') || '/';
+  if (/^\/products\/(?:directional-rf-interference-device|omni-directional-rf-interference-device)$/.test(base)) {
+    return new Set([
+      '\\bjammer\\b',
+      '\\bjamming\\b',
+      '\\bforced?\\s+landing\\b',
+    ]).has(pattern.source);
+  }
+
+  if (/^\/solutions\/(?:drone-defender|drone-locator|drone-jammer)$/.test(base)) {
+    return new Set([
+      '\\bjammer\\b',
+      '\\bjamming\\b',
+    ]).has(pattern.source);
+  }
+
+  return false;
+}
+
+function stripApprovedJammerProductNames(text) {
+  return text
+    .replace(/\/solutions\/drone-jammer/gi, '/solutions/approved-fixed-site-rf-solution')
+    .replace(/\b(?:Omni-directional|Directional)\s+RF\s+Jammer\b/gi, 'approved fixed-site RF product')
+    .replace(/\bDrone\s+Jammer\b/gi, 'approved fixed-site RF solution');
+}
 
 function ensureParentDir(filePath) {
   mkdirSync(dirname(filePath), { recursive: true });
@@ -352,7 +376,10 @@ function analyzePage(row) {
   const emptyAltRatio = images.length ? missingAlt / images.length : 0;
   const requiredSignals = expectedSignals(type);
   const presentRequiredSignals = requiredSignals.filter((signal) => signals[signal]).length;
-  const restrictedTermHits = RESTRICTED_PUBLIC_TERMS.filter((pattern) => pattern.test(text)).length;
+  const auditedText = stripApprovedJammerProductNames(text);
+  const restrictedTermHits = RESTRICTED_PUBLIC_TERMS.filter(
+    (pattern) => pattern.test(auditedText) && !isApprovedJammerTerm(row.route, pattern)
+  ).length;
 
   const searchIntentScore = Math.round(
     scoreByRatio(words, floor, 22) +

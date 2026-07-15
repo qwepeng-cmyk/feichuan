@@ -63,9 +63,9 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/solutions': {
-    title: 'Integrated C-UAS System Solutions | N-TET',
+    title: 'Drone Defense & Counter-UAS Solutions | N-TET',
     description:
-      'N-TET C-UAS solutions support detection, identification, tracking, alert review, and airspace monitoring for critical infrastructure, airports, public sites, and major venues.',
+      'N-TET Counter-UAS (C-UAS) drone defense solutions support detection, identification, tracking, alert review, and airspace monitoring for critical sites.',
     keywords: [
       'C-UAS solutions',
       'C-UAS detection',
@@ -95,13 +95,16 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
     ],
   },
   '/solutions/drone-detector': {
-    title: 'Drone Detector Systems for Critical Sites | N-TET',
+    title: 'Drone Detector for Critical Sites | N-TET',
     description:
       'Compare RF sensing, radar, Remote ID and EO/IR confirmation in a site-specific drone detector workflow from detection to authorized response.',
     keywords: [
-      'drone detector system',
       'drone detector',
+      'drone detectors',
+      'drone detector system',
       'drone detection system',
+      'anti drone radar detector',
+      'drone radar detector',
       'C-UAS detection system',
       'RF drone detection',
       'Remote ID monitoring',
@@ -144,6 +147,30 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
       'vehicle mounted C-UAS',
       'mobile counter drone system',
     ],
+  },
+  '/solutions/drone-defender': {
+    title: 'Drone Defender for Layered Site Protection | N-TET',
+    description:
+      'Plan a layered Drone Defender configuration with RF detection, radar tracking, EO/IR confirmation and directional or omni-directional RF jammers.',
+    keywords: ['drone defender', 'drone defender system', 'defender drone', 'RF drone detection', 'drone detection radar', 'EO IR tracking', 'drone jammer', 'C-UAS site protection'],
+  },
+  '/solutions/drone-locator': {
+    title: 'Drone Locator | Mobile & Fixed Site | N-TET',
+    description:
+      'Compare mobile and fixed-site Drone Locator options using handheld RF, portable RF, radar and EO/IR positioning, followed by an authorized directional or omni jammer response.',
+    keywords: ['drone locator', 'mobile drone locator', 'handheld drone detector', 'portable RF drone locator', 'RF direction finding', 'radar drone positioning', 'drone tracking system', 'drone jammer'],
+  },
+  '/solutions/drone-shield': {
+    title: 'Drone Shield | Fixed, Portable & Mobile | N-TET',
+    description:
+      'Compare a Drone Shield configuration using fixed-site sensors, portable field units and vehicle-mounted C-UAS equipment for layered monitoring and authorized-response coordination.',
+    keywords: ['drone shield', 'anti drone shield', 'drone shield system', 'fixed site C-UAS', 'portable C-UAS field shield', 'mobile site protection', 'vehicle mounted C-UAS'],
+  },
+  '/solutions/drone-jammer': {
+    title: 'Drone Jammer | Directional & Omni RF Options | N-TET',
+    description:
+      'Compare Directional RF Jammer and Omni-directional RF Jammer options after RF, radar and EO/IR confirmation for authorized fixed-site C-UAS projects.',
+    keywords: ['drone jammer', 'drone signal jammer', 'anti drone jammer', 'RF jammer for drones', 'directional RF jammer', 'omni-directional RF jammer', 'fixed-site drone jammer'],
   },
   '/solutions/category/01_BorderPatrol': {
     title: 'Border Patrol UAV & Coastal Monitoring Solutions | N-TET',

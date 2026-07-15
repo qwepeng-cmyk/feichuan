@@ -66,7 +66,14 @@ export default function MobileFooter({
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {solutionLinks.map((item) => (
-                            <Link key={item.href} prefetch={false} href={l(item.href)} style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', lineHeight: 1.45 }}>
+                            <Link
+                                key={item.href}
+                                prefetch={false}
+                                href={l(item.href)}
+                                target={item.newTab ? '_blank' : undefined}
+                                rel={item.newTab ? 'noopener noreferrer' : undefined}
+                                style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', lineHeight: 1.45 }}
+                            >
                                 {item.label}
                             </Link>
                         ))}
@@ -84,7 +91,6 @@ export default function MobileFooter({
                         ))}
                     </div>
                 </div>
-
 
                 {/* Contact us */}
                 <div>

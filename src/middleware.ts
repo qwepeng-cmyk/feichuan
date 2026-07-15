@@ -43,6 +43,15 @@ function isRestrictedPublicPath(pathname: string) {
     );
 }
 
+function legacySolutionPath(pathname: string) {
+    const segments = publicPathSegments(pathname);
+    if (segments[0] === 'solutions' && segments[1] === 'rf-interference-device') {
+        return '/solutions/drone-jammer';
+    }
+
+    return '';
+}
+
 function normalizedBrandPath(pathname: string) {
     const segments = pathname.split('/').filter(Boolean);
     const locale = segments[0] && i18n.locales.includes(segments[0] as any) ? segments[0] : '';
@@ -106,6 +115,11 @@ export function middleware(request: NextRequest) {
     const brandPath = normalizedBrandPath(pathname);
     if (brandPath) {
         return NextResponse.redirect(new URL(brandPath, request.url), { status: 301 });
+    }
+
+    const solutionPath = legacySolutionPath(pathname);
+    if (solutionPath) {
+        return NextResponse.redirect(new URL(solutionPath, request.url), { status: 301 });
     }
 
     if (isRestrictedPublicPath(pathname)) {

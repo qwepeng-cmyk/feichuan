@@ -25,6 +25,7 @@ N-TET 必须保留 A/B/C 内容边界：
 
 - `anti drone` / `anti-drone`、`counter drone`、`counter-UAS` / `counter-UAV`、`C-UAS` 允许用于 A 层广告承接页、广告文案、SEO/GEO 与公开 Schema；这些词本身不再构成 restricted 命中。
 - `jammer` / `jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down` 等主动干扰、诱骗、迫降或武器化能力词仍保持限制。
+- 定向例外（2026-07-15，名称口径更新）：`directional-rf-interference-device` 与 `omni-directional-rf-interference-device` 为明确批准的 A 层公开产品，公开名称恢复为 `Directional RF Jammer` 与 `Omni-directional RF Jammer`，可进入 Fixed-Site 产品列表、公开详情页、Defender / Locator / Drone Jammer 解决方案、Schema、sitemap 与 `llms.txt`。旧的 `directional-rf-jammer` / `omni-directional-rf-jammer` handle 与其他主动能力 handle 继续保持 restricted。
 - 路径或内容是否属于 B/C 层仍按具体能力与 `src/lib/complianceTaxonomy.ts` 的记录判断，不能仅凭 `anti-drone`、`counter` 或 `C-UAS` 字样判层。
 
 Schema 生成规则：

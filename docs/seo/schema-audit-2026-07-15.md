@@ -26,6 +26,7 @@
 | product | fc1800t-desktop-explosives-narcotics-detector | normal | Product | https://n-tet.com/products/fc1800t-desktop-explosives-narcotics-detector |
 | product | fc1500b-desktop-liquid-security-inspector | normal | Product | https://n-tet.com/products/fc1500b-desktop-liquid-security-inspector |
 | product | directional-rf-event-logging | neutral_seo | Product | https://n-tet.com/products/directional-rf-event-logging |
+| product | directional-rf-interference-device | normal | Product | https://n-tet.com/products/directional-rf-interference-device |
 | product | fc6550d-dual-view-baggage-scanner | normal | Product | https://n-tet.com/products/fc6550d-dual-view-baggage-scanner |
 | product | composite-electro-optical-tracking-system | neutral_seo | Product | https://n-tet.com/products/composite-electro-optical-tracking-system |
 | product | fc-yjtx-01-emergency-communication-drone | normal | Product | https://n-tet.com/products/fc-yjtx-01-emergency-communication-drone |
@@ -107,6 +108,7 @@
 | product | low-altitude-3d-pulse-doppler-radar | neutral_seo | Product | https://n-tet.com/products/low-altitude-3d-pulse-doppler-radar |
 | product | fc-yqxj-01-utility-inspection-drone | normal | Product | https://n-tet.com/products/fc-yqxj-01-utility-inspection-drone |
 | product | omni-directional-rf-event-logging | neutral_seo | Product | https://n-tet.com/products/omni-directional-rf-event-logging |
+| product | omni-directional-rf-interference-device | normal | Product | https://n-tet.com/products/omni-directional-rf-interference-device |
 | product | handheld-rf-detection-system-mini | neutral_seo | Product | https://n-tet.com/products/handheld-rf-detection-system-mini |
 | product | portable-low-altitude-monitoring-event-logging-shield | neutral_seo | Product | https://n-tet.com/products/portable-low-altitude-monitoring-event-logging-shield |
 | product | portable-low-altitude-monitoring-event-logging-shield-pro | neutral_seo | Product | https://n-tet.com/products/portable-low-altitude-monitoring-event-logging-shield-pro |
@@ -212,4 +214,4 @@
 - A/B 层可以公开输出 Schema；C 层只保留内部候选 Schema。
 - C 层候选转为公开 Schema 前，必须先调整合规层级并复跑 SEO/GEO/Schema/Links 门禁。
 - Organization Schema 必须保持事实性：公司名、logo、URL、联系页、已验证的 sameAs。
-- 公开 SEO/GEO 页面中避免出现暗示 weapon、jamming、interception、military-grade 能力的表述。
+- 公开 SEO/GEO 页面中避免出现未批准的 weapon、jamming、interception、military-grade 能力表述；`directional-rf-interference-device` 与 `omni-directional-rf-interference-device` 可按已批准 A 层例外使用 Directional RF Jammer / Omni-directional RF Jammer 名称，并可在 Defender、Locator、Drone Jammer 方案语境中出现。
