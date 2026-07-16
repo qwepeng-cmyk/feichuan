@@ -162,19 +162,28 @@ const supplementalByKey = {
 };
 
 const sourceCountsByKey = Object.fromEntries(groupConfigs.map((config) => [config.key, [...candidateMap.values()].filter((item) => item.key === config.key).length]));
+const mandatoryCombinationRoots = new Set(["detector", "defender", "radar", "c-uas", "system", "jammer", "locator", "shield"]);
 const supplementedRoots = [];
 for (const config of groupConfigs) {
-  if (sourceCountsByKey[config.key] > 0) continue;
-  supplementedRoots.push(config.key);
+  if (!mandatoryCombinationRoots.has(config.key)) continue;
+  let added = false;
   for (const keyword of supplementalByKey[config.key]) {
-    candidateMap.set(`${config.key}\u0000${keyword}`, { key: config.key, keyword, origin: "supplemented", sourceCampaign: "", sourceAdGroup: "" });
+    const key = `${config.key}\u0000${keyword}`;
+    if (candidateMap.has(key)) continue;
+    candidateMap.set(key, { key: config.key, keyword, origin: "supplemented root combination", sourceCampaign: "", sourceAdGroup: "" });
+    added = true;
   }
+  if (added) supplementedRoots.push(config.key);
 }
 
 const keywordItems = [...candidateMap.values()].sort((a, b) => {
   const keyDiff = groupConfigs.findIndex((item) => item.key === a.key) - groupConfigs.findIndex((item) => item.key === b.key);
   return keyDiff || a.keyword.localeCompare(b.keyword);
 });
+const requiredRootCombinations = [...mandatoryCombinationRoots].flatMap((key) => supplementalByKey[key].map((keyword) => ({ key, keyword })));
+for (const required of requiredRootCombinations) {
+  if (!candidateMap.has(`${required.key}\u0000${required.keyword}`)) throw new Error(`Missing required root combination: ${required.key} / ${required.keyword}`);
+}
 for (const item of keywordItems) {
   if (!purchasePattern.test(item.keyword)) throw new Error(`Non-purchase keyword: ${item.keyword}`);
   if (forbiddenPattern.test(item.keyword)) throw new Error(`Restricted keyword: ${item.keyword}`);
@@ -337,10 +346,10 @@ const stagingQa = {
 };
 
 const outputNames = {
-  adGroup: "01_Ad_Groups_Purchase_Intent_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
-  keyword: "02_Keywords_Purchase_Intent_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
-  rsa: "03_RSA_DKI_Purchase_Intent_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
-  pause: "04_Pause_Original_Purchase_Intent_Keywords_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  adGroup: "01_Ad_Groups_Purchase_Intent_ROOT_COMBINATIONS_V2_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  keyword: "02_Keywords_Purchase_Intent_ROOT_COMBINATIONS_V2_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  rsa: "03_RSA_DKI_Purchase_Intent_ROOT_COMBINATIONS_V2_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  pause: "04_Pause_Original_Purchase_Intent_Keywords_V2_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
 };
 const payloads = [
   { templateName: "ad_group_template.xlsx", outputName: outputNames.adGroup, expectedRows: adGroupRows.length, expectedColumns: adGroupHeaders.length, headers: adGroupHeaders, rows: adGroupRows },
@@ -353,7 +362,7 @@ const countsByRoot = Object.fromEntries(groupConfigs.map((config) => [
   config.key,
   {
     existing: keywordItems.filter((item) => item.key === config.key && item.origin === "existing account").length,
-    supplemented: keywordItems.filter((item) => item.key === config.key && item.origin === "supplemented").length,
+    supplemented: keywordItems.filter((item) => item.key === config.key && item.origin !== "existing account").length,
     total: keywordItems.filter((item) => item.key === config.key).length,
   },
 ]));
@@ -371,7 +380,9 @@ const qa = {
   supplementedRoots,
   uniqueKeywords: keywordItems.length,
   existingKeywords: keywordItems.filter((item) => item.origin === "existing account").length,
-  supplementedKeywords: keywordItems.filter((item) => item.origin === "supplemented").length,
+  supplementedKeywords: keywordItems.filter((item) => item.origin !== "existing account").length,
+  mandatoryCombinationRoots: [...mandatoryCombinationRoots],
+  requiredRootCombinations,
   adGroupRows: adGroupRows.length,
   keywordRows: keywordRows.length,
   rsaRows: rsaRows.length,

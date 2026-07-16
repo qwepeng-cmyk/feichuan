@@ -1,9 +1,11 @@
 'use client';
 
 import { MessageSquareText, Minus, Send } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import type { CSSProperties, FormEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import { localePath } from '@/lib/localePath';
+import { localeFromPathname } from '@/lib/localization';
 import styles from './FloatingMessageBox.module.css';
 
 type ChatSettingsResponse = {
@@ -26,6 +28,7 @@ const AUTO_OPEN_SESSION_KEY = 'ntet-floating-message-auto-opened';
 
 export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedAtMs?: number }) {
   const pathname = usePathname();
+  const router = useRouter();
   const visitStartedAt = useRef(visitStartedAtMs ?? Date.now());
   const [enabled, setEnabled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -173,6 +176,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
 
       setFormData(emptyForm);
       setStatus('success');
+      router.push(localePath(localeFromPathname(pathname), '/thank-you'));
     } catch (error) {
       console.error('Floating message submit failed:', error);
       setErrorMessage('Could not submit. Please try again or contact us by WhatsApp.');
@@ -200,7 +204,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
           <div className={styles.header}>
               <div>
                 <p className={styles.eyebrow}>Quick Message</p>
-              <h2 className={styles.title}>Find the Right C-UAS Setup for Your Site</h2>
+              <h2 className={styles.title}>Get Expert Drone Defense Advice</h2>
               <p className={styles.headerText}>Tell us your site type, project stage, or equipment needs. We can send suitable options, specs, or a quick quotation.</p>
             </div>
             <button type="button" className={styles.iconButton} onClick={() => setMinimized(true)} aria-label="Minimize message box">

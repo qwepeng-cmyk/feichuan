@@ -121,18 +121,18 @@
   "countsByRoot": {
     "defender": {
       "existing": 7,
-      "supplemented": 0,
-      "total": 7
+      "supplemented": 4,
+      "total": 11
     },
     "detector": {
       "existing": 4,
-      "supplemented": 0,
-      "total": 4
+      "supplemented": 5,
+      "total": 9
     },
     "system": {
       "existing": 27,
-      "supplemented": 0,
-      "total": 27
+      "supplemented": 5,
+      "total": 32
     },
     "equipment": {
       "existing": 4,
@@ -146,33 +146,276 @@
     },
     "jammer": {
       "existing": 12,
-      "supplemented": 0,
-      "total": 12
+      "supplemented": 3,
+      "total": 15
     },
     "shield": {
       "existing": 2,
-      "supplemented": 0,
-      "total": 2
+      "supplemented": 6,
+      "total": 8
     },
     "c-uas": {
       "existing": 1,
-      "supplemented": 0,
-      "total": 1
+      "supplemented": 7,
+      "total": 8
     },
     "radar": {
       "existing": 14,
-      "supplemented": 0,
-      "total": 14
+      "supplemented": 7,
+      "total": 21
     }
   },
   "supplementedRoots": [
-    "locator"
+    "defender",
+    "detector",
+    "system",
+    "locator",
+    "jammer",
+    "shield",
+    "c-uas",
+    "radar"
   ],
-  "uniqueKeywords": 78,
+  "uniqueKeywords": 115,
   "existingKeywords": 71,
-  "supplementedKeywords": 7,
+  "supplementedKeywords": 44,
+  "mandatoryCombinationRoots": [
+    "detector",
+    "defender",
+    "radar",
+    "c-uas",
+    "system",
+    "jammer",
+    "locator",
+    "shield"
+  ],
+  "requiredRootCombinations": [
+    {
+      "key": "detector",
+      "keyword": "drone detector price"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector manufacturer"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector supplier"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector for sale"
+    },
+    {
+      "key": "detector",
+      "keyword": "buy drone detector"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector procurement"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector provider"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender price"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender manufacturer"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender supplier"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender for sale"
+    },
+    {
+      "key": "defender",
+      "keyword": "buy drone defender"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender procurement"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender provider"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar price"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar manufacturer"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar supplier"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar for sale"
+    },
+    {
+      "key": "radar",
+      "keyword": "buy drone radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar procurement"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar provider"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas system price"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas manufacturer"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas supplier"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas system for sale"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "buy c-uas system"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas procurement"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas solution provider"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system price"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system manufacturer"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system supplier"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system for sale"
+    },
+    {
+      "key": "system",
+      "keyword": "buy anti drone system"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system procurement"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system provider"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer price"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer manufacturer"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer supplier"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer for sale"
+    },
+    {
+      "key": "jammer",
+      "keyword": "buy drone jammer"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer procurement"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer provider"
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator price"
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator manufacturer"
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator supplier"
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator for sale"
+    },
+    {
+      "key": "locator",
+      "keyword": "buy drone locator"
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator procurement"
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator provider"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield price"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield manufacturer"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield supplier"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield for sale"
+    },
+    {
+      "key": "shield",
+      "keyword": "buy drone shield"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield procurement"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield provider"
+    }
+  ],
   "adGroupRows": 54,
-  "keywordRows": 468,
+  "keywordRows": 690,
   "rsaRows": 54,
   "pauseRows": 300,
   "pauseCampaigns": [
@@ -216,16 +459,16 @@
     "Drone Defense Systems",
     "Anti UAV Systems"
   ],
-  "phraseRows": 234,
-  "exactRows": 234,
+  "phraseRows": 345,
+  "exactRows": 345,
   "allRsaHeadlinesDki": true,
   "allRsaDescriptionsDki": true,
   "maxRenderedHeadlineLength": 29,
   "maxRenderedDescriptionLength": 84,
   "templates": {
-    "adGroup": "{\"kind\":\"workbook\",\"id\":\"wb/k9p5tw\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/oppf3s\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:U2\",\"address\":\"A1:U2\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:U4\",\"rows\":4,\"cols\":21,\"values\":[[\"Row Type\",\"Action\",\"Ad group status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad group type\",\"Ad rotation\",\"Default max. CPC\",\"CPC%\",\"Max. CPM\",\"Max. CPV\",\"Target CPA\",\"Target CPM\",\"TrueView target CPV\",\"Label\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\",\"Target ROAS\"],[\"# Optional.\\nSupported values: Ad group\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Paused; Removed\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Optional.\\nThe value cannot be edited after creation.\\nSupported values: Standard; Dynamic; Display; Display engagement; Shopping - Product; Shopping - Showcase; Shopping - Smart; In-stream; In-feed video; Bumper; Non-skippable; Hotel; Hotels - Property promotion; Efficient reach; Responsive video ad\",\"Optional.\\nSupported values: Optimize; Do not optimize\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.3%\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\",\"Optional.\\nExample(s): 12%\\nSupports remove_value\"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"K1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"L1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"M1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"N1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"O1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"P1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"Q1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"R1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"S1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"T1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"U1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 21 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
-    "keyword": "{\"kind\":\"workbook\",\"id\":\"wb/a0dlgn\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/7am7kh\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:R2\",\"address\":\"A1:R2\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"# Optional.\\nSupported values: Keyword\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Removed; Paused\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Optional.\\nExample(s): 1234\",\"Required on create.\\nExample(s): buy frisbee\",\"Optional.\\nSupported values: Exact match; Phrase match; Broad match\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.example.com ; https://www.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): http://m.example.com ; https://m.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"K1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"L1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"M1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"N1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"O1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"P1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"Q1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"R1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 14 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
-    "rsa": "{\"kind\":\"workbook\",\"id\":\"wb/add1e3\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/zlnnub\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:BC4\",\"address\":\"A1:BC4\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:BC4\",\"rows\":4,\"cols\":55,\"values\":[[\"# Assets can be shown in any order, so make sure that they make sense individually or in combination, and don’t violate our policies or local law.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[\"# IMPORTANT: For each responsive search ad, provide at least 5 distinct headlines that do not repeat the same or similar phrases. Providing redundant headlines will restrict our ability to generate combinations.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\",\"Headline 7\",\"Headline 8\",\"Headline 9\",\"Headline 10\",\"Headline 11\",\"Headline 12\",\"Headline 13\",\"Headline 14\",\"Headline 15\",\"Description 1\",\"Description 2\",\"Description 3\",\"Description 4\",\"Headline 1 position\",\"Headline 2 position\",\"Headline 3 position\",\"Headline 4 position\",\"Headline 5 position\",\"Headline 6 position\",\"Headline 7 position\",\"Headline 8 position\",\"Headline 9 position\",\"Headline 10 position\",\"Headline 11 position\",\"Headline 12 position\",\"Headline 13 position\",\"Headline 14 position\",\"Headline 15 position\",\"Description 1 position\",\"Description 2 position\",\"Description 3 position\",\"Description 4 position\",\"Path 1\",\"Path 2\",\"Final URL\",\"Mobile final URL\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\"],[\"# Optional.\\nSupported values: Ad\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Paused; Removed\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Required on edit.\\nExample(s): 1234\",\"Required on create.\\nSupported values: Responsive search ad\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 1\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 2\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 3\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 4\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 5\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 6\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 7\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 8\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 9\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 10\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 11\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 12\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 13\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 14\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 15\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 1\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 2\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 3\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 4\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nExample(s): path 1\\nSupports remove_value\",\"Optional.\\nExample(s): path 2\\nSupports remove_value\",\"Required on create.\\nExample(s): http://www.example.com ; https://www.example.org\",\"Optional.\\nExample(s): http://m.example.com ; https://m.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\"]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 101 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}"
+    "adGroup": "{\"kind\":\"workbook\",\"id\":\"wb/k847eh\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/8tr376\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:U2\",\"address\":\"A1:U2\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:U4\",\"rows\":4,\"cols\":21,\"values\":[[\"Row Type\",\"Action\",\"Ad group status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad group type\",\"Ad rotation\",\"Default max. CPC\",\"CPC%\",\"Max. CPM\",\"Max. CPV\",\"Target CPA\",\"Target CPM\",\"TrueView target CPV\",\"Label\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\",\"Target ROAS\"],[\"# Optional.\\nSupported values: Ad group\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Paused; Removed\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Optional.\\nThe value cannot be edited after creation.\\nSupported values: Standard; Dynamic; Display; Display engagement; Shopping - Product; Shopping - Showcase; Shopping - Smart; In-stream; In-feed video; Bumper; Non-skippable; Hotel; Hotels - Property promotion; Efficient reach; Responsive video ad\",\"Optional.\\nSupported values: Optimize; Do not optimize\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.3%\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\",\"Optional.\\nExample(s): 12%\\nSupports remove_value\"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"K1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"L1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"M1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"N1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"O1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"P1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"Q1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"R1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"S1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"T1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"U1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 21 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
+    "keyword": "{\"kind\":\"workbook\",\"id\":\"wb/pjb3pk\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/eankpw\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:R2\",\"address\":\"A1:R2\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"# Optional.\\nSupported values: Keyword\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Removed; Paused\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Optional.\\nExample(s): 1234\",\"Required on create.\\nExample(s): buy frisbee\",\"Optional.\\nSupported values: Exact match; Phrase match; Broad match\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.example.com ; https://www.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): http://m.example.com ; https://m.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"K1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"L1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"M1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"N1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"O1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"P1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"Q1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"R1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 14 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
+    "rsa": "{\"kind\":\"workbook\",\"id\":\"wb/3kd7cn\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/5zxl3h\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:BC4\",\"address\":\"A1:BC4\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:BC4\",\"rows\":4,\"cols\":55,\"values\":[[\"# Assets can be shown in any order, so make sure that they make sense individually or in combination, and don’t violate our policies or local law.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[\"# IMPORTANT: For each responsive search ad, provide at least 5 distinct headlines that do not repeat the same or similar phrases. Providing redundant headlines will restrict our ability to generate combinations.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\",\"Headline 7\",\"Headline 8\",\"Headline 9\",\"Headline 10\",\"Headline 11\",\"Headline 12\",\"Headline 13\",\"Headline 14\",\"Headline 15\",\"Description 1\",\"Description 2\",\"Description 3\",\"Description 4\",\"Headline 1 position\",\"Headline 2 position\",\"Headline 3 position\",\"Headline 4 position\",\"Headline 5 position\",\"Headline 6 position\",\"Headline 7 position\",\"Headline 8 position\",\"Headline 9 position\",\"Headline 10 position\",\"Headline 11 position\",\"Headline 12 position\",\"Headline 13 position\",\"Headline 14 position\",\"Headline 15 position\",\"Description 1 position\",\"Description 2 position\",\"Description 3 position\",\"Description 4 position\",\"Path 1\",\"Path 2\",\"Final URL\",\"Mobile final URL\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\"],[\"# Optional.\\nSupported values: Ad\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Paused; Removed\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Required on edit.\\nExample(s): 1234\",\"Required on create.\\nSupported values: Responsive search ad\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 1\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 2\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 3\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 4\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 5\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 6\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 7\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 8\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 9\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 10\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 11\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 12\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 13\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 14\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 15\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 1\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 2\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 3\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 4\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nExample(s): path 1\\nSupports remove_value\",\"Optional.\\nExample(s): path 2\\nSupports remove_value\",\"Required on create.\\nExample(s): http://www.example.com ; https://www.example.org\",\"Optional.\\nExample(s): http://m.example.com ; https://m.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\"]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 101 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}"
   },
   "stagingQa": {
     "adGroup": {
@@ -283,6 +526,13 @@
     },
     {
       "key": "defender",
+      "keyword": "drone defender manufacturer",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "defender",
       "keyword": "drone defender price",
       "origin": "existing account",
       "sourceCampaign": "Drone Defender 英语区 精准",
@@ -290,10 +540,38 @@
     },
     {
       "key": "defender",
+      "keyword": "drone defender procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "defender",
       "keyword": "drone defender where to buy",
       "origin": "existing account",
       "sourceCampaign": "Drone Defender 英语区 精准",
       "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "detector",
+      "keyword": "buy drone detector",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "detector",
@@ -311,10 +589,38 @@
     },
     {
       "key": "detector",
+      "keyword": "drone detector manufacturer",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "detector",
       "keyword": "drone detector price",
       "origin": "existing account",
       "sourceCampaign": "Drone Detection System 英语区 精准",
       "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "detector",
@@ -346,6 +652,13 @@
     },
     {
       "key": "system",
+      "keyword": "anti drone system manufacturer",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "system",
       "keyword": "anti drone system manufacturers",
       "origin": "existing account",
       "sourceCampaign": "Anti Drone  英语区 精准",
@@ -367,6 +680,27 @@
     },
     {
       "key": "system",
+      "keyword": "anti drone system procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "system",
       "keyword": "anti uav system factory",
       "origin": "existing account",
       "sourceCampaign": "Anti Drone  英语区 精准",
@@ -378,6 +712,13 @@
       "origin": "existing account",
       "sourceCampaign": "Anti Drone  英语区 精准",
       "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "buy anti drone system",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "system",
@@ -543,49 +884,49 @@
     {
       "key": "locator",
       "keyword": "buy drone locator",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
     {
       "key": "locator",
       "keyword": "drone locator for sale",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
     {
       "key": "locator",
       "keyword": "drone locator manufacturer",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
     {
       "key": "locator",
       "keyword": "drone locator price",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
     {
       "key": "locator",
       "keyword": "drone locator procurement",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
     {
       "key": "locator",
       "keyword": "drone locator provider",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
     {
       "key": "locator",
       "keyword": "drone locator supplier",
-      "origin": "supplemented",
+      "origin": "supplemented root combination",
       "sourceCampaign": "",
       "sourceAdGroup": ""
     },
@@ -647,6 +988,27 @@
     },
     {
       "key": "jammer",
+      "keyword": "drone jammer procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "jammer",
       "keyword": "drone signal jammer for sale",
       "origin": "existing account",
       "sourceCampaign": "Drone Jammer 南美 精准",
@@ -675,10 +1037,31 @@
     },
     {
       "key": "shield",
+      "keyword": "buy drone shield",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "shield",
       "keyword": "drone shield cost",
       "origin": "existing account",
       "sourceCampaign": "Drone Shield 英语区 精准",
       "sourceAdGroup": "Drone Shield Purchase"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield for sale",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield manufacturer",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "shield",
@@ -688,11 +1071,81 @@
       "sourceAdGroup": "Drone Shield Purchase"
     },
     {
+      "key": "shield",
+      "keyword": "drone shield procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
       "key": "c-uas",
       "keyword": "anti-uav solutions pricing",
       "origin": "existing account",
       "sourceCampaign": "Anti Drone  英语区 精准",
       "sourceAdGroup": "Anti UAV Systems"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "buy c-uas system",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas manufacturer",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas solution provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas system for sale",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "c-uas",
+      "keyword": "c-uas system price",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "radar",
@@ -707,6 +1160,13 @@
       "origin": "existing account",
       "sourceCampaign": "Anti Drone  中东 精准",
       "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "buy drone radar",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "radar",
@@ -742,6 +1202,48 @@
       "origin": "existing account",
       "sourceCampaign": "Drone Detection System 南美 精准",
       "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar for sale",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar manufacturer",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar price",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar procurement",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar provider",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "radar",
+      "keyword": "drone radar supplier",
+      "origin": "supplemented root combination",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
     },
     {
       "key": "radar",

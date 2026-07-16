@@ -1,0 +1,190 @@
+[
+  {
+    "file": "01_Ad_Groups_10_Scenarios_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 60,
+    "columns": 21,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Ad group",
+    "firstAction": "Add",
+    "exactValues": true,
+    "campaigns": [
+      "C-UAS 中东 场景词 精准",
+      "C-UAS 中东 场景词 词组",
+      "C-UAS 南美 场景词 精准",
+      "C-UAS 南美 场景词 词组",
+      "C-UAS 英语区 场景词 精准",
+      "C-UAS 英语区 场景词 词组"
+    ],
+    "adGroups": [
+      "Critical Infrastructure",
+      "Power Plants",
+      "Airports",
+      "Border",
+      "Public Safety",
+      "Prison",
+      "Port Security",
+      "Mass Events",
+      "VIPs Private Property",
+      "Enterprises"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:U4\",\"rows\":4,\"cols\":21,\"values\":[[\"Row Type\",\"Action\",\"Ad group status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad group type\",\"Ad rotation\",\"Default max. CPC\",\"CPC%\",\"Max. CPM\",\"Max. CPV\",\"Target CPA\",\"Target CPM\",\"TrueView target CPV\",\"Label\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\",\"Target ROAS\"],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Critical Infrastructure\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"SCENARIO_10_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Power Plants\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"SCENARIO_10_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Airports\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"SCENARIO_10_20260716\",null,null,null,null]]}"
+  },
+  {
+    "file": "02_Keywords_10_Scenarios_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 480,
+    "columns": 18,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Keyword",
+    "firstAction": "Add",
+    "exactValues": true,
+    "campaigns": [
+      "C-UAS 中东 场景词 精准",
+      "C-UAS 中东 场景词 词组",
+      "C-UAS 南美 场景词 精准",
+      "C-UAS 南美 场景词 词组",
+      "C-UAS 英语区 场景词 精准",
+      "C-UAS 英语区 场景词 词组"
+    ],
+    "adGroups": [
+      "Critical Infrastructure",
+      "Power Plants",
+      "Airports",
+      "Border",
+      "Public Safety",
+      "Prison",
+      "Port Security",
+      "Mass Events",
+      "VIPs Private Property",
+      "Enterprises"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Critical Infrastructure\",null,\"critical infrastructure anti drone\",\"Exact match\",\"SCENARIO_10_20260716\",null,null,\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Critical Infrastructure\",null,\"critical infrastructure drone detection\",\"Exact match\",\"SCENARIO_10_20260716\",null,null,\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Critical Infrastructure\",null,\"critical infrastructure c-uas\",\"Exact match\",\"SCENARIO_10_20260716\",null,null,\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null]]}",
+    "countsByCampaign": {
+      "C-UAS 中东 场景词 精准": 80,
+      "C-UAS 中东 场景词 词组": 80,
+      "C-UAS 南美 场景词 精准": 80,
+      "C-UAS 南美 场景词 词组": 80,
+      "C-UAS 英语区 场景词 精准": 80,
+      "C-UAS 英语区 场景词 词组": 80
+    },
+    "countsByGroup": {
+      "Critical Infrastructure": 48,
+      "Power Plants": 48,
+      "Airports": 48,
+      "Border": 48,
+      "Public Safety": 48,
+      "Prison": 48,
+      "Port Security": 48,
+      "Mass Events": 48,
+      "VIPs Private Property": 48,
+      "Enterprises": 48
+    },
+    "typesByCampaign": {
+      "C-UAS 中东 场景词 精准": [
+        "Exact match"
+      ],
+      "C-UAS 中东 场景词 词组": [
+        "Phrase match"
+      ],
+      "C-UAS 南美 场景词 精准": [
+        "Exact match"
+      ],
+      "C-UAS 南美 场景词 词组": [
+        "Phrase match"
+      ],
+      "C-UAS 英语区 场景词 精准": [
+        "Exact match"
+      ],
+      "C-UAS 英语区 场景词 词组": [
+        "Phrase match"
+      ]
+    },
+    "urlsSafe": true,
+    "noForbiddenTerms": true,
+    "uniqueRows": true
+  },
+  {
+    "file": "03_RSA_DKI_10_Scenarios_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 60,
+    "columns": 55,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Ad",
+    "firstAction": "Add",
+    "exactValues": true,
+    "campaigns": [
+      "C-UAS 中东 场景词 精准",
+      "C-UAS 中东 场景词 词组",
+      "C-UAS 南美 场景词 精准",
+      "C-UAS 南美 场景词 词组",
+      "C-UAS 英语区 场景词 精准",
+      "C-UAS 英语区 场景词 词组"
+    ],
+    "adGroups": [
+      "Critical Infrastructure",
+      "Power Plants",
+      "Airports",
+      "Border",
+      "Public Safety",
+      "Prison",
+      "Port Security",
+      "Mass Events",
+      "VIPs Private Property",
+      "Enterprises"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:BC4\",\"rows\":4,\"cols\":55,\"values\":[[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\",\"Headline 7\",\"Headline 8\",\"Headline 9\",\"Headline 10\",\"Headline 11\",\"Headline 12\",\"Headline 13\",\"Headline 14\",\"Headline 15\",\"Description 1\",\"Description 2\",\"Description 3\",\"Description 4\",\"Headline 1 position\",\"Headline 2 position\",\"Headline 3 position\",\"Headline 4 position\",\"Headline 5 position\",\"Headline 6 position\",\"Headline 7 position\",\"Headline 8 position\",\"Headline 9 position\",\"Headline 10 position\",\"Headline 11 position\",\"Headline 12 position\",\"Headline 13 position\",\"Headline 14 position\",\"Headline 15 position\",\"Description 1 position\",\"Description 2 position\",\"Description 3 position\",\"Description 4 position\",\"Path 1\",\"Path 2\",\"Final URL\",\"Mobile final URL\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\"],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Critical Infrastructure\",null,\"Responsive search ad\",\"SCENARIO_10_20260716\",\"{KeyWord:Critical Site C-UAS}\",\"Get {KeyWord:Critical Site C-UAS}\",\"Explore {KeyWord:Critical Site C-UAS}\",\"{KeyWord:Critical Site C-UAS} Plan\",\"{KeyWord:Critical Site C-UAS} Quote\",\"{KeyWord:Critical Site C-UAS} Options\",\"N-TET {KeyWord:Critical Site C-UAS}\",\"Pro {KeyWord:Critical Site C-UAS}\",\"{KeyWord:Critical Site C-UAS} Support\",\"{KeyWord:Critical Site C-UAS} Project\",\"{KeyWord:Critical Site C-UAS} System\",\"{KeyWord:Critical Site C-UAS} Security\",\"{KeyWord:Critical Site C-UAS} Monitoring\",\"{KeyWord:Critical Site C-UAS} Detection\",\"{KeyWord:Critical Site C-UAS} Supplier\",\"Use {KeyWord:Critical Site C-UAS} to monitor critical assets and unauthorized aerial activity.\",\"Plan {KeyWord:Critical Site C-UAS} coverage for fixed sites, portable teams and vehicles.\",\"Discuss {KeyWord:Critical Site C-UAS} sensors, site layout and project requirements with N-TET.\",\"Request a {KeyWord:Critical Site C-UAS} quote and deployment review for your security project.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"critical-infra\",\"drone-security\",\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Power Plants\",null,\"Responsive search ad\",\"SCENARIO_10_20260716\",\"{KeyWord:Power Plant C-UAS}\",\"Get {KeyWord:Power Plant C-UAS}\",\"Explore {KeyWord:Power Plant C-UAS}\",\"{KeyWord:Power Plant C-UAS} Plan\",\"{KeyWord:Power Plant C-UAS} Quote\",\"{KeyWord:Power Plant C-UAS} Options\",\"N-TET {KeyWord:Power Plant C-UAS}\",\"Pro {KeyWord:Power Plant C-UAS}\",\"{KeyWord:Power Plant C-UAS} Support\",\"{KeyWord:Power Plant C-UAS} Project\",\"{KeyWord:Power Plant C-UAS} System\",\"{KeyWord:Power Plant C-UAS} Security\",\"{KeyWord:Power Plant C-UAS} Monitoring\",\"{KeyWord:Power Plant C-UAS} Detection\",\"{KeyWord:Power Plant C-UAS} Supplier\",\"Use {KeyWord:Power Plant C-UAS} to monitor power plants, grids and energy sites.\",\"Plan {KeyWord:Power Plant C-UAS} coverage for fixed sites, portable teams and vehicles.\",\"Discuss {KeyWord:Power Plant C-UAS} sensors, site layout and project requirements with N-TET.\",\"Request a {KeyWord:Power Plant C-UAS} quote and deployment review for your security project.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"power-plants\",\"drone-security\",\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 中东 场景词 精准\",null,\"Airports\",null,\"Responsive search ad\",\"SCENARIO_10_20260716\",\"{KeyWord:Airport C-UAS}\",\"Get {KeyWord:Airport C-UAS}\",\"Explore {KeyWord:Airport C-UAS}\",\"{KeyWord:Airport C-UAS} Plan\",\"{KeyWord:Airport C-UAS} Quote\",\"{KeyWord:Airport C-UAS} Options\",\"N-TET {KeyWord:Airport C-UAS}\",\"Pro {KeyWord:Airport C-UAS}\",\"{KeyWord:Airport C-UAS} Support\",\"{KeyWord:Airport C-UAS} Project\",\"{KeyWord:Airport C-UAS} System\",\"{KeyWord:Airport C-UAS} Security\",\"{KeyWord:Airport C-UAS} Monitoring\",\"{KeyWord:Airport C-UAS} Detection\",\"{KeyWord:Airport C-UAS} Supplier\",\"Use {KeyWord:Airport C-UAS} to monitor drone risks near runways and flight operations.\",\"Plan {KeyWord:Airport C-UAS} coverage for fixed sites, portable teams and vehicles.\",\"Discuss {KeyWord:Airport C-UAS} sensors, site layout and project requirements with N-TET.\",\"Request a {KeyWord:Airport C-UAS} quote and deployment review for your security project.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"airports\",\"drone-security\",\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null]]}",
+    "allHeadlineDki": true,
+    "allDescriptionDki": true,
+    "maxRenderedHeadlineLength": 30,
+    "maxRenderedDescriptionLength": 89,
+    "urlsSafe": true
+  },
+  {
+    "file": "04_Pause_Original_Scenario_Keywords_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 63,
+    "columns": 18,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Keyword",
+    "firstAction": "Edit",
+    "exactValues": true,
+    "campaigns": [
+      "Anti Drone  英语区 精准",
+      "Drone Detection System 南美 精准",
+      "Anti Drone  中东 精准",
+      "Drone Detection System 英语区 精准",
+      "Drone Detection System 中东 精准",
+      "Anti Drone  南美 精准"
+    ],
+    "adGroups": [
+      "Anti Drone Systems",
+      "Drone Detection Radar",
+      "Counter Drone Systems",
+      "Drone Detection System",
+      "UAV Detection Systems",
+      "Drone Defense Systems"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Keyword\",\"Edit\",\"Paused\",null,\"Anti Drone  英语区 精准\",null,\"Anti Drone Systems\",null,\"anti drone system for airport\",\"Exact match\",null,null,null,null,null,null,null,null],[\"Keyword\",\"Edit\",\"Paused\",null,\"Anti Drone  英语区 精准\",null,\"Anti Drone Systems\",null,\"law enforcement anti drone systems\",\"Exact match\",null,null,null,null,null,null,null,null],[\"Keyword\",\"Edit\",\"Paused\",null,\"Anti Drone  英语区 精准\",null,\"Anti Drone Systems\",null,\"anti drone system for stadium\",\"Exact match\",null,null,null,null,null,null,null,null]]}",
+    "actions": [
+      "Edit"
+    ],
+    "statuses": [
+      "Paused"
+    ],
+    "finalUrlsBlank": true,
+    "uniqueRows": true
+  }
+]
