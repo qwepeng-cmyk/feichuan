@@ -1,0 +1,288 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "N-TET 搜索点击到询盘评估",
+    "description": "结合 Google Ads 关键词报告、站内询盘库和主要落地页，估算每条询盘所需的搜索点击。",
+    "generatedAt": "2026-07-16T16:30:00+08:00",
+    "filters": [],
+    "cards": [
+      {
+        "id": "historical_clicks_card",
+        "description": "2026-06-13 至 2026-07-12 的 Google Ads 搜索点击。",
+        "dataset": "historical",
+        "sourceId": "reconciled_source",
+        "metrics": [
+          {"label": "30 天搜索点击", "field": "clicks", "format": "number"},
+          {"label": "带 gclid 的独立询盘", "field": "gclid_inquiries", "format": "number"}
+        ]
+      },
+      {
+        "id": "observed_cvr_card",
+        "description": "站内带 gclid 询盘数除以同期 Google Ads 搜索点击。",
+        "dataset": "historical",
+        "sourceId": "reconciled_source",
+        "metrics": [
+          {"label": "历史点击到询盘率", "field": "inquiry_rate", "format": "percent"},
+          {"label": "每条询盘所需点击", "field": "clicks_per_inquiry", "format": "number"}
+        ]
+      },
+      {
+        "id": "current_day_card",
+        "description": "用户提供的 2026-07-16 关键词报告。",
+        "dataset": "current_day",
+        "sourceId": "current_csv_source",
+        "metrics": [
+          {"label": "7 月 16 日点击", "field": "clicks", "format": "number"},
+          {"label": "Google Ads 转化", "field": "conversions", "format": "number"},
+          {"label": "花费（CNY）", "field": "cost_cny", "format": "currency", "currency": "CNY"}
+        ]
+      },
+      {
+        "id": "planning_card",
+        "description": "考虑样本量、落地页体验和询盘质量后的经营预算口径。",
+        "dataset": "planning",
+        "sourceId": "reconciled_source",
+        "metrics": [
+          {"label": "普通询盘规划值", "field": "base_clicks_per_inquiry", "format": "number"},
+          {"label": "保守区间下限", "field": "range_low", "format": "number"},
+          {"label": "保守区间上限", "field": "range_high", "format": "number"}
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "clicks_per_inquiry_chart",
+        "title": "不同规划口径下的每条询盘所需点击",
+        "subtitle": "历史值基于 3 条带 gclid 询盘；有效项目询盘为暂定经营估算。",
+        "type": "bar",
+        "dataset": "scenarios",
+        "sourceId": "reconciled_source",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {"field": "basis", "type": "nominal", "label": "规划口径"},
+          "y": {"field": "clicks_per_inquiry", "type": "quantitative", "label": "点击/询盘"},
+          "tooltip": [
+            {"field": "inquiry_type", "type": "nominal", "label": "询盘类型"},
+            {"field": "conversion_rate", "type": "quantitative", "label": "对应转化率"}
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "recent_days_table",
+        "title": "三个单日关键词报告快照",
+        "subtitle": "7 月 9、14、16 日；仅统计实际关键词行，不含报告尾部重复总计行。",
+        "dataset": "recent_days",
+        "sourceId": "current_csv_source",
+        "defaultSort": {"field": "date", "direction": "asc"},
+        "columns": [
+          {"field": "date", "label": "日期", "type": "text"},
+          {"field": "impressions", "label": "展示", "format": "number"},
+          {"field": "clicks", "label": "点击", "format": "number"},
+          {"field": "ctr", "label": "CTR", "format": "percent"},
+          {"field": "cost_cny", "label": "花费（CNY）", "format": "number"},
+          {"field": "conversions", "label": "Ads 转化", "format": "number"}
+        ]
+      },
+      {
+        "id": "landing_table",
+        "title": "7 月 16 日点击去向",
+        "subtitle": "主要落地页的点击分布与公开页面的询盘承接方式。",
+        "dataset": "landing_pages",
+        "sourceId": "landing_source",
+        "defaultSort": {"field": "clicks", "direction": "desc"},
+        "columns": [
+          {"field": "landing_page", "label": "落地页", "type": "text"},
+          {"field": "clicks", "label": "点击", "format": "number"},
+          {"field": "share", "label": "点击占比", "format": "percent"},
+          {"field": "embedded_form", "label": "页面内表单", "type": "text"},
+          {"field": "primary_cta", "label": "主要询盘入口", "type": "text"}
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "reconciled_source",
+        "label": "Google Ads 与站内询盘对账",
+        "path": "reports/keyword-match-analysis-20260713.db",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "ATTACH DATABASE 'data/ntet.db' AS ntet; SELECT SUM(clicks_30d) AS clicks, (SELECT COUNT(*) FROM ntet.inquiries WHERE source_page LIKE '%gclid=%' AND created_at >= '2026-06-13' AND created_at < '2026-07-13') AS gclid_inquiries FROM match_type_comparison;",
+          "description": "将 30 天关键词点击与同期站内带 gclid 的独立询盘对账。",
+          "tables_used": ["match_type_comparison", "data/ntet.db.inquiries"],
+          "filters": [
+            "Google Ads window = 2026-06-13 to 2026-07-12",
+            "Inquiry window = 2026-06-13 to 2026-07-12",
+            "Inquiry source_page contains gclid",
+            "No personal contact details exposed"
+          ],
+          "metric_definitions": {
+            "inquiry_rate": "gclid inquiries divided by Google Ads search clicks",
+            "clicks_per_inquiry": "Google Ads search clicks divided by gclid inquiries"
+          }
+        }
+      },
+      {
+        "id": "current_csv_source",
+        "label": "Google Ads 搜索关键字报告",
+        "path": "搜索关键字报告 (2).csv",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH daily(date, impressions, clicks, ctr, cost_cny, conversions) AS (VALUES ('2026-07-09',61,2,0.0328,23.33,0),('2026-07-14',94,8,0.0851,87.90,0),('2026-07-16',222,14,0.0631,155.52,0)) SELECT * FROM daily ORDER BY date;",
+          "description": "从三个 Google Ads 单日关键词导出中整理展示、点击、CTR、花费和转化。",
+          "tables_used": ["搜索关键字报告.csv", "搜索关键字报告 (1).csv", "搜索关键字报告 (2).csv"],
+          "filters": ["Only keyword rows with a non-empty keyword", "Report footer totals excluded"]
+        }
+      },
+      {
+        "id": "landing_source",
+        "label": "N-TET 公开广告落地页",
+        "path": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH landing_pages(landing_page, clicks, share, embedded_form, primary_cta) AS (VALUES ('Low-altitude airspace monitoring',8,0.5714285714,'未抓取到','Get Site Layout & Quote / WhatsApp'),('Drone detector',4,0.2857142857,'有','Request Site Plan / Expert Advice'),('Drone radar detection',1,0.0714285714,'有','Get a Quote / Expert Advice'),('Drone jammer',1,0.0714285714,'有','Get a Quote / Expert Advice')) SELECT * FROM landing_pages ORDER BY clicks DESC;",
+          "description": "将 2026-07-16 的落地页点击与公开页面询盘入口检查结果合并。",
+          "tables_used": ["搜索关键字报告 (2).csv", "https://n-tet.com/solutions/low-altitude-airspace-monitoring", "https://n-tet.com/solutions/drone-detector", "https://n-tet.com/solutions/drone-radar-detection", "https://n-tet.com/solutions/drone-jammer"],
+          "filters": ["Public pages only", "A-tier advertising landing pages only"]
+        }
+      }
+    ],
+    "blocks": [
+      {"id": "title", "type": "markdown", "body": "# N-TET 搜索点击到询盘评估"},
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "body": "## Executive Summary\n\n- **历史可观察结果约为 23 次点击来 1 条站内询盘。** 2026 年 6 月 13 日至 7 月 12 日，关键词报告合计 68 次搜索点击；站内询盘库同期确认 3 条带 gclid、联系方式互不重复的询盘，对应 4.4% 的点击到询盘率。\n- **经营预算不建议直接按 23 次点击。** 当前样本只有 3 条可归因询盘，而且 Google Ads 的落地页体验仍偏弱；更稳妥的普通询盘规划值是 25–40 次点击，中心值约 30 次。\n- **若要求真正有效、可推进的项目询盘，先按 60–100 次点击估算。** 站内数据只能证明提交了联系方式，不能证明采购权限、预算、项目时间和地区合规都合格。\n- **Google Ads 显示 0 转化并不等于网站没有询盘。** 站内已经存在带 gclid 的询盘，说明历史上转化回传或归因链路没有完整反映真实结果。"
+      },
+      {"id": "metric_strip", "type": "metric-strip", "cardIds": ["historical_clicks_card", "observed_cvr_card", "current_day_card", "planning_card"]},
+      {
+        "id": "scenario_finding",
+        "type": "markdown",
+        "body": "## 预算应以 30 次点击/普通询盘为中心\n\n历史值 22.7 次点击/询盘是最乐观的可观察锚点；考虑只有 3 条样本、落地页体验偏弱和流量结构仍在变化，经营预算应把普通询盘中心值放在 30 次点击，保守上限放在 40 次。若只计算销售确认后的有效项目询盘，暂按 80 次点击的中位规划值更稳妥。"
+      },
+      {"id": "scenario_chart", "type": "chart", "chartId": "clicks_per_inquiry_chart"},
+      {
+        "id": "definitions",
+        "type": "markdown",
+        "body": "## 这次估算的口径\n\n“普通询盘”是网站表单或 WhatsApp 预留联系方式成功写入站内询盘库；“有效项目询盘”还需要人工确认公司、项目、预算、权限和采购时间。前者可以用站内数据测量，后者目前没有 CRM 资格标签，因此只能用保守区间规划。"
+      },
+      {
+        "id": "historical_finding",
+        "type": "markdown",
+        "sourceId": "reconciled_source",
+        "body": "## 站内真实询盘比 Ads 转化列更可信\n\n同期 68 次 Google Ads 搜索点击对应 3 条带 gclid 的独立站内询盘，反推为 22.7 次点击/询盘。三条记录使用三个不同联系方式，均填写了消息，一条填写了公司信息；这支持它们至少是独立提交，而不是同一访客的重复回传。\n\n**含义：** 当前最重要的问题不是“网站完全不转化”，而是 Google Ads 转化列没有完整接住站内真实询盘，导致自动出价和广告组评估缺少可靠反馈。"
+      },
+      {
+        "id": "recent_signal",
+        "type": "markdown",
+        "body": "## 最近 24 次点击没有转化，暂时仍属小样本波动\n\n7 月 9、14、16 日三个单日快照合计 24 次点击、0 次 Ads 转化。即便真实转化率维持历史观察值 4.4%，24 次点击恰好没有产生询盘的概率仍约为 34%，因此还不能据此判断账户已经失效。\n\n**含义：** 不应只看某一天；至少按滚动 100 次点击或 30 天窗口评估点击到询盘率。"
+      },
+      {"id": "recent_days", "type": "table", "tableId": "recent_days_table"},
+      {
+        "id": "landing_finding",
+        "type": "markdown",
+        "body": "## 最多点击仍落到较长的转化路径\n\n7 月 16 日的 14 次点击中，8 次进入 low-altitude-airspace-monitoring，4 次进入 drone-detector，其余各 1 次进入 radar 与 jammer 页面。公开页面检查显示：主综合落地页首屏有“Get Site Layout & Quote”和 WhatsApp，但抓取结果未发现页面内嵌询盘表单；更具体的 detector、radar 和 jammer 页面则包含表单。\n\n**含义：** 综合页承担 57% 点击，却让一部分用户多走一步。将简化表单或二字段 WhatsApp 预留入口直接放到首屏附近，最可能把普通询盘从 25–40 次点击压向 20–30 次。"
+      },
+      {"id": "landing_detail", "type": "table", "tableId": "landing_table"},
+      {
+        "id": "recommendations",
+        "type": "markdown",
+        "body": "## 接下来最值得做的三件事\n\n1. **先修转化闭环。** 用 Google Ads 的 AW-18157207807/wPKvCJ3ajq8cEP-BhNJD 作为唯一主要询盘转化，分别验证普通表单感谢页和 WhatsApp 预留表单；避免 GA4 导入与原生 Ads 标签同时重复计数。\n2. **用 100 次点击做第一轮决策。** 目标设为普通询盘率 ≥3%（≤33 次点击/询盘）；低于 2%（>50 次点击/询盘）就暂停扩量，优先查搜索词、地区和落地页。\n3. **给询盘增加资格字段。** CRM 至少记录公司、国家、项目类型、预计采购时间和是否有效；随后才能计算“有效项目询盘”的真实点击成本，而不是只看表单数量。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 下一轮最能提高判断把握的数据\n\n- Google Ads 搜索词报告，而不只是关键词报告。\n- GA4 的广告落地页会话、表单开始、表单成功和 WhatsApp 预留成功事件。\n- 站内询盘或 CRM 的有效/无效、国家、项目类型和销售结果标签。\n- 每个广告系列的 30 天点击、花费和带 gclid 询盘数。"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "body": "## 限制与合规边界\n\n历史观察只包含 3 条可归因询盘，置信区间较宽；gclid 证明点击来源于 Google 广告，但不证明询盘最终成交或合格。7 月 16 日报告只覆盖一天。公开广告落地页按 N-TET A/B/C 口径检查：anti drone、counter-UAS、C-UAS 为允许的行业类别词；本报告不建议扩大其他主动干扰、诱骗或武器化内容。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "status": "ready",
+    "generatedAt": "2026-07-16T16:30:00+08:00",
+    "datasets": {
+      "historical": [{"clicks": 68, "gclid_inquiries": 3, "inquiry_rate": 0.0441176471, "clicks_per_inquiry": 22.6666667}],
+      "current_day": [{"date": "2026-07-16", "impressions": 222, "clicks": 14, "conversions": 0, "cost_cny": 155.52, "ctr": 0.0631, "average_cpc_cny": 11.11}],
+      "planning": [{"base_clicks_per_inquiry": 30, "range_low": 25, "range_high": 40, "qualified_range_low": 60, "qualified_range_high": 100}],
+      "scenarios": [
+        {"basis": "历史站内询盘", "clicks_per_inquiry": 22.7, "inquiry_type": "普通询盘", "conversion_rate": 0.0441},
+        {"basis": "普通询盘中心值", "clicks_per_inquiry": 30, "inquiry_type": "普通询盘", "conversion_rate": 0.0333},
+        {"basis": "普通询盘保守上限", "clicks_per_inquiry": 40, "inquiry_type": "普通询盘", "conversion_rate": 0.025},
+        {"basis": "有效项目询盘中位值", "clicks_per_inquiry": 80, "inquiry_type": "有效项目询盘", "conversion_rate": 0.0125}
+      ],
+      "recent_days": [
+        {"date": "2026-07-09", "impressions": 61, "clicks": 2, "ctr": 0.0328, "cost_cny": 23.33, "conversions": 0},
+        {"date": "2026-07-14", "impressions": 94, "clicks": 8, "ctr": 0.0851, "cost_cny": 87.9, "conversions": 0},
+        {"date": "2026-07-16", "impressions": 222, "clicks": 14, "ctr": 0.0631, "cost_cny": 155.52, "conversions": 0}
+      ],
+      "landing_pages": [
+        {"landing_page": "Low-altitude airspace monitoring", "clicks": 8, "share": 0.5714285714, "embedded_form": "未抓取到", "primary_cta": "Get Site Layout & Quote / WhatsApp"},
+        {"landing_page": "Drone detector", "clicks": 4, "share": 0.2857142857, "embedded_form": "有", "primary_cta": "Request Site Plan / Expert Advice"},
+        {"landing_page": "Drone radar detection", "clicks": 1, "share": 0.0714285714, "embedded_form": "有", "primary_cta": "Get a Quote / Expert Advice"},
+        {"landing_page": "Drone jammer", "clicks": 1, "share": 0.0714285714, "embedded_form": "有", "primary_cta": "Get a Quote / Expert Advice"}
+      ]
+    },
+    "accessIssues": []
+  },
+  "sources": [
+    {
+      "id": "reconciled_source",
+      "label": "Google Ads 与站内询盘对账",
+      "path": "reports/keyword-match-analysis-20260713.db",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "ATTACH DATABASE 'data/ntet.db' AS ntet; SELECT SUM(clicks_30d) AS clicks, (SELECT COUNT(*) FROM ntet.inquiries WHERE source_page LIKE '%gclid=%' AND created_at >= '2026-06-13' AND created_at < '2026-07-13') AS gclid_inquiries FROM match_type_comparison;",
+        "description": "将 30 天关键词点击与同期站内带 gclid 的独立询盘对账。",
+        "tables_used": ["match_type_comparison", "data/ntet.db.inquiries"],
+        "filters": [
+          "Google Ads window = 2026-06-13 to 2026-07-12",
+          "Inquiry window = 2026-06-13 to 2026-07-12",
+          "Inquiry source_page contains gclid",
+          "No personal contact details exposed"
+        ],
+        "metric_definitions": {
+          "inquiry_rate": "gclid inquiries divided by Google Ads search clicks",
+          "clicks_per_inquiry": "Google Ads search clicks divided by gclid inquiries"
+        }
+      }
+    },
+    {
+      "id": "current_csv_source",
+      "label": "Google Ads 搜索关键字报告",
+      "path": "搜索关键字报告 (2).csv",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH daily(date, impressions, clicks, ctr, cost_cny, conversions) AS (VALUES ('2026-07-09',61,2,0.0328,23.33,0),('2026-07-14',94,8,0.0851,87.90,0),('2026-07-16',222,14,0.0631,155.52,0)) SELECT * FROM daily ORDER BY date;",
+        "description": "从三个 Google Ads 单日关键词导出中整理展示、点击、CTR、花费和转化。",
+        "tables_used": ["搜索关键字报告.csv", "搜索关键字报告 (1).csv", "搜索关键字报告 (2).csv"],
+        "filters": ["Only keyword rows with a non-empty keyword", "Report footer totals excluded"]
+      }
+    },
+    {
+      "id": "landing_source",
+      "label": "N-TET 公开广告落地页",
+      "path": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH landing_pages(landing_page, clicks, share, embedded_form, primary_cta) AS (VALUES ('Low-altitude airspace monitoring',8,0.5714285714,'未抓取到','Get Site Layout & Quote / WhatsApp'),('Drone detector',4,0.2857142857,'有','Request Site Plan / Expert Advice'),('Drone radar detection',1,0.0714285714,'有','Get a Quote / Expert Advice'),('Drone jammer',1,0.0714285714,'有','Get a Quote / Expert Advice')) SELECT * FROM landing_pages ORDER BY clicks DESC;",
+        "description": "将 2026-07-16 的落地页点击与公开页面询盘入口检查结果合并。",
+        "tables_used": ["搜索关键字报告 (2).csv", "https://n-tet.com/solutions/low-altitude-airspace-monitoring", "https://n-tet.com/solutions/drone-detector", "https://n-tet.com/solutions/drone-radar-detection", "https://n-tet.com/solutions/drone-jammer"],
+        "filters": ["Public pages only", "A-tier advertising landing pages only"]
+      }
+    }
+  ]
+}

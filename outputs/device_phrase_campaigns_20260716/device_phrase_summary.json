@@ -1,0 +1,33 @@
+{
+  "sourceRows": 77,
+  "technicalExcluded": [
+    "drone defender capabilities",
+    "drone defender specs",
+    "drone shield technology"
+  ],
+  "deviceCandidateKeywords": 74,
+  "skippedExistingPhraseRows": [],
+  "outputRows": 222,
+  "countsByCampaign": {
+    "C-UAS 英语 短语": 74,
+    "C-UAS 中东 短语": 74,
+    "C-UAS 南美 短语": 74
+  },
+  "countsByAdGroup": {
+    "C-UAS 英语 短语 / Anti Drone Equipment": 66,
+    "C-UAS 英语 短语 / Drone Detector Equipment": 8,
+    "C-UAS 中东 短语 / Anti Drone Equipment": 66,
+    "C-UAS 中东 短语 / Drone Detector Equipment": 8,
+    "C-UAS 南美 短语 / Anti Drone Equipment": 66,
+    "C-UAS 南美 短语 / Drone Detector Equipment": 8
+  },
+  "typeValues": [
+    "Phrase match"
+  ],
+  "campaigns": [
+    "C-UAS 英语 短语",
+    "C-UAS 中东 短语",
+    "C-UAS 南美 短语"
+  ],
+  "duplicateRows": []
+}

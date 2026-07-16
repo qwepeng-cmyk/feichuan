@@ -27,8 +27,8 @@ const staticIntentPages = [
     type: 'solution',
     route: 'solutions',
     handle: 'drone-detector',
-    title: 'Drone Detector for Critical Sites',
-    summary: 'Compare RF sensing, low-altitude radar, Remote ID and EO/IR confirmation in a site-specific detection and authorized-response workflow.',
+    title: 'Drone Detector & Multi-Sensor Detection System for Critical Sites',
+    summary: 'Compare RF detection, low-altitude radar, Remote ID and EO/IR tracking in a multi-sensor system with target correlation and command-platform integration.',
     tier: 'normal',
   },
   {
@@ -52,7 +52,7 @@ const staticIntentPages = [
     route: 'solutions',
     handle: 'drone-defender',
     title: 'Drone Defender for Layered Site Protection',
-    summary: 'Plan layered RF, radar, Remote ID and EO/IR site protection with operator confirmation and an authorized-response workflow.',
+    summary: 'Plan layered RF, radar, Remote ID and EO/IR site protection with command-platform integration and directional or omni-directional RF jammers.',
     tier: 'normal',
   },
   {
@@ -76,7 +76,7 @@ const staticIntentPages = [
     route: 'solutions',
     handle: 'drone-jammer',
     title: 'Drone Jammer: Directional and Omni-Directional Options',
-    summary: 'Compare Directional RF Jammer and Omni-directional RF Jammer options after RF, radar and EO/IR confirmation for authorized fixed-site projects.',
+    summary: 'Compare Directional RF Jammer and Omni-directional RF Jammer options for fixed-site C-UAS integration, linked control and coordinated response.',
     tier: 'normal',
   },
 ];

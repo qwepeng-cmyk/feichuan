@@ -1,0 +1,112 @@
+[
+  {
+    "file": "01_Ad_Groups_Device_Roots_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 42,
+    "columns": 21,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Ad group",
+    "firstAction": "Add",
+    "exactValues": true,
+    "campaigns": [
+      "C-UAS 英语 短语",
+      "C-UAS 中东 短语",
+      "C-UAS 南美 短语"
+    ],
+    "adGroups": [
+      "Drone Defender",
+      "Drone Defender Purchase",
+      "Drone Locator",
+      "Drone Location Tracker",
+      "Drone Shield",
+      "Drone Shield Purchase",
+      "Drone Jammer",
+      "RF Drone Jammer",
+      "Directional Drone Jammer",
+      "Portable Drone Jammer",
+      "Handheld Drone Jammer",
+      "Backpack Drone Jammer",
+      "Vehicle Drone Jammer",
+      "Drone Jammer Purchase"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:U4\",\"rows\":4,\"cols\":21,\"values\":[[\"Row Type\",\"Action\",\"Ad group status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad group type\",\"Ad rotation\",\"Default max. CPC\",\"CPC%\",\"Max. CPM\",\"Max. CPV\",\"Target CPA\",\"Target CPM\",\"TrueView target CPV\",\"Label\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\",\"Target ROAS\"],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"DEVICE_ROOT_PHRASE_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender Purchase\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"DEVICE_ROOT_PHRASE_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Locator\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"DEVICE_ROOT_PHRASE_20260716\",null,null,null,null]]}"
+  },
+  {
+    "file": "02_Keywords_Device_Roots_Phrase_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 222,
+    "columns": 18,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Keyword",
+    "firstAction": "Add",
+    "exactValues": true,
+    "campaigns": [
+      "C-UAS 英语 短语",
+      "C-UAS 中东 短语",
+      "C-UAS 南美 短语"
+    ],
+    "adGroups": [
+      "Drone Defender",
+      "Drone Defender Purchase",
+      "Drone Locator",
+      "Drone Location Tracker",
+      "Drone Shield",
+      "Drone Shield Purchase",
+      "Drone Jammer",
+      "RF Drone Jammer",
+      "Directional Drone Jammer",
+      "Portable Drone Jammer",
+      "Handheld Drone Jammer",
+      "Backpack Drone Jammer",
+      "Vehicle Drone Jammer",
+      "Drone Jammer Purchase"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender\",null,\"drone defender\",\"Phrase match\",\"DEVICE_ROOT_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender\",null,\"defender drone\",\"Phrase match\",\"DEVICE_ROOT_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender\",null,\"drone defender system\",\"Phrase match\",\"DEVICE_ROOT_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null]]}",
+    "keywordTypes": [
+      "Phrase match"
+    ]
+  },
+  {
+    "file": "03_RSA_DKI_Device_Roots_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+    "sheets": 1,
+    "sheet": "Sheet0",
+    "rows": 42,
+    "columns": 55,
+    "firstHeader": "Row Type",
+    "secondHeader": "Action",
+    "firstRowType": "Ad",
+    "firstAction": "Add",
+    "exactValues": true,
+    "campaigns": [
+      "C-UAS 英语 短语",
+      "C-UAS 中东 短语",
+      "C-UAS 南美 短语"
+    ],
+    "adGroups": [
+      "Drone Defender",
+      "Drone Defender Purchase",
+      "Drone Locator",
+      "Drone Location Tracker",
+      "Drone Shield",
+      "Drone Shield Purchase",
+      "Drone Jammer",
+      "RF Drone Jammer",
+      "Directional Drone Jammer",
+      "Portable Drone Jammer",
+      "Handheld Drone Jammer",
+      "Backpack Drone Jammer",
+      "Vehicle Drone Jammer",
+      "Drone Jammer Purchase"
+    ],
+    "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+    "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:BC4\",\"rows\":4,\"cols\":55,\"values\":[[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\",\"Headline 7\",\"Headline 8\",\"Headline 9\",\"Headline 10\",\"Headline 11\",\"Headline 12\",\"Headline 13\",\"Headline 14\",\"Headline 15\",\"Description 1\",\"Description 2\",\"Description 3\",\"Description 4\",\"Headline 1 position\",\"Headline 2 position\",\"Headline 3 position\",\"Headline 4 position\",\"Headline 5 position\",\"Headline 6 position\",\"Headline 7 position\",\"Headline 8 position\",\"Headline 9 position\",\"Headline 10 position\",\"Headline 11 position\",\"Headline 12 position\",\"Headline 13 position\",\"Headline 14 position\",\"Headline 15 position\",\"Description 1 position\",\"Description 2 position\",\"Description 3 position\",\"Description 4 position\",\"Path 1\",\"Path 2\",\"Final URL\",\"Mobile final URL\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\"],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender\",null,\"Responsive search ad\",\"DEVICE_ROOT_RSA_DKI_20260716\",\"{KeyWord:Drone Defender}\",\"Buy {KeyWord:Drone Defender}\",\"Get {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Quote\",\"{KeyWord:Drone Defender} Price\",\"{KeyWord:Drone Defender} Supplier\",\"N-TET {KeyWord:Drone Defender}\",\"Pro {KeyWord:Drone Defender}\",\"Custom {KeyWord:Drone Defender}\",\"Explore {KeyWord:Drone Defender}\",\"Compare {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Options\",\"{KeyWord:Drone Defender} Export\",\"{KeyWord:Drone Defender} Factory\",\"Project {KeyWord:Drone Defender}\",\"Request a quote for {KeyWord:Drone Defender} for authorized security projects.\",\"Compare {KeyWord:Drone Defender} options for airports, industrial sites and facilities.\",\"Discuss {KeyWord:Drone Defender} supply, deployment and project requirements with N-TET.\",\"Explore professional {KeyWord:Drone Defender} solutions with supplier and project support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"defender\",\"systems\",\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Defender Purchase\",null,\"Responsive search ad\",\"DEVICE_ROOT_RSA_DKI_20260716\",\"{KeyWord:Drone Defender}\",\"Buy {KeyWord:Drone Defender}\",\"Get {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Quote\",\"{KeyWord:Drone Defender} Price\",\"{KeyWord:Drone Defender} Supplier\",\"N-TET {KeyWord:Drone Defender}\",\"Pro {KeyWord:Drone Defender}\",\"Custom {KeyWord:Drone Defender}\",\"Explore {KeyWord:Drone Defender}\",\"Compare {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Options\",\"{KeyWord:Drone Defender} Export\",\"{KeyWord:Drone Defender} Factory\",\"Project {KeyWord:Drone Defender}\",\"Request a quote for {KeyWord:Drone Defender} for authorized security projects.\",\"Compare {KeyWord:Drone Defender} options for airports, industrial sites and facilities.\",\"Discuss {KeyWord:Drone Defender} supply, deployment and project requirements with N-TET.\",\"Explore professional {KeyWord:Drone Defender} solutions with supplier and project support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"defender\",\"purchase\",\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Drone Locator\",null,\"Responsive search ad\",\"DEVICE_ROOT_RSA_DKI_20260716\",\"{KeyWord:Drone Locator}\",\"Buy {KeyWord:Drone Locator}\",\"Get {KeyWord:Drone Locator}\",\"{KeyWord:Drone Locator} Quote\",\"{KeyWord:Drone Locator} Price\",\"{KeyWord:Drone Locator} Supplier\",\"N-TET {KeyWord:Drone Locator}\",\"Pro {KeyWord:Drone Locator}\",\"Custom {KeyWord:Drone Locator}\",\"Explore {KeyWord:Drone Locator}\",\"Compare {KeyWord:Drone Locator}\",\"{KeyWord:Drone Locator} Options\",\"{KeyWord:Drone Locator} Export\",\"{KeyWord:Drone Locator} Factory\",\"Project {KeyWord:Drone Locator}\",\"Request a quote for {KeyWord:Drone Locator} for authorized security projects.\",\"Compare {KeyWord:Drone Locator} options for airports, industrial sites and facilities.\",\"Discuss {KeyWord:Drone Locator} supply, deployment and project requirements with N-TET.\",\"Explore professional {KeyWord:Drone Locator} solutions with supplier and project support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"locator\",\"systems\",\"https://n-tet.com/solutions/drone-locator\",null,null,null,null]]}",
+    "allHeadlineDki": true,
+    "allDescriptionDki": true
+  }
+]

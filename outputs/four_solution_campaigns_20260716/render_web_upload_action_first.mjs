@@ -4,10 +4,10 @@ import { FileBlob, SpreadsheetFile } from "@oai/artifact-tool";
 
 const outDir = "D:/fc-cuas/outputs/four_solution_campaigns_20260716";
 const files = [
-  "01_Ad_Groups_WEB_UPLOAD_ActionFirst_20260716.xlsx",
-  "02_Keywords_WEB_UPLOAD_ActionFirst_20260716.xlsx",
-  "03_RSA_DKI_WEB_UPLOAD_ActionFirst_20260716.xlsx",
-  "04_Negatives_WEB_UPLOAD_ActionFirst_20260716.xlsx",
+  "01_Ad_Groups_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  "02_Keywords_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  "03_RSA_DKI_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  "04_Negatives_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
 ];
 
 for (const file of files) {
@@ -15,7 +15,7 @@ for (const file of files) {
   const sheet = workbook.worksheets.getItemAt(0);
   const preview = await workbook.render({
     sheetName: sheet.name,
-    range: "A1:L6",
+    range: "A1:K6",
     scale: 1,
     format: "png",
   });

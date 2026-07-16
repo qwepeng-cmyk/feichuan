@@ -1,0 +1,481 @@
+{
+  "uploadUniqueKeywords": 74,
+  "semrushFiles": {
+    "drone-defender_broad-match_us_2026-07-15.xlsx": {
+      "rows": 248,
+      "unique": 244
+    },
+    "drone-locator_broad-match_us_2026-07-15.xlsx": {
+      "rows": 1704,
+      "unique": 1686
+    },
+    "drone-shield_broad-match_us_2026-07-15.xlsx": {
+      "rows": 573,
+      "unique": 566
+    },
+    "drone-jammer_broad-match_us_2026-07-15.xlsx": {
+      "rows": 530,
+      "unique": 523
+    },
+    "drone-detector_broad-match_us_2026-07-15.xlsx": {
+      "rows": 252,
+      "unique": 247
+    }
+  },
+  "exactSemrushKeywords": 74,
+  "derivedOrManualKeywords": 0,
+  "exactShare": 1,
+  "directBySource": {
+    "drone-defender_broad-match_us_2026-07-15.xlsx": 13,
+    "drone-locator_broad-match_us_2026-07-15.xlsx": 8,
+    "drone-shield_broad-match_us_2026-07-15.xlsx": 6,
+    "drone-jammer_broad-match_us_2026-07-15.xlsx": 47
+  },
+  "direct": [
+    {
+      "keyword": "drone defender",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "defender drone",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender system",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "defender drones",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defenders",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "buy defender drone",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "buy drone defender",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender buy",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender cost",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender for sale",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender price",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender where to buy",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone defender c uas device",
+      "files": [
+        "drone-defender_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone locator",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone locator device",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone locators",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone detection and location systems",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone location tracker",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone location finder",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone tracking locator",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "tracking drone locator",
+      "files": [
+        "drone-locator_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone shield",
+      "files": [
+        "drone-shield_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "anti drone shield",
+      "files": [
+        "drone-shield_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone shields",
+      "files": [
+        "drone-shield_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone shield products",
+      "files": [
+        "drone-shield_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone shield price",
+      "files": [
+        "drone-shield_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone shield cost",
+      "files": [
+        "drone-shield_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "anti drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone signal jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer system",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "anti drone jammer system",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer device",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "anti drone jammer device",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "commercial drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "professional drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "rf jammer for drones",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone rf jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "rf drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone radio jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone frequency jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone radio frequency jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "radio frequency jammer for drones",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "anti drone signal jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "directional drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "directional anti drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "omnidirectional anti drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "stationary drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "portable drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "portable anti drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "portable drone jammer for sale",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "portable drone jammer price",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "portable drone jammer system",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "man portable drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "manpack drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "handheld drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "handheld anti drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer backpack",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "backpack drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "portable backpack drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer pack",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "mobile drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "vehicle drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "vehicle mounted drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer for sale",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone signal jammer for sale",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "buy drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "buy a drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer buy",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer price",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "anti drone jammer price",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "price of drone jammer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer manufacturer",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    },
+    {
+      "keyword": "drone jammer manufacturers",
+      "files": [
+        "drone-jammer_broad-match_us_2026-07-15.xlsx"
+      ]
+    }
+  ],
+  "derivedOrManual": []
+}

@@ -1,0 +1,36 @@
+{
+  "file": "C-UAS_3_Campaigns_Device_Phrase_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+  "sheets": 1,
+  "sheet": "Sheet0",
+  "rows": 222,
+  "columns": 18,
+  "firstHeader": "Row Type",
+  "secondHeader": "Action",
+  "firstDataRow": [
+    "Keyword",
+    "Add",
+    "Enabled",
+    null,
+    "C-UAS 英语 短语",
+    null,
+    "Anti Drone Equipment",
+    null,
+    "drone defender",
+    "Phrase match"
+  ],
+  "exactValues": true,
+  "campaigns": [
+    "C-UAS 英语 短语",
+    "C-UAS 中东 短语",
+    "C-UAS 南美 短语"
+  ],
+  "types": [
+    "Phrase match"
+  ],
+  "groups": [
+    "Anti Drone Equipment",
+    "Drone Detector Equipment"
+  ],
+  "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}",
+  "topRows": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R6\",\"rows\":6,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Anti Drone Equipment\",null,\"drone defender\",\"Phrase match\",\"DEVICE_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Anti Drone Equipment\",null,\"defender drone\",\"Phrase match\",\"DEVICE_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Anti Drone Equipment\",null,\"drone defender system\",\"Phrase match\",\"DEVICE_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Anti Drone Equipment\",null,\"defender drones\",\"Phrase match\",\"DEVICE_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语 短语\",null,\"Anti Drone Equipment\",null,\"drone defenders\",\"Phrase match\",\"DEVICE_PHRASE_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null]]}"
+}

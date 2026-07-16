@@ -1,0 +1,796 @@
+{
+  "sourceCsv": "C:/Users/admin/Downloads/搜索关键字报告 (3).csv",
+  "sourceRows": 3706,
+  "purchaseCandidatesBeforeSafetyFilter": 73,
+  "excluded": [
+    {
+      "keyword": "price of anti drone blocker",
+      "reason": "restricted active-capability term"
+    },
+    {
+      "keyword": "anti-drone systems supplier in vietnam",
+      "reason": "country-specific mismatch for shared regional upload"
+    }
+  ],
+  "campaigns": [
+    {
+      "campaign": "C-UAS 英语区 采购意图 词组",
+      "region": "英语区",
+      "type": "Phrase match"
+    },
+    {
+      "campaign": "C-UAS 英语区 采购意图 精准",
+      "region": "英语区",
+      "type": "Exact match"
+    },
+    {
+      "campaign": "C-UAS 南美 采购意图 词组",
+      "region": "南美",
+      "type": "Phrase match"
+    },
+    {
+      "campaign": "C-UAS 南美 采购意图 精准",
+      "region": "南美",
+      "type": "Exact match"
+    },
+    {
+      "campaign": "C-UAS 中东 采购意图 词组",
+      "region": "中东",
+      "type": "Phrase match"
+    },
+    {
+      "campaign": "C-UAS 中东 采购意图 精准",
+      "region": "中东",
+      "type": "Exact match"
+    }
+  ],
+  "adGroups": [
+    {
+      "key": "defender",
+      "adGroup": "Drone Defender Procurement",
+      "fallback": "Drone Defender",
+      "url": "https://n-tet.com/solutions/drone-defender",
+      "path1": "defender",
+      "path2": "quote"
+    },
+    {
+      "key": "detector",
+      "adGroup": "Drone Detector Procurement",
+      "fallback": "Drone Detector",
+      "url": "https://n-tet.com/solutions/drone-detector",
+      "path1": "detector",
+      "path2": "quote"
+    },
+    {
+      "key": "system",
+      "adGroup": "Anti Drone System Procurement",
+      "fallback": "Anti Drone System",
+      "url": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+      "path1": "cuas-system",
+      "path2": "quote"
+    },
+    {
+      "key": "equipment",
+      "adGroup": "Anti Drone Equipment Procurement",
+      "fallback": "Anti Drone Equipment",
+      "url": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+      "path1": "equipment",
+      "path2": "supplier"
+    },
+    {
+      "key": "locator",
+      "adGroup": "Drone Locator Procurement",
+      "fallback": "Drone Locator",
+      "url": "https://n-tet.com/solutions/drone-locator",
+      "path1": "locator",
+      "path2": "quote"
+    },
+    {
+      "key": "jammer",
+      "adGroup": "Drone Jammer Procurement",
+      "fallback": "Drone Jammer",
+      "url": "https://n-tet.com/solutions/drone-jammer",
+      "path1": "drone-jammer",
+      "path2": "quote"
+    },
+    {
+      "key": "shield",
+      "adGroup": "Drone Shield Procurement",
+      "fallback": "Drone Shield",
+      "url": "https://n-tet.com/solutions/drone-shield",
+      "path1": "drone-shield",
+      "path2": "quote"
+    },
+    {
+      "key": "c-uas",
+      "adGroup": "C-UAS Procurement",
+      "fallback": "C-UAS System",
+      "url": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+      "path1": "cuas",
+      "path2": "supplier"
+    },
+    {
+      "key": "radar",
+      "adGroup": "Drone Radar Procurement",
+      "fallback": "Drone Radar",
+      "url": "https://n-tet.com/solutions/drone-radar-detection",
+      "path1": "drone-radar",
+      "path2": "quote"
+    }
+  ],
+  "countsByRoot": {
+    "defender": {
+      "existing": 7,
+      "supplemented": 0,
+      "total": 7
+    },
+    "detector": {
+      "existing": 4,
+      "supplemented": 0,
+      "total": 4
+    },
+    "system": {
+      "existing": 27,
+      "supplemented": 0,
+      "total": 27
+    },
+    "equipment": {
+      "existing": 4,
+      "supplemented": 0,
+      "total": 4
+    },
+    "locator": {
+      "existing": 0,
+      "supplemented": 7,
+      "total": 7
+    },
+    "jammer": {
+      "existing": 12,
+      "supplemented": 0,
+      "total": 12
+    },
+    "shield": {
+      "existing": 2,
+      "supplemented": 0,
+      "total": 2
+    },
+    "c-uas": {
+      "existing": 1,
+      "supplemented": 0,
+      "total": 1
+    },
+    "radar": {
+      "existing": 14,
+      "supplemented": 0,
+      "total": 14
+    }
+  },
+  "supplementedRoots": [
+    "locator"
+  ],
+  "uniqueKeywords": 78,
+  "existingKeywords": 71,
+  "supplementedKeywords": 7,
+  "adGroupRows": 54,
+  "keywordRows": 468,
+  "rsaRows": 54,
+  "pauseRows": 300,
+  "pauseCampaigns": [
+    "Drone Defender 英语区 精准",
+    "Drone Jammer 南美 精准",
+    "C-UAS 中东 短语",
+    "Drone Defender 南美 精准",
+    "Drone Shield 英语区 精准",
+    "Drone Detection System 南美 精准",
+    "Anti Drone  英语区 精准",
+    "C-UAS 南美 精准",
+    "C-UAS 南美 短语",
+    "Anti Drone  中东 精准",
+    "Drone Detection System 英语区 精准",
+    "Drone Jammer 英语区 精准",
+    "Drone Shield 南美 精准",
+    "Drone Defender 中东 精准",
+    "Drone Detection System 中东 精准",
+    "Anti Drone  南美 精准",
+    "Drone Jammer 中东 精准",
+    "C-UAS 英语区 精准",
+    "Drone Shield 中东 精准",
+    "C-UAS 英语区 短语",
+    "C-UAS 中东 精准"
+  ],
+  "pauseAdGroups": [
+    "Drone Defender Purchase",
+    "Drone Jammer Purchase",
+    "Portable Drone Jammer",
+    "C-UAS Systems",
+    "Drone Shield Purchase",
+    "Drone Detection System",
+    "Anti Drone Systems",
+    "Counter UAS Technology",
+    "Drone Detection Radar",
+    "Counter Drone Systems",
+    "UAV Detection Systems",
+    "UAV / UAS Detection",
+    "Drone Defender",
+    "UAV Defense Systems",
+    "Drone Defense Systems",
+    "Anti UAV Systems"
+  ],
+  "phraseRows": 234,
+  "exactRows": 234,
+  "allRsaHeadlinesDki": true,
+  "allRsaDescriptionsDki": true,
+  "maxRenderedHeadlineLength": 29,
+  "maxRenderedDescriptionLength": 84,
+  "templates": {
+    "adGroup": "{\"kind\":\"workbook\",\"id\":\"wb/k9p5tw\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/oppf3s\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:U2\",\"address\":\"A1:U2\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:U4\",\"rows\":4,\"cols\":21,\"values\":[[\"Row Type\",\"Action\",\"Ad group status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad group type\",\"Ad rotation\",\"Default max. CPC\",\"CPC%\",\"Max. CPM\",\"Max. CPV\",\"Target CPA\",\"Target CPM\",\"TrueView target CPV\",\"Label\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\",\"Target ROAS\"],[\"# Optional.\\nSupported values: Ad group\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Paused; Removed\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Optional.\\nThe value cannot be edited after creation.\\nSupported values: Standard; Dynamic; Display; Display engagement; Shopping - Product; Shopping - Showcase; Shopping - Smart; In-stream; In-feed video; Bumper; Non-skippable; Hotel; Hotels - Property promotion; Efficient reach; Responsive video ad\",\"Optional.\\nSupported values: Optimize; Do not optimize\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.3%\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nExample(s): 12.34\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\",\"Optional.\\nExample(s): 12%\\nSupports remove_value\"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"K1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"L1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"M1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"N1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"O1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"P1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"Q1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"R1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"S1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"T1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"U1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 21 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
+    "keyword": "{\"kind\":\"workbook\",\"id\":\"wb/a0dlgn\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/7am7kh\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:R2\",\"address\":\"A1:R2\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R4\",\"rows\":4,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"# Optional.\\nSupported values: Keyword\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Removed; Paused\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Optional.\\nExample(s): 1234\",\"Required on create.\\nExample(s): buy frisbee\",\"Optional.\\nSupported values: Exact match; Phrase match; Broad match\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\\nSupports remove_value\",\"Optional.\\nExample(s): 12.34\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.example.com ; https://www.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): http://m.example.com ; https://m.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"J1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"K1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"L1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"M1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"N1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"O1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"P1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"Q1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"R1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":true,\"horizontalAlignment\":\"general\",\"styleId\":1}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 14 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}",
+    "rsa": "{\"kind\":\"workbook\",\"id\":\"wb/add1e3\",\"sheets\":1,\"tables\":1}\n{\"kind\":\"sheet\",\"id\":\"ws/zlnnub\",\"name\":\"Sheet0\",\"index\":0,\"range\":\"A1:BC4\",\"address\":\"A1:BC4\",\"tables\":1}\n{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:BC4\",\"rows\":4,\"cols\":55,\"values\":[[\"# Assets can be shown in any order, so make sure that they make sense individually or in combination, and don’t violate our policies or local law.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[\"# IMPORTANT: For each responsive search ad, provide at least 5 distinct headlines that do not repeat the same or similar phrases. Providing redundant headlines will restrict our ability to generate combinations.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\",\"Headline 7\",\"Headline 8\",\"Headline 9\",\"Headline 10\",\"Headline 11\",\"Headline 12\",\"Headline 13\",\"Headline 14\",\"Headline 15\",\"Description 1\",\"Description 2\",\"Description 3\",\"Description 4\",\"Headline 1 position\",\"Headline 2 position\",\"Headline 3 position\",\"Headline 4 position\",\"Headline 5 position\",\"Headline 6 position\",\"Headline 7 position\",\"Headline 8 position\",\"Headline 9 position\",\"Headline 10 position\",\"Headline 11 position\",\"Headline 12 position\",\"Headline 13 position\",\"Headline 14 position\",\"Headline 15 position\",\"Description 1 position\",\"Description 2 position\",\"Description 3 position\",\"Description 4 position\",\"Path 1\",\"Path 2\",\"Final URL\",\"Mobile final URL\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\"],[\"# Optional.\\nSupported values: Ad\",\"Optional.\\nSupported values: Add; Edit; Remove\",\"Optional.\\nSupported values: Enabled; Paused; Removed\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe campaign\",\"Optional.\\nExample(s): 1234\",\"Required.\\nExample(s): Shoe ad group\",\"Required on edit.\\nExample(s): 1234\",\"Required on create.\\nSupported values: Responsive search ad\",\"Optional.\\nA list of values separated by semicolons.\\nExample(s): label 1; label 2; label 3 [123-456-7890]\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 1\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 2\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 3\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 4\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 5\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 6\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 7\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 8\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 9\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 10\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 11\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 12\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 13\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 14\\nSupports remove_value\",\"Optional.\\nMaximum 30 characters.\\nExample(s): headline 15\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 1\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 2\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 3\\nSupports remove_value\",\"Optional.\\nMaximum 90 characters.\\nExample(s): description 4\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2; 3\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nSupported values: 1; 2\\nSupports remove_value\",\"Optional.\\nExample(s): path 1\\nSupports remove_value\",\"Optional.\\nExample(s): path 2\\nSupports remove_value\",\"Required on create.\\nExample(s): http://www.example.com ; https://www.example.org\",\"Optional.\\nExample(s): http://m.example.com ; https://m.example.org\\nSupports remove_value\",\"Optional.\\nExample(s): http://www.abc.com/tracking?param1=create&url={lpurl}\\nSupports remove_value\",\"Optional.\\nExample(s): x=y\\nSupports remove_value\",\"Optional.\\nExample(s): {_color}=red ; {_bg}=blue\\nSupports remove_value\"]]}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A1\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A2\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"A3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"B3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"C3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"D3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"E3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"F3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"G3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"H3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"computedStyle\",\"sheet\":\"Sheet0\",\"for\":\"I3\",\"style\":{\"fill\":{\"type\":3,\"gradientStops\":[],\"pattern\":{\"patternType\":1},\"pictureEffects\":[]},\"font\":{\"fontSize\":11,\"typeface\":\"Calibri\",\"fill\":{\"type\":0,\"color\":{\"type\":3,\"value\":\"indexed:8\"},\"gradientStops\":[],\"pictureEffects\":[]}},\"border\":{},\"wrapText\":false,\"horizontalAlignment\":\"general\",\"styleId\":0}}\n{\"kind\":\"notice\",\"message\":\"Truncated: omitted 101 lines. Increase maxChars, narrow range, or use tableMaxRows/tableMaxCols/tableMaxCellChars.\"}"
+  },
+  "stagingQa": {
+    "adGroup": {
+      "tableCheck": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:U5\",\"rows\":5,\"cols\":21,\"values\":[[\"Row Type\",\"Action\",\"Ad group status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad group type\",\"Ad rotation\",\"Default max. CPC\",\"CPC%\",\"Max. CPM\",\"Max. CPV\",\"Target CPA\",\"Target CPM\",\"TrueView target CPV\",\"Label\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\",\"Target ROAS\"],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Defender Procurement\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"PURCHASE_INTENT_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Detector Procurement\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"PURCHASE_INTENT_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Anti Drone System Procurement\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"PURCHASE_INTENT_20260716\",null,null,null,null],[\"Ad group\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Anti Drone Equipment Procurement\",\"Standard\",\"Optimize\",null,null,null,null,null,null,null,\"PURCHASE_INTENT_20260716\",null,null,null,null]]}",
+      "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    "keyword": {
+      "tableCheck": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R5\",\"rows\":5,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Defender Procurement\",null,\"buy defender drone\",\"Phrase match\",\"PURCHASE_INTENT_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Defender Procurement\",null,\"buy drone defender\",\"Phrase match\",\"PURCHASE_INTENT_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Defender Procurement\",null,\"drone defender buy\",\"Phrase match\",\"PURCHASE_INTENT_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Defender Procurement\",null,\"drone defender cost\",\"Phrase match\",\"PURCHASE_INTENT_20260716\",null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null]]}",
+      "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    "rsa": {
+      "tableCheck": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:BC5\",\"rows\":5,\"cols\":55,\"values\":[[\"Row Type\",\"Action\",\"Ad status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Ad ID\",\"Ad type\",\"Label\",\"Headline 1\",\"Headline 2\",\"Headline 3\",\"Headline 4\",\"Headline 5\",\"Headline 6\",\"Headline 7\",\"Headline 8\",\"Headline 9\",\"Headline 10\",\"Headline 11\",\"Headline 12\",\"Headline 13\",\"Headline 14\",\"Headline 15\",\"Description 1\",\"Description 2\",\"Description 3\",\"Description 4\",\"Headline 1 position\",\"Headline 2 position\",\"Headline 3 position\",\"Headline 4 position\",\"Headline 5 position\",\"Headline 6 position\",\"Headline 7 position\",\"Headline 8 position\",\"Headline 9 position\",\"Headline 10 position\",\"Headline 11 position\",\"Headline 12 position\",\"Headline 13 position\",\"Headline 14 position\",\"Headline 15 position\",\"Description 1 position\",\"Description 2 position\",\"Description 3 position\",\"Description 4 position\",\"Path 1\",\"Path 2\",\"Final URL\",\"Mobile final URL\",\"Tracking template\",\"Final URL suffix\",\"Custom parameter\"],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Defender Procurement\",null,\"Responsive search ad\",\"PURCHASE_INTENT_20260716\",\"{KeyWord:Drone Defender}\",\"Buy {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Price\",\"{KeyWord:Drone Defender} Quote\",\"{KeyWord:Drone Defender} Supplier\",\"N-TET {KeyWord:Drone Defender}\",\"Get {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Options\",\"{KeyWord:Drone Defender} Cost\",\"{KeyWord:Drone Defender} Factory\",\"Pro {KeyWord:Drone Defender}\",\"{KeyWord:Drone Defender} Export\",\"{KeyWord:Drone Defender} Project\",\"{KeyWord:Drone Defender} Support\",\"{KeyWord:Drone Defender} Provider\",\"Request pricing for {KeyWord:Drone Defender} and discuss your project requirements.\",\"Compare {KeyWord:Drone Defender} options for sites, facilities and authorized projects.\",\"Contact N-TET for {KeyWord:Drone Defender} supply, documentation and deployment support.\",\"Get a project quote for {KeyWord:Drone Defender} with supplier and deployment support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"defender\",\"quote\",\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Drone Detector Procurement\",null,\"Responsive search ad\",\"PURCHASE_INTENT_20260716\",\"{KeyWord:Drone Detector}\",\"Buy {KeyWord:Drone Detector}\",\"{KeyWord:Drone Detector} Price\",\"{KeyWord:Drone Detector} Quote\",\"{KeyWord:Drone Detector} Supplier\",\"N-TET {KeyWord:Drone Detector}\",\"Get {KeyWord:Drone Detector}\",\"{KeyWord:Drone Detector} Options\",\"{KeyWord:Drone Detector} Cost\",\"{KeyWord:Drone Detector} Factory\",\"Pro {KeyWord:Drone Detector}\",\"{KeyWord:Drone Detector} Export\",\"{KeyWord:Drone Detector} Project\",\"{KeyWord:Drone Detector} Support\",\"{KeyWord:Drone Detector} Provider\",\"Request pricing for {KeyWord:Drone Detector} and discuss your project requirements.\",\"Compare {KeyWord:Drone Detector} options for sites, facilities and authorized projects.\",\"Contact N-TET for {KeyWord:Drone Detector} supply, documentation and deployment support.\",\"Get a project quote for {KeyWord:Drone Detector} with supplier and deployment support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"detector\",\"quote\",\"https://n-tet.com/solutions/drone-detector\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Anti Drone System Procurement\",null,\"Responsive search ad\",\"PURCHASE_INTENT_20260716\",\"{KeyWord:Anti Drone System}\",\"Buy {KeyWord:Anti Drone System}\",\"{KeyWord:Anti Drone System} Price\",\"{KeyWord:Anti Drone System} Quote\",\"{KeyWord:Anti Drone System} Supplier\",\"N-TET {KeyWord:Anti Drone System}\",\"Get {KeyWord:Anti Drone System}\",\"{KeyWord:Anti Drone System} Options\",\"{KeyWord:Anti Drone System} Cost\",\"{KeyWord:Anti Drone System} Factory\",\"Pro {KeyWord:Anti Drone System}\",\"{KeyWord:Anti Drone System} Export\",\"{KeyWord:Anti Drone System} Project\",\"{KeyWord:Anti Drone System} Support\",\"{KeyWord:Anti Drone System} Provider\",\"Request pricing for {KeyWord:Anti Drone System} and discuss your project requirements.\",\"Compare {KeyWord:Anti Drone System} options for sites, facilities and authorized projects.\",\"Contact N-TET for {KeyWord:Anti Drone System} supply, documentation and deployment support.\",\"Get a project quote for {KeyWord:Anti Drone System} with supplier and deployment support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"cuas-system\",\"quote\",\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null],[\"Ad\",\"Add\",\"Enabled\",null,\"C-UAS 英语区 采购意图 词组\",null,\"Anti Drone Equipment Procurement\",null,\"Responsive search ad\",\"PURCHASE_INTENT_20260716\",\"{KeyWord:Anti Drone Equipment}\",\"Buy {KeyWord:Anti Drone Equipment}\",\"{KeyWord:Anti Drone Equipment} Price\",\"{KeyWord:Anti Drone Equipment} Quote\",\"{KeyWord:Anti Drone Equipment} Supplier\",\"N-TET {KeyWord:Anti Drone Equipment}\",\"Get {KeyWord:Anti Drone Equipment}\",\"{KeyWord:Anti Drone Equipment} Options\",\"{KeyWord:Anti Drone Equipment} Cost\",\"{KeyWord:Anti Drone Equipment} Factory\",\"Pro {KeyWord:Anti Drone Equipment}\",\"{KeyWord:Anti Drone Equipment} Export\",\"{KeyWord:Anti Drone Equipment} Project\",\"{KeyWord:Anti Drone Equipment} Support\",\"{KeyWord:Anti Drone Equipment} Provider\",\"Request pricing for {KeyWord:Anti Drone Equipment} and discuss your project requirements.\",\"Compare {KeyWord:Anti Drone Equipment} options for sites, facilities and authorized projects.\",\"Contact N-TET for {KeyWord:Anti Drone Equipment} supply, documentation and deployment support.\",\"Get a project quote for {KeyWord:Anti Drone Equipment} with supplier and deployment support.\",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,\"equipment\",\"supplier\",\"https://n-tet.com/solutions/low-altitude-airspace-monitoring\",null,null,null,null]]}",
+      "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    },
+    "pause": {
+      "tableCheck": "{\"kind\":\"table\",\"sheet\":\"Sheet0\",\"address\":\"A1:R5\",\"rows\":5,\"cols\":18,\"values\":[[\"Row Type\",\"Action\",\"Keyword status\",\"Campaign ID\",\"Campaign\",\"Ad group ID\",\"Ad group\",\"Keyword ID\",\"Keyword\",\"Type\",\"Label\",\"Default max. CPC\",\"Max. CPV\",\"Final URL\",\"Mobile final URL\",\"Final URL suffix\",\"Tracking template\",\"Custom parameter\"],[\"Keyword\",\"Edit\",\"Paused\",null,\"Drone Defender 英语区 精准\",null,\"Drone Defender Purchase\",null,\"drone defender where to buy\",\"Exact match\",null,null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Edit\",\"Paused\",null,\"Drone Defender 英语区 精准\",null,\"Drone Defender Purchase\",null,\"drone defender buy\",\"Exact match\",null,null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Edit\",\"Paused\",null,\"Drone Defender 英语区 精准\",null,\"Drone Defender Purchase\",null,\"buy drone defender\",\"Exact match\",null,null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null],[\"Keyword\",\"Edit\",\"Paused\",null,\"Drone Defender 英语区 精准\",null,\"Drone Defender Purchase\",null,\"drone defender price\",\"Exact match\",null,null,null,\"https://n-tet.com/solutions/drone-defender\",null,null,null,null]]}",
+      "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+    }
+  },
+  "keywordItems": [
+    {
+      "key": "defender",
+      "keyword": "buy defender drone",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "defender",
+      "keyword": "buy drone defender",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender buy",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender cost",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender price",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "defender",
+      "keyword": "drone defender where to buy",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Defender 英语区 精准",
+      "sourceAdGroup": "Drone Defender Purchase"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detection solution provider",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detector price",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 英语区 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "detector",
+      "keyword": "drone detectors for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system car for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system cost",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system manufacturers",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system price",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti drone system pricing",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti uav system factory",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti UAV Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "anti-drone system pricing",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "buy anti drone systems",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "buy uav detection system",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 英语区 精准",
+      "sourceAdGroup": "UAV Detection Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "cost of anti drone system",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  中东 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "counter drone system cost",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "counter drone system price",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "counter drone system vendors",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "counter-drone system vendors",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "drone defense system pricing",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  南美 精准",
+      "sourceAdGroup": "Drone Defense Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "drone defense systems manufacturers",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  中东 精准",
+      "sourceAdGroup": "Drone Defense Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "drone detection system manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "system",
+      "keyword": "drone detection system supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "system",
+      "keyword": "low cost anti drone system",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "purchase anti-drone system",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "purchase counter-drone system",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  中东 精准",
+      "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "system",
+      "keyword": "uas detection system manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "UAV / UAS Detection"
+    },
+    {
+      "key": "system",
+      "keyword": "uas detection system supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "UAV / UAS Detection"
+    },
+    {
+      "key": "system",
+      "keyword": "uav detection system manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "UAV / UAS Detection"
+    },
+    {
+      "key": "system",
+      "keyword": "uav detection system supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "UAV / UAS Detection"
+    },
+    {
+      "key": "system",
+      "keyword": "uav systems defense manufacturers",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "UAV Defense Systems"
+    },
+    {
+      "key": "equipment",
+      "keyword": "anti drone device for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "equipment",
+      "keyword": "anti drone price",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti Drone Systems"
+    },
+    {
+      "key": "equipment",
+      "keyword": "drone detection equipment manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 英语区 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "equipment",
+      "keyword": "drone detection equipment supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection System"
+    },
+    {
+      "key": "locator",
+      "keyword": "buy drone locator",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator for sale",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator manufacturer",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator price",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator procurement",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator provider",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "locator",
+      "keyword": "drone locator supplier",
+      "origin": "supplemented",
+      "sourceCampaign": "",
+      "sourceAdGroup": ""
+    },
+    {
+      "key": "jammer",
+      "keyword": "anti drone jammer price",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "buy a drone jammer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "buy drone jammer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer buy",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer manufacturers",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone jammer price",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "drone signal jammer for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "jammer",
+      "keyword": "portable drone jammer for sale",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Portable Drone Jammer"
+    },
+    {
+      "key": "jammer",
+      "keyword": "portable drone jammer price",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Portable Drone Jammer"
+    },
+    {
+      "key": "jammer",
+      "keyword": "price of drone jammer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Jammer 南美 精准",
+      "sourceAdGroup": "Drone Jammer Purchase"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield cost",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Shield 英语区 精准",
+      "sourceAdGroup": "Drone Shield Purchase"
+    },
+    {
+      "key": "shield",
+      "keyword": "drone shield price",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Shield 英语区 精准",
+      "sourceAdGroup": "Drone Shield Purchase"
+    },
+    {
+      "key": "c-uas",
+      "keyword": "anti-uav solutions pricing",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  英语区 精准",
+      "sourceAdGroup": "Anti UAV Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "buy anti-drone radar tech",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "buy counter-drone radar",
+      "origin": "existing account",
+      "sourceCampaign": "Anti Drone  中东 精准",
+      "sourceAdGroup": "Counter Drone Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "c uas radar manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "C-UAS 中东 短语",
+      "sourceAdGroup": "C-UAS Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "c uas radar supplier",
+      "origin": "existing account",
+      "sourceCampaign": "C-UAS 中东 短语",
+      "sourceAdGroup": "C-UAS Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "counter-drone radar purchase",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone detection radar manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "drone detection radar supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "low altitude detection radar manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "low altitude detection radar supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    },
+    {
+      "key": "radar",
+      "keyword": "uav detection radar manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 英语区 精准",
+      "sourceAdGroup": "UAV Detection Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "uav detection radar supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "UAV Detection Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "uav radar detection manufacturer",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 英语区 精准",
+      "sourceAdGroup": "UAV Detection Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "uav radar detection supplier",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "UAV Detection Systems"
+    },
+    {
+      "key": "radar",
+      "keyword": "where to buy anti-drone radar",
+      "origin": "existing account",
+      "sourceCampaign": "Drone Detection System 南美 精准",
+      "sourceAdGroup": "Drone Detection Radar"
+    }
+  ]
+}

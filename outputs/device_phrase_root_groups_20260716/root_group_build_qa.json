@@ -1,0 +1,51 @@
+{
+  "campaigns": [
+    "C-UAS 英语 短语",
+    "C-UAS 中东 短语",
+    "C-UAS 南美 短语"
+  ],
+  "rootGroups": [
+    "Drone Defender",
+    "Drone Defender Purchase",
+    "Drone Locator",
+    "Drone Location Tracker",
+    "Drone Shield",
+    "Drone Shield Purchase",
+    "Drone Jammer",
+    "RF Drone Jammer",
+    "Directional Drone Jammer",
+    "Portable Drone Jammer",
+    "Handheld Drone Jammer",
+    "Backpack Drone Jammer",
+    "Vehicle Drone Jammer",
+    "Drone Jammer Purchase"
+  ],
+  "adGroupRows": 42,
+  "keywordRows": 222,
+  "rsaRows": 42,
+  "uniqueKeywords": 74,
+  "keywordType": [
+    "Phrase match"
+  ],
+  "groupCountsAcrossThreeCampaigns": {
+    "Drone Defender": 18,
+    "Drone Defender Purchase": 21,
+    "Drone Locator": 12,
+    "Drone Location Tracker": 12,
+    "Drone Shield": 9,
+    "Drone Shield Purchase": 9,
+    "Drone Jammer": 27,
+    "RF Drone Jammer": 24,
+    "Directional Drone Jammer": 12,
+    "Portable Drone Jammer": 21,
+    "Handheld Drone Jammer": 6,
+    "Backpack Drone Jammer": 12,
+    "Vehicle Drone Jammer": 9,
+    "Drone Jammer Purchase": 30
+  },
+  "allRsaHeadlinesDki": true,
+  "allRsaDescriptionsDki": true,
+  "maxRenderedHeadlineLength": 30,
+  "maxRenderedDescriptionLength": 87,
+  "groupConflicts": []
+}

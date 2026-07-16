@@ -61,21 +61,21 @@ export type IntentLandingConfig = {
   ctaLabel: string;
 };
 
-const authorizedResponse =
-  'The platform escalates the confirmed event, notifies the responsible team, supports the operator\'s approved site procedure, and preserves the decision and outcome for review.';
+const commandResponse =
+  'The command platform correlates the confirmed track, presents sensor and device status, coordinates the configured response sequence, and records alarms, commands and outcomes for review.';
 
 export const droneDetectorLanding: IntentLandingConfig = {
   handle: 'drone-detector',
-  eyebrow: 'DRONE DETECTOR',
-  h1: 'Drone Detector for Critical Sites',
+  eyebrow: 'MULTI-SENSOR DRONE DETECTION',
+  h1: 'Drone Detector & Multi-Sensor Detection System for Critical Sites',
   purpose:
-    'Plan a site-specific detection workflow using RF sensing, low-altitude radar, Remote ID and EO/IR confirmation—then connect verified alerts to an authorized response process.',
+    'Combine RF detection, low-altitude radar, Remote ID and EO/IR tracking in one site-specific early-warning, identification and command workflow.',
   heroImage: '/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp',
   heroImageAlt: 'N-TET low-altitude radar supporting a multi-sensor drone detection configuration',
-  heroFacts: ['Multi-sensor evidence', 'Site-specific configuration', 'Authorized response workflow'],
+  heroFacts: ['Multi-sensor detection', 'Target identification & tracking', 'Command-platform integration'],
   applicationHeading: 'Where does a drone detector fit?',
   answerBlock:
-    'A drone detector is not necessarily one universal sensor. Buyers comparing an anti drone radar detector should treat radar as one evidence layer within the wider detection workflow. A practical site configuration assigns different jobs to RF sensing, radar, Remote ID and EO/IR. RF equipment can observe relevant radio activity and, where supported, add identity or direction information. Radar can maintain movement tracks, including targets that are not transmitting a recognizable control signal. Remote ID can help operators review compatible broadcast identity data. EO/IR provides visual evidence when line of sight, weather and target presentation allow it. The useful output is a shared event: time, source, position or track, available identity, image and operator status. After confirmation, the command workflow escalates the event to the responsible team and the operator follows the site\'s approved procedure. Coverage and identification performance remain dependent on target characteristics, terrain, buildings, RF conditions, mounting and local operating rules.',
+    'A professional drone detection system is built from complementary sensors rather than a single universal detector. RF equipment provides spectrum awareness, protocol identification and direction finding for supported links. Low-altitude radar adds range, bearing, altitude, speed and continuous tracks, including targets that do not transmit a recognizable control signal. Remote ID receivers identify compatible cooperative aircraft, while EO/IR systems provide visible and thermal confirmation. The command platform correlates these inputs into one target record with time, position, track, identity clues, imagery and alarm status, then links the confirmed event to the configured response equipment. Detection performance depends on target characteristics, terrain, buildings, RF conditions, mounting height and sensor geometry, so the final configuration should be based on a site survey and coverage design.',
   applications: [
     { title: 'Airports & transport hubs', summary: 'Review approach sectors, boundary zones, permitted activity and command-room handoff.' },
     { title: 'Energy & industrial sites', summary: 'Combine perimeter awareness with operator review around production and logistics areas.' },
@@ -127,13 +127,13 @@ export const droneDetectorLanding: IntentLandingConfig = {
     { label: 'Important limit', values: ['Quiet targets, unfamiliar waveforms and RF noise', 'Terrain, clutter, mounting and target characteristics', 'Requires a compatible broadcast that can be received', 'Line of sight, weather, lighting and target presentation'] },
     { label: 'Typical deployment', values: ['Fixed or portable', 'Fixed site or vehicle-supported', 'Fixed or networked receiver', 'Fixed site with platform cueing'] },
   ],
-  workflowHeading: 'From detection to authorized response',
-  workflowIntro: 'Each stage adds evidence, assigns responsibility and prepares the confirmed event for the site\'s approved response procedure.',
+  workflowHeading: 'Detection, identification, tracking and response',
+  workflowIntro: 'Each stage adds target information and connects the confirmed track to the command platform and configured response equipment.',
   workflow: [
     { title: 'Detection', summary: 'RF, radar and Remote ID sources raise an observation with source, time and available position data.' },
     { title: 'Identification', summary: 'The platform compares signal, movement, identity and permitted-flight information without forcing uncertain evidence into a confident label.' },
     { title: 'Confirmation', summary: 'EO/IR cueing and operator review add visual context, status and notes before escalation.' },
-    { title: 'Authorized Response', summary: authorizedResponse },
+    { title: 'Command & Response', summary: commandResponse },
   ],
   scenariosHeading: 'Two solution scenarios',
   scenariosIntro: 'Use the same four-stage workflow, but change sensor placement, staffing and handoff rules by site.',
@@ -159,7 +159,7 @@ export const droneDetectorLanding: IntentLandingConfig = {
   faqs: [
     { question: 'Is a drone detector one device?', answer: 'Not usually. RF, radar, Remote ID and EO/IR answer different questions, so the site configuration should be based on the evidence and coverage the operator needs.' },
     { question: 'Can one sensor guarantee complete coverage?', answer: 'No. Terrain, buildings, weather, RF conditions, target characteristics and mounting create different blind zones and confidence limits.' },
-    { question: 'Does the workflow stop after an alert is recorded?', answer: 'No. After identification and confirmation, the platform escalates the event, notifies the responsible team and supports the operator\'s approved site procedure. The record preserves what was decided and what happened.' },
+    { question: 'Does the workflow stop after an alert is recorded?', answer: 'No. After identification and confirmation, the platform maintains the target track, displays sensor and device status, coordinates the configured response sequence and preserves the complete event record.' },
     { question: 'What information is needed for a site proposal?', answer: 'Provide the protected area, approach directions, operating hours, permitted flights, power and network constraints, mounting options, operator roles and required handoff procedure.' },
   ],
   ctaLabel: 'Request Site Plan',
@@ -176,7 +176,7 @@ export const radarDetectionLanding: IntentLandingConfig = {
   heroFacts: ['Ku-band and X-band options', 'Range, bearing and track data', 'RF and EO/IR handoff'],
   applicationHeading: 'When is radar the right detection layer?',
   answerBlock:
-    'Drone detection radar is used when an operator needs movement, range, bearing and track information that does not depend on a recognizable drone radio link or a cooperative identity broadcast. It can support early warning across planned sectors and cue other sensors for confirmation. Radar is still site-dependent: target radar cross-section, altitude, route, terrain, buildings, vegetation, weather, clutter, scan geometry, mounting height and close-in blind zones all affect usable coverage. The Ku-band and X-band options differ in range conditions, blind zones, elevation coverage and target capacity, so selection should follow a site drawing and coverage review rather than a band name alone. In an operating workflow, the radar track is correlated with RF or Remote ID evidence where available, handed to EO/IR for visual review, then escalated to the responsible team for an authorized site response and documented outcome.',
+    'Drone detection radar provides movement, range, bearing, altitude, speed and continuous track data without depending on a recognizable radio-control link or cooperative identity broadcast. It supports wide-area early warning, multi-target tracking and automatic cueing of EO/IR or RF sensors. Target radar cross-section, flight altitude, route, terrain, buildings, vegetation, weather, clutter, scan geometry, mounting height and close-in blind zones all affect usable coverage. Ku-band and X-band options also differ in reference range, elevation coverage, blind zone and track capacity, so selection should follow a site drawing and coverage simulation rather than the band name alone. In an integrated C-UAS workflow, radar tracks are correlated with RF or Remote ID data, handed to EO/IR for visual confirmation and displayed on the command platform for coordinated response.',
   applications: [
     { title: 'Wide perimeter early warning', summary: 'Maintain tracks across planned approach sectors before a target reaches the core area.' },
     { title: 'Quiet-target movement', summary: 'Add movement evidence when a recognizable RF or Remote ID source is unavailable.' },
@@ -213,13 +213,13 @@ export const radarDetectionLanding: IntentLandingConfig = {
     { label: 'Track capacity', values: ['≥500 tracks', '≥200 tracks'] },
     { label: 'Data / interface', values: ['2-second data rate', 'UDP over Gigabit Ethernet'] },
   ],
-  workflowHeading: 'Radar detection to authorized response',
+  workflowHeading: 'Radar detection, sensor cueing and coordinated response',
   workflowIntro: 'A usable radar track moves through evidence correlation, operator confirmation and a defined handoff to the responsible site team.',
   workflow: [
     { title: 'Detection', summary: 'Radar searches the planned sector and creates a track with time, range, bearing, altitude or speed fields supported by the configuration.' },
     { title: 'Identification', summary: 'The platform compares the track with RF, Remote ID, permitted-flight and map context.' },
     { title: 'Confirmation', summary: 'EO/IR cueing and operator review add visual evidence and a review status.' },
-    { title: 'Authorized Response', summary: authorizedResponse },
+    { title: 'Command & Response', summary: commandResponse },
   ],
   scenariosHeading: 'Two radar solution scenarios',
   scenariosIntro: 'Radar placement and confirmation workflow change with the site geometry and operating team.',
@@ -246,7 +246,7 @@ export const radarDetectionLanding: IntentLandingConfig = {
     { question: 'Can radar detect every drone?', answer: 'No. Detectability depends on target characteristics, route, altitude, terrain, clutter, weather, scan geometry and mounting. Coverage should be reviewed against the real site.' },
     { question: 'How should Ku-band and X-band options be compared?', answer: 'Compare the stated range condition, blind zone, elevation coverage, target capacity, interface, mounting and the sectors that matter at the site—not the band label alone.' },
     { question: 'Why combine radar with RF and EO/IR?', answer: 'Radar contributes movement and track data; RF can add signal or identity clues; EO/IR can add visual confirmation. Correlation gives the operator a more reviewable event.' },
-    { question: 'What happens after confirmation?', answer: 'The platform escalates the event to the responsible team, supports the site\'s approved procedure and records the decision and outcome.' },
+    { question: 'What happens after confirmation?', answer: 'The platform maintains the correlated track, presents the target and device status, coordinates the configured response sequence and records the complete event.' },
   ],
   ctaLabel: 'Request Radar Review',
 };
@@ -262,7 +262,7 @@ export const portableDetectionLanding: IntentLandingConfig = {
   heroFacts: ['Handheld and hand-carried', 'Integrated field kits', 'Vehicle-mounted configurations'],
   applicationHeading: 'Which portable or mobile C-UAS format fits the task?',
   answerBlock:
-    'Portable C-UAS is a deployment category, not a promise that every system has the same capability. A patrol may need only a handheld RF alert device. A temporary post may need a hand-carried identification system with a larger display. Another buyer may need an integrated field kit that combines detection, identification, tracking cues, event records and coordination with an approved response procedure. Vehicle-mounted configurations support teams that reposition between sectors, but they add power, mounting, vibration, network, startup-check and changing-horizon requirements. Selection should begin with the operator, movement pattern, readiness time, operating duration, evidence needed and local authorization—not only detection range. RF performance still depends on target radio activity, frequency coverage, local noise, antenna position and obstructions. Where radar, EO/IR or platform links are added, their coverage and interfaces must be reviewed separately. Any authorized response function requires a jurisdiction-specific compliance review.',
+    'Portable C-UAS covers several deployment formats with different capabilities. A patrol team may need a lightweight handheld RF detector for local alerts. A temporary post may use a hand-carried identification system with a larger display, direction finding and positioning support. An integrated field kit combines detection, identification, tracking cues, alarm linkage, event records and command-platform coordination. Vehicle-mounted systems add multi-sensor integration and rapid repositioning between operating sectors, together with project-specific power, mounting, vibration and network requirements. Selection should begin with the mission, crew size, readiness time, operating duration, target information required and response mode—not detection range alone. RF performance depends on target radio activity, frequency coverage, local noise, antenna position and obstructions; radar, EO/IR and platform interfaces should be engineered as separate system layers.',
   applications: [
     { title: 'Individual patrol', summary: 'Issue a lightweight handheld detector when one operator needs local alerts while moving.' },
     { title: 'Temporary field post', summary: 'Use a hand-carried identification system with a larger display and repeatable setup procedure.' },
@@ -270,7 +270,7 @@ export const portableDetectionLanding: IntentLandingConfig = {
     { title: 'Vehicle-mounted patrol', summary: 'Move a configured sensor and platform package between planned operating sectors.' },
   ],
   productsHeading: 'Four portable and mobile deployment formats',
-  productsIntro: 'Choose by operator role, readiness time, transport, power, sensor scope, evidence needs and response authorization.',
+  productsIntro: 'Choose by operator role, readiness time, transport, power, sensor scope, target information and response mode.',
   products: [
     {
       name: 'PL280H Handheld RF Detection System',
@@ -315,13 +315,13 @@ export const portableDetectionLanding: IntentLandingConfig = {
     { label: 'Power / endurance', values: ['Up to 6 hours; replaceable battery', '5 hours rated endurance', 'Confirm field power configuration', 'Vehicle power plus project backup plan'] },
     { label: 'Operator interface', values: ['Local screen, sound and vibration', '13.3-inch integrated display', 'Field kit and command-platform linkage', 'Onboard or remote command workflow'] },
   ],
-  workflowHeading: 'Mobile detection to authorized response',
+  workflowHeading: 'Mobile detection, identification and coordinated response',
   workflowIntro: 'The selected deployment format changes the equipment, but every project still needs a defined evidence and responsibility chain.',
   workflow: [
     { title: 'Detection', summary: 'The handheld, field-kit or vehicle-mounted sensor layer creates an observation with available time, source, position or track data.' },
     { title: 'Identification', summary: 'The operator reviews supported RF, identity, map and permitted-flight information without treating uncertain evidence as confirmed.' },
     { title: 'Confirmation', summary: 'The field team adds location and visual context while the command workflow correlates other sensors or site information where available.' },
-    { title: 'Authorized Response', summary: authorizedResponse },
+    { title: 'Command & Response', summary: commandResponse },
   ],
   scenariosHeading: 'Two mobile C-UAS solution scenarios',
   scenariosIntro: 'Rapid-deployment kits and vehicle-mounted systems solve different movement, readiness, power and command requirements.',
@@ -333,7 +333,7 @@ export const portableDetectionLanding: IntentLandingConfig = {
       imageAlt: 'Integrated portable C-UAS field kit at a temporary operating post',
       href: '/products/portable-integrated-detection-event-logging-pro-low-altitude-monitoring',
       linkLabel: 'View integrated field kit',
-      points: ['Repeatable setup and startup check', 'Integrated evidence and event records', 'Defined command and response authority'],
+      points: ['Repeatable setup and startup check', 'Integrated target data and event records', 'Command-platform and response linkage'],
     },
     {
       title: 'Vehicle-Mounted Mobile Patrol',
@@ -348,7 +348,7 @@ export const portableDetectionLanding: IntentLandingConfig = {
   faqHeading: 'Portable and vehicle-mounted C-UAS FAQ',
   faqs: [
     { question: 'Does portable C-UAS mean handheld only?', answer: 'No. Portable may describe an individual handheld detector, a hand-carried identification system or an integrated field kit. Vehicle-mounted equipment is a separate mobile format with its own power, mounting and operating-position requirements.' },
-    { question: 'Can a portable system support an integrated detection-and-response requirement?', answer: 'Yes, where the buyer has the required legal authority. The project scope should identify the approved response function, responsible operator, safety conditions, interfaces and validation procedure before equipment selection.' },
+    { question: 'Can a portable system support integrated detection and RF response?', answer: 'Yes. The project scope should define the required detection, identification, positioning, tracking and RF response functions, along with operator roles, equipment interfaces, power, communications and field validation.' },
     { question: 'When is a vehicle-mounted configuration appropriate?', answer: 'Choose vehicle-mounted equipment when a trained team must patrol several planned sectors or reposition quickly. The review should include vehicle power, payload, mounting, vibration, network options, safe operating positions and startup checks.' },
     { question: 'Are the stated RF ranges guaranteed?', answer: 'No. Target radio activity, antenna position, obstructions, local RF noise, configuration and test conditions affect usable range. Confirm the current datasheet and validate the planned operating environment.' },
     { question: 'Can portable and vehicle-mounted equipment use the same command platform?', answer: 'They can be designed around a shared platform when interfaces, network availability, user roles, map positions, event records and offline procedures are confirmed during project review.' },

@@ -3,7 +3,7 @@
 > N-TET provides UAV systems, low-altitude monitoring, industrial security, and engineering-material content for international buyers and project teams.
 
 Canonical site: https://n-tet.com
-Generated: 2026-07-15
+Generated: 2026-07-16
 
 Compliance boundary: this file excludes restricted C-tier content, admin routes, preview routes, and advertising-unsafe paths. B-tier neutral SEO content may appear only as informational public content.
 
@@ -185,13 +185,13 @@ Compliance boundary: this file excludes restricted C-tier content, admin routes,
 - [Water Conservancy & River-Lake Monitoring](https://n-tet.com/solutions/water-conservancy-river-lake-uav-monitoring-solution) - A six-rotor UAV monitoring solution for smart water management, covering river-lake supervision, flood-season hydrology, hydraulic-facility inspectio...
 - [Water Conservancy Monitoring UAV Solution](https://n-tet.com/solutions/water-conservancy-monitoring-uav-solution) - A UAV monitoring solution for rivers, lakes, reservoirs, flood-control tasks, water-facility inspection, water-quality sampling, pollution tracing, a...
 - [Low-Altitude Airspace Monitoring Solution](https://n-tet.com/solutions/low-altitude-airspace-monitoring) - Plan low-altitude airspace monitoring for critical sites with RF sensing, radar, Remote ID, EO/IR verification, command coordination and authorized-r...
-- [Drone Detector for Critical Sites](https://n-tet.com/solutions/drone-detector) - Compare RF sensing, low-altitude radar, Remote ID and EO/IR confirmation in a site-specific detection and authorized-response workflow.
+- [Drone Detector & Multi-Sensor Detection System for Critical Sites](https://n-tet.com/solutions/drone-detector) - Compare RF detection, low-altitude radar, Remote ID and EO/IR tracking in a multi-sensor system with target correlation and command-platform integrat...
 - [Drone Detection Radar for Low-Altitude Site Monitoring](https://n-tet.com/solutions/drone-radar-detection) - Compare Ku-band and X-band radar options for early warning, target tracking and handoff to RF and EO/IR confirmation.
 - [Portable C-UAS Systems for Handheld, Integrated and Vehicle-Mounted Deployment](https://n-tet.com/solutions/portable-drone-detection) - Compare handheld detectors, hand-carried RF systems, integrated C-UAS field kits and vehicle-mounted configurations for temporary, patrol and mobile...
-- [Drone Defender for Layered Site Protection](https://n-tet.com/solutions/drone-defender) - Plan layered RF, radar, Remote ID and EO/IR site protection with operator confirmation and an authorized-response workflow.
+- [Drone Defender for Layered Site Protection](https://n-tet.com/solutions/drone-defender) - Plan layered RF, radar, Remote ID and EO/IR site protection with command-platform integration and directional or omni-directional RF jammers.
 - [Drone Locator for Mobile and Fixed-Site Positioning](https://n-tet.com/solutions/drone-locator) - Compare RF direction finding, radar tracks, compatible Remote ID position data and EO/IR confirmation for protected-site monitoring.
 - [Drone Shield for Fixed, Portable and Mobile Deployment](https://n-tet.com/solutions/drone-shield) - Compare fixed-site sensors, portable field units and vehicle-mounted C-UAS configurations for layered monitoring and site coordination.
-- [Drone Jammer: Directional and Omni-Directional Options](https://n-tet.com/solutions/drone-jammer) - Compare Directional RF Jammer and Omni-directional RF Jammer options after RF, radar and EO/IR confirmation for authorized fixed-site projects.
+- [Drone Jammer: Directional and Omni-Directional Options](https://n-tet.com/solutions/drone-jammer) - Compare Directional RF Jammer and Omni-directional RF Jammer options for fixed-site C-UAS integration, linked control and coordinated response.
 
 ## Cases
 

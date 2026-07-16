@@ -59,7 +59,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     secondary: ['drone detectors', 'anti drone radar detector', 'drone radar detector', 'drone detection system', 'C-UAS detection system', 'RF drone detection'],
     h1: 'Drone Detector for Critical Sites',
     overviewHeading: 'Multi-Sensor Drone Detection Planning',
-    intro: 'N-TET combines RF sensing, low-altitude radar, Remote ID and EO/IR confirmation in a site-specific drone detector workflow that continues from detection and identification to confirmation and authorized response coordination.',
+    intro: 'N-TET combines RF detection, low-altitude radar, Remote ID and EO/IR tracking in a site-specific drone detector system with target correlation and command-platform integration.',
     source: 'google_ads_keywords',
   },
   '/solutions/drone-radar-detection': {
@@ -75,7 +75,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     secondary: ['portable drone detector', 'handheld drone detector', 'integrated C-UAS field kit', 'vehicle mounted C-UAS', 'mobile counter drone system'],
     h1: 'Portable C-UAS Systems for Handheld, Integrated & Vehicle-Mounted Deployment',
     overviewHeading: 'Handheld, Integrated and Vehicle-Mounted C-UAS Options',
-    intro: 'Compare handheld detectors, hand-carried RF identification systems, integrated C-UAS field kits and vehicle-mounted configurations by operator role, readiness time, power, mobility, evidence workflow and response authorization.',
+    intro: 'Compare handheld detectors, hand-carried RF identification systems, integrated C-UAS field kits and vehicle-mounted configurations by operator role, readiness time, power, mobility, target data and response mode.',
     source: 'google_ads_keywords',
   },
   '/solutions/drone-defender': {
@@ -83,7 +83,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     secondary: ['drone defender system', 'defender drone', 'RF drone detection', 'drone detection radar', 'EO IR tracking', 'drone jammer'],
     h1: 'Drone Defender for Layered Site Protection',
     overviewHeading: 'RF Detection, Radar, EO/IR and RF Jammer Site Protection',
-    intro: 'Plan a layered drone defender workflow that uses RF, radar and EO/IR for detection and confirmation before an authorized directional or omni-directional jammer response.',
+    intro: 'Plan a layered Drone Defender system using RF detection, radar tracking, EO/IR confirmation, command-platform integration and directional or omni-directional RF jammers.',
     source: 'google_ads_keywords',
   },
   '/solutions/drone-locator': {
@@ -91,7 +91,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     secondary: ['mobile drone locator', 'handheld drone detector', 'portable RF drone locator', 'RF drone direction finding', 'radar drone positioning', 'drone jammer'],
     h1: 'Drone Locator for Mobile & Fixed-Site Positioning',
     overviewHeading: 'Handheld, Portable and Fixed-Site Drone Location Options',
-    intro: 'Compare mobile and fixed-site Drone Locator options using two portable RF devices, fixed RF, radar and EO/IR, then define the authorized directional or omni jammer response.',
+    intro: 'Compare mobile and fixed-site Drone Locator options using portable RF, fixed RF, radar and EO/IR, then define the directional or omni jammer and command-platform interfaces.',
     source: 'google_ads_keywords',
   },
   '/solutions/drone-shield': {
@@ -107,7 +107,7 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     secondary: ['drone signal jammer', 'anti drone jammer', 'RF jammer for drones', 'directional RF jammer', 'omni-directional RF jammer'],
     h1: 'Drone Jammer: Directional & Omni-Directional Options',
     overviewHeading: 'Directional and Omni-Directional RF Jammer Options',
-    intro: 'Compare Directional RF Jammer and Omni-directional RF Jammer options downstream of RF, radar and EO/IR detection and confirmation in an authorized fixed-site workflow.',
+    intro: 'Compare Directional RF Jammer and Omni-directional RF Jammer options for fixed-site C-UAS integration, target-track linkage, remote control and device-status monitoring.',
     source: 'google_ads_keywords',
   },
   '/cases': {

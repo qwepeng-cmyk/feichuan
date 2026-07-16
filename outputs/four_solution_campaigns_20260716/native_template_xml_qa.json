@@ -1,0 +1,54 @@
+﻿[
+    {
+        "file":  "01_Ad_Groups_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+        "entryCount":  9,
+        "application":  "Apache POI",
+        "namespace":  "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+        "firstPhysicalRow":  1,
+        "firstCell":  "A1",
+        "firstCellType":  "inlineStr",
+        "firstHeader":  "Row Type",
+        "secondHeader":  "Action",
+        "secondPhysicalRow":  2,
+        "dimension":  "A1:U16"
+    },
+    {
+        "file":  "02_Keywords_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+        "entryCount":  9,
+        "application":  "Apache POI",
+        "namespace":  "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+        "firstPhysicalRow":  1,
+        "firstCell":  "A1",
+        "firstCellType":  "inlineStr",
+        "firstHeader":  "Row Type",
+        "secondHeader":  "Action",
+        "secondPhysicalRow":  2,
+        "dimension":  "A1:R78"
+    },
+    {
+        "file":  "03_RSA_DKI_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+        "entryCount":  9,
+        "application":  "Apache POI",
+        "namespace":  "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+        "firstPhysicalRow":  1,
+        "firstCell":  "A1",
+        "firstCellType":  "inlineStr",
+        "firstHeader":  "Row Type",
+        "secondHeader":  "Action",
+        "secondPhysicalRow":  2,
+        "dimension":  "A1:BC16"
+    },
+    {
+        "file":  "04_Negatives_GOOGLE_NATIVE_TEMPLATE_20260716.xlsx",
+        "entryCount":  9,
+        "application":  "Apache POI",
+        "namespace":  "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+        "firstPhysicalRow":  1,
+        "firstCell":  "A1",
+        "firstCellType":  "inlineStr",
+        "firstHeader":  "Row Type",
+        "secondHeader":  "Action",
+        "secondPhysicalRow":  2,
+        "dimension":  "A1:K87"
+    }
+]
