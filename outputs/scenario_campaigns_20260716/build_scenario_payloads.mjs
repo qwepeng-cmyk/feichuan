@@ -25,7 +25,7 @@ const scenarioConfigs = [
     bHandle: "critical-infrastructure-airspace-monitoring",
     path1: "critical-infra",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection around critical facilities and national assets.",
+    concern: "Deploy {DKI} for critical facilities and national asset security.",
     keywords: [
       "government building anti drone",
       "data center drone detection",
@@ -44,7 +44,7 @@ const scenarioConfigs = [
     bHandle: "power-plant-airspace-monitoring",
     path1: "power-plants",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection at power plants, grids and energy sites.",
+    concern: "Deploy {DKI} for power plants, grids and energy site security.",
     keywords: [
       "nuclear power plant anti drone",
       "thermal power plant drone detection",
@@ -63,7 +63,7 @@ const scenarioConfigs = [
     bHandle: "airport-security-protection",
     path1: "airports",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection near runways and flight operations.",
+    concern: "Deploy {DKI} for runways, airfields and airport security.",
     keywords: [
       "airport anti drone",
       "air port anti drone",
@@ -82,7 +82,7 @@ const scenarioConfigs = [
     bHandle: "border-airspace-monitoring",
     path1: "border",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection at border posts, checkpoints and patrol routes.",
+    concern: "Deploy {DKI} for border posts, checkpoints and patrol routes.",
     keywords: [
       "border checkpoint anti drone",
       "border post drone detection",
@@ -101,7 +101,7 @@ const scenarioConfigs = [
     bHandle: "public-safety-airspace-monitoring",
     path1: "public-safety",
     path2: "drone-security",
-    concern: "Use {DKI} for law enforcement, urban security and emergency deployment.",
+    concern: "Deploy {DKI} for police, urban security and emergency response.",
     keywords: [
       "police station anti drone",
       "law enforcement drone detection",
@@ -120,7 +120,7 @@ const scenarioConfigs = [
     bHandle: "correctional-facility-airspace-monitoring",
     path1: "prison",
     path2: "drone-security",
-    concern: "Use {DKI} to detect contraband delivery risks and perimeter intrusion.",
+    concern: "Deploy {DKI} for prison perimeter and contraband drone detection.",
     keywords: [
       "prison anti drone",
       "correctional facility drone detection",
@@ -138,8 +138,8 @@ const scenarioConfigs = [
     fallback: "Port Security C-UAS",
     bHandle: "port-airspace-monitoring",
     path1: "port-security",
-    path2: "drone-monitor",
-    concern: "Use {DKI} for drone detection around cargo, logistics and port facilities.",
+    path2: "drone-system",
+    concern: "Deploy {DKI} for ports, cargo terminals and logistics security.",
     keywords: [
       "seaport anti drone",
       "harbor drone detection",
@@ -158,7 +158,7 @@ const scenarioConfigs = [
     bHandle: "mass-event-airspace-monitoring",
     path1: "mass-events",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection at stadiums, concerts and major events.",
+    concern: "Deploy {DKI} for stadiums, concerts and major event security.",
     keywords: [
       "stadium anti drone",
       "football stadium drone detection",
@@ -177,7 +177,7 @@ const scenarioConfigs = [
     bHandle: "vip-private-property-airspace-monitoring",
     path1: "vip-property",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection around villas, convoys and private estates.",
+    concern: "Deploy {DKI} for villas, convoys and private estate security.",
     keywords: [
       "villa anti drone",
       "luxury villa drone detection",
@@ -196,7 +196,7 @@ const scenarioConfigs = [
     bHandle: "enterprise-airspace-monitoring",
     path1: "enterprises",
     path2: "drone-security",
-    concern: "Use {DKI} for drone detection at mines, refineries and industrial sites.",
+    concern: "Deploy {DKI} for mines, refineries and industrial site security.",
     keywords: [
       "mine anti drone",
       "mining site drone detection",
