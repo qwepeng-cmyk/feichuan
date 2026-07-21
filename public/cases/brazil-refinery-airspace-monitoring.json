@@ -22,12 +22,12 @@
     "directional-rf-event-logging"
   ],
   "handle": "brazil-refinery-airspace-monitoring",
-  "title_ru": "C-UAS Case of a Refinery in Brazil",
-  "description_ru": "2025 C-UAS Case of a Refinery in Brazil\nEquipment Used:\nStationary Spectrum Identification Equipment\nAirspace Awareness Platform\nCommand and Control Platform Software\nProject Introduction:\nIn 2025, this refinery project deployed a C-UAS early-warning operation for key production and perimeter areas. Stationary spectrum identification equipment collects radio-frequency activity, while the awareness platform organizes airspace tracks, alert records, operator notes, positioning review, tracking status, and review status in one interface. The command platform supports authorized teams with event logging, cross-department notification, and documented response protocols. Public documentation focuses on early warning, identification, positioning, tracking, evidence records, and compliant response procedures.",
+  "title_ru": "Применение C-UAS на нефтеперерабатывающем заводе в Бразилии",
+  "description_ru": "Применение C-UAS на нефтеперерабатывающем заводе в Бразилии в 2025 году\nИспользованное оборудование:\nСтационарное оборудование радиочастотной идентификации\nПлатформа контроля воздушной обстановки\nПрограммное обеспечение командной платформы\nОписание проекта:\nВ 2025 году на ключевых производственных участках и по периметру нефтеперерабатывающего завода была развёрнута система раннего предупреждения C-UAS. Стационарное оборудование собирает данные о радиочастотной активности, а платформа объединяет воздушные трассы, оповещения, заметки операторов, проверку позиционирования и статус сопровождения. Командная платформа поддерживает журналирование событий, межведомственное уведомление и документированные процедуры реагирования. Публичное описание ограничено ранним предупреждением, идентификацией, позиционированием, сопровождением, доказательными записями и согласованными процедурами реагирования.",
   "devices_ru": [
-    "Stationary Spectrum Identification Equipment",
-    "Airspace Awareness Platform",
-    "Command and Control Platform Software"
+    "Стационарное оборудование радиочастотной идентификации",
+    "Платформа контроля воздушной обстановки",
+    "Программное обеспечение командной платформы"
   ],
   "region_ru": "South America",
   "country_ru": "Brazil",
@@ -52,16 +52,16 @@
   ],
   "case_snapshot_ru": [
     {
-      "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "label": "Применение",
+      "value": "Мониторинг малых высот и регистрация событий"
     },
     {
-      "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
+      "label": "План эксплуатации",
+      "value": "Контроль воздушной обстановки, проверка оповещений и координация реагирования"
     },
     {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "label": "Результат",
+      "value": "Заметки операторов, временные метки, картографические записи и отчёты проверки"
     }
   ],
   "recommended_product_handles": [
@@ -69,5 +69,34 @@
     "portable-integrated-detection-event-logging-low-altitude-monitoring-basic",
     "omni-directional-rf-event-logging",
     "directional-rf-event-logging"
+  ],
+  "description_ar": "حالة C-UAS في مصفاة بالبرازيل عام 2025\nالمعدات المستخدمة:\nمعدات ثابتة لتحديد إشارات الطيف الراديوي\nمنصة للوعي بالمجال الجوي\nبرنامج منصة القيادة والتحكم\nوصف المشروع:\nفي عام 2025 نُشرت عملية إنذار مبكر بنظام C-UAS للمناطق الإنتاجية الرئيسية ومحيط المصفاة. تجمع معدات التعرف الثابتة نشاط الترددات الراديوية، بينما تنظم منصة الوعي مسارات المجال الجوي وسجلات التنبيه وملاحظات المشغل ومراجعة الموقع وحالة التتبع في واجهة واحدة. وتدعم منصة القيادة الفرق المخولة بتسجيل الأحداث والإخطار بين الإدارات وإجراءات الاستجابة الموثقة. يركز الوصف العام على الإنذار المبكر والتحديد وتحديد الموقع والتتبع وسجلات الأدلة وإجراءات الاستجابة المنضبطة.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Monitoreo de baja altitud y registros de eventos"
+    },
+    {
+      "label": "Plan operativo",
+      "value": "Conciencia del espacio aéreo, revisión de alertas y coordinación de respuesta"
+    },
+    {
+      "label": "Resultado",
+      "value": "Notas del operador, marcas de tiempo, registros cartográficos e informes de revisión"
+    }
+  ],
+  "case_snapshot_ar": [
+    {
+      "label": "التطبيق",
+      "value": "مراقبة المجال منخفض الارتفاع وسجلات الأحداث"
+    },
+    {
+      "label": "خطة التشغيل",
+      "value": "الوعي بالمجال الجوي ومراجعة التنبيهات وتنسيق الاستجابة"
+    },
+    {
+      "label": "النتيجة",
+      "value": "ملاحظات المشغل والطوابع الزمنية وسجلات الخرائط وتقارير المراجعة"
+    }
   ]
 }

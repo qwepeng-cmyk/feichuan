@@ -14,6 +14,7 @@ const restrictedPublicHandles = new Set([
     'handheld-integrated-sdr-low-altitude-monitoring',
     'handheld-integrated-multi-band-event-logging-directional-antenna-unit',
     'handheld-integrated-multi-band-jammer-gun',
+    'drone-laser-engagement-system',
     'power-generation-facility-anti-uav',
     'airport-anti-uav',
     'pakistan-power-plant-anti-uav',
@@ -41,6 +42,48 @@ function isRestrictedPublicPath(pathname: string) {
         ['products', 'solutions', 'cases', 'media'].includes(section) &&
         restrictedPublicHandles.has(handle)
     );
+}
+
+function isProtectedFrontendPreview(pathname: string) {
+    const segments = publicPathSegments(pathname);
+    return segments[0] === 'preview-products';
+}
+
+function isLocalHostname(hostname: string) {
+    const cleanHostname = hostname.replace(/^\[/, '').replace(/\]$/, '').split(':')[0];
+    const parts = cleanHostname.split('.').map((part) => Number(part));
+    const isPrivateIpv4 =
+        parts[0] === 10 ||
+        (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) ||
+        (parts[0] === 192 && parts[1] === 168);
+
+    return cleanHostname === 'localhost' ||
+        cleanHostname === '127.0.0.1' ||
+        cleanHostname === '0.0.0.0' ||
+        cleanHostname === '::1' ||
+        isPrivateIpv4;
+}
+
+function localLaserFrontendPreview(request: NextRequest) {
+    if (!isLocalHostname(request.nextUrl.hostname)) return null;
+
+    const rawSegments = request.nextUrl.pathname.split('/').filter(Boolean);
+    const locale = rawSegments[0] && i18n.locales.includes(rawSegments[0] as any)
+        ? rawSegments[0]
+        : i18n.defaultLocale;
+    const offset = rawSegments[0] === locale && i18n.locales.includes(rawSegments[0] as any) ? 1 : 0;
+
+    if (
+        rawSegments[offset] !== 'products' ||
+        rawSegments[offset + 1] !== 'drone-laser-engagement-system'
+    ) {
+        return null;
+    }
+
+    const previewUrl = request.nextUrl.clone();
+    previewUrl.pathname = `/${locale}/preview-products/drone-laser-engagement-system`;
+    previewUrl.searchParams.set('localFrontendPreview', '1');
+    return previewUrl;
 }
 
 function legacySolutionPath(pathname: string) {
@@ -76,6 +119,23 @@ export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const isInternalDefaultLocaleRewrite =
         request.nextUrl.searchParams.get('ntetDefaultLocale') === '1';
+
+    const localLaserPreviewUrl = localLaserFrontendPreview(request);
+    if (localLaserPreviewUrl) {
+        const response = NextResponse.rewrite(localLaserPreviewUrl);
+        response.headers.set('x-robots-tag', 'noindex, nofollow');
+        return response;
+    }
+
+    if (isProtectedFrontendPreview(pathname)) {
+        const token = request.cookies.get('admin_token')?.value;
+        const secret = process.env.ADMIN_SECRET || 'default_secret';
+
+        if (!isLocalHostname(request.nextUrl.hostname) && (!token || token !== secret)) {
+            const loginUrl = new URL('/admin/login', request.url);
+            return NextResponse.redirect(loginUrl);
+        }
+    }
 
     // --- Admin Authentication Protection ---
     // Protect all /admin/* routes EXCEPT /admin/login

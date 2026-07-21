@@ -165,11 +165,11 @@
     "C-UAS Equipment Manufacturer & System Supplier": "Fabricante de equipos C-UAS y proveedor de sistemas",
     "A Beijing-based professional C-UAS equipment manufacturer and system supplier supporting equipment configuration, testing, documentation and international delivery.": "Un fabricante profesional de equipos C-UAS y proveedor de sistemas con sede en Beijing que respalda la configuración, pruebas, documentación y entrega internacional de equipos.",
     "Request C-UAS Equipment Pricing & System Proposal": "Solicite una propuesta de sistema y precio de equipo C-UAS",
-    "Share the equipment, deployment form, application or site you are reviewing. N-TET can provide product information, pricing and a project-specific system proposal.": "Comparta el equipo, el formulario de implementación, la aplicación o el sitio que está revisando. N-TET puede proporcionar información sobre productos, precios y una propuesta de sistema específica para el proyecto.",
+    "Share the equipment, deployment form, application or site you are reviewing. N-TET can provide product information, pricing and a project-specific system proposal.": "Indique el equipo, la modalidad de despliegue, la aplicación o el emplazamiento que desea evaluar. N-TET puede facilitar información de producto, precios y una propuesta de sistema adaptada al proyecto.",
     "C-UAS Equipment Pricing and System Proposal": "Propuesta de sistema y precio de equipo C-UAS",
     "Use this contact page to request C-UAS equipment pricing, product documents or a system configuration review for portable, fixed-site and vehicle-mounted projects.": "Utilice esta página de contacto para solicitar precios de equipos C-UAS, documentos de productos o una revisión de la configuración del sistema para proyectos portátiles, de sitio fijo y montados en vehículos.",
     "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved.": "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados.",
-    "Get Expert Drone Defense!": "¡Consigue una defensa experta con drones!",
+    "Get Expert Drone Defense!": "Solicite asesoramiento especializado en sistemas C-UAS",
     "Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.": "Díganos el equipo, aplicación o sitio que está revisando. Nuestro equipo puede proporcionar información sobre productos, documentos técnicos, precios y soporte de configuración.",
     "Phone / WhatsApp": "Teléfono/WhatsApp",
     "How can we help? (Optional)": "¿Cómo podemos ayudar? (Opcional)",
@@ -183,10 +183,10 @@
     "Low-Altitude Airspace Monitoring": "Monitoreo del espacio aéreo a baja altitud",
     "C-UAS monitoring workflows for low-altitude detection, target review, visual verification, and airspace event records.": "Flujos de trabajo de monitoreo de C-UAS para detección de baja altitud, revisión de objetivos, verificación visual y registros de eventos en el espacio aéreo.",
     "C-UAS System Coordination": "Coordinación del sistema C-UAS",
-    "Site-level C-UAS coordination for alerts, target review, event records, and operating-team handoff.": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y transferencia del equipo operativo.",
+    "Site-level C-UAS coordination for alerts, target review, event records, and operating-team handoff.": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y traspaso al equipo de operaciones.",
     "C-UAS detection, identification, tracking, and alert review for energy, petrochemical, hydropower, and industrial facilities.": "Detección, identificación, seguimiento y revisión de alertas de C-UAS para instalaciones energéticas, petroquímicas, hidroeléctricas e industriales.",
-    "Key Area C-UAS Security": "Área clave Seguridad C-UAS",
-    "Low-altitude airspace awareness and coordinated C-UAS workflows for airports, major events, judicial sites, and controlled-access facilities.": "Conciencia del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, eventos importantes, sitios judiciales e instalaciones de acceso controlado."
+    "Key Area C-UAS Security": "Seguridad C-UAS para áreas críticas",
+    "Low-altitude airspace awareness and coordinated C-UAS workflows for airports, major events, judicial sites, and controlled-access facilities.": "Conocimiento situacional del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, grandes eventos, instalaciones judiciales y recintos de acceso controlado."
   },
   "dictionary": {
     "home": {
@@ -246,7 +246,7 @@
     "contact": {
       "pageTitle": "Solicite una propuesta de sistema y precio de equipo C-UAS",
       "bannerTitle": "Solicite una propuesta de sistema y precio de equipo C-UAS",
-      "bannerDesc": "Comparta el equipo, el formulario de implementación, la aplicación o el sitio que está revisando. N-TET puede proporcionar información sobre productos, precios y una propuesta de sistema específica para el proyecto.",
+      "bannerDesc": "Indique el equipo, la modalidad de despliegue, la aplicación o el emplazamiento que desea evaluar. N-TET puede facilitar información de producto, precios y una propuesta de sistema adaptada al proyecto.",
       "seoIntroTitle": "Propuesta de sistema y precio de equipo C-UAS",
       "seoIntroBody": "Utilice esta página de contacto para solicitar precios de equipos C-UAS, documentos de productos o una revisión de la configuración del sistema para proyectos portátiles, de sitio fijo y montados en vehículos."
     },
@@ -255,7 +255,7 @@
       "copyright": "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados."
     },
     "inquiry": {
-      "title": "¡Consigue una defensa experta con drones!",
+      "title": "Solicite asesoramiento especializado en sistemas C-UAS",
       "subtitle": "Díganos el equipo, aplicación o sitio que está revisando. Nuestro equipo puede proporcionar información sobre productos, documentos técnicos, precios y soporte de configuración.",
       "phone": "Teléfono/WhatsApp",
       "inquiryType": "¿Cómo podemos ayudar? (Opcional)",
@@ -275,10 +275,10 @@
       "uavInspectionPatrol": "Monitoreo del espacio aéreo a baja altitud",
       "uavInspectionPatrolDesc": "Flujos de trabajo de monitoreo de C-UAS para detección de baja altitud, revisión de objetivos, verificación visual y registros de eventos en el espacio aéreo.",
       "uavEmergencyResponse": "Coordinación del sistema C-UAS",
-      "uavEmergencyResponseDesc": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y transferencia del equipo operativo.",
+      "uavEmergencyResponseDesc": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y traspaso al equipo de operaciones.",
       "criticalInfrastructureDesc": "Detección, identificación, seguimiento y revisión de alertas de C-UAS para instalaciones energéticas, petroquímicas, hidroeléctricas e industriales.",
-      "keyAreaSecurity": "Área clave Seguridad C-UAS",
-      "keyAreaSecurityDesc": "Conciencia del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, eventos importantes, sitios judiciales e instalaciones de acceso controlado."
+      "keyAreaSecurity": "Seguridad C-UAS para áreas críticas",
+      "keyAreaSecurityDesc": "Conocimiento situacional del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, grandes eventos, instalaciones judiciales y recintos de acceso controlado."
     }
   }
 }

@@ -86,7 +86,7 @@
   }
 
   .whatsapp {
-    background: #11a20b;
+    background: var(--contact-channel-accent-hover);
   }
 
   .message {

@@ -18,7 +18,9 @@ export async function POST(request: Request) {
         const phone = cleanText(body.phone);
         const message = cleanText(body.message);
         const contactMethod = cleanText(body.contactMethod);
-        const countryCode = cleanText(body.countryCode);
+        const countryCode = cleanText(body.countryCode)
+            || cleanText(request.headers.get('cf-ipcountry'))
+            || cleanText(request.headers.get('x-vercel-ip-country'));
 
         if (!email || !phone) {
             return NextResponse.json(

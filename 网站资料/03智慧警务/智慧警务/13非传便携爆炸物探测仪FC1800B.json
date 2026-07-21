@@ -61,23 +61,23 @@
     "Размеры": "470 * 170 * 200 мм"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Безопасность: Полное отсутствие ионизирующего излучения.</li><li>Широкий спектр поиска: Обнаруживает ТНТ, гексоген, нитроглицерин, порох, а также кокаин, героин, метамфетамин и другие наркотики.</li><li>Мгновенный результат: Анализ занимает всего 2 секунды.</li><li>Универсальный отбор проб: Возможность прямого забора воздуха для обнаружения паров взрывчатки.</li><li>Низкий уровень ложных тревог: Менее 1% благодаря алгоритмам высокого разрешения.</li><li>Мобильность: Встроенный аккумулятор и легкий корпус позволяют использовать прибор непосредственно на месте происшествия или при досмотре на улице.</li></ul>",
-  "product_name_es": "Portable Explosives & Narcotics Detector FC1800B",
-  "summary_es": "Portable Explosives & Narcotics Detector FC1800B de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Non-radioactive trace detection of explosives and narcotics; 2-second ultra-fast analysis; Lightweight (<4kg) for superior individual mobility; Comprehensive database for ICAO explosives and common narcotics; 800; 000+ data storage capacity.",
-  "key_parameter_1_es": "Sensitivity: 1ng TNT equivalent",
-  "key_parameter_2_es": "Analysis Time: ≤ 2 seconds",
+  "product_name_es": "Detector portátil de explosivos y narcóticos FC1800B",
+  "summary_es": "El detector portátil de explosivos y narcóticos FC1800B es nuestro instrumento de seguridad de próxima generación. Utilizando tecnología avanzada de fotoionización de espectrometría de movilidad iónica (IMS) de alta resolución, es completamente no radiactivo y no presenta ningún riesgo de radiación para el cuerpo humano. Presenta detección rápida, alta sensibilidad, bajo consumo de energía y un diseño compacto y liviano para una portabilidad excepcional. Diseñado para facilitar el mantenimiento y una alta adaptabilidad a diversos entornos, puede detectar con precisión pólvora negra, todos los explosivos especificados por la OACI y una amplia variedad de narcóticos simultáneamente. Con su capacidad de modo dual (positivo/negativo), proporciona identificación a nivel de nanogramos e informa los nombres específicos de las sustancias detectadas, lo que lo convierte en una herramienta ideal para inspecciones rápidas in situ.",
+  "key_application_es": "Detección de trazas no radiactivas de explosivos y narcóticos; Análisis ultrarrápido de 2 segundos; ligero (<4 kg) para una movilidad individual superior; base de datos completa sobre explosivos y narcóticos comunes de la OACI; Capacidad de almacenamiento de más de 800 000 datos.",
+  "key_parameter_1_es": "Sensibilidad: 1 ng equivalente a TNT",
+  "key_parameter_2_es": "Tiempo de análisis: ≤ 2 segundos",
   "parameters_es": {
-    "Technology": "Non-radioactive Photoionization High-Resolution IMS",
-    "Substances": "Dual-mode detection for explosives (TNT, RDX, etc.) and narcotics (Heroin, Meth, etc.)",
-    "Sensitivity": "Nanogram (ng) level (1ng TNT)",
-    "Analysis Time": "≤ 2 seconds",
-    "Sampling": "Trace particle swiping or direct air sampling",
-    "Display": "2.8-inch TFT color touchscreen",
-    "Storage Capacity": "≥ 800,000 records with USB retrieval and export",
-    "Batería Endurance": "Work time > 2h; Standby > 12h",
-    "Self-Calibration": "Automatic environmental adaptation and real-time failure diagnostics",
-    "Weight": "< 4.0 kg",
-    "Dimensions": "470mm * 170mm * 200mm"
+    "Tecnología": "Fotoionización no radiactiva de alta resolución IMS",
+    "Sustancias": "Detección de modo dual para explosivos (TNT, RDX, etc.) y narcóticos (heroína, metanfetamina, etc.)",
+    "Sensibilidad": "Nivel de nanogramos (ng) (1ng TNT)",
+    "Análisis Hora": "≤ 2 segundos",
+    "Muestreo": "Trazas de partículas o muestreo directo de aire",
+    "Mostrar": "Pantalla táctil TFT en color de 2,8 pulgadas",
+    "Capacidad de almacenamiento": "≥ 800.000 registros con recuperación y exportación USB",
+    "Resistencia de la batería": "Tiempo de trabajo > 2 h; En espera > 12 h",
+    "Autocalibración": "Adaptación ambiental automática y diagnóstico de fallas en tiempo real",
+    "Peso": "< 4.0 kg",
+    "Dimensiones": "470 mm * 170 mm * 200 mm"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Portable Explosives &amp; Narcotics Detector FC1800B está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Portable Explosives &amp; Narcotics Detector FC1800B de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Diseño portátil para operaciones de inspección móviles y de campo.</li><li>Tecnología de espectrometría de movilidad de iones (IMS) para detección de rastros de alta sensibilidad.</li><li>Detecta un amplio espectro de explosivos, incluidos TNT, RDX, PETN, C4, pólvora negra, TATP, etc.</li><li>Detecta narcóticos comunes, como metanfetamina, heroína, cocaína, ketamina, MDMA, etc.</li><li>Detección simultánea en modo dual de explosivos y narcóticos.</li><li>Sensibilidad de detección a nivel de nanogramos (ng).</li><li>Análisis rápido que se completa en 8 segundos.</li><li>Batería de litio recargable incorporada que admite más de 4 horas de operación continua en campo.</li><li>Pantalla táctil de 7 pulgadas para funcionamiento intuitivo.</li><li>Fuente de iones no radiactivos, segura para los operadores.</li></ul>"
 }

@@ -1,28 +1,34 @@
 {
   "title": "Asian Games Low-Altitude Airspace Monitoring Application",
-  "title_en": "Asian Games Low-Altitude Airspace Monitoring Application",
+  "title_en": "Asian Games Low-Altitude C-UAS Application",
   "description": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination plan. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security operations across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
-  "description_en": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination plan. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security operations across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
+  "description_en": "Asian Games Low-Altitude C-UAS Application\nDuring the 2023 Hangzhou Asian Games, the project used a multi-city C-UAS system combining RF detection, directional RF jamming, portable C-UAS shields, and a unified command platform. The platform coordinated monitoring and response information across Hangzhou, Shaoxing, Jinhua, and other host or co-host cities. Directional jamming was used to suppress unauthorized-drone links while frequency coordination protected event broadcasting and other authorized radio services. Portable units supported temporary venues and transport hubs; the source material records a 10-minute deployment at the Huzhou sub-venue. Monitoring data from Wenzhou, Quzhou, and other operating areas was returned to the central platform for early warning and coordinated handling. The public case documents the equipment architecture and multi-city workflow without disclosing sensitive operating parameters.",
   "devices": [
     "Radio Detection Equipment",
     "Airspace Situational Awareness Platform",
     "Command and Control Platform"
   ],
   "devices_en": [
-    "Radio Detection Equipment",
-    "Airspace Situational Awareness Platform",
-    "Command and Control Platform"
+    "Stationary RF Detection System",
+    "Directional RF Jammer",
+    "Portable C-UAS Field Shield",
+    "C-UAS Command Platform"
   ],
   "main_image": "/cases/asian-games-security/case_stadium.webp",
   "case_images": [],
-  "recommendedProductHandles": [],
+  "recommendedProductHandles": [
+    "stationary-rf-detection-system",
+    "directional-rf-interference-device",
+    "portable-low-altitude-monitoring-event-logging-shield"
+  ],
   "handle": "asian-games-security",
-  "title_ru": "Asian Games Low-Altitude Airspace Monitoring Application",
-  "description_ru": "During the 2023 Hangzhou Asian Games, the project built a multi-city low-altitude monitoring and event coordination plan. The system integrated radio detection, airspace situational display, alert records, and a unified command platform to support low-altitude activity identification, information sharing, and venue security operations across host and co-host cities including Hangzhou, Shaoxing, and Jinhua.",
+  "title_ru": "Применение C-UAS на Азиатских играх",
+  "description_ru": "Применение C-UAS на Азиатских играх\nВо время Азиатских игр 2023 года в Ханчжоу использовалась многоуровневая городская система C-UAS, объединяющая радиочастотное обнаружение, направленное радиочастотное подавление, переносные антидроновые комплексы и единую командную платформу. Платформа координировала данные мониторинга и реагирования между Ханчжоу, Шаосином, Цзиньхуа и другими городами проведения соревнований. Направленное подавление применялось против каналов несанкционированных БПЛА, а частотная координация защищала телевизионную трансляцию и другие разрешённые радиослужбы. Переносные средства использовались на временных площадках и транспортных узлах; исходный материал фиксирует развёртывание за 10 минут на площадке в Хучжоу. Данные из Вэньчжоу, Цюйчжоу и других зон поступали на центральную платформу для раннего предупреждения и согласованного реагирования. Публичное описание раскрывает архитектуру и многосторонний рабочий процесс без чувствительных эксплуатационных параметров.",
   "devices_ru": [
-    "Radio Detection Equipment",
-    "Airspace Situational Awareness Platform",
-    "Command and Control Platform"
+    "Стационарная система радиочастотного обнаружения",
+    "Направленный радиочастотный подавитель",
+    "Переносной комплекс противодействия БПЛА",
+    "Командная платформа C-UAS"
   ],
   "region_ru": "Asia",
   "country_ru": "China",
@@ -34,29 +40,81 @@
   "case_snapshot_en": [
     {
       "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "value": "Multi-city low-altitude security for the 2023 Hangzhou Asian Games"
     },
     {
-      "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
+      "label": "Location",
+      "value": "Hangzhou and co-host cities, China"
     },
     {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "label": "Key Capability",
+      "value": "RF detection, directional RF jamming, rapid portable deployment and unified command"
     }
   ],
   "case_snapshot_ru": [
     {
-      "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "label": "Применение",
+      "value": "Многосторонняя безопасность малых высот на Азиатских играх 2023 года в Ханчжоу"
     },
     {
-      "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
+      "label": "Местоположение",
+      "value": "Ханчжоу и города совместного проведения, Китай"
     },
     {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "label": "Ключевая возможность",
+      "value": "Радиочастотное обнаружение, направленное подавление, быстрое переносное развёртывание и единое командование"
+    }
+  ],
+  "title_es": "Aplicación C-UAS de baja altitud en los Juegos Asiáticos",
+  "description_es": "Aplicación C-UAS de baja altitud en los Juegos Asiáticos\nDurante los Juegos Asiáticos de Hangzhou 2023, el proyecto utilizó un sistema C-UAS multiciudad con detección RF, interferencia RF direccional, escudos C-UAS portátiles y una plataforma de mando unificada. La plataforma coordinó la información de vigilancia y respuesta entre Hangzhou, Shaoxing, Jinhua y otras ciudades anfitrionas o coanfitrionas. La interferencia direccional se utilizó para suprimir enlaces de drones no autorizados, mientras que la coordinación de frecuencias protegía la retransmisión del evento y otros servicios de radio autorizados. Las unidades portátiles cubrieron recintos temporales y centros de transporte; el material fuente registra un despliegue de 10 minutos en la subsede de Huzhou. Los datos de Wenzhou, Quzhou y otras zonas se enviaban a la plataforma central para alerta temprana y respuesta coordinada. El caso público documenta la arquitectura y el flujo multiciudad sin divulgar parámetros operativos sensibles.",
+  "devices_es": [
+    "Sistema fijo de detección RF",
+    "Inhibidor RF direccional",
+    "Escudo C-UAS portátil",
+    "Plataforma de mando C-UAS"
+  ],
+  "parameters_es": [],
+  "region_es": "Asia",
+  "country_es": "China",
+  "title_ar": "تطبيق نظام C-UAS في دورة الألعاب الآسيوية",
+  "description_ar": "تطبيق نظام C-UAS في دورة الألعاب الآسيوية\nخلال دورة الألعاب الآسيوية في هانغتشو عام 2023، استخدم المشروع نظام C-UAS متعدد المدن يجمع بين كشف RF والتشويش الراديوي الاتجاهي ودروع C-UAS المحمولة ومنصة قيادة موحدة. نسّقت المنصة معلومات الرصد والاستجابة بين هانغتشو وشاوشينغ وجينهوا ومدن الاستضافة الأخرى. واستُخدم التشويش الاتجاهي لتعطيل روابط الطائرات غير المصرح بها، مع تنسيق الترددات لحماية بث الفعاليات والخدمات الراديوية المعتمدة. دعمت الوحدات المحمولة المواقع المؤقتة ومراكز النقل، وتسجل المادة المصدر إكمال الانتشار في موقع هوتشو خلال 10 دقائق. كما أُرسلت بيانات الرصد من ونتشو وتشوتشو ومناطق تشغيل أخرى إلى المنصة المركزية للإنذار المبكر والاستجابة المنسقة. يوثق الوصف العام بنية المعدات وآلية العمل متعددة المدن من دون نشر المعلمات التشغيلية الحساسة.",
+  "devices_ar": [
+    "نظام ثابت لكشف الترددات الراديوية",
+    "جهاز تشويش RF اتجاهي",
+    "درع C-UAS محمول",
+    "منصة قيادة C-UAS"
+  ],
+  "recommended_product_handles": [
+    "stationary-rf-detection-system",
+    "directional-rf-interference-device",
+    "portable-low-altitude-monitoring-event-logging-shield"
+  ],
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Seguridad de baja altitud multiciudad para los Juegos Asiáticos de Hangzhou 2023"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Hangzhou y ciudades coanfitrionas, China"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Detección RF, interferencia direccional, despliegue portátil rápido y mando unificado"
+    }
+  ],
+  "case_snapshot_ar": [
+    {
+      "label": "التطبيق",
+      "value": "أمن متعدد المدن للمجال منخفض الارتفاع خلال ألعاب هانغتشو الآسيوية 2023"
+    },
+    {
+      "label": "الموقع",
+      "value": "هانغتشو ومدن الاستضافة المشتركة، الصين"
+    },
+    {
+      "label": "القدرة الرئيسية",
+      "value": "كشف RF والتشويش الاتجاهي والانتشار المحمول السريع والقيادة الموحدة"
     }
   ]
 }

@@ -58,22 +58,22 @@
     "Общий вес": "≤ 105 кг"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая грузоподъемность: Возможность установки длиннофокусных камер, крупноапертурных тепловизоров и лазерных дальномеров для сверхдальнего обзора.</li><li>Динамика и скорость: Ускорение до 100°/с² позволяет мгновенно захватывать и плавно вести быстро движущиеся цели.</li><li>Прецизионная точность: Использование высокоточных датчиков угла и сервоприводов с обратной связью обеспечивает точность позиционирования 0.02°.</li><li>Умное сопровождение: Продвинутые алгоритмы захвата цели гарантируют стабильное удержание БПЛА в кадре даже при резких маневрах.</li><li>Защита и надежность: Вакуумная герметизация с заполнением азотом предотвращает запотевание оптики и коррозию внутренних компонентов.</li><li>Автоматизация: Поддержка зонального обнаружения, оповещения о горячих точках и интеграция с данными радаров.</li></ul>",
-  "product_name_es": "Electro-Optical (EO) seguimiento sistema",
-  "summary_es": "Electro-Optical (EO) seguimiento sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Ultra-long-distance target observation (up to 4km tracking); Multi-spectral fusion for all-weather surveillance; High-speed precision tracking with 100°/s² acceleration; Intelligent classification and radar-linkage support.",
-  "key_parameter_1_es": "Detección Range (0.3m target): Visible tracking ≥4000m, identification ≥3000m; Thermal tracking ≥2000m, identification ≥800m",
-  "key_parameter_2_es": "Total Weight: ≤105kg",
+  "product_name_es": "Electroóptico (EO) Sistema de seguimiento",
+  "summary_es": "El sistema de seguimiento EO integra cámaras de luz visible de alta definición, imágenes térmicas y control de giro e inclinación de precisión para la confirmación visual del C-UAS. Admite identificación de objetivos, revisión de posicionamiento, seguimiento automático, registros de evidencia de video y coordinación con capas de RF, radar e identificación remota.",
+  "key_application_es": "Observación de objetivos a distancias ultralargas (seguimiento de hasta 4 km); fusión multiespectral para vigilancia resistente a la intemperie; seguimiento de precisión de alta velocidad con aceleración de 100°/s²; clasificación inteligente y soporte de enlace de radar.",
+  "key_parameter_1_es": "Rango de detección (objetivo de 0,3 m): seguimiento visible ≥4000m, identificación ≥3000m; Seguimiento térmico ≥2000m, identificación ≥800m",
+  "key_parameter_2_es": "Peso total: ≤105kg",
   "parameters_es": {
-    "Detección Range (0.3m target)": "Visible: Tracking ≥4000m, ID ≥3000m; Thermal: Tracking ≥2000m, ID ≥800m",
-    "Thermal Sensor": "5th Gen VOx uncooled, 640×512, 10x Continuous Zoom (22-230mm)",
-    "Visible Sensor": "2MP HD, 12.5-775mm HD Electric Zoom, Day/Night CMOS",
-    "Intelligence": "Intrusion detection, Auto-tracking, UAV classification",
-    "PTZ gimbals": "360° Azimuth, ±90° Pitch; 0.01° Position Accuracy; Speed up to 80°/s",
-    "Protocol Support": "ONVIF, RTSP, GB/T 28181",
-    "Eléctrica Supply": "AC 220V",
-    "Eléctrica Consumption": "≤500W",
-    "Dimensions": "Φ565mm × H880mm",
-    "Total Weight": "≤105kg"
+    "Rango de detección (objetivo de 0,3 m)": "Visible: seguimiento ≥4000 m, ID ≥3000 m; Térmico: Seguimiento ≥2000 m, ID ≥800 m",
+    "Térmico Sensor": "Vox de 5.ª generación sin refrigeración, 640×512, zoom continuo de 10x (22-230 mm)",
+    "Sensor visible": "2MP HD, zoom eléctrico HD de 12,5-775 mm, CMOS día/noche",
+    "Inteligencia": "Detección de intrusiones, seguimiento automático, clasificación de vehículos aéreos no tripulados",
+    "PTZ Gimbals": "360° Azimut, ±90° Paso; Precisión de posición de 0,01°; Velocidad de hasta 80°/s",
+    "Protocolo Soporta": "ONVIF, RTSP, GB/T 28181",
+    "Fuente de alimentación": "AC 220V",
+    "Consumo de energía": "≤500W",
+    "Dimensiones": "Φ565mm × H880mm",
+    "Total Peso": "≤105kg"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Electro-Optical (EO) seguimiento sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Electro-Optical (EO) seguimiento sistema de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características principales</h4><ul><li>Sistema de seguimiento electroóptico de alta precisión que integra luz visible, imágenes térmicas infrarrojas y alcance láser.</li><li>Fusión de múltiples sensores para detección y seguimiento de objetivos diurnos y nocturnos resistentes a la intemperie.</li><li>Detección automática de objetivos, adquisición y seguimiento continuo con algoritmos inteligentes.</li><li>Plataforma servogiratoria de alta precisión con precisión de posicionamiento superior a 0,05°.</li><li>Admite detección simultánea de múltiples objetivos y seguimiento basado en prioridades.</li><li>Rango de detección de hasta 10 km para objetivos de vehículos aéreos no tripulados pequeños (según el modelo/configuración).</li><li>Salida de vídeo en tiempo real con superposición de coordenadas de destino.</li><li>Interfaces estándar para integración con radar, detección de RF y sistemas de comando.</li><li>Diseño robusto para implementación en exteriores resistente a la intemperie, IP66 protección.</li></ul>"
 }

@@ -50,17 +50,45 @@
     "Сертификация": "Соответствие стандартам безопасности таможни и гражданской авиации"
   },
   "detail_html_ru": "<h4>Схема безопасности аэропорта</h4><p>Решение направлено на ускорение работы транспортных узлов. Интеграция передового оборудования для досмотра багажа позволяет точнее находить запрещенные предметы, не увеличивая время ожидания пассажиров.</p><ul><li>Интегрированный мониторинг терминалов и взлетно-посадочных полос</li><li>Точная проверка рисков, связанных с персоналом и грузами</li><li>Регистрация низковысотных событий, влияющих на связь точных приборов</li></ul>",
-  "product_name_es": "Aeropuerto seguridad Protection",
-  "summary_es": "Aeropuerto seguridad Protection de N-TET para monitoreo, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Traffic Hub seguridad (aeropuerto/Station).",
-  "key_parameter_1_es": "High-speed seguridad: Dual-source/dual-view tech boosts throughput for massive crowds",
-  "key_parameter_2_es": "Comprehensive Intention: Global terminal and runway monitoring with precision cargo/personnel checks",
+  "product_name_es": "Seguridad C-UAS para aeropuertos",
+  "summary_es": "Una solución integrada de control de seguridad y C-UAS para aeropuertos para entradas de terminales, puntos de control de equipaje, zonas de carga y logística, caminos perimetrales, áreas adyacentes a plataformas y centros de tráfico público. Combina alerta temprana antidrones, identificación, posicionamiento, seguimiento, vinculación de advertencia y operaciones de control de pasajeros, equipaje, carga y personal sin exponer métodos de respuesta sensibles.",
+  "key_application_es": "Terminales de aeropuerto, puntos de control de equipaje, zonas de carga, entradas de personal, perímetro carreteras, áreas adyacentes a la plataforma, centros de transporte y zonas de advertencia anti drones en aeropuertos.",
+  "key_parameter_1_es": "Seguridad de alta velocidad: la tecnología de doble fuente/doble vista aumenta el rendimiento para multitudes masivas",
+  "key_parameter_2_es": "Proceso C-UAS del aeropuerto: detección de baja altitud, identificación de objetivos, ubicación, seguimiento, vínculo de advertencia y revisión de eventos rastreables.",
   "parameters_es": {
-    "Scan Speed": "0.22m/s fast conveyor",
-    "ID Levels": "Smart detection of checkpoint screening items, knives, liquid threats",
-    "Defense": "Omni-directional radio monitoring around terminals",
-    "Certification": "Meets Customs/CAAC Level-2 security standards",
-    "Industry_pain_points_image": "/solutions/solutions/aeropuerto seguridad Protection.webp"
+    "operación_upgrade_eyebrow": "Actualización de operaciones de seguridad",
+    "operación_upgrade_title": "Cómo el monitoreo y el control integrados respaldan la seguridad aeroportuaria",
+    "solution_modules_intro": "La solución combina el conocimiento del espacio aéreo con operaciones de inspección de pasajeros, equipaje, carga y personal, para que los operadores aeroportuarios puedan coordinar la seguridad de la terminal y el monitoreo del perímetro a través de documentos documentados. procedimientos.",
+    "industry_pain_points": [
+      "Los aeropuertos combinan grandes flujos públicos de pasajeros, áreas exclusivas para el personal, sistemas de equipaje, logística de carga, caminos perimetrales y zonas operativas que requieren diferente seguridad operaciones.",
+      "Actividad a baja altitud cerca Los alrededores del aeropuerto, las terminales o las áreas perimetrales requieren una concientización temprana y una coordinación cuidadosa con los procedimientos establecidos de seguridad de la aviación.",
+      "Los equipos de seguridad necesitan rendimiento de detección, trazabilidad de inspección y visibilidad de la sala de comando sin publicar métodos de respuesta sensibles del aeropuerto o configuraciones técnicas."
+    ],
+    "uav_industry_upgrade": [
+      "Los flujos de trabajo C-UAS y la verificación EO brindan conocimiento del perímetro para los equipos de seguridad del aeropuerto mientras mantienen las descripciones públicas enfocadas en la detección, identificación y presentación de informes.",
+      "Escáneres de equipaje por rayos X, detectores de metales portátiles, puertas de detección de teléfonos cuando sea necesario y dispositivos de detección de rastros apoyan a los pasajeros, el personal, la carga y la logística controles.",
+      "Un proceso de evento compartido conecta excepciones de detección, advertencias de baja altitud, verificación visual y notas del operador para que las revise la seguridad del aeropuerto gerentes."
+    ],
+    "módulos_solución": [
+      {
+        "nombre": "Espacio aéreo perimetral del aeropuerto Concientización",
+        "descripción": "Monitorear la actividad a baja altitud cerca de los alrededores del aeropuerto, terminales, caminos perimetrales y áreas adyacentes a la plataforma a través de operaciones neutrales de concientización y verificación."
+      },
+      {
+        "nombre": "Inspección en puntos de control de pasajeros y personal",
+        "descripción": "Admite controles de entrada de personal y terminales con detección de metales portátil y puertas de detección de teléfonos donde manejo de excepciones requerido y ordenado."
+      },
+      {
+        "nombre": "Equipaje, carga y Inspección logística",
+        "descripción": "Utilice rayos X escaneo de equipaje e inspección de rastreo de maletas de pasajeros, entregas de servicios, paquetes de carga y materiales de mantenimiento."
+      },
+      {
+        "nombre": "Registros de eventos de seguridad de la aviación",
+        "descripción": "Detección de archivos excepciones, alertas de espacio aéreo, registros visuales, marcas de tiempo y notas del operador para la revisión de seguridad del aeropuerto."
+      }
+    ],
+    "salidas_típicas": "Alertas de conocimiento del espacio aéreo del aeropuerto, registros de puntos de control, registros de inspección de equipaje y carga, imágenes de verificación visual e informes de revisión de seguridad",
+    "industry_pain_points_image": "/cases/airport-security-application/main-home.webp"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Aeropuerto seguridad Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Aeropuerto seguridad Protection de N-TET para monitoreo, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h2>Puntos débiles de la industria</h2><ul><li>Los aeropuertos combinan grandes flujos públicos de pasajeros, áreas exclusivas para el personal, sistemas de equipaje, logística de carga, caminos perimetrales y zonas operativas que requieren diferente seguridad operaciones.</li><li>Actividad a baja altitud cerca Los alrededores del aeropuerto, las terminales o las áreas perimetrales requieren una concientización temprana y una coordinación cuidadosa con los procedimientos establecidos de seguridad de la aviación.</li><li>Los equipos de seguridad necesitan rendimiento de detección, trazabilidad de inspección y visibilidad de la sala de comando sin publicar métodos de respuesta sensibles del aeropuerto o configuraciones técnicas.</li></ul><h2>Actualización de operaciones de seguridad</h2><ul><li>Los flujos de trabajo C-UAS y la verificación EO brindan conocimiento del perímetro para los equipos de seguridad del aeropuerto mientras mantienen las descripciones públicas enfocadas en la detección, identificación y presentación de informes.</li><li>Escáneres de equipaje por rayos X, detectores de metales portátiles, puertas de detección de teléfonos cuando sea necesario y dispositivos de detección de rastros apoyan a los pasajeros, el personal, la carga y la logística controles.</li><li>Un proceso de evento compartido conecta excepciones de detección, advertencias de baja altitud, verificación visual y notas del operador para que las revise la seguridad del aeropuerto gerentes.</li></ul><h2>Módulos de la solución</h2><ul><li><strong>Espacio aéreo perimetral del aeropuerto Concientización</strong>: Monitoree la actividad a baja altitud cerca de los alrededores del aeropuerto, terminales, caminos perimetrales y áreas adyacentes a la plataforma a través de operaciones neutrales de reconocimiento y verificación.</li><li><strong>Inspección en puntos de control de pasajeros y personal</strong>: terminal de soporte y controles de entrada del personal con detección de metales portátil, puertas de detección telefónica cuando sea necesario, y manejo ordenado de excepciones.</li><li><strong>Equipaje, carga y Inspección logística</strong>: utilice escaneo de equipaje con rayos X e inspección de rastros para maletas de pasajeros, entregas de servicios, paquetes de carga y materiales de mantenimiento.</li><li><strong>Registros de eventos de seguridad de la aviación</strong>: Excepciones de detección de archivos, alertas de espacio aéreo, registros visuales, marcas de tiempo y notas del operador para revisión de seguridad aeroportuaria.</li></ul>"
 }

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import CategoryNav from '@/components/products/CategoryNav';
 import InquiryForm from '@/components/products/InquiryForm';
 import ProductGridCard from '@/components/products/ProductGridCard';
@@ -41,6 +41,17 @@ const fixedSiteHandles = [
   'omni-directional-rf-interference-device',
 ];
 
+const physicalInterceptionHandles = [
+  'drone-laser-engagement-system',
+  'handheld-drone-net-launcher',
+];
+
+const laserPreviewProduct: ProductSummary = {
+  name: '3kW Anti-Drone Laser Defense System',
+  handle: 'drone-laser-engagement-system',
+  image: '/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp',
+};
+
 function PortableIcon() {
   return (
     <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -73,6 +84,18 @@ function OpticalIcon() {
       <path d="M14 28h20M24 18v20" strokeOpacity="0.22" />
       <rect x="20" y="38" width="8" height="4" />
       <path d="M12 22h24" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function PhysicalInterceptionIcon() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" stroke="#315ba4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="24" cy="24" r="14" fill="rgba(49, 91, 164, 0.05)" />
+      <circle cx="24" cy="24" r="7" />
+      <path d="M24 6v8M24 34v8M6 24h8M34 24h8" />
+      <path d="M18 18l12 12M30 18L18 30" strokeOpacity="0.45" />
+      <circle cx="24" cy="24" r="2.2" fill="#315ba4" stroke="none" />
     </svg>
   );
 }
@@ -113,6 +136,13 @@ const groups: ProductGroup[] = [
     description: 'Fixed RF, radar, EO tracking, Remote ID and signal verification equipment for continuous low-altitude monitoring.',
     handles: fixedSiteHandles,
     icon: <FixedSiteIcon />,
+  },
+  {
+    id: 'physical-interception-systems',
+    title: 'Physical Interception Systems',
+    description: 'Physical capture and directed-energy interception equipment for controlled close-range and site-protection response.',
+    handles: physicalInterceptionHandles,
+    icon: <PhysicalInterceptionIcon />,
   },
   {
     id: 'vehicle-mounted-cuas',
@@ -159,11 +189,13 @@ export default function CuasProductCenter({
   opticalProducts,
   locale,
   dict,
+  showLaserPreview = false,
 }: {
   products: ProductSummary[];
   opticalProducts?: ProductSummary[];
   locale: string;
   dict: any;
+  showLaserPreview?: boolean;
 }) {
   const t = (value: string) => cuasText(locale, value);
   const localizedGroups = groups.map((group) => ({
@@ -179,6 +211,10 @@ export default function CuasProductCenter({
   const categoryList = localizedGroups.map(({ id, title, icon }) => ({ id, name: title, icon }));
   const portableProducts = pickProducts(products, portableHandles);
   const fixedProducts = pickProducts(products, fixedSiteHandles);
+  const listedPhysicalInterceptionProducts = pickProducts(products, physicalInterceptionHandles);
+  const physicalInterceptionProducts = showLaserPreview && !listedPhysicalInterceptionProducts.some((product) => product.handle === laserPreviewProduct.handle)
+    ? [laserPreviewProduct, ...listedPhysicalInterceptionProducts]
+    : listedPhysicalInterceptionProducts;
   const visibleOpticalProducts = opticalProducts || [];
 
   return (
@@ -196,7 +232,7 @@ export default function CuasProductCenter({
         <div className="container">
           <div className={styles.bannerCopy}>
             <h1>{t('Professional C-UAS Equipment')}</h1>
-            <p>{t('Browse N-TET portable, fixed-site, vehicle-mounted and platform-based C-UAS equipment for detection, identification, tracking and low-altitude airspace management.')}</p>
+            <p>{t('Browse N-TET portable, fixed-site, physical-interception, vehicle-mounted and platform-based C-UAS equipment for detection, identification, tracking and low-altitude airspace management.')}</p>
           </div>
         </div>
         <div className={styles.logoAccent}>
@@ -237,12 +273,27 @@ export default function CuasProductCenter({
           </div>
         </section>
 
-        <section id="vehicle-mounted-cuas" className={styles.categorySection}>
+        <section id="physical-interception-systems" className={styles.categorySection}>
           <div className="container">
             <div className={styles.sectionTitle}>
               <h2>{localizedGroups[2].title}</h2>
               <div />
               <p>{localizedGroups[2].description}</p>
+            </div>
+            <div className={styles.productGrid}>
+              {physicalInterceptionProducts.map((product) => (
+                <ProductGridCard key={product.handle} product={product} locale={locale} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="vehicle-mounted-cuas" className={styles.categorySection}>
+          <div className="container">
+            <div className={styles.sectionTitle}>
+              <h2>{localizedGroups[3].title}</h2>
+              <div />
+              <p>{localizedGroups[3].description}</p>
             </div>
             <CustomConfigurationCard item={localizedConfigurations[0]} locale={locale} />
           </div>
@@ -251,9 +302,9 @@ export default function CuasProductCenter({
         <section id="cuas-control-platform" className={styles.categorySection}>
           <div className="container">
             <div className={styles.sectionTitle}>
-              <h2>{localizedGroups[3].title}</h2>
+              <h2>{localizedGroups[4].title}</h2>
               <div />
-              <p>{localizedGroups[3].description}</p>
+              <p>{localizedGroups[4].description}</p>
             </div>
             <CustomConfigurationCard item={localizedConfigurations[1]} locale={locale} />
           </div>
@@ -262,9 +313,9 @@ export default function CuasProductCenter({
         <section id="electro-optical-products" className={styles.categorySection}>
           <div className="container">
             <div className={styles.sectionTitle}>
-              <h2>{localizedGroups[4].title}</h2>
+              <h2>{localizedGroups[5].title}</h2>
               <div />
-              <p>{localizedGroups[4].description}</p>
+              <p>{localizedGroups[5].description}</p>
             </div>
             <div className={styles.productGrid}>
               {visibleOpticalProducts.map((product) => (
@@ -321,7 +372,7 @@ function CustomConfigurationCard({
         <span>{t('Custom Configuration')}</span>
         <h3>{item.title}</h3>
         <p>{item.text}</p>
-        <WhatsAppLeadButton
+        <PrimaryContactButton
           sourceLabel={`product_center_${item.id}`}
           productName={item.title}
           productHandle={item.id}
@@ -329,7 +380,7 @@ function CustomConfigurationCard({
           className={styles.whatsappButton}
         >
           {t('Ask About This Configuration')}
-        </WhatsAppLeadButton>
+        </PrimaryContactButton>
       </div>
     </article>
   );

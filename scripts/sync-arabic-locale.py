@@ -10,6 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = ROOT / "data" / "ntet.db"
 EN_DICT = ROOT / "src" / "dictionaries" / "en.json"
 AR_DICT = ROOT / "src" / "dictionaries" / "ar.json"
+CASE_CORRECTIONS_PATH = ROOT / "data" / "content" / "case-editorial-corrections.json"
+CASE_CORRECTIONS = (
+    json.loads(CASE_CORRECTIONS_PATH.read_text(encoding="utf-8"))
+    if CASE_CORRECTIONS_PATH.exists()
+    else {}
+)
 
 
 ACCESSORY_ITEM_LABELS = {
@@ -675,7 +681,7 @@ def title_ar(value):
             words.append(stripped.strip(".,:;()[]{}"))
     if words:
         return " ".join(words)
-    return "حل N-TET صناعي"
+    return value.strip()
 
 
 def classify_themes(value):
@@ -725,12 +731,12 @@ def key_parameter_ar(value):
         key, val = text.split(":", 1)
         label = title_ar(key)
         if not re.search(r"[\u0600-\u06ff]", label):
-            label = "القيمة الفنية"
+            label = key.strip()
         return f"{label}: {spec_text_ar(val.strip())}"
     if re.search(r"\d", text):
         translated = spec_text_ar(text)
         if not re.search(r"[\u0600-\u06ff]", translated):
-            return f"القيمة الفنية: {translated}"
+            return translated
         return translated
     return title_ar(text)
 
@@ -826,7 +832,7 @@ def spec_text_ar(value):
     text = re.sub(r"\s+\)", ")", text)
     text = text.replace(" ;", ";").replace(" :", ":").strip()
     if text and not re.search(r"[\u0600-\u06ff]", text) and re.search(r"\d", text):
-        return f"القيمة الفنية: {text}"
+        return text
     return text or value
 
 
@@ -1088,15 +1094,16 @@ def sync_database(conn):
 
     for row in conn.execute("SELECT rowid AS __rowid, * FROM cases WHERE COALESCE(is_published, 1) = 1"):
         source_title = rget(row, "title_en")
-        title = title_ar(source_title)
+        override = CASE_CORRECTIONS.get(rget(row, "handle"), {})
+        title = override.get("title_ar") or title_ar(source_title)
         values = {
             "title_ar": title,
-            "description_ar": sentence_ar(rget(row, "description_en"), source_title),
-            "devices_ar": convert_jsonish(rget(row, "devices_en")),
+            "description_ar": override.get("description_ar") or sentence_ar(rget(row, "description_en"), source_title),
+            "devices_ar": override.get("devices_ar") or convert_jsonish(rget(row, "devices_en")),
             "parameters_ar": convert_jsonish(rget(row, "parameters_en")),
             "region_ar": title_ar(rget(row, "region_en")),
             "country_ar": title_ar(rget(row, "country_en")),
-            "case_snapshot_ar": case_snapshot_ar(load_raw(row).get("case_snapshot_en")),
+            "case_snapshot_ar": override.get("case_snapshot_ar") or case_snapshot_ar(load_raw(row).get("case_snapshot_en")),
         }
         raw = sync_product_raw(load_raw(row), values)
         conn.execute(

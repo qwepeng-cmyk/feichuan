@@ -38,17 +38,79 @@
       {
         "name": "Emergency Response Drone",
         "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response"
+        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response",
+        "product_name_es": "Dron de respuesta a emergencias",
+        "summary_es": "El dron de respuesta a emergencias es una plataforma aérea de rápido despliegue diseñada específicamente para respuesta a incidentes y gestión de desastres. El sistema consta de una plataforma de drones de alta movilidad, módulos de carga útil multitarea y una terminal de comando integrada. Al utilizar tecnología de comunicación de fusión multienlace, logra monitoreo en tiempo real, reconocimiento rápido y recopilación de datos en escenarios de emergencia complejos, proporcionando información crítica para respaldar la toma de decisiones del comando.",
+        "key_application_es": "Respuesta a incidentes (incendios forestales, desastres geológicos/hídricos); monitoreo a gran escala en sitios de desastre, búsqueda y rescate, mapeo digital y modelado 3D para evaluación de daños.",
+        "key_parameter_1_es": "Resistencia (sin carga): 75 min",
+        "key_parameter_2_es": "Carga útil estándar: 7 kg",
+        "parameters_es": {
+          "Velocidad máxima de vuelo": "15m/s",
+          "Número de rotores": "6 ejes 6 puntales",
+          "Carga útil estándar": "7 kilos",
+          "Temperatura de funcionamiento": "-20℃~50℃",
+          "Hélices": "29 pulgadas Accesorios",
+          "Resistencia (No Carga)": "75 minutos",
+          "Sistema de energía": "FOC Alta eficiencia",
+          "Distancia entre ejes": "1600mm",
+          "Precisión de posicionamiento": "±0,5 m",
+          "Resistencia al viento": "Nivel 6",
+          "Sistema de posicionamiento": "GPS/Beidou/Galileo/Glonass",
+          "Altitud máxima de vuelo": "4000m",
+          "Protección": "Retorno a prueba de fallos, retorno de batería baja, reanudación desde el punto de interrupción"
+        },
+        "detail_html_es": "<h4>Características</h4><ul><li>Plataforma aérea de despliegue rápido para gestión de desastres. Proporciona monitoreo en tiempo real y recopilación de datos a través de tecnología de fusión de enlaces múltiples.</li><li>El diseño modular admite cámaras HD, sensores térmicos y detectores de gas. Ideal para monitoreo de incendios forestales, reconocimiento de desastres y control ambiental.</li></ul>"
       },
       {
         "name": "FC-RDS500-4R Radar-Vision Fusion System",
         "handle": "fc-rds500-4r-radar-vision-sentinel",
-        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
+        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning",
+        "product_name_es": "Sistema de fusión radar-visión FC-RDS500-4R",
+        "summary_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "key_application_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_1_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_2_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "parameters_es": {
+          "Rendimiento general": "1. Reconocimiento de objetivos: peatones, vehículos\n2. Rango de escaneo: cobertura total de 360°\n3. Distancia de reconocimiento: peatón (RCS 0,5㎡) ≥500 m, vehículo (RCS 5㎡) ≥700 m",
+          "Radar": "1. Tipo de radar: 1T8R FMCW\n2. Precisión de rango: ±0,75 m\n3. Resolución de rango: 1,5 m\n4. Ancho del haz: Azimut (-6dB): 360°, Elevación (-6dB): 13°\n5. Precisión de medición de ángulo: ±1°",
+          "Luz visible HD": "1. Distancia de trabajo: Vehículo mediano (4,6 m×2,3 m): 7000 m, Persona de pie (1,7 m×0,5 m): 5000 m\n2. Sensor: CMOS retroiluminado con calidad de luz de estrellas\n3. Resolución: 1920×1080\n4. Iluminación: Color 0,01 Lux, B/N 0,001 Lux\n5. Distancia focal de la lente: 7 mm ~ 300 mm Zoom óptico de 43x, zoom digital de 16x control de enfoque: enfoque manual/automático",
+          "Iluminación láser": "1. Distancia de iluminación: 300 m\n2. Tipo de láser: Nueva fuente de luz homogeneizada de reflector HD, sin partículas moteadas\n3. Ángulo de iluminación: 1°～20°",
+          "Advertencia de luz y sonido": "Tweeter integrado + luz estroboscópica, admite sonido de alarma personalizado, admite reemplazo con láser verde deslumbrante",
+          "Cámara PTZ": "1. Velocidad de rotación: Horizontal: 0,01°/s~180°/s; Inclinación: 0,01°/s~120°/s, admite velocidad adaptativa de distancia focal\n2. Ángulo de rotación: Horizontal: rotación continua de 360°; Inclinación: -90°~+90°\n3. Crucero preestablecido: 3000 preajustes, admite 16 rutas de crucero, cada una puede admitir 256 preajustes",
+          "Inteligencia": "1. Análisis inteligente: admite detección de intrusión regional, detección de intrusión de cable trampa, detección de movimiento, detección de crucero, así como detección de merodeo, detección de reunión, detección de permanencia, detección de dirección inversa, etc.\n2. Seguimiento automático: admite seguimiento de múltiples escenas, seguimiento de vinculación de alarma",
+          "Protocolo de interfaz": "1. Comunicación y control: RJ45/cascada de fibra LC dual",
+          "Fuente de alimentación": "1. Rango de fuente de alimentación: AC220V±20%\n2. Consumo máximo de energía: ≤160W",
+          "Dimensiones": "315 mm×300 mm×480 mm (L×W×H)",
+          "Instalación": "Instalación fija/montaje temporal en trípode, la altura de instalación recomendada es de 3 a 5 m",
+          "Adaptabilidad ambiental": "1. Temperatura de trabajo: -40 ℃ ~ 60 ℃\n2. Humedad de trabajo: ≤95% RH\n3. Nivel de protección: IP66",
+          "Unidad inteligente de borde": "1. Rendimiento de la IA: 21 TOPS\n2. Memoria: 8GB\n3. Núcleos: GPU 384 núcleos, CPU 6 núcleos\n4. Acceso a alarma: Admite sensor de vibración RS485 externo\n5. Peso: ≤5kg\n6. Dimensiones: 347 mm × 210 mm × 98 mm\n7. Nivel de protección: IP65",
+          "Personalización": "Admite el desarrollo de funciones personalizadas"
+        },
+        "detail_html_es": "<h4>Características principales</h4><ul><li>Adopta la detección compuesta de radar y cámara, combinando detección activa y pasiva, que puede cumplir con los requisitos de trabajo diurno y nocturno y resistente a la intemperie.</li><li>Fusión inteligente de visión de radar, la visión fusiona la información del objetivo del radar para rastrear, generar imágenes e identificar de manera inteligente objetivos en movimiento interesados en el área de seguridad.</li><li>Diseño integrado de detección y advertencia, admite tweeter + luz estroboscópica, admite deslumbramiento con láser verde opcional para advertir objetivos intrusos.</li><li>Toda la máquina es liviana y de tamaño pequeño, fácil de instalar y mantener, admite transmisión 4G/5G opcional y estación integrada fotovoltaica, lo que mejora materialmente la eficiencia de la construcción y reduce los costos de construcción.</li><li>Diseño de estructura cuasi esférica, gran capacidad de carga, velocidad de rotación rápida, mejor resistencia al viento y rendimiento antivibraciones, más claro imágenes.</li></ul>"
       },
       {
         "name": "26kg MTOW VTOL Fixed-Wing UAV",
         "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "role": "Long-endurance shoreline and border-corridor patrol",
+        "product_name_es": "26kg MTOW VTOL UAV de ala fija",
+        "summary_es": "El UAV de ala fija MTOW VTOL FC-CQ26 de 26 kg admite tareas de patrullaje de corredores de carga útil media, mapeo, estudio de desastres y monitoreo de áreas amplias.",
+        "key_application_es": "Inspección de líneas eléctricas y tuberías, patrullaje de pasillos largos, mapeo del terreno, estudio de desastres y monitoreo de área amplia.",
+        "key_parameter_1_es": "Resistencia (sin carga): 240 min",
+        "key_parameter_2_es": "MTOW: 26 kg",
+        "parameters_es": {
+          "Dimensiones generales": "3,2 m×1,83 m×0,46 m",
+          "Altura del tren de aterrizaje": "190 mm",
+          "Área del ala": "aproximadamente 93dm2",
+          "Peso máximo de despegue": "26KG",
+          "Carga útil máxima": "5KG",
+          "Resistencia sin carga útil": "240min",
+          "Velocidad de crucero": "21 m/s",
+          "Altitud máxima": "4200m",
+          "Resistencia al viento": "Nivel 6 en modo rotor; Nivel 7 en modo de ala fija",
+          "Clasificación de protección": "P54",
+          "Dimensiones de la caja de transporte": "1800mm*680mm*480mm"
+        },
+        "detail_html_es": "<h3>Introducción del producto</h3><p>El UAV de ala fija MTOW VTOL de 26 kg FC-CQ26 es una plataforma de carga útil media para inspección de líneas eléctricas y tuberías, patrullaje de corredores largos, mapeo del terreno, estudio de desastres y áreas amplias. seguimiento. Su diseño de despegue y aterrizaje vertical reduce los requisitos de la pista, mientras que el modo de crucero de ala fija admite una cobertura más eficiente de rutas lineales y áreas de reconocimiento más grandes. El avión está especificado con un peso máximo de despegue de 26 kg, una carga útil máxima de 5 kg, 240 minutos de autonomía sin carga útil, una velocidad de crucero de 21 m/s y una altitud máxima de 4200 m. La resistencia al viento figura como Nivel 6 en modo rotor y Nivel 7 en modo de ala fija, con un índice de protección P54. Estos parámetros lo hacen adecuado para equipos de campo que trabajan en corredores, montañas, bosques y puntos operativos temporales.</p><figure><img src=\"/products/uav-systems/vtol-26kg-mtow-uav.webp\" alt=\"FC-CQ26 26 kg MTOW VTOL UAV de ala fija\" /></figure>"
       }
     ],
     "related_cases": [
@@ -85,17 +147,79 @@
       {
         "name": "Emergency Response Drone",
         "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response"
+        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response",
+        "product_name_es": "Dron de respuesta a emergencias",
+        "summary_es": "El dron de respuesta a emergencias es una plataforma aérea de rápido despliegue diseñada específicamente para respuesta a incidentes y gestión de desastres. El sistema consta de una plataforma de drones de alta movilidad, módulos de carga útil multitarea y una terminal de comando integrada. Al utilizar tecnología de comunicación de fusión multienlace, logra monitoreo en tiempo real, reconocimiento rápido y recopilación de datos en escenarios de emergencia complejos, proporcionando información crítica para respaldar la toma de decisiones del comando.",
+        "key_application_es": "Respuesta a incidentes (incendios forestales, desastres geológicos/hídricos); monitoreo a gran escala en sitios de desastre, búsqueda y rescate, mapeo digital y modelado 3D para evaluación de daños.",
+        "key_parameter_1_es": "Resistencia (sin carga): 75 min",
+        "key_parameter_2_es": "Carga útil estándar: 7 kg",
+        "parameters_es": {
+          "Velocidad máxima de vuelo": "15m/s",
+          "Número de rotores": "6 ejes 6 puntales",
+          "Carga útil estándar": "7 kilos",
+          "Temperatura de funcionamiento": "-20℃~50℃",
+          "Hélices": "29 pulgadas Accesorios",
+          "Resistencia (No Carga)": "75 minutos",
+          "Sistema de energía": "FOC Alta eficiencia",
+          "Distancia entre ejes": "1600mm",
+          "Precisión de posicionamiento": "±0,5 m",
+          "Resistencia al viento": "Nivel 6",
+          "Sistema de posicionamiento": "GPS/Beidou/Galileo/Glonass",
+          "Altitud máxima de vuelo": "4000m",
+          "Protección": "Retorno a prueba de fallos, retorno de batería baja, reanudación desde el punto de interrupción"
+        },
+        "detail_html_es": "<h4>Características</h4><ul><li>Plataforma aérea de despliegue rápido para gestión de desastres. Proporciona monitoreo en tiempo real y recopilación de datos a través de tecnología de fusión de enlaces múltiples.</li><li>El diseño modular admite cámaras HD, sensores térmicos y detectores de gas. Ideal para monitoreo de incendios forestales, reconocimiento de desastres y control ambiental.</li></ul>"
       },
       {
         "name": "FC-RDS500-4R Radar-Vision Fusion System",
         "handle": "fc-rds500-4r-radar-vision-sentinel",
-        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
+        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning",
+        "product_name_es": "Sistema de fusión radar-visión FC-RDS500-4R",
+        "summary_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "key_application_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_1_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_2_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "parameters_es": {
+          "Rendimiento general": "1. Reconocimiento de objetivos: peatones, vehículos\n2. Rango de escaneo: cobertura total de 360°\n3. Distancia de reconocimiento: peatón (RCS 0,5㎡) ≥500 m, vehículo (RCS 5㎡) ≥700 m",
+          "Radar": "1. Tipo de radar: 1T8R FMCW\n2. Precisión de rango: ±0,75 m\n3. Resolución de rango: 1,5 m\n4. Ancho del haz: Azimut (-6dB): 360°, Elevación (-6dB): 13°\n5. Precisión de medición de ángulo: ±1°",
+          "Luz visible HD": "1. Distancia de trabajo: Vehículo mediano (4,6 m×2,3 m): 7000 m, Persona de pie (1,7 m×0,5 m): 5000 m\n2. Sensor: CMOS retroiluminado con calidad de luz de estrellas\n3. Resolución: 1920×1080\n4. Iluminación: Color 0,01 Lux, B/N 0,001 Lux\n5. Distancia focal de la lente: 7 mm ~ 300 mm Zoom óptico de 43x, zoom digital de 16x control de enfoque: enfoque manual/automático",
+          "Iluminación láser": "1. Distancia de iluminación: 300 m\n2. Tipo de láser: Nueva fuente de luz homogeneizada de reflector HD, sin partículas moteadas\n3. Ángulo de iluminación: 1°～20°",
+          "Advertencia de luz y sonido": "Tweeter integrado + luz estroboscópica, admite sonido de alarma personalizado, admite reemplazo con láser verde deslumbrante",
+          "Cámara PTZ": "1. Velocidad de rotación: Horizontal: 0,01°/s~180°/s; Inclinación: 0,01°/s~120°/s, admite velocidad adaptativa de distancia focal\n2. Ángulo de rotación: Horizontal: rotación continua de 360°; Inclinación: -90°~+90°\n3. Crucero preestablecido: 3000 preajustes, admite 16 rutas de crucero, cada una puede admitir 256 preajustes",
+          "Inteligencia": "1. Análisis inteligente: admite detección de intrusión regional, detección de intrusión de cable trampa, detección de movimiento, detección de crucero, así como detección de merodeo, detección de reunión, detección de permanencia, detección de dirección inversa, etc.\n2. Seguimiento automático: admite seguimiento de múltiples escenas, seguimiento de vinculación de alarma",
+          "Protocolo de interfaz": "1. Comunicación y control: RJ45/cascada de fibra LC dual",
+          "Fuente de alimentación": "1. Rango de fuente de alimentación: AC220V±20%\n2. Consumo máximo de energía: ≤160W",
+          "Dimensiones": "315 mm×300 mm×480 mm (L×W×H)",
+          "Instalación": "Instalación fija/montaje temporal en trípode, la altura de instalación recomendada es de 3 a 5 m",
+          "Adaptabilidad ambiental": "1. Temperatura de trabajo: -40 ℃ ~ 60 ℃\n2. Humedad de trabajo: ≤95% RH\n3. Nivel de protección: IP66",
+          "Unidad inteligente de borde": "1. Rendimiento de la IA: 21 TOPS\n2. Memoria: 8GB\n3. Núcleos: GPU 384 núcleos, CPU 6 núcleos\n4. Acceso a alarma: Admite sensor de vibración RS485 externo\n5. Peso: ≤5kg\n6. Dimensiones: 347 mm × 210 mm × 98 mm\n7. Nivel de protección: IP65",
+          "Personalización": "Admite el desarrollo de funciones personalizadas"
+        },
+        "detail_html_es": "<h4>Características principales</h4><ul><li>Adopta la detección compuesta de radar y cámara, combinando detección activa y pasiva, que puede cumplir con los requisitos de trabajo diurno y nocturno y resistente a la intemperie.</li><li>Fusión inteligente de visión de radar, la visión fusiona la información del objetivo del radar para rastrear, generar imágenes e identificar de manera inteligente objetivos en movimiento interesados en el área de seguridad.</li><li>Diseño integrado de detección y advertencia, admite tweeter + luz estroboscópica, admite deslumbramiento con láser verde opcional para advertir objetivos intrusos.</li><li>Toda la máquina es liviana y de tamaño pequeño, fácil de instalar y mantener, admite transmisión 4G/5G opcional y estación integrada fotovoltaica, lo que mejora materialmente la eficiencia de la construcción y reduce los costos de construcción.</li><li>Diseño de estructura cuasi esférica, gran capacidad de carga, velocidad de rotación rápida, mejor resistencia al viento y rendimiento antivibraciones, más claro imágenes.</li></ul>"
       },
       {
         "name": "26kg MTOW VTOL Fixed-Wing UAV",
         "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "role": "Long-endurance shoreline and border-corridor patrol",
+        "product_name_es": "26kg MTOW VTOL UAV de ala fija",
+        "summary_es": "El UAV de ala fija MTOW VTOL FC-CQ26 de 26 kg admite tareas de patrullaje de corredores de carga útil media, mapeo, estudio de desastres y monitoreo de áreas amplias.",
+        "key_application_es": "Inspección de líneas eléctricas y tuberías, patrullaje de pasillos largos, mapeo del terreno, estudio de desastres y monitoreo de área amplia.",
+        "key_parameter_1_es": "Resistencia (sin carga): 240 min",
+        "key_parameter_2_es": "MTOW: 26 kg",
+        "parameters_es": {
+          "Dimensiones generales": "3,2 m×1,83 m×0,46 m",
+          "Altura del tren de aterrizaje": "190 mm",
+          "Área del ala": "aproximadamente 93dm2",
+          "Peso máximo de despegue": "26KG",
+          "Carga útil máxima": "5KG",
+          "Resistencia sin carga útil": "240min",
+          "Velocidad de crucero": "21 m/s",
+          "Altitud máxima": "4200m",
+          "Resistencia al viento": "Nivel 6 en modo rotor; Nivel 7 en modo de ala fija",
+          "Clasificación de protección": "P54",
+          "Dimensiones de la caja de transporte": "1800mm*680mm*480mm"
+        },
+        "detail_html_es": "<h3>Introducción del producto</h3><p>El UAV de ala fija MTOW VTOL de 26 kg FC-CQ26 es una plataforma de carga útil media para inspección de líneas eléctricas y tuberías, patrullaje de corredores largos, mapeo del terreno, estudio de desastres y áreas amplias. seguimiento. Su diseño de despegue y aterrizaje vertical reduce los requisitos de la pista, mientras que el modo de crucero de ala fija admite una cobertura más eficiente de rutas lineales y áreas de reconocimiento más grandes. El avión está especificado con un peso máximo de despegue de 26 kg, una carga útil máxima de 5 kg, 240 minutos de autonomía sin carga útil, una velocidad de crucero de 21 m/s y una altitud máxima de 4200 m. La resistencia al viento figura como Nivel 6 en modo rotor y Nivel 7 en modo de ala fija, con un índice de protección P54. Estos parámetros lo hacen adecuado para equipos de campo que trabajan en corredores, montañas, bosques y puntos operativos temporales.</p><figure><img src=\"/products/uav-systems/vtol-26kg-mtow-uav.webp\" alt=\"FC-CQ26 26 kg MTOW VTOL UAV de ala fija\" /></figure>"
       }
     ],
     "related_cases": [
@@ -147,12 +271,52 @@
       {
         "name": "БПЛА для экстренного реагирования",
         "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Быстрое патрулирование, разведка, голосовое предупреждение и полевое реагирование"
+        "role": "Быстрое патрулирование, разведка, голосовое предупреждение и полевое реагирование",
+        "product_name_es": "Dron de respuesta a emergencias",
+        "summary_es": "El dron de respuesta a emergencias es una plataforma aérea de rápido despliegue diseñada específicamente para respuesta a incidentes y gestión de desastres. El sistema consta de una plataforma de drones de alta movilidad, módulos de carga útil multitarea y una terminal de comando integrada. Al utilizar tecnología de comunicación de fusión multienlace, logra monitoreo en tiempo real, reconocimiento rápido y recopilación de datos en escenarios de emergencia complejos, proporcionando información crítica para respaldar la toma de decisiones del comando.",
+        "key_application_es": "Respuesta a incidentes (incendios forestales, desastres geológicos/hídricos); monitoreo a gran escala en sitios de desastre, búsqueda y rescate, mapeo digital y modelado 3D para evaluación de daños.",
+        "key_parameter_1_es": "Resistencia (sin carga): 75 min",
+        "key_parameter_2_es": "Carga útil estándar: 7 kg",
+        "parameters_es": {
+          "Velocidad máxima de vuelo": "15m/s",
+          "Número de rotores": "6 ejes 6 puntales",
+          "Carga útil estándar": "7 kilos",
+          "Temperatura de funcionamiento": "-20℃~50℃",
+          "Hélices": "29 pulgadas Accesorios",
+          "Resistencia (No Carga)": "75 minutos",
+          "Sistema de energía": "FOC Alta eficiencia",
+          "Distancia entre ejes": "1600mm",
+          "Precisión de posicionamiento": "±0,5 m",
+          "Resistencia al viento": "Nivel 6",
+          "Sistema de posicionamiento": "GPS/Beidou/Galileo/Glonass",
+          "Altitud máxima de vuelo": "4000m",
+          "Protección": "Retorno a prueba de fallos, retorno de batería baja, reanudación desde el punto de interrupción"
+        },
+        "detail_html_es": "<h4>Características</h4><ul><li>Plataforma aérea de despliegue rápido para gestión de desastres. Proporciona monitoreo en tiempo real y recopilación de datos a través de tecnología de fusión de enlaces múltiples.</li><li>El diseño modular admite cámaras HD, sensores térmicos y detectores de gas. Ideal para monitoreo de incendios forestales, reconocimiento de desastres y control ambiental.</li></ul>"
       },
       {
         "name": "26kg MTOW VTOL Fixed-Wing UAV",
         "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "role": "Long-endurance shoreline and border-corridor patrol",
+        "product_name_es": "26kg MTOW VTOL UAV de ala fija",
+        "summary_es": "El UAV de ala fija MTOW VTOL FC-CQ26 de 26 kg admite tareas de patrullaje de corredores de carga útil media, mapeo, estudio de desastres y monitoreo de áreas amplias.",
+        "key_application_es": "Inspección de líneas eléctricas y tuberías, patrullaje de pasillos largos, mapeo del terreno, estudio de desastres y monitoreo de área amplia.",
+        "key_parameter_1_es": "Resistencia (sin carga): 240 min",
+        "key_parameter_2_es": "MTOW: 26 kg",
+        "parameters_es": {
+          "Dimensiones generales": "3,2 m×1,83 m×0,46 m",
+          "Altura del tren de aterrizaje": "190 mm",
+          "Área del ala": "aproximadamente 93dm2",
+          "Peso máximo de despegue": "26KG",
+          "Carga útil máxima": "5KG",
+          "Resistencia sin carga útil": "240min",
+          "Velocidad de crucero": "21 m/s",
+          "Altitud máxima": "4200m",
+          "Resistencia al viento": "Nivel 6 en modo rotor; Nivel 7 en modo de ala fija",
+          "Clasificación de protección": "P54",
+          "Dimensiones de la caja de transporte": "1800mm*680mm*480mm"
+        },
+        "detail_html_es": "<h3>Introducción del producto</h3><p>El UAV de ala fija MTOW VTOL de 26 kg FC-CQ26 es una plataforma de carga útil media para inspección de líneas eléctricas y tuberías, patrullaje de corredores largos, mapeo del terreno, estudio de desastres y áreas amplias. seguimiento. Su diseño de despegue y aterrizaje vertical reduce los requisitos de la pista, mientras que el modo de crucero de ala fija admite una cobertura más eficiente de rutas lineales y áreas de reconocimiento más grandes. El avión está especificado con un peso máximo de despegue de 26 kg, una carga útil máxima de 5 kg, 240 minutos de autonomía sin carga útil, una velocidad de crucero de 21 m/s y una altitud máxima de 4200 m. La resistencia al viento figura como Nivel 6 en modo rotor y Nivel 7 en modo de ala fija, con un índice de protección P54. Estos parámetros lo hacen adecuado para equipos de campo que trabajan en corredores, montañas, bosques y puntos operativos temporales.</p><figure><img src=\"/products/uav-systems/vtol-26kg-mtow-uav.webp\" alt=\"FC-CQ26 26 kg MTOW VTOL UAV de ala fija\" /></figure>"
       }
     ],
     "related_cases": [
@@ -194,17 +358,79 @@
       {
         "name": "Emergency Response Drone",
         "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response"
+        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response",
+        "product_name_es": "Dron de respuesta a emergencias",
+        "summary_es": "El dron de respuesta a emergencias es una plataforma aérea de rápido despliegue diseñada específicamente para respuesta a incidentes y gestión de desastres. El sistema consta de una plataforma de drones de alta movilidad, módulos de carga útil multitarea y una terminal de comando integrada. Al utilizar tecnología de comunicación de fusión multienlace, logra monitoreo en tiempo real, reconocimiento rápido y recopilación de datos en escenarios de emergencia complejos, proporcionando información crítica para respaldar la toma de decisiones del comando.",
+        "key_application_es": "Respuesta a incidentes (incendios forestales, desastres geológicos/hídricos); monitoreo a gran escala en sitios de desastre, búsqueda y rescate, mapeo digital y modelado 3D para evaluación de daños.",
+        "key_parameter_1_es": "Resistencia (sin carga): 75 min",
+        "key_parameter_2_es": "Carga útil estándar: 7 kg",
+        "parameters_es": {
+          "Velocidad máxima de vuelo": "15m/s",
+          "Número de rotores": "6 ejes 6 puntales",
+          "Carga útil estándar": "7 kilos",
+          "Temperatura de funcionamiento": "-20℃~50℃",
+          "Hélices": "29 pulgadas Accesorios",
+          "Resistencia (No Carga)": "75 minutos",
+          "Sistema de energía": "FOC Alta eficiencia",
+          "Distancia entre ejes": "1600mm",
+          "Precisión de posicionamiento": "±0,5 m",
+          "Resistencia al viento": "Nivel 6",
+          "Sistema de posicionamiento": "GPS/Beidou/Galileo/Glonass",
+          "Altitud máxima de vuelo": "4000m",
+          "Protección": "Retorno a prueba de fallos, retorno de batería baja, reanudación desde el punto de interrupción"
+        },
+        "detail_html_es": "<h4>Características</h4><ul><li>Plataforma aérea de despliegue rápido para gestión de desastres. Proporciona monitoreo en tiempo real y recopilación de datos a través de tecnología de fusión de enlaces múltiples.</li><li>El diseño modular admite cámaras HD, sensores térmicos y detectores de gas. Ideal para monitoreo de incendios forestales, reconocimiento de desastres y control ambiental.</li></ul>"
       },
       {
         "name": "FC-RDS500-4R Radar-Vision Fusion System",
         "handle": "fc-rds500-4r-radar-vision-sentinel",
-        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
+        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning",
+        "product_name_es": "Sistema de fusión radar-visión FC-RDS500-4R",
+        "summary_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "key_application_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_1_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_2_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "parameters_es": {
+          "Rendimiento general": "1. Reconocimiento de objetivos: peatones, vehículos\n2. Rango de escaneo: cobertura total de 360°\n3. Distancia de reconocimiento: peatón (RCS 0,5㎡) ≥500 m, vehículo (RCS 5㎡) ≥700 m",
+          "Radar": "1. Tipo de radar: 1T8R FMCW\n2. Precisión de rango: ±0,75 m\n3. Resolución de rango: 1,5 m\n4. Ancho del haz: Azimut (-6dB): 360°, Elevación (-6dB): 13°\n5. Precisión de medición de ángulo: ±1°",
+          "Luz visible HD": "1. Distancia de trabajo: Vehículo mediano (4,6 m×2,3 m): 7000 m, Persona de pie (1,7 m×0,5 m): 5000 m\n2. Sensor: CMOS retroiluminado con calidad de luz de estrellas\n3. Resolución: 1920×1080\n4. Iluminación: Color 0,01 Lux, B/N 0,001 Lux\n5. Distancia focal de la lente: 7 mm ~ 300 mm Zoom óptico de 43x, zoom digital de 16x control de enfoque: enfoque manual/automático",
+          "Iluminación láser": "1. Distancia de iluminación: 300 m\n2. Tipo de láser: Nueva fuente de luz homogeneizada de reflector HD, sin partículas moteadas\n3. Ángulo de iluminación: 1°～20°",
+          "Advertencia de luz y sonido": "Tweeter integrado + luz estroboscópica, admite sonido de alarma personalizado, admite reemplazo con láser verde deslumbrante",
+          "Cámara PTZ": "1. Velocidad de rotación: Horizontal: 0,01°/s~180°/s; Inclinación: 0,01°/s~120°/s, admite velocidad adaptativa de distancia focal\n2. Ángulo de rotación: Horizontal: rotación continua de 360°; Inclinación: -90°~+90°\n3. Crucero preestablecido: 3000 preajustes, admite 16 rutas de crucero, cada una puede admitir 256 preajustes",
+          "Inteligencia": "1. Análisis inteligente: admite detección de intrusión regional, detección de intrusión de cable trampa, detección de movimiento, detección de crucero, así como detección de merodeo, detección de reunión, detección de permanencia, detección de dirección inversa, etc.\n2. Seguimiento automático: admite seguimiento de múltiples escenas, seguimiento de vinculación de alarma",
+          "Protocolo de interfaz": "1. Comunicación y control: RJ45/cascada de fibra LC dual",
+          "Fuente de alimentación": "1. Rango de fuente de alimentación: AC220V±20%\n2. Consumo máximo de energía: ≤160W",
+          "Dimensiones": "315 mm×300 mm×480 mm (L×W×H)",
+          "Instalación": "Instalación fija/montaje temporal en trípode, la altura de instalación recomendada es de 3 a 5 m",
+          "Adaptabilidad ambiental": "1. Temperatura de trabajo: -40 ℃ ~ 60 ℃\n2. Humedad de trabajo: ≤95% RH\n3. Nivel de protección: IP66",
+          "Unidad inteligente de borde": "1. Rendimiento de la IA: 21 TOPS\n2. Memoria: 8GB\n3. Núcleos: GPU 384 núcleos, CPU 6 núcleos\n4. Acceso a alarma: Admite sensor de vibración RS485 externo\n5. Peso: ≤5kg\n6. Dimensiones: 347 mm × 210 mm × 98 mm\n7. Nivel de protección: IP65",
+          "Personalización": "Admite el desarrollo de funciones personalizadas"
+        },
+        "detail_html_es": "<h4>Características principales</h4><ul><li>Adopta la detección compuesta de radar y cámara, combinando detección activa y pasiva, que puede cumplir con los requisitos de trabajo diurno y nocturno y resistente a la intemperie.</li><li>Fusión inteligente de visión de radar, la visión fusiona la información del objetivo del radar para rastrear, generar imágenes e identificar de manera inteligente objetivos en movimiento interesados en el área de seguridad.</li><li>Diseño integrado de detección y advertencia, admite tweeter + luz estroboscópica, admite deslumbramiento con láser verde opcional para advertir objetivos intrusos.</li><li>Toda la máquina es liviana y de tamaño pequeño, fácil de instalar y mantener, admite transmisión 4G/5G opcional y estación integrada fotovoltaica, lo que mejora materialmente la eficiencia de la construcción y reduce los costos de construcción.</li><li>Diseño de estructura cuasi esférica, gran capacidad de carga, velocidad de rotación rápida, mejor resistencia al viento y rendimiento antivibraciones, más claro imágenes.</li></ul>"
       },
       {
         "name": "26kg MTOW VTOL Fixed-Wing UAV",
         "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "role": "Long-endurance shoreline and border-corridor patrol",
+        "product_name_es": "26kg MTOW VTOL UAV de ala fija",
+        "summary_es": "El UAV de ala fija MTOW VTOL FC-CQ26 de 26 kg admite tareas de patrullaje de corredores de carga útil media, mapeo, estudio de desastres y monitoreo de áreas amplias.",
+        "key_application_es": "Inspección de líneas eléctricas y tuberías, patrullaje de pasillos largos, mapeo del terreno, estudio de desastres y monitoreo de área amplia.",
+        "key_parameter_1_es": "Resistencia (sin carga): 240 min",
+        "key_parameter_2_es": "MTOW: 26 kg",
+        "parameters_es": {
+          "Dimensiones generales": "3,2 m×1,83 m×0,46 m",
+          "Altura del tren de aterrizaje": "190 mm",
+          "Área del ala": "aproximadamente 93dm2",
+          "Peso máximo de despegue": "26KG",
+          "Carga útil máxima": "5KG",
+          "Resistencia sin carga útil": "240min",
+          "Velocidad de crucero": "21 m/s",
+          "Altitud máxima": "4200m",
+          "Resistencia al viento": "Nivel 6 en modo rotor; Nivel 7 en modo de ala fija",
+          "Clasificación de protección": "P54",
+          "Dimensiones de la caja de transporte": "1800mm*680mm*480mm"
+        },
+        "detail_html_es": "<h3>Introducción del producto</h3><p>El UAV de ala fija MTOW VTOL de 26 kg FC-CQ26 es una plataforma de carga útil media para inspección de líneas eléctricas y tuberías, patrullaje de corredores largos, mapeo del terreno, estudio de desastres y áreas amplias. seguimiento. Su diseño de despegue y aterrizaje vertical reduce los requisitos de la pista, mientras que el modo de crucero de ala fija admite una cobertura más eficiente de rutas lineales y áreas de reconocimiento más grandes. El avión está especificado con un peso máximo de despegue de 26 kg, una carga útil máxima de 5 kg, 240 minutos de autonomía sin carga útil, una velocidad de crucero de 21 m/s y una altitud máxima de 4200 m. La resistencia al viento figura como Nivel 6 en modo rotor y Nivel 7 en modo de ala fija, con un índice de protección P54. Estos parámetros lo hacen adecuado para equipos de campo que trabajan en corredores, montañas, bosques y puntos operativos temporales.</p><figure><img src=\"/products/uav-systems/vtol-26kg-mtow-uav.webp\" alt=\"FC-CQ26 26 kg MTOW VTOL UAV de ala fija\" /></figure>"
       }
     ],
     "related_cases": [
@@ -241,17 +467,79 @@
       {
         "name": "Emergency Response Drone",
         "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response"
+        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response",
+        "product_name_es": "Dron de respuesta a emergencias",
+        "summary_es": "El dron de respuesta a emergencias es una plataforma aérea de rápido despliegue diseñada específicamente para respuesta a incidentes y gestión de desastres. El sistema consta de una plataforma de drones de alta movilidad, módulos de carga útil multitarea y una terminal de comando integrada. Al utilizar tecnología de comunicación de fusión multienlace, logra monitoreo en tiempo real, reconocimiento rápido y recopilación de datos en escenarios de emergencia complejos, proporcionando información crítica para respaldar la toma de decisiones del comando.",
+        "key_application_es": "Respuesta a incidentes (incendios forestales, desastres geológicos/hídricos); monitoreo a gran escala en sitios de desastre, búsqueda y rescate, mapeo digital y modelado 3D para evaluación de daños.",
+        "key_parameter_1_es": "Resistencia (sin carga): 75 min",
+        "key_parameter_2_es": "Carga útil estándar: 7 kg",
+        "parameters_es": {
+          "Velocidad máxima de vuelo": "15m/s",
+          "Número de rotores": "6 ejes 6 puntales",
+          "Carga útil estándar": "7 kilos",
+          "Temperatura de funcionamiento": "-20℃~50℃",
+          "Hélices": "29 pulgadas Accesorios",
+          "Resistencia (No Carga)": "75 minutos",
+          "Sistema de energía": "FOC Alta eficiencia",
+          "Distancia entre ejes": "1600mm",
+          "Precisión de posicionamiento": "±0,5 m",
+          "Resistencia al viento": "Nivel 6",
+          "Sistema de posicionamiento": "GPS/Beidou/Galileo/Glonass",
+          "Altitud máxima de vuelo": "4000m",
+          "Protección": "Retorno a prueba de fallos, retorno de batería baja, reanudación desde el punto de interrupción"
+        },
+        "detail_html_es": "<h4>Características</h4><ul><li>Plataforma aérea de despliegue rápido para gestión de desastres. Proporciona monitoreo en tiempo real y recopilación de datos a través de tecnología de fusión de enlaces múltiples.</li><li>El diseño modular admite cámaras HD, sensores térmicos y detectores de gas. Ideal para monitoreo de incendios forestales, reconocimiento de desastres y control ambiental.</li></ul>"
       },
       {
         "name": "FC-RDS500-4R Radar-Vision Fusion System",
         "handle": "fc-rds500-4r-radar-vision-sentinel",
-        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
+        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning",
+        "product_name_es": "Sistema de fusión radar-visión FC-RDS500-4R",
+        "summary_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "key_application_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_1_es": "Aplicaciones: Seguridad perimetral de precisión 24 horas al día, 7 días a la semana; vigilancia integrada radar-visión; identificación y seguimiento autónomo de objetivos; disuasión activa e intervención no cinética; despliegue rápido en el campo.",
+        "key_parameter_2_es": "El sistema centinela electrónico inteligente de fusión de visión y radar FC-RDS500-4R es un producto de equipo de fusión de visión y radar panorámico de área amplia. La detección de objetivos se realiza mediante la cooperación de un radar de cuatro lados y una cámara PTZ, combinando perfectamente la detección activa y la alta sensibilidad de la tecnología de radar con la visibilidad e inteligencia del video, mejorando materialmente la tasa de detección del sistema en entornos complejos. ",
+        "parameters_es": {
+          "Rendimiento general": "1. Reconocimiento de objetivos: peatones, vehículos\n2. Rango de escaneo: cobertura total de 360°\n3. Distancia de reconocimiento: peatón (RCS 0,5㎡) ≥500 m, vehículo (RCS 5㎡) ≥700 m",
+          "Radar": "1. Tipo de radar: 1T8R FMCW\n2. Precisión de rango: ±0,75 m\n3. Resolución de rango: 1,5 m\n4. Ancho del haz: Azimut (-6dB): 360°, Elevación (-6dB): 13°\n5. Precisión de medición de ángulo: ±1°",
+          "Luz visible HD": "1. Distancia de trabajo: Vehículo mediano (4,6 m×2,3 m): 7000 m, Persona de pie (1,7 m×0,5 m): 5000 m\n2. Sensor: CMOS retroiluminado con calidad de luz de estrellas\n3. Resolución: 1920×1080\n4. Iluminación: Color 0,01 Lux, B/N 0,001 Lux\n5. Distancia focal de la lente: 7 mm ~ 300 mm Zoom óptico de 43x, zoom digital de 16x control de enfoque: enfoque manual/automático",
+          "Iluminación láser": "1. Distancia de iluminación: 300 m\n2. Tipo de láser: Nueva fuente de luz homogeneizada de reflector HD, sin partículas moteadas\n3. Ángulo de iluminación: 1°～20°",
+          "Advertencia de luz y sonido": "Tweeter integrado + luz estroboscópica, admite sonido de alarma personalizado, admite reemplazo con láser verde deslumbrante",
+          "Cámara PTZ": "1. Velocidad de rotación: Horizontal: 0,01°/s~180°/s; Inclinación: 0,01°/s~120°/s, admite velocidad adaptativa de distancia focal\n2. Ángulo de rotación: Horizontal: rotación continua de 360°; Inclinación: -90°~+90°\n3. Crucero preestablecido: 3000 preajustes, admite 16 rutas de crucero, cada una puede admitir 256 preajustes",
+          "Inteligencia": "1. Análisis inteligente: admite detección de intrusión regional, detección de intrusión de cable trampa, detección de movimiento, detección de crucero, así como detección de merodeo, detección de reunión, detección de permanencia, detección de dirección inversa, etc.\n2. Seguimiento automático: admite seguimiento de múltiples escenas, seguimiento de vinculación de alarma",
+          "Protocolo de interfaz": "1. Comunicación y control: RJ45/cascada de fibra LC dual",
+          "Fuente de alimentación": "1. Rango de fuente de alimentación: AC220V±20%\n2. Consumo máximo de energía: ≤160W",
+          "Dimensiones": "315 mm×300 mm×480 mm (L×W×H)",
+          "Instalación": "Instalación fija/montaje temporal en trípode, la altura de instalación recomendada es de 3 a 5 m",
+          "Adaptabilidad ambiental": "1. Temperatura de trabajo: -40 ℃ ~ 60 ℃\n2. Humedad de trabajo: ≤95% RH\n3. Nivel de protección: IP66",
+          "Unidad inteligente de borde": "1. Rendimiento de la IA: 21 TOPS\n2. Memoria: 8GB\n3. Núcleos: GPU 384 núcleos, CPU 6 núcleos\n4. Acceso a alarma: Admite sensor de vibración RS485 externo\n5. Peso: ≤5kg\n6. Dimensiones: 347 mm × 210 mm × 98 mm\n7. Nivel de protección: IP65",
+          "Personalización": "Admite el desarrollo de funciones personalizadas"
+        },
+        "detail_html_es": "<h4>Características principales</h4><ul><li>Adopta la detección compuesta de radar y cámara, combinando detección activa y pasiva, que puede cumplir con los requisitos de trabajo diurno y nocturno y resistente a la intemperie.</li><li>Fusión inteligente de visión de radar, la visión fusiona la información del objetivo del radar para rastrear, generar imágenes e identificar de manera inteligente objetivos en movimiento interesados en el área de seguridad.</li><li>Diseño integrado de detección y advertencia, admite tweeter + luz estroboscópica, admite deslumbramiento con láser verde opcional para advertir objetivos intrusos.</li><li>Toda la máquina es liviana y de tamaño pequeño, fácil de instalar y mantener, admite transmisión 4G/5G opcional y estación integrada fotovoltaica, lo que mejora materialmente la eficiencia de la construcción y reduce los costos de construcción.</li><li>Diseño de estructura cuasi esférica, gran capacidad de carga, velocidad de rotación rápida, mejor resistencia al viento y rendimiento antivibraciones, más claro imágenes.</li></ul>"
       },
       {
         "name": "26kg MTOW VTOL Fixed-Wing UAV",
         "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "role": "Long-endurance shoreline and border-corridor patrol",
+        "product_name_es": "26kg MTOW VTOL UAV de ala fija",
+        "summary_es": "El UAV de ala fija MTOW VTOL FC-CQ26 de 26 kg admite tareas de patrullaje de corredores de carga útil media, mapeo, estudio de desastres y monitoreo de áreas amplias.",
+        "key_application_es": "Inspección de líneas eléctricas y tuberías, patrullaje de pasillos largos, mapeo del terreno, estudio de desastres y monitoreo de área amplia.",
+        "key_parameter_1_es": "Resistencia (sin carga): 240 min",
+        "key_parameter_2_es": "MTOW: 26 kg",
+        "parameters_es": {
+          "Dimensiones generales": "3,2 m×1,83 m×0,46 m",
+          "Altura del tren de aterrizaje": "190 mm",
+          "Área del ala": "aproximadamente 93dm2",
+          "Peso máximo de despegue": "26KG",
+          "Carga útil máxima": "5KG",
+          "Resistencia sin carga útil": "240min",
+          "Velocidad de crucero": "21 m/s",
+          "Altitud máxima": "4200m",
+          "Resistencia al viento": "Nivel 6 en modo rotor; Nivel 7 en modo de ala fija",
+          "Clasificación de protección": "P54",
+          "Dimensiones de la caja de transporte": "1800mm*680mm*480mm"
+        },
+        "detail_html_es": "<h3>Introducción del producto</h3><p>El UAV de ala fija MTOW VTOL de 26 kg FC-CQ26 es una plataforma de carga útil media para inspección de líneas eléctricas y tuberías, patrullaje de corredores largos, mapeo del terreno, estudio de desastres y áreas amplias. seguimiento. Su diseño de despegue y aterrizaje vertical reduce los requisitos de la pista, mientras que el modo de crucero de ala fija admite una cobertura más eficiente de rutas lineales y áreas de reconocimiento más grandes. El avión está especificado con un peso máximo de despegue de 26 kg, una carga útil máxima de 5 kg, 240 minutos de autonomía sin carga útil, una velocidad de crucero de 21 m/s y una altitud máxima de 4200 m. La resistencia al viento figura como Nivel 6 en modo rotor y Nivel 7 en modo de ala fija, con un índice de protección P54. Estos parámetros lo hacen adecuado para equipos de campo que trabajan en corredores, montañas, bosques y puntos operativos temporales.</p><figure><img src=\"/products/uav-systems/vtol-26kg-mtow-uav.webp\" alt=\"FC-CQ26 26 kg MTOW VTOL UAV de ala fija\" /></figure>"
       }
     ],
     "related_cases": [
@@ -288,12 +576,52 @@
       {
         "name": "БПЛА для экстренного реагирования",
         "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Быстрое патрулирование, разведка, голосовое предупреждение и полевое реагирование"
+        "role": "Быстрое патрулирование, разведка, голосовое предупреждение и полевое реагирование",
+        "product_name_es": "Dron de respuesta a emergencias",
+        "summary_es": "El dron de respuesta a emergencias es una plataforma aérea de rápido despliegue diseñada específicamente para respuesta a incidentes y gestión de desastres. El sistema consta de una plataforma de drones de alta movilidad, módulos de carga útil multitarea y una terminal de comando integrada. Al utilizar tecnología de comunicación de fusión multienlace, logra monitoreo en tiempo real, reconocimiento rápido y recopilación de datos en escenarios de emergencia complejos, proporcionando información crítica para respaldar la toma de decisiones del comando.",
+        "key_application_es": "Respuesta a incidentes (incendios forestales, desastres geológicos/hídricos); monitoreo a gran escala en sitios de desastre, búsqueda y rescate, mapeo digital y modelado 3D para evaluación de daños.",
+        "key_parameter_1_es": "Resistencia (sin carga): 75 min",
+        "key_parameter_2_es": "Carga útil estándar: 7 kg",
+        "parameters_es": {
+          "Velocidad máxima de vuelo": "15m/s",
+          "Número de rotores": "6 ejes 6 puntales",
+          "Carga útil estándar": "7 kilos",
+          "Temperatura de funcionamiento": "-20℃~50℃",
+          "Hélices": "29 pulgadas Accesorios",
+          "Resistencia (No Carga)": "75 minutos",
+          "Sistema de energía": "FOC Alta eficiencia",
+          "Distancia entre ejes": "1600mm",
+          "Precisión de posicionamiento": "±0,5 m",
+          "Resistencia al viento": "Nivel 6",
+          "Sistema de posicionamiento": "GPS/Beidou/Galileo/Glonass",
+          "Altitud máxima de vuelo": "4000m",
+          "Protección": "Retorno a prueba de fallos, retorno de batería baja, reanudación desde el punto de interrupción"
+        },
+        "detail_html_es": "<h4>Características</h4><ul><li>Plataforma aérea de despliegue rápido para gestión de desastres. Proporciona monitoreo en tiempo real y recopilación de datos a través de tecnología de fusión de enlaces múltiples.</li><li>El diseño modular admite cámaras HD, sensores térmicos y detectores de gas. Ideal para monitoreo de incendios forestales, reconocimiento de desastres y control ambiental.</li></ul>"
       },
       {
         "name": "26kg MTOW VTOL Fixed-Wing UAV",
         "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "role": "Long-endurance shoreline and border-corridor patrol",
+        "product_name_es": "26kg MTOW VTOL UAV de ala fija",
+        "summary_es": "El UAV de ala fija MTOW VTOL FC-CQ26 de 26 kg admite tareas de patrullaje de corredores de carga útil media, mapeo, estudio de desastres y monitoreo de áreas amplias.",
+        "key_application_es": "Inspección de líneas eléctricas y tuberías, patrullaje de pasillos largos, mapeo del terreno, estudio de desastres y monitoreo de área amplia.",
+        "key_parameter_1_es": "Resistencia (sin carga): 240 min",
+        "key_parameter_2_es": "MTOW: 26 kg",
+        "parameters_es": {
+          "Dimensiones generales": "3,2 m×1,83 m×0,46 m",
+          "Altura del tren de aterrizaje": "190 mm",
+          "Área del ala": "aproximadamente 93dm2",
+          "Peso máximo de despegue": "26KG",
+          "Carga útil máxima": "5KG",
+          "Resistencia sin carga útil": "240min",
+          "Velocidad de crucero": "21 m/s",
+          "Altitud máxima": "4200m",
+          "Resistencia al viento": "Nivel 6 en modo rotor; Nivel 7 en modo de ala fija",
+          "Clasificación de protección": "P54",
+          "Dimensiones de la caja de transporte": "1800mm*680mm*480mm"
+        },
+        "detail_html_es": "<h3>Introducción del producto</h3><p>El UAV de ala fija MTOW VTOL de 26 kg FC-CQ26 es una plataforma de carga útil media para inspección de líneas eléctricas y tuberías, patrullaje de corredores largos, mapeo del terreno, estudio de desastres y áreas amplias. seguimiento. Su diseño de despegue y aterrizaje vertical reduce los requisitos de la pista, mientras que el modo de crucero de ala fija admite una cobertura más eficiente de rutas lineales y áreas de reconocimiento más grandes. El avión está especificado con un peso máximo de despegue de 26 kg, una carga útil máxima de 5 kg, 240 minutos de autonomía sin carga útil, una velocidad de crucero de 21 m/s y una altitud máxima de 4200 m. La resistencia al viento figura como Nivel 6 en modo rotor y Nivel 7 en modo de ala fija, con un índice de protección P54. Estos parámetros lo hacen adecuado para equipos de campo que trabajan en corredores, montañas, bosques y puntos operativos temporales.</p><figure><img src=\"/products/uav-systems/vtol-26kg-mtow-uav.webp\" alt=\"FC-CQ26 26 kg MTOW VTOL UAV de ala fija\" /></figure>"
       }
     ],
     "related_cases": [
@@ -310,59 +638,59 @@
     "subtitle": "Routine border and coastal patrol, illegal vessel supervision, 24-hour coastline monitoring, maritime target search, evidence capture, warning broadcast, emergency rescue, and light supply delivery.",
     "intro": "Border Patrol & Coastal Defense combines UAV patrol, EO/IR observation, airborne warning broadcast, and land-based maritime monitoring for coastlines, islands, ports, estuaries, and border corridors. It helps teams reduce high-risk manual patrols, return real-time imagery to command centers, identify abnormal vessels or shoreline activity, and coordinate emergency response from the air."
   },
-  "product_name_es": "Fronterizo patrullaje & costero Defense",
-  "summary_es": "Fronterizo patrullaje & costero Defense de N-TET para monitoreo, respuesta de emergencia, patrullaje, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Routine border and coastal patrol; Illegal vessel supervision; 24-hour coastline monitoring; Maritime target search; Evidence capture; Warning broadcast.",
-  "key_parameter_1_es": "Real-time Backhaul: 4G/5G, private network, and command-platform video return",
-  "key_parameter_2_es": "Intelligent Linkage: AI recognition, target tracking, early warning, and remote dispatch",
+  "product_name_es": "Patrullaje fronterizo y monitoreo costero",
+  "summary_es": "La Patrulla Fronteriza y el Monitoreo Costero combinan patrullaje UAV, observación EO/IR, transmisión de alertas aéreas y monitoreo marítimo terrestre para costas, islas, puertos, estuarios y corredores fronterizos. Ayuda a los equipos a reducir las patrullas manuales de alto riesgo, devolver imágenes en tiempo real a los centros de comando, identificar embarcaciones anormales o actividad costera y coordinar la respuesta de emergencia desde el aire.",
+  "key_application_es": "Patrulla fronteriza y costera de rutina, supervisión de embarcaciones ilegales, monitoreo de la costa las 24 horas, búsqueda de objetivos marítimos, captura de evidencia, transmisión de advertencias, rescate de emergencia y entrega de suministros de luz.",
+  "key_parameter_1_es": "Backhaul en tiempo real: 4G/5G, red privada y retorno de video de plataforma de comando",
+  "key_parameter_2_es": "Enlace inteligente: reconocimiento de IA, seguimiento de objetivos, alerta temprana y envío remoto",
   "parameters_es": {
-    "Industry_pain_points_image": "/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp",
-    "Industry_pain_points": [
-      "Border corridors, coastlines, islands, ports, and estuary zones cover long and complex frontlines where fixed cameras, boat patrols, and foot patrols still leave blind spots.",
-      "Frontline teams face sustained pressure from infiltration prevention, illegal crossing, smuggling, suspicious vessels, and shoreline intrusion, while night operations and severe weather raise safety risks.",
-      "When abnormal vessels or emergency incidents appear, command teams need fast positioning, clear evidence, warning broadcast, and coordinated dispatch, but scattered sensors and delayed reporting weaken situational awareness."
+    "industry_pain_points_image": "/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp",
+    "industry_pain_points": [
+      "Los corredores fronterizos, las costas, las islas, los puertos y las zonas de estuarios cubren frentes largos y complejos de donde aún salen cámaras fijas, patrullas en botes y patrullas a pie. puntos ciegos.",
+      "Los equipos de primera línea enfrentan una presión sostenida por la prevención de infiltración, cruces ilegales, contrabando, embarcaciones sospechosas e intrusión costera, mientras que las operaciones nocturnas y el clima severo aumentan los riesgos de seguridad.",
+      "Cuando aparecen embarcaciones anormales o incidentes de emergencia, los equipos de comando necesitan un posicionamiento rápido, evidencia clara, transmisión de advertencias y envío coordinado, pero los sensores dispersos y los informes retrasados ​​debilitan la conciencia situacional."
     ],
-    "Uav_industry_upgrade": [
-      "UAVs can launch quickly on planned routes, cover fixed patrol zones and shorelines from the air, and return live video, coordinates, and flight tracks to the command platform.",
-      "EO/IR pods, zoom cameras, loudspeakers, and long-range links support day-night observation, target confirmation, evidence capture, legal notice broadcast, and on-site deterrence.",
-      "AI-assisted recognition and multi-source linkage connect UAV video with coastal radar/EO monitoring, pushing alerts and task instructions so air, ground, and maritime teams act from the same picture."
+    "uav_industry_upgrade": [
+      "Los UAV pueden lanzarse rápidamente en rutas planificadas, cubrir zonas de patrulla fijas y costas desde el aire y enviar videos en vivo, coordenadas y pistas de vuelo a la plataforma de comando.",
+      "Pods EO/IR, cámaras con zoom, altavoces y enlaces de largo alcance respaldan la observación diurna y nocturna, la confirmación de objetivos, la captura de evidencia, la transmisión de avisos legales y la disuasión en el sitio.",
+      "Reconocimiento asistido por IA y enlace de múltiples fuentes conectan video UAV con monitoreo de radar costero/EO, generando alertas e instrucciones de tareas para que los equipos aéreos, terrestres y marítimos actúen desde la misma imagen."
     ],
-    "Solution_modules_intro": "The solution connects routine patrol, coastal monitoring, warning broadcast, evidence capture, and emergency response into one air-ground-maritime operation.",
-    "Solution_modules": [
+    "solution_modules_intro": "La solución conecta patrullaje de rutina, monitoreo costero, transmisión de advertencias, captura de evidencia y respuesta de emergencia en un proceso aire-tierra-marítimo.",
+    "módulos_solución": [
       {
-        "name": "Routine Border and Coastal Patrol",
-        "description": "Fly scheduled or one-click task routes over border corridors, coastlines, islands, river mouths, and ports to replace or assist routine patrols and reduce frontline duty pressure.",
-        "image": "/solutions/uav-maritime-patrol/border-routine-patrol.webp"
+        "nombre": "Patrulla fronteriza y costera de rutina",
+        "descripción": "Vuele rutas de tareas programadas o con un solo clic sobre corredores fronterizos, costas, islas, desembocaduras de ríos y puertos para reemplazar o ayudar a las patrullas de rutina y reducir la presión del servicio de primera línea.",
+        "imagen": "/solutions/uav-maritime-patrol/border-routine-patrol.webp"
       },
       {
-        "name": "24-Hour Coastline Monitoring and Emergency Response",
-        "description": "Combine coastal monitoring, UAV dispatch, warning broadcast, target search, personnel positioning, and emergency supply delivery to support rapid response during maritime incidents.",
-        "image": "/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp"
+        "nombre": "Monitoreo costero y respuesta de emergencia las 24 horas",
+        "descripción": "Combine monitoreo costero, despacho de vehículos aéreos no tripulados, transmisión de advertencias, búsqueda de objetivos, posicionamiento del personal y entrega de suministros de emergencia para respaldar una respuesta rápida durante incidentes marítimos.",
+        "imagen": "/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp"
       }
     ],
-    "Related_equipment": [
+    "equipo_relacionado": [
       {
-        "name": "Emergency Response Drone",
-        "handle": "fc-yjzc-01-emergency-reconnaissance-drone",
-        "role": "Rapid patrol, reconnaissance, warning broadcast, emergency search, and field response"
+        "nombre": "Dron de respuesta a emergencias",
+        "mango": "fc-yjzc-01-emergency-reconnaissance-drone",
+        "role": "Patrulla rápida, reconocimiento, transmisión de advertencias, búsqueda de emergencia y respuesta de campo"
       },
       {
-        "name": "FC-RDS500-4R Radar-Vision Fusion System",
-        "handle": "fc-rds500-4r-radar-vision-sentinel",
-        "role": "Land-based maritime monitoring, radar/EO fusion, target tracking, and early warning"
+        "nombre": "FC-RDS500-4R Sistema de fusión de visión por radar",
+        "mango": "fc-rds500-4r-radar-vision-sentinel",
+        "role": "Monitoreo marítimo terrestre, fusión de radar/EO, seguimiento de objetivos y alerta temprana"
       },
       {
-        "name": "26kg MTOW VTOL Fixed-Wing UAV",
-        "handle": "vtol-26kg-mtow-uav",
-        "role": "Long-endurance shoreline and border-corridor patrol"
+        "nombre": "Sistema de inspección UAV de medio/largo alcance",
+        "mango": "medium-long-range-uav-inspection-system",
+        "role": "Patrulla de larga distancia en costas y corredores fronterizos"
       }
     ],
-    "Related_cases": [
+    "casos_relacionados": [
       "anhui-flood-season-uav-patrol",
       "ice-snow-emergency-uav-inspection"
     ]
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Fronterizo patrullaje &amp; costero Defense está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Fronterizo patrullaje &amp; costero Defense de N-TET para monitoreo, respuesta de emergencia, patrullaje, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>",
+  "detail_html_es": "<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/illegal-vessel-supervision.webp\" alt=\"Supervisión de embarcaciones ilegales por UAV\" /></figure><h2>Puntos débiles de la industria</h2><ul><li>Los corredores fronterizos, las costas, las islas, los puertos y las zonas de estuarios cubren frentes largos y complejos de donde aún salen cámaras fijas, patrullas en botes y patrullas a pie. puntos ciegos.</li><li>Los equipos de primera línea enfrentan una presión sostenida por la prevención de infiltración, cruces ilegales, contrabando, embarcaciones sospechosas e intrusión costera, mientras que las operaciones nocturnas y el clima severo aumentan los riesgos de seguridad.</li><li>Cuando aparecen embarcaciones anormales o incidentes de emergencia, los equipos de comando necesitan un posicionamiento rápido, evidencia clara, transmisión de advertencias y envío coordinado, pero los sensores dispersos y los informes retrasados ​​debilitan la conciencia situacional.</li></ul><h2>Cómo mejoran los UAV las operaciones</h2><ul><li>Los UAV pueden lanzarse rápidamente en rutas planificadas, cubrir zonas de patrulla fijas y costas desde el aire y enviar videos en vivo, coordenadas y pistas de vuelo a la plataforma de comando.</li><li>Pods EO/IR, cámaras con zoom, altavoces y enlaces de largo alcance respaldan la observación diurna y nocturna, la confirmación de objetivos, la captura de evidencia, la transmisión de avisos legales y la disuasión en el sitio.</li><li>Reconocimiento asistido por IA y enlace de múltiples fuentes conectan video UAV con monitoreo de radar costero/EO, generando alertas e instrucciones de tareas para que los equipos aéreos, terrestres y marítimos actúen desde la misma imagen.</li></ul><h2>Módulos de la solución</h2><ul><li><strong>Patrulla fronteriza y costera de rutina</strong><br>Vuele rutas de tareas programadas o con un solo clic sobre corredores fronterizos, costas, islas, desembocaduras de ríos y puertos para reemplazar o ayudar a las patrullas de rutina y reducir la presión del servicio de primera línea.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/border-routine-patrol.webp\" alt=\"Patrulla fronteriza y costera de rutina\" /></figure></li><li><strong>Monitoreo costero y respuesta de emergencia las 24 horas</strong><br>Combine monitoreo costero, despacho de vehículos aéreos no tripulados, transmisión de advertencias, búsqueda de objetivos, posicionamiento del personal y entrega de suministros de emergencia para respaldar una respuesta rápida durante incidentes marítimos.<figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-maritime-patrol/coastline-24-hour-monitoring.webp\" alt=\"Monitoreo costero y respuesta de emergencia las 24 horas\" /></figure></li></ul><h2>Equipos relacionados</h2><ul><li><strong>Dron de respuesta a emergencias</strong><br>Patrulla rápida, reconocimiento, transmisión de advertencias, búsqueda de emergencia y respuesta de campo</li><li><strong>FC-RDS500-4R Sistema de fusión de visión por radar</strong><br>Monitoreo marítimo terrestre, fusión de radar/EO, seguimiento de objetivos y alerta temprana</li><li><strong>Sistema de inspección UAV de medio/largo alcance</strong><br>Patrulla de larga distancia en costas y corredores fronterizos</li></ul><h2>Casos relacionados</h2><ul><li>Patrulla UAV de emergencia en temporada de inundaciones en Anhui</li><li>Inspección UAV de emergencia ante desastres de hielo y nieve</li></ul>",
   "detail_sections_es": "Fronterizo patrullaje & costero Defense de N-TET para inspección, monitoreo, respuesta de emergencia, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
   "solution_name_es": "Fronterizo patrullaje & costero Defense de N-TET para patrullaje, monitoreo fronterizo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos."
 }

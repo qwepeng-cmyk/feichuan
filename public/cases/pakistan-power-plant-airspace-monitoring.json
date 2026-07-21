@@ -22,12 +22,12 @@
     "uav-navigation-airspace-data-verification-system"
   ],
   "handle": "pakistan-power-plant-airspace-monitoring",
-  "title_ru": "C-UAS Case of a Power Plant in Pakistan",
-  "description_ru": "2024 C-UAS Case of a Power Plant in Pakistan\nEquipment Used:\nStationary Spectrum Identification Equipment\nSignal Verification Equipment\nCommand and Control Platform Software\nProject Introduction:\nIn 2024, this power-plant project delivered a C-UAS early-warning plan for the facility perimeter and core operation zones. Stationary spectrum identification equipment supports continuous awareness of nearby aerial activity, while signal verification provides reference data for authorized review. The command platform links alerts, map views, operator notes, positioning records, tracking status, and response protocols so the site team can maintain traceable event records and coordinate with established facility procedures.",
+  "title_ru": "Применение C-UAS на электростанции в Пакистане",
+  "description_ru": "Применение C-UAS на электростанции в Пакистане в 2024 году\nИспользованное оборудование:\nСтационарное оборудование радиочастотной идентификации\nОборудование проверки сигналов\nПрограммное обеспечение командной платформы\nОписание проекта:\nВ 2024 году для периметра и ключевых эксплуатационных зон электростанции был разработан план раннего предупреждения C-UAS. Стационарное оборудование обеспечивало непрерывное наблюдение за воздушной активностью поблизости, а проверка сигналов предоставляла контрольные данные уполномоченным операторам. Командная платформа связывала оповещения, карты, заметки операторов, записи позиционирования, статус сопровождения и процедуры реагирования, позволяя площадке вести прослеживаемый журнал событий и координировать действия по установленным процедурам.",
   "devices_ru": [
-    "Stationary Spectrum Identification Equipment",
-    "Signal Verification Equipment",
-    "Command and Control Platform Software"
+    "Стационарное оборудование радиочастотной идентификации",
+    "Оборудование проверки сигналов",
+    "Программное обеспечение командной платформы"
   ],
   "region_ru": "Asia",
   "country_ru": "Pakistan",
@@ -69,5 +69,34 @@
     "omni-directional-rf-event-logging",
     "directional-rf-event-logging",
     "uav-navigation-airspace-data-verification-system"
+  ],
+  "description_ar": "حالة C-UAS في محطة طاقة بباكستان عام 2024\nالمعدات المستخدمة:\nمعدات ثابتة لتحديد إشارات الطيف الراديوي\nمعدات للتحقق من الإشارات\nبرنامج منصة القيادة والتحكم\nوصف المشروع:\nفي عام 2024 قُدمت خطة إنذار مبكر بنظام C-UAS لمحيط محطة الطاقة ومناطق التشغيل الأساسية. دعمت معدات التعرف الثابتة الوعي المستمر بالنشاط الجوي القريب، وقدمت معدات التحقق من الإشارات بيانات مرجعية للمراجعة المخولة. وربطت منصة القيادة التنبيهات وواجهات الخرائط وملاحظات المشغل وسجلات تحديد الموقع وحالة التتبع وإجراءات الاستجابة، بما يتيح لفريق الموقع الاحتفاظ بسجلات أحداث قابلة للتتبع والتنسيق مع إجراءات المنشأة المعتمدة.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Alerta temprana C-UAS para una central eléctrica"
+    },
+    {
+      "label": "Plan operativo",
+      "value": "Conciencia del perímetro, verificación de señales y coordinación con procedimientos de la instalación"
+    },
+    {
+      "label": "Resultado",
+      "value": "Alertas, mapas, notas del operador y registros de seguimiento trazables"
+    }
+  ],
+  "case_snapshot_ar": [
+    {
+      "label": "التطبيق",
+      "value": "إنذار مبكر بنظام C-UAS لمحطة طاقة"
+    },
+    {
+      "label": "خطة التشغيل",
+      "value": "الوعي بالمحيط والتحقق من الإشارات والتنسيق مع إجراءات المنشأة"
+    },
+    {
+      "label": "النتيجة",
+      "value": "تنبيهات وخرائط وملاحظات مشغل وسجلات تتبع قابلة للمراجعة"
+    }
   ]
 }

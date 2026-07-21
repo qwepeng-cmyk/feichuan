@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 import { getFooterProductLinks, getFooterSolutionLinks } from '@/lib/footerLinks';
 import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
@@ -75,11 +75,11 @@ export default function Footer({
                     </div>
                     
                     <div>
-                        <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{['en', 'ru', 'es', 'ar'].includes(locale) ? 'C-UAS Sales & Project Desk' : dict.nav.contact}</h4>
+                        <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{locale === 'ar' ? 'مكتب مبيعات ومشاريع C-UAS' : ['en', 'ru', 'es'].includes(locale) ? 'C-UAS Sales & Project Desk' : dict.nav.contact}</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '1.4rem' }}>
                             <div>
                                 <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>
-                                <WhatsAppLeadButton sourceLabel="desktop_footer_whatsapp" style={{ color: 'rgba(255,255,255,0.68)', fontWeight: 400, textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</WhatsAppLeadButton>
+                                <PrimaryContactButton sourceLabel="desktop_footer_whatsapp" style={{ color: 'rgba(255,255,255,0.68)', fontWeight: 400, textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</PrimaryContactButton>
                             </div>
                             <div>
                                 <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>{dict.contact.email}</div>

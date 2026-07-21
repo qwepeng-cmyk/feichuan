@@ -41,16 +41,16 @@
     "Пропускная способность": "50 Мбит/с (вверх) / 100 Мбит/с (вниз)"
   },
   "detail_html_ru": "<h4>«Воздушная базовая станция» в условиях отсутствия сети</h4><p>В экстремальных условиях разрушения инфраструктуры это решение позволяет оперативно восстановить связь для голосовых вызовов, SMS и интернета, а также создать выделенный канал для координации спасательных работ.</p><ul><li>Быстрое восстановление покрытия 4G/5G</li><li>Связь между штабом и местом проведения работ</li><li>Идеально для зон землетрясений, наводнений и других ЧС</li></ul>",
-  "product_name_es": "Emergencia comunicación UAV",
-  "summary_es": "Emergencia comunicación UAV de N-TET para respuesta de emergencia, comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Post-Earthquake comunicación Setup.",
-  "key_parameter_1_es": "Rapid Network Recovery: Rebuilds 4G/5G coverage in disaster zones using aerial base stations",
-  "key_parameter_2_es": "Emergencia Private Network: Instantly deploys site-specific private networks for duplex command data",
+  "product_name_es": "UAV de comunicación de emergencia",
+  "summary_es": "El UAV de comunicación de emergencia está equipado con una estación base integrada de gran altitud y depende de enlaces de retransmisión satelital para el retorno de datos a larga distancia. Puede reconstruir rápidamente la cobertura de la red pública 4G/5G en áreas dañadas por desastres. El dispositivo puede configurar instantáneamente una red privada de emergencia exclusiva de campo, conectando canales de comunicación entre la línea del frente y la retaguardia, y mejorando de manera integral la eficiencia del envío de comandos. ",
+  "key_application_es": "Configuración de comunicación post-terremoto",
+  "key_parameter_1_es": "Recuperación rápida de la red: reconstruye la cobertura 4G/5G en zonas de desastre utilizando estaciones base aéreas",
+  "key_parameter_2_es": "Red privada de emergencia: implementa instantáneamente redes privadas específicas del sitio para datos de comando dúplex",
   "parameters_es": {
-    "Base Station": "Integrated LTE/5G small cell",
-    "Relay Mode": "Satellite/Microwave dual-mode relay",
-    "Endurance": ">= 12 hours (tethered mode)",
-    "Bandwidth": "50Mbps Uplink / 100Mbps Downlink"
+    "Estación base": "Célula pequeña LTE/5G integrada",
+    "Modo de retransmisión": "Relé de modo dual por satélite/microondas",
+    "Resistencia": ">= 12 horas (modo conectado)",
+    "Ancho de banda": "Enlace ascendente de 50 Mbps/100 Mbps Enlace descendente"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia comunicación UAV está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia comunicación UAV de N-TET para respuesta de emergencia, comunicación temporal, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>'Base aérea Estación' en entornos desconectados</h4><p>En situaciones extremas en las que los desastres naturales dañan las redes públicas, esta solución puede restaurar rápidamente la conectividad. Admite llamadas de voz, SMS e Internet inalámbrico para las víctimas y, al mismo tiempo, establece una red privada para los socorristas.</p><figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-detail/emergency-communication.webp\" alt=\"Comunicación de emergencia Soporte UAV operación\" /></figure><ul><li>Reconstrucción rápida de la cobertura 4G/5G</li><li>Conexión de canales de comando y de campo</li><li>Ideal para sitios de terremotos, inundaciones y desastres extremos</li></ul>"
 }

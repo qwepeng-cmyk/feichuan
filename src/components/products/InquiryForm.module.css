@@ -4,55 +4,178 @@
   font-weight: 500;
 }
 
-.contactRequirement {
-  margin: -8px 0 18px;
-  color: #52647a;
-  font-size: 1.35rem;
-  line-height: 1.5;
-}
-
 .requiredMark {
   margin-right: 5px;
   color: #c52c36;
   font-weight: 800;
 }
 
-.contactError {
-  margin: -18px 0 22px;
+.stepHeader {
+  max-width: 760px;
+  margin: 0 auto 30px;
+}
+
+.stepMeta {
+  margin-bottom: 8px;
+  color: #315ba4;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.progressTrack {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dbe4f0;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #315ba4;
+  transition: width 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stepTitle {
+  margin: 20px 0 0;
+  color: #17243a;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  outline: none;
+}
+
+.stepPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  animation: step-enter 220ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.stepPanel :global(.form-grid) {
+  margin-bottom: 0;
+}
+
+.selectInput {
+  padding-right: 48px !important;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #315ba4 50%), linear-gradient(135deg, #315ba4 50%, transparent 50%) !important;
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50% !important;
+  background-repeat: no-repeat !important;
+  background-size: 6px 6px, 6px 6px !important;
+}
+
+.deploymentFieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.deploymentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.deploymentOption {
+  min-height: 48px;
+  padding: 11px 15px;
+  border: 1px solid #c9d5e5;
+  border-radius: 2px;
+  background: #fff;
+  color: #38506b;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1), background 180ms cubic-bezier(0.4, 0, 0.2, 1), color 180ms cubic-bezier(0.4, 0, 0.2, 1), transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deploymentOption:hover {
+  border-color: #315ba4;
+  transform: translateY(-1px);
+}
+
+.deploymentOption:focus-visible,
+.backAction:focus-visible {
+  outline: 3px solid rgba(49, 91, 164, 0.22);
+  outline-offset: 2px;
+}
+
+.deploymentOptionActive {
+  border-color: #315ba4;
+  background: #eaf0f9;
+  color: #214d8f;
+  box-shadow: inset 4px 0 0 #315ba4;
+}
+
+.fieldHint {
+  margin: 7px 0 0;
+  color: #6a788c;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.stepError {
+  margin: -12px 0 0;
   color: #b42318;
   font-size: 1.3rem;
   line-height: 1.45;
 }
 
-.quickOptions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.quickOption {
-  min-height: 40px;
-  padding: 8px 15px;
-  border: 1px solid #c9d5e5;
-  border-radius: 999px;
-  background: #fff;
-  color: #38506b;
+.contactRequirement {
+  margin: -8px 0 -10px;
+  color: #52647a;
   font-size: 1.35rem;
-  font-weight: 700;
+  line-height: 1.5;
+}
+
+.contactError {
+  margin: -10px 0 0;
+  color: #b42318;
+  font-size: 1.3rem;
+  line-height: 1.45;
+}
+
+.primaryAction {
+  width: 100%;
+  margin-top: 0 !important;
+}
+
+.stepActions {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.backAction {
+  min-height: 54px;
+  padding: 12px 20px;
+  border: 1px solid #9fb0c6;
+  border-radius: 0;
+  background: #fff;
+  color: #315ba4;
+  font-size: 1.45rem;
+  font-weight: 800;
   cursor: pointer;
-  transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1), background 180ms cubic-bezier(0.4, 0, 0.2, 1), color 180ms cubic-bezier(0.4, 0, 0.2, 1), transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 180ms cubic-bezier(0.4, 0, 0.2, 1), background 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.quickOption:hover {
+.backAction:hover {
   border-color: #315ba4;
-  transform: translateY(-1px);
+  background: #f2f6fb;
 }
 
-.quickOptionActive {
-  border-color: #315ba4;
-  background: #e7effa;
-  color: #224d8f;
+.submitAction {
+  width: 100%;
+  margin: 0 !important;
 }
 
 .privacyNote {
@@ -72,4 +195,25 @@
   left: 0;
   color: #23824e;
   font-weight: 900;
+}
+
+@keyframes step-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressFill,
+  .stepPanel,
+  .deploymentOption,
+  .backAction {
+    animation: none;
+    transition: none;
+  }
 }

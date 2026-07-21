@@ -103,15 +103,16 @@
   "cases": {
     "pageTitle": "C-UAS Deployment References",
     "bannerTitle": "C-UAS Deployment References",
-    "bannerDesc": "Field references showing how N-TET systems support C-UAS workflows, early warning, identification, positioning, tracking, and infrastructure security operations.",
+    "bannerDesc": "Field references covering C-UAS detection, identification, tracking, authorized RF jamming, portable response, command coordination, and infrastructure security operations.",
     "seoIntroTitle": "C-UAS Deployment and Low-Altitude Monitoring Cases",
-    "seoIntroBody": "Browse C-UAS deployment cases for airports, power facilities, refineries, industrial sites, major events, and water-conservancy infrastructure. References focus on early warning, identification, positioning, tracking, alert review, and site coordination.",
+    "seoIntroBody": "Browse C-UAS deployment cases for airports, power facilities, refineries, industrial sites, major events, and water-conservancy infrastructure. References cover early warning, identification, positioning, tracking, authorized RF jamming, portable response, alert review, and site coordination.",
     "confidentialityNote": "For confidentiality reasons, most project deployments cannot be disclosed publicly. The cases shown here are selected references approved for external review.",
     "region": "Region:",
     "solutionFilter": "Solutions:",
     "all": "All",
     "noResults": "No cases found matching your criteria.",
     "equipmentUsed": "Equipment Used",
+    "recommendedEquipment": "Recommended Equipment",
     "projectOverview": "Project Overview",
     "snapshotLabels": {
       "Application": "Application",

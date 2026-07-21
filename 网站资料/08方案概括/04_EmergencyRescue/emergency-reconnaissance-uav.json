@@ -27,8 +27,7 @@
   "handle": "emergency-reconnaissance-uav",
   "category_primary": "",
   "recommended_products": [
-    "fc-yjzc-01-emergency-reconnaissance-drone",
-    "containerized-medical-rescue-system"
+    "fc-yjzc-01-emergency-reconnaissance-drone"
   ],
   "product_name_ru": "БПЛА экстренной разведки",
   "summary_ru": "Гибкий и быстрый в развертывании дрон, способный преодолевать препятствия в виде завалов дорог и горно-лесистой местности. Оснащен HD-камерами и тепловизорами для широкомасштабного патрулирования и передачи видео в реальном времени для поиска пострадавших и выявления угроз.",
@@ -42,16 +41,16 @@
     "Скорость полета": "15 м/с (макс. скорость)"
   },
   "detail_html_ru": "<h4>Всеобъемлющее восприятие, авангард спасения</h4><p>Дрон обеспечивает интуитивно понятную и надежную визуальную поддержку для распределения ресурсов, планирования спасательных операций и принятия экстренных решений штабом.</p><ul><li>Широкомасштабное патрулирование и видеосвязь в реальном времени</li><li>Панорамный контроль развития чрезвычайных ситуаций</li><li>Многофункциональные HD и ИК сенсоры</li></ul>",
-  "product_name_es": "Emergencia reconocimiento UAV",
-  "summary_es": "Emergencia reconocimiento UAV de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Flood On-site monitoreo.",
-  "key_parameter_1_es": "Global Situational Awareness: Integrated EO/IR payloads for deep large-scale cruise mapping",
-  "key_parameter_2_es": "Precision Life-finding: Navigating complex terrain to lock on targets and provide visual decision data",
+  "product_name_es": "UAV de reconocimiento de emergencia",
+  "summary_es": "Flexible y de despliegue rápido, este UAV puede superar las limitaciones de los bloqueos de carreteras, los bosques montañosos y otros terrenos complejos. El fuselaje integra cámaras optoelectrónicas de alta definición, búsqueda y rescate por infrarrojos y otras cargas útiles multifuncionales, lo que admite la detección de cruceros a gran escala y el retorno de imágenes en tiempo real para localizar con precisión al personal atrapado e identificar peligros potenciales. ",
+  "key_application_es": "Inundación en sitio Monitoreo",
+  "key_parameter_1_es": "Conciencia de la situación global: cargas útiles EO/IR integradas para mapeo profundo de cruceros a gran escala",
+  "key_parameter_2_es": "Búsqueda de vida de precisión: navegación por terrenos complejos para fijar objetivos y proporcionar datos de decisión visuales",
   "parameters_es": {
-    "Carga útil": "30x optical zoom + 640 IR thermal",
-    "Transmission": "10km - 20km (HD transmission)",
-    "Accuracy": "RTK centimeter-level positioning",
-    "Cruise Speed": "15m/s (Max speed)"
+    "Carga útil": "30x zoom óptico + 640 IR térmico",
+    "Transmisión": "10 km - 20 km (transmisión HD)",
+    "Precisión": "Posicionamiento RTK a nivel de centímetros",
+    "Velocidad de crucero": "15 m/s (máx.) velocidad)"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia reconocimiento UAV está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia reconocimiento UAV de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Detección universal, rescate Vanguard</h4><p>Este UAV, que respalda los proyectos de información de alerta temprana y monitoreo de desastres naturales del Ministerio de Gestión de Emergencias, proporciona soporte de datos visuales intuitivo y confiable para la asignación de recursos, la planificación de rescate y la toma de decisiones de emergencia.</p><figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-detail/disaster-search-rescue.webp\" alt=\"Reconocimiento de búsqueda y rescate con UAV en sitios de desastres\" /></figure><ul><li>Detección de cruceros a gran escala y retroalimentación en tiempo real</li><li>Panorámica conciencia situacional de desastres</li><li>Cargas útiles multifuncionales HD EO/IR</li></ul>"
 }

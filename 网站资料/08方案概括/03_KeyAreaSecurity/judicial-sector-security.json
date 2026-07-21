@@ -50,17 +50,49 @@
     "Время реакции": "< 2 с (автоматический захват и распознавание)"
   },
   "detail_html_ru": "<h4>Трехмерная линия обороны судебных органов</h4><p>Для зон строгого контроля решение не только предотвращает вмешательство внешних БПЛА, но и повышает уровень цифрового контроля на физических КПП.</p><ul><li>регистрация и проверка низковысотных событий нелегальных БПЛА для предотвращения утечек информации</li><li>Детекторы FC-H для перехвата запрещенных мобильных телефонов</li><li>Интеллектуальные рентгеновские сканеры для быстрой проверки входящих грузов</li></ul>",
-  "product_name_es": "Sector judicial seguridad Protection",
-  "summary_es": "Sector judicial seguridad Protection de N-TET para monitoreo, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Key Area seguridad (Judicial/Military/Government).",
-  "key_parameter_1_es": "Multi-dimensional Security: Integrated monitoring, C-UAS, and screening against spying and drops",
-  "key_parameter_2_es": "24/7 monitoreo: Multi-spectral imaging and smart ID for precision tracking of people, goods, and low-altitude targets",
+  "product_name_es": "Protección de instalaciones judiciales",
+  "summary_es": "Una solución integrada de control de seguridad y C-UAS judicial para entradas a juzgados, puntos de acceso a centros de detención y correccionales, vestíbulos de visitantes, canales de evidencia y logística, caminos perimetrales y áreas administrativas restringidas. Combina detección de baja altitud, identificación, ubicación, seguimiento, vinculación de advertencia, controles de entrada de visitantes y personal, inspección de paquetes, inspección controlada de dispositivos móviles y registros de eventos rastreables. ",
+  "key_application_es": "Entradas a juzgados, puntos de acceso a centros de detención y correccionales, vestíbulos de visitantes, entradas de personal, salas de pruebas, puertas de logística, caminos perimetrales, tejados, patios y zonas administrativas restringidas.",
+  "key_parameter_1_es": "Flujo de detección integrado: coordine controles de visitantes, personal, contratistas, paquetes, pruebas y vehículos con una disciplina de punto de control estilo aeropuerto.",
+  "key_parameter_2_es": "Proceso perimetral C-UAS: detección de baja altitud, identificación de objetivos, ubicación, seguimiento, enlace de advertencia y revisión de eventos rastreables.",
   "parameters_es": {
-    "Depth": "Outdoor-Indoor integrated linkage",
-    "Response Procedure": "Full-band screening protection",
-    "Accuracy": "Multi-layered MMW/X-ray inspection",
-    "Response": "< 2s auto-capture & recognition",
-    "Industry_pain_points_image": "/solutions/solutions/sector judicial seguridad.webp"
+    "operación_upgrade_eyebrow": "Actualización de operaciones de seguridad",
+    "operación_upgrade_title": "Cómo el monitoreo y control integrado apoyan la seguridad judicial",
+    "solution_modules_intro": "La solución adapta el modelo de seguridad coordinado de la página del aeropuerto a las instalaciones judiciales: conciencia de baja altitud al aire libre, El control de entrada controlada, la inspección de paquetes, las comprobaciones de dispositivos móviles y los registros de eventos se gestionan como un solo proceso.",
+    "industry_pain_points_image": "/solutions/solutions/Judicial Sector Security.webp",
+    "industry_pain_points": [
+      "Los sitios judiciales y correccionales combinan tráfico de visitantes públicos, zonas exclusivas para el personal, rutas de transferencia de detenidos, almacenamiento de evidencia, entrega logística, caminos perimetrales y áreas administrativas sensibles que requieren diferentes operaciones de seguridad.",
+      "La actividad a baja altitud cerca de paredes, patios, tejados, puertas o edificios administrativos requiere conciencia temprana y verificación cuidadosa sin exponer métodos de respuesta sensibles.",
+      "Los equipos de seguridad necesitan un rendimiento de inspección similar al de un aeropuerto, trazabilidad de inspección y visibilidad en la sala de comando de personas, bolsos, paquetes, vehículos, teléfonos y eventos perimetrales."
+    ],
+    "uav_industry_upgrade": [
+      "Los flujos de trabajo de C-UAS y la verificación de EO brindan concientización perimetral para las salas de seguridad judicial, mientras que las descripciones públicas permanecen enfocadas en la detección, identificación y presentación de informes.",
+      "Escáneres de equipaje de rayos X, metal de mano detectores, puertas de detección de teléfonos cuando sea necesario y dispositivos de detección de rastreo respaldan los controles de visitantes, personal, contratistas, evidencia y logística.",
+      "Un proceso de eventos compartido conecta excepciones de puntos de control, advertencias de baja altitud, verificación visual, imágenes de inspección de paquetes, notas del operador y revisión del estado para una gestión de seguridad responsable."
+    ],
+    "módulos_solución": [
+      {
+        "nombre": "Conciencia judicial del espacio aéreo perimetral",
+        "descripción": "Monitorear la actividad a baja altitud cerca de paredes, patios, tejados, vías de servicio, puertas y áreas administrativas restringidas a través de una conciencia neutral y operaciones de verificación.",
+        "imagen": "/products/02-drone-detection/stationary-rf-detection-system.webp"
+      },
+      {
+        "nombre": "Detección de puntos de control de visitantes, personal y contratistas",
+        "descripción": "Admite entrada controlada con detección de metales portátil, puertas de detección telefónica cuando sea necesario, disciplina de colas y manejo ordenado de excepciones.",
+        "imagen": "/products/security/FC-H-Smart-Phone-Detection-Gate.webp"
+      },
+      {
+        "nombre": "Inspección de pruebas, paquetes y logística",
+        "descripción": "Utilice escaneo de equipaje con rayos X e inspección de rastreo para cajas de transferencia de evidencia, correo, mercancías entregadas, materiales de mantenimiento y equipos de servicio.",
+        "imagen": "/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp"
+      },
+      {
+        "nombre": "Registros y revisión de eventos de seguridad",
+        "descripción": "Archiva excepciones de inspección, alertas de espacio aéreo, registros visuales, resultados de inspección, marcas de tiempo, notas del operador y estado de manejo para revisión interna.",
+        "imagen": "/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp"
+      }
+    ],
+    "salidas_típicas": "Alertas de alerta de baja altitud, registros de excepción de puntos de control, registros de inspección de equipaje y paquetes, notas de inspección de dispositivos móviles, imágenes de verificación visual e informes de revisión de seguridad"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Sector judicial seguridad Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Sector judicial seguridad Protection de N-TET para monitoreo, seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h2>Puntos débiles de la industria</h2><ul><li>Los sitios judiciales y correccionales combinan tráfico de visitantes públicos, zonas exclusivas para el personal, rutas de transferencia de detenidos, almacenamiento de evidencia, entrega logística, caminos perimetrales y áreas administrativas sensibles que requieren diferentes operaciones de seguridad.</li><li>La actividad a baja altitud cerca de paredes, patios, tejados, puertas o edificios administrativos requiere conciencia temprana y verificación cuidadosa sin exponer métodos de respuesta sensibles.</li><li>Los equipos de seguridad necesitan un rendimiento de inspección similar al de un aeropuerto, trazabilidad de inspección y visibilidad en la sala de comando de personas, bolsos, paquetes, vehículos, teléfonos y eventos perimetrales.</li></ul><h2>Actualización de operaciones de seguridad</h2><ul><li>Los flujos de trabajo de C-UAS y la verificación de EO brindan concientización perimetral para las salas de seguridad judicial, mientras que las descripciones públicas permanecen enfocadas en la detección, identificación y presentación de informes.</li><li>Escáneres de equipaje de rayos X, metal de mano detectores, puertas de detección de teléfonos cuando sea necesario y dispositivos de detección de rastreo respaldan los controles de visitantes, personal, contratistas, evidencia y logística.</li><li>Un proceso de eventos compartido conecta excepciones de puntos de control, advertencias de baja altitud, verificación visual, imágenes de inspección de paquetes, notas del operador y revisión del estado para una gestión de seguridad responsable.</li></ul><h2>Módulos de la solución</h2><ul><li><strong>Conciencia judicial del espacio aéreo perimetral</strong>: Monitoree la actividad a baja altitud cerca de paredes, patios, tejados, vías de servicio, puertas y áreas administrativas restringidas a través de operaciones neutrales de concientización y verificación.</li><li><strong>Detección de puntos de control de visitantes, personal y contratistas</strong>: admita la entrada controlada con detección de metales portátil, puertas de detección de teléfonos cuando sea necesario, disciplina en colas y manejo ordenado de excepciones.</li><li><strong>Inspección de pruebas, paquetes y logística</strong>: use escaneo de equipaje con rayos X e inspección de rastreo para cajas de transferencia de evidencia, correo, bienes entregados, materiales de mantenimiento y equipos de servicio.</li><li><strong>Registros y revisión de eventos de seguridad</strong>: archive excepciones de detección, alertas de espacio aéreo, registros visuales, resultados de inspección, marcas de tiempo, notas del operador y estado de manejo para asuntos internos. revisión.</li></ul>"
 }

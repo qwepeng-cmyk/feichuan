@@ -66,5 +66,34 @@
       "value": "Core data delivered for hidden-risk analysis and reporting"
     }
   ],
-  "devices_ru": []
+  "devices_ru": [],
+  "title_es": "Inspección UAV LiDAR Tree-Obstruction",
+  "description_es": "Inspección UAV LiDAR de obstrucción de árboles\nEn el invierno de 2024, una empresa de Southern Grid utilizó vehículos aéreos no tripulados de ala fija VTOL integrados con un sistema LiDAR para escaneo aéreo durante una tarea especial de inspección del riesgo de obstrucción de árboles. La misión adquirió conjuntos de datos de nubes de puntos 3D de alta precisión y confiabilidad, proporcionando soporte de datos básicos para el seguimiento de análisis de riesgos ocultos y la producción de informes de inspección.",
+  "devices_es": [],
+  "parameters_es": {},
+  "region_es": "Asia",
+  "country_es": "China",
+  "description_ar": "تفتيش UAV بتقنية LiDAR لعوائق الأشجار\nفي شتاء 2024 استخدمت إحدى شركات Southern Grid طائرات ثابتة الجناح ذات إقلاع وهبوط عمودي ومتكاملة مع نظام LiDAR لتنفيذ مسح جوي ضمن مهمة خاصة لتفتيش مخاطر عوائق الأشجار. حصلت المهمة على مجموعات بيانات سحابة نقطية ثلاثية الأبعاد عالية الدقة والموثوقية، وقدمت بيانات أساسية لتحليل المخاطر الخفية وإعداد تقارير التفتيش لاحقاً.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Inspección de riesgos por obstrucción de árboles"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Área operativa de Southern Grid, China"
+    },
+    {
+      "label": "Escala de la misión",
+      "value": "Tarea especial de inspección en el invierno de 2024"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Adquisición LiDAR de nubes de puntos 3D de alta precisión"
+    },
+    {
+      "label": "Resultado",
+      "value": "Datos esenciales entregados para análisis de riesgos e informes"
+    }
+  ]
 }

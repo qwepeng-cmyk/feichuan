@@ -52,20 +52,20 @@
     "Применение": "Аэропорты, вокзалы, таможня, досмотр на входе, предотвращение списывания"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокая точность: Находит даже мелкие металлические предметы (булавки, скрепки).</li><li>Гибкая настройка: Позволяет адаптировать прибор под конкретные задачи безопасности.</li><li>Надежность: Стабильная работа при низком заряде батареи и защита от падений.</li><li>Удобство: Выбор между звуковым сигналом и скрытой вибрацией для шумных или тихих мест.</li><li>Экономичность: Долгая работа без замены элементов питания.</li></ul>",
-  "product_name_es": "Handheld Metal Detector FC2088",
-  "summary_es": "Handheld Metal Detector FC2088 de N-TET para seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: High-sensitivity metal detection for airports; Stations; And exam halls; Identifies coins; Keys; And weapons.",
-  "key_parameter_1_es": "Detección Range: Pin (1-3cm); .38 Caliber Pistol (10-15cm)",
-  "key_parameter_2_es": "Operating Time: ≥40 hours continuous",
+  "product_name_es": "Detector de metales portátil FC2088",
+  "summary_es": "El FC2088 es un detector de metales portátil de alta sensibilidad de nuevo diseño adecuado para una amplia gama de aplicaciones de control de seguridad. Cuenta con sensibilidad ajustable, lo que ofrece una precisión de detección que supera a productos similares de su clase. Construido con una carcasa duradera y resistente a los impactos, mantiene un rango de detección constante incluso cuando el voltaje de la batería de 9 V cae a 7 V. El dispositivo es excepcionalmente eficiente desde el punto de vista energético y admite más de 40 horas de funcionamiento continuo. Incluye funciones fáciles de usar, como alertas automáticas de batería baja, avisos sonoros de encendido/apagado y modos de alarma audiovisual o de vibración seleccionables, lo que lo hace ideal para aeropuertos, estaciones, aduanas, departamentos de seguridad y para evitar trampas en las salas de exámenes.",
+  "key_application_es": "Detección de metales de alta sensibilidad para aeropuertos, estaciones y salas de examen; identifica monedas, llaves y artículos prohibidos; sensibilidad ajustable para niveles de seguridad personalizados; de larga duración (más de 40 horas) con alertas de vibración/audio.",
+  "key_parameter_1_es": "Rango de detección: Pin (1-3 cm); Pistola calibre .38 (10-15 cm)",
+  "key_parameter_2_es": "Tiempo de funcionamiento: ≥40 horas continuas",
   "parameters_es": {
-    "Sensitivity": "High; adjustable via onboard potentiometer",
-    "Alarm Mode": "Selectable Sound/Light or Vibration",
-    "Detección Targets": "Pins (1-3cm), Razors (2-10cm), Pistols (10-15cm), Mobile batteries (15-25cm)",
-    "Batería": "Standard 9V battery with external charging port",
-    "Eléctrica Management": "Stable detection range down to 7V; automatic continuous low-battery alert",
-    "Endurance": "≥40 hours of continuous use",
-    "Durability": "Impact-resistant ruggedized housing",
-    "Applications": "Airports, customs, drug/food quality checks, precious metal detection"
+    "Sensibilidad": "Alto; ajustable mediante potenciómetro integrado",
+    "Modo de alarma": "Sonido/luz o vibración seleccionables",
+    "Objetivos de detección": "Alfileres (1-3 cm), maquinillas de afeitar (2-10 cm), pistolas (10-15 cm), baterías móviles (15-25 cm)",
+    "Batería": "Batería estándar de 9 V con puerto de carga externo",
+    "Administración de energía": "Rango de detección estable de hasta 7 V; alerta automática continua de batería baja",
+    "Resistencia": "≥40 horas de uso continuo",
+    "Durabilidad": "Carcasa robusta resistente a impactos",
+    "Aplicaciones": "Aeropuertos, aduanas, controles de calidad de medicamentos/alimentos, detección de metales preciosos"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Handheld Metal Detector FC2088 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Handheld Metal Detector FC2088 de N-TET para seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Detección de alta sensibilidad de varios metales incluidos materiales ferrosos y no ferrosos.</li><li>Sensibilidad ajustable para adaptarse a diferentes requisitos de inspección.</li><li>Audio y vibración modos de alarma dual para uso en entornos ruidosos o silenciosos.</li><li>Diseño ergonómico para un uso prolongado cómodo durante turnos de inspección largos.</li><li>Carcasa de ABS duradera, resistente a impactos y adecuada para entornos hostiles condiciones.</li><li>Consumo de energía ultrabajo con batería de larga duración.</li></ul>"
 }

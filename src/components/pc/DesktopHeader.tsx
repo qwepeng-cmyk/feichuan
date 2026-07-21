@@ -26,11 +26,13 @@ import {
 export default function Header({
     locale,
     dict,
-    visibleProductCategoryIds
+    visibleProductCategoryIds,
+    showLaserPreview = false
 }: {
     locale: string;
     dict: any;
     visibleProductCategoryIds?: ProductCategoryId[];
+    showLaserPreview?: boolean;
 }) {
     const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
@@ -210,8 +212,20 @@ export default function Header({
                 { label: 'Electro-Optical (EO) Tracking System', href: '/products/composite-electro-optical-tracking-system', image: '/products/02-drone-detection/electro-optical-tracking-system.webp' },
                 { label: 'UAV Remote ID Recognition System', href: '/products/uav-remote-id-monitoring-system', image: '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp' },
                 { label: 'C-UAS Signal Verification System', href: '/products/uav-navigation-airspace-data-verification-system', image: '/products/rf-systems/navigation-signal-analysis-system.webp' },
-                { label: 'Directional RF Jammer', href: '/products/directional-rf-interference-device', image: '/products/rf-systems/directional-rf-unit.webp' },
-                { label: 'Omni-directional RF Jammer', href: '/products/omni-directional-rf-interference-device', image: '/products/rf-systems/omni-directional-rf-unit.webp' },
+                ...(locale === 'ru' ? [] : [
+                    { label: 'Directional RF Jammer', href: '/products/directional-rf-interference-device', image: '/products/rf-systems/directional-rf-unit.webp' },
+                    { label: 'Omni-directional RF Jammer', href: '/products/omni-directional-rf-interference-device', image: '/products/rf-systems/omni-directional-rf-unit.webp' },
+                ]),
+            ],
+        },
+        {
+            title: 'Physical Interception Systems',
+            href: '/products#physical-interception-systems',
+            items: [
+                { label: 'Handheld Drone Net Launcher', href: '/products/handheld-drone-net-launcher', image: '/products/handheld-drone-net-launcher/handheld-drone-net-launcher.webp' },
+                ...(showLaserPreview ? [
+                    { label: '3kW Anti-Drone Laser Defense System', href: '/products/drone-laser-engagement-system', image: '/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp' },
+                ] : []),
             ],
         },
         {
@@ -728,9 +742,8 @@ export default function Header({
                                     aria-controls="desktop-language-menu"
                                     onClick={() => setIsLanguageMenuOpen((open) => !open)}
                                 >
-                                    <Globe2 className="nav-language-globe" size={15} strokeWidth={1.8} aria-hidden="true" />
-                                    <span className="nav-language-label" dir="ltr">LANG</span>
-                                    <span className="nav-language-code" dir="ltr">{locale.toUpperCase()}</span>
+                                    <Globe2 className="nav-language-globe" size={16} strokeWidth={1.8} aria-hidden="true" />
+                                    <span className="nav-language-name" dir="auto">{languageLabels[locale] || locale.toUpperCase()}</span>
                                     <svg
                                         className="nav-language-chevron"
                                         style={{ transform: isLanguageMenuOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
@@ -771,9 +784,6 @@ export default function Header({
                                                 aria-current={item.locale === locale ? 'page' : undefined}
                                                 onClick={() => setIsLanguageMenuOpen(false)}
                                             >
-                                                <span className="language-code" dir="ltr" aria-hidden="true">
-                                                    {item.locale.toUpperCase()}
-                                                </span>
                                                 <span className="language-name" dir="auto">
                                                     {languageLabels[item.locale]}
                                                 </span>
@@ -790,13 +800,18 @@ export default function Header({
                         {isHome && (
                             <div className="lang-switch">
                                 <div className="lang-switch-text">
-                                    {languageLabels[locale] || 'English'} <svg style={{ width: '12px', height: '12px', marginLeft: '5px' }} viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <span dir="auto">{languageLabels[locale] || 'English'}</span>
+                                    <svg className="lang-switch-chevron" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35.8L492.2 729c9.4 11.5 28.1 11.5 37.5 0L858.9 335.8c12.2-15 1.2-35.8-18.5-35.8z"></path>
                                     </svg>
                                 </div>
                                 <ul className="lang-dropdown">
                                     {languageLinks.map((item) => (
-                                        <li key={item.locale}><Link prefetch={false} href={item.href}>{languageLabels[item.locale]}</Link></li>
+                                        <li key={item.locale}>
+                                            <Link prefetch={false} href={item.href} aria-current={item.locale === locale ? 'page' : undefined}>
+                                                <span dir="auto">{languageLabels[item.locale]}</span>
+                                            </Link>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>

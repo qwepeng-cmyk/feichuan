@@ -394,7 +394,6 @@ export const droneJammerLanding: IntentLandingConfig = {
     { label: 'Coverage concept', values: ['Focused sector or approach direction', '360-degree area around a fixed installation'] },
     { label: 'Best fit', values: ['Sites that need directional coverage geometry', 'Sites that need omni-directional area coverage'] },
     { label: 'Planning inputs', values: ['Sector drawing, aiming, mounting and exclusion zones', 'Area boundary, mounting, nearby systems and exclusion zones'] },
-    { label: 'Engineering inputs', values: ['Aiming, EMC, nearby communications and control interface', 'Mounting, EMC, nearby communications and control interface'] },
     { label: 'Platform role', values: ['Target-track handoff, control and device status', 'Target-track handoff, control and device status'] },
   ],
   workflowHeading: 'Detection, confirmation and jammer response',

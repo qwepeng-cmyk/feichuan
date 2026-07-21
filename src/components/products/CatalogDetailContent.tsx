@@ -8,10 +8,13 @@ import OptimizedRichText from '@/components/common/OptimizedRichText';
 import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { getArabicTechnicalHighlight, getArabicTechnicalParameters } from '@/lib/arabicTechnicalCopy';
+import { getProductBrochure } from '@/lib/productBrochures';
+import ProductBrochureDownload from './ProductBrochureDownload';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -81,10 +84,10 @@ export default function CatalogDetailContent({
   const name = product[`product_name_${locale}`] || product.product_name_en || product.name;
   const summary = product[`summary_${locale}`] || product.summary_en;
   const keyApp = product[`key_application_${locale}`] || product.key_application_en;
-  const keyParam1 = product[`key_parameter_1_${locale}`] || product.key_parameter_1_en;
-  const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
+  const keyParam1 = getArabicTechnicalHighlight(product, 'key_parameter_1', locale);
+  const keyParam2 = getArabicTechnicalHighlight(product, 'key_parameter_2', locale);
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
-  const parameters = readJsonLike(product[`parameters_${locale}`] || product.parameters_en);
+  const parameters = readJsonLike(getArabicTechnicalParameters(product, locale));
   const seoTarget = getSeoKeywordTarget({
     route: `${basePath}/${handle}`,
     title: name,
@@ -118,6 +121,7 @@ export default function CatalogDetailContent({
   ].filter((item): item is { label: string; value: string } => Boolean(item))
     .filter((item) => !isCategoryOverviewItem(item));
   const galleryImages = readGalleryImages(product);
+  const brochure = locale === 'en' && basePath === '/products' ? getProductBrochure(handle) : null;
   const jsonLd = productJsonLd({
     locale,
     handle,
@@ -161,12 +165,12 @@ export default function CatalogDetailContent({
                   <div className="gallery-main-area">
                     <UniversalGallery images={galleryImages.length ? galleryImages : ['/logo1-small.webp']} fit="contain" alt={displayName} aspectRatio="1.618 / 1" />
                   </div>
-                  <div className="product-info">
+                  <div className="product-info" style={{ gap: 0 }}>
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {displayName}
                     </h1>
                     {productOverview.length > 0 && (
-                      <div className="product-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
+                      <div className="product-snapshot" style={{ marginBottom: 0, borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
                         <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
                           {overviewTitle}
                         </div>
@@ -178,14 +182,21 @@ export default function CatalogDetailContent({
                         ))}
                       </div>
                     )}
-                    <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
+                    <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '28px' }}>
                       <a href="#inquiry" className="btn-cta" style={{ background: '#b45309', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <WhatsAppLeadButton sourceLabel="product_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <PrimaryContactButton sourceLabel="product_detail_whatsapp" className="btn-cta" style={{ background: 'var(--contact-channel-accent)', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
-                      </WhatsAppLeadButton>
+                      </PrimaryContactButton>
                     </div>
+                    {brochure && (
+                      <ProductBrochureDownload
+                        productHandle={handle}
+                        productName={name}
+                        pageCount={brochure.pageCount}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -235,7 +246,14 @@ export default function CatalogDetailContent({
       </div>
 
       <div className="mobile_only">
-        <MobileProductDetail product={product} locale={locale} dict={dict} basePath={basePath} catalogLabel={catalogLabel} />
+        <MobileProductDetail
+          product={product}
+          locale={locale}
+          dict={dict}
+          basePath={basePath}
+          catalogLabel={catalogLabel}
+          brochurePageCount={brochure?.pageCount}
+        />
       </div>
     </>
   );

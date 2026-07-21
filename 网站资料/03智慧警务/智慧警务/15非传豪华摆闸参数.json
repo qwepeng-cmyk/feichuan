@@ -60,23 +60,23 @@
     "Габаритные размеры": "1400 * 180 * 1000 мм"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Корпус из нержавеющей стали SUS304: Бесшовная лазерная сварка и высокая устойчивость к коррозии даже на открытом воздухе.</li><li>Высокая эффективность: Отклик системы менее 0.8 секунды для быстрой проходимости в часы пик.</li><li>Комплексная защита: Алгоритмы автоматической остановки при столкновении и интеграция с системами пожарной безопасности.</li><li>Защита от несанкционированного прохода: Инфракрасная матрица распознает попытки «прохода паровозиком» с интервалом от 100 мм.</li><li>Визуальная индикация: Трехцветные светодиоды на верхней крышке интуитивно подсказывают статус прохода (зеленый/красный/желтый).</li><li>Низкие эксплуатационные расходы: Благодаря высокому MTBF и системе самодиагностики.</li></ul>",
-  "product_name_es": "Deluxe Smart Swing Turnstile",
-  "summary_es": "Deluxe Smart Swing Turnstile de N-TET para iluminación operativa, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Premium access control for high-traffic public areas; SUS304 stainless steel with 1.5mm thickness; MTBF ≥ 8 million cycles; Wide transit width (≤110cm) with triple anti-pinch safety.",
-  "key_parameter_1_es": "Construction: SUS304 Stainless Steel, 1.5mm thickness",
-  "key_parameter_2_es": "Reliability: MTBF ≥ 8 million cycles",
+  "product_name_es": "Torniquete oscilante inteligente de lujo",
+  "summary_es": "El torniquete giratorio inteligente de lujo está construido con acero inoxidable SUS304 de primera calidad con un robusto espesor de 1,5 mm. Utilizando tecnología de corte por láser de alta precisión, presenta un exterior elegante y limpio libre de defectos comunes como rebabas, rayones o bordes afilados. El sistema está impulsado por un motor de CC sin escobillas y un núcleo anticolisión especializado, con un tiempo medio entre fallas (MTBF) de más de 8 millones de ciclos. Admite un amplio ancho de tránsito de hasta 110 cm e incluye un triple mecanismo antipellizco (mecánico, corriente y electrónico) para favorecer la máxima seguridad de los peatones. Con iluminación atmosférica LED integrada, indicaciones de voz personalizadas y soporte completo de conexión contra incendios, representa una solución de última generación para el control de acceso profesional en entornos comerciales y públicos de alto tráfico. ",
+  "key_application_es": "Control de acceso premium para áreas públicas de alto tráfico; Acero inoxidable SUS304 con 1,5 mm de espesor; MTBF ≥ 8 millones de ciclos; amplio ancho de tránsito (≤110 cm) con triple seguridad anti-pellizco.",
+  "key_parameter_1_es": "Construcción: acero inoxidable SUS304, 1,5 mm de espesor",
+  "key_parameter_2_es": "Fiabilidad: MTBF ≥ 8 millones de ciclos",
   "parameters_es": {
-    "Chassis Thickness": "1.5mm SUS304 Stainless Steel shell",
-    "Passage Width": "Supports widths up to 110 cm",
-    "Drive sistema": "Brushless DC motor with helical anti-collision drive core",
-    "Durability": "MTBF ≥ 8 million cycles; smooth acceleration/deceleration control",
-    "Safety sistemas": "Triple anti-pinch protection (Mechanical/Current/Optical); Anti-tailgate logic",
-    "Opening Speed": "Adjustable in 10 steps; ≥0.8s minimum",
-    "Emergencia": "Fire alarm linkage (Auto-open) and power-failure free-swing mode",
-    "Human Interaction": "Integrated LED passage indicators, atmospheric lights, and customized voice feedback",
-    "Industrial Standards": "Precision laser cutting; IP-rated waterproof and dustproof treatment",
-    "Operation Noise": "Smooth operation noise ≤ 65dB",
-    "Dimensions": "1400mm * 180mm * 1000mm"
+    "Espesor del chasis": "1.5mm SUS304 Stainless Steel shell",
+    "Anchura de paso": "Admite anchos de hasta 110 cm",
+    "Sistema de accionamiento": "Motor de CC sin escobillas con núcleo helicoidal anticolisión",
+    "Durabilidad": "MTBF ≥ 8 millones de ciclos; control suave de aceleración/desaceleración",
+    "Sistemas de seguridad": "Triple protección antipellizco (Mecánica/Corriente/Óptica); Lógica anti-puerta trasera",
+    "Apertura Velocidad": "Ajustable en 10 pasos; ≥0,8 s mínimo",
+    "Emergencia": "Conexión de alarma contra incendios (apertura automática) y modo de oscilación libre en caso de fallo de energía",
+    "Humano Interacción": "Indicadores de paso LED integrados, luces atmosféricas y respuesta de voz personalizada",
+    "Estándares industriales": "Precisión corte por láser; Tratamiento resistente al agua y al polvo con clasificación IP",
+    "Ruido de operación": "Ruido de funcionamiento suave ≤ 65 dB",
+    "Dimensiones": "1400mm * 180mm * 1000mm"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Deluxe Smart Swing Turnstile está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Deluxe Smart Swing Turnstile de N-TET para iluminación operativa, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Chasis arquitectónico SUS304: utiliza acero inoxidable espesado de grado aeroespacial con soldadura láser sin costuras para una rigidez superior y resistencia a la corrosión del agua salada.</li><li>Dinámica de acceso rápido: los motores sin escobillas de alto par permiten un tiempo de respuesta inferior a 0,8 s, optimizando el flujo de peatones durante las horas pico en edificios corporativos de alta densidad.</li><li>Seguridad holística del personal: combina tecnología anti-pellizco de cortina infrarroja con limitación de torque mecánica e integración total de señales de seguridad contra incendios para una liberación de emergencia confiable.</li><li>Inteligencia de seguridad: cuenta con sensores IR activos para detectar seguimiento cercano no autorizado con intervalos tan pequeños como 100 mm, lo que activa disuasores de voz automatizados y registros forenses.</li><li>Guía visual premium: cuenta con pilares LED tricolores de brillo suave en la tapa superior para una señalización intuitiva de estado verde/rojo/ámbar, elevando la estética de cualquier lobby.</li><li>Longevidad diseñada: probado para 8 millones de ciclos MTBF con un sistema de autoverificación integrado para alertar a los técnicos de las necesidades de mantenimiento de manera proactiva.</li></ul>"
 }

@@ -58,22 +58,22 @@
     "Память данных": "Не менее 10 000 записей, экспорт через USB"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Исключительная портативность: Легкий вес и компактный дизайн для мобильных групп досмотра.</li><li>Безопасность и точность: Быстрая идентификация через стенки емкости без вскрытия упаковки.</li><li>Инновационность: Первый в мире прибор с акцентом на обнаружение нитрометана — ключевого сырья для самодельных жидких взрывчатых веществ.</li><li>Широкая сфера применения: Идеально подходит для предотвращения терактов в метро и аэропортах, а также для пожарной профилактики на транспорте.</li><li>Простота: Требует минимального обучения персонала, интуитивно понятный ЖК-интерфейс.</li></ul>",
-  "product_name_es": "Handheld Liquid Detector FC1500",
-  "summary_es": "Handheld Liquid Detector FC1500 de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Non-contact hazardous liquid identification; Portable security for airports; Subways; And major events; Detects 40+ types of chemicals including nitromethane and acids; High-endurance battery for 1250+ tests.",
-  "key_parameter_1_es": "Detección Principle: Microwave Analysis",
-  "key_parameter_2_es": "Response Time: 1s - 2.5s",
+  "product_name_es": "Detector de líquidos portátil FC1500",
+  "summary_es": "El detector de seguridad portátil de líquidos peligrosos FC1500 es un instrumento especializado diseñado para la detección de líquidos inflamables y explosivos. Caracterizado por su tamaño compacto, análisis rápido y operación simple, puede identificar rápidamente líquidos peligrosos sin contacto directo. Se utiliza ampliamente en controles de seguridad de estaciones, metros, aeropuertos, agencias de seguridad pública y eventos deportivos a gran escala. Como herramienta portátil pionera, tiene como objetivo prevenir amenazas de explosivos líquidos mediante la detección de componentes como nitrometano, ácido sulfúrico, ácido clorhídrico y gasolina, minimizando así los riesgos para la vida y la propiedad.",
+  "key_application_es": "Identificación de líquidos peligrosos sin contacto; seguridad portátil para aeropuertos, metros y eventos importantes; detecta más de 40 tipos de sustancias químicas, incluidos nitrometano y ácidos; Batería de alta resistencia para más de 1250 pruebas.",
+  "key_parameter_1_es": "Principio de detección: análisis de microondas",
+  "key_parameter_2_es": "Respuesta Tiempo: 1s - 2,5s",
   "parameters_es": {
-    "Technology": "Microwave Analysis (based on conductivity and resistance)",
-    "Response Time": "1s - 2.5s",
-    "Startup": "1s (No preheating required)",
-    "Library": "40+ hazardous liquids including gasoline, nitromethane, and concentrated acids",
-    "Self-Calibration": "5 seconds",
-    "Alarms": "OLED graphic display and acoustic signal",
-    "Batería Life": "Li-ion battery; ≥1250 tests per charge",
-    "Weight": "Approx. 199.5g (including battery)",
-    "Dimensions": "216mm * 50mm * 79mm",
-    "Data Export": "Stores ≥10,000 records; USB interface"
+    "Tecnología": "Análisis de microondas (basado en conductividad y resistencia)",
+    "Respuesta Tiempo": "1s - 2,5s",
+    "Puesta en marcha": "1s (No requiere precalentamiento)",
+    "Biblioteca": "Más de 40 líquidos peligrosos, incluidos gasolina, nitrometano y concentrados ácidos",
+    "Autocalibración": "5 segundos",
+    "Alarmas": "Pantalla gráfica OLED y señal acústica",
+    "Duración de la batería": "Batería de iones de litio; ≥1250 pruebas por carga",
+    "Peso": "Aprox. 199,5 g (incluida la batería)",
+    "Dimensiones": "216 mm * 50 mm * 79 mm",
+    "Exportación de datos": "Almacena ≥10,000 registros; Interfaz USB"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Handheld Liquid Detector FC1500 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Handheld Liquid Detector FC1500 de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Diseño portátil de mano, liviano y fácil de transportar para operaciones de inspección móviles.</li><li>Detección sin contacto y sin apertura: identifica con precisión líquidos peligrosos a través de contenedores sellados.</li><li>Detecta líquidos inflamables, explosivos, corrosivos y tóxicos en varios contenedores no metálicos.</li><li>Detección ultrarrápida: una sola prueba se completa en 1-2 segundos.</li><li>Pantalla LCD grande con indicación intuitiva de paso/alarma.</li><li>Función de alarma audiovisual para notificación inmediata de amenazas.</li><li>Litio recargable incorporado batería que admite un funcionamiento continuo durante más de 8 horas.</li><li>Operación con un solo botón, simple y no requiere profesional capacitación.</li><li>Calibración y funciones de autodiagnóstico.</li></ul>"
 }

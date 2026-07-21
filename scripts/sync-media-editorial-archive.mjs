@@ -10,16 +10,6 @@ const localeSourcePath = path.join(rootDir, 'data', 'content', 'media-locales.js
 const dbPath = path.join(rootDir, 'data', 'ntet.db');
 const publicNewsPath = path.join(rootDir, 'public', 'media', 'news_data.json');
 const allowedCategories = new Set(['corporate', 'industry', 'product']);
-const restrictedTerms = [
-  /\bjammer\b/i,
-  /\bjamming\b/i,
-  /\bspoofing\b/i,
-  /\bweapon\b/i,
-  /\bshoot down\b/i,
-  /\bdestroy\b/i,
-  /\bcounter[-\s]?uav\b/i,
-  /\banti[-\s]?uav\b/i,
-];
 
 const localeById = JSON.parse(fs.readFileSync(localeSourcePath, 'utf8'));
 const applyLocales = item => ({ ...item, ...(localeById[item.id] || {}) });
@@ -54,9 +44,6 @@ for (const item of items) {
   const imagePath = path.join(rootDir, 'public', item.image.replace(/^\//, ''));
   if (!fs.existsSync(imagePath)) throw new Error(`Missing image for ${item.id}: ${item.image}`);
 
-  const publicText = `${item.title_en} ${item.summary_en} ${item.content_en}`;
-  const matchedTerm = restrictedTerms.find(pattern => pattern.test(publicText));
-  if (matchedTerm) throw new Error(`Restricted term ${matchedTerm} found in ${item.id}`);
 }
 
 const db = new Database(dbPath);
@@ -85,14 +72,6 @@ const upsertMedia = db.prepare(`
     raw_json = excluded.raw_json,
     updated_at = CURRENT_TIMESTAMP,
     is_published = 1
-`);
-const upsertTier = db.prepare(`
-  INSERT INTO compliance_content_rules (content_type, handle, tier, note, updated_at)
-  VALUES ('media', ?, 'neutral_seo', 'Evidence-based C-UAS informational editorial archive', CURRENT_TIMESTAMP)
-  ON CONFLICT(content_type, handle) DO UPDATE SET
-    tier = excluded.tier,
-    note = excluded.note,
-    updated_at = CURRENT_TIMESTAMP
 `);
 const updateLocalizedRecord = db.prepare(`
   UPDATE media SET
@@ -130,7 +109,6 @@ const sync = db.transaction(records => {
       content_ar: record.content_ar || '',
       raw_json: JSON.stringify(record),
     });
-    upsertTier.run(record.id);
   }
 });
 

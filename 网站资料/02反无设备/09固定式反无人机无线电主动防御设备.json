@@ -58,22 +58,22 @@
     "Класс защиты корпуса": "IP65"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Безопасность и соответствие: Низкая мощность передачи не мешает работе сторонних систем; наличие сертификатов радиооборудования государственного образца.</li><li>Специализированное исполнение: Взрывозащищенный корпус позволяет устанавливать систему на объектах критической инфраструктуры (ТЭК, НПЗ).</li><li>Глобальное покрытие: Воздействие на все основные созвездия спутников (GPS, ГЛОНАСС, Galileo) для нейтрализации продвинутых дронов.</li><li>Гибкость сценариев: Режимы направленного вытеснения, зонального запрета доступа и создания бесполетных зон.</li><li>Синергия систем: Автоматическое взаимодействие с радарами, средствами радиопеленгации и классическими джаммерами.</li><li>Всепогодность: Гарантированная работа в условиях дождя, снега и густого тумана.</li></ul>",
-  "product_name_es": "Stationary Active RF Defense sistema (Spoofing)",
-  "summary_es": "Stationary Active RF Defense sistema (Spoofing) de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Low-power emission compliant with national safety standards; Explosion-proof design for petrochemical and energy sectors; Covers GPS; GLONASS; And Galileo for multi-mode navigation denial; Supports multi-system integration.",
-  "key_parameter_1_es": "Effective Range: 500m - 1000m (Adjustable)",
-  "key_parameter_2_es": "Output eléctrica: ≤10dBm (mW)",
+  "product_name_es": "Unidad de sitio C-UAS fija",
+  "summary_es": "Una unidad C-UAS de sitio fijo para instalaciones industriales, sitios de energía y control perímetros. El uso de cara al público se centra en la gestión de zonas de advertencia, identificación de objetivos, revisión de posicionamiento, soporte de seguimiento, vinculación de alertas y planificación de respuestas.",
+  "key_application_es": "Diseñado para diseños C-UAS fijos en entornos petroquímicos, energéticos y de sitios públicos; admite integración de plataforma, registros de eventos y protocolos de respuesta coordinada.",
+  "key_parameter_1_es": "Cobertura operativa: 500 m-1000 m (ajustable)",
+  "key_parameter_2_es": "Potencia de salida: ≤10dBm (mW)",
   "parameters_es": {
-    "Transmission Frequency": "GPS L1, GLONASS L1, Galileo E1",
-    "Output eléctrica": "≤10dBm (mW)",
-    "Spoofing Response": "≤10s",
-    "Sync Accuracy": "＜1us",
-    "Effective Range": "500m - 1000m (Adjustable)",
-    "Repulsion Angle": "360° Horizontal",
-    "Eléctrica Consumption": "≤30W",
-    "Positioning": "Integrated GPS with coordinate display",
-    "Operating Temp": "-40℃ to +65℃",
-    "IP Rating": "IP65"
+    "Frecuencia de transmisión": "GPS L1, GLONASS L1, Galileo E1",
+    "Potencia de salida": "≤10dBm (mW)",
+    "verificación de señal Respuesta": "≤10s",
+    "Precisión de sincronización": "<1nosotros",
+    "Rango efectivo": "500 m - 1000 m (ajustable)",
+    "Ángulo de repulsión": "360° Horizontal",
+    "Consumo de energía": "≤30W",
+    "Posicionamiento": "GPS integrado con visualización de coordenadas",
+    "Temperatura de funcionamiento": "-40 ℃ a +65 ℃",
+    "Clasificación IP": "IP65"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Stationary Active RF Defense sistema (Spoofing) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Stationary Active RF Defense sistema (Spoofing) de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características principales</h4><ul><li>Implementación fija, área autónoma 24 horas al día, 7 días a la semana Seguridad capacidad.</li><li>Activo Tecnología de seguridad RF, capaz de hacerse cargo y controlar drones intrusos.</li><li>Admite la respuesta a incidentes, el regreso designado y la guía de ruta del objetivo drones.</li><li>El rango de seguridad efectiva cubre todo el perímetro del área protegida.</li><li>Operación resistente a la intemperie con clasificación de protección IP66.</li><li>Admite monitoreo remoto y administración centralizada a través de la red.</li></ul>"
 }

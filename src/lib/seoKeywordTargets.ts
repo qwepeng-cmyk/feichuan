@@ -31,6 +31,14 @@ const TARGETS: Record<string, SeoKeywordTarget> = {
     overviewHeading: 'Portable, Fixed-Site and Vehicle-Mounted C-UAS Equipment',
     source: 'google_ads_keywords',
   },
+  '/products/handheld-drone-net-launcher': {
+    primary: 'drone net launcher',
+    secondary: ['handheld drone net launcher', 'anti drone net launcher', 'drone capture net', 'physical drone capture device', 'portable counter drone net launcher'],
+    h1: 'Handheld Drone Net Launcher',
+    overviewHeading: 'Handheld Drone Net Launcher Technical Specifications',
+    intro: 'A handheld drone net launcher for close-range physical capture, with a published 10–20 m range, 370 g module and selectable 3.3 m or 5 m nylon net.',
+    source: 'google_ads_keywords',
+  },
   '/accessories': {
     primary: 'UAV components for system integration',
     secondary: ['UAV components', 'EO payload', 'UAV data link', 'UAV propulsion', 'flight controller'],
@@ -266,6 +274,14 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
       overviewHeading: "Sistemas UAV industriales, equipos de monitoreo, accesorios y equipos de campo",
       source: "google_ads_keywords",
     },
+    '/products/handheld-drone-net-launcher': {
+      primary: 'lanzador de red para drones',
+      secondary: ['lanzador de red portátil para drones', 'red de captura de drones', 'dispositivo de captura física de drones'],
+      h1: 'Lanzador de red portátil para drones',
+      overviewHeading: 'Especificaciones del lanzador de red portátil para drones',
+      intro: 'Lanzador de red portátil para captura física a corta distancia, con alcance publicado de 10–20 m, módulo de 370 g y red de nailon de 3,3 m o 5 m.',
+      source: 'google_ads_keywords',
+    },
     '/accessories': {
       primary: 'accesorios para drones',
       secondary: ['componentes UAV', 'gimbal UAV', 'motor UAV', 'enlace de datos UAV'],
@@ -399,25 +415,33 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
   ar: {
     '/': {
       primary: 'أنظمة UAV صناعية',
-      secondary: ['أنظمة الطائرات بدون طيار الصناعية', 'مراقبة الارتفاعات المنخفضة', 'طائرة UAV للتفتيش', 'طائرة UAV للاستجابة الطارئة'],
-      h1: 'أنظمة UAV صناعية لعمليات المجال منخفض الارتفاع',
-      overviewHeading: 'أنظمة UAV الصناعية ومراقبة الارتفاعات المنخفضة',
+      secondary: ['أنظمة الطائرات المسيّرة الصناعية', 'مراقبة المجال الجوي منخفض الارتفاع', 'طائرة UAV للتفتيش', 'طائرة UAV للاستجابة للطوارئ'],
+      h1: 'أنظمة UAV صناعية للعمليات منخفضة الارتفاع',
+      overviewHeading: 'أنظمة UAV الصناعية ومراقبة المجال الجوي منخفض الارتفاع',
       source: 'google_ads_keywords',
     },
     '/about': {
-      primary: 'مكامل أنظمة UAV الصناعية',
-      secondary: ['مزود أنظمة UAV', 'مزود حلول مراقبة الارتفاع المنخفض', 'مكامل تقنيات الأمن'],
-      h1: 'ملف مكامل أنظمة UAV الصناعية',
+      primary: 'تكامل أنظمة UAV الصناعية',
+      secondary: ['مورد أنظمة UAV', 'حلول مراقبة المجال الجوي منخفض الارتفاع', 'تكامل تقنيات الأمن'],
+      h1: 'خبرة N-TET في تكامل أنظمة UAV الصناعية',
       overviewHeading: 'قدرات تكامل أنظمة UAV الصناعية',
-      intro: 'تركز N-TET على تكامل أنظمة UAV الصناعية وحلول مراقبة الارتفاعات المنخفضة وسير عمل التفتيش وتقنيات الفحص الميداني لمشغلي البنية التحتية.',
+      intro: 'تجمع N-TET بين منصات UAV الصناعية ومعدات مراقبة المجال الجوي منخفض الارتفاع وسير عمل التفتيش وتقنيات الفحص الميداني لمشغلي البنية التحتية.',
       source: 'google_ads_keywords',
     },
     '/products': {
       primary: "أنظمة UAV الصناعية",
-      secondary: ["طائرة UAV للتفتيش", "طائرة UAV للطوارئ", "معدات مراقبة الارتفاع المنخفض", "أنظمة الفحص الأمني", "ملحقات الطائرات بدون طيار", "مكونات UAV"],
+      secondary: ["طائرة UAV للتفتيش", "طائرة UAV للطوارئ", "معدات مراقبة المجال الجوي منخفض الارتفاع", "أنظمة الفحص الأمني", "ملحقات الطائرات المسيّرة", "مكونات UAV"],
       h1: "أنظمة UAV الصناعية والمعدات الميدانية",
       overviewHeading: "أنظمة UAV الصناعية ومعدات المراقبة والملحقات والمعدات الميدانية",
       source: "google_ads_keywords",
+    },
+    '/products/handheld-drone-net-launcher': {
+      primary: 'قاذف شبكة للطائرات المسيّرة',
+      secondary: ['قاذف شبكة محمول', 'شبكة التقاط الطائرات المسيّرة', 'جهاز التقاط مادي للطائرات المسيّرة'],
+      h1: 'قاذف شبكة محمول لالتقاط الطائرات المسيّرة',
+      overviewHeading: 'مواصفات قاذف الشبكة المحمول',
+      intro: 'قاذف شبكة محمول للالتقاط المادي قريب المدى، بمسافة معلنة من 10 إلى 20 م ووحدة بوزن 370 جم وخيار شبكة 3.3 م أو 5 م.',
+      source: 'google_ads_keywords',
     },
     '/accessories': {
       primary: 'ملحقات ومكونات UAV',
@@ -428,33 +452,33 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
     },
     '/solutions': {
       primary: "حلول UAV الصناعية",
-      secondary: ["حلول تفتيش UAV", "طائرة استجابة للطوارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية", "مراقبة الارتفاع المنخفض"],
-      h1: "حلول UAV الصناعية ومراقبة الارتفاع المنخفض",
-      overviewHeading: "حلول UAV الصناعية للتفتيش والاستجابة للطوارئ ومراقبة الارتفاع المنخفض والأمن",
-      intro: "تعرض N-TET حلول تفتيش UAV، وتفتيش خطوط الكهرباء بالطائرات بدون طيار، وطائرات تفتيش خطوط الأنابيب، ومراقبة المياه باستخدام UAV، وطائرات الاستجابة للطوارئ، وفرق البحث والإنقاذ، ودعم مكافحة الحرائق، وحماية البنية التحتية الحرجة، وأمن المناطق الرئيسية، ومراقبة المجال الجوي للمطارات، ومراقبة الفعاليات، وحلول مراقبة الارتفاع المنخفض.",
+      secondary: ["حلول تفتيش UAV", "طائرة مسيّرة للاستجابة للطوارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الحيوية", "مراقبة المجال الجوي منخفض الارتفاع"],
+      h1: "حلول UAV الصناعية ومراقبة المجال الجوي منخفض الارتفاع",
+      overviewHeading: "حلول UAV للتفتيش والطوارئ ومراقبة المجال الجوي",
+      intro: "تغطي حلول N-TET تفتيش خطوط الكهرباء والأنابيب، ومراقبة المياه، والاتصالات الطارئة، والبحث والإنقاذ، ودعم الإطفاء، ومراقبة المجال الجوي للمطارات والفعاليات والمواقع الحساسة.",
       source: "google_ads_keywords",
     },
     '/cases': {
-      primary: "حالات نشر UAV",
-      secondary: ["حالات تفتيش UAV", "دوريات UAV لخطوط الكهرباء", "حالات مراقبة الارتفاع المنخفض", "حالات الدعم الطارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية"],
-      h1: "حالات نشر UAV ومراجع مراقبة الارتفاع المنخفض",
-      overviewHeading: "حالات نشر UAV ومراقبة الارتفاع المنخفض",
-      intro: "تصفح حالات نشر UAV وحالات مراقبة الارتفاع المنخفض. تشمل المراجع دوريات UAV لخطوط الكهرباء، ودوريات UAV للمياه، وحالات مراقبة المصافي، وحالات الدعم الطارئ، ومراقبة المجال الجوي للمطارات، ومراقبة الفعاليات، وأمثلة حالات مراقبة الارتفاع المنخفض.",
+      primary: "مشروعات UAV الميدانية",
+      secondary: ["دراسات حالة UAV", "دوريات UAV لخطوط الكهرباء", "مشروعات مراقبة المجال الجوي", "مشروعات الدعم الطارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الحيوية"],
+      h1: "مشروعات UAV ومراقبة المجال الجوي",
+      overviewHeading: "مشروعات ميدانية وحالات استخدام UAV",
+      intro: "اطّلع على مشروعات N-TET في دوريات خطوط الكهرباء والمياه، ومراقبة المصافي والمطارات والفعاليات، ودعم الطوارئ وحماية البنية التحتية.",
       source: "google_ads_keywords",
     },
     '/media': {
       primary: 'ملاحظات هندسية لأنظمة C-UAS',
-      secondary: ['دليل مشتري C-UAS', 'تحليل قطاع C-UAS', 'تقنيات كشف الطائرات بدون طيار', 'تكامل أنظمة C-UAS', 'التحقق الكهروبصري والحراري', 'مراقبة الارتفاع المنخفض'],
+      secondary: ['دليل مشتري C-UAS', 'تحليل قطاع C-UAS', 'تقنيات كشف الطائرات المسيّرة', 'تكامل أنظمة C-UAS', 'التحقق الكهروبصري والحراري', 'مراقبة المجال الجوي منخفض الارتفاع'],
       h1: 'داخل N-TET: ملاحظات هندسية وأدلة قطاع C-UAS',
       overviewHeading: 'ملاحظات هندسية وأدلة للمشترين حول C-UAS',
       source: 'google_ads_keywords',
     },
     '/contact': {
-      primary: 'عرض سعر UAV صناعي',
-      secondary: ['مزود UAV', 'حل تفتيش بالطائرات بدون طيار', 'معدات مراقبة الارتفاع المنخفض'],
-      h1: 'طلب عرض سعر UAV صناعي',
-      overviewHeading: 'عرض سعر UAV صناعي واستشارة مشروع',
-      intro: 'استخدم هذه الصفحة لطلب عرض سعر UAV صناعي أو مناقشة مزود UAV أو تخطيط حل تفتيش بالطائرات بدون طيار أو معدات مراقبة الارتفاع المنخفض مع فريق N-TET.',
+      primary: 'طلب عرض سعر لنظام UAV صناعي',
+      secondary: ['مورد أنظمة UAV', 'حل تفتيش بالطائرات المسيّرة', 'معدات مراقبة المجال الجوي منخفض الارتفاع'],
+      h1: 'طلب عرض سعر لنظام UAV صناعي',
+      overviewHeading: 'عرض سعر واستشارة لمشروع UAV',
+      intro: 'أرسل نوع المهمة والموقع وشكل النشر المطلوب لطلب عرض سعر أو مراجعة أولية لحل تفتيش أو مراقبة باستخدام UAV.',
       source: 'google_ads_keywords',
     },
     '/solutions/category/01_BorderPatrol': {
@@ -473,8 +497,8 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
     },
     '/solutions/category/03_KeyAreaSecurity': {
       primary: 'مراقبة المجال الجوي للمطارات',
-      secondary: ['مراقبة أمن الفعاليات', 'أمن المناطق الرئيسية', 'معدات مراقبة الارتفاع المنخفض'],
-      h1: 'مراقبة المجال الجوي للمطارات وأمن المناطق الرئيسية',
+      secondary: ['مراقبة أمن الفعاليات', 'أمن المناطق الحيوية', 'معدات مراقبة المجال الجوي منخفض الارتفاع'],
+      h1: 'مراقبة المجال الجوي للمطارات وأمن المناطق الحيوية',
       overviewHeading: 'سيناريوهات مراقبة المجال الجوي للمطارات',
       source: 'google_ads_keywords',
     },
@@ -551,10 +575,11 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
   },
   ru: {
     '/': {
-      primary: 'промышленные БПЛА',
-      secondary: ['мониторинг низкой высоты', 'инспекционный БПЛА', 'аварийный БПЛА'],
-      h1: 'Промышленные БПЛА для низковысотных операций',
-      overviewHeading: 'Промышленные БПЛА и мониторинг низкой высоты',
+      primary: 'оборудование C-UAS',
+      secondary: ['системы защиты от дронов', 'обнаружение дронов', 'мониторинг воздушного пространства'],
+      h1: 'Оборудование C-UAS и интеграция систем',
+      overviewHeading: 'Системы C-UAS для обнаружения и мониторинга воздушного пространства',
+      intro: 'N-TET поставляет оборудование C-UAS и интегрирует системы обнаружения, идентификации, сопровождения и координации реагирования для критически важных и общественных объектов.',
       source: 'google_ads_keywords',
     },
     '/about': {
@@ -571,6 +596,14 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
       h1: "Промышленные БПЛА и полевое оборудование",
       overviewHeading: "Промышленные БПЛА, оборудование мониторинга, аксессуары и полевое оборудование",
       source: "google_ads_keywords",
+    },
+    '/products/handheld-drone-net-launcher': {
+      primary: 'устройство сетевого захвата дронов',
+      secondary: ['ручное устройство сетевого захвата', 'сеть для физического захвата дрона', 'переносное средство захвата дронов'],
+      h1: 'Ручное устройство сетевого захвата дронов',
+      overviewHeading: 'Технические характеристики ручного сетевого устройства',
+      intro: 'Ручное устройство для физического захвата дронов на близкой дистанции: заявленная дальность 10–20 м, модуль 370 г и нейлоновая сеть 3,3 м или 5 м.',
+      source: 'google_ads_keywords',
     },
     '/accessories': {
       primary: 'аксессуары для БПЛА',
@@ -727,7 +760,14 @@ function titleToKeyword(title: string) {
     .trim();
 }
 
-function inferOverviewHeading(primary: string, pageKind?: string) {
+function inferOverviewHeading(primary: string, pageKind?: string, locale = 'en') {
+  if (locale === 'ar') {
+    if (/case/i.test(pageKind || '')) return `نظرة على مشروع ${primary}`;
+    if (/media/i.test(pageKind || '')) return `ملاحظات حول ${primary}`;
+    if (/solution/i.test(pageKind || '')) return `تشغيل ${primary}`;
+    if (/product|accessory/i.test(pageKind || '')) return `المواصفات الفنية لـ ${primary}`;
+    return `نظرة عامة على ${primary}`;
+  }
   if (/case/i.test(pageKind || '')) return `${primary} Project Overview`;
   if (/media/i.test(pageKind || '')) return `${primary} Insights`;
   if (/solution/i.test(pageKind || '')) return `${primary} Operations`;
@@ -763,7 +803,7 @@ export function getSeoKeywordTarget(options: {
     primary,
     secondary,
     h1: primary,
-    overviewHeading: inferOverviewHeading(primary, options.pageKind),
+    overviewHeading: inferOverviewHeading(primary, options.pageKind, options.locale),
     source: 'inferred_seo_keyword',
   };
 }
@@ -788,7 +828,7 @@ export function buildKeywordIntro(target: SeoKeywordTarget, fallbackSubject: str
       return `${target.primary} является основной темой этой страницы; также раскрываются связанные задачи: ${related || fallbackSubject}.`;
     }
     if (locale === 'ar') {
-      return `${target.primary} هو موضوع البحث الرئيسي لهذه الصفحة، مع تغطية مرتبطة بـ ${related || fallbackSubject}.`;
+      return `توضح هذه الصفحة ${target.primary}، مع معلومات مرتبطة بـ ${related || fallbackSubject}.`;
     }
     return `${target.primary} is the primary search theme for this page, with related coverage for ${related || fallbackSubject}.`;
   }

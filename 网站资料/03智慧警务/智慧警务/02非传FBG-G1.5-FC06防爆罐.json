@@ -55,21 +55,21 @@
     "Применение": "Скоростные железные дороги, метрополитен (Тяньцзинь, Шицзячжуан и др.)"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Высокий уровень защиты: Рассчитан на взрыв 1,5 кг ТНТ, разработан специально для мест с экстремально высоким пассажиропотоком.</li><li>Технология композитной защиты: Сочетание импортного волокна и специальных плит для полного поглощения ударной волны.</li><li>Прецизионное производство: Корпус из высококачественной нержавеющей стали, устойчивый к коррозии и ржавчине.</li><li>Большая вместимость: Внутренний диаметр 430 мм позволяет разместить большинство подозрительных пакетов.</li><li>Гарантия безопасности: Тяжелая сбалансированная крышка для предотвращения вторичных повреждений.</li><li>Проверенная надежность: Длительная эксплуатация на крупнейших ж/д магистралях Китая.</li></ul>",
-  "product_name_es": "Explosion Containment Vessel FBG-G1.5-FC06",
-  "summary_es": "Explosion Containment Vessel FBG-G1.5-FC06 de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Blast containment for airports; Railway stations; And major public events; 1.5kg TNT resistance rating; Triple-layer composite protection; Widely deployed in global high-speed rail and subway networks.",
-  "key_parameter_1_es": "Blast Resistance: 1.5kg TNT equivalent",
-  "key_parameter_2_es": "Product Weight: Approx. 240kg",
+  "product_name_es": "Recipiente de contención de explosiones FBG-G1.5-FC06",
+  "summary_es": "El recipiente de contención de explosiones FBG-G1.5-FC06 es un dispositivo de protección de seguridad profesional adecuado para seguridad pública, aeropuertos, estaciones de ferrocarril, aduanas y lugares críticos. Diseñado para uso en interiores con una altura mínima de techo de 4 metros, presenta una estructura de triple capa (tanque externo, tanque interno floral y capa de relleno) y está compuesto por cuatro materiales de alta resistencia resistentes a explosiones, incluida fibra compuesta importada, caucho antienvejecimiento resistente a explosiones, una capa esponjosa especializada y éster de ácido polipeptídico poroso. Encerrado en una carcasa exterior de acero inoxidable y equipado con una tapa antiexplosión exclusiva, admite la máxima contención en caso de una explosión.",
+  "key_application_es": "Contención de explosiones para aeropuertos, estaciones de ferrocarril y eventos públicos importantes; Clasificación de resistencia TNT de 1,5 kg; protección compuesta de triple capa; ampliamente desplegado en redes globales de metro y trenes de alta velocidad.",
+  "key_parameter_1_es": "Resistencia a explosiones: 1,5 kg equivalente a TNT",
+  "key_parameter_2_es": "Peso del producto: Aprox. 240 kg",
   "parameters_es": {
-    "Model": "FBG-G1.5-FC06",
-    "Blast Resistance": "1.5kg TNT equivalent",
-    "Outer Diameter": "Φ560 mm",
-    "Inner Diameter": "Φ430 mm",
-    "Height": "650 mm",
-    "Product weight": "240 kg",
-    "Structure": "Triple-layer: Outer tank, Floral tank, Filler layer",
-    "Core Materials": "Imported composite fiber, Anti-aging rubber, Fluffy layer, Porous poly-peptide acid ester",
-    "Applications": "High-speed railways (Shijiazhuang-Wuhan, etc.) and metro systems"
+    "Modelo": "FBG-G1.5-FC06",
+    "Resistencia a explosiones": "1,5 kg equivalente de TNT",
+    "Diámetro exterior": "Φ560mm",
+    "Diámetro interior": "Φ430mm",
+    "Altura": "650 mm",
+    "Producto peso": "240 kg",
+    "Estructura": "Triple capa: tanque exterior, tanque floral, capa de relleno",
+    "Materiales principales": "Fibra compuesta importada, caucho antienvejecimiento, esponjoso capa, éster de ácido polipeptídico poroso",
+    "Aplicaciones": "Ferrocarriles de alta velocidad (Shijiazhuang-Wuhan, etc.) y sistemas de metro"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Explosion Containment Vessel FBG-G1.5-FC06 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Explosion Containment Vessel FBG-G1.5-FC06 de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Resistencia a explosiones verificada: nominal para equivalente a 1,5 kg de TNT; probado en sitios de alto tráfico como trenes de alta velocidad y metros.</li><li>Sinergia multimaterial: combina cuatro materiales diferentes de alta absorción para debilitar las ondas explosivas y contener la metralla de manera efectiva.</li><li>Construcción duradera: el exterior de acero inoxidable de alta calidad proporciona una excelente corrosión Resistencia y estética profesional para espacios públicos.</li><li>volumen interno optimizado público de N-TET: el diámetro interior de Φ430 mm se adapta a los paquetes sospechosos típicos que se encuentran en el transporte público.</li><li>Despliegue estratégico: ampliamente implementado en importantes proyectos de infraestructura, incluidas las líneas HSR Beijing-Guangzhou y Ningbo-Hangzhou.</li><li>Fácil mantenimiento: capa de relleno claramente etiquetada con un ciclo de reemplazo de 5 años para un rendimiento sostenido.</li></ul>"
 }

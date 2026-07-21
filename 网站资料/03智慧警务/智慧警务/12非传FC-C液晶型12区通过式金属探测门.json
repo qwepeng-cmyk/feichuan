@@ -58,22 +58,22 @@
     "Размеры прохода": "2010(В) x 700(Ш) x 500(Г) мм"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Улучшенные материалы: ПВХ-композит со специальными водонепроницаемыми чехлами на ножках для долгой службы.</li><li>ЖК-монитор 7 дюймов: Интуитивно понятная настройка параметров и мониторинг состояния в реальном времени.</li><li>Точная локализация: Светодиоды на стойках и графическое отображение зон на экране позволяют мгновенно увидеть, где спрятан металл.</li><li>Сетевое управление: Возможность удаленного контроля группы металлодетекторов через единую систему.</li><li>Настройка звука: Регулируемая громкость и тон (длинный/средний/короткий) для разных условий эксплуатации.</li><li>Безопасность: Полное соответствие международным стандартам защиты здоровья (безопасно для беременных и носителей кардиостимуляторов).</li></ul>",
-  "product_name_es": "Walk-Through Metal Detector FC-C (LCD, 12-Zone)",
-  "summary_es": "Walk-Through Metal Detector FC-C (LCD, 12-Zone) de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Advanced LCD interface with 12 overlapping detection zones; High-speed digital scanning for zero blind spots; Networked capability for up to 20 gates; Waterproof and fireproof PVC construction.",
-  "key_parameter_1_es": "Detección Zones: 12 overlapping zones",
-  "key_parameter_2_es": "Material: Specialized PVC composite",
+  "product_name_es": "Detector de metales de paso FC-C (LCD, 12 zonas)",
+  "summary_es": "La puerta de detección de metales LCD FC-C es un dispositivo de inspección de alta seguridad con diseño de compatibilidad electromagnética, rendimiento resistente a vibraciones, zonas de detección ajustables y una interfaz LCD intuitiva. Admite la selección de personal profesional para tribunales, escuelas, fabricación de productos electrónicos, centros de transporte, eventos a gran escala y otras entradas a sitios controlados.",
+  "key_application_es": "LCD avanzado interfaz con 12 zonas de detección superpuestas; escaneo digital de alta velocidad para cero puntos ciegos; capacidad en red para hasta 20 puertas; Construcción de PVC resistente al agua y al fuego.",
+  "key_parameter_1_es": "Zonas de detección: 12 zonas superpuestas",
+  "key_parameter_2_es": "Material: compuesto de PVC especializado",
   "parameters_es": {
-    "Detección Zones": "12 overlapping zones with multi-target simultaneous alarm capability",
-    "Sensitivity": "0-1000 levels; can filter personal items; maximum detection of a safety pin",
-    "Signal Processing": "2000-level DSP digital filtering for extreme E-M interference resistance",
-    "Connectivity": "Built-in network interface for centralized management of up to 20 gates",
-    "Construction": "High-durability PVC composite; waterproof, fireproof, and shock-resistant",
-    "Traffic Statistics": "Smart bi-directional traffic counter and alarm statistics logger",
-    "External Interface": "Optional serial interface for gate and surveillance integration",
-    "Eléctrica Supply": "AC 90V - 250V (50/60Hz), power <35W",
-    "Weight": "Approx. 45kg",
-    "Channel Dimensions": "2010(H) x 700(W) x 500(D) mm"
+    "Zonas de detección": "12 zonas superpuestas con capacidad de alarma simultánea para múltiples objetivos",
+    "Sensibilidad": "0-1000 niveles; puede filtrar artículos personales; detección máxima de un imperdible",
+    "Procesamiento de señal": "Filtrado digital DSP de nivel 2000 para resistencia extrema a interferencias E-M",
+    "Conectividad": "Interfaz de red integrada para gestión centralizada de hasta 20 puertas",
+    "Construcción": "Compuesto de PVC de alta durabilidad; resistente al agua, al fuego y a los golpes",
+    "Estadísticas de tráfico": "Contador de tráfico bidireccional inteligente y estadísticas de alarma registrador",
+    "Interfaz externa": "Interfaz serial opcional para integración de puertas y vigilancia",
+    "Fuente de alimentación": "CA 90 V - 250 V (50/60 Hz), potencia <35 W",
+    "Peso": "Aprox. 45 kg",
+    "Dimensiones del canal": "2010(H) x 700(W) x 500(D) mm"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Walk-Through Metal Detector FC-C (LCD, 12-Zone) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Walk-Through Metal Detector FC-C (LCD, 12-Zone) de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>12 zonas de detección independientes con sensibilidad ajustable para cada zona.</li><li>Panel de pantalla LCD de 7 pulgadas para monitoreo de estado intuitivo y configuración de parámetros.</li><li>Detección de alta precisión: capaz de detectar pequeños objetos metálicos en todo el rango del cuerpo.</li><li>Pantalla indicadora de zona: pantalla gráfica en tiempo real que muestra la zona exacta de alarma en la pantalla LCD.</li><li>Contador de tráfico bidireccional: rastrea automáticamente el recuento de pasajes y las estadísticas de alarmas.</li><li>Diseño estable EMC: procesamiento de señal digital DSP avanzado para un funcionamiento estable en entornos electromagnéticos complejos.</li><li>Protección con contraseña: sistema de contraseña jerárquico de varios niveles para parámetros seguros gestión.</li><li>Luces de posicionamiento LED de 360°: indicadores LED en los cuatro lados para visibilidad omnidireccional de la zona de alarma.</li><li>Alarma audiovisual: indicaciones de voz y parpadeo de tira LED sincronizado.</li><li>Control remoto: admite operación inalámbrica de mouse/teclado para una configuración conveniente.</li><li>Función de autodiagnóstico: autoprueba de encendido automático con indicación de código de falla.</li><li>Estándares técnicos: diseñado según los requisitos GB15210-2018.</li></ul>"
 }

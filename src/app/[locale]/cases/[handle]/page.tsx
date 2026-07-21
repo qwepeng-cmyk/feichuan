@@ -18,8 +18,9 @@ import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import CaseEquipmentList from '@/components/cases/CaseEquipmentList';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -78,6 +79,15 @@ function parseList(value: unknown): string[] {
 
 function uniqueItems(items: string[]) {
   return Array.from(new Set(items.filter(Boolean)));
+}
+
+function firstNonEmptyList(...values: unknown[]): string[] {
+  for (const value of values) {
+    const items = uniqueItems(parseList(value));
+    if (items.length > 0) return items;
+  }
+
+  return [];
 }
 
 function localizeSnapshotLabel(label: string, dict: any) {
@@ -148,6 +158,11 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
     ],
   });
   const caseSnapshot = parseSnapshot(caseData[`case_snapshot_${locale}`] || caseData.case_snapshot_en, dict);
+  const equipmentItems = firstNonEmptyList(
+    caseData[`devices_${locale}`],
+    caseData.devices_en,
+    caseData.devices
+  );
   const recommendedProductHandles = uniqueItems([
     ...parseList(caseData.recommended_product_handles),
     ...parseList(caseData.recommendedProductHandles),
@@ -213,6 +228,10 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {title}
                     </h1>
+                    <CaseEquipmentList
+                      heading={dict.cases?.equipmentUsed || 'Equipment Used'}
+                      items={equipmentItems}
+                    />
                     {caseSnapshot.length > 0 && (
                       <div className="case-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
                         <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
@@ -230,9 +249,9 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                       <a href="#inquiry" className="btn-cta" style={{ background: '#b45309', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <WhatsAppLeadButton sourceLabel="case_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <PrimaryContactButton sourceLabel="case_detail_whatsapp" className="btn-cta" style={{ background: 'var(--contact-channel-accent)', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
-                      </WhatsAppLeadButton>
+                      </PrimaryContactButton>
                     </div>
                   </div>
                 </div>
@@ -255,7 +274,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
             {recommendedProducts.length > 0 && (
               <section id="products" className="detail-section" style={{ padding: '100px 0', backgroundColor: '#f4f7fa' }}>
                 <div className="container">
-                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
+                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>{dict.cases?.recommendedEquipment || dict.products.relatedEquipment || 'Recommended Equipment'}</h2>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '30px' }}>
                     {recommendedProducts.map((product, idx) => (
                       <ProductGridCard key={idx} product={product} locale={locale} />
@@ -280,6 +299,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
           recommendedProducts={recommendedProducts}
           locale={locale}
           dict={dict}
+          equipmentItems={equipmentItems}
         />
       </div>
 

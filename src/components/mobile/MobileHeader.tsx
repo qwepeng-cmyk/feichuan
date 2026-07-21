@@ -96,7 +96,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
                                     href={item.href}
                                     className={`${styles.drawerLanguageLink} ${locale === item.locale ? styles.activeLanguage : ''}`}
                                 >
-                                    {languageLabels[item.locale]}
+                                    <span dir="auto">{languageLabels[item.locale]}</span>
                                 </Link>
                             ))}
                         </div>

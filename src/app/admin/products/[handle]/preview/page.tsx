@@ -3,10 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
 import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
+import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
 
 export default function AdminProductPreview({ params }: { params: { handle: string } }) {
   const product = db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
   if (!product) notFound();
+
+  if (product.handle === 'drone-laser-engagement-system') {
+    return <DroneLaserEngagementSystem mode="preview" locale="en" />;
+  }
 
   const tier = getComplianceTier('product', product.handle);
   const layer = getComplianceLayer(tier);

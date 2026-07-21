@@ -42,17 +42,17 @@
     "Сценарии": "Лечение массовых раненых, противоэпидемический контроль, ликвидация последствий катастроф"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интеллектуальное управление: Единая цифровая сеть управления медицинскими блоками и ресурсами госпиталя.</li><li>Автономность: Встроенные системы жизнеобеспечения, энергоснабжения и водоочистки для работы в изолированных районах.</li><li>Стандартизация: Соответствие международным стандартам оказания экстренной медицинской помощи.</li><li>Многофункциональность: Возможность быстрой переконфигурации модулей под конкретные задачи (хирургия, терапия, инфекционный блок).</li></ul>",
-  "product_name_es": "Intelligent Mobile Cabin Hospital",
-  "summary_es": "Intelligent Mobile Cabin Hospital de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Sea-land-air global mobility with 36-hour rapid deployment; All-weather and all-terrain medical support for mass casualty rescue; Epidemic prevention; And humanitarian aid.",
-  "key_parameter_1_es": "Deployment/Retrieval: 36h / 24h",
-  "key_parameter_2_es": "Mobility: Sea-land-air global amphibious support",
+  "product_name_es": "Hospital de cabina móvil inteligente",
+  "summary_es": "El hospital de cabina móvil inteligente está diseñado con conceptos livianos y modulares, integrando hardware médico profesional con sistemas de información inteligentes. Posee movilidad anfibia mar-tierra-aire para despliegue global. El sistema se puede ampliar rápidamente en 36 horas y recuperarse en 24 horas, lo que aumenta materialmente la eficiencia de la respuesta. Se encarga del tratamiento de víctimas en masa, el control de epidemias, la ayuda en casos de desastre y la ayuda internacional, y brinda apoyo médico estandarizado y resistente a la intemperie para sitios de desastres complejos.",
+  "key_application_es": "Movilidad global mar-tierra-aire con despliegue rápido en 36 horas; soporte médico resistente a la intemperie y todo terreno para rescate de víctimas masivas, prevención de epidemias y ayuda humanitaria.",
+  "key_parameter_1_es": "Despliegue/Recuperación: 36 h/24h",
+  "key_parameter_2_es": "Movilidad: soporte anfibio global mar, tierra y aire",
   "parameters_es": {
-    "Mobility": "Sea-land-air global amphibious mobility",
-    "Deployment Time": "≤36 hours",
-    "Retrieval Time": "≤24 hours",
-    "Design Concept": "Lightweight, modular, and smart integration",
-    "Application": "Mass casualty rescue, epidemic control, disaster relief, humanitarian aid"
+    "Movilidad": "Anfibio global mar-tierra-aire movilidad",
+    "Tiempo de implementación": "≤36 horas",
+    "Tiempo de recuperación": "≤24 horas",
+    "Concepto de diseño": "Integración ligera, modular e inteligente",
+    "Aplicación": "Rescate de víctimas en masa, control de epidemias, ayuda en casos de desastre, asistencia humanitaria Aid"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Intelligent Mobile Cabin Hospital está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Intelligent Mobile Cabin Hospital de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Diseño modular liviano con hardware/software integrado. Movilidad global mar-tierra-aire para un despliegue rápido en 36 horas y recuperación en 24 horas.</li><li>Configuración de unidad inteligente y soporte médico de alto nivel resistente a la intemperie. Ideal para rescate de víctimas masivas, control de epidemias y ayuda humanitaria.</li></ul>"
 }

@@ -58,22 +58,22 @@
     "Питание": "AC 180-240 В (50/60 Гц)"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Экологичный дизайн: Безопасен для персонала и пищевых продуктов, полное отсутствие ионизирующего излучения.</li><li>Широкий спектр обнаружения: Гарантированное определение бензина, керосина, дизельного топлива, различных кислот, спиртов и растворителей даже в низкой концентрации.</li><li>Рекордная скорость: Самый быстрый анализ в отрасли для пластиковых и стеклянных бутылок (0.5 сек).</li><li>Универсальность емкостей: Единственный прибор, сканирующий дно, что позволяет анализировать почти пустые контейнеры.</li><li>Интуитивный интерфейс: Четкая индикация «Годен/Опасно» со звуковым дублированием.</li></ul>",
-  "product_name_es": "Desktop Liquid seguridad Inspector FC1500B",
-  "summary_es": "Desktop Liquid seguridad Inspector FC1500B de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Non-radiative and eco-friendly microwave detection; Identifies over 30 hazardous liquids including gasoline and concentrated acids; World-leading 0.5s detection speed for non-metal containers; Unique bottom-of-container analysis technology.",
-  "key_parameter_1_es": "Dimensions: 460mm(W) x 367mm(D) x 260mm(H)",
-  "key_parameter_2_es": "Detectable Vessel Size: Diameter 30mm-200mm (Glass, Plastic, Ceramic)",
+  "product_name_es": "Inspector de seguridad de líquidos de escritorio FC1500B",
+  "summary_es": "El inspector de seguridad líquida de escritorio FC1500B es un dispositivo de detección de seguridad ecológico y de alta eficiencia. Utiliza métodos de conductividad térmica y reflexión de microondas pulsada de banda ultraancha, que no contienen radiación y garantizan que no dañan la salud humana ni los artículos inspeccionados. Este método de detección es respetuoso con el medio ambiente y muy seguro. El equipo se utiliza ampliamente en tránsito ferroviario, eventos a gran escala y lugares críticos para la detección rápida y precisa de líquidos peligrosos inflamables, explosivos y corrosivos. Su exclusiva tecnología de detección del \"fondo del contenedor\" permite un análisis preciso incluso cuando queda una cantidad mínima de líquido en el recipiente.",
+  "key_application_es": "Detección de microondas no radiativa y ecológica; identifica más de 30 líquidos peligrosos, incluida gasolina y ácidos concentrados; velocidad de detección mundial de 0,5 s para contenedores no metálicos; tecnología única de análisis del fondo del contenedor.",
+  "key_parameter_1_es": "Dimensiones: 460 mm (ancho) x 367 mm (profundidad) x 260 mm (alto) ",
+  "key_parameter_2_es": "Tamaño del recipiente detectable: diámetro 30 mm-200 mm (vidrio, plástico, Cerámica)",
   "parameters_es": {
-    "Technology": "UWB Pulse Microwave Reflection & Thermal Conductivity",
-    "Hazardous Categories": "32+ types of flammable, explosive, and corrosive liquids (inc. dilute acids)",
-    "Detección Speed": "Non-metal: 0.5s (avg); Metal: 7.5s (avg)",
-    "Container Support": "Iron, Aluminum, Plastic, Glass, Ceramic, etc.",
-    "Detección Method": "Exclusive bottom-of-vessel scanning",
-    "Storage": "≥100,000 records; CSV/Analysis export via USB",
-    "Alarm Modes": "Red/Green LEDs, high-decibel buzzer, LCD messages",
-    "Eléctrica Consumption": "10W (Ultra-low consumption)",
-    "Weight": "≤9kg",
-    "Dimensions": "460mm x 367mm x 260mm"
+    "Tecnología": "Reflexión de microondas pulsada UWB y conductividad térmica",
+    "Categorías peligrosas": "32+ tipos de líquidos inflamables, explosivos y corrosivos (incluidos ácidos diluidos)",
+    "Detección Velocidad": "No metálicos: 0,5 s (promedio); Metal: 7,5 s (promedio)",
+    "Soporte de contenedores": "Hierro, Aluminio, Plástico, Vidrio, Cerámica, etc.",
+    "Método de detección": "Escaneo exclusivo del fondo del recipiente",
+    "Almacenamiento": "≥100.000 registros; Exportación CSV/análisis a través de USB",
+    "Modos de alarma": "LED rojo/verde, zumbador de alto decibelio, mensajes en LCD",
+    "Consumo de energía": "10W (Consumo ultrabajo)",
+    "Peso": "≤9kg",
+    "Dimensiones": "460 mm x 367 mm x 260 mm"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Desktop Liquid seguridad Inspector FC1500B está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Desktop Liquid seguridad Inspector FC1500B de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Detección sin contacto y sin apertura: identifica líquidos peligrosos a través de contenedores sellados sin abrir, de forma segura y rápida.</li><li>Amplia aplicabilidad: detecta líquidos inflamables, explosivos, corrosivos y tóxicos en recipientes de vidrio, plástico, cerámica y otros no metálicos.</li><li>Amplia compatibilidad de contenedores: admite varias paredes de contenedores espesores de 1 a 10 mm.</li><li>Detección rápida: una sola prueba se completa en 2 segundos.</li><li>Visualización intuitiva de resultados: gran pantalla LCD en color con indicación clara de pase/alarma y alertas audiovisuales.</li><li>Calibración automática: función de autocalibración incorporada para respaldar la precisión de la medición.</li><li>Diseño portátil: compacto y liviano, adecuado para puntos de control e inspección móvil uso.</li></ul>"
 }

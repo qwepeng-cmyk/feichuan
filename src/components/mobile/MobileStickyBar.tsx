@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState } from 'react';
 import { FileText, MessageCircle } from 'lucide-react';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import MobileQuoteDrawer from './MobileQuoteDrawer';
 
 export default function MobileStickyBar({ dict }: { locale: string; dict: any }) {
@@ -54,13 +54,13 @@ export default function MobileStickyBar({ dict }: { locale: string; dict: any })
         {dict.inquiry?.title || 'Get Expert Drone Defense Advice'}
       </button>
 
-      <WhatsAppLeadButton
+      <PrimaryContactButton
         sourceLabel="mobile_sticky_whatsapp"
-        style={{ ...buttonStyle, background: '#25D366' }}
+        style={{ ...buttonStyle, background: 'var(--contact-channel-accent)' }}
       >
         <MessageCircle size={18} aria-hidden="true" />
         {dict.products.whatsapp}
-      </WhatsAppLeadButton>
+      </PrimaryContactButton>
 
       <MobileQuoteDrawer dict={dict} open={quoteOpen} onClose={closeQuote} />
     </div>

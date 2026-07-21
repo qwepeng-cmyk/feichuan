@@ -22,7 +22,7 @@ import {
     Wrench,
 } from 'lucide-react';
 import FactoryShow from '@/components/about/FactoryShow';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
 import InquiryForm from '@/components/products/InquiryForm';
 import { localePath } from '@/lib/localePath';
@@ -197,13 +197,13 @@ const faqs = [
 function PurchaseActions({ locale, mobile = false }: { locale: string; mobile?: boolean }) {
     return localizeCuasTree(locale, (
         <div className={mobile ? styles.mobileActions : styles.actions}>
-            <WhatsAppLeadButton
+            <PrimaryContactButton
                 sourceLabel={mobile ? 'about_mobile_whatsapp' : 'about_desktop_whatsapp'}
                 ctaLocation={mobile ? 'about_mobile' : 'about_desktop'}
                 className={styles.primaryAction}
             >
                 Get Price on WhatsApp <ArrowUpRight size={18} aria-hidden="true" />
-            </WhatsAppLeadButton>
+            </PrimaryContactButton>
             <Link className={styles.secondaryAction} href={localePath(locale, '/contact')} prefetch={false}>
                 Request Brochure <ArrowRight size={17} aria-hidden="true" />
             </Link>

@@ -4,6 +4,7 @@ export type ComplianceTier = 'normal' | 'neutral_seo' | 'restricted';
 export type ComplianceContentType = 'product' | 'solution' | 'case' | 'media';
 
 const PRODUCT_TIERS: Record<string, ComplianceTier> = {
+  'handheld-drone-net-launcher': 'normal',
   'stationary-rf-detection-system': 'neutral_seo',
   'directional-rf-event-logging': 'neutral_seo',
   'portable-rf-detection-case': 'neutral_seo',
@@ -24,10 +25,8 @@ const PRODUCT_TIERS: Record<string, ComplianceTier> = {
   'low-altitude-3d-pulse-doppler-radar': 'neutral_seo',
   'directional-rf-interference-device': 'normal',
   'omni-directional-rf-interference-device': 'normal',
-
   'directional-rf-jammer': 'restricted',
   'omni-directional-rf-jammer': 'restricted',
-
   'portable-anti-drone-jammer-shield': 'restricted',
   'portable-anti-drone-jammer-shield-pro': 'restricted',
   'portable-integrated-detection-jamming-c-uas-basic': 'restricted',
@@ -37,6 +36,7 @@ const PRODUCT_TIERS: Record<string, ComplianceTier> = {
   'handheld-integrated-sdr-low-altitude-monitoring': 'restricted',
   'handheld-integrated-multi-band-event-logging-directional-antenna-unit': 'restricted',
   'handheld-integrated-multi-band-jammer-gun': 'restricted',
+  'drone-laser-engagement-system': 'restricted',
 };
 
 const SOLUTION_TIERS: Record<string, ComplianceTier> = {
@@ -65,7 +65,6 @@ const SOLUTION_TIERS: Record<string, ComplianceTier> = {
   'airport-security-protection': 'neutral_seo',
   'judicial-sector-security': 'neutral_seo',
   'sports-event-security': 'neutral_seo',
-
   'airport-anti-uav': 'restricted',
 };
 
@@ -226,8 +225,8 @@ export function getComplianceTier(type: ComplianceContentType, handleOrId?: stri
     if (rule?.tier && VALID_TIERS.has(rule.tier as ComplianceTier)) {
       return rule.tier as ComplianceTier;
     }
-  } catch (error) {
-    // During early initialization or tests, fall back to the code-defined baseline.
+  } catch {
+    // During initialization or tests, fall back to the code-defined baseline.
   }
 
   return TIER_MAPS[type][handleOrId] || 'normal';
@@ -266,9 +265,7 @@ function shouldPreserveStructuralValue(key?: string, value?: unknown) {
     }
   }
 
-  if (typeof value !== 'string') {
-    return false;
-  }
+  if (typeof value !== 'string') return false;
 
   return (
     value.startsWith('/') ||
@@ -278,24 +275,14 @@ function shouldPreserveStructuralValue(key?: string, value?: unknown) {
 }
 
 export function sanitizeComplianceValue<T>(value: T, key?: string): T {
-  if (shouldPreserveStructuralValue(key, value)) {
-    return value;
-  }
-
-  if (typeof value === 'string') {
-    return sanitizeComplianceText(value) as T;
-  }
-
-  if (Array.isArray(value)) {
-    return value.map(item => sanitizeComplianceValue(item, key)) as T;
-  }
-
+  if (shouldPreserveStructuralValue(key, value)) return value;
+  if (typeof value === 'string') return sanitizeComplianceText(value) as T;
+  if (Array.isArray(value)) return value.map(item => sanitizeComplianceValue(item, key)) as T;
   if (value && typeof value === 'object') {
     return Object.fromEntries(
       Object.entries(value).map(([itemKey, item]) => [itemKey, sanitizeComplianceValue(item, itemKey)])
     ) as T;
   }
-
   return value;
 }
 
@@ -316,7 +303,6 @@ export function getComplianceLayer(tier: ComplianceTier) {
       note: '不进入广告可达路径，公开详情隐藏',
     };
   }
-
   if (tier === 'neutral_seo') {
     return {
       layer: 'B',
@@ -324,7 +310,6 @@ export function getComplianceLayer(tier: ComplianceTier) {
       note: '可做中性内容，不作为广告落地页',
     };
   }
-
   return {
     layer: 'A',
     label: 'A 层：正常/广告安全',
@@ -340,7 +325,7 @@ function getEnabledDbComplianceTerms(): DbComplianceTerm[] {
       WHERE is_enabled = 1 AND term <> ''
       ORDER BY LENGTH(term) DESC
     `).all() as DbComplianceTerm[];
-  } catch (error) {
+  } catch {
     return [];
   }
 }

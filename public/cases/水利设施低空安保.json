@@ -1,28 +1,30 @@
 {
   "title": "Water Conservancy Facility Low-Altitude Airspace Monitoring",
-  "title_en": "Water Conservancy Facility Low-Altitude Airspace Monitoring",
+  "title_en": "Water Conservancy Facility C-UAS Application",
   "description": "Water Conservancy Facility Low-Altitude Airspace Monitoring\nFor reservoirs, hydropower stations, and water-conservancy facilities, the system supports low-altitude monitoring, airspace situational display, event records, and coordinated review processes. Operations teams can use the platform to organize alerts, visual records, location information, and response status for routine security management and compliance documentation.",
-  "description_en": "Water Conservancy Facility Low-Altitude Airspace Monitoring\nFor reservoirs, hydropower stations, and water-conservancy facilities, the system supports low-altitude monitoring, airspace situational display, event records, and coordinated review processes. Operations teams can use the platform to organize alerts, visual records, location information, and response status for routine security management and compliance documentation.",
+  "description_en": "Water Conservancy Facility C-UAS Application\nFor hydropower stations, dams, powerhouses, transmission hubs, and other water-conservancy infrastructure, the project used an active C-UAS architecture combining RF detection and RF jamming. The detection layer identified unauthorized-drone activity, while the jamming layer provided an authorized response when required. Equipment was configured for the high-humidity and dusty conditions found around hydropower facilities. A tiered protection plan separated the dam core, reservoir area, powerhouse, and supporting zones so operators could apply different monitoring and response rules by risk level. The resulting workflow connected detection, identification, jamming, event records, and operator review. The source material states that the configuration was deployed at multiple large hydropower facilities in China; customer and site names are not disclosed on the public page.",
   "devices": [
     "Stationary Spectrum Detection Equipment",
     "Airspace Event Logging Platform",
     "Command and Control Platform"
   ],
   "devices_en": [
-    "Stationary Spectrum Detection Equipment",
-    "Airspace Event Logging Platform",
-    "Command and Control Platform"
+    "Stationary RF Detection System",
+    "RF Jamming Equipment"
   ],
   "main_image": "/cases/water-conservancy-security/main.webp",
   "case_images": [],
-  "recommendedProductHandles": [],
+  "recommendedProductHandles": [
+    "stationary-rf-detection-system",
+    "directional-rf-interference-device",
+    "omni-directional-rf-interference-device"
+  ],
   "handle": "water-conservancy-security",
-  "title_ru": "Water Conservancy Facility Low-Altitude Airspace Monitoring",
-  "description_ru": "Water Conservancy Facility Low-Altitude Airspace Monitoring\nFor reservoirs, hydropower stations, and water-conservancy facilities, the system supports low-altitude monitoring, airspace situational display, event records, and coordinated review processes. Operations teams can use the platform to organize alerts, visual records, location information, and response status for routine security management and compliance documentation.",
+  "title_ru": "Применение C-UAS на объектах водного хозяйства",
+  "description_ru": "Применение C-UAS на объектах водного хозяйства\nДля гидроэлектростанций, плотин, машинных залов, узлов передачи электроэнергии и другой водохозяйственной инфраструктуры в проекте применялась активная архитектура C-UAS, объединяющая радиочастотное обнаружение и радиочастотное подавление. Уровень обнаружения выявлял активность несанкционированных БПЛА, а уровень подавления обеспечивал разрешённое реагирование при необходимости. Оборудование было настроено для условий высокой влажности и запылённости, характерных для гидроэнергетических объектов. Многоуровневая схема защиты разделяла ядро плотины, акваторию водохранилища, машинный зал и вспомогательные зоны, позволяя применять разные правила мониторинга и реагирования в зависимости от риска. Рабочий процесс связывал обнаружение, идентификацию, подавление, регистрацию событий и операторскую проверку. В исходном материале указано внедрение на нескольких крупных гидроэнергетических объектах Китая; имена заказчиков и площадок на публичной странице не раскрываются.",
   "devices_ru": [
-    "Stationary Spectrum Detection Equipment",
-    "Airspace Event Logging Platform",
-    "Command and Control Platform"
+    "Стационарная система радиочастотного обнаружения",
+    "Оборудование радиочастотного подавления"
   ],
   "region_ru": "Asia",
   "country_ru": "China",
@@ -34,29 +36,77 @@
   "case_snapshot_en": [
     {
       "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "value": "Low-altitude protection for hydropower and water-conservancy facilities"
+    },
+    {
+      "label": "Key Capability",
+      "value": "RF detection, authorized RF jamming and tiered zone protection"
     },
     {
       "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
-    },
-    {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "value": "Different monitoring and response rules for dam, reservoir, powerhouse and support zones"
     }
   ],
   "case_snapshot_ru": [
     {
-      "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "label": "Применение",
+      "value": "Защита малых высот для гидроэнергетических и водохозяйственных объектов"
     },
     {
-      "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
+      "label": "Ключевая возможность",
+      "value": "Радиочастотное обнаружение, разрешённое подавление и зональная защита"
     },
     {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "label": "План эксплуатации",
+      "value": "Разные правила мониторинга и реагирования для плотины, водохранилища, машинного зала и вспомогательных зон"
+    }
+  ],
+  "title_es": "Aplicación C-UAS en instalaciones hidráulicas",
+  "description_es": "Aplicación C-UAS en instalaciones hidráulicas\nPara centrales hidroeléctricas, presas, casas de máquinas, nodos de transmisión y otras infraestructuras hidráulicas, el proyecto utilizó una arquitectura C-UAS activa que combinaba detección RF e interferencia RF. La capa de detección identificaba la actividad de drones no autorizados y la capa de interferencia permitía una respuesta autorizada cuando era necesaria. Los equipos se configuraron para las condiciones de alta humedad y polvo presentes en instalaciones hidroeléctricas. Un plan de protección por niveles separaba el núcleo de la presa, el embalse, la casa de máquinas y las zonas auxiliares, de modo que los operadores aplicaran reglas distintas según el nivel de riesgo. El flujo resultante conectaba detección, identificación, interferencia, registro de eventos y revisión del operador. El material fuente indica que la configuración se desplegó en varias grandes instalaciones hidroeléctricas de China; la página pública no divulga los nombres de los clientes ni de los emplazamientos.",
+  "devices_es": [
+    "Sistema fijo de detección RF",
+    "Equipo de interferencia RF"
+  ],
+  "parameters_es": [],
+  "region_es": "Asia",
+  "country_es": "China",
+  "title_ar": "تطبيق نظام C-UAS في منشآت المياه والطاقة الكهرومائية",
+  "description_ar": "تطبيق نظام C-UAS في منشآت المياه والطاقة الكهرومائية\nاستخدم المشروع في محطات الطاقة الكهرومائية والسدود وبيوت التوليد وعقد نقل الكهرباء وغيرها من منشآت المياه بنية C-UAS نشطة تجمع بين كشف RF والتشويش الراديوي. تولت طبقة الكشف تحديد نشاط الطائرات غير المصرح بها، بينما وفرت طبقة التشويش استجابة مصرحاً بها عند الحاجة. وجرى تهيئة المعدات للعمل في ظروف الرطوبة العالية والغبار المحيطة بالمنشآت الكهرومائية. وقسّمت خطة الحماية المتدرجة قلب السد ومنطقة الخزان وبيت التوليد والمناطق المساندة، بحيث يطبق المشغلون قواعد رصد واستجابة مختلفة حسب مستوى المخاطر. وربط سير العمل بين الكشف والتحديد والتشويش وسجلات الأحداث ومراجعة المشغل. وتشير المادة المصدر إلى نشر هذا التكوين في عدة منشآت كهرومائية كبيرة داخل الصين، من دون كشف أسماء العملاء أو المواقع في الصفحة العامة.",
+  "devices_ar": [
+    "نظام ثابت لكشف الترددات الراديوية",
+    "معدات تشويش RF"
+  ],
+  "recommended_product_handles": [
+    "stationary-rf-detection-system",
+    "directional-rf-interference-device",
+    "omni-directional-rf-interference-device"
+  ],
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Protección de baja altitud para instalaciones hidroeléctricas e hidráulicas"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Detección RF, interferencia RF autorizada y protección por zonas"
+    },
+    {
+      "label": "Plan operativo",
+      "value": "Reglas diferenciadas para presa, embalse, casa de máquinas y zonas auxiliares"
+    }
+  ],
+  "case_snapshot_ar": [
+    {
+      "label": "التطبيق",
+      "value": "حماية المجال منخفض الارتفاع لمنشآت الطاقة الكهرومائية والمياه"
+    },
+    {
+      "label": "القدرة الرئيسية",
+      "value": "كشف RF والتشويش المصرح به والحماية المتدرجة للمناطق"
+    },
+    {
+      "label": "خطة التشغيل",
+      "value": "قواعد مختلفة للسد والخزان وبيت التوليد والمناطق المساندة"
     }
   ]
 }

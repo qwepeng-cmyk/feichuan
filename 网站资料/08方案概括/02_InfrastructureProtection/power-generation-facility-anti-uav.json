@@ -46,16 +46,16 @@
     "Возможности защиты": "Предотвращение падения объектов и ближней разведки"
   },
   "detail_html_ru": "<h4>Безопасность энергетических объектов</h4><p>В условиях роста угроз с воздуха энергоузлы и нефтепромыслы часто подвергаются вторжению нелегальных БПЛА. Наши параметры оптимизированы для исключения помех критическому оборудованию.</p><ul><li>Круглосуточное отслеживание траекторий БПЛА</li><li>Настройка параметров без влияния на работу активов электросети</li><li>Адаптация к сложным промышленным условиям эксплуатации</li></ul>",
-  "product_name_es": "Eléctrica Generation Facility espacio aéreo monitoreo",
-  "summary_es": "Eléctrica Generation Facility espacio aéreo monitoreo de N-TET para infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "",
-  "key_parameter_1_es": "Infraestructura Alert: Auto-detection of unauthorized mapping and spying to prevent line damage",
-  "key_parameter_2_es": "Continuous Safeguard: Integrated fixed and portable response procedures for stable hub operation",
+  "product_name_es": "Sistema C-UAS para instalaciones de generación eléctrica",
+  "summary_es": "Una solución C-UAS de baja altitud para centrales térmicas, subestaciones, bases de energía eólica y otras instalaciones energéticas. El sistema combina monitoreo de RF, radar de baja altitud, verificación de EO, revisión de alertas y registros de eventos para que los operadores puedan identificar la actividad aérea cercana y coordinar dentro de los procedimientos de seguridad de las instalaciones existentes.",
+  "key_application_es": "Plantas de energía térmica, subestaciones, bases de energía eólica, centros de energía, patios de maniobras, caminos perimetrales y flujos de trabajo de revisión de salas de control.",
+  "key_parameter_1_es": "Alerta de infraestructura: Detección automática de mapeo y espionaje no autorizados para evitar daños en las líneas",
+  "key_parameter_2_es": "Protección continua: protocolos de respuesta fijos y portátiles integrados para un funcionamiento estable del concentrador.",
   "parameters_es": {
-    "Application": "Thermal/Nuclear/Wind/subestación hubs",
-    "Bands": "Multi-band coverage (airspace data review)",
-    "Alert Precision": "High-precision directional recognition",
-    "Protection": "Prevents fall damage and close reconnaissance"
+    "Aplicación": "Plantas térmicas, subestaciones, bases de energía eólica y centros de energía",
+    "Capas de monitoreo": "Monitoreo de RF/radar de baja altitud/verificación EO/registros de eventos",
+    "Salida operativa": "Alertas, contexto de seguimiento, confirmación visual y revisión de registros",
+    "Integración": "Diseñado para adaptarse a los procedimientos de seguridad de las instalaciones existentes"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Eléctrica Generation Facility espacio aéreo monitoreo está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Eléctrica Generation Facility espacio aéreo monitoreo de N-TET para infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Instalación de energía C-UAS</h4><p>Los sitios y subestaciones de generación de energía necesitan estar al tanto de la actividad cercana a baja altitud sin interrumpir las operaciones de las instalaciones. La solución N-TET combina monitoreo de RF, radar de baja altitud, verificación de EO, revisión de alertas y registros de eventos para que los operadores puedan comprender qué sucedió, hacia dónde se movió y cómo el equipo del sitio manejó la alerta.</p><ul><li>Monitoreo de baja altitud para perímetros de instalaciones de energía</li><li>Confirmación visual y contexto de seguimiento para salas de servicio</li><li>Registros rastreables para revisión y coordinación de procedimientos</li></ul>"
 }

@@ -46,16 +46,16 @@
     "Соответствие": "Отвечает техническим стандартам гражданской авиации по защите от БПЛА"
   },
   "detail_html_ru": "<h4>Детальная защита аэропорта</h4><p>Аэропорты являются зонами высокой чувствительности, требующими предельной точности в управлении частотами. Наша система поддерживает документированное реагирование на нелегальные дроны, не создавая помех связи с диспетчерской вышкой или навигационным маякам.</p><ul><li>Защита зон взлета и посадки</li><li>Многоуровневое взаимодействие компонентов</li><li>Запись и хранение доказательств в реальном времени</li></ul>",
-  "product_name_es": "Aeropuerto espacio aéreo monitoreo Application",
-  "summary_es": "Aeropuerto espacio aéreo monitoreo Application de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "",
-  "key_parameter_1_es": "Sensitive Clearance Protection: 24/7 guarding of airport surroundings and approach routes",
-  "key_parameter_2_es": "Multi-layered response procedures: Integrated wireless detection, decoy, and event management against unauthorized flights",
+  "product_name_es": "Aplicación C-UAS para aeropuertos",
+  "summary_es": "Una solución C-UAS de baja altitud para alrededores de aeropuertos, rutas de aproximación, zonas fronterizas, plataformas y áreas logísticas. El sistema combina detección de RF, radar de baja altitud, seguimiento de EO, revisión de alertas y registros de eventos para que los equipos del aeropuerto puedan verificar la actividad aérea cercana y coordinar con los procedimientos establecidos de seguridad de la aviación.",
+  "key_application_es": "Entorno del aeropuerto, rutas de acceso, áreas adyacentes a la pista, plataformas, zonas logísticas, carreteras limítrofes y flujos de trabajo de revisión de la sala de control.",
+  "key_parameter_1_es": "Protección de autorización sensible: vigilancia 24 horas al día, 7 días a la semana de los alrededores del aeropuerto y rutas de acceso",
+  "key_parameter_2_es": "Protocolos de respuesta de múltiples capas: detección inalámbrica integrada, señuelo y soporte de respuesta contra vuelos no autorizados",
   "parameters_es": {
-    "Componentes": "Radar-EO-response procedures linkage",
-    "Frequencies": "Covers all civil and special bands",
-    "Defense Radius": "3km - 10km customizable",
-    "Compliance": "Meets civil aviation espacio aéreo monitoreo standards"
+    "Capas de monitoreo": "Detección de RF/radar de baja altitud/seguimiento de EO/registros de eventos",
+    "Enfoque del sitio": "Entorno del aeropuerto, rutas de acceso, plataformas, áreas logísticas y zonas limítrofes",
+    "Salida operativa": "Alertas, confirmación visual, registros de eventos y registros de revisión del sitio",
+    "Integración": "Apoya la coordinación con los procedimientos de seguridad de la aviación existentes"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Aeropuerto espacio aéreo monitoreo Application está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Aeropuerto espacio aéreo monitoreo Application de N-TET para operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Detalles del aeropuerto C-UAS</h4><p>Los aeropuertos requieren un conocimiento cuidadoso de la actividad a baja altitud alrededor de las rutas de acceso, plataformas, caminos limítrofes y áreas logísticas. La solución N-TET combina detección de RF, radar de baja altitud, seguimiento de EO, revisión de alertas y registros de eventos para ayudar a los operadores a verificar la actividad aérea cercana y coordinar con los procedimientos aeroportuarios establecidos.</p><ul><li>Conciencia de baja altitud para los alrededores del aeropuerto y las zonas fronterizas</li><li>Flujo de trabajo de confirmación de RF, radar y EO en capas</li><li>Alertas rastreables, registros visuales y registros de eventos listos para revisar</li></ul>"
 }

@@ -4,7 +4,12 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { CONTACT_WHATSAPP_MESSAGE, CONTACT_WHATSAPP_NUMBER, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import {
+  CONTACT_CHANNELS,
+  CONTACT_WHATSAPP_MESSAGE,
+  CONTACT_WHATSAPP_NUMBER,
+  type ContactChannelId,
+} from '@/lib/contactSettings';
 import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
 import { getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
 import styles from './WhatsAppLeadButton.module.css';
@@ -26,7 +31,26 @@ export interface WhatsAppLeadButtonProps {
   ctaLocation?: string;
   initiallyOpen?: boolean;
   renderTrigger?: boolean;
+  channel?: ContactChannelId;
 }
+
+const vkModalCopy = {
+  eyebrow: 'Консультация во ВКонтакте',
+  title: 'Оставьте контактные данные',
+  helper: 'Оставьте номер телефона. Мы сохраним ваш запрос и откроем страницу менеджера N-TET во ВКонтакте.',
+  nameLabel: 'Имя *',
+  phoneLabel: 'Телефон *',
+  countryCodeAria: 'Код страны',
+  countryCodePlaceholder: 'например, +7',
+  phonePlaceholder: 'Номер телефона',
+  saving: 'Сохранение...',
+  submit: 'Открыть ВКонтакте',
+  note: 'После сохранения откроется страница менеджера N-TET во ВКонтакте.',
+  close: 'Закрыть форму связи',
+  nameError: 'Введите имя перед продолжением.',
+  phoneError: 'Введите номер телефона, чтобы продолжить.',
+  countryCodeError: 'Укажите код страны или введите полный номер с символом +.',
+};
 
 const modalCopy = {
   en: {
@@ -129,7 +153,8 @@ const saveErrorCopy = {
   ar: 'تعذر حفظ بيانات الاتصال. تحقق من الاتصال وحاول مرة أخرى.',
 };
 
-function getCopy(pathname: string) {
+function getCopy(pathname: string, channel: ContactChannelId) {
+  if (channel === 'vk') return vkModalCopy;
   const segment = pathname.split('/').filter(Boolean)[0];
   if (segment === 'ru' || segment === 'es' || segment === 'ar') {
     return modalCopy[segment];
@@ -164,9 +189,11 @@ export default function WhatsAppLeadButton({
   ctaLocation,
   initiallyOpen = false,
   renderTrigger = true,
+  channel = 'whatsapp',
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
-  const copy = getCopy(pathname);
+  const channelConfig = CONTACT_CHANNELS[channel];
+  const copy = getCopy(pathname, channel);
   const ux = getInquiryFormUxCopy(pathname);
   const messageCopy = getOptionalMessageCopy(pathname);
   const saveError = getSaveErrorCopy(pathname);
@@ -180,6 +207,8 @@ export default function WhatsAppLeadButton({
     message: '',
   });
 
+  const eventPrefix = channel === 'whatsapp' ? 'ntet_whatsapp_lead' : 'ntet_vk_lead';
+
   const track = (event: string, payload: Record<string, unknown> = {}) => {
     if (typeof window === 'undefined') return;
     window.dataLayer = window.dataLayer || [];
@@ -187,6 +216,7 @@ export default function WhatsAppLeadButton({
       event,
       event_category: 'lead',
       event_label: sourceLabel,
+      contact_channel: channel,
       page_path: pathname,
       ...payload,
     });
@@ -196,7 +226,7 @@ export default function WhatsAppLeadButton({
     event.preventDefault();
     setError('');
     setIsOpen(true);
-    track('ntet_whatsapp_lead_open', {
+    track(`${eventPrefix}_open`, {
       product_handle: productHandle,
       cta_location: ctaLocation,
     });
@@ -207,7 +237,7 @@ export default function WhatsAppLeadButton({
     setIsOpen(false);
   };
 
-  const openWhatsApp = (leadMessage = '', reservedWindow?: Window | null) => {
+  const openContactChannel = (leadMessage = '', reservedWindow?: Window | null) => {
     const cleanMessage = leadMessage.trim();
     const contextLines = [
       productName ? `Equipment: ${productName}` : '',
@@ -216,7 +246,9 @@ export default function WhatsAppLeadButton({
       cleanMessage ? `${messageCopy.whatsappPrefix}: ${cleanMessage}` : '',
     ].filter(Boolean);
     const message = `${CONTACT_WHATSAPP_MESSAGE}\n\n${contextLines.join('\n')}`;
-    const url = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const url = channel === 'whatsapp'
+      ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+      : channelConfig.url;
     if (reservedWindow && !reservedWindow.closed) {
       reservedWindow.location.href = url;
       return;
@@ -258,12 +290,13 @@ export default function WhatsAppLeadButton({
     }
 
     try {
-      const response = await fetch('/api/whatsapp-leads', {
+      const response = await fetch('/api/contact-leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         keepalive: true,
         body: JSON.stringify({
           ...formData,
+          channel,
           sourceLabel,
           pagePath: pathname,
           productName,
@@ -274,29 +307,29 @@ export default function WhatsAppLeadButton({
       const result = await response.json().catch(() => null);
 
       if (!response.ok || result?.success !== true || !result?.inquiryId) {
-        throw new Error(result?.error || 'Failed to save WhatsApp lead');
+        throw new Error(result?.error || `Failed to save ${channel} lead`);
       }
 
-      track('ntet_whatsapp_lead_submit', {
+      track(`${eventPrefix}_submit`, {
         inquiry_id: result.inquiryId,
         product_handle: productHandle,
         cta_location: ctaLocation,
       });
       trackGoogleAdsFormConversion({
         conversion_source: sourceLabel,
-        form_name: 'whatsapp_pre_chat',
+        form_name: channel === 'whatsapp' ? 'whatsapp_pre_chat' : 'vk_pre_contact',
         inquiry_id: result.inquiryId,
         page_path: pathname,
       });
       setIsOpen(false);
-      openWhatsApp(leadMessage, reservedWindow);
+      openContactChannel(leadMessage, reservedWindow);
     } catch (err) {
       if (reservedWindow && !reservedWindow.closed) {
         reservedWindow.close();
       }
-      console.error('WhatsApp lead capture failed:', err);
+      console.error(`${channelConfig.label} lead capture failed:`, err);
       setError(saveError);
-      track('ntet_whatsapp_lead_error');
+      track(`${eventPrefix}_error`);
     } finally {
       setIsSending(false);
     }
@@ -306,7 +339,7 @@ export default function WhatsAppLeadButton({
     <>
       {renderTrigger && (
         <a
-          href={CONTACT_WHATSAPP_URL}
+          href={channelConfig.url}
           target="_blank"
           rel="noopener noreferrer"
           className={className}
@@ -319,12 +352,19 @@ export default function WhatsAppLeadButton({
       )}
 
       {isOpen && createPortal(
-        <div className={styles.modalBackdrop} role="presentation">
-          <div className={styles.modalPanel} role="dialog" aria-modal="true" aria-labelledby="whatsapp-lead-title">
+        <div
+          className={styles.modalBackdrop}
+          role="presentation"
+          style={{
+            '--contact-channel-accent': channelConfig.accent,
+            '--contact-channel-accent-hover': channelConfig.accentHover,
+          } as React.CSSProperties}
+        >
+          <div className={styles.modalPanel} role="dialog" aria-modal="true" aria-labelledby="contact-lead-title">
             <div className={styles.modalHeader}>
               <div>
                 <p className={styles.eyebrow}>{copy.eyebrow}</p>
-                <h2 id="whatsapp-lead-title" className={styles.title}>{copy.title}</h2>
+                <h2 id="contact-lead-title" className={styles.title}>{copy.title}</h2>
               </div>
               <button type="button" className={styles.closeButton} onClick={closeModal} aria-label={copy.close}>
                 <X size={18} />

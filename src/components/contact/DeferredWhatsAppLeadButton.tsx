@@ -2,10 +2,14 @@
 
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
-import { CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
+import { CONTACT_CHANNELS, type ContactChannelId } from '@/lib/contactSettings';
 import type { WhatsAppLeadButtonProps } from './WhatsAppLeadButton';
 
 type ModalComponent = React.ComponentType<WhatsAppLeadButtonProps>;
+
+type DeferredContactLeadButtonProps = WhatsAppLeadButtonProps & {
+  channel?: ContactChannelId;
+};
 
 export default function DeferredWhatsAppLeadButton({
   children,
@@ -16,8 +20,11 @@ export default function DeferredWhatsAppLeadButton({
   productName,
   productHandle,
   ctaLocation,
-}: WhatsAppLeadButtonProps) {
+  channel = 'whatsapp',
+}: DeferredContactLeadButtonProps) {
   const pathname = usePathname();
+  const channelConfig = CONTACT_CHANNELS[channel];
+  const eventPrefix = channel === 'whatsapp' ? 'ntet_whatsapp_lead' : 'ntet_vk_lead';
   const [Modal, setModal] = useState<ModalComponent | null>(null);
   const [modalKey, setModalKey] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,9 +35,10 @@ export default function DeferredWhatsAppLeadButton({
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: 'ntet_whatsapp_lead_open',
+      event: `${eventPrefix}_open`,
       event_category: 'lead',
       event_label: sourceLabel,
+      contact_channel: channel,
       page_path: pathname,
       product_handle: productHandle,
       cta_location: ctaLocation,
@@ -42,8 +50,8 @@ export default function DeferredWhatsAppLeadButton({
       setModal(() => module.default);
       setModalKey((value) => value + 1);
     } catch (error) {
-      console.error('Could not load the WhatsApp inquiry form:', error);
-      window.location.href = CONTACT_WHATSAPP_URL;
+      console.error(`Could not load the ${channelConfig.label} inquiry form:`, error);
+      window.location.href = channelConfig.url;
     } finally {
       setIsLoading(false);
     }
@@ -52,7 +60,7 @@ export default function DeferredWhatsAppLeadButton({
   return (
     <>
       <a
-        href={CONTACT_WHATSAPP_URL}
+        href={channelConfig.url}
         target="_blank"
         rel="noopener noreferrer"
         className={className}
@@ -71,6 +79,7 @@ export default function DeferredWhatsAppLeadButton({
           productName={productName}
           productHandle={productHandle}
           ctaLocation={ctaLocation}
+          channel={channel}
           initiallyOpen
           renderTrigger={false}
         >

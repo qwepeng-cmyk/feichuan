@@ -1,0 +1,341 @@
+{
+  "handle": "drone-laser-engagement-system",
+  "productName": "3kW Anti-Drone Laser Defense System",
+  "eyebrow": "DIRECTED ENERGY / CONFIGURABLE PLATFORM",
+  "summary": "A modular electro-optical tracking and directed-energy platform offered in 2 kW, 3 kW and 5 kW configurations for fixed-site or vehicle integration. Each configuration is documented separately so performance, sensor and installation data remain traceable to the supplied technical files.",
+  "application": "Protected-site, transport-hub, energy-facility and perimeter deployment subject to local authorization and site safety review.",
+  "heroImage": "/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp",
+  "conceptImage": "/products/internal-preview/drone-laser-engagement-system/system-concept.webp",
+  "features": [
+    {
+      "number": "01",
+      "title": "Integrated sensing",
+      "body": "Electro-optical and infrared sensing support target acquisition, classification and continuous line-of-sight tracking. Available sensor detail varies by configuration."
+    },
+    {
+      "number": "02",
+      "title": "Precision servo control",
+      "body": "Stabilized azimuth and elevation assemblies provide the tracking accuracy required by the selected 2 kW, 3 kW or 5 kW optical chain."
+    },
+    {
+      "number": "03",
+      "title": "Modular integration",
+      "body": "Turret, laser source, power, cooling and control modules can be configured for fixed-site or vehicle-mounted deployment."
+    },
+    {
+      "number": "04",
+      "title": "External cueing",
+      "body": "The system architecture can accept target cueing from external sensors to shorten acquisition time and support coordinated site operation."
+    }
+  ],
+  "comparisonGroups": [
+    {
+      "title": "Output and engagement",
+      "rows": [
+        {
+          "label": "Rated laser output",
+          "2kw": "≥ 2,000 W",
+          "3kw": "≥ 3,000 W",
+          "5kw": "≥ 5 kW"
+        },
+        {
+          "label": "Reference effective range",
+          "2kw": "50-500 m (DJI Phantom 4 reference target)",
+          "3kw": "≥ 1,000 m effective damage range; source test case",
+          "5kw": "900 m effective damage range"
+        },
+        {
+          "label": "Acquisition / tracking range",
+          "2kw": "≥ 500 m ranging on Phantom 4; 5,000 m on natural targets",
+          "3kw": "≥ 1,200 m tracking; ≥ 1.5 km stated distance range",
+          "5kw": "≥ 1,200 m capture and tracking"
+        },
+        {
+          "label": "Stated engagement time",
+          "2kw": "Not specified",
+          "3kw": "5-15 s, dependent on range and atmosphere",
+          "5kw": "≤ 15 s"
+        },
+        {
+          "label": "Continuous emission",
+          "2kw": "Up to 200 s; battery duty cycle 10-15 s on / 30-60 s rest",
+          "3kw": "≥ 60 s",
+          "5kw": "≥ 120 s"
+        },
+        {
+          "label": "Laser wavelength",
+          "2kw": "Not specified",
+          "3kw": "Not specified",
+          "5kw": "1,080 nm"
+        }
+      ]
+    },
+    {
+      "title": "Tracking and motion",
+      "rows": [
+        {
+          "label": "Tracking accuracy",
+          "2kw": "≤ 25 μrad",
+          "3kw": "≤ 20 μrad RMS",
+          "5kw": "≤ 15 μrad RMS"
+        },
+        {
+          "label": "Maximum slew rate",
+          "2kw": "50°/s",
+          "3kw": "60°/s",
+          "5kw": "120°/s"
+        },
+        {
+          "label": "Maximum acceleration",
+          "2kw": "Not specified",
+          "3kw": "60°/s²",
+          "5kw": "60°/s²"
+        },
+        {
+          "label": "Azimuth travel",
+          "2kw": "-170° to +170°",
+          "3kw": "-165° to +165°",
+          "5kw": "Not specified"
+        },
+        {
+          "label": "Elevation travel",
+          "2kw": "-20° to +80°",
+          "3kw": "-10° to +60°",
+          "5kw": "Not specified"
+        }
+      ]
+    },
+    {
+      "title": "Environment and integration",
+      "rows": [
+        {
+          "label": "Operating temperature",
+          "2kw": "-20°C to +50°C",
+          "3kw": "-20°C to +50°C with temporary enclosure temperature control",
+          "5kw": "-20°C to +55°C"
+        },
+        {
+          "label": "Storage temperature",
+          "2kw": "-25°C to +55°C",
+          "3kw": "-30°C to +60°C; drain coolant before storage",
+          "5kw": "-40°C to +70°C"
+        },
+        {
+          "label": "Ingress protection",
+          "2kw": "IP65",
+          "3kw": "Not specified",
+          "5kw": "IP65"
+        },
+        {
+          "label": "Electrical supply",
+          "2kw": "DC 20-40 V; module consumption ≤ 400 W",
+          "3kw": "Battery module documented; system input not specified",
+          "5kw": "AC 380 V / 50 Hz; consumption ≤ 25 kW"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "2kw",
+      "power": "2 kW",
+      "positioning": "Compact optical engagement module",
+      "description": "The lightest configuration combines laser output, electro-optical tracking, thermal imaging, laser ranging and illumination in a compact turret package.",
+      "image": "/products/internal-preview/drone-laser-engagement-system/2kw-module.webp",
+      "metrics": [
+        { "label": "Output", "value": "≥2,000 W" },
+        { "label": "Reference range", "value": "50-500 m" },
+        { "label": "Tracking", "value": "≤25 μrad" },
+        { "label": "Module mass", "value": "≤35 kg" }
+      ],
+      "specGroups": [
+        {
+          "title": "Laser performance",
+          "items": [
+            { "label": "Laser output", "value": "≥ 2,000 W" },
+            { "label": "Maximum continuous operation", "value": "200 s" },
+            { "label": "Battery duty cycle", "value": "10-15 s operating / 30-60 s rest" },
+            { "label": "Reference effective range", "value": "50-500 m against DJI Phantom 4" },
+            { "label": "Tracking accuracy", "value": "≤ 25 μrad" }
+          ]
+        },
+        {
+          "title": "Servo tracking",
+          "items": [
+            { "label": "Azimuth speed", "value": "0.01-50°/s" },
+            { "label": "Elevation speed", "value": "0.01-50°/s" },
+            { "label": "Azimuth travel", "value": "-170° to +170°" },
+            { "label": "Elevation travel", "value": "-20° to +80°" },
+            { "label": "Position accuracy", "value": "≤ 0.5 mrad" }
+          ]
+        },
+        {
+          "title": "Visible camera",
+          "items": [
+            { "label": "Sensor", "value": "1-inch progressive-scan CMOS" },
+            { "label": "Resolution", "value": "2,048 × 2,048" },
+            { "label": "Sensor size", "value": "11.26 × 11.26 mm" },
+            { "label": "Pixel size", "value": "5.5 × 5.5 μm" },
+            { "label": "Lens / field of view", "value": "500 mm / 0.3° × 0.3°" }
+          ]
+        },
+        {
+          "title": "Thermal camera",
+          "items": [
+            { "label": "Detector / pitch", "value": "VOx / 12 μm" },
+            { "label": "Resolution", "value": "640 × 512" },
+            { "label": "Spectral band", "value": "8-14 μm" },
+            { "label": "NETD", "value": "≤ 40 mK at f/1.0, 300 K" },
+            { "label": "Lens / field of view", "value": "60 mm / 7.3° × 5.5°" },
+            { "label": "Digital zoom", "value": "1× / 2× / 3× / 4×" }
+          ]
+        },
+        {
+          "title": "Rangefinding and illumination",
+          "items": [
+            { "label": "Rangefinder wavelength", "value": "1,535 nm" },
+            { "label": "Reference ranging", "value": "≥ 500 m on Phantom 4; 5,000 m on natural targets" },
+            { "label": "Range accuracy / frequency", "value": "±1 m / 1, 5 or 10 Hz" },
+            { "label": "Illuminator", "value": "808 ±5 nm, 11 ±1 W" },
+            { "label": "Illumination distance", "value": "≥ 1,500 m" }
+          ]
+        },
+        {
+          "title": "Physical and environmental",
+          "items": [
+            { "label": "Interfaces", "value": "1 × RS-422 / 1 × RJ45" },
+            { "label": "Input / consumption", "value": "DC 20-40 V / ≤ 400 W" },
+            { "label": "Protection", "value": "IP65" },
+            { "label": "Operating / storage", "value": "-20°C to +50°C / -25°C to +55°C" },
+            { "label": "Dimensions", "value": "< 500 × 400 × 550 mm" },
+            { "label": "Weight", "value": "≤ 35 kg" }
+          ]
+        }
+      ],
+      "gallery": [
+        "/products/internal-preview/drone-laser-engagement-system/2kw-module.webp"
+      ]
+    },
+    {
+      "id": "3kw",
+      "power": "3 kW",
+      "positioning": "Modular mobile or fixed-site system",
+      "description": "A multi-module configuration built around a precision tracking turret, separate laser source, cooling, power and industrial control computer.",
+      "image": "/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp",
+      "metrics": [
+        { "label": "Output", "value": "≥3,000 W" },
+        { "label": "Tracking range", "value": "≥1,200 m" },
+        { "label": "Tracking", "value": "≤20 μrad" },
+        { "label": "Recognition", "value": "≥95%" }
+      ],
+      "specGroups": [
+        {
+          "title": "Laser performance",
+          "items": [
+            { "label": "Laser output", "value": "≥ 3,000 W" },
+            { "label": "Reference effective damage range", "value": "≥ 1,000 m; source test case" },
+            { "label": "Stated engagement time", "value": "5-15 s, dependent on range and atmosphere" },
+            { "label": "Stated distance range", "value": "≥ 1.5 km against a DJI-class reference target" },
+            { "label": "Continuous emission", "value": "≥ 60 s" },
+            { "label": "Beam quality / aperture", "value": "M² ≤ 1.3 / ≥ 120 mm" },
+            { "label": "Armored fiber length", "value": "4 m" }
+          ]
+        },
+        {
+          "title": "Tracking performance",
+          "items": [
+            { "label": "Target recognition accuracy", "value": "≥ 95%" },
+            { "label": "Tracking accuracy", "value": "≤ 20 μrad RMS" },
+            { "label": "Reference tracking range", "value": "≥ 1,200 m" },
+            { "label": "Azimuth / elevation", "value": "-165° to +165° / -10° to +60°" },
+            { "label": "Maximum speed / acceleration", "value": "60°/s / 60°/s²" },
+            { "label": "Precision speed / acceleration", "value": "≥ 20°/s / ≥ 20°/s²" }
+          ]
+        },
+        {
+          "title": "Environmental",
+          "items": [
+            { "label": "Operating temperature", "value": "-20°C to +50°C with temporary enclosure temperature control" },
+            { "label": "Storage temperature", "value": "-30°C to +60°C" },
+            { "label": "Storage note", "value": "Drain coolant from the water-cooling unit before storage" }
+          ]
+        },
+        {
+          "title": "Module dimensions and mass",
+          "items": [
+            { "label": "Tracking turret", "value": "895 × 960 × 710 mm / 235 kg" },
+            { "label": "Laser source", "value": "574 × 130 × 450 mm / 30.5 kg" },
+            { "label": "Water-cooling unit", "value": "862 × 1,186 × 656 mm / 136 kg" },
+            { "label": "Battery", "value": "483 × 224 × 766 mm / ≤ 60 kg" },
+            { "label": "Industrial control computer", "value": "430 × 180 × 460 mm / 14 kg" }
+          ]
+        }
+      ],
+      "gallery": [
+        "/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp",
+        "/products/internal-preview/drone-laser-engagement-system/3kw-laser-source.webp",
+        "/products/internal-preview/drone-laser-engagement-system/3kw-battery.webp",
+        "/products/internal-preview/drone-laser-engagement-system/3kw-control-computer.webp"
+      ]
+    },
+    {
+      "id": "5kw",
+      "power": "5 kW",
+      "positioning": "Extended-range high-output configuration",
+      "description": "The highest-output configuration prioritizes longer reference range, tighter tracking accuracy and extended continuous emission for fixed or vehicle-integrated installations.",
+      "image": "/products/internal-preview/drone-laser-engagement-system/5kw-module.webp",
+      "metrics": [
+        { "label": "Output", "value": "≥5 kW" },
+        { "label": "Tracking range", "value": "≥1,200 m" },
+        { "label": "Tracking", "value": "≤15 μrad" },
+        { "label": "Emission", "value": "≥120 s" }
+      ],
+      "specGroups": [
+        {
+          "title": "Laser performance",
+          "items": [
+            { "label": "Laser output", "value": "≥ 5 kW" },
+            { "label": "Capture and tracking range", "value": "≥ 1,200 m against a DJI-class reference target" },
+            { "label": "Effective damage range", "value": "900 m" },
+            { "label": "Stated engagement time", "value": "≤ 15 s" },
+            { "label": "Wavelength", "value": "1,080 nm" },
+            { "label": "Night viewing range", "value": "1,500 m" },
+            { "label": "Continuous emission", "value": "≥ 120 s" }
+          ]
+        },
+        {
+          "title": "Tracking performance",
+          "items": [
+            { "label": "Tracking accuracy", "value": "≤ 15 μrad RMS" },
+            { "label": "Maximum servo speed", "value": "120°/s" },
+            { "label": "Maximum servo acceleration", "value": "60°/s²" },
+            { "label": "Closed-loop latency", "value": "≤ 10 ms" }
+          ]
+        },
+        {
+          "title": "Environmental and reliability",
+          "items": [
+            { "label": "Operating / storage", "value": "-20°C to +55°C / -40°C to +70°C" },
+            { "label": "Ingress protection", "value": "IP65" },
+            { "label": "Wind resistance", "value": "Force 6 operating / Force 8 stored" },
+            { "label": "MTBF / MTTR", "value": "≥ 720 h / ≤ 30 min" },
+            { "label": "Power consumption", "value": "≤ 25 kW" },
+            { "label": "Power supply", "value": "AC 380 V / 50 Hz" }
+          ]
+        }
+      ],
+      "gallery": [
+        "/products/internal-preview/drone-laser-engagement-system/5kw-module.webp",
+        "/products/internal-preview/drone-laser-engagement-system/site-stadium.webp",
+        "/products/internal-preview/drone-laser-engagement-system/site-perimeter.webp",
+        "/products/internal-preview/drone-laser-engagement-system/site-energy.webp"
+      ]
+    }
+  ],
+  "sourceNotes": [
+    "Values were normalized from the supplied 2 kW, 3 kW and 5 kW Word files; no missing specification was inferred.",
+    "The 2 kW introduction states a broader -40°C to +70°C claim, while its technical table states -20°C to +50°C operating and -25°C to +55°C storage. The comparison uses the technical-table values.",
+    "Several range statements are tied to DJI Phantom-class reference targets and atmospheric conditions; those qualifiers must remain attached to the figures.",
+    "This record is a C-layer internal draft. It must remain excluded from public product listings, Schema, sitemap, llms.txt and advertising paths."
+  ]
+}

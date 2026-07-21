@@ -1,18 +1,22 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
 import { getContactMethod, getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
 import uxStyles from './InquiryForm.module.css';
 
+type FormStep = 1 | 2;
+
 export default function InquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
     const pathname = usePathname();
     const ux = getInquiryFormUxCopy(pathname);
     const formId = useId();
+    const stepHeadingRef = useRef<HTMLHeadingElement>(null);
     const fieldIds = {
+        application: `${formId}-application`,
         name: `${formId}-name`,
         company: `${formId}-company`,
         email: `${formId}-email`,
@@ -20,111 +24,76 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         message: `${formId}-message`,
     };
     const d = dict?.inquiry || {
-        title: "Get Expert Drone Defense Advice",
-        subtitle: "Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.",
-        name: "Name",
-        company: "Company Name",
-        email: "E-mail",
-        countryCode: "Country Code",
-        phone: "Phone / WhatsApp",
-        phonePlaceholder: "Include country code, e.g. +1 555 123 4567",
-        inquiryType: "How can we help? (Optional)",
-        messageLabel: "Message",
-        messagePlaceholder: "Tell us the product type, application, quantity, or information you need. Example: brochure, specs, quotation, or help choosing the right equipment.",
-        submit: "REQUEST EXPERT ADVICE",
-        types: [
-            "Equipment Pricing / Quotation",
-            "Product Specifications / Brochure",
-            "System Configuration / Site Review",
-            "Distributor / Partnership"
-        ],
-        selectCode: "Select Code...",
-        contactMethods: {
-            whatsapp: "WhatsApp",
-            phone: "Phone",
-            wechat: "WeChat"
-        },
-        regions: {
-            asia: "Asia & Middle East",
-            europe: "Europe & CIS",
-            southAmerica: "South America",
-            africa: "Africa",
-            northAmerica: "North America & Oceania",
-            other: "Other (Please add in message)"
-        },
-        countries: {
-            china: "China",
-            uae: "UAE",
-            saudiArabia: "Saudi Arabia",
-            iran: "Iran",
-            turkey: "Turkey",
-            qatar: "Qatar",
-            oman: "Oman",
-            kuwait: "Kuwait",
-            iraq: "Iraq",
-            india: "India",
-            japan: "Japan",
-            southKorea: "South Korea",
-            singapore: "Singapore",
-            malaysia: "Malaysia",
-            uzbekistan: "Uzbekistan",
-            russiaKazakhstan: "Russia / Kazakhstan",
-            belarus: "Belarus",
-            uk: "United Kingdom",
-            germany: "Germany",
-            france: "France",
-            italy: "Italy",
-            spain: "Spain",
-            brazil: "Brazil",
-            argentina: "Argentina",
-            colombia: "Colombia",
-            chile: "Chile",
-            peru: "Peru",
-            ecuador: "Ecuador",
-            venezuela: "Venezuela",
-            egypt: "Egypt",
-            algeria: "Algeria",
-            morocco: "Morocco",
-            nigeria: "Nigeria",
-            southAfrica: "South Africa",
-            kenya: "Kenya",
-            ethiopia: "Ethiopia",
-            usaCanada: "USA / Canada",
-            mexico: "Mexico",
-            australia: "Australia",
-            newZealand: "New Zealand"
-        }
+        title: 'Get Expert Drone Defense Advice',
+        subtitle: 'Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.',
+        name: 'Name',
+        company: 'Company Name',
+        email: 'E-mail',
+        phone: 'Phone / WhatsApp',
+        phonePlaceholder: 'Include country code, e.g. +1 555 123 4567',
+        submit: 'REQUEST EXPERT ADVICE',
+        submitting: 'SUBMITTING...',
     };
 
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [step, setStep] = useState<FormStep>(1);
     const [isSending, setIsSending] = useState(false);
     const [contactError, setContactError] = useState('');
+    const [stepError, setStepError] = useState('');
     const [formData, setFormData] = useState({
+        applicationScenario: '',
+        deploymentType: '',
         name: '',
         company: '',
         email: '',
-        contactMethod: 'Not specified',
         countryCode: '',
         phone: '',
-        demands: [] as string[],
         message: '',
     });
 
-    const toggleDemand = (opt: string) => {
-        setFormData(prev => ({
-            ...prev,
-            demands: prev.demands.includes(opt)
-                ? prev.demands.filter(d => d !== opt)
-                : [...prev.demands, opt]
-        }));
+    const isOtherScenario = formData.applicationScenario === 'Other';
+
+    const focusStepHeading = () => {
+        window.requestAnimationFrame(() => stepHeadingRef.current?.focus());
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const advanceToContact = () => {
+        if (!formData.applicationScenario) {
+            setStepError(ux.applicationRequiredError);
+            return;
+        }
+        if (!formData.deploymentType) {
+            setStepError(ux.deploymentRequiredError);
+            return;
+        }
+        if (isOtherScenario && !formData.message.trim()) {
+            setStepError(ux.otherDetailsRequiredError);
+            return;
+        }
+
+        setStepError('');
+        setStep(2);
+        focusStepHeading();
+    };
+
+    const returnToRequirements = () => {
+        setContactError('');
+        setStep(1);
+        focusStepHeading();
+    };
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        if (step === 1) {
+            advanceToContact();
+            return;
+        }
+
+        const name = formData.name.trim();
         const email = formData.email.trim();
         const phone = formData.phone.trim();
 
-        if (!email || !phone) {
+        if (!name || !email || !phone) {
             setContactError(ux.contactRequiredError);
             return;
         }
@@ -135,16 +104,19 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         try {
             const response = await fetch('/api/inquiries', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    ...formData,
-                    name: formData.name.trim(),
+                    name,
+                    company: formData.company.trim(),
                     email,
                     phone,
-                    message: formData.message.trim(),
+                    countryCode: formData.countryCode,
                     contactMethod: getContactMethod(email, phone),
+                    demands: [
+                        `Application: ${formData.applicationScenario}`,
+                        `Deployment: ${formData.deploymentType}`,
+                    ],
+                    message: formData.message.trim(),
                     sourcePage: pathname,
                 }),
             });
@@ -153,187 +125,226 @@ export default function InquiryForm({ dict }: { dict?: any }) {
 
             if (response.ok && result?.success === true && result?.inquiryId) {
                 router.push(localePath(localeFromPathname(pathname), '/thank-you'));
-                // Reset form
-                setFormData({
-                    name: '',
-                    company: '',
-                    email: '',
-                    contactMethod: 'Not specified',
-                    countryCode: '',
-                    phone: '',
-                    demands: [],
-                    message: '',
-                });
             } else {
                 console.error('Inquiry submit failed:', result);
-                alert('Error sending inquiry. Please try again or contact us directly.');
+                alert(d.failed || 'Error sending inquiry. Please try again or contact us directly.');
             }
         } catch (error) {
             console.error('Inquiry error:', error);
-            alert('Something went wrong. Please try again.');
+            alert(d.failed || 'Something went wrong. Please try again.');
         } finally {
             setIsSending(false);
         }
     };
 
-    if (isSubmitted) {
-        return (
-            <div className="inquiry-container" style={{ borderRadius: '0', boxShadow: 'none', border: '1px solid #eee', padding: '80px 40px', textAlign: 'center' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', backgroundColor: '#4CAF50', color: '#fff', fontSize: '4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 30px' }}>
-                    ✓
-                </div>
-                <h2 style={{ fontSize: '3.2rem', fontWeight: 800, color: '#333', marginBottom: '15px' }}>
-                    {d.submitted?.title || "SUBMITTED SUCCESSFULLY!"}
-                </h2>
-                <p style={{ fontSize: '1.8rem', color: '#666', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.6' }}>
-                    {d.submitted?.subtitle || "Thank you for your inquiry. Our C-UAS team will review the equipment and project information you provided."}
-                </p>
-                <button 
-                    onClick={() => setIsSubmitted(false)}
-                    style={{ 
-                        padding: '12px 30px', 
-                        backgroundColor: 'transparent', 
-                        border: '1px solid #315ba4', 
-                        color: '#315ba4', 
-                        fontSize: '1.5rem', 
-                        fontWeight: 700, 
-                        cursor: 'pointer',
-                        transition: 'all 0.3s'
-                    }}
-                >
-                    {d.submitted?.backButton || "Send Another Message"}
-                </button>
-            </div>
-        );
-    }
-
     return (
         <div className="inquiry-container" style={{ borderRadius: '0', boxShadow: 'none', border: '1px solid #eee' }}>
             <h2 className="section-title" style={{ marginBottom: '10px' }}>{d.title}</h2>
-            <p style={{ textAlign: 'center', color: '#666', fontSize: '1.6rem', maxWidth: '800px', margin: '0 auto 40px', lineHeight: '1.6' }}>
+            <p style={{ textAlign: 'center', color: '#666', fontSize: '1.6rem', maxWidth: '800px', margin: '0 auto 34px', lineHeight: '1.6' }}>
                 {d.subtitle}
             </p>
 
-            <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
-                <div className="form-grid">
-                    <div className="form-group">
-                        <label className="form-label" htmlFor={fieldIds.name}>{d.name} <small className={uxStyles.optional}>({ux.optional})</small></label>
-                        <input
-                            id={fieldIds.name}
-                            type="text"
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        />
+            <form onSubmit={handleSubmit} autoComplete="on" style={{ textAlign: 'left' }}>
+                <div className={uxStyles.stepHeader}>
+                    <div className={uxStyles.stepMeta}>{ux.stepLabel(step)}</div>
+                    <div
+                        className={uxStyles.progressTrack}
+                        role="progressbar"
+                        aria-label={ux.stepLabel(step)}
+                        aria-valuemin={1}
+                        aria-valuemax={2}
+                        aria-valuenow={step}
+                    >
+                        <span className={uxStyles.progressFill} style={{ width: step === 1 ? '50%' : '100%' }} />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label" htmlFor={fieldIds.company}>{d.company}</label>
-                        <input
-                            id={fieldIds.company}
-                            type="text"
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            value={formData.company}
-                            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        />
-                    </div>
+                    <h3 ref={stepHeadingRef} className={uxStyles.stepTitle} tabIndex={-1}>
+                        {step === 1 ? ux.requirementsTitle : ux.contactTitle}
+                    </h3>
                 </div>
 
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label" htmlFor={fieldIds.email}><span style={{ color: 'red' }}>*</span> {d.email}</label>
-                    <input
-                        id={fieldIds.email}
-                        type="email"
-                        required
-                        className="form-input"
-                        style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                        value={formData.email}
-                        onChange={(e) => {
-                            setFormData({ ...formData, email: e.target.value });
-                            if (e.target.value.trim() || formData.phone.trim()) setContactError('');
-                        }}
-                        aria-invalid={Boolean(contactError)}
-                        onInvalid={(event) => {
-                            if (localeFromPathname(pathname) === 'en') {
-                                event.currentTarget.setCustomValidity('Please enter a valid email address.');
-                            }
-                        }}
-                        onInput={(event) => event.currentTarget.setCustomValidity('')}
-                    />
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label" htmlFor={fieldIds.phone}><span style={{ color: 'red' }}>*</span> {d.phone}</label>
-                    <input
-                        id={fieldIds.phone}
-                        type="tel"
-                        required
-                        className="form-input"
-                        style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                        value={formData.phone}
-                        onChange={(e) => {
-                            setFormData({ ...formData, phone: e.target.value });
-                            if (e.target.value.trim() || formData.email.trim()) setContactError('');
-                        }}
-                        placeholder={d.phonePlaceholder || 'Include country code, e.g. +1 555 123 4567'}
-                        aria-invalid={Boolean(contactError)}
-                        onInvalid={(event) => {
-                            if (localeFromPathname(pathname) === 'en') {
-                                event.currentTarget.setCustomValidity('Please enter your Phone / WhatsApp number, including the country code.');
-                            }
-                        }}
-                        onInput={(event) => event.currentTarget.setCustomValidity('')}
-                    />
-                </div>
-
-                {contactError && <p className={uxStyles.contactError} role="alert">{contactError}</p>}
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label">{d.inquiryType}</label>
-                    <div className={uxStyles.quickOptions}>
-                        {ux.quickTypes.map((opt) => (
-                            <button
-                                key={opt}
-                                type="button"
-                                className={`${uxStyles.quickOption} ${formData.demands.includes(opt) ? uxStyles.quickOptionActive : ''}`}
-                                aria-pressed={formData.demands.includes(opt)}
-                                onClick={() => toggleDemand(opt)}
+                {step === 1 ? (
+                    <div className={uxStyles.stepPanel}>
+                        <div className="form-group">
+                            <label className="form-label" htmlFor={fieldIds.application}>
+                                <span className={uxStyles.requiredMark}>*</span>{ux.applicationLabel}
+                            </label>
+                            <select
+                                id={fieldIds.application}
+                                name="applicationScenario"
+                                className={`form-input ${uxStyles.selectInput}`}
+                                required
+                                value={formData.applicationScenario}
+                                onChange={(event) => {
+                                    setFormData({ ...formData, applicationScenario: event.target.value });
+                                    setStepError('');
+                                }}
                             >
-                                {opt}
-                            </button>
-                        ))}
+                                <option value="" disabled>{ux.applicationPlaceholder}</option>
+                                {ux.applicationOptions.map((option) => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <fieldset className={uxStyles.deploymentFieldset}>
+                            <legend className="form-label">
+                                <span className={uxStyles.requiredMark}>*</span>{ux.deploymentLabel}
+                            </legend>
+                            <div className={uxStyles.deploymentGrid}>
+                                {ux.deploymentOptions.map((option) => (
+                                    <button
+                                        key={option.value}
+                                        type="button"
+                                        className={`${uxStyles.deploymentOption} ${formData.deploymentType === option.value ? uxStyles.deploymentOptionActive : ''}`}
+                                        aria-pressed={formData.deploymentType === option.value}
+                                        onClick={() => {
+                                            setFormData({ ...formData, deploymentType: option.value });
+                                            setStepError('');
+                                        }}
+                                    >
+                                        {option.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </fieldset>
+
+                        <div className="form-group">
+                            <label className="form-label" htmlFor={fieldIds.message}>
+                                {isOtherScenario && <span className={uxStyles.requiredMark}>*</span>}
+                                {ux.detailsLabel}{!isOtherScenario && <> <small className={uxStyles.optional}>({ux.optional})</small></>}
+                            </label>
+                            <textarea
+                                id={fieldIds.message}
+                                name="message"
+                                className="form-input form-textarea"
+                                style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '132px' }}
+                                required={isOtherScenario}
+                                placeholder={ux.detailsPlaceholder}
+                                value={formData.message}
+                                onChange={(event) => {
+                                    setFormData({ ...formData, message: event.target.value });
+                                    if (event.target.value.trim()) setStepError('');
+                                }}
+                            />
+                            <p className={uxStyles.fieldHint}>{ux.detailsHint}</p>
+                        </div>
+
+                        {stepError && <p className={uxStyles.stepError} role="alert">{stepError}</p>}
+
+                        <button type="submit" className={`btn-submit ${uxStyles.primaryAction}`}>
+                            {ux.continueLabel}
+                        </button>
                     </div>
-                </div>
+                ) : (
+                    <div className={uxStyles.stepPanel}>
+                        <div className="form-grid">
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.name}>
+                                    <span className={uxStyles.requiredMark}>*</span>{d.name}
+                                </label>
+                                <input
+                                    id={fieldIds.name}
+                                    name="name"
+                                    type="text"
+                                    required
+                                    autoComplete="name"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.name}
+                                    onChange={(event) => setFormData({ ...formData, name: event.target.value })}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.company}>
+                                    {d.company} <small className={uxStyles.optional}>({ux.optional})</small>
+                                </label>
+                                <input
+                                    id={fieldIds.company}
+                                    name="organization"
+                                    type="text"
+                                    autoComplete="organization"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.company}
+                                    onChange={(event) => setFormData({ ...formData, company: event.target.value })}
+                                />
+                            </div>
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label" htmlFor={fieldIds.message}>{d.messageLabel} <small className={uxStyles.optional}>({ux.optional})</small></label>
-                    <textarea
-                        id={fieldIds.message}
-                        className="form-input form-textarea"
-                        style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '120px' }}
-                        placeholder={d.messagePlaceholder}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    />
-                </div>
+                        <div className="form-grid">
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.email}>
+                                    <span className={uxStyles.requiredMark}>*</span>{d.email}
+                                </label>
+                                <input
+                                    id={fieldIds.email}
+                                    name="email"
+                                    type="email"
+                                    required
+                                    autoComplete="email"
+                                    inputMode="email"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.email}
+                                    onChange={(event) => {
+                                        setFormData({ ...formData, email: event.target.value });
+                                        setContactError('');
+                                    }}
+                                    onInvalid={(event) => {
+                                        if (localeFromPathname(pathname) === 'en') event.currentTarget.setCustomValidity('Please enter a valid email address.');
+                                    }}
+                                    onInput={(event) => event.currentTarget.setCustomValidity('')}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.phone}>
+                                    <span className={uxStyles.requiredMark}>*</span>{d.phone}
+                                </label>
+                                <input
+                                    id={fieldIds.phone}
+                                    name="tel"
+                                    type="tel"
+                                    required
+                                    autoComplete="tel"
+                                    inputMode="tel"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.phone}
+                                    onChange={(event) => {
+                                        setFormData({ ...formData, phone: event.target.value });
+                                        setContactError('');
+                                    }}
+                                    placeholder={d.phonePlaceholder || 'Include country code, e.g. +1 555 123 4567'}
+                                    onInvalid={(event) => {
+                                        if (localeFromPathname(pathname) === 'en') event.currentTarget.setCustomValidity('Please enter your Phone / WhatsApp number, including the country code.');
+                                    }}
+                                    onInput={(event) => event.currentTarget.setCustomValidity('')}
+                                />
+                                <p className={uxStyles.fieldHint}>{ux.phoneHint}</p>
+                            </div>
+                        </div>
 
-                <button 
-                    type="submit" 
-                    disabled={isSending}
-                    className="btn-submit" 
-                    style={{ 
-                        borderRadius: '0', 
-                        background: isSending ? '#999' : 'var(--cta)',
-                        textTransform: 'uppercase',
-                        cursor: isSending ? 'not-allowed' : 'pointer'
-                    }}
-                >
-                    {isSending ? d.submitting : d.submit}
-                </button>
-                <p className={uxStyles.privacyNote}>{ux.privacyNote}</p>
+                        <p className={uxStyles.contactRequirement}>
+                            <span className={uxStyles.requiredMark}>*</span>{ux.contactRequirement}
+                        </p>
+                        {contactError && <p className={uxStyles.contactError} role="alert">{contactError}</p>}
+
+                        <div className={uxStyles.stepActions}>
+                            <button type="button" className={uxStyles.backAction} onClick={returnToRequirements}>
+                                {ux.backLabel}
+                            </button>
+                            <button
+                                type="submit"
+                                disabled={isSending}
+                                className={`btn-submit ${uxStyles.submitAction}`}
+                            >
+                                {isSending ? d.submitting : d.submit}
+                            </button>
+                        </div>
+                        <p className={uxStyles.privacyNote}>{ux.privacyNote}</p>
+                    </div>
+                )}
             </form>
         </div>
     );
 }
-

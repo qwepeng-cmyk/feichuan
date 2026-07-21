@@ -160,12 +160,13 @@
   "cases": {
     "pageTitle": "Casos de despliegue UAV",
     "bannerTitle": "Casos de despliegue UAV",
-    "bannerDesc": "Referencias de campo que muestran cómo los sistemas N-TET apoyan rutas de inspección, respuesta de emergencia, monitoreo de baja altitud y seguridad de infraestructura.",
+    "bannerDesc": "Referencias de campo sobre detección, identificación y seguimiento de drones, interferencia RF autorizada, respuesta portátil y coordinación de mando en infraestructuras.",
     "region": "Región:",
     "solutionFilter": "Soluciones:",
     "all": "Todos",
     "noResults": "No se encontraron casos que coincidan con sus criterios.",
     "equipmentUsed": "Equipo utilizado",
+    "recommendedEquipment": "Equipo recomendado",
     "projectOverview": "Resumen del proyecto",
     "snapshotLabels": {
       "Application": "Aplicación",

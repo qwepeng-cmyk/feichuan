@@ -65,24 +65,24 @@
     "Автономность": "Более 24 часов от встроенного аккумулятора, зарядка Type-C"
   },
   "detail_html_ru": "<h4>Функциональные возможности</h4><ul><li>Детектирование: Обнаружение любых предметов, содержащих ферромагнитные элементы.</li><li>Экологичность: Не излучает вредных волн, безопасен для всех категорий граждан.</li><li>Сверхвысокая чувствительность: Уровень нанотесла (нТл) с точным указанием зоны нахождения предмета.</li><li>Скрытый досмотр: Возможность размещения за дверями, стенами или предметами интерьера.</li><li>Интеллектуальное оповещение: Синхронизация со смарт-часами для бесшумного уведомления охраны.</li><li>Автономная работа: Более суток непрерывной эксплуатации без подзарядки.</li></ul>",
-  "product_name_es": "Intelligent Ferromagnetic detección sistema FC-3000",
-  "summary_es": "Intelligent Ferromagnetic detección sistema FC-3000 de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Passive electromagnetic-safe ferromagnetic detection; Nanotesla-level sensitivity for hidden metals; 3-zone positioning for precise identification; Discrete/covert screening capable; High-throughput 60+ ppm.",
-  "key_parameter_1_es": "Sensitivity: Nanotesla (nT) Level",
-  "key_parameter_2_es": "Batería Life: ≥ 24 Hours (Internal Li-ion)",
+  "product_name_es": "Sistema inteligente de detección ferromagnética FC-3000",
+  "summary_es": "El sistema inteligente de detección ferromagnética FC-3000 es un dispositivo de detección pasiva para materiales ferromagnéticos, que utiliza detección fluxgate y procesamiento de señales digitales DSP. El software inteligente ayuda a reducir el ruido de RF ambiental circundante y mejora la coherencia del cribado. El FC-3000 es portátil, de bajas emisiones y adecuado para flujos de trabajo de seguridad de entrada controlada.",
+  "key_application_es": "Detección ferromagnética pasiva electromagnética segura; sensibilidad a nivel de nanotesla para metales ocultos; Posicionamiento de 3 zonas para una identificación precisa; capacidad de detección discreta/encubierta; alto rendimiento de más de 60 ppm.",
+  "key_parameter_1_es": "Sensibilidad: Nivel de nanotesla (nT)",
+  "key_parameter_2_es": "Duración de la batería: ≥ 24 horas (ion de litio interno)",
   "parameters_es": {
-    "Technology": "Passive Fluxgate detección with High-Performance DSP Processing",
-    "Detección Targets": "Precisely scans for ferromagnetic metals/non-metals (Iron, Cobalt, Nickel)",
-    "Radiation Safety": "Passive sensing only; zero EM emission; certified CE/QMS",
-    "Alarm Interface": "Visual alerts (Red/Green), high-fidelity audio, and optional discreet vibrating watch link",
-    "Spatial Resolution": "3-zone vertical positioning for accurate item localization",
-    "Intelligent Networking": "Dual-column linking for hierarchical warnings (Lighter/Phone/Knife differentiation)",
-    "Throughput Flux": "> 60 persons/minute",
-    "Coverage": "0 - 1.5 meter radius with 360-degree omnidirectional sensing",
-    "Industrial Rating": "IP65 Weatherproof; suitable for indoor/outdoor use",
-    "Material/Portability": "High-strength aluminum alloy;柱身 5.9kg (Lightweight column)",
-    "Dimensions": "Column Height: 180cm; Base Height: 7cm",
-    "Endurance": "Internal Li-battery supports > 24 hours of operation; Type-C charging"
+    "Tecnología": "Detección pasiva de Fluxgate con procesamiento DSP de alto rendimiento",
+    "Objetivos de detección": "Escanea con precisión metales y no metales ferromagnéticos (hierro, cobalto, níquel)",
+    "Seguridad radiológica": "Sólo detección pasiva; cero emisiones electromagnéticas; certificado CE/QMS",
+    "Interfaz de alarma": "Alertas visuales (rojo/verde), audio de alta fidelidad y enlace de reloj con vibración discreta opcional",
+    "Resolución espacial": "Posicionamiento vertical de 3 zonas para una localización precisa de los elementos",
+    "Redes inteligentes": "Enlace de doble columna para advertencias jerárquicas (diferenciación encendedor/teléfono/cuchillo)",
+    "Flujo de rendimiento": "> 60 personas/minuto",
+    "Cobertura": "Radio de 0 a 1,5 metros con detección omnidireccional de 360 grados",
+    "Clasificación industrial": "IP65 resistente a la intemperie; adecuado para uso en interiores y exteriores",
+    "Material/Portabilidad": "Aleación de aluminio de alta resistencia; cuerpo de columna ligero de 5,9 kg",
+    "Dimensiones": "Altura de la columna: 180 cm; Altura de la base: 7 cm",
+    "Resistencia": "Batería interna de litio con más de 24 horas de funcionamiento; carga mediante USB Type-C"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Intelligent Ferromagnetic detección sistema FC-3000 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Intelligent Ferromagnetic detección sistema FC-3000 de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Funciones del producto</h4><ul><li>Detecta artículos metálicos y no metálicos que contienen materiales ferromagnéticos.</li><li>Detección pasiva sin contacto, bajo consumo de energía, no emite ondas electromagnéticas nocivas.</li><li>Alarma inteligente visualizada en tiempo real.</li><li>Alta sensibilidad, nivel de nanoteslas, posicionamiento de tres zonas para localizar elementos ferromagnéticos.</li><li>Amplio rango de detección, cobertura de 360 grados dentro de un radio de 0 a 1,5 metros.</li><li>Alto rendimiento de paso: más de 60 personas por minuto.</li><li>Opciones de ubicación discreta para diseños de control de entrada controlada, con enlace de alerta portátil opcional para operadores.</li><li>Batería de litio integrada de gran capacidad, con más de 24 horas de funcionamiento normal.</li><li>Modo de red de doble columna con indicadores de advertencia jerárquica para diferentes categorías de artículos ferromagnéticos.</li></ul>"
 }

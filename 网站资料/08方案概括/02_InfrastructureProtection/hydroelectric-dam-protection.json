@@ -186,50 +186,50 @@
     "composite-electro-optical-tracking-system",
     "low-altitude-detection-radar-ku-band"
   ],
-  "product_name_es": "Presa hidroeléctrica Protection",
-  "summary_es": "Presa hidroeléctrica Protection de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Hydroelectric dams; Reservoir shorelines; Powerhouse perimeters; Spillways; Intake areas; Gates.",
-  "key_parameter_1_es": "Operating Chain: low-altitude detection, target identification, location, continuous tracking, warning linkage, and dispatch coordination.",
-  "key_parameter_2_es": "Dam-Environment Adaptation: visual review, thermal assistance, and operator confirmation help reduce the impact of water reflection, fog, bird activity, and complex terrain.",
+  "product_name_es": "Protección de presas hidroeléctricas",
+  "summary_es": "A C-UAS para represas hidroeléctricas, embalses, centrales eléctricas, aliviaderos y rutas de inspección. Basado en los requisitos de protección de infraestructura crítica, se centra en la conciencia de baja altitud, la identificación de objetivos, la ubicación, el seguimiento, la vinculación de advertencias y la coordinación de despacho para terrenos complejos, reflejos de agua y entornos de presas propensos a la niebla.",
+  "key_application_es": "Represas hidroeléctricas, costas de embalses, perímetros de centrales eléctricas, aliviaderos, áreas de toma, puertas, caminos de inspección, zonas de interfaz de red y salas de operaciones.",
+  "key_parameter_1_es": "Cadena del plan operativo: detección de baja altitud, identificación de objetivos, ubicación, seguimiento continuo, enlace de advertencia y coordinación de despacho.",
+  "key_parameter_2_es": "Adaptación al medio ambiente de la presa: la revisión visual, la asistencia térmica y la confirmación del operador ayudan a reducir el impacto del reflejo del agua, la niebla y las aves actividad y terreno complejo.",
   "parameters_es": {
-    "Industry_pain_points": [
-      "Dam bodies, powerhouses, spillways, intake areas, and grid-interface zones operate continuously, so abnormal low-altitude activity nearby can disrupt duty-room judgment and operational order.",
-      "Reservoir valleys, water reflection, fog, rain, and bird activity make single-camera observation or manual patrols prone to missed events, false alarms, and delayed confirmation.",
-      "Long shorelines, access roads, gates, and inspection routes require operators to see when a target appears, where it moves, which risk area it approaches, and how the alert status changes.",
-      "Dam low-altitude security needs awareness, confirmation, tracking, alert circulation, and dispatch coordination in one process so abnormal target information does not remain fragmented between duty roles."
+    "industry_pain_points": [
+      "Los cuerpos de presas, las centrales eléctricas, los aliviaderos, las áreas de toma y las zonas de interfaz de la red funcionan continuamente, por lo que son anormales. la actividad a baja altitud cercana puede alterar el criterio de la sala de servicio y el orden operativo.",
+      "Los valles de los embalses, el reflejo del agua, la niebla, la lluvia y la actividad de las aves realizan observaciones con una sola cámara o patrullas manuales propenso a eventos perdidos, falsas alarmas y confirmación retrasada.",
+      "Las largas costas, caminos de acceso, puertas y rutas de inspección requieren que los operadores vean cuándo aparece un objetivo, dónde se mueve, a qué área de riesgo se acerca y cómo cambia el estado de alerta.",
+      "La seguridad de presas a baja altitud necesita concientización, confirmación, seguimiento, circulación de alertas y coordinación de despacho en un solo proceso para que la información anormal del objetivo no permanezca fragmentada entre los roles de servicio."
     ],
-    "Uav_industry_upgrade": [
-      "Discover: maintain low-altitude awareness around the dam body, powerhouse, reservoir bank, gates, and inspection routes to surface abnormal target clues early.",
-      "Confirm: use visual review, thermal assistance, and operator verification to identify the target context while filtering reflection, birds, and terrain noise.",
-      "Track: record movement direction, approach area, dwell position, and related zones so the duty team can follow target changes.",
-      "Link: route alerts by risk area and synchronize target imagery, tracks, and alert status to support operations dispatch and field patrol coordination."
+    "uav_industry_upgrade": [
+      "Descubrir: mantener la conciencia de baja altitud alrededor del cuerpo de la presa, la central eléctrica, el banco del embalse, las compuertas y las rutas de inspección para detectar pistas anormales del objetivo con anticipación.",
+      "Confirmar: usar revisión visual, asistencia térmica y verificación del operador para identificar el contexto objetivo mientras se filtran los reflejos, las aves y el terreno ruido.",
+      "Seguimiento: registre la dirección del movimiento, el área de aproximación, la posición de permanencia y las zonas relacionadas para que el equipo de servicio pueda seguir los cambios de objetivos.",
+      "Enlace: alertas de ruta por área de riesgo y sincronizar imágenes de objetivos, seguimientos y estado de alerta para respaldar el envío de operaciones y la coordinación de patrullas de campo."
     ],
-    "Solution_modules_intro": "The solution is organized around a concise low-altitude security chain: discover abnormal activity, confirm the target, track movement, and link alerts with operations dispatch and field patrol roles. It focuses on duty-room process, data synchronization, and dispatch coordination.",
-    "Operation_upgrade_eyebrow": "Operational Flow",
-    "Operation_upgrade_title": "Baja altitud seguridad Operating Plan for Dam Operations",
-    "Solution_modules": [
+    "solution_modules_intro": "La solución está organizada en torno a una cadena de seguridad concisa de baja altitud: descubre actividad anormal, confirma el objetivo, rastrea el movimiento y vincula alertas con el despacho de operaciones y las funciones de patrulla de campo. Se centra en el proceso de la sala de servicio, la sincronización de datos y la coordinación de despacho.",
+    "operación_upgrade_eyebrow": "Flujo operativo",
+    "operación_upgrade_title": "Operaciones de seguridad a baja altitud para operaciones de presas",
+    "módulos_solución": [
       {
-        "name": "Low-Altitude Detection",
-        "description": "Creates an early event-awareness entry around the dam body, reservoir bank, powerhouse perimeter, and inspection roads.",
-        "image": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
+        "nombre": "Detección de baja altitud",
+        "descripción": "Crea una entrada temprana de detección de eventos alrededor del cuerpo de la presa, el banco del embalse, el perímetro de la central eléctrica y los caminos de inspección.",
+        "imagen": "/solutions/hydroelectric-dam-protection/module-discovery-dam-overview.webp"
       },
       {
-        "name": "Target Identification and Location",
-        "description": "Combines clear visual review, thermal assistance, and operator verification to confirm target context and reduce environmental misjudgment.",
-        "image": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
+        "nombre": "Identificación y ubicación de objetivos",
+        "descripción": "Combina imágenes claras revisión, asistencia térmica y verificación del operador para confirmar el contexto del objetivo y reducir los errores de juicio ambientales.",
+        "imagen": "/solutions/hydroelectric-dam-protection/module-identification-dam-face.webp"
       },
       {
-        "name": "Continuous Target Tracking",
-        "description": "Maintains the movement path, approach direction, dwell position, and associated risk area as a visible event timeline.",
-        "image": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
+        "nombre": "Seguimiento continuo de objetivos",
+        "descripción": "Mantiene la ruta de movimiento, la dirección de aproximación, la posición de permanencia y el área de riesgo asociada como una línea de tiempo de evento visible.",
+        "imagen": "/solutions/hydroelectric-dam-protection/module-track-reservoir-context.webp"
       },
       {
-        "name": "Warning Linkage and Dispatch Coordination",
-        "description": "Routes alerts by risk area and synchronizes target imagery, tracks, and alert status so dispatch, security duty teams, and field patrol roles share the same working view.",
-        "image": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
+        "nombre": "Conexión y envío de advertencias Coordinación",
+        "descripción": "Enruta alertas por área de riesgo y sincroniza imágenes de destino, seguimientos y estado de alerta para que los roles de despacho, equipos de seguridad y patrullas de campo compartan la misma vista de trabajo.",
+        "imagen": "/solutions/hydroelectric-dam-protection/module-dispatch-coordination-dam-site.webp"
       }
     ],
-    "Industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
+    "industry_pain_points_image": "/solutions/hydroelectric-dam-protection/industry-pain-points-dam.webp"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Presa hidroeléctrica Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Presa hidroeléctrica Protection de N-TET para inspección, seguridad de sitio, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h2>Puntos débiles de la industria</h2><ul><li>Los cuerpos de presas, las centrales eléctricas, los aliviaderos, las áreas de toma y las zonas de interfaz de la red funcionan continuamente, por lo que son anormales. la actividad a baja altitud cercana puede alterar el criterio de la sala de servicio y el orden operativo.</li><li>Los valles de los embalses, el reflejo del agua, la niebla, la lluvia y la actividad de las aves realizan observaciones con una sola cámara o patrullas manuales propenso a eventos perdidos, falsas alarmas y confirmación retrasada.</li><li>Las largas costas, caminos de acceso, puertas y rutas de inspección requieren que los operadores vean cuándo aparece un objetivo, dónde se mueve, a qué área de riesgo se acerca y cómo cambia el estado de alerta.</li><li>La seguridad de presas a baja altitud necesita concientización, confirmación, seguimiento, circulación de alertas y coordinación de despacho en un solo proceso para que la información anormal del objetivo no permanezca fragmentada entre los roles de servicio.</li></ul><h2>Flujo operativo</h2><ul><li>Descubrir: mantener la conciencia de baja altitud alrededor del cuerpo de la presa, la central eléctrica, el banco del embalse, las compuertas y las rutas de inspección para detectar pistas anormales del objetivo con anticipación.</li><li>Confirmar: usar revisión visual, asistencia térmica y verificación del operador para identificar el contexto objetivo mientras se filtran los reflejos, las aves y el terreno ruido.</li><li>Seguimiento: registre la dirección del movimiento, el área de aproximación, la posición de permanencia y las zonas relacionadas para que el equipo de servicio pueda seguir los cambios de objetivos.</li><li>Enlace: alertas de ruta por área de riesgo y sincronizar imágenes de objetivos, seguimientos y estado de alerta para respaldar el envío de operaciones y la coordinación de patrullas de campo.</li></ul>"
 }

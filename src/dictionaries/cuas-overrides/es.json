@@ -56,7 +56,7 @@
   "contact": {
     "pageTitle": "Solicite una propuesta de sistema y precio de equipo C-UAS",
     "bannerTitle": "Solicite una propuesta de sistema y precio de equipo C-UAS",
-    "bannerDesc": "Comparta el equipo, el formulario de implementación, la aplicación o el sitio que está revisando. N-TET puede proporcionar información sobre productos, precios y una propuesta de sistema específica para el proyecto.",
+    "bannerDesc": "Indique el equipo, la modalidad de despliegue, la aplicación o el emplazamiento que desea evaluar. N-TET puede facilitar información de producto, precios y una propuesta de sistema adaptada al proyecto.",
     "seoIntroTitle": "Propuesta de sistema y precio de equipo C-UAS",
     "seoIntroBody": "Utilice esta página de contacto para solicitar precios de equipos C-UAS, documentos de productos o una revisión de la configuración del sistema para proyectos portátiles, de sitio fijo y montados en vehículos.",
     "address": "Edificio Financiero Jujie, calle Lize, distrito de Fengtai, Pekín, China"
@@ -66,7 +66,7 @@
     "copyright": "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. Todos los derechos reservados."
   },
   "inquiry": {
-    "title": "¡Consigue una defensa experta con drones!",
+    "title": "Solicite asesoramiento especializado en sistemas C-UAS",
     "subtitle": "Díganos el equipo, aplicación o sitio que está revisando. Nuestro equipo puede proporcionar información sobre productos, documentos técnicos, precios y soporte de configuración.",
     "phone": "Teléfono/WhatsApp",
     "inquiryType": "¿Cómo podemos ayudar? (Opcional)",
@@ -86,9 +86,9 @@
     "uavInspectionPatrol": "Monitoreo del espacio aéreo a baja altitud",
     "uavInspectionPatrolDesc": "Flujos de trabajo de monitoreo de C-UAS para detección de baja altitud, revisión de objetivos, verificación visual y registros de eventos en el espacio aéreo.",
     "uavEmergencyResponse": "Coordinación del sistema C-UAS",
-    "uavEmergencyResponseDesc": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y transferencia del equipo operativo.",
+    "uavEmergencyResponseDesc": "Coordinación C-UAS a nivel de sitio para alertas, revisión de objetivos, registros de eventos y traspaso al equipo de operaciones.",
     "criticalInfrastructureDesc": "Detección, identificación, seguimiento y revisión de alertas de C-UAS para instalaciones energéticas, petroquímicas, hidroeléctricas e industriales.",
-    "keyAreaSecurity": "Área clave Seguridad C-UAS",
-    "keyAreaSecurityDesc": "Conciencia del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, eventos importantes, sitios judiciales e instalaciones de acceso controlado."
+    "keyAreaSecurity": "Seguridad C-UAS para áreas críticas",
+    "keyAreaSecurityDesc": "Conocimiento situacional del espacio aéreo a baja altitud y flujos de trabajo coordinados de C-UAS para aeropuertos, grandes eventos, instalaciones judiciales y recintos de acceso controlado."
   }
 }

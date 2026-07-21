@@ -2,16 +2,17 @@
   "title": "Airport C-UAS Application",
   "title_en": "Airport C-UAS Application",
   "description": "Airport C-UAS Application\nFor airport perimeter airspace management, the system combines RF identification, low-altitude radar, EO tracking, event logging, and command platform integration. It supports anti drone early warning, target identification, positioning review, alert review, tracking status, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
-  "description_en": "Airport C-UAS Application\nFor airport perimeter airspace management, the system combines RF identification, low-altitude radar, EO tracking, event logging, and command platform integration. It supports anti drone early warning, target identification, positioning review, alert review, tracking status, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
+  "description_en": "Airport C-UAS Application\nTo address unauthorized drone flights, hostile intrusion, and illicit surveillance around an airport, the project deployed an integrated C-UAS system combining RF spectrum detection, directional RF jamming, portable countermeasure units, and a command platform. The RF layer provided continuous monitoring within approximately 3 km of the airport and supported drone identification and operator-location analysis. Directional jamming could suppress GPS/BeiDou navigation and remote-control links so an unauthorized UAV would return or land, while frequency planning was used to avoid tower communications and other protected bands. Portable units supported rapid deployment around runways, terminals, and other priority areas. The command platform combined monitoring records, maps, and response plans for coordination with air-traffic control and public-security teams. The source material identifies Hangzhou Xiaoshan International Airport as an application site.",
   "devices": [
     "Stationary Spectrum Detection Equipment",
     "Portable C-UAS Equipment",
     "Command and Control Platform"
   ],
   "devices_en": [
-    "Stationary Spectrum Detection Equipment",
-    "Portable C-UAS Equipment",
-    "Command and Control Platform"
+    "Stationary RF Detection System",
+    "Directional RF Jammer",
+    "Portable C-UAS Field Shield",
+    "C-UAS Command Platform"
   ],
   "main_image": "/cases/airport-security-application/main-home.webp",
   "case_images": [
@@ -19,17 +20,17 @@
   ],
   "recommendedProductHandles": [
     "stationary-rf-detection-system",
-    "portable-integrated-detection-event-logging-low-altitude-monitoring-basic",
-    "low-altitude-3d-pulse-doppler-radar",
-    "composite-electro-optical-tracking-system"
+    "directional-rf-interference-device",
+    "portable-low-altitude-monitoring-event-logging-shield"
   ],
   "handle": "airport-security-application",
-  "title_ru": "Airport C-UAS Application",
-  "description_ru": "Airport C-UAS Application\nFor airport perimeter airspace management, the system combines RF identification, low-altitude radar, EO tracking, event logging, and command platform integration. It supports anti drone early warning, target identification, positioning review, alert review, tracking status, and coordinated response procedures for airport operation teams. Monitoring data, electronic maps, and response plans can be organized in a unified platform for collaboration with air traffic, public safety, and site security teams.",
+  "title_ru": "Применение C-UAS в аэропорту",
+  "description_ru": "Применение C-UAS в аэропорту\nДля противодействия несанкционированным полётам дронов, враждебным вторжениям и незаконному наблюдению на территории аэропорта был развёрнут комплекс C-UAS, объединяющий радиочастотное обнаружение, направленное радиочастотное подавление, переносные средства противодействия и командную платформу. Радиочастотный уровень обеспечивал непрерывный мониторинг в радиусе около 3 км от аэропорта, идентификацию БПЛА и анализ местоположения оператора. Направленное подавление могло блокировать навигацию GPS/BeiDou и каналы дистанционного управления, вызывая возврат или посадку несанкционированного БПЛА; частотное планирование применялось для защиты связи диспетчерской вышки и других разрешённых диапазонов. Переносные средства быстро развёртывались у ВПП, терминалов и других приоритетных зон. Командная платформа объединяла записи мониторинга, карты и планы реагирования для координации со службами управления воздушным движением и общественной безопасности. В исходном материале в качестве места применения указан международный аэропорт Ханчжоу Сяошань.",
   "devices_ru": [
-    "Stationary Spectrum Detection Equipment",
-    "Portable C-UAS Equipment",
-    "Command and Control Platform"
+    "Стационарная система радиочастотного обнаружения",
+    "Направленный радиочастотный подавитель",
+    "Переносной комплекс противодействия БПЛА",
+    "Командная платформа C-UAS"
   ],
   "region_ru": "Asia",
   "country_ru": "China",
@@ -41,35 +42,81 @@
   "case_snapshot_en": [
     {
       "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "value": "Airport low-altitude security and unauthorized-drone response"
     },
     {
-      "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
+      "label": "Location",
+      "value": "Hangzhou Xiaoshan International Airport, China"
     },
     {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "label": "Key Capability",
+      "value": "RF detection, directional RF jamming, portable response and command coordination"
     }
   ],
   "case_snapshot_ru": [
     {
-      "label": "Application",
-      "value": "Low-altitude monitoring and event records"
+      "label": "Применение",
+      "value": "Безопасность малых высот в аэропорту и реагирование на несанкционированные БПЛА"
     },
     {
-      "label": "Operating Plan",
-      "value": "Airspace awareness, alert review, and compliant response coordination"
+      "label": "Местоположение",
+      "value": "Международный аэропорт Ханчжоу Сяошань, Китай"
     },
     {
-      "label": "Output",
-      "value": "Operator notes, timestamps, map records, and review reports"
+      "label": "Ключевая возможность",
+      "value": "Радиочастотное обнаружение, направленное подавление, переносное реагирование и командная координация"
     }
   ],
   "recommended_product_handles": [
     "stationary-rf-detection-system",
-    "portable-integrated-detection-event-logging-low-altitude-monitoring-basic",
-    "low-altitude-3d-pulse-doppler-radar",
-    "composite-electro-optical-tracking-system"
+    "directional-rf-interference-device",
+    "portable-low-altitude-monitoring-event-logging-shield"
+  ],
+  "title_es": "Aplicación C-UAS en un aeropuerto",
+  "description_es": "Aplicación C-UAS en un aeropuerto\nPara responder a vuelos no autorizados de drones, intrusiones hostiles y vigilancia ilícita en un aeropuerto, el proyecto desplegó un sistema C-UAS integrado con detección de espectro RF, interferencia RF direccional, unidades portátiles de contramedidas y una plataforma de mando. La capa RF proporcionó vigilancia continua en un radio aproximado de 3 km alrededor del aeropuerto y permitió identificar drones y analizar la ubicación del operador. La interferencia direccional podía suprimir la navegación GPS/BeiDou y los enlaces de control remoto para provocar el regreso o el aterrizaje del UAV no autorizado; la planificación de frecuencias se utilizó para proteger las comunicaciones de la torre y otras bandas autorizadas. Las unidades portátiles permitían un despliegue rápido en pistas, terminales y otras zonas prioritarias. La plataforma de mando integraba registros de vigilancia, mapas y planes de respuesta para coordinarse con control de tráfico aéreo y seguridad pública. El material fuente identifica el Aeropuerto Internacional de Hangzhou Xiaoshan como lugar de aplicación.",
+  "devices_es": [
+    "Sistema fijo de detección RF",
+    "Inhibidor RF direccional",
+    "Escudo C-UAS portátil",
+    "Plataforma de mando C-UAS"
+  ],
+  "parameters_es": [],
+  "region_es": "Asia",
+  "country_es": "China",
+  "title_ar": "تطبيق نظام C-UAS في مطار",
+  "description_ar": "تطبيق نظام C-UAS في مطار\nلمواجهة الرحلات غير المصرح بها للطائرات المسيّرة ومحاولات التسلل والمراقبة غير المشروعة في محيط المطار، نُشر نظام C-UAS متكامل يجمع بين كشف الطيف الراديوي والتشويش الراديوي الاتجاهي ووحدات المواجهة المحمولة ومنصة قيادة. وفّرت طبقة الترددات الراديوية مراقبة مستمرة ضمن نطاق يقارب 3 كم حول المطار، مع دعم تحديد نوع الطائرة وتحليل موقع المشغّل. ويمكن للتشويش الاتجاهي تعطيل إشارات الملاحة GPS/BeiDou وروابط التحكم عن بُعد لدفع الطائرة غير المصرح بها إلى العودة أو الهبوط، مع تخطيط الترددات لتجنب اتصالات برج المراقبة والنطاقات المحمية. كما أتاحت الوحدات المحمولة الانتشار السريع قرب المدارج وصالات الركاب والمناطق ذات الأولوية. وجمعت منصة القيادة سجلات الرصد والخرائط وخطط الاستجابة للتنسيق مع مراقبة الحركة الجوية والأمن العام. وتحدد المادة المصدر مطار هانغتشو شياوشان الدولي كموقع للتطبيق.",
+  "devices_ar": [
+    "نظام ثابت لكشف الترددات الراديوية",
+    "جهاز تشويش RF اتجاهي",
+    "درع C-UAS محمول",
+    "منصة قيادة C-UAS"
+  ],
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Seguridad de baja altitud en aeropuertos y respuesta a drones no autorizados"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Aeropuerto Internacional de Hangzhou Xiaoshan, China"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Detección RF, interferencia RF direccional, respuesta portátil y coordinación de mando"
+    }
+  ],
+  "case_snapshot_ar": [
+    {
+      "label": "التطبيق",
+      "value": "أمن المجال منخفض الارتفاع في المطار والاستجابة للطائرات غير المصرح بها"
+    },
+    {
+      "label": "الموقع",
+      "value": "مطار هانغتشو شياوشان الدولي، الصين"
+    },
+    {
+      "label": "القدرة الرئيسية",
+      "value": "كشف RF والتشويش الاتجاهي والاستجابة المحمولة وتنسيق القيادة"
+    }
   ]
 }

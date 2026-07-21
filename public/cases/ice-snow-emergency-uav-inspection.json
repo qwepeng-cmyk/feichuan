@@ -65,5 +65,34 @@
       "value": "12 severe icing defects identified and 12 rapid condition reports issued"
     }
   ],
-  "devices_ru": []
+  "devices_ru": [],
+  "title_es": "Inspección UAV de emergencia ante desastres de hielo y nieve",
+  "description_es": "Inspección UAV de emergencia para desastres de hielo y nieve\nEn un entorno de frío severo de -15 C, State Grid utilizó nuestros vehículos aéreos no tripulados de ala fija VTOL con LiDAR para inspeccionar 400 km de corredores de transmisión de 500 kV, incluidas la línea Yanping y las líneas Pingji I y II. La operación utilizó cinco áreas de preparación, como la ciudad de Yanji y el condado de Antu, desplegó 18 puntos temporales de despegue y aterrizaje y completó la adquisición integral de datos mediante escaneo láser 3D. Identificó 12 defectos graves de formación de hielo en torres y accesorios, completó el escaneo LiDAR de secciones de línea designadas y generó 12 informes rápidos de condición en tiempo real, proporcionando datos precisos para el mantenimiento de líneas de voltaje ultra alto en climas extremadamente fríos.",
+  "devices_es": [],
+  "parameters_es": {},
+  "region_es": "Asia",
+  "country_es": "China",
+  "description_ar": "تفتيش UAV طارئ أثناء كوارث الجليد والثلوج\nفي بيئة شديدة البرودة بلغت -15 درجة مئوية، استخدمت State Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي والمزودة بتقنية LiDAR لتفتيش 400 كم من ممرات نقل بجهد 500 كيلوفولت، بما في ذلك خط Yanping وخطا Pingji الأول والثاني. استخدمت العملية خمس مناطق تمركز، منها مدينة يانجي ومقاطعة أنتو، ونشرت 18 نقطة مؤقتة للإقلاع والهبوط، وأكملت جمع البيانات بالمسح الليزري ثلاثي الأبعاد. وحددت 12 عيباً شديداً ناتجاً عن تراكم الجليد على الأبراج والتجهيزات، وأصدرت 12 تقرير حالة سريعاً لدعم صيانة خطوط الجهد العالي جداً في الطقس القارس.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Inspección de emergencia de corredores de 500 kV afectados por hielo"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Ciudad de Yanji, condado de Antu y zonas cercanas, China"
+    },
+    {
+      "label": "Escala de la misión",
+      "value": "400 km, 5 zonas de apoyo y 18 puntos temporales de despegue y aterrizaje"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Escaneo láser 3D en un entorno de -15 °C"
+    },
+    {
+      "label": "Resultado",
+      "value": "12 defectos graves de hielo identificados y 12 informes rápidos emitidos"
+    }
+  ]
 }

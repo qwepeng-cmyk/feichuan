@@ -31,7 +31,10 @@ export async function generateMetadata({ params }: { params: { id: string; local
     if (!news) return {};
 
     const newsTitle = getLocalizedMediaTitle(news, params.locale);
-    const newsContent = news[`content_${params.locale}`] || news.content_en || news.content;
+    const localizedContent = news[`content_${params.locale}`];
+    const localizedSummary = news[`summary_${params.locale}`];
+    const newsContent = localizedContent
+        || (params.locale === 'en' ? news.content_en || news.content : localizedSummary ? `<p>${localizedSummary}</p>` : '');
 
     return buildSeoMetadata({
         locale: params.locale,
@@ -56,7 +59,10 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 
     const newsTitle = getLocalizedMediaTitle(news, locale);
     const newsDate = getLocalizedMediaDate(news.date, locale);
-    const newsContent = news[`content_${locale}`] || news.content_en || news.content;
+    const localizedContent = news[`content_${locale}`];
+    const localizedSummary = news[`summary_${locale}`];
+    const newsContent = localizedContent
+        || (locale === 'en' ? news.content_en || news.content : localizedSummary ? `<p>${localizedSummary}</p>` : '');
     const jsonLd = articleJsonLd({
         locale,
         path: `/media/${id}`,
@@ -91,7 +97,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                             <header style={{ textAlign: 'center', marginBottom: '48px' }}>
                                 <h1 style={{ fontSize: '4.6rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '22px', letterSpacing: 0 }}>{newsTitle}</h1>
                                 <div style={{ fontSize: '1.55rem', color: '#666', fontWeight: 500, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px 14px' }}>
-                                    <span>Published <time dateTime={news.date}>{newsDate}</time></span>
+                                    <span>{locale === 'es' ? 'Publicado el' : locale === 'ru' ? 'Опубликовано' : locale === 'ar' ? 'نُشر في' : 'Published'} <time dateTime={news.date}>{newsDate}</time></span>
                                     {locale === 'en' && <span aria-label="Reviewed by N-TET C-UAS Engineering Team">Reviewed by N-TET C-UAS Engineering Team</span>}
                                 </div>
                             </header>

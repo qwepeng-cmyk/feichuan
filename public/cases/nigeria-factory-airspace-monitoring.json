@@ -58,5 +58,34 @@
       "label": "Output",
       "value": "Operator notes, timestamps, map records, and review reports"
     }
+  ],
+  "description_ar": "حالة C-UAS في مجمع صناعي بنيجيريا عام 2025\nالمعدات المستخدمة:\nمعدات متنقلة لكشف الطيف الراديوي\nمعدات للتحقق من الإشارات\nمنصة للقيادة والتحكم\nوصف المشروع:\nفي عام 2025 نُشرت عملية C-UAS متنقلة للمجال منخفض الارتفاع تغطي مناطق الإنتاج وطرق الخدمات اللوجستية ونقاط التفتيش المحيطية في المجمع الصناعي. أتاحت معدات كشف الطيف المتنقلة تغطية مرنة للموقع الكبير، بينما ساعدت معدات التحقق ومنصة القيادة المشغلين على مراجعة أحداث المجال الجوي والاحتفاظ بالسجلات وتنسيق إجراءات الاستجابة المعتمدة.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Monitoreo móvil de baja altitud para un complejo industrial"
+    },
+    {
+      "label": "Plan operativo",
+      "value": "Cobertura de producción, vías logísticas y controles perimetrales"
+    },
+    {
+      "label": "Resultado",
+      "value": "Revisión de eventos, conservación de registros y coordinación de respuesta"
+    }
+  ],
+  "case_snapshot_ar": [
+    {
+      "label": "التطبيق",
+      "value": "مراقبة متنقلة للمجال منخفض الارتفاع في مجمع صناعي"
+    },
+    {
+      "label": "خطة التشغيل",
+      "value": "تغطية مناطق الإنتاج وطرق الخدمات اللوجستية ونقاط التفتيش المحيطية"
+    },
+    {
+      "label": "النتيجة",
+      "value": "مراجعة الأحداث وحفظ السجلات وتنسيق الاستجابة"
+    }
   ]
 }

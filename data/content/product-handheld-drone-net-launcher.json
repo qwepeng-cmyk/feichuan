@@ -1,0 +1,103 @@
+{
+  "handle": "handheld-drone-net-launcher",
+  "category_primary": "drone-detection",
+  "main_image": "/products/handheld-drone-net-launcher/handheld-drone-net-launcher.webp",
+  "is_published": 1,
+  "catalog_group": "Portable C-UAS Devices",
+  "catalog_order": 45,
+  "category_by_mission_application": "Physical Drone Capture",
+  "gallery_images": [
+    "/products/handheld-drone-net-launcher/handheld-drone-net-launcher.webp",
+    "/products/handheld-drone-net-launcher/net-launcher-module.webp",
+    "/products/handheld-drone-net-launcher/deployed-capture-net.webp",
+    "/products/handheld-drone-net-launcher/handheld-net-launcher-field-check.webp"
+  ],
+  "videos": [
+    {
+      "src": "/products/handheld-drone-net-launcher/handheld-launch-demo.mp4",
+      "kind": "handheld"
+    },
+    {
+      "src": "/products/handheld-drone-net-launcher/multi-scenario-demo.mp4",
+      "kind": "multi-scenario"
+    }
+  ],
+  "source_notes": {
+    "product_specification": "网站资料/网捕器/16网捕器.docx",
+    "operating_instructions": "网站资料/网捕器/网捕器使用说明.docx",
+    "supplier_reference": "https://www.hyuav.com/solutiondetails/49.html",
+    "scope": "Handheld model only; dual-launch bracket, AI gimbal and multi-device configurations excluded."
+  },
+  "product_name_en": "Handheld Drone Net Launcher",
+  "summary_en": "A portable physical-capture device that deploys a high-strength nylon net across a published 10–20 m range. The 370 g electronic non-pressurized module is supplied for handheld use and is designed for one launch only; the net does not retract after deployment.",
+  "key_application_en": "Application: Close-range physical drone capture by trained site-security teams",
+  "key_parameter_1_en": "Capture distance: 10–20 m",
+  "key_parameter_2_en": "Net module: Single-use, non-retractable",
+  "parameters_en": {
+    "Module dimensions": "129 × 75 × 75 mm",
+    "Module weight": "370 g",
+    "Published net speed": "50 m/s",
+    "Effective capture distance": "10–20 m",
+    "Mesh opening": "20 cm",
+    "Net coverage options": "3.3 × 3.3 m / 5 × 5 m",
+    "Net material": "High-strength nylon cord with molded nylon housing",
+    "Drive": "Electronic, non-pressurized",
+    "Control": "PWM with reserved safety timing",
+    "Reuse": "Single-use net module; no post-launch retraction"
+  },
+  "detail_html_en": "<h2>What is a handheld drone net launcher?</h2><p>A handheld drone net launcher is a portable physical-capture device for trained site-security teams. This model uses an electronic, non-pressurized drive to deploy a high-strength nylon net at a published initial speed of 50 m/s. Its effective capture distance is 10–20 m, with a choice of 3.3 × 3.3 m or 5 × 5 m net coverage. The net is intended to wrap the airframe and rotors of a small low-altitude drone without relying on the target's radio link. The complete net module weighs 370 g and mounts to the supplied handheld holder for close-range field use. It is a single-use module: after deployment, the net does not retract into the launcher and the discharged module is not reset in the field. Operators should confirm local rules, establish a controlled safety area and assess the target's path before use.</p><h2>Why choose the handheld configuration?</h2><ul><li>Portable 370 g module for a single trained operator</li><li>10–20 m published capture distance for close-range site response</li><li>High-strength nylon net with 20 cm mesh</li><li>Two selectable net sizes: 3.3 × 3.3 m or 5 × 5 m</li><li>Electronic non-pressurized drive with PWM control and reserved safety timing</li></ul><h2>Important operating limitation</h2><p><strong>The handheld model launches the net outward only. It does not pull the net back, and the net module is not designed for a second launch after discharge. Replace the spent module before the next operation.</strong></p>",
+  "product_name_ru": "Ручное устройство сетевого захвата дронов",
+  "summary_ru": "Переносное устройство физического захвата, раскрывающее высокопрочную нейлоновую сеть на заявленной дистанции 10–20 м. Электронный модуль без предварительного давления массой 370 г предназначен для ручного применения и одного запуска; после раскрытия сеть не втягивается обратно.",
+  "key_application_ru": "Применение: Физический захват дронов на близкой дистанции подготовленной охраной объекта",
+  "key_parameter_1_ru": "Дистанция захвата: 10–20 м",
+  "key_parameter_2_ru": "Сетевой модуль: Однократный, без обратного втягивания",
+  "parameters_ru": {
+    "Размеры модуля": "129 × 75 × 75 мм",
+    "Масса модуля": "370 г",
+    "Заявленная скорость сети": "50 м/с",
+    "Эффективная дистанция захвата": "10–20 м",
+    "Размер ячейки": "20 см",
+    "Варианты площади сети": "3,3 × 3,3 м / 5 × 5 м",
+    "Материал сети": "Высокопрочный нейлоновый шнур и литой нейлоновый корпус",
+    "Привод": "Электронный, без предварительного давления",
+    "Управление": "PWM с защитной задержкой",
+    "Повторное использование": "Сетевой модуль однократный; обратного втягивания нет"
+  },
+  "detail_html_ru": "<h2>Что представляет собой ручное устройство сетевого захвата дронов?</h2><p>Ручное устройство сетевого захвата дронов — переносное средство физического захвата для подготовленных сотрудников охраны объекта. Электронный привод без предварительного давления раскрывает высокопрочную нейлоновую сеть с заявленной начальной скоростью 50 м/с. Рабочая дистанция захвата составляет 10–20 м; доступны сети 3,3 × 3,3 м и 5 × 5 м. Сеть оборачивается вокруг корпуса и роторов небольшого низколетящего дрона и не зависит от его радиоканала. Масса сетевого модуля — 370 г. Модуль предназначен для однократного применения: после раскрытия сеть не втягивается обратно, а сработавший модуль не перезаряжается на месте. Перед применением оператор должен проверить местные правила, выделить безопасную зону и оценить траекторию цели.</p><h2>Преимущества ручной конфигурации</h2><ul><li>Переносной модуль массой 370 г для одного подготовленного оператора</li><li>Заявленная дистанция физического захвата 10–20 м</li><li>Высокопрочная нейлоновая сеть с ячейкой 20 см</li><li>Два размера сети: 3,3 × 3,3 м или 5 × 5 м</li><li>Электронный привод без предварительного давления и PWM-управление с защитной задержкой</li></ul><h2>Важное эксплуатационное ограничение</h2><p><strong>Ручная модель только выбрасывает сеть наружу. Обратное втягивание не предусмотрено, а сетевой модуль нельзя использовать для второго запуска после срабатывания. Перед следующей операцией установите новый модуль.</strong></p>",
+  "product_name_es": "Lanzador de red portátil para drones",
+  "summary_es": "Dispositivo portátil de captura física que despliega una red de nailon de alta resistencia a una distancia publicada de 10–20 m. El módulo electrónico sin presión almacenada pesa 370 g, se suministra para uso portátil y permite un solo lanzamiento; la red no se retrae después del despliegue.",
+  "key_application_es": "Aplicación: Captura física de drones a corta distancia por equipos de seguridad formados",
+  "key_parameter_1_es": "Distancia de captura: 10–20 m",
+  "key_parameter_2_es": "Módulo de red: Un solo uso, no retráctil",
+  "parameters_es": {
+    "Dimensiones del módulo": "129 × 75 × 75 mm",
+    "Peso del módulo": "370 g",
+    "Velocidad publicada de la red": "50 m/s",
+    "Distancia efectiva de captura": "10–20 m",
+    "Abertura de malla": "20 cm",
+    "Opciones de cobertura": "3,3 × 3,3 m / 5 × 5 m",
+    "Material de la red": "Cordón de nailon de alta resistencia y carcasa de nailon moldeado",
+    "Accionamiento": "Electrónico, sin presión almacenada",
+    "Control": "PWM con temporización de seguridad",
+    "Reutilización": "Módulo de un solo uso; sin retracción posterior"
+  },
+  "detail_html_es": "<h2>¿Qué es un lanzador de red portátil para drones?</h2><p>Un lanzador de red portátil para drones es un dispositivo de captura física destinado a equipos de seguridad del sitio con formación. Este modelo utiliza un accionamiento electrónico sin presión almacenada para desplegar una red de nailon de alta resistencia a una velocidad inicial publicada de 50 m/s. La distancia efectiva de captura es de 10–20 m, con redes de 3,3 × 3,3 m o 5 × 5 m. La red envuelve el fuselaje y los rotores de un dron pequeño de baja altura sin depender de su enlace de radio. El módulo pesa 370 g y se instala en el soporte portátil suministrado. Es de un solo uso: después del despliegue, la red no vuelve al lanzador y el módulo usado no se rearma en campo. El operador debe comprobar la normativa local, delimitar una zona segura y evaluar la trayectoria.</p><h2>¿Por qué elegir la configuración portátil?</h2><ul><li>Módulo portátil de 370 g para un operador formado</li><li>Distancia de captura publicada de 10–20 m</li><li>Red de nailon de alta resistencia con malla de 20 cm</li><li>Dos tamaños de red: 3,3 × 3,3 m o 5 × 5 m</li><li>Accionamiento electrónico sin presión almacenada y control PWM con temporización de seguridad</li></ul><h2>Limitación operativa importante</h2><p><strong>El modelo portátil solo lanza la red hacia el exterior. No retrae la red y el módulo descargado no permite un segundo lanzamiento. Instale un módulo nuevo antes de la siguiente operación.</strong></p>",
+  "product_name_ar": "قاذف شبكة محمول لالتقاط الطائرات المسيّرة",
+  "summary_ar": "جهاز محمول للالتقاط المادي ينشر شبكة نايلون عالية المتانة ضمن مسافة معلنة من 10 إلى 20 م. تزن الوحدة الإلكترونية من دون ضغط مخزن 370 جم، وهي مخصصة للاستخدام المحمول وإطلاق واحد فقط؛ ولا تعود الشبكة بعد نشرها.",
+  "key_application_ar": "الاستخدام: التقاط مادي قريب المدى للطائرات المسيّرة بواسطة فرق أمن مواقع مدربة",
+  "key_parameter_1_ar": "مسافة الالتقاط: 10–20 م",
+  "key_parameter_2_ar": "وحدة الشبكة: استخدام واحد وغير قابلة للسحب",
+  "parameters_ar": {
+    "أبعاد الوحدة": "129 × 75 × 75 مم",
+    "وزن الوحدة": "370 جم",
+    "سرعة الشبكة المعلنة": "50 م/ث",
+    "مسافة الالتقاط الفعالة": "10–20 م",
+    "فتحة الشبكة": "20 سم",
+    "خيارات مساحة الشبكة": "3.3 × 3.3 م / 5 × 5 م",
+    "مادة الشبكة": "حبل نايلون عالي المتانة وهيكل نايلون مصبوب",
+    "المشغل": "إلكتروني، من دون ضغط مخزن",
+    "التحكم": "PWM مع توقيت أمان",
+    "إعادة الاستخدام": "وحدة أحادية الاستخدام؛ لا يوجد سحب بعد الإطلاق"
+  },
+  "detail_html_ar": "<h2>ما قاذف الشبكة المحمول لالتقاط الطائرات المسيّرة؟</h2><p>قاذف الشبكة المحمول جهاز للالتقاط المادي مخصص لفرق أمن المواقع المدربة. يستخدم هذا الطراز مشغلاً إلكترونياً من دون ضغط مخزن لنشر شبكة نايلون عالية المتانة بسرعة ابتدائية معلنة تبلغ 50 م/ث. تتراوح مسافة الالتقاط الفعالة بين 10 و20 م، مع خيار شبكة بمقاس 3.3 × 3.3 م أو 5 × 5 م. تلتف الشبكة حول هيكل ومراوح الطائرة المسيّرة الصغيرة منخفضة الارتفاع من دون الاعتماد على وصلة التحكم اللاسلكية الخاصة بها. يبلغ وزن وحدة الشبكة 370 جم وتثبت على الحامل المحمول المرفق. الوحدة أحادية الاستخدام؛ فبعد النشر لا تعود الشبكة إلى القاذف ولا تُعاد تهيئة الوحدة المستخدمة في الموقع. يجب على المشغل مراجعة اللوائح المحلية وتحديد منطقة آمنة وتقييم مسار الهدف قبل الاستخدام.</p><h2>لماذا تختار التهيئة المحمولة؟</h2><ul><li>وحدة محمولة بوزن 370 جم لمشغل واحد مدرب</li><li>مسافة التقاط معلنة من 10 إلى 20 م</li><li>شبكة نايلون عالية المتانة بفتحات 20 سم</li><li>مقاسان للشبكة: 3.3 × 3.3 م أو 5 × 5 م</li><li>مشغل إلكتروني من دون ضغط مخزن وتحكم PWM مع توقيت أمان</li></ul><h2>قيد تشغيلي مهم</h2><p><strong>يطلق الطراز المحمول الشبكة إلى الخارج فقط. لا يسحب الشبكة مرة أخرى، ولا تسمح الوحدة المستخدمة بإطلاق ثانٍ. يجب تركيب وحدة جديدة قبل العملية التالية.</strong></p>"
+}

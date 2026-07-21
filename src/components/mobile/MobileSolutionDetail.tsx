@@ -10,6 +10,7 @@ import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { getArabicTechnicalHighlight, getArabicTechnicalParameters, hasBrokenArabicTechnicalCopy } from '@/lib/arabicTechnicalCopy';
 
 interface SolutionProps {
     solution: any;
@@ -429,8 +430,8 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
     const name = solution[`product_name_${locale}`] || solution.product_name_en || solution.title_en;
     const summary = solution[`summary_${locale}`] || solution.summary_en;
     const keyApp = solution[`key_application_${locale}`] || solution.key_application_en;
-    const keyParam1 = solution[`key_parameter_1_${locale}`] || solution.key_parameter_1_en;
-    const keyParam2 = solution[`key_parameter_2_${locale}`] || solution.key_parameter_2_en;
+    const keyParam1 = getArabicTechnicalHighlight(solution, 'key_parameter_1', locale);
+    const keyParam2 = getArabicTechnicalHighlight(solution, 'key_parameter_2', locale);
     const detailHtml = solution[`detail_html_${locale}`] || solution.detail_html_en;
     const seoTarget = getSeoKeywordTarget({
         route: `/solutions/${solution.handle || solution.id}`,
@@ -441,15 +442,16 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
     });
     
     let parameters: any = null;
+    const hasBrokenArabicParameters = locale === 'ar' && hasBrokenArabicTechnicalCopy(solution.parameters_ar);
     try {
-        const rawParams = solution[`parameters_${locale}`] || solution.parameters_en;
+        const rawParams = hasBrokenArabicParameters ? {} : getArabicTechnicalParameters(solution, locale);
         parameters = typeof rawParams === 'string' ? JSON.parse(rawParams) : rawParams;
     } catch (e) {
         parameters = {};
     }
 
     const rawJson = parseJsonObject(solution.raw_json);
-    const detailSections = rawJson.detail_sections && typeof rawJson.detail_sections === 'object' ? rawJson.detail_sections : {};
+    const detailSections = locale !== 'ar' && rawJson.detail_sections && typeof rawJson.detail_sections === 'object' ? rawJson.detail_sections : {};
     const sectionData = { ...detailSections, ...(parameters || {}) };
     const painPoints = normalizeTextItems(sectionData.industry_pain_points);
     const upgradeItems = normalizeTextItems(sectionData.uav_industry_upgrade);

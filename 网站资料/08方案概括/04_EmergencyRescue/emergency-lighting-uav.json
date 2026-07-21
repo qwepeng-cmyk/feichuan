@@ -27,8 +27,7 @@
   "handle": "emergency-lighting-uav",
   "category_primary": "",
   "recommended_products": [
-    "fc-yjzm-01-emergency-lighting-drone",
-    "bailey-bridge"
+    "fc-yjzm-01-emergency-lighting-drone"
   ],
   "product_name_ru": "БПЛА аварийного освещения",
   "summary_ru": "Оснащен мощными светодиодными модулями высокой яркости, легко развертывается и обеспечивает непрерывное освещение больших площадей под любым углом без слепых зон. Работает в привязном режиме с постоянным питанием, что позволяет длительное время удерживать позицию.",
@@ -42,16 +41,16 @@
     "Высота зависания": "30м - 100м (регулируемая)"
   },
   "detail_html_ru": "<h4>«Искусственное солнце» в ночи</h4><p>Эффективно решает проблемы традиционного наземного освещения: малый охват, неподвижность и наличие слепых зон. Широко применяется при ночном поиске, ремонте дорог и эвакуации людей.</p><ul><li>Всенаправленное высотное освещение без слепых зон</li><li>Взрывозащищенные светодиоды высокой проникающей способности</li><li>Усиление мер безопасности при ночных экстренных работах</li></ul>",
-  "product_name_es": "Emergencia iluminación UAV",
-  "summary_es": "Emergencia iluminación UAV de N-TET para iluminación operativa, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Repair Site emergencia iluminación.",
-  "key_parameter_1_es": "Continuous Hovering: Tethered power platform supports 12h+ fixed-point operations",
-  "key_parameter_2_es": "High-intensity iluminación: High-power explosion-proof LED array for shadowless area illumination",
+  "product_name_es": "UAV de iluminación de emergencia",
+  "summary_es": "Equipado con módulos de iluminación LED de alto brillo y alta potencia, es fácil de implementar y puede lograr un complemento de luz continua de múltiples ángulos a gran escala a grandes altitudes sin puntos ciegos. Adopta un modo de suministro de energía continuo atado y admite operaciones de vuelo estacionario de punto fijo de larga duración. ",
+  "key_application_es": "Reparación de iluminación de emergencia en el sitio",
+  "key_parameter_1_es": "Floteo continuo: la plataforma eléctrica atada admite más de 12 horas de operaciones de punto fijo",
+  "key_parameter_2_es": "Iluminación de alta intensidad: Conjunto de LED de alta potencia a prueba de explosiones para iluminación de áreas sin sombras",
   "parameters_es": {
-    "Light Source": "High-power explosion-proof LED star array",
-    "Duration": ">= 12 hours (uninterrupted tethered power)",
-    "Illumination Area": ">= 5000 square meters",
-    "Hovering Altitude": "30m - 100m adjustable"
+    "Fuente de luz": "Matriz de estrellas LED a prueba de explosiones de alta potencia",
+    "Duración": ">= 12 horas (con conexión ininterrumpida) potencia)",
+    "Área de iluminación": ">= 5000 cuadrados metros",
+    "Altitud flotante": "30m - 100m ajustable"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Emergencia iluminación UAV está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Emergencia iluminación UAV de N-TET para iluminación operativa, infraestructura eléctrica, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>'Sol artificial' en la noche negra</h4><p>Resuelve eficazmente los puntos débiles comunes de la iluminación terrestre tradicional, como el alcance reducido, la inmovilidad y los puntos ciegos. Ampliamente utilizado en rescate nocturno, reparación de carreteras y evacuación de multitudes para fortalecer el respaldo para operaciones de emergencia nocturnas.</p><figure class=\"solution-detail-figure\"><img src=\"/solutions/uav-detail/night-emergency-lighting.webp\" alt=\"Iluminación de emergencia nocturna Operación de soporte UAV\" /></figure><ul><li>Iluminación omnidireccional a gran altitud</li><li>LED de alto brillo a prueba de explosiones con profundidad penetración</li><li>Fortalecimiento de las salvaguardias de operación nocturna</li></ul>"
 }

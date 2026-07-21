@@ -11,8 +11,9 @@ import OptimizedRichText from '@/components/common/OptimizedRichText';
 import SolutionFaqSection from '@/components/solutions/SolutionFaqSection';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import { getArabicTechnicalHighlight, getArabicTechnicalParameters, hasBrokenArabicTechnicalCopy } from '@/lib/arabicTechnicalCopy';
 
 function renderParameterValue(value: unknown): React.ReactNode {
   if (value === null || value === undefined || value === '') return '-';
@@ -601,19 +602,20 @@ export default function SolutionDetailClient({
   const name = solution[`product_name_${locale}`] || solution.product_name_en || solution.title_en;
   const summary = solution[`summary_${locale}`] || solution.summary_en;
   const keyApp = solution[`key_application_${locale}`] || solution.key_application_en;
-  const keyParam1 = solution[`key_parameter_1_${locale}`] || solution.key_parameter_1_en;
-  const keyParam2 = solution[`key_parameter_2_${locale}`] || solution.key_parameter_2_en;
+  const keyParam1 = getArabicTechnicalHighlight(solution, 'key_parameter_1', locale);
+  const keyParam2 = getArabicTechnicalHighlight(solution, 'key_parameter_2', locale);
   const detailHtml = solution[`detail_html_${locale}`] || solution.detail_html_en;
   
   let parameters: any = null;
+  const hasBrokenArabicParameters = locale === 'ar' && hasBrokenArabicTechnicalCopy(solution.parameters_ar);
   try {
-      const rawParams = solution[`parameters_${locale}`] || solution.parameters_en;
+      const rawParams = hasBrokenArabicParameters ? {} : getArabicTechnicalParameters(solution, locale);
       parameters = typeof rawParams === 'string' ? JSON.parse(rawParams) : rawParams;
   } catch (e) {
       parameters = {};
   }
   const rawJson = parseJsonObject(solution.raw_json);
-  const detailSections = rawJson.detail_sections && typeof rawJson.detail_sections === 'object' ? rawJson.detail_sections : {};
+  const detailSections = locale !== 'ar' && rawJson.detail_sections && typeof rawJson.detail_sections === 'object' ? rawJson.detail_sections : {};
   const hasStructuredSolutionContent = Object.keys(detailSections).length > 0 || Boolean(parameters?.industry_pain_points || parameters?.uav_industry_upgrade || parameters?.solution_modules);
   const solutionLabels = getSolutionLabels(locale);
   const seoTarget = getSeoKeywordTarget({
@@ -694,9 +696,9 @@ export default function SolutionDetailClient({
                   <a href="#inquiry" className="btn-cta" style={{ background: '#b45309', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                     {dict.products.getQuotation}
                   </a>
-                  <WhatsAppLeadButton sourceLabel="solution_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                  <PrimaryContactButton sourceLabel="solution_detail_whatsapp" className="btn-cta" style={{ background: 'var(--contact-channel-accent)', color: '#fff', borderRadius: '4px', textTransform: 'none', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                     {dict.products.whatsapp}
-                  </WhatsAppLeadButton>
+                  </PrimaryContactButton>
                 </div>
               </div>
             </div>

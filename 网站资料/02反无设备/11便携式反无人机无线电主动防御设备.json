@@ -61,23 +61,23 @@
     "Класс защиты": "IP65"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Портативность и мобильность: Компактный дизайн для оперативного развертывания силами одного человека.</li><li>Активная защита: Технология спуфинга позволяет перехватывать управление навигацией дрона, принуждая его к посадке или возврату в заданную точку.</li><li>Безопасная мощность: Эффективное воздействие без вреда для здоровья персонала и сторонних систем связи.</li><li>Автономная работа: Встроенный аккумулятор обеспечивает длительную эксплуатацию в полевых условиях.</li><li>Универсальность установки: Возможность использования на мобильных штативах или переноски в руках.</li></ul>",
-  "product_name_es": "Hand-held Active RF Defense sistema (Spoofing)",
-  "summary_es": "Hand-held Active RF Defense sistema (Spoofing) de N-TET para seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Low-power emission compliant with radiation safety standards; Official radio type approval from MIIT; Comprehensive GNSS coverage (GPS; GLONASS; Galileo) for multi-mode drone neutralization.",
-  "key_parameter_1_es": "Effective Range: 500m - 1000m (Adjustable)",
-  "key_parameter_2_es": "Weight: ≤8kg",
+  "product_name_es": "Unidad de campo C-UAS portátil",
+  "summary_es": "Una unidad de campo C-UAS portátil para ubicaciones controladas que requieren alerta temprana móvil, identificación de objetivos, revisión de posicionamiento, soporte de seguimiento, registros de alerta y coordinación de protocolos de respuesta.",
+  "key_application_es": "Implementación portátil para ubicaciones críticas, operaciones temporales, eventos públicos y perímetros industriales; admite la integración con planos de sensores C-UAS en capas.",
+  "key_parameter_1_es": "Cobertura operativa: 500 m-1000 m (ajustable)",
+  "key_parameter_2_es": "Peso: ≤8kg",
   "parameters_es": {
-    "Frequency Bands": "GPS L1, GLONASS L1, Galileo E1",
-    "Output eléctrica": "≤10dBm (mW)",
-    "Spoofing Response": "≤10s",
-    "Sync Accuracy": "＜1us",
-    "Effective Range": "500m - 1000m (Adjustable)",
-    "Coverage Angle": "360° Horizontal; ±90° Vertical",
-    "Eléctrica Consumption": "≤30W",
-    "Positioning": "Integrated GPS with coordinate reporting",
-    "Weight": "≤8kg",
-    "Operating Temp": "-40℃ to +65℃",
-    "IP Rating": "IP65"
+    "Bandas de frecuencia": "GPS L1, GLONASS L1, Galileo E1",
+    "Potencia de salida": "≤10dBm (mW)",
+    "verificación de señal Respuesta": "≤10s",
+    "Precisión de sincronización": "<1nosotros",
+    "Rango efectivo": "500 m - 1000 m (ajustable)",
+    "Ángulo de cobertura": "360° Horizontal; ±90° Vertical",
+    "Consumo de energía": "≤30W",
+    "Posicionamiento": "GPS integrado con informe de coordenadas",
+    "Peso": "≤8kg",
+    "Temperatura de funcionamiento": "-40 ℃ a +65 ℃",
+    "Clasificación IP": "IP65"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Hand-held Active RF Defense sistema (Spoofing) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Hand-held Active RF Defense sistema (Spoofing) de N-TET para seguridad de sitio, operaciones UAV, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características principales</h4><ul><li>Diseño portátil para implementación rápida y operaciones móviles.</li><li>Activo Tecnología de seguridad RF, capaz de hacerse cargo y controlar drones intrusos.</li><li>Admite respuesta a incidentes y retorno designado del objetivo drones.</li><li>Batería recargable incorporada para operaciones de campo extendidas.</li><li>Factor de forma compacto, operable por una sola persona.</li><li>Alcance de seguridad efectivo de hasta 1,5 km.</li></ul>"
 }

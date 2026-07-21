@@ -23,6 +23,7 @@ async function ProductsDataWrapper({ locale, dict }: { locale: Locale; dict: any
             opticalProducts={categoriesData['perimeter-intelligence'] || []}
             locale={locale}
             dict={dict}
+            showLaserPreview={process.env.LOCAL_LASER_PREVIEW === '1'}
         />
     );
 }

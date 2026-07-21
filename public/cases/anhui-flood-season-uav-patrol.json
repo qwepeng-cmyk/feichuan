@@ -65,5 +65,34 @@
       "value": "Completed flood-season patrol task on schedule"
     }
   ],
-  "devices_ru": []
+  "devices_ru": [],
+  "title_es": "Patrulla UAV de emergencia en temporada de inundaciones en Anhui",
+  "description_es": "Patrulla UAV de emergencia en temporada de inundaciones de Anhui\nPara cumplir los requisitos de seguridad de las líneas eléctricas durante la temporada de inundaciones de verano, State Grid utilizó nuestros UAV de ala fija VTOL para realizar patrullas especiales de emergencia en el corredor eléctrico de Chizhou Jiuhua. La operación completó más de 150 vuelos, logró la transmisión de señales de misión a muy larga distancia y finalizó la inspección de la temporada de inundaciones según el calendario y con la calidad requerida.",
+  "devices_es": [],
+  "parameters_es": {},
+  "region_es": "Asia",
+  "country_es": "China",
+  "description_ar": "دورية UAV طارئة خلال موسم الفيضانات في آنهوي\nلتلبية متطلبات سلامة خطوط الكهرباء خلال موسم الفيضانات الصيفي، استخدمت State Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي لتنفيذ دوريات طارئة خاصة لمكافحة الفيضانات في ممر الطاقة الكثيف بمنطقة تشيتشو جيوهوا. أنجزت العملية أكثر من 150 طلعة، وحققت نقل إشارات المهمة لمسافات بعيدة جداً، وأتمت مهمة التفتيش في الموعد وبالجودة المطلوبة، مما عزز سلامة ممرات الطاقة خلال موسم الفيضانات.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Patrulla de emergencia de corredores eléctricos en temporada de inundaciones"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Chizhou Jiuhua, Anhui, China"
+    },
+    {
+      "label": "Escala de la misión",
+      "value": "Más de 150 vuelos"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Transmisión de señales a muy larga distancia"
+    },
+    {
+      "label": "Resultado",
+      "value": "Tarea de patrulla completada según el calendario"
+    }
+  ]
 }

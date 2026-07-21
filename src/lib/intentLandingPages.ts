@@ -82,8 +82,9 @@ export const droneDetectorLanding: IntentLandingConfig = {
     { title: 'Venues & temporary events', summary: 'Support time-bound deployment, patrol coordination and a traceable alert workflow.' },
     { title: 'Managed low-altitude areas', summary: 'Correlate cooperative identity, RF, radar and visual evidence in one operating picture.' },
   ],
-  productsHeading: 'Reusable detection layers',
-  productsIntro: 'Select layers by the evidence the operator needs; do not treat every detector as interchangeable.',
+  productsHeading: 'Complementary detection layers',
+  productsIntro:
+    'Select each detection layer according to the evidence operators need. RF sensing, radar, Remote ID and EO/IR provide different types of information; they are complementary, not interchangeable.',
   products: [
     {
       name: 'Stationary RF Identification System',
@@ -122,10 +123,10 @@ export const droneDetectorLanding: IntentLandingConfig = {
   comparisonIntro: 'The strongest configuration is the one that closes evidence gaps without hiding each sensor\'s limits.',
   comparisonColumns: ['RF sensing', 'Radar', 'Remote ID', 'EO / IR'],
   comparisonRows: [
-    { label: 'Primary evidence', values: ['Radio activity and supported identity clues', 'Movement, range, bearing and track', 'Compatible broadcast identity and flight data', 'Visual and thermal imagery'] },
-    { label: 'Best use', values: ['Early RF awareness and direction review', 'Track continuity and non-cooperative movement', 'Permitted-flight and identity review', 'Operator confirmation and video evidence'] },
+    { label: 'Primary evidence', values: ['RF emissions and supported protocol or identity clues', 'Movement, range, bearing and track', 'Compatible broadcast identity and flight data', 'Visible-light and thermal imagery'] },
+    { label: 'Best use', values: ['Early RF awareness and direction finding', 'Continuous tracking, including targets without compatible RF or Remote ID broadcasts', 'Cooperative identification and cross-checking against permitted-flight records', 'Operator confirmation using visible-light or thermal imagery'] },
     { label: 'Important limit', values: ['Quiet targets, unfamiliar waveforms and RF noise', 'Terrain, clutter, mounting and target characteristics', 'Requires a compatible broadcast that can be received', 'Line of sight, weather, lighting and target presentation'] },
-    { label: 'Typical deployment', values: ['Fixed or portable', 'Fixed site or vehicle-supported', 'Fixed or networked receiver', 'Fixed site with platform cueing'] },
+    { label: 'Typical deployment', values: ['Fixed or portable', 'Fixed site or vehicle-supported', 'Fixed or networked receiver', 'Fixed-site deployment with radar or command-platform cueing'] },
   ],
   workflowHeading: 'Detection, identification, tracking and response',
   workflowIntro: 'Each stage adds target information and connects the confirmed track to the command platform and configured response equipment.',

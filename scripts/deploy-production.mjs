@@ -118,6 +118,17 @@ function rsyncPublic() {
   ]);
 }
 
+function rsyncProductBrochures() {
+  run('rsync', [
+    '-az',
+    '--checksum',
+    '-e',
+    rsyncRemoteShell(),
+    'private/product-brochures/',
+    `${remote}:${deployPath}/private/product-brochures/`,
+  ]);
+}
+
 function rsyncUpload(local, remotePath) {
   run('rsync', [
     '-azP',
@@ -305,6 +316,9 @@ async function verifyLiveUrls() {
 
 step('Sync public assets');
 rsyncPublic();
+
+step('Sync gated product brochures');
+rsyncProductBrochures();
 
 step('Check public assets');
 run('node', ['scripts/check-public-sync.mjs']);

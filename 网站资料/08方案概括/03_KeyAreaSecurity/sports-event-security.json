@@ -155,45 +155,45 @@
     "/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp",
     "/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp"
   ],
-  "product_name_es": "Large evento deportivo seguridad Protection",
-  "summary_es": "Large evento deportivo seguridad Protection de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Large sports events; Stadiums; Arenas; Exhibition centers; Fan zones; Media entrances.",
-  "key_parameter_1_es": "High-throughput Event inspección: coordinated handheld, gate, X-ray, and trace-detection checks for spectators, staff, media equipment, and delivered materials",
-  "key_parameter_2_es": "Venue espacio aéreo Awareness: monitoring and visual verification around stadiums, fan zones, broadcast areas, parking zones, and logistics routes",
+  "product_name_es": "Seguridad C-UAS para grandes eventos deportivos",
+  "summary_es": "Una solución integrada de control de seguridad y C-UAS para eventos grandes para entradas a estadios, arenas, centros de exhibición, zonas de fanáticos, áreas de medios, puertas logísticas, rutas VIP y espacios públicos circundantes. Combina alerta temprana antidrones, identificación, posicionamiento, seguimiento, vinculación de advertencia, control de entrada de alto rendimiento, coordinación del centro de comando y registros de eventos rastreables.",
+  "key_application_es": "Grandes eventos deportivos, estadios, arenas, centros de exposiciones, zonas de aficionados, entradas de medios, rutas VIP, puertas logísticas temporales, centros de transporte circundantes y perímetros de seguridad anti drones.",
+  "key_parameter_1_es": "Detección de eventos de alto rendimiento: controles coordinados portátiles, de puerta, de rayos X y de detección de rastros para espectadores, personal, equipos de medios y materiales entregados",
+  "key_parameter_2_es": "Conciencia del espacio aéreo del lugar: monitoreo y verificación visual alrededor de estadios, zonas de fanáticos, áreas de transmisión, zonas de estacionamiento y rutas logísticas",
   "parameters_es": {
-    "Operation_upgrade_eyebrow": "Seguridad Operation Upgrade",
-    "Operation_upgrade_title": "How Integrated monitoreo and inspección Support Large Events",
-    "Solution_modules_intro": "The solution follows the airport-security page structure but adapts it to temporary event operations, combining low-altitude awareness, entrance screening, baggage inspection, command-center coordination, and post-event review.",
-    "Industry_pain_points_image": "/solutions/solutions/Large evento deportivo seguridad.webp",
-    "Industry_pain_points": [
-      "Large sports events concentrate spectators, athletes, staff, media teams, vendors, logistics vehicles, VIP routes, and temporary structures into a short operating window with little tolerance for delay.",
-      "Venue operators must coordinate low-altitude awareness, entrance screening, baggage checks, staff access, and emergency communication while keeping visitor movement smooth.",
-      "Temporary deployments need airport-style checkpoint discipline: equipment that can be installed quickly, operated consistently, logged clearly, and removed after the event without losing review records."
+    "operación_upgrade_eyebrow": "Actualización de operaciones de seguridad",
+    "operación_upgrade_title": "Cómo el monitoreo y la detección integrados respaldan eventos grandes",
+    "solution_modules_intro": "La solución sigue la estructura de la página de seguridad del aeropuerto, pero la adapta a operaciones de eventos temporales, combinando conciencia de baja altitud, control de entrada, inspección de equipaje, coordinación del centro de comando y revisión posterior al evento.",
+    "industry_pain_points_image": "/cases/asian-games-security/main.webp",
+    "industry_pain_points": [
+      "Los eventos deportivos grandes concentran a espectadores, atletas, personal, equipos de medios, proveedores, vehículos logísticos, rutas VIP y estructuras temporales en una ventana operativa corta con poca tolerancia a las demoras.",
+      "Los operadores del lugar deben coordinar el conocimiento de bajas altitudes, el control de entrada, la revisión de equipaje, el acceso del personal y la comunicación de emergencia mientras mantienen fluido el movimiento de los visitantes.",
+      "Los despliegues temporales necesitan una disciplina de punto de control al estilo de un aeropuerto: equipos que puedan instalarse rápidamente, operarse de manera consistente, registrarse claramente y retirarse después del evento sin perder la revisión. registros."
     ],
-    "Uav_industry_upgrade": [
-      "C-UAS workflows help event command teams maintain awareness around stadium roofs, fan zones, broadcast areas, parking zones, and surrounding public spaces.",
-      "Walk-through, handheld, X-ray, and trace-detection screening equipment supports high-throughput checks for spectators, staff, media teams, and delivered materials.",
-      "A shared command process connects low-altitude warnings, checkpoint exceptions, bag-inspection results, operator notes, and handling status for live coordination and post-event review."
+    "uav_industry_upgrade": [
+      "Los flujos de trabajo de C-UAS ayudan a los equipos de comando de eventos a mantener el conocimiento alrededor de los techos de los estadios, zonas de fanáticos, áreas de transmisión, zonas de estacionamiento y espacios públicos circundantes.",
+      "Los equipos de inspección de detección de rastros, rayos X, portátiles y de paso admiten controles de alto rendimiento para espectadores, personal, equipos de medios y materiales entregados.",
+      "Un proceso de comando compartido conecta advertencias de baja altitud, excepciones de puntos de control, resultados de inspección de bolsas, notas del operador y estado de manejo para coordinación en vivo y revisión posterior al evento."
     ],
-    "Solution_modules": [
+    "módulos_solución": [
       {
-        "name": "Temporary Airspace Awareness",
-        "description": "Monitor low-altitude activity around venues, fan zones, broadcast areas, team routes, parking areas, and logistics yards during event windows."
+        "nombre": "Espacio aéreo temporal Concientización",
+        "descripción": "Supervise la actividad a baja altitud alrededor de lugares, zonas de fanáticos, áreas de transmisión, rutas de equipos, áreas de estacionamiento y patios de logística durante los períodos de eventos."
       },
       {
-        "name": "High-Throughput Entrance Screening",
-        "description": "Use handheld metal detectors, phone-detection gates where required, and checkpoint procedures to keep spectator, staff, and media access organized."
+        "nombre": "Detección de entrada de alto rendimiento",
+        "descripción": "Use detectores de metales portátiles, puertas de detección telefónica cuando sea necesario y procedimientos de punto de control para mantener a los espectadores, personal y acceso a los medios organizados."
       },
       {
-        "name": "Baggage and Materials Inspection",
-        "description": "Deploy X-ray baggage scanning and trace inspection for bags, parcels, broadcast equipment, vendor materials, and service deliveries."
+        "nombre": "Inspección de equipaje y materiales",
+        "descripción": "Implemente escaneo de equipaje con rayos X e inspección de rastreo de bolsas, paquetes, equipos de transmisión, materiales de proveedores y servicios entregas."
       },
       {
-        "name": "Command Center and Event Review",
-        "description": "Connect alerts, screening exceptions, operator notes, timestamps, and handling status to the event command center for live coordination and review reports."
+        "nombre": "Centro de comando y revisión de eventos",
+        "descripción": "Conecte alertas, excepciones de detección, notas del operador, marcas de tiempo y estado de manejo al centro de comando del evento para coordinación en vivo y revisión de informes."
       }
     ],
-    "Typical_outputs": "Venue low-altitude warnings, checkpoint exception records, baggage inspection logs, command-center event timelines, and post-event review materials"
+    "salidas_típicas": "Advertencias de baja altitud del lugar, registros de excepción de puntos de control, registros de inspección de equipaje, cronogramas de eventos del centro de comando y materiales de revisión posteriores al evento"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Large evento deportivo seguridad Protection está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Large evento deportivo seguridad Protection de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h2>Puntos débiles de la industria</h2><ul><li>Los eventos deportivos grandes concentran a espectadores, atletas, personal, equipos de medios, proveedores, vehículos logísticos, rutas VIP y estructuras temporales en una ventana operativa corta con poca tolerancia a las demoras.</li><li>Los operadores del lugar deben coordinar el conocimiento de bajas altitudes, el control de entrada, la revisión de equipaje, el acceso del personal y la comunicación de emergencia mientras mantienen fluido el movimiento de los visitantes.</li><li>Los despliegues temporales necesitan una disciplina de punto de control al estilo de un aeropuerto: equipos que puedan instalarse rápidamente, operarse de manera consistente, registrarse claramente y retirarse después del evento sin perder la revisión. registros.</li></ul><h2>Actualización de operaciones de seguridad</h2><ul><li>Los flujos de trabajo de C-UAS ayudan a los equipos de comando de eventos a mantener el conocimiento alrededor de los techos de los estadios, zonas de fanáticos, áreas de transmisión, zonas de estacionamiento y espacios públicos circundantes.</li><li>Los equipos de inspección de detección de rastros, rayos X, portátiles y de paso admiten controles de alto rendimiento para espectadores, personal, equipos de medios y materiales entregados.</li><li>Un proceso de comando compartido conecta advertencias de baja altitud, excepciones de puntos de control, resultados de inspección de bolsas, notas del operador y estado de manejo para coordinación en vivo y revisión posterior al evento.</li></ul><h2>Módulos de la solución</h2><ul><li><strong>Espacio aéreo temporal Concientización</strong>: Supervise la actividad a baja altitud alrededor de las sedes, zonas de fans, áreas de transmisión, rutas de equipos, áreas de estacionamiento y patios de logística durante los períodos de eventos.</li><li><strong>Detección de entrada de alto rendimiento</strong>: utiliza detectores de metales portátiles, puertas de detección telefónica cuando sea necesario y procedimientos de punto de control para mantener organizado el acceso de los espectadores, el personal y los medios.</li><li><strong>Inspección de equipaje y materiales</strong>: Implemente escaneo de equipaje con rayos X e inspección de rastreo para bolsas, paquetes, equipos de transmisión, materiales de proveedores y entregas de servicios.</li><li><strong>Centro de comando y revisión de eventos</strong>: conecte alertas, excepciones de detección, notas del operador, marcas de tiempo y estado de manejo al centro de comando de eventos para coordinación en vivo y revisión de informes.</li></ul>"
 }

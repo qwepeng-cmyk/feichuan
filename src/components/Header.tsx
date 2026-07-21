@@ -8,11 +8,13 @@ import type { ProductCategoryId } from '@/lib/productCategoryVisibility';
 export default function Header({
     locale,
     dict,
-    visibleProductCategoryIds
+    visibleProductCategoryIds,
+    showLaserPreview = false
 }: {
     locale: string;
     dict: any;
     visibleProductCategoryIds?: ProductCategoryId[];
+    showLaserPreview?: boolean;
 }) {
     return (
         <>
@@ -28,7 +30,12 @@ export default function Header({
             `}} />
 
             <div className="pc_only_container">
-                <DesktopHeader locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
+                <DesktopHeader
+                    locale={locale}
+                    dict={dict}
+                    visibleProductCategoryIds={visibleProductCategoryIds}
+                    showLaserPreview={showLaserPreview}
+                />
             </div>
 
             <div className="mobile_only_container">

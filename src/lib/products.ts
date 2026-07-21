@@ -7,6 +7,7 @@ import {
   sanitizeRecordForTier,
 } from './complianceTaxonomy';
 import { localizedField } from './localization';
+import productArabicEditorial from '@/content/productArabicEditorial.json';
 
 export interface ProductMetadata {
   name: string;
@@ -26,6 +27,16 @@ const HIDDEN_PRODUCT_HANDLES = new Set([
 ]);
 
 const ACCESSORY_CATEGORY = 'uav-accessories';
+const LOCAL_LASER_PREVIEW_HANDLE = 'drone-laser-engagement-system';
+
+function isLocalLaserCatalogPreview(handle?: string | null) {
+  return process.env.LOCAL_LASER_PREVIEW === '1' && handle === LOCAL_LASER_PREVIEW_HANDLE;
+}
+
+function withArabicEditorialCopy<T extends Record<string, any>>(product: T): T {
+  const editorial = (productArabicEditorial as Record<string, Record<string, unknown>>)[product.handle];
+  return editorial ? { ...product, ...editorial } : product;
+}
 
 const FALLBACK_FLIGHT_PLATFORMS: Record<string, string> = {
   'multi-rotor-3kg-payload-uav': 'Multi-Rotor UAVs',
@@ -91,28 +102,49 @@ export const getAllProducts = unstable_cache(
         AND category_primary <> ?
     `).all(ACCESSORY_CATEGORY) as any[];
 
+    if (process.env.LOCAL_LASER_PREVIEW === '1' && !rows.some(row => row.handle === LOCAL_LASER_PREVIEW_HANDLE)) {
+      const localLaserProduct = db.prepare(`
+        SELECT handle, product_name_en, product_name_ru, product_name_es, product_name_ar, main_image, category_primary, raw_json
+        FROM products
+        WHERE handle = ?
+      `).get(LOCAL_LASER_PREVIEW_HANDLE) as any;
+
+      if (localLaserProduct) rows.push(localLaserProduct);
+    }
+
     for (const row of rows) {
       if (HIDDEN_PRODUCT_HANDLES.has(row.handle)) {
         continue;
       }
 
-      if (!isPublicComplianceContent('product', row.handle)) {
+      const localLaserPreview = isLocalLaserCatalogPreview(row.handle);
+
+      if (!localLaserPreview && !isPublicComplianceContent('product', row.handle)) {
         continue;
       }
 
-      const publicCategory = getPublicProductCategory(row.category_primary);
+      const publicCategory = localLaserPreview
+        ? 'drone-detection'
+        : getPublicProductCategory(row.category_primary);
 
       if (categories[publicCategory]) {
         const raw = parseProductRawJson(row.raw_json) as Record<string, unknown>;
         const tier = getComplianceTier('product', row.handle);
+        const localizedRow = withArabicEditorialCopy(row);
         const product = sanitizeRecordForTier({
-          name: localizedField(row, 'product_name', locale),
+          name: localLaserPreview
+            ? '3kW Anti-Drone Laser Defense System'
+            : localizedField(localizedRow, 'product_name', locale),
           handle: row.handle,
           image: row.main_image,
           category: publicCategory,
-          flightPlatform: cleanCatalogGroup(raw.category_by_flight_platform as string | undefined) || FALLBACK_FLIGHT_PLATFORMS[row.handle] || '',
-          missionApplication: cleanCatalogGroup(raw.category_by_mission_application as string | undefined),
-          catalogOrder: readCatalogOrder(raw.catalog_order)
+          flightPlatform: localLaserPreview
+            ? 'Fixed-Site Systems'
+            : cleanCatalogGroup(raw.category_by_flight_platform as string | undefined) || FALLBACK_FLIGHT_PLATFORMS[row.handle] || '',
+          missionApplication: localLaserPreview
+            ? 'Laser Defense Systems'
+            : cleanCatalogGroup(raw.category_by_mission_application as string | undefined),
+          catalogOrder: localLaserPreview ? 80 : readCatalogOrder(raw.catalog_order)
         }, tier);
 
         categories[publicCategory].push(product);
@@ -125,7 +157,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260715-public-fixed-site-rf-jammer-names-v4'],
+  ['all-products-uav-refresh-20260720-laser-local-preview-v1'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -136,7 +168,7 @@ export const getAllProductHandles = unstable_cache(
       .map(r => r.handle)
       .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
   },
-  ['product-handles-uav-refresh-20260715-public-fixed-site-rf-jammer-names-v4'],
+  ['product-handles-uav-refresh-20260717-drone-net-launcher-v5'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -149,15 +181,15 @@ export const getProductByHandle = unstable_cache(
     
     try {
       const base = JSON.parse(row.raw_json);
-      const product = {
+      const product = withArabicEditorialCopy({
         ...base,
         ...row 
-      };
+      });
       return sanitizeRecordForTier(pruneProductDetailPayload(product), getComplianceTier('product', handle));
     } catch (e) {
-      return sanitizeRecordForTier(pruneProductDetailPayload(row), getComplianceTier('product', handle));
+      return sanitizeRecordForTier(pruneProductDetailPayload(withArabicEditorialCopy(row)), getComplianceTier('product', handle));
     }
   },
-  ['product-detail-uav-refresh-20260715-public-fixed-site-rf-jammer-names-v4'],
+  ['product-detail-uav-refresh-20260717-ar-editorial-v6'],
   { revalidate: 3600, tags: ['products'] }
 );

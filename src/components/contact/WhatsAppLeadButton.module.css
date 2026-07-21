@@ -160,7 +160,7 @@
   min-height: 48px;
   border: 0;
   border-radius: 6px;
-  background: #25D366;
+  background: var(--contact-channel-accent, #25D366);
   color: #fff;
   font-size: 1.45rem;
   font-weight: 800;
@@ -171,11 +171,12 @@
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.24);
+  background: var(--contact-channel-accent-hover, #11A20B);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--contact-channel-accent, #25D366) 24%, transparent);
 }
 
 .submitButton:disabled {
-  background: #9adfb4;
+  background: #9aa8ba;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;

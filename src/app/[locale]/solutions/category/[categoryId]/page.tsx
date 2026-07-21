@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import CategoryLandingClient from './CategoryLandingClient';
 import { getAllProducts } from '@/lib/products';
+import { getAllSolutions } from '@/lib/solutions';
 import categoryLandingData from '@/lib/categoryLandingData';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
@@ -84,6 +85,22 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
   } catch (e) {
     subSolutions = [];
   }
+
+  const localizedSolutions = await getAllSolutions();
+  const localizedByHandle = new Map(localizedSolutions.map((solution) => [solution.handle, solution]));
+  subSolutions = subSolutions.map((solution) => {
+    const localized = localizedByHandle.get(solution.handle);
+    if (!localized) return solution;
+    return {
+      ...solution,
+      product_name_ar: localized.product_name_ar || solution.product_name_ar,
+      summary_ar: localized.summary_ar || solution.summary_ar,
+      product_name_es: localized.product_name_es || solution.product_name_es,
+      summary_es: localized.summary_es || solution.summary_es,
+      product_name_ru: localized.product_name_ru || solution.product_name_ru,
+      summary_ru: localized.summary_ru || solution.summary_ru,
+    };
+  });
 
   // Fetch Recommended Products
   const productsByCategory = await getAllProducts(locale);

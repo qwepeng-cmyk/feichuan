@@ -58,22 +58,22 @@
     "Конструкция": "Рама из нержавеющей стали 304, защита от защемления, энергосберегающий режим"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Инновационные технологии: Параллельная передача данных в 10-20 раз быстрее аналогов, высокая проникающая способность и четкость.</li><li>Два экрана: Независимая консоль с двумя мониторами для максимального удобства оператора.</li><li>Интеллектуальный анализ ИИ: Автоматическое распознавание ножей, оружия, опасных жидкостей и пиротехники с выделением контуров на экране и голосовым оповещением.</li><li>Энергосбережение: Автоматическое включение конвейера только при наличии багажа.</li><li>Надежность: Спроектирован для бесперебойной работы более 10 000 часов в сложных условиях.</li><li>Прочная рама: Использование нержавеющей стали 304 и холоднокатаных листов для защиты от коррозии.</li></ul>",
-  "product_name_es": "Dual-View X-Ray Baggage Scanner FC6550D",
-  "summary_es": "Dual-View X-Ray Baggage Scanner FC6550D de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Dual-view vertical/horizontal scanning for zero blind spots; High-throughput 270kg load capacity; Assisted AI detection for explosives and narcotics; Advanced material identification (organic/inorganic/mixed).",
-  "key_parameter_1_es": "Tunnel Size: 650mm(W) x 500mm(H)",
-  "key_parameter_2_es": "Penetration: 46mm steel plate (Both views)",
+  "product_name_es": "Escáner de equipaje de rayos X de doble vista FC6550D",
+  "summary_es": "El escáner de rayos X FC6550D cuenta con un sistema de inspección de vista dual de alta gama, que utiliza fuentes de rayos X de energía dual y procesamiento de imágenes digitales para escanear elementos desde direcciones verticales y horizontales simultáneamente. Esto permite obtener imágenes excepcionalmente claras y vívidas independientemente de cómo se coloquen los artículos en el transportador. En comparación con los equipos tradicionales de vista única, el FC6550D ofrece ventajas significativas en eficiencia de rendimiento, utilización del espacio de la estación y reducción de falsas alarmas o detecciones perdidas. Con capacidades avanzadas de discriminación de materiales para distinguir entre sustancias orgánicas, inorgánicas y metálicas, e identificación asistida de explosivos y narcóticos, proporciona seguridad integral para aeropuertos, aduanas y centros de transporte críticos. ",
+  "key_application_es": "Escaneo vertical/horizontal de doble vista para cero puntos ciegos; capacidad de carga de 270 kg de alto rendimiento; detección asistida por IA de explosivos y narcóticos; identificación avanzada de materiales (orgánicos/inorgánicos/mixtos).",
+  "key_parameter_1_es": "Tamaño del túnel: 650 mm(ancho) x 500 mm(alto)",
+  "key_parameter_2_es": "Penetración: placa de acero de 46 mm (ambas vistas)",
   "parameters_es": {
-    "External Dimensions": "1690mm(L) x 1348mm(W) x 1331mm(H)",
-    "Tunnel Size": "650mm(W) x 500mm(H)",
-    "Max Conveyor Load": "270 kg",
-    "Penetration": "46mm steel plate (Dual-View)",
-    "Resolution": "Wire: Φ0.0787mm; Spatial: Φ0.8mm",
-    "Technical Features": "Dual-energy scanning; Material ID; AI-assisted analysis",
-    "Display sistema": "Dual HD monitors; 24-bit color; 1-64x zoom",
-    "Alarm Functions": "Auto detection for explosives/narcotics; Audio-visual alerts",
-    "Radiation Safety": "Leakage < 0.03μGy/h (Superior to safety standards)",
-    "Structure and Build": "304 stainless steel frame; anti-pinch protection; smart-energy mode"
+    "Dimensiones externas": "1690 mm (largo) x 1348 mm (ancho) x 1331 mm (alto)",
+    "Tamaño del túnel": "650 mm (ancho) x 500 mm (alto)",
+    "Transportador máximo Carga": "270 kg",
+    "Penetración": "Placa de acero de 46 mm (vista dual)",
+    "Resolución": "Cable: Φ0,0787 mm; Espacial: Φ0,8 mm",
+    "Características técnicas": "Escaneo de energía dual; Identificación de materiales; Análisis asistido por IA",
+    "Pantalla Sistema": "Monitores duales HD; color de 24 bits; Zoom de 1-64x",
+    "Funciones de alarma": "Detección automática de explosivos/narcóticos; Alertas audiovisuales",
+    "Seguridad radiológica": "Fugas < 0,03 μGy/h (superior a los estándares de seguridad)",
+    "Estructura y construcción": "Estructura de acero inoxidable 304; protección contra pellizcos; modo de energía inteligente"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Dual-View X-Ray Baggage Scanner FC6550D está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Dual-View X-Ray Baggage Scanner FC6550D de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Sistema de inspección de rayos X de doble fuente y vista dual que proporciona dos perspectivas de escaneo simultáneas.</li><li>Elimina los puntos ciegos inherentes a los sistemas de vista única, mejorando materialmente las tasas de detección de amenazas.</li><li>Imágenes de alta resolución con discriminación automática de materiales (orgánicos, inorgánicos, mezclas).</li><li>Tamaño del túnel 650 mm (ancho) × 500 mm (alto), adecuado para equipaje y paquetes medianos y grandes.</li><li>Procesamiento de imágenes avanzado: zoom, mejora de bordes, pseudocolor, conmutación de penetración alta/baja, eliminación orgánica.</li><li>Admite conectividad de red para monitoreo centralizado y almacenamiento de imágenes.</li><li>Función TIP (Proyección de imágenes de amenazas) para capacitación y desempeño del operador evaluación.</li><li>Cumple con GB15208-2005 y los estándares internacionales de seguridad radiológica.</li></ul>"
 }

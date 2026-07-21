@@ -398,6 +398,13 @@ const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
 };
 
 const PRODUCT_KEYWORD_HINTS: Record<string, string[]> = {
+  'handheld-drone-net-launcher': [
+    'drone net launcher',
+    'handheld drone net launcher',
+    'anti drone net launcher',
+    'drone capture net',
+    'physical drone capture device',
+  ],
   'fc-yjtx-01-emergency-communication-drone': [
     'emergency communication UAV',
     'disaster response communication drone',
@@ -518,6 +525,11 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
     },
   },
   ru: {
+    '/': {
+      title: 'Оборудование и интеграция систем C-UAS | N-TET',
+      description: 'N-TET поставляет переносное, стационарное и автомобильное оборудование C-UAS, интегрирует RF-обнаружение, радары, EO/IR, Remote ID и платформы управления.',
+      keywords: ['оборудование C-UAS', 'системы защиты от дронов', 'обнаружение дронов', 'мониторинг воздушного пространства', 'интеграция C-UAS'],
+    },
     '/media': {
       title: 'Инженерные материалы C-UAS и руководства для заказчиков | N-TET',
       description: 'Изучите документированные инженерные методы N-TET, заметки об оборудовании, руководства для заказчиков и отраслевые обзоры по планированию, интеграции и испытаниям C-UAS.',
@@ -541,15 +553,15 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
   },
   ar: {
     '/': {
-      title: 'أنظمة UAV صناعية ومراقبة الارتفاع المنخفض | N-TET',
+      title: 'أنظمة UAV صناعية ومراقبة المجال الجوي منخفض الارتفاع | N-TET',
       description:
         'تربط N-TET منصات UAV الصناعية ومراقبة المجال منخفض الارتفاع وسير عمل التفتيش وأنظمة الفحص الأمني لمشغلي البنية التحتية والمواقع العامة.',
-      keywords: ['أنظمة UAV صناعية', 'مراقبة الارتفاع المنخفض', 'طائرة UAV للتفتيش', 'طائرة UAV للطوارئ', 'معدات مراقبة المجال الجوي'],
+      keywords: ['أنظمة UAV صناعية', 'مراقبة المجال الجوي منخفض الارتفاع', 'طائرة UAV للتفتيش', 'طائرة UAV للطوارئ', 'معدات مراقبة المجال الجوي'],
     },
     '/products': {
       title: "أنظمة UAV الصناعية والمعدات الميدانية | منتجات N-TET",
-      description: "استكشف منصات UAV وحمولات الاستشعار وأنظمة مراقبة الارتفاع المنخفض ومعدات الفحص الأمني ومكونات UAV مرتبة حسب المهمة.",
-      keywords: ["أنظمة UAV الصناعية", "طائرة UAV للتفتيش", "طائرة UAV للطوارئ", "معدات مراقبة الارتفاع المنخفض", "أنظمة الفحص الأمني", "مواد الهندسة", "المعدات الطبية الميدانية", "ملحقات الطائرات بدون طيار", "مكونات UAV"],
+      description: "استكشف منصات UAV وحمولات الاستشعار وأنظمة مراقبة المجال الجوي منخفض الارتفاع ومعدات الفحص الأمني ومكونات UAV مرتبة حسب المهمة.",
+      keywords: ["أنظمة UAV الصناعية", "طائرة UAV للتفتيش", "طائرة UAV للطوارئ", "معدات مراقبة المجال الجوي منخفض الارتفاع", "أنظمة الفحص الأمني", "المواد الهندسية", "المعدات الطبية الميدانية", "ملحقات الطائرات بدون طيار", "مكونات UAV"],
     },
     '/accessories': {
       title: 'ملحقات ومكونات UAV | N-TET',
@@ -558,14 +570,14 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       keywords: ['ملحقات ومكونات UAV', 'ملحقات الطائرات بدون طيار', 'مكونات UAV', 'حامل كهروبصري UAV', 'محرك UAV', 'رابط بيانات UAV'],
     },
     '/solutions': {
-      title: "حلول UAV الصناعية ومراقبة الارتفاع المنخفض | N-TET",
+      title: "حلول UAV الصناعية ومراقبة المجال الجوي منخفض الارتفاع | N-TET",
       description: "حلول N-TET تربط تفتيش UAV والاستجابة للطوارئ ومراقبة المجال منخفض الارتفاع وسير عمل أمن المواقع لمشغلي البنية التحتية.",
-      keywords: ["حلول UAV الصناعية", "حلول تفتيش UAV", "طائرة استجابة للطوارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية", "مراقبة الارتفاع المنخفض"],
+      keywords: ["حلول UAV الصناعية", "حلول تفتيش UAV", "طائرة مسيّرة للاستجابة للطوارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الحيوية", "مراقبة المجال الجوي منخفض الارتفاع"],
     },
     '/cases': {
-      title: "حالات نشر UAV ومراقبة الارتفاع المنخفض | N-TET",
-      description: "راجع مراجع N-TET الميدانية لمسارات تفتيش UAV والدعم الطارئ ومراقبة الارتفاع المنخفض وأمن مواقع البنية التحتية.",
-      keywords: ["حالات نشر UAV", "حالات تفتيش UAV", "دوريات UAV لخطوط الكهرباء", "حالات مراقبة الارتفاع المنخفض", "حالات الدعم الطارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الرئيسية"],
+      title: "مشروعات UAV ومراقبة المجال الجوي منخفض الارتفاع | N-TET",
+      description: "راجع مشروعات N-TET الميدانية في تفتيش البنية التحتية والدعم الطارئ ومراقبة المجال الجوي منخفض الارتفاع.",
+      keywords: ["مشروعات UAV", "دراسات حالة UAV", "دوريات UAV لخطوط الكهرباء", "مشروعات مراقبة المجال الجوي منخفض الارتفاع", "مشروعات الدعم الطارئ", "حماية البنية التحتية الحرجة", "أمن المناطق الحيوية"],
     },
     '/media': {
       title: 'ملاحظات هندسية وأدلة للمشترين حول C-UAS | N-TET',
@@ -577,13 +589,13 @@ const LOCALIZED_KEYWORD_BACKED_SEO: Partial<Record<Locale, Record<string, SeoEnt
       title: 'عن N-TET | تكامل UAV صناعي ومراقبة',
       description:
         'تعرف كيف تربط N-TET منصات UAV ومراقبة المجال الجوي والفحص الأمني وتسليم المشروعات لمشغلي البنية التحتية والمواقع العامة.',
-      keywords: ['مصنع UAV صناعي', 'مورد أنظمة UAV', 'مراقبة المجال المنخفض', 'N-TET'],
+      keywords: ['مصنع UAV صناعي', 'مورد أنظمة UAV', 'مراقبة المجال الجوي منخفض الارتفاع', 'N-TET'],
     },
     '/contact': {
       title: 'اتصل بـ N-TET | أنظمة UAV صناعية ومعدات مراقبة',
       description:
-        'تواصل مع N-TET لاختيار منصات UAV، وسير عمل التفتيش، ومشروعات UAV للطوارئ، ومعدات مراقبة الارتفاع المنخفض.',
-      keywords: ['عرض سعر UAV صناعي', 'مورد UAV', 'حل تفتيش بالطائرات بدون طيار', 'معدات مراقبة المجال المنخفض'],
+        'تواصل مع N-TET لاختيار منصات UAV وسير عمل التفتيش ومشروعات الطوارئ ومعدات مراقبة المجال الجوي منخفض الارتفاع.',
+      keywords: ['طلب عرض سعر لنظام UAV صناعي', 'مورد أنظمة UAV', 'حل تفتيش بالطائرات المسيّرة', 'معدات مراقبة المجال الجوي منخفض الارتفاع'],
     },
   },
 };
@@ -658,7 +670,7 @@ function defaultDescription(locale: Locale, title: string) {
   }
 
   if (locale === 'es') {
-    return `${title} de ${SITE_NAME}: solucion industrial para inspeccion, monitoreo y operaciones de campo con soporte tecnico del proyecto.`;
+    return `Conozca ${title} de ${SITE_NAME}: funciones, parámetros técnicos, aplicaciones y opciones de integración para proyectos industriales.`;
   }
 
   if (locale === 'ar') {
@@ -678,7 +690,7 @@ export function getProductSeo(handle: string, name: string, category?: string | 
     locale === 'ru'
       ? `${SITE_NAME} ${name}: промышленное решение для инспекции, мониторинга и полевых операций с технической поддержкой проекта.`
       : locale === 'es'
-        ? `${SITE_NAME} ${name}: solucion industrial para inspeccion, monitoreo y operaciones de campo con soporte tecnico del proyecto.`
+        ? `Consulte las funciones, los parámetros técnicos y las aplicaciones de ${name}, con información para evaluar su integración en proyectos industriales.`
         : locale === 'ar'
           ? `${SITE_NAME} ${name}: حل صناعي للفحص والمراقبة وعمليات الموقع مع دعم فني للمشروع.`
           : `${SITE_NAME} ${name} for industrial operators, combining ${keywords.slice(0, 3).join(', ')} with field-ready deployment and support.`;

@@ -12,7 +12,7 @@ import {
   MapPin,
   ShieldCheck,
 } from "lucide-react";
-import WhatsAppLeadButton from "@/components/contact/DeferredWhatsAppLeadButton";
+import PrimaryContactButton from "@/components/contact/PrimaryContactButton";
 import { localePath } from "@/lib/localePath";
 import { localizeCuasTree } from "@/lib/cuasLocaleCopy";
 import styles from "./HomeRebuildPreview.module.css";
@@ -459,13 +459,13 @@ export default function HomeRebuildPreview({
             identification, tracking and coordinated response.
           </p>
           <div className={styles.heroActions}>
-            <WhatsAppLeadButton
+            <PrimaryContactButton
               sourceLabel="home_rebuild_hero_whatsapp"
               className={styles.primaryButton}
             >
               Get Price on WhatsApp
               <ArrowUpRight size={18} />
-            </WhatsAppLeadButton>
+            </PrimaryContactButton>
             <a className={styles.secondaryButton} href="#products">
               View Equipment
               <ArrowRight size={18} />
@@ -620,12 +620,12 @@ export default function HomeRebuildPreview({
             </div>
             <div className={styles.collectionGuide}>
               <p>{selectedCategory.description}</p>
-              <WhatsAppLeadButton
+              <PrimaryContactButton
                 sourceLabel="home_rebuild_category_whatsapp"
                 className={styles.collectionCta}
               >
                 Get Category Pricing <ArrowUpRight size={16} />
-              </WhatsAppLeadButton>
+              </PrimaryContactButton>
             </div>
           </div>
 
@@ -679,7 +679,7 @@ export default function HomeRebuildPreview({
                   ))}
                 </ul>
                 <div className={styles.productFeatureActions}>
-                  <WhatsAppLeadButton
+                  <PrimaryContactButton
                     sourceLabel="home_rebuild_feature_product_whatsapp"
                     productName={featuredProduct.name}
                     productHandle={featuredProduct.model}
@@ -687,7 +687,7 @@ export default function HomeRebuildPreview({
                     className={styles.productFeaturePrimary}
                   >
                     Ask About This Device
-                  </WhatsAppLeadButton>
+                  </PrimaryContactButton>
                 </div>
               </div>
             </article>
@@ -839,13 +839,13 @@ export default function HomeRebuildPreview({
           </span>
         </div>
         <div className={styles.purchaseActions}>
-          <WhatsAppLeadButton
+          <PrimaryContactButton
             sourceLabel="home_rebuild_purchase_whatsapp"
             className={styles.purchasePrimary}
           >
             Get Price on WhatsApp
             <ArrowUpRight size={18} />
-          </WhatsAppLeadButton>
+          </PrimaryContactButton>
           <Link className={styles.purchaseSecondary} href={localePath(locale, "/contact")}>
             Request Brochure
           </Link>

@@ -45,18 +45,18 @@
     "Универсальность": "Возможность сборки в козловые краны, пусковые порталы и направляющие балки"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Модульный прорыв: Стандартизированные компоненты позволяют выходить за рамки обычных мостов, создавая строительное оборудование, такое как краны и эстакады.</li><li>Простота логистики: Легкие элементы и отсутствие нестандартных деталей снижают требования к строительной площадке и технике.</li><li>Тактическая ценность: Способность быстро возводить «дороги жизни» в зонах бедствий для эвакуации людей и доставки гуманитарной помощи.</li><li>Варианты исполнения: Однопутные мосты для узких участков, двухпутные для интенсивного трафика и эстетичные пешеходные переходы для городских зон.</li></ul>",
-  "product_name_es": "Bailey Steel Bridge Overview",
-  "summary_es": "Bailey Steel Bridge Overview de N-TET para respuesta de emergencia, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Modular steel truss system for permanent or emergency bridges; High-strength assembly for roads; Railways; And hydraulic projects; Versatile components can be transformed into gantry cranes and bridge erection machines.",
-  "key_parameter_1_es": "Structure: Modular prefabricated highway steel bridge",
-  "key_parameter_2_es": "Application: Emergency relief, military logistics, heavy construction",
+  "product_name_es": "Descripción general del puente de acero Bailey",
+  "summary_es": "El puente de acero Bailey (también conocido como Bailey Truss) es un sistema de estructura de armadura de acero modular reconocido mundialmente. Como solución de ingeniería estandarizada y prefabricada, equilibra la simplicidad, la alta capacidad de carga y la facilidad de montaje a través de un diseño ingenioso y acero de alta resistencia. Ya sea que se utilicen como puente permanente en infraestructura o como paso de emergencia para aliviar inundaciones, los puentes Bailey brindan soporte sólido y estabilidad para proyectos de carreteras, ferrocarriles, municipales e hidráulicos.",
+  "key_application_es": "Sistema modular de armadura de acero para puentes permanentes o de emergencia; ensamblaje de alta resistencia para carreteras, ferrocarriles y proyectos hidráulicos; Los componentes versátiles se pueden transformar en grúas pórtico y máquinas de construcción de puentes.",
+  "key_parameter_1_es": "Estructura: puente modular prefabricado de acero para carreteras",
+  "key_parameter_2_es": "Aplicación: socorro de emergencia, logística industrial, construcción pesada",
   "parameters_es": {
-    "Material": "High-strength alloy steel (Q345B/Q355B)",
-    "Structure Type": "Truss assembly structure (Bailey type)",
-    "Bridge Deck": "Single-lane / Double-lane / Pedestrian",
-    "Load Capacity": "Adjustable by combination (10t - 60t+)",
-    "Component Features": "Lightweight, few parts, easy transport, high interchangeability",
-    "Versatility": "Transformable into gantry cranes, launching girders, and guide beams"
+    "Material": "Acero de aleación de alta resistencia (Q345B/Q355B)",
+    "Tipo de estructura": "Estructura de ensamblaje de armadura (tipo Bailey)",
+    "Configuración del puente": "Carril único/carril doble/peatonal",
+    "Capacidad de carga": "Ajustable mediante combinación (10t - 60t+)",
+    "Características de los componentes": "Ligero, pocas piezas, fácil transporte, alta intercambiabilidad",
+    "Versatilidad": "Transformable en grúas pórtico, vigas de lanzamiento y vigas guía"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Bailey Steel Bridge Overview está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Bailey Steel Bridge Overview de N-TET para respuesta de emergencia, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Sistema modular que equilibra la simplicidad y la alta capacidad de carga. Utilizado globalmente para soporte permanente y de emergencia en carreteras/ferrocarriles.</li><li>El diseño modular permite ensamblar componentes estándar en grúas y vigas de lanzamiento. Reduce el peso logístico y el tiempo de preparación en caso de desastres.</li></ul><h4>Escenarios</h4><ul><li>Puente de un solo carril: despliegue rápido para socorro en casos de desastre y paso estrecho.</li><li>Puente de doble carril: capacidad mejorada para vehículos pesados y tráfico denso.</li><li>Puente peatonal: puentes peatonales estéticos y livianos para áreas urbanas o escénicas.</li><li>Grúa pórtico: vigas de alta rigidez para construcción de puentes y elevación de componentes.</li></ul>"
 }

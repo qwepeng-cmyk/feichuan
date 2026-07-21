@@ -56,23 +56,60 @@
     "Вес": "45 кг (включая PTZ)"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Взаимное дополнение спектров: Быстрый поиск целей в ИК-диапазоне и детальное изучение в видимом свете.</li><li>Тяжелое исполнение: Усиленный ЧПУ-привод обеспечивает плавность хода и отсутствие дрожания при максимальном увеличении.</li><li>Умная противопожарная защита: Специализированные алгоритмы обнаруживают возгорания на ранних стадиях, минимизируя ущерб.</li><li>Надежность: Функция самодиагностики и защиты от засветки гарантируют долгий срок службы в автономном режиме.</li><li>Расширяемость: Возможность подключения лазерных дальномеров и модулей ГНСС для точного определения координат целей.</li></ul>",
-  "product_name_es": "FC-TTVC Series Intelligent Multi-Band Camera",
-  "summary_es": "FC-TTVC Series Intelligent Multi-Band Camera de N-TET para monitoreo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Applications: Forest and industrial fire prevention; Long-range 24/7 target search and identification; All-dimensional EO/IR security monitoring for critical infrastructure.",
-  "key_parameter_1_es": "Sensing Technology: 6th Gen Uncooled VOx Thermal Imaging + Starlight Visible Light",
-  "key_parameter_2_es": "Laser Illumination Range: 1,000m - 3,000m (Optional)",
-  "parameters_es": {
-    "Model": "FC-TTVC series intelligent multi-band camera",
-    "Thermal Imaging": "1. Detector: 6th generation uncooled focal plane array VOx detector\n2. Resolution: 640×512\n3. Wavelength: 8～14μm\n4. NETD: 40mK (@25℃ F1.0)\n5. Lens Focal Length: 25mm~75mm/31mm~155mm/37mm~185mm/23mm~230mm/30mm~300mm\n6. Lens Control: Motorized zoom; manual/auto focus",
-    "Visible Light": "1. Sensor Type: Back-illuminated ultra-low illumination starlight-grade CMOS\n2. Minimum Illumination: Color: 0.0005Lux; B/W: 0.0001Lux; 0Lux (IR ON)\n3. Lens Focal Length: 7mm～330mm/11mm～860mm/12.5mm～750mm\n4. Lens Control: Megapixel HD motorized zoom; manual/auto focus",
-    "Laser Light Source": "1. Laser Type: New GHT-III HD floodlight ultra-homogenized light source patented technology\n2. Illumination Distance: 1000m~3000m optional\n3. Wavelength: 810nm laser\n4. Illumination Angle: 1°～20°/0.5°～20°/0.3°～20° optional, DSS digital stepping illumination angle control technology",
-    "Intelligent Functions": "1. Intelligent Analysis: Supports functions such as intrusion detection, tripwire detection, enter/leave region detection, and motion detection\n2. Supports single-scene tracking / supports multi-scene tracking / supports panorama tracking / supports alarm linkage tracking\n3. Alarm Management: Supports alarm capture upload",
-    "PTZ": "1. Range: Horizontal 0～360°, Tilt -45°～+45°\n2. Rotation Speed: Horizontal 0.01°/S～30°/S, Tilt 0.01°/S ～15°/S, supports lens focal length adaptive speed function\n3. Accuracy: ±0.1°",
-    "Interfaces": "1. Network Interface: 1-ch RJ45, 10/100 Base-T adaptive\n2. Power Supply: AC/DC24V, anti-reverse connection protection",
-    "Eléctrica Consumption": "1. Total Power Consumption: ≤180W",
-    "Weight": "1. Total Weight: 45kg (including PTZ)",
-    "Environmental Indicators": "1. Working Temperature: -40℃～60℃\n2. Storage Temperature: -45℃～70℃\n3. Working Humidity: ≤90% RH\n4. Protection Level: IP66",
-    "Customization": "1. Supports customized function development"
-  },
-  "detail_html_es": "<h4>Características</h4><ul><li>FC-TTVC Series Intelligent Multi-Band Camera está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>FC-TTVC Series Intelligent Multi-Band Camera de N-TET para monitoreo, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "product_name_es": "Cámara multibanda inteligente serie FC-TTVC",
+  "summary_es": "La cámara multibanda inteligente de la serie FC-TTVC es una cámara diseñada y desarrollada para el campo del monitoreo remoto diurno y nocturno basada en la tecnología de imágenes de luz visible de alta definición de sexta generación. Los algoritmos integrados de puntos de acceso inteligentes y de detección de incendios y humo pueden detectar automáticamente objetivos de fuentes de calor a larga distancia, como llamas, vehículos y personal, lo que es muy adecuado para el monitoreo remoto automatizado y la alerta temprana de la prevención de incendios, como la prevención de incendios forestales, pastizales de cría de animales, minas de carbón y grandes graneros.",
+  "key_application_es": "Aplicaciones: Prevención de incendios forestales e industriales; búsqueda e identificación de objetivos de largo alcance las 24 horas del día, los 7 días de la semana; monitoreo de seguridad EO/IR en todas las dimensiones para infraestructura crítica.",
+  "key_parameter_1_es": "Tecnología de detección: imágenes térmicas VOx no refrigeradas de sexta generación + luz visible Starlight",
+  "key_parameter_2_es": "Rango de iluminación láser: 1000 m - 3000 m (opcional)",
+  "parameters_es": [
+    [
+      "Parámetro",
+      "Valor"
+    ],
+    [
+      "Modelo",
+      "Multibanda inteligente serie FC-TTVC cámara"
+    ],
+    [
+      "Imagen térmica",
+      "1. Detector: detector VOx de matriz de plano focal no refrigerado de sexta generación\n2. Resolución: 640×512\n3. Longitud de onda: 8~14μm\n4. NETD: 40 mK (@25 ℃ F1.0)\n5. Longitud focal de la lente: 25 mm ~ 75 mm/31 mm ~ 155 mm/37 mm ~ 185 mm/23 mm ~ 230 mm/30 mm ~ 300 mm\n6. Control de lente: zoom motorizado; enfoque manual/automático"
+    ],
+    [
+      "Luz visible",
+      "1. Tipo de sensor: CMOS retroiluminado de iluminación ultrabaja con calidad de luz estelar\n2. Iluminación mínima: Color: 0,0005Lux; B/N: 0,0001 lux; 0Lux (IR ENCENDIDO)\n3. Longitud focal de la lente: 7 mm ~ 330 mm/11 mm ~ 860 mm/12,5 mm ~ 750 mm\n4. Control de lente: zoom motorizado HD de megapíxeles; Enfoque manual/automático"
+    ],
+    [
+      "Fuente de luz láser",
+      "1. Tipo de láser: Nueva tecnología patentada de fuente de luz ultrahomogeneizada del reflector GHT-III HD\n2. Distancia de iluminación: 1000m~3000m opcional\n3. Longitud de onda: láser de 810 nm\n4. Ángulo de iluminación: 1°~20°/0,5°~20°/0,3°~20° opcional, tecnología de control de ángulo de iluminación escalonada digital DSS"
+    ],
+    [
+      "Funciones inteligentes",
+      "1. Análisis inteligente: Admite funciones como detección de intrusiones, detección de cables trampa, detección de entrada/salida de región y detección de movimiento\n2. Admite seguimiento de una sola escena/admite seguimiento de múltiples escenas/admite seguimiento panorámico/admite seguimiento de vinculación de alarmas\n3. Gestión de alarmas: admite la carga de capturas de alarmas"
+    ],
+    [
+      "PTZ",
+      "1. Rango: Horizontal 0~360°, Inclinación -45°~+45°\n2. Velocidad de rotación: Horizontal 0,01°/S~30°/S, Inclinación 0,01°/S ~15°/S, admite la función de velocidad adaptable de longitud focal de la lente\n3. Precisión: ±0,1°"
+    ],
+    [
+      "Interfaces",
+      "1. Interfaz de red: RJ45 de 1 canal, 10/100 Base-T adaptable\n2. Fuente de alimentación: CA/CC 24 V, protección de conexión anti-reversa"
+    ],
+    [
+      "Consumo de energía",
+      "1. Consumo total de energía: ≤180W"
+    ],
+    [
+      "Peso",
+      "1. Peso total: 45 kg (incluido PTZ)"
+    ],
+    [
+      "Indicadores Ambientales",
+      "1. Temperatura de trabajo: -40 ℃ ~ 60 ℃\n2. Temperatura de almacenamiento: -45 ℃ ~ 70 ℃\n3. Humedad de trabajo: ≤90% RH\n4. Nivel de protección: IP66"
+    ],
+    [
+      "Personalización",
+      "1. Admite el desarrollo de funciones personalizadas"
+    ]
+  ],
+  "detail_html_es": "<h4>Características principales</h4><ul><li>Ventajas complementarias multiespectrales, logrando día y noche en todo momento, búsqueda rápida de objetivos de amplio alcance resistentes a la intemperie y observación detallada de corto alcance.</li><li>Adopta CNC PTZ de alta resistencia, observación de rotación continua de 360°, funcionamiento suave, pequeña fluctuación de imagen, longitud focal y velocidad adaptable, posicionamiento preciso del objetivo.</li><li>Altamente inteligente: admite alarma de punto de acceso, alarma de incendio y humo, detección de temperatura; admite la detección de intrusiones regionales; admite la detección, clasificación y reconocimiento de vehículos, barcos, humanos y animales.</li><li>Admite el autodiagnóstico y la autorrecuperación, admite una fuerte protección contra la luz, anti-quemaduras solares, admite múltiples configuraciones modos de escena, lo que mejora materialmente la experiencia del usuario y reduce los costos de uso.</li><li>Ampliable con sensores como rango láser y Beidou/GPS para formar un dispositivo multifuncional de monitoreo de larga distancia con conocimiento de la situación.</li></ul>"
 }

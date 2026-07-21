@@ -1,6 +1,7 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
 import { localizedField } from './localization';
+import productArabicEditorial from '@/content/productArabicEditorial.json';
 
 export interface AccessoryMetadata {
   name: string;
@@ -39,6 +40,11 @@ function pruneAccessoryDetailPayload<T extends Record<string, any>>(product: T) 
   const next = { ...product };
   delete next.raw_json;
   return next;
+}
+
+function withArabicEditorialCopy<T extends Record<string, any>>(product: T): T {
+  const editorial = (productArabicEditorial as Record<string, Record<string, unknown>>)[product.handle];
+  return editorial ? { ...product, ...editorial } : product;
 }
 
 export const getAllAccessories = unstable_cache(
@@ -102,14 +108,14 @@ export const getAccessoryByHandle = unstable_cache(
     if (!row) return null;
 
     try {
-      return pruneAccessoryDetailPayload({
+      return pruneAccessoryDetailPayload(withArabicEditorialCopy({
         ...JSON.parse(row.raw_json || '{}'),
         ...row,
-      });
+      }));
     } catch {
-      return pruneAccessoryDetailPayload(row);
+      return pruneAccessoryDetailPayload(withArabicEditorialCopy(row));
     }
   },
-  ['accessory-detail-20260611-ar-labels-v1'],
+  ['accessory-detail-20260717-ar-editorial-v2'],
   { revalidate: 3600, tags: ['products', 'accessories'] }
 );

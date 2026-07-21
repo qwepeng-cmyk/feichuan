@@ -5,6 +5,7 @@ import {
   isPublicComplianceContent,
   sanitizeRecordForTier,
 } from './complianceTaxonomy';
+import mediaArabicEditorial from '@/content/mediaArabicEditorial.json';
 
 export interface MediaMetadata {
   id: string;
@@ -29,6 +30,7 @@ function normalizeMediaItem(item: any) {
 
   return {
     ...item,
+    ...((mediaArabicEditorial as Record<string, Record<string, unknown>>)[item.id] || {}),
     image: MEDIA_IMAGE_BY_ID[item.id] || item.image,
   };
 }

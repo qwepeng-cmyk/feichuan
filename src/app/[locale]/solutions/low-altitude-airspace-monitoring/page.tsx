@@ -10,7 +10,7 @@ import {
   ScanSearch,
   Target,
 } from 'lucide-react';
-import WhatsAppLeadButton from '@/components/contact/DeferredWhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import JsonLd from '@/components/seo/JsonLd';
 import { getDictionary } from '@/i18n/getDictionary';
 import { type Locale } from '@/i18n/config';
@@ -1298,9 +1298,9 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
               {copy(locale, 'Get Site Layout & Quote')}
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <WhatsAppLeadButton sourceLabel="low_altitude_landing_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
+            <PrimaryContactButton sourceLabel="low_altitude_landing_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
               {copy(locale, 'WhatsApp Chat')}
-            </WhatsAppLeadButton>
+            </PrimaryContactButton>
           </div>
         </div>
       </section>

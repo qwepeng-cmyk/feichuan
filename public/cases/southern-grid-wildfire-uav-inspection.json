@@ -65,5 +65,34 @@
       "value": "Nearly 10 wildfire-risk points identified and handled"
     }
   ],
-  "devices_ru": []
+  "devices_ru": [],
+  "title_es": "Inspección de UAV de prevención de incendios forestales de la Red Sur",
+  "description_es": "Inspección UAV para prevención de incendios forestales de Southern Grid\nDurante la temporada primaveral de alto riesgo, los incendios forestales amenazan la operación estable de la red y el suministro eléctrico. Southern Grid utilizó nuestros UAV de ala fija VTOL para inspeccionar de forma inteligente 280 km de líneas de transmisión de montaña. La operación duró 4 días y 8 vuelos e identificó cerca de 10 puntos de riesgo. Todos los riesgos se comunicaron en tiempo real y se atendieron con rapidez, ayudando a proteger las líneas de transmisión y la continuidad del suministro.",
+  "devices_es": [],
+  "parameters_es": {},
+  "region_es": "Asia",
+  "country_es": "China",
+  "description_ar": "تفتيش UAV للوقاية من حرائق الغابات في Southern Grid\nخلال موسم حرائق الغابات الربيعي مرتفع الخطورة، تشكل الحرائق تهديداً لاستقرار الشبكة واستمرارية إمداد الكهرباء. استخدمت Southern Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي لتنفيذ تفتيش ذكي لمسافة 280 كم من خطوط النقل الجبلية. استمرت العملية 4 أيام وشملت 8 طلعات، وحددت ما يقارب 10 نقاط معرضة لخطر الحرائق. أُبلغ عن جميع المخاطر في الوقت الفعلي وعولجت بسرعة، مما ساعد على حماية خطوط النقل وإمدادات الكهرباء.",
+  "case_snapshot_es": [
+    {
+      "label": "Aplicación",
+      "value": "Inspección preventiva de incendios en líneas de montaña"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Corredor montañoso de Southern Grid, China"
+    },
+    {
+      "label": "Escala de la misión",
+      "value": "280 km, 4 días y 8 vuelos"
+    },
+    {
+      "label": "Capacidad principal",
+      "value": "Informe de riesgos en tiempo real y atención rápida"
+    },
+    {
+      "label": "Resultado",
+      "value": "Cerca de 10 puntos de riesgo identificados y atendidos"
+    }
+  ]
 }

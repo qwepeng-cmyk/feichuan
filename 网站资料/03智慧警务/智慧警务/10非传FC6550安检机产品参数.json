@@ -58,22 +58,22 @@
     "Уровень шума": "≤ 49 дБ (тихая работа)"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Универсальность: Стандартный размер туннеля для большинства видов багажа.</li><li>Высокое разрешение: Автоматическое цветовое кодирование материалов (органика/неорганика).</li><li>Функции обработки: Масштабирование, выделение краев, псевдоцвета и глубокая прорисовка деталей.</li><li>Безопасность: Полное соответствие международным нормам радиационной защиты.</li><li>Сервис: Круглосуточная техническая поддержка и обслуживание.</li></ul>",
-  "product_name_es": "X-Ray Baggage Scanner FC6550",
-  "summary_es": "X-Ray Baggage Scanner FC6550 de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: High-precision X-ray scanning for medium-sized baggage; 270kg heavy-duty conveyor for high-traffic environments; Assisted detection for explosives and narcotics; Ultra-low noise design (≤49dB) for comfortable operation.",
-  "key_parameter_1_es": "Dimensions: 2808.45(L) x 902(W) x 1362.5(H) mm",
-  "key_parameter_2_es": "Tunnel Size: 650mm(W) x 500mm(H)",
+  "product_name_es": "Escáner de equipaje por rayos X FC6550",
+  "summary_es": "El FC6550 es un sistema de inspección de seguridad por rayos X de alta precisión diseñado para una detección precisa de varios tipos de equipaje y paquetes. Los sensores de alta velocidad penetran los artículos en la cinta transportadora, utilizan algoritmos de imágenes digitales para una clasificación detallada y ayudan a los operadores a identificar y eliminar rápidamente posibles riesgos de seguridad. Con inspección asistida de explosivos y narcóticos, este dispositivo proporciona una detección precisa y oportuna respaldada por un sistema de pantalla gráfica HD de 21,5 pulgadas. Con su tamaño de túnel de 650x500 mm y su capacidad de carga resistente de 270 kg, es ampliamente adecuado para la seguridad pública en aeropuertos, estaciones de ferrocarril y lugares para eventos a gran escala. ",
+  "key_application_es": "Escaneo de rayos X de alta precisión para equipaje de tamaño mediano; Transportador de alta resistencia de 270 kg para entornos de mucho tránsito; detección asistida de explosivos y estupefacientes; diseño de ruido ultrabajo (≤49dB) para una operación cómoda.",
+  "key_parameter_1_es": "Dimensiones: 2808,45 (largo) x 902 (ancho) x 1362,5 (alto) mm",
+  "key_parameter_2_es": "Tamaño del túnel: 650 mm(ancho) x 500 mm(alto)",
   "parameters_es": {
-    "Tunnel Size": "650mm (W) x 500mm (H)",
-    "Conveyor Speed": "0.22 m/s (Rated load 270kg)",
-    "Penetration": "28mm steel plate",
-    "Radiation Safety": "Dosage per scan ≤ 1.0µGy; Leakage < 0.01μGy/h",
-    "Display": "21.5-inch High-Resolution Color LCD; 24-bit True Color",
-    "Image Tech": "Edge enhancement, Super-image enhancement, Local magnifying glass",
-    "Forensic Logs": "Image playback for up to 200,000 previous scans",
-    "Operation Environment": "0℃ to 45℃; 20%-95% Humidity",
-    "Noise Level": "≤ 49 dB (Whisper-quiet operation)",
-    "Dimensions": "2808mm(L) x 902mm(W) x 1362mm(H)"
+    "Tamaño del túnel": "650 mm (ancho) x 500 mm (alto)",
+    "Velocidad del transportador": "0,22 m/s (Carga nominal 270 kg)",
+    "Penetración": "Acero de 28 mm placa",
+    "Seguridad radiológica": "Dosis por escaneo ≤ 1,0 µGy; Fuga < 0,01 μGy/h",
+    "Mostrar": "LCD en color de alta resolución de 21,5 pulgadas; Color verdadero de 24 bits",
+    "Imagen Tecnología": "Mejora de bordes, mejora de súper imagen, lupa local",
+    "Registros forenses": "Reproducción de imágenes para hasta 200.000 escaneos anteriores",
+    "Entorno de funcionamiento": "0 ℃ a 45 ℃; 20%-95% Humedad",
+    "Ruido Nivel": "≤ 49 dB (silencioso) funcionamiento)",
+    "Dimensiones": "2808 mm(largo) x 902 mm(ancho) x 1362 mm(alto)"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>X-Ray Baggage Scanner FC6550 está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>X-Ray Baggage Scanner FC6550 de N-TET para inspección, seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Escáner de equipaje de rayos X estándar de vista única para aplicaciones generales de control de seguridad.</li><li>Tamaño del túnel 650 mm (ancho) × 500 mm (alto), con capacidad para equipaje y paquetes estándar.</li><li>Alta resolución imágenes con discriminación automática de materiales codificados por colores.</li><li>Mejora de imagen que incluye zoom, mejora de bordes y visualización en pseudocolor.</li><li>Cumple con los estándares de seguridad radiológica, seguro para uso continuo funcionamiento.</li></ul>"
 }

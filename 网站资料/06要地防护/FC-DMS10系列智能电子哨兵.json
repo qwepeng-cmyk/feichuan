@@ -52,21 +52,21 @@
     "Габариты": "312 * 200 * 298 мм, вес ≤ 10 кг"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Интеграция функций: Объединение функций обнаружения и активного отпугивания (звук, свет, лазер) в одном компактном устройстве.</li><li>Умная начинка: Поддержка детекции целей, автосопровождения и контроля состояния системы (PHM).</li><li>Аэродинамика: Квазисферическая форма снижает вибрации от ветра, обеспечивая стабильную картинку.</li><li>Мобильность: Малый вес (до 10 кг) позволяет быстро разворачивать временные посты охраны.</li><li>Связь: Поддержка проводных сетей и опциональных модулей 4G/5G для удаленного мониторинга.</li></ul>",
-  "product_name_es": "FC-DMS10 Series Smart Electronic Sentinel",
-  "summary_es": "FC-DMS10 Series Smart Electronic Sentinel de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: Applications: Rapid tactical deployment for border and military camps; Integrated 'detección & Deterrent' frontline defense; All-weather 24/7 surveillance in high-wind environments; Mobile sentry and temporary site security.",
-  "key_parameter_1_es": "Sensor: Back-illuminated Starlight-grade CMOS",
-  "key_parameter_2_es": "Rotation Range: 360° Continuous Pan; -90° to +90° Tilt",
+  "product_name_es": "Sentinel electrónico inteligente serie FC-DMS10",
+  "summary_es": "El centinela electrónico inteligente de la serie FC-DMS10 es un dispositivo de detección óptica inteligente, multifuncional, multipropósito y liviano que integra varios sensores, módulos de control, dispositivos señaladores y algoritmos inteligentes. Puede lograr funciones como reconocimiento y vigilancia, conciencia situacional y alerta temprana de seguridad.",
+  "key_application_es": "Aplicaciones: Despliegue rápido en campo para campamentos fronterizos e industriales; seguridad de primera línea integrada de 'detección y disuasión'; vigilancia resistente a la intemperie las 24 horas del día, los 7 días de la semana en entornos con fuertes vientos; centinela móvil y seguridad temporal del sitio.",
+  "key_parameter_1_es": "Sensor: CMOS retroiluminado de grado Starlight",
+  "key_parameter_2_es": "Rango de rotación: Panorámica continua de 360°; Inclinación de -90° a +90°",
   "parameters_es": {
-    "Visible Light": "1. Sensor: Back-illuminated ultra-low illumination starlight-grade CMOS\n2. Resolution: 1920×1080\n3. Illumination: Color: 0.0005Lux; B/W: 0.0001Lux; 0Lux (IR ON)\n4. Lens Focal Length: 7mm～300mm/7mm～330mm 47x optical zoom 16x digital zoom\n5. Focus Control: Manual/Auto focus",
-    "Thermal Radiation Lens (Optional)": "1. Detector: 6th generation uncooled focal plane array VOx detector\n2. Resolution: 640×512/384×288\n3. NETD: 40mK (@25℃ F1.0)\n4. Lens Focal Length: 50mm/75mm/100mm fixed focus\n5. Strong Light Protection: Supports anti-sunlight damage",
-    "Illumination": "1. Laser Type: HD floodlight homogenized light source\n2. Illumination Angle: 3°～65°\n3. Illumination Distance: 300 meters\n1. Laser Type: HD floodlight homogenized light source\n2. Illumination Angle: 1°～20°\n3. Illumination Distance: 1000 meters\nSound and Light Warning: Built-in integrated tweeter + strobe light, supports custom alarm sound and laser dazzling warning",
-    "PTZ": "1. Rotation Speed: Horizontal: 0.01°/s～100°/s; Tilt: 0.01°/s～80°/s\n2. Rotation Range: Horizontal: 360° continuous rotation; Tilt: -90°～+90°\n3. Presets: 3000",
-    "Interfaces": "1. Power Supply Interface: 1-ch DC12V～36V\n2. Communication Interface: 1-ch RJ45 Ethernet port (supports optional 4G/5G transmission)",
-    "Eléctrica Consumption": "1. Peak Power Consumption: ≤60W",
-    "Dimensions": "1. Weight: ≤10kg (including load)\n2. Dimensions: 312mm×200mm×298mm (L×W×H)",
-    "Environmental Adaptability": "1. Working Temperature: -40℃～60℃\n2. Working Humidity: ≤95% RH\n3. Protection Level: IP67",
-    "Customization": "1. Supports customized function development"
+    "Luz visible": "1. Sensor: CMOS retroiluminado de iluminación ultrabaja con calidad de luz estelar\n2. Resolución: 1920×1080\n3. Iluminación: Color: 0,0005Lux; B/N: 0,0001 lux; 0Lux (IR ENCENDIDO)\n4. Longitud focal de la lente: 7 mm ~ 300 mm/7 mm ~ 330 mm Zoom óptico de 47x Zoom digital de 16x\n5. Control de enfoque: enfoque manual/automático",
+    "Lente de radiación térmica (Opcional)": "1. Detector: detector VOx de matriz de plano focal no refrigerado de sexta generación\n2. Resolución: 640×512/384×288\n3. NETD: 40 mK (@25 ℃ F1.0)\n4. Longitud focal de la lente: enfoque fijo de 50 mm/75 mm/100 mm\n5. Fuerte protección contra la luz: soporta daños causados por la luz solar. ",
+    "Iluminación": "1. Tipo de láser: fuente de luz homogeneizada con reflector HD\n2. Ángulo de iluminación: 3°~65°\n3. Distancia de iluminación: 300 metros\n1. Tipo de láser: fuente de luz homogeneizada con reflector HD\n2. Ángulo de iluminación: 1°~20°\n3. Distancia de iluminación: 1000 metros\nAdvertencia de sonido y luz: tweeter integrado + luz estroboscópica, admite sonido de alarma personalizado y advertencia láser deslumbrante",
+    "PTZ": "1. Velocidad de rotación: Horizontal: 0,01°/s~100°/s; Inclinación: 0,01°/s~80°/s\n2. Rango de rotación: Horizontal: rotación continua de 360°; Inclinación: -90°~+90°\n3. Preajustes: 3000",
+    "Interfaces": "1. Interfaz de fuente de alimentación: 1 canal CC 12 V ~ 36 V\n2. Interfaz de comunicación: puerto Ethernet RJ45 de 1 canal (admite transmisión 4G/5G opcional)",
+    "Consumo de energía": "1. Consumo máximo de energía: ≤60W",
+    "Dimensiones": "1. Peso: ≤10 kg (incluida la carga)\n2. Dimensiones: 312 mm × 200 mm × 298 mm (largo × ancho × alto)",
+    "Adaptabilidad ambiental": "1. Temperatura de trabajo: -40 ℃ ~ 60 ℃\n2. Humedad de trabajo: ≤95% RH\n3. Nivel de protección: IP67",
+    "Personalización": "1. Admite el desarrollo de funciones personalizadas"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>FC-DMS10 Series Smart Electronic Sentinel está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>FC-DMS10 Series Smart Electronic Sentinel de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características principales</h4><ul><li>Ventajas complementarias multiespectrales, que cumplen con los requisitos de trabajo durante el día y la noche y en condiciones resistentes a la intemperie.</li><li>Admite funciones inteligentes como alarma de punto de acceso, detección de objetivos, seguimiento y estado del PHM del dispositivo gestión.</li><li>Diseño integrado de detección y advertencia, que integra el módulo de detección y el módulo de advertencia.</li><li>Diseño de estructura cuasi esférica, mejor resistencia al viento y rendimiento antivibraciones, imágenes más claras.</li><li>Implementación flexible, operación simple, estable y confiable, fácil de mantener.</li></ul>"
 }

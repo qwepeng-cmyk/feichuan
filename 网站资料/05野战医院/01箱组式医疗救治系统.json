@@ -42,17 +42,17 @@
     "Применение": "Масштабные полевые госпитали, чрезвычайные ситуации, медицинское обеспечение войск"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Революционный дизайн: Полный отказ от длинных цепочек снабжения в пользу компактных, готовых к работе модулей.</li><li>Мгновенная готовность: Сокращение времени развертывания в разы по сравнению с аналогами, что спасает жизни в «золотой час».</li><li>Надежность: Защищенные контейнеры обеспечивают стерильность и защиту оборудования в суровых полевых условиях.</li><li>Масштабируемость: Возможность объединения модулей для создания госпиталей различной емкости и профиля.</li></ul>",
-  "product_name_es": "Containerized Medical rescate sistema",
-  "summary_es": "Containerized Medical rescate sistema de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: World-first modular box design; Fast building of large-scale field hospitals in 20 minutes; Eliminating slow and chaotic deployment of traditional medical equipment.",
-  "key_parameter_1_es": "Deployment Time: ≤20 minutes",
-  "key_parameter_2_es": "Sistema Design: Modular containerized architecture",
+  "product_name_es": "Sistema de rescate médico en contenedor",
+  "summary_es": "Este producto es el primer 'sistema de rescate médico en contenedores' del mundo. Su diseño modular altamente integrado revisa por completo el ineficiente \"despliegue de larga línea y recuperación de áreas extensas\" de los hospitales de campaña tradicionales. Con extrema movilidad y adaptabilidad en el campo, puede construir rápidamente un hospital de campaña a gran escala completamente funcional en cualquier terreno complejo en tan solo 20 minutos. Representa un salto revolucionario desde la implementación \"de estilo móvil\" a la expansión \"modular\", estableciendo un nuevo estándar de la industria para una respuesta rápida y soporte médico eficiente.",
+  "key_application_es": "El primer diseño de caja modular del mundo; construcción rápida de hospitales de campaña a gran escala en 20 minutos; eliminando el despliegue lento y caótico de equipos médicos tradicionales.",
+  "key_parameter_1_es": "Tiempo de implementación: ≤20 minutos",
+  "key_parameter_2_es": "Diseño del sistema: arquitectura modular en contenedores",
   "parameters_es": {
-    "Sistema Architecture": "World-first highly integrated modular box design",
-    "Deployment Speed": "Rapid construction within 20 minutes",
-    "Mobility": "All-terrain and all-scenario fast deployment support",
-    "Key Advantage": "Solves traditional slow and chaotic equipment deployment issues",
-    "Application": "Large-scale field hospitals and emergency medical support"
+    "Arquitectura del sistema": "Primer diseño de caja modular altamente integrada en el mundo",
+    "Velocidad de implementación": "Construcción rápida en 20 minutos",
+    "Movilidad": "Soporte de implementación rápida todo terreno y en todos los escenarios",
+    "Ventaja clave": "Resuelve la implementación tradicional de equipos lentos y caóticos problemas",
+    "Aplicación": "Hospitales de campaña a gran escala y asistencia médica de emergencia"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Containerized Medical rescate sistema está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Containerized Medical rescate sistema de N-TET para operaciones industriales, monitoreo de campo, soporte de proyectos, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Diseño de caja modular pionero que revisa los hospitales de campaña tradicionales. Construye rápidamente un hospital a gran escala en cualquier terreno en 20 minutos.</li><li>Resuelve los puntos débiles del despliegue lento y la recuperación caótica. Establece una nueva referencia para una respuesta rápida y un soporte logístico médico eficiente.</li></ul>"
 }

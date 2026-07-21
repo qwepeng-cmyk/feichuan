@@ -85,7 +85,7 @@ export default function IntentLandingPage({
         <div className={styles.sectionIntro}>
           <span className={styles.sectionNumber}>02</span>
           <div>
-            <span className={styles.sectionKicker}>REUSABLE PRODUCT LAYERS</span>
+            <span className={styles.sectionKicker}>COMPLEMENTARY SENSOR LAYERS</span>
             <h2 id="products-heading">{config.productsHeading}</h2>
             <p>{config.productsIntro}</p>
           </div>

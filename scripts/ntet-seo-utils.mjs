@@ -52,6 +52,7 @@ export const CONTENT_TYPES = {
 
 const BASELINE_TIERS = {
   product: {
+    'handheld-drone-net-launcher': 'normal',
     'stationary-rf-detection-system': 'neutral_seo',
     'directional-rf-event-logging': 'neutral_seo',
     'portable-rf-detection-case': 'neutral_seo',
@@ -83,6 +84,7 @@ const BASELINE_TIERS = {
     'handheld-integrated-sdr-low-altitude-monitoring': 'restricted',
     'handheld-integrated-multi-band-event-logging-directional-antenna-unit': 'restricted',
     'handheld-integrated-multi-band-jammer-gun': 'restricted',
+    'drone-laser-engagement-system': 'restricted',
   },
   solution: {
     'low-altitude-airspace-monitoring': 'normal',

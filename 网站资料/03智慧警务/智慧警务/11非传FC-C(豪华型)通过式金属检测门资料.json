@@ -60,23 +60,23 @@
     "Размеры прохода": "2000(В) x 710(Ш) x 400(Г) мм"
   },
   "detail_html_ru": "<h4>Особенности и преимущества</h4><ul><li>Материалы высокого качества: Корпус из ABS с алюминиевым усилением, устойчив к коррозии и царапинам.</li><li>Защита от вибраций: Исключение ложных срабатываний при тряске или внешних ударах.</li><li>Точное позиционирование: 12 зон обнаружения со светодиодной индикацией на боковых стойках для мгновенного определения места нахождения металла.</li><li>Микропроцессорное управление: Цифровая импульсная технология для точного сканирования и стабильной работы.</li><li>Гибкая настройка: Исключение личных вещей (ремни, ключи, монеты) при сохранении высокой чувствительности к оружию.</li><li>Защита паролем: Изменение настроек доступно только авторизованному персоналу (4-значный пароль).</li><li>Модульная конструкция: Простота сборки и быстрое устранение неисправностей.</li></ul>",
-  "product_name_es": "Walk-Through Metal Detector FC-C (Deluxe)",
-  "summary_es": "Walk-Through Metal Detector FC-C (Deluxe) de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.",
-  "key_application_es": "Aplicaciones principales: High-precision security screening for airports; Stations; And government buildings; 12-zone independent alarm display; Adjustable 1000-level sensitivity; Robust anti-interference and vibration resistance.",
-  "key_parameter_1_es": "Detección Zones: 12 overlapping mesh zones",
-  "key_parameter_2_es": "Overall Dimensions: 2200(H) x 840(W) x 475(D) mm",
+  "product_name_es": "Detector de metales de paso FC-C (Deluxe)",
+  "summary_es": "La puerta de detección de metales FC-C es un dispositivo de control de seguridad especializado diseñado para detectar si el personal transporta objetos metálicos. Se utiliza en tribunales, museos, bibliotecas, hospitales, escuelas, fábricas de electrónica, puertos, estaciones de tren de alta velocidad, salas de conciertos, centros de conferencias e instalaciones controladas. La detección multizona, el posicionamiento de alarma visual y las estadísticas de tráfico respaldan la detección ordenada en entornos de mucho tráfico.",
+  "key_application_es": "Control de seguridad de alta precisión para aeropuertos, estaciones y edificios gubernamentales; Pantalla de alarma independiente de 12 zonas; sensibilidad ajustable de 1000 niveles; robusta estabilidad EMC y resistencia a vibraciones.",
+  "key_parameter_1_es": "Zonas de detección: 12 zonas de malla superpuestas",
+  "key_parameter_2_es": "Dimensiones totales: 2200(H) x 840(W) x 475(D) mm",
   "parameters_es": {
-    "Detección Zones": "12 independent overlapping zones with multi-target display",
-    "Sensitivity Range": "0-1000 adjustable levels; detects items as small as a paperclip",
-    "Anti-interference": "1000-level DSP digital filtering for superior electromagnetic compatibility",
-    "Construction": "ABS housing with aluminum alloy supports and waterproof/flame-retardant panels",
-    "Intelligence": "Microcomputer-controlled automatic traffic and alarm counting",
-    "Health Safety": "Weak magnetic field technology; safe for pacemakers and pregnant women",
-    "Tactical Deployment": "12 frequencies; supports side-by-side use (35mm interval)",
-    "Weight": "Approx. 45kg",
-    "Eléctrica Consumption": "<35W",
-    "Frequency Adjustment": "Infinitely adjustable based on installation environment",
-    "Passage Dimensions": "2000(H) x 710(W) x 400(D) mm"
+    "Zonas de detección": "12 zonas superpuestas independientes con pantalla de múltiples objetivos",
+    "Rango de sensibilidad": "0-1000 niveles ajustables; detecta elementos tan pequeños como un clip",
+    "EMC-estable": "Filtrado digital DSP de 1000 niveles para una compatibilidad electromagnética superior",
+    "Construcción": "Carcasa de ABS con soportes de aleación de aluminio y paneles impermeables/ignífugos",
+    "Inteligencia": "Conteo de alarmas y tráfico automático controlado por microcomputadora",
+    "Salud Seguridad": "Tecnología de campo magnético débil; seguro para marcapasos y mujeres embarazadas",
+    "campo Implementación": "12 frecuencias; admite el uso de lado a lado (intervalo de 35 mm)",
+    "Peso": "Aprox. 45 kg",
+    "Consumo de energía": "<35W",
+    "Ajuste de frecuencia": "Infinitamente ajustable según el entorno de instalación",
+    "Dimensiones del paso": "2000(H) x 710(W) x 400(D) mm"
   },
-  "detail_html_es": "<h4>Características</h4><ul><li>Walk-Through Metal Detector FC-C (Deluxe) está diseñado para operaciones industriales con despliegue práctico en campo.</li><li>Walk-Through Metal Detector FC-C (Deluxe) de N-TET para seguridad de sitio, con integración práctica, registros operativos y soporte de despliegue para equipos técnicos.</li><li>La configuración puede integrarse con flujos de inspección, registro de eventos y soporte técnico del proyecto.</li></ul>"
+  "detail_html_es": "<h4>Características</h4><ul><li>Detección de precisión multizona: 18 zonas de detección superpuestas independientes que cubren todo el cuerpo desde la cabeza hasta los pies.</li><li>Alta sensibilidad: detecta objetos metálicos muy pequeños, incluidos clips, alfileres y monedas.</li><li>Tecnología estable EMC: filtrado digital DSP patentado para una operación estable cerca de otros dispositivos electrónicos equipo.</li><li>Contador bidireccional: cuenta y muestra automáticamente el número de personas que pasan y alarmas activado.</li><li>Protección con contraseña: el sistema de contraseña de varios niveles evita cambios de parámetros no autorizados.</li><li>Operación remota: admite teclado/ratón inalámbricos para un cómodo ajuste de parámetros.</li><li>Indicadores LED de 360°: las barras de luz LED en los cuatro pilares indican visualmente la alarma exacta zona.</li><li>Alarmas audiovisuales: volumen ajustable, múltiples tonos de alarma y alertas de flash LED sincronizadas.</li><li>Función de autodiagnóstico: autoprueba automática al inicio con indicación de falla.</li><li>Diseño resistente a la intemperie: adecuado para uso en interiores y exteriores.</li><li>Estándares técnicos: diseñados según los requisitos GB15210-2018 para puertas de detección de metales de paso.</li></ul>"
 }

@@ -317,37 +317,37 @@ Object.assign(solutions[9], {
 export const homeCases: any[] = [
     {
         title: "Anhui Flood-Season Emergency UAV Patrol",
-        title_ru: "Anhui Flood-Season Emergency UAV Patrol",
+        title_ru: "Аварийный паводковый патруль БПЛА в Аньхое",
         img: "/cases/anhui-flood-season-uav-patrol/01.webp",
         handle: "anhui-flood-season-uav-patrol"
     },
     {
         title: "Ice and Snow Disaster Emergency UAV Inspection",
-        title_ru: "Ice and Snow Disaster Emergency UAV Inspection",
+        title_ru: "Аварийная инспекция БПЛА при снеголедовых бедствиях",
         img: "/cases/ice-snow-emergency-uav-inspection/01.webp",
         handle: "ice-snow-emergency-uav-inspection"
     },
     {
         title: "LiDAR Tree-Obstruction UAV Inspection",
-        title_ru: "LiDAR Tree-Obstruction UAV Inspection",
+        title_ru: "Инспекция древесных помех с LiDAR-БПЛА",
         img: "/cases/lidar-tree-obstruction-uav-inspection/01.webp",
         handle: "lidar-tree-obstruction-uav-inspection"
     },
     {
         title: "Airport C-UAS Application",
-        title_ru: "Airport C-UAS Application",
+        title_ru: "Применение C-UAS в аэропорту",
         img: "/cases/airport-security-application/main-home.webp",
         handle: "airport-security-application"
     },
     {
         title: "C-UAS Case of a Power Plant in Pakistan",
-        title_ru: "C-UAS Case of a Power Plant in Pakistan",
+        title_ru: "Применение C-UAS на электростанции в Пакистане",
         img: "/cases/pakistan-power-plant-airspace-monitoring/main-home.webp",
         handle: "pakistan-power-plant-low-altitude-monitoring"
     },
     {
         title: "C-UAS Case of a Refinery in Brazil",
-        title_ru: "C-UAS Case of a Refinery in Brazil",
+        title_ru: "Применение C-UAS на нефтеперерабатывающем заводе в Бразилии",
         img: "/cases/brazil-refinery-airspace-monitoring/main-home.webp",
         handle: "brazil-refinery-low-altitude-monitoring"
     }
@@ -512,15 +512,15 @@ Object.assign(homeCases[4], { title_ar: "دورية UAV طارئة لخطوط ا
 Object.assign(homeCases[5], { title_ar: "تفتيش UAV بعيد المدى لخطوط الطاقة في تشاوتشينغ" });
 Object.assign(homeCases[3], {
     title_es: "Aplicacion de monitoreo del espacio aereo de baja altitud en aeropuertos",
-    title_ar: "Airport C-UAS Application"
+    title_ar: "تطبيق C-UAS لمراقبة المجال الجوي في المطارات"
 });
 Object.assign(homeCases[4], {
     title_es: "Caso de monitoreo del espacio aereo en una central electrica de Pakistan",
-    title_ar: "C-UAS Case of a Power Plant in Pakistan"
+    title_ar: "مشروع C-UAS لمحطة طاقة في باكستان"
 });
 Object.assign(homeCases[5], {
     title_es: "Caso de monitoreo del espacio aereo en una refineria de Brasil",
-    title_ar: "C-UAS Case of a Refinery in Brazil"
+    title_ar: "مشروع C-UAS لمصفاة في البرازيل"
 });
 
 const substationSolutionIndex = solutions.findIndex(

@@ -7,7 +7,7 @@
     "Hand-carried RF detection and counter-drone equipment for patrol teams, temporary sites and event security.": "معدات كشف الترددات اللاسلكية المحمولة باليد ومعدات مكافحة الطائرات بدون طيار لفرق الدوريات والمواقع المؤقتة وأمن الأحداث.",
     "RF detection and identification": "كشف وتحديد الترددات اللاسلكية",
     "Portable jamming options": "خيارات التشويش المحمولة",
-    "Portable RF Detection Case": "حالة الكشف عن الترددات اللاسلكية المحمولة",
+    "Portable RF Detection Case": "حقيبة محمولة لكشف إشارات RF",
     "RF FIELD": "مجال الترددات اللاسلكية",
     "Portable RF Field Unit": "وحدة مجال الترددات اللاسلكية المحمولة",
     "RF FIELD PRO": "مجال الترددات اللاسلكية للمحترفين",
@@ -18,7 +18,7 @@
     "Fixed-Site C-UAS": "أنظمة الطائرات بدون طيار (C-UAS) للموقع الثابت",
     "24/7 site protection": "حماية الموقع 24/7",
     "Fixed RF, radar and EO equipment for continuous detection, tracking, jamming and spoofing workflows.": "معدات الترددات اللاسلكية والرادار وEO الثابتة للكشف المستمر والتتبع والتشويش وانتحال سير العمل.",
-    "Unattended monitoring": "مراقبة غير مراقبة",
+    "Unattended monitoring": "مراقبة ذاتية دون تشغيل مستمر",
     "Multi-sensor integration": "تكامل أجهزة الاستشعار المتعددة",
     "RF GUARD": "حارس الترددات اللاسلكية",
     "Stationary RF Detection System": "نظام كشف الترددات اللاسلكية الثابتة",
@@ -42,8 +42,8 @@
     "Vehicle Navigation Signal Analysis System": "نظام تحليل إشارة الملاحة للمركبة",
     "C-UAS Control Platform": "منصة التحكم C-UAS",
     "Control Platform": "منصة التحكم",
-    "Unified command": "أمر موحد",
-    "A visual command platform connecting RF detection, radar, EO tracking, Remote ID, jammers and spoofers.": "منصة أوامر مرئية تربط بين اكتشاف الترددات اللاسلكية والرادار وتتبع EO والمعرف عن بعد وأجهزة التشويش والمخادعين.",
+    "Unified command": "قيادة موحّدة",
+    "A visual command platform connecting RF detection, radar, EO tracking, Remote ID, jammers and spoofers.": "منصة مرئية للقيادة والتحكم تربط كشف RF والرادار والتتبع الكهروبصري وRemote ID وأجهزة التشويش وأنظمة خداع الملاحة.",
     "Unified situational display": "عرض الظرفية الموحدة",
     "Alarm and device linkage": "إنذار وربط الجهاز",
     "Low-Altitude Command Platform": "منصة القيادة على ارتفاعات منخفضة",
@@ -94,7 +94,7 @@
     "Control": "يتحكم",
     "Jamming, spoofing and linked command devices support a configurable counter-drone response.": "تدعم أجهزة التشويش والانتحال والأوامر المرتبطة استجابة قابلة للتكوين لمكافحة الطائرات بدون طيار.",
     "N-TET C-UAS Equipment": "معدات N-TET C-UAS",
-    "Professional C-UAS Equipment Manufacturer & System Supplier": "الشركة المصنعة لمعدات C-UAS الاحترافية ومورد النظام",
+    "Professional C-UAS Equipment Manufacturer & System Supplier": "شركة متخصصة في تصنيع معدات C-UAS وتوريد الأنظمة المتكاملة",
     "Portable, fixed-site and vehicle-mounted C-UAS equipment with multi-sensor integration and a unified control platform for detection, identification, tracking and coordinated response.": "معدات الطائرات بدون طيار المضادة للطائرات بدون طيار المحمولة والمثبتة في الموقع والمركبة مع تكامل أجهزة الاستشعار المتعددة ومنصة تحكم موحدة للكشف والتعرف والتتبع والاستجابة المنسقة.",
     "Get Price on WhatsApp": "احصل على السعر على الواتساب",
     "View Equipment": "عرض المعدات",
@@ -169,7 +169,7 @@
     "C-UAS Equipment Pricing and System Proposal": "تسعير معدات الطائرات بدون طيار C-UAS واقتراح النظام",
     "Use this contact page to request C-UAS equipment pricing, product documents or a system configuration review for portable, fixed-site and vehicle-mounted projects.": "استخدم صفحة الاتصال هذه لطلب تسعير معدات الأنظمة الجوية المضادة للطائرات بدون طيار أو وثائق المنتج أو مراجعة تكوين النظام للمشاريع المحمولة والثابتة والمثبتة على المركبات.",
     "© 2026 Beijing Non-traditional Equipment Technology Co., Ltd. All rights reserved.": "© 2026 شركة بكين لتكنولوجيا المعدات غير التقليدية المحدودة. جميع الحقوق محفوظة.",
-    "Get Expert Drone Defense!": "احصل على دفاع خبير بالطائرات بدون طيار!",
+    "Get Expert Drone Defense!": "احصل على استشارة متخصصة لمشروع C-UAS",
     "Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.": "أخبرنا بالمعدات أو التطبيق أو الموقع الذي تقوم بمراجعته. يمكن لفريقنا تقديم معلومات المنتج والمستندات الفنية والتسعير ودعم التكوين.",
     "Phone / WhatsApp": "هاتف / واتساب",
     "How can we help? (Optional)": "كيف يمكننا المساعدة؟ (خياري)",
@@ -282,4 +282,3 @@
     }
   }
 }
-

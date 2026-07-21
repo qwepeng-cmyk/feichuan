@@ -7,6 +7,7 @@ declare global {
     interface Window {
         dataLayer?: Array<Record<string, unknown>>;
         gtag?: (...args: unknown[]) => void;
+        ym?: (counterId: number, method: string, ...args: unknown[]) => void;
         __ntetLeadConversionTracked?: boolean;
     }
 }
@@ -31,6 +32,10 @@ export default function LeadConversionTracker() {
                 event_category: 'lead',
                 event_label: 'public_inquiry',
             });
+        }
+
+        if (typeof window.ym === 'function' && document.documentElement.lang === 'ru') {
+            window.ym(110881050, 'reachGoal', 'ntet_form_submit');
         }
 
         trackGoogleAdsFormConversion({
