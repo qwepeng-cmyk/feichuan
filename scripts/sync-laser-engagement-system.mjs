@@ -6,7 +6,7 @@ import sharp from 'sharp';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDir = join(root, '网站资料', '激光打击系统');
-const publicDir = join(root, 'public', 'products', 'internal-preview', 'drone-laser-engagement-system');
+const publicDir = join(root, 'public', 'products', 'drone-laser-engagement-system');
 const contentPath = join(root, 'src', 'content', 'droneLaserEngagementSystem.json');
 const databasePath = join(root, 'data', 'ntet.db');
 
@@ -70,8 +70,9 @@ const rawJson = {
   handle: page.handle,
   product_name_en: page.productName,
   category_primary: 'anti-drone-cuas',
-  category_by_flight_platform: 'Fixed-Site Systems',
-  category_by_mission_application: 'Restricted Directed-Energy Systems',
+  category_by_flight_platform: 'Physical Interception Systems',
+  category_by_mission_application: 'Laser Defense Systems',
+  catalog_order: 80,
   summary_en: page.summary,
   key_application_en: `Application: ${page.application}`,
   key_parameter_1_en: 'Configurations: 2 kW / 3 kW / 5 kW',
@@ -79,8 +80,8 @@ const rawJson = {
   parameters_en: parameters,
   detail_html_en: detailHtml,
   main_image: page.heroImage,
-  compliance_tier: 'restricted',
-  is_published: false,
+  compliance_tier: 'normal',
+  is_published: true,
   source_documents: [
     '15反无激光打击系统（2KW）.docx',
     '15反无激光打击系统（3KW）.docx',
@@ -120,7 +121,7 @@ const sync = db.transaction(() => {
           detail_html_en = @detail_html_en,
           main_image = @main_image,
           raw_json = @raw_json,
-          is_published = 0,
+          is_published = 1,
           updated_at = CURRENT_TIMESTAMP
       WHERE handle = @handle
     `).run(record);
@@ -133,7 +134,7 @@ const sync = db.transaction(() => {
       ) VALUES (
         @handle, @product_name_en, @category_primary, @summary_en,
         @key_application_en, @key_parameter_1_en, @key_parameter_2_en,
-        @parameters_en, @detail_html_en, @main_image, @raw_json, 0
+        @parameters_en, @detail_html_en, @main_image, @raw_json, 1
       )
     `).run(record);
   }
@@ -145,15 +146,15 @@ const sync = db.transaction(() => {
 
   db.prepare(`
     INSERT INTO compliance_content_rules (content_type, handle, tier, note, updated_at)
-    VALUES ('product', ?, 'restricted', ?, CURRENT_TIMESTAMP)
+    VALUES ('product', ?, 'normal', ?, CURRENT_TIMESTAMP)
   `).run(
     record.handle,
-    'C layer: directed-energy strike capability. Internal draft only; exclude from public listings, SEO, GEO, Schema, sitemap, llms.txt and advertising.'
+    'Public product: include in product listings, detail routes, SEO, GEO, Schema and sitemap.'
   );
 });
 
 sync();
 db.close();
 
-console.log(`Synced internal draft product ${record.handle}`);
+console.log(`Synced public product ${record.handle}`);
 console.log(`Assets: ${publicDir}`);

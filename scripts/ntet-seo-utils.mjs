@@ -84,7 +84,6 @@ const BASELINE_TIERS = {
     'handheld-integrated-sdr-low-altitude-monitoring': 'restricted',
     'handheld-integrated-multi-band-event-logging-directional-antenna-unit': 'restricted',
     'handheld-integrated-multi-band-jammer-gun': 'restricted',
-    'drone-laser-engagement-system': 'restricted',
   },
   solution: {
     'low-altitude-airspace-monitoring': 'normal',

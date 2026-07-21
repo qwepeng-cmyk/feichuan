@@ -223,9 +223,7 @@ export default function Header({
             href: '/products#physical-interception-systems',
             items: [
                 { label: 'Handheld Drone Net Launcher', href: '/products/handheld-drone-net-launcher', image: '/products/handheld-drone-net-launcher/handheld-drone-net-launcher.webp' },
-                ...(showLaserPreview ? [
-                    { label: '3kW Anti-Drone Laser Defense System', href: '/products/drone-laser-engagement-system', image: '/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp' },
-                ] : []),
+                { label: '3kW Anti-Drone Laser Defense System', href: '/products/drone-laser-engagement-system', image: '/products/drone-laser-engagement-system/3kw-tracking-turret.webp' },
             ],
         },
         {

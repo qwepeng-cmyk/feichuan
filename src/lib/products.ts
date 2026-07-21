@@ -139,7 +139,7 @@ export const getAllProducts = unstable_cache(
           image: row.main_image,
           category: publicCategory,
           flightPlatform: localLaserPreview
-            ? 'Fixed-Site Systems'
+            ? 'Physical Interception Systems'
             : cleanCatalogGroup(raw.category_by_flight_platform as string | undefined) || FALLBACK_FLIGHT_PLATFORMS[row.handle] || '',
           missionApplication: localLaserPreview
             ? 'Laser Defense Systems'
@@ -157,7 +157,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260720-laser-local-preview-v1'],
+  ['all-products-uav-refresh-20260721-laser-public-v2'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -168,7 +168,7 @@ export const getAllProductHandles = unstable_cache(
       .map(r => r.handle)
       .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
   },
-  ['product-handles-uav-refresh-20260717-drone-net-launcher-v5'],
+  ['product-handles-uav-refresh-20260721-laser-public-v6'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -190,6 +190,6 @@ export const getProductByHandle = unstable_cache(
       return sanitizeRecordForTier(pruneProductDetailPayload(withArabicEditorialCopy(row)), getComplianceTier('product', handle));
     }
   },
-  ['product-detail-uav-refresh-20260717-ar-editorial-v6'],
+  ['product-detail-uav-refresh-20260721-laser-public-v7'],
   { revalidate: 3600, tags: ['products'] }
 );

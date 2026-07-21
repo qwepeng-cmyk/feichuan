@@ -49,7 +49,7 @@ const physicalInterceptionHandles = [
 const laserPreviewProduct: ProductSummary = {
   name: '3kW Anti-Drone Laser Defense System',
   handle: 'drone-laser-engagement-system',
-  image: '/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp',
+  image: '/products/drone-laser-engagement-system/3kw-tracking-turret.webp',
 };
 
 function PortableIcon() {

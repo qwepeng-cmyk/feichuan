@@ -36,7 +36,6 @@ const PRODUCT_TIERS: Record<string, ComplianceTier> = {
   'handheld-integrated-sdr-low-altitude-monitoring': 'restricted',
   'handheld-integrated-multi-band-event-logging-directional-antenna-unit': 'restricted',
   'handheld-integrated-multi-band-jammer-gun': 'restricted',
-  'drone-laser-engagement-system': 'restricted',
 };
 
 const SOLUTION_TIERS: Record<string, ComplianceTier> = {

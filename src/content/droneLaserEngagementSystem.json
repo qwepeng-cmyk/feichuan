@@ -4,8 +4,8 @@
   "eyebrow": "DIRECTED ENERGY / CONFIGURABLE PLATFORM",
   "summary": "A modular electro-optical tracking and directed-energy platform offered in 2 kW, 3 kW and 5 kW configurations for fixed-site or vehicle integration. Each configuration is documented separately so performance, sensor and installation data remain traceable to the supplied technical files.",
   "application": "Protected-site, transport-hub, energy-facility and perimeter deployment subject to local authorization and site safety review.",
-  "heroImage": "/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp",
-  "conceptImage": "/products/internal-preview/drone-laser-engagement-system/system-concept.webp",
+  "heroImage": "/products/drone-laser-engagement-system/3kw-tracking-turret.webp",
+  "conceptImage": "/products/drone-laser-engagement-system/system-concept.webp",
   "features": [
     {
       "number": "01",
@@ -141,7 +141,7 @@
       "power": "2 kW",
       "positioning": "Compact optical engagement module",
       "description": "The lightest configuration combines laser output, electro-optical tracking, thermal imaging, laser ranging and illumination in a compact turret package.",
-      "image": "/products/internal-preview/drone-laser-engagement-system/2kw-module.webp",
+      "image": "/products/drone-laser-engagement-system/2kw-module.webp",
       "metrics": [
         { "label": "Output", "value": "≥2,000 W" },
         { "label": "Reference range", "value": "50-500 m" },
@@ -213,7 +213,7 @@
         }
       ],
       "gallery": [
-        "/products/internal-preview/drone-laser-engagement-system/2kw-module.webp"
+        "/products/drone-laser-engagement-system/2kw-module.webp"
       ]
     },
     {
@@ -221,7 +221,7 @@
       "power": "3 kW",
       "positioning": "Modular mobile or fixed-site system",
       "description": "A multi-module configuration built around a precision tracking turret, separate laser source, cooling, power and industrial control computer.",
-      "image": "/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp",
+      "image": "/products/drone-laser-engagement-system/3kw-tracking-turret.webp",
       "metrics": [
         { "label": "Output", "value": "≥3,000 W" },
         { "label": "Tracking range", "value": "≥1,200 m" },
@@ -272,10 +272,10 @@
         }
       ],
       "gallery": [
-        "/products/internal-preview/drone-laser-engagement-system/3kw-tracking-turret.webp",
-        "/products/internal-preview/drone-laser-engagement-system/3kw-laser-source.webp",
-        "/products/internal-preview/drone-laser-engagement-system/3kw-battery.webp",
-        "/products/internal-preview/drone-laser-engagement-system/3kw-control-computer.webp"
+        "/products/drone-laser-engagement-system/3kw-tracking-turret.webp",
+        "/products/drone-laser-engagement-system/3kw-laser-source.webp",
+        "/products/drone-laser-engagement-system/3kw-battery.webp",
+        "/products/drone-laser-engagement-system/3kw-control-computer.webp"
       ]
     },
     {
@@ -283,7 +283,7 @@
       "power": "5 kW",
       "positioning": "Extended-range high-output configuration",
       "description": "The highest-output configuration prioritizes longer reference range, tighter tracking accuracy and extended continuous emission for fixed or vehicle-integrated installations.",
-      "image": "/products/internal-preview/drone-laser-engagement-system/5kw-module.webp",
+      "image": "/products/drone-laser-engagement-system/5kw-module.webp",
       "metrics": [
         { "label": "Output", "value": "≥5 kW" },
         { "label": "Tracking range", "value": "≥1,200 m" },
@@ -325,10 +325,10 @@
         }
       ],
       "gallery": [
-        "/products/internal-preview/drone-laser-engagement-system/5kw-module.webp",
-        "/products/internal-preview/drone-laser-engagement-system/site-stadium.webp",
-        "/products/internal-preview/drone-laser-engagement-system/site-perimeter.webp",
-        "/products/internal-preview/drone-laser-engagement-system/site-energy.webp"
+        "/products/drone-laser-engagement-system/5kw-module.webp",
+        "/products/drone-laser-engagement-system/site-stadium.webp",
+        "/products/drone-laser-engagement-system/site-perimeter.webp",
+        "/products/drone-laser-engagement-system/site-energy.webp"
       ]
     }
   ],

@@ -7,6 +7,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import CatalogDetailContent from '@/components/products/CatalogDetailContent';
 import DroneNetLauncherDetail from '@/components/products/DroneNetLauncherDetail';
+import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
 import { buildSeoMetadata, getProductSeo } from '@/lib/seoMetadata';
 import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
@@ -52,6 +53,10 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
 
   if (handle === 'handheld-drone-net-launcher') {
     return <DroneNetLauncherDetail product={product} locale={locale} dict={dict} />;
+  }
+
+  if (handle === 'drone-laser-engagement-system') {
+    return <DroneLaserEngagementSystem mode="public" locale={locale} />;
   }
 
   return (
