@@ -34,7 +34,9 @@ const buildRoot = process.env.DEPLOY_BUILD_ROOT || (sourceRoot.startsWith('/mnt/
 const localTar = process.env.DEPLOY_TAR || join(sourceRoot, 'scratch', 'next-deploy.tar.gz');
 const zoneName = process.env.ZONE_NAME || 'n-tet.com';
 const skipCloudflarePurge = process.env.SKIP_CF_PURGE === '1';
-const deployRsyncBwlimit = process.env.DEPLOY_RSYNC_BWLIMIT || '500';
+const deployRsyncBwlimit = process.env.DEPLOY_RSYNC_BWLIMIT || '0';
+const deployMtu = process.env.DEPLOY_MTU || '1280';
+const deployNetworkInterface = process.env.DEPLOY_NETWORK_INTERFACE || '';
 const sshOptions = [
   '-F',
   '/dev/null',
@@ -48,6 +50,8 @@ const sshOptions = [
   'ServerAliveCountMax=3',
   '-o',
   'TCPKeepAlive=yes',
+  '-o',
+  'IPQoS=none',
 ];
 
 function step(title) {
@@ -117,6 +121,95 @@ function rsyncPublic() {
     `${remote}:${deployPath}/public/`,
   ]);
 }
+
+function isWslRuntime() {
+  if (process.env.WSL_DISTRO_NAME || process.env.WSL_INTEROP) return true;
+  try {
+    return /microsoft/i.test(readFileSync('/proc/version', 'utf8'));
+  } catch {
+    return false;
+  }
+}
+
+function mtuCommand(args) {
+  if (typeof process.getuid === 'function' && process.getuid() !== 0) {
+    return run('sudo', ['-n', 'ip', ...args]);
+  }
+  return run('ip', args);
+}
+
+let mtuRestoreState = null;
+
+function configureDeploymentMtu() {
+  if (!isWslRuntime()) {
+    console.log('MTU adjustment skipped outside WSL.');
+    return;
+  }
+
+  if (deployMtu === '0' || /^off$/i.test(deployMtu)) {
+    console.log('MTU adjustment disabled by DEPLOY_MTU.');
+    return;
+  }
+
+  const requestedMtu = Number(deployMtu);
+  if (!Number.isInteger(requestedMtu) || requestedMtu < 576 || requestedMtu > 9000) {
+    throw new Error(`Invalid DEPLOY_MTU=${deployMtu}. Use an integer from 576 to 9000, or 0 to disable.`);
+  }
+
+  const route = output('ip', ['route', 'get', deployHost]);
+  const routeInterface = route.match(/\bdev\s+(\S+)/)?.[1];
+  const networkInterface = deployNetworkInterface || routeInterface;
+  if (!networkInterface) {
+    throw new Error(`Could not detect the WSL network interface used for ${deployHost}. Set DEPLOY_NETWORK_INTERFACE.`);
+  }
+
+  const link = output('ip', ['-o', 'link', 'show', 'dev', networkInterface]);
+  const originalMtu = Number(link.match(/\bmtu\s+(\d+)/)?.[1]);
+  if (!Number.isInteger(originalMtu)) {
+    throw new Error(`Could not read MTU for WSL interface ${networkInterface}.`);
+  }
+
+  const targetMtu = Math.min(originalMtu, requestedMtu);
+  if (targetMtu === originalMtu) {
+    console.log(`WSL upload MTU already ${originalMtu} on ${networkInterface}.`);
+    return;
+  }
+
+  step('Configure WSL upload MTU');
+  try {
+    mtuCommand(['link', 'set', 'dev', networkInterface, 'mtu', String(targetMtu)]);
+  } catch {
+    throw new Error(
+      `Could not set WSL interface ${networkInterface} MTU to ${targetMtu}. ` +
+      'Run the deploy from a root WSL shell or configure passwordless sudo for the ip command.'
+    );
+  }
+
+  mtuRestoreState = { networkInterface, originalMtu };
+  console.log(`WSL upload MTU: ${originalMtu} -> ${targetMtu} on ${networkInterface}.`);
+}
+
+function restoreDeploymentMtu() {
+  if (!mtuRestoreState) return;
+  const { networkInterface, originalMtu } = mtuRestoreState;
+  mtuRestoreState = null;
+  try {
+    mtuCommand(['link', 'set', 'dev', networkInterface, 'mtu', String(originalMtu)]);
+    console.log(`Restored WSL MTU to ${originalMtu} on ${networkInterface}.`);
+  } catch (error) {
+    console.warn(`Could not restore WSL MTU on ${networkInterface}: ${error instanceof Error ? error.message : error}`);
+  }
+}
+
+process.once('exit', restoreDeploymentMtu);
+process.once('SIGINT', () => {
+  restoreDeploymentMtu();
+  process.exit(130);
+});
+process.once('SIGTERM', () => {
+  restoreDeploymentMtu();
+  process.exit(143);
+});
 
 function rsyncProductBrochures() {
   run('rsync', [
@@ -314,6 +407,8 @@ async function verifyLiveUrls() {
   }
 }
 
+configureDeploymentMtu();
+
 step('Sync public assets');
 rsyncPublic();
 
@@ -363,4 +458,5 @@ if (skipCloudflarePurge) {
 step('Verify live site');
 await verifyLiveUrls();
 
+restoreDeploymentMtu();
 console.log('\nProduction deploy completed.');
