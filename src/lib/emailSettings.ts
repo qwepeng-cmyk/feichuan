@@ -2,6 +2,7 @@ import db from './db';
 
 export interface EmailSettings {
   enabled: boolean;
+  brochureNotificationsEnabled: boolean;
   smtpHost: string;
   smtpPort: number;
   smtpSecure: boolean;
@@ -26,6 +27,7 @@ const DEFAULT_EMAIL_SETTINGS: EmailSettings = {
   enabled: process.env.EMAIL_NOTIFICATIONS_ENABLED
     ? process.env.EMAIL_NOTIFICATIONS_ENABLED === 'true'
     : hasSmtpConfig,
+  brochureNotificationsEnabled: process.env.ENABLE_BROCHURE_EMAIL_NOTIFICATION === '1',
   smtpHost: process.env.SMTP_HOST || '',
   smtpPort: Number(process.env.SMTP_PORT || 587),
   smtpSecure: Number(process.env.SMTP_PORT || 587) === 465,
@@ -62,6 +64,10 @@ export function getEmailSettings(): EmailSettings {
 
   return {
     enabled: parseBoolean(values['email.enabled'], DEFAULT_EMAIL_SETTINGS.enabled),
+    brochureNotificationsEnabled: parseBoolean(
+      values['email.brochureNotificationsEnabled'],
+      DEFAULT_EMAIL_SETTINGS.brochureNotificationsEnabled
+    ),
     smtpHost: values['email.smtpHost'] || DEFAULT_EMAIL_SETTINGS.smtpHost,
     smtpPort: parsePort(values['email.smtpPort'], DEFAULT_EMAIL_SETTINGS.smtpPort),
     smtpSecure: parseBoolean(values['email.smtpSecure'], DEFAULT_EMAIL_SETTINGS.smtpSecure),
@@ -86,6 +92,7 @@ export function updateEmailSettings(settings: Partial<EmailSettings> & { keepExi
   const current = getEmailSettings();
   const next: EmailSettings = {
     enabled: Boolean(settings.enabled),
+    brochureNotificationsEnabled: Boolean(settings.brochureNotificationsEnabled),
     smtpHost: (settings.smtpHost ?? '').trim(),
     smtpPort: parsePort(settings.smtpPort, 587),
     smtpSecure: Boolean(settings.smtpSecure),
@@ -105,6 +112,7 @@ export function updateEmailSettings(settings: Partial<EmailSettings> & { keepExi
 
   const transaction = db.transaction(() => {
     update.run('email.enabled', String(next.enabled));
+    update.run('email.brochureNotificationsEnabled', String(next.brochureNotificationsEnabled));
     update.run('email.smtpHost', next.smtpHost);
     update.run('email.smtpPort', String(next.smtpPort));
     update.run('email.smtpSecure', String(next.smtpSecure));

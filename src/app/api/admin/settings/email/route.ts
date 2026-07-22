@@ -16,6 +16,7 @@ export async function PUT(request: Request) {
 
     updateEmailSettings({
       enabled: Boolean(body.enabled),
+      brochureNotificationsEnabled: Boolean(body.brochureNotificationsEnabled),
       smtpHost: body.smtpHost || '',
       smtpPort: body.smtpPort,
       smtpSecure: Boolean(body.smtpSecure),

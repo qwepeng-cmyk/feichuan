@@ -2,6 +2,7 @@ import { readFile } from 'fs/promises';
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';
 import { sendInquiryNotification } from '@/lib/inquiryEmail';
+import { getEmailSettings } from '@/lib/emailSettings';
 import { getProductBrochure, getProductBrochurePath } from '@/lib/productBrochures';
 
 export const runtime = 'nodejs';
@@ -83,7 +84,7 @@ export async function POST(request: Request) {
       inquiryId = Number(result.lastInsertRowid);
 
       const shouldSendNotification =
-        process.env.ENABLE_BROCHURE_EMAIL_NOTIFICATION === '1' &&
+        getEmailSettings().brochureNotificationsEnabled &&
         process.env.DISABLE_INQUIRY_EMAIL !== '1';
 
       if (shouldSendNotification) {
