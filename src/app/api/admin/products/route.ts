@@ -2,25 +2,16 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import { createHandle } from '@/lib/admin-utils';
-import { getComplianceLayer, getComplianceTier, getPublicProductCategory } from '@/lib/complianceTaxonomy';
+import { getPublicProductCategory } from '@/lib/productCategory';
 
 export async function GET() {
     try {
         const rows = db.prepare('SELECT handle, product_name_en, category_primary, main_image, COALESCE(is_published, 1) AS is_published FROM products ORDER BY id DESC').all() as any[];
-        const data = rows.map((product) => {
-            const complianceTier = getComplianceTier('product', product.handle);
-            const complianceLayer = getComplianceLayer(complianceTier);
-            return {
-                ...product,
-                public_category: getPublicProductCategory(product.category_primary),
-                compliance_tier: complianceTier,
-                compliance_layer: complianceLayer.layer,
-                compliance_layer_label: complianceLayer.label,
-                compliance_layer_note: complianceLayer.note,
-                is_ad_safe: complianceTier === 'normal',
-                is_public_visible: product.is_published !== 0 && complianceTier !== 'restricted',
-            };
-        });
+        const data = rows.map((product) => ({
+            ...product,
+            public_category: getPublicProductCategory(product.category_primary),
+            is_public_visible: product.is_published !== 0,
+        }));
 
         return NextResponse.json({ success: true, data });
     } catch (e) {

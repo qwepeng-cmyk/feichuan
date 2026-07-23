@@ -10,7 +10,7 @@
     "lint": "next lint",
     "sync:laser-product": "node scripts/sync-laser-engagement-system.mjs",
     "sync:case-editorial": "node scripts/sync-case-editorial-corrections.mjs",
-    "audit:public-risk": "node scripts/audit-public-site-risk.mjs",
+    "audit:public": "node scripts/audit-public-site.mjs",
     "generate:llms": "node scripts/generate-llms-txt.mjs",
     "audit:seo": "node scripts/seo-audit.mjs",
     "audit:geo": "node scripts/geo-audit.mjs",

@@ -17,7 +17,6 @@ import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 import CaseEquipmentList from '@/components/cases/CaseEquipmentList';
@@ -30,14 +29,12 @@ const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
 export async function generateStaticParams() {
   const handles = await getAllCaseHandles();
   return handles
-    .filter((handle) => isPublicComplianceContent('case', handle))
     .map((handle) => ({
       handle,
     }));
 }
 
 export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
-  if (!isPublicComplianceContent('case', params.handle)) return {};
   const caseData = await getCaseByHandle(params.handle);
   if (!caseData) return {};
 
@@ -123,9 +120,6 @@ function parseSnapshot(value: unknown, dict: any): { label: string; value: strin
 // 1. Data Fetching Component (Streaming)
 async function CaseDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
-  if (!isPublicComplianceContent('case', handle)) {
-    notFound();
-  }
 
   const caseData = await getCaseByHandle(handle);
 
@@ -311,9 +305,6 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 // 2. Entry Page Component (Instant Navigation)
 export default async function CaseDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
-  if (!isPublicComplianceContent('case', handle)) {
-    notFound();
-  }
 
   const caseData = await getCaseByHandle(handle);
   if (!caseData) {

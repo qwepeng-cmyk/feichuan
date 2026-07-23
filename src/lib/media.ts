@@ -1,10 +1,5 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
-import {
-  getComplianceTier,
-  isPublicComplianceContent,
-  sanitizeRecordForTier,
-} from './complianceTaxonomy';
 import mediaArabicEditorial from '@/content/mediaArabicEditorial.json';
 
 export interface MediaMetadata {
@@ -45,8 +40,6 @@ export const getAllMedia = unstable_cache(
         return null;
       }
     }).filter(Boolean)
-      .filter(item => isPublicComplianceContent('media', item.id))
-      .map(item => sanitizeRecordForTier(item, getComplianceTier('media', item.id)))
       .sort((a, b) => {
         const aTime = Date.parse(a.date || '');
         const bTime = Date.parse(b.date || '');
@@ -54,16 +47,16 @@ export const getAllMedia = unstable_cache(
         return bTime - aTime;
       });
   },
-  ['all-media-news-cuas-archive-20260713-v3'],
+  ['all-media-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['media'] }
 );
 
 export const getAllMediaIds = unstable_cache(
   async function getAllMediaIds() {
     const rows = db.prepare('SELECT id FROM media WHERE COALESCE(is_published, 1) = 1').all() as any[];
-    return rows.map(r => r.id).filter(id => isPublicComplianceContent('media', id));
+    return rows.map(r => r.id);
   },
-  ['media-ids-news-cuas-archive-20260713-v3'],
+  ['media-ids-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -71,16 +64,15 @@ export const getMediaById = unstable_cache(
   async function getMediaById(id: string) {
     const row = db.prepare('SELECT raw_json FROM media WHERE id = ? AND COALESCE(is_published, 1) = 1').get(id) as any;
     if (!row) return null;
-    if (!isPublicComplianceContent('media', id)) return null;
 
     try {
       const item = normalizeMediaItem(JSON.parse(row.raw_json));
-      return sanitizeRecordForTier(item, getComplianceTier('media', id));
+      return item;
     } catch (e) {
       console.error("Error parsing media JSON for id:", id);
       return null;
     }
   },
-  ['media-detail-news-cuas-archive-20260713-v3'],
+  ['media-detail-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['media'] }
 );

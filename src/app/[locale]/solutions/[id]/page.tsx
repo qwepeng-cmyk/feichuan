@@ -13,7 +13,6 @@ import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 import { englishCuasSolutionHandles, getCuasSolution } from '@/lib/cuasSolutionCatalog';
 import { getCuasIndustryPageData } from '@/lib/cuasIndustryPageData';
 import CuasIndustryDefensePage from '@/components/solutions/CuasIndustryDefensePage';
@@ -27,14 +26,12 @@ async function getLocalizedSolution(id: string, locale: Locale) {
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
   return Array.from(new Set([...handles, ...englishCuasSolutionHandles]))
-    .filter((id) => isPublicComplianceContent('solution', id))
     .map((id) => ({
       id,
     }));
 }
 
 export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
-  if (!isPublicComplianceContent('solution', params.id)) return {};
   const solution = await getLocalizedSolution(params.id, params.locale);
   if (!solution) return {};
 
@@ -54,9 +51,6 @@ export async function generateMetadata({ params }: { params: { id: string; local
 // 1. Data Fetching Component (Streaming)
 async function SolutionDetailContent({ id, locale }: { id: string; locale: Locale }) {
   const dict = await getDictionary(locale);
-  if (!isPublicComplianceContent('solution', id)) {
-    notFound();
-  }
 
   const solution = await getLocalizedSolution(id, locale);
   if (!solution) {
@@ -176,9 +170,6 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 // 2. Entry Page Component (Instant Navigation)
 export default async function SolutionDetailPage({ params }: { params: { id: string; locale: Locale } }) {
   const { id, locale } = params;
-  if (!isPublicComplianceContent('solution', id)) {
-    notFound();
-  }
 
   const solution = await getLocalizedSolution(id, locale);
   if (!solution) {

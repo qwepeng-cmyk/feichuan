@@ -8,8 +8,7 @@
 - 推荐页面类型：
 - 目标语言：
 - 目标受众：
-- 初步层级：A normal / B neutral_seo / C restricted
-- 是否允许公开发布：
+- 计划发布状态：published / draft / preview-only / unpublished
 
 ## RAG Evidence Pack
 
@@ -18,13 +17,13 @@
 - 使用的知识库目录：
 - Evidence used：
   - 来源：
-  - 可见性：public / internal / restricted
+  - 可见性：public / internal / confidential
   - 日期：
   - 可引用事实：
   - 对应文章段落：
 - Evidence not used：
   - 来源：
-  - 原因：C 层 / 内部资料 / 证据不足 / 过期 / 与主题无关
+  - 原因：内部或保密资料 / 证据不足 / 过期 / 与主题无关
 - Claims needing confirmation：
   - 性能数据：
   - 认证/资质：
@@ -68,11 +67,10 @@
 - 相关产品/方案/媒体：
 - Schema 类型：
 - 是否公开 Schema：
-- 是否仅内部 Schema 候选：
 
-## 合规备注
+## 发布备注
 
-- A/B/C 判断理由：
-- 避免词：
+- 发布状态说明：
+- 未采用的内部或保密资料：
 - 需要证据支撑的声明：
 - 发布前门禁：

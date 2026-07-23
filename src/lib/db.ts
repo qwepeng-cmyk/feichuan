@@ -128,28 +128,6 @@ db.exec(`
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
 
-    CREATE TABLE IF NOT EXISTS compliance_terms (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        term TEXT NOT NULL UNIQUE,
-        replacement TEXT NOT NULL DEFAULT '',
-        locale TEXT NOT NULL DEFAULT 'all',
-        severity TEXT NOT NULL DEFAULT 'restricted',
-        is_enabled INTEGER DEFAULT 1,
-        note TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS compliance_content_rules (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        content_type TEXT NOT NULL,
-        handle TEXT NOT NULL,
-        tier TEXT NOT NULL,
-        note TEXT,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        UNIQUE(content_type, handle)
-    );
-
     -- Optimized Indexes for Performance
     CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_primary);
     CREATE INDEX IF NOT EXISTS idx_solutions_category ON solutions(category_id);
@@ -158,8 +136,6 @@ db.exec(`
     CREATE INDEX IF NOT EXISTS idx_products_handle ON products(handle);
     CREATE INDEX IF NOT EXISTS idx_solutions_handle ON solutions(handle);
     CREATE INDEX IF NOT EXISTS idx_cases_handle ON cases(handle);
-    CREATE INDEX IF NOT EXISTS idx_compliance_terms_enabled ON compliance_terms(is_enabled);
-    CREATE INDEX IF NOT EXISTS idx_compliance_rules_lookup ON compliance_content_rules(content_type, handle);
 `);
 
 function ensureColumn(table: string, column: string, definition: string) {
@@ -229,5 +205,29 @@ db.exec(`
     CREATE INDEX IF NOT EXISTS idx_cases_published ON cases(is_published);
     CREATE INDEX IF NOT EXISTS idx_media_published ON media(is_published);
 `);
+
+const CONTENT_GATE_RETIREMENT_KEY = 'content_gates_retired_20260722';
+const contentGateRetirementApplied = db
+    .prepare('SELECT value FROM site_settings WHERE key = ?')
+    .get(CONTENT_GATE_RETIREMENT_KEY) as { value?: string } | undefined;
+
+if (!contentGateRetirementApplied) {
+    db.transaction(() => {
+        db.exec(`
+            UPDATE products
+            SET is_published = 1
+            WHERE handle IN (
+                'handheld-integrated-sdr-low-altitude-monitoring',
+                'handheld-integrated-multi-band-event-logging-directional-antenna-unit'
+            );
+        `);
+
+        db.prepare(`
+            INSERT INTO site_settings (key, value, updated_at)
+            VALUES (?, '1', CURRENT_TIMESTAMP)
+            ON CONFLICT(key) DO UPDATE SET value = '1', updated_at = CURRENT_TIMESTAMP
+        `).run(CONTENT_GATE_RETIREMENT_KEY);
+    })();
+}
 
 export default db;

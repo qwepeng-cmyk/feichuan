@@ -50,82 +50,8 @@ export const CONTENT_TYPES = {
   },
 };
 
-const BASELINE_TIERS = {
-  product: {
-    'handheld-drone-net-launcher': 'normal',
-    'stationary-rf-detection-system': 'neutral_seo',
-    'directional-rf-event-logging': 'neutral_seo',
-    'portable-rf-detection-case': 'neutral_seo',
-    'omni-directional-rf-event-logging': 'neutral_seo',
-    'portable-low-altitude-monitoring-event-logging-shield': 'neutral_seo',
-    'portable-low-altitude-monitoring-event-logging-shield-pro': 'neutral_seo',
-    'portable-integrated-detection-event-logging-c-uas-basic': 'neutral_seo',
-    'portable-integrated-detection-event-logging-c-uas-pro': 'neutral_seo',
-    'portable-integrated-detection-event-logging-low-altitude-monitoring-basic': 'neutral_seo',
-    'portable-integrated-detection-event-logging-pro-low-altitude-monitoring': 'neutral_seo',
-    'stationary-active-rf-defense-system': 'neutral_seo',
-    'uav-navigation-airspace-data-verification-system': 'neutral_seo',
-    'portable-active-rf-defense-system': 'neutral_seo',
-    'composite-electro-optical-tracking-system': 'neutral_seo',
-    'uav-remote-id-monitoring-system': 'neutral_seo',
-    'handheld-rf-detection-system-mini': 'neutral_seo',
-    'low-altitude-detection-radar-ku-band': 'neutral_seo',
-    'low-altitude-3d-pulse-doppler-radar': 'neutral_seo',
-    'directional-rf-interference-device': 'normal',
-    'omni-directional-rf-interference-device': 'normal',
-    'directional-rf-jammer': 'restricted',
-    'omni-directional-rf-jammer': 'restricted',
-    'portable-anti-drone-jammer-shield': 'restricted',
-    'portable-anti-drone-jammer-shield-pro': 'restricted',
-    'portable-integrated-detection-jamming-c-uas-basic': 'restricted',
-    'portable-integrated-detection-jamming-pro-c-uas': 'restricted',
-    'uav-navigation-spoofing-system': 'restricted',
-    'handheld-integrated-sdr-c-uas': 'restricted',
-    'handheld-integrated-sdr-low-altitude-monitoring': 'restricted',
-    'handheld-integrated-multi-band-event-logging-directional-antenna-unit': 'restricted',
-    'handheld-integrated-multi-band-jammer-gun': 'restricted',
-  },
-  solution: {
-    'low-altitude-airspace-monitoring': 'normal',
-    'drone-detector': 'normal',
-    'drone-radar-detection': 'normal',
-    'portable-drone-detection': 'normal',
-    'drone-defender': 'normal',
-    'drone-locator': 'normal',
-    'drone-shield': 'normal',
-    'drone-jammer': 'normal',
-    'rf-interference-device': 'normal',
-    'chemical-plant-protection': 'neutral_seo',
-    'hydroelectric-dam-protection': 'neutral_seo',
-    'oil-production-base-protection': 'neutral_seo',
-    'power-generation-facility-anti-uav': 'restricted',
-    'airport-security-protection': 'neutral_seo',
-    'judicial-sector-security': 'neutral_seo',
-    'sports-event-security': 'neutral_seo',
-    'airport-anti-uav': 'restricted',
-  },
-  case: {
-    'airport-security-application': 'neutral_seo',
-    'asian-games-security': 'neutral_seo',
-    'water-conservancy-security': 'neutral_seo',
-    'pakistan-power-plant-anti-uav': 'restricted',
-    'brazil-refinery-anti-uav': 'restricted',
-    'nigeria-factory-anti-uav': 'restricted',
-  },
-  media: {
-    'multi-sensor-cuas-architecture-2026': 'restricted',
-    'cuas-critical-infrastructure-deployment-2026': 'restricted',
-    'industrial-uav-redundancy-2026': 'neutral_seo',
-    'low-altitude-economy-2026-outlook': 'neutral_seo',
-    'tethered-uav-persistent-surveillance-2026': 'neutral_seo',
-    'border-surveillance-uav-network-2026': 'neutral_seo',
-  },
-};
-
 export function getDbPath() {
-  if (process.env.DATABASE_URL) {
-    return resolve(process.cwd(), process.env.DATABASE_URL);
-  }
+  if (process.env.DATABASE_URL) return resolve(process.cwd(), process.env.DATABASE_URL);
 
   const primary = join(process.cwd(), 'data', 'ntet.db');
   if (existsSync(primary)) return primary;
@@ -138,27 +64,8 @@ export function getDbPath() {
 
 export function openDb() {
   const dbPath = getDbPath();
-  if (!existsSync(dbPath)) {
-    throw new Error(`Database not found: ${dbPath}`);
-  }
+  if (!existsSync(dbPath)) throw new Error(`Database not found: ${dbPath}`);
   return new Database(dbPath, { readonly: true });
-}
-
-export function getComplianceTier(db, type, handle) {
-  if (!handle) return 'normal';
-
-  try {
-    const rule = db
-      .prepare('SELECT tier FROM compliance_content_rules WHERE content_type = ? AND handle = ?')
-      .get(type, handle);
-    if (rule?.tier && ['normal', 'neutral_seo', 'restricted'].includes(rule.tier)) {
-      return rule.tier;
-    }
-  } catch {
-    // Older database snapshots may not have compliance_content_rules yet.
-  }
-
-  return BASELINE_TIERS[type]?.[handle] || 'normal';
 }
 
 export function getPublishedContent(db, type) {
@@ -175,7 +82,6 @@ export function getPublishedContent(db, type) {
   return rows.map((row) => ({
     ...row,
     type,
-    tier: getComplianceTier(db, type, row.handle),
     route: config.route,
   }));
 }

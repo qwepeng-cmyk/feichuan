@@ -9,19 +9,16 @@ import CatalogDetailContent from '@/components/products/CatalogDetailContent';
 import DroneNetLauncherDetail from '@/components/products/DroneNetLauncherDetail';
 import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
 import { buildSeoMetadata, getProductSeo } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const handles = await getAllProductHandles();
   return handles
-    .filter((handle) => isPublicComplianceContent('product', handle))
     .map((handle) => ({ handle }));
 }
 
 export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
-  if (!isPublicComplianceContent('product', params.handle)) return {};
   const product = await getProductByHandle(params.handle);
   if (!product) return {};
 
@@ -41,9 +38,6 @@ export async function generateMetadata({ params }: { params: { handle: string; l
 
 async function ProductDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
-  if (!isPublicComplianceContent('product', handle)) {
-    notFound();
-  }
 
   const product = await getProductByHandle(handle);
 
@@ -73,9 +67,6 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
 
 export default async function ProductDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
-  if (!isPublicComplianceContent('product', handle)) {
-    notFound();
-  }
 
   const product = await getProductByHandle(handle);
   if (!product) {

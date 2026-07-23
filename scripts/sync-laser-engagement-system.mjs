@@ -80,7 +80,6 @@ const rawJson = {
   parameters_en: parameters,
   detail_html_en: detailHtml,
   main_image: page.heroImage,
-  compliance_tier: 'normal',
   is_published: true,
   source_documents: [
     '15反无激光打击系统（2KW）.docx',
@@ -139,18 +138,6 @@ const sync = db.transaction(() => {
     `).run(record);
   }
 
-  db.prepare(`
-    DELETE FROM compliance_content_rules
-    WHERE content_type = 'product' AND handle = ?
-  `).run(record.handle);
-
-  db.prepare(`
-    INSERT INTO compliance_content_rules (content_type, handle, tier, note, updated_at)
-    VALUES ('product', ?, 'normal', ?, CURRENT_TIMESTAMP)
-  `).run(
-    record.handle,
-    'Public product: include in product listings, detail routes, SEO, GEO, Schema and sitemap.'
-  );
 });
 
 sync();

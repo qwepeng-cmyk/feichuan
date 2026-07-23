@@ -2,18 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 
 export default function AdminSolutionPreview({ params }: { params: { id: string } }) {
   const solution = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(params.id) as any;
   if (!solution) notFound();
 
-  const tier = getComplianceTier('solution', solution.handle);
-  const layer = getComplianceLayer(tier);
   const parameters = parseJson(solution.parameters_en, {});
 
   return (
-    <PreviewShell title={solution.product_name_en} editHref={`/admin/solutions/${solution.handle}`} layer={layer.label}>
+    <PreviewShell title={solution.product_name_en} editHref={`/admin/solutions/${solution.handle}`} layer="Preview">
       <PreviewImage src={solution.main_image} alt={solution.product_name_en} />
       <PreviewSection title="Category">{solution.category_name || '-'}</PreviewSection>
       <PreviewSection title="Summary">{solution.summary_en || '-'}</PreviewSection>

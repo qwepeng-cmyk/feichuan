@@ -229,7 +229,7 @@ function DesktopPage({
             <h2>{mode === 'preview' ? 'Technical content is ready. Public release is not.' : 'Match output, sensing and integration to the site.'}</h2>
             <p>
               {mode === 'preview'
-                ? 'The page remains behind the admin boundary until the compliance tier and publication state are deliberately changed.'
+                ? 'The page remains behind the admin boundary until its publication state is deliberately changed.'
                 : 'Request a documented configuration review for site conditions, integration scope and local authorization requirements.'}
             </p>
           </div>

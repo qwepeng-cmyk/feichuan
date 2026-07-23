@@ -1633,6 +1633,9 @@
   .problemSection {
     scroll-margin-top: 116px;
     padding: 34px 16px 42px;
+    background:
+      linear-gradient(180deg, rgba(5, 19, 38, 0.88) 0%, rgba(5, 19, 38, 0.94) 100%),
+      url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero-mobile.webp') center center / cover no-repeat;
   }
 
   .problemIntro {

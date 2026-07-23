@@ -135,18 +135,8 @@ const upsertProduct = db.prepare(`
     updated_at = CURRENT_TIMESTAMP
 `);
 
-const upsertTier = db.prepare(`
-  INSERT INTO compliance_content_rules (content_type, handle, tier, note, updated_at)
-  VALUES ('product', ?, 'normal', ?, CURRENT_TIMESTAMP)
-  ON CONFLICT(content_type, handle) DO UPDATE SET
-    tier = 'normal',
-    note = excluded.note,
-    updated_at = CURRENT_TIMESTAMP
-`);
-
 const restore = db.transaction(() => {
   const placeholders = legacyHandles.map(() => '?').join(', ');
-  db.prepare(`DELETE FROM compliance_content_rules WHERE content_type = 'product' AND handle IN (${placeholders})`).run(...legacyHandles);
   db.prepare(`DELETE FROM products WHERE handle IN (${placeholders})`).run(...legacyHandles);
 
   for (const item of products) {
@@ -174,21 +164,14 @@ const restore = db.transaction(() => {
 
     record.raw_json = JSON.stringify(raw);
     upsertProduct.run(record);
-    upsertTier.run(
-      item.publicHandle,
-      'Explicit public A-tier jammer-name exception approved for these two fixed-site products on 2026-07-15.'
-    );
   }
 });
 
 restore();
 
 const restored = db.prepare(`
-  SELECT p.handle, p.product_name_en, p.main_image, p.category_primary, p.is_published,
-         r.tier
+  SELECT p.handle, p.product_name_en, p.main_image, p.category_primary, p.is_published
   FROM products p
-  LEFT JOIN compliance_content_rules r
-    ON r.content_type = 'product' AND r.handle = p.handle
   WHERE p.handle IN ('directional-rf-interference-device', 'omni-directional-rf-interference-device')
   ORDER BY p.handle
 `).all();

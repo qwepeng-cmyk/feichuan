@@ -3,7 +3,7 @@
 ## 已安装能力
 
 - 成熟 SEO/GEO Skill：`AgriciDaniel/codex-seo`。
-- 项目专属护栏：`ntet-seo-guardrails`，用于执行 N-TET 的 A/B/C 合规边界。
+- 项目专属护栏：`ntet-seo-guardrails`，用于执行 N-TET 当前的发布状态、证据质量与抓取边界。
 - Browser 插件：用于本地页面检查、截图、移动端/桌面端验证。
 - Firecrawl MCP：已经配置，首次使用前需要重启 Codex。
 
@@ -13,9 +13,9 @@
 
 - `对 https://n-tet.com 做一次完整 SEO 审计，必须遵守 N-TET guardrails。`
 - `对 https://n-tet.com 做 GEO 审计，重点看 AI crawler、llms.txt、Schema、citability。`
-- `用 Firecrawl map https://n-tet.com，排除 /admin、/api、preview 和 C 层 restricted URL。`
+- `用 Firecrawl map https://n-tet.com，排除 /admin、/api、preview、draft 和未发布 URL。`
 - `检查 /products 页面 Schema 和 E-E-A-T 缺口。`
-- `只在 A/B 公开页面之间找内链机会，不要碰 C 层内容。`
+- `只在已发布公开页面之间找内链机会，不要链接 draft、preview 或未发布内容。`
 
 ## 本地固定门禁
 
@@ -55,14 +55,14 @@ npm run audit:eeat
 - `/api*`
 - preview URL
 - draft URL
-- `src/lib/complianceTaxonomy.ts` 里的 C 层 restricted handle
+- 未发布记录对应的 URL
 
 ## 已加入的 GEO 检查项
 
 项目新增了 `npm run audit:geo`，参考 `geo-seo-claude` 的 GEO-first 工作流，但做成了适合 N-TET 的本地门禁：
 
 - AI crawler access：检查 GPTBot、OAI-SearchBot、ChatGPT-User、ClaudeBot、PerplexityBot、Google-Extended。
-- `llms.txt`：检查文件是否存在、章节是否完整、URL 数量，以及是否泄漏 restricted/admin/API URL。
+- `llms.txt`：检查文件是否存在、章节是否完整、URL 数量，以及是否泄漏未发布、admin、preview 或 API URL。
 - Schema readiness：检查页面是否已有服务端 JSON-LD，并联动 `audit:schema` 候选报告。
 - Citability：评估公开记录是否适合作为 AI 引用片段，并列出弱项页面。
 
@@ -70,11 +70,9 @@ npm run audit:eeat
 
 ## Schema 公开规则
 
-- A/B：生成并公开输出 Schema，可以进入公开页面 HTML、搜索引擎和 AI crawler 可见范围。
-- C：生成内部候选 Schema，但默认不公开输出。
-- C 层内部候选可以放进 `docs/seo/` 报告或后台预览，方便以后恢复访问时复用。
-- C 层 Schema 不得写入公开页面 HTML、`llms.txt`、sitemap，也不得进入 Firecrawl 抓取范围。
-- 如果未来要恢复某个 C 层页面，先修改合规层级，再把内部候选 Schema 转为公开 Schema，并复跑本地门禁。
+- 已发布产品、方案、案例和媒体内容可以生成并公开输出 Schema。
+- Draft、preview 和未发布记录的 Schema 不得进入公开页面 HTML、`llms.txt`、sitemap 或 Firecrawl 抓取范围。
+- 内容从未发布切换为已发布后，重新生成 Schema、`llms.txt` 与 sitemap，并复跑本地检查。
 
 ## 内容生产工作流
 

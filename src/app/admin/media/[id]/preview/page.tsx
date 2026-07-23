@@ -2,14 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 
 export default function AdminMediaPreview({ params }: { params: { id: string } }) {
   const article = db.prepare('SELECT * FROM media WHERE id = ?').get(params.id) as any;
   if (!article) notFound();
 
-  const tier = getComplianceTier('media', article.id);
-  const layer = getComplianceLayer(tier);
+  const layer = { label: 'Preview' };
 
   return (
     <div style={{ maxWidth: '980px', margin: '0 auto', padding: '32px 20px 80px' }}>

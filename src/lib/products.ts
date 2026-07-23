@@ -1,11 +1,6 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
-import {
-  getComplianceTier,
-  getPublicProductCategory,
-  isPublicComplianceContent,
-  sanitizeRecordForTier,
-} from './complianceTaxonomy';
+import { getPublicProductCategory } from './productCategory';
 import { localizedField } from './localization';
 import productArabicEditorial from '@/content/productArabicEditorial.json';
 
@@ -22,8 +17,6 @@ export interface ProductMetadata {
 
 const HIDDEN_PRODUCT_HANDLES = new Set([
   'medium-long-range-uav-inspection-system',
-  'handheld-integrated-multi-band-event-logging-directional-antenna-unit',
-  'handheld-integrated-sdr-low-altitude-monitoring',
 ]);
 
 const ACCESSORY_CATEGORY = 'uav-accessories';
@@ -119,19 +112,14 @@ export const getAllProducts = unstable_cache(
 
       const localLaserPreview = isLocalLaserCatalogPreview(row.handle);
 
-      if (!localLaserPreview && !isPublicComplianceContent('product', row.handle)) {
-        continue;
-      }
-
       const publicCategory = localLaserPreview
         ? 'drone-detection'
         : getPublicProductCategory(row.category_primary);
 
       if (categories[publicCategory]) {
         const raw = parseProductRawJson(row.raw_json) as Record<string, unknown>;
-        const tier = getComplianceTier('product', row.handle);
         const localizedRow = withArabicEditorialCopy(row);
-        const product = sanitizeRecordForTier({
+        const product = {
           name: localLaserPreview
             ? '3kW Anti-Drone Laser Defense System'
             : localizedField(localizedRow, 'product_name', locale),
@@ -145,7 +133,7 @@ export const getAllProducts = unstable_cache(
             ? 'Laser Defense Systems'
             : cleanCatalogGroup(raw.category_by_mission_application as string | undefined),
           catalogOrder: localLaserPreview ? 80 : readCatalogOrder(raw.catalog_order)
-        }, tier);
+        };
 
         categories[publicCategory].push(product);
       }
@@ -157,7 +145,7 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260721-laser-public-v2'],
+  ['all-products-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -166,9 +154,9 @@ export const getAllProductHandles = unstable_cache(
     const rows = db.prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1 AND category_primary <> ?').all(ACCESSORY_CATEGORY) as any[];
     return rows
       .map(r => r.handle)
-      .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
+      .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle));
   },
-  ['product-handles-uav-refresh-20260721-laser-public-v6'],
+  ['product-handles-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['products'] }
 );
 
@@ -177,7 +165,6 @@ export const getProductByHandle = unstable_cache(
     const row = db.prepare('SELECT * FROM products WHERE handle = ? AND COALESCE(is_published, 1) = 1 AND category_primary <> ?').get(handle, ACCESSORY_CATEGORY) as any;
     if (!row) return null;
     if (HIDDEN_PRODUCT_HANDLES.has(handle)) return null;
-    if (!isPublicComplianceContent('product', handle)) return null;
     
     try {
       const base = JSON.parse(row.raw_json);
@@ -185,11 +172,11 @@ export const getProductByHandle = unstable_cache(
         ...base,
         ...row 
       });
-      return sanitizeRecordForTier(pruneProductDetailPayload(product), getComplianceTier('product', handle));
+      return pruneProductDetailPayload(product);
     } catch (e) {
-      return sanitizeRecordForTier(pruneProductDetailPayload(withArabicEditorialCopy(row)), getComplianceTier('product', handle));
+      return pruneProductDetailPayload(withArabicEditorialCopy(row));
     }
   },
-  ['product-detail-uav-refresh-20260721-laser-public-v7'],
+  ['product-detail-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['products'] }
 );

@@ -12,6 +12,7 @@ type ChatSettingsResponse = {
   success?: boolean;
   data?: {
     messageBoxEnabled?: boolean;
+    messageBoxDelayMinutes?: number;
   };
 };
 
@@ -23,14 +24,23 @@ const emptyForm = {
   message: '',
 };
 
-const AUTO_OPEN_DELAY_MS = 20000;
+const DEFAULT_AUTO_OPEN_DELAY_MINUTES = 3;
+const MIN_AUTO_OPEN_DELAY_MINUTES = 1;
+const MAX_AUTO_OPEN_DELAY_MINUTES = 60;
 const AUTO_OPEN_SESSION_KEY = 'ntet-floating-message-auto-opened';
+
+function normalizeAutoOpenDelayMinutes(value: unknown) {
+  const parsed = typeof value === 'number' ? value : Number.parseInt(String(value), 10);
+  if (!Number.isFinite(parsed)) return DEFAULT_AUTO_OPEN_DELAY_MINUTES;
+  return Math.min(MAX_AUTO_OPEN_DELAY_MINUTES, Math.max(MIN_AUTO_OPEN_DELAY_MINUTES, Math.round(parsed)));
+}
 
 export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedAtMs?: number }) {
   const pathname = usePathname();
   const router = useRouter();
   const visitStartedAt = useRef(visitStartedAtMs ?? Date.now());
   const [enabled, setEnabled] = useState(false);
+  const [autoOpenDelayMinutes, setAutoOpenDelayMinutes] = useState(DEFAULT_AUTO_OPEN_DELAY_MINUTES);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [minimized, setMinimized] = useState(false);
@@ -73,6 +83,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
       .then((res) => res.json())
       .then((json: ChatSettingsResponse) => {
         if (!isMounted) return;
+        setAutoOpenDelayMinutes(normalizeAutoOpenDelayMinutes(json?.data?.messageBoxDelayMinutes));
         setEnabled(Boolean(json?.success && json?.data?.messageBoxEnabled));
       })
       .catch(() => {
@@ -99,7 +110,8 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
     }
 
     const elapsed = Date.now() - visitStartedAt.current;
-    const delay = Math.max(0, AUTO_OPEN_DELAY_MS - elapsed);
+    const autoOpenDelayMs = autoOpenDelayMinutes * 60 * 1000;
+    const delay = Math.max(0, autoOpenDelayMs - elapsed);
     const autoOpenTimer = window.setTimeout(() => {
       window.sessionStorage.setItem(AUTO_OPEN_SESSION_KEY, 'true');
       setIsVisible(true);
@@ -108,7 +120,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
     return () => {
       window.clearTimeout(autoOpenTimer);
     };
-  }, [enabled, isDesktop, isVisible]);
+  }, [autoOpenDelayMinutes, enabled, isDesktop, isVisible]);
 
   useEffect(() => {
     if (!enabled || !isDesktop) return;

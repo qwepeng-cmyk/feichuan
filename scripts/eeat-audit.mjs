@@ -2,7 +2,7 @@ import { join } from 'node:path';
 import { getAllPublishedContent, openDb, stripHtml, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
 
 const db = openDb();
-const rows = getAllPublishedContent(db).filter((row) => row.tier !== 'restricted');
+const rows = getAllPublishedContent(db);
 const warnings = [];
 
 for (const row of rows) {
@@ -28,8 +28,7 @@ const report = [
   '',
   '## 范围',
   '',
-  '- 只检查公开 A 层和 B 层记录。',
-  '- C 层 restricted 记录有意排除在公开 E-E-A-T 优化流程之外。',
+  '- 检查所有已发布记录，不应用内容分层或敏感词排除。',
   '',
   '## 启发式警告',
   '',
@@ -37,9 +36,9 @@ const report = [
   '',
   '## 人工复核问题',
   '',
-  '- 每个战略页面是否明确了使用场景、采购方、运行环境和证据来源？',
+  '- 每个战略页面是否说明了使用场景、采购方、运行环境和证据来源？',
   '- 页面声明是否绑定了可见规格、项目案例、认证或可联系的公司信息？',
-  '- 高风险词是否已经从摘要、标题、Schema、`llms.txt` 和广告可达页面中移除？',
+  '- 标题、摘要、Schema、llms.txt 与页面正文是否准确反映产品和能力？',
 ];
 
 const reportPath = join(process.cwd(), 'docs', 'seo', `eeat-audit-${todayStamp()}.md`);

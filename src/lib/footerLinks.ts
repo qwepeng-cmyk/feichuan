@@ -1,5 +1,7 @@
 import type { ProductCategoryId } from './productCategoryVisibility';
 import { englishCuasSolutionCenterGroups } from './solutionCenterGroups';
+import { intentText } from './intentLandingLocalization';
+import type { Locale } from '@/i18n/config';
 
 export type FooterLink = {
   href: string;
@@ -29,15 +31,15 @@ export function getFooterSolutionLinks(locale: string, dict: any): FooterLink[] 
     label: dict.megaMenu?.lowAltitudeAirspaceMonitoring || 'Low-Altitude Airspace Monitoring Solution',
   };
 
-  const englishIntentLandingLinks: FooterLink[] = locale === 'en'
+  const localizedIntentLandingLinks: FooterLink[] = ['en', 'ru'].includes(locale)
     ? [
-        { href: '/solutions/drone-radar-detection', label: 'Drone Radar Detection' },
-        { href: '/solutions/portable-drone-detection', label: 'Portable Drone Detection' },
-        { href: '/solutions/drone-detector', label: 'Drone Detector', newTab: true },
-        { href: '/solutions/drone-defender', label: 'Drone Defender', newTab: true },
-        { href: '/solutions/drone-locator', label: 'Drone Locator', newTab: true },
-        { href: '/solutions/drone-shield', label: 'Drone Shield', newTab: true },
-        { href: '/solutions/drone-jammer', label: 'Drone Jammer', newTab: true },
+        { href: '/solutions/drone-radar-detection', label: intentText(locale as Locale, 'Drone Radar Detection') },
+        { href: '/solutions/portable-drone-detection', label: intentText(locale as Locale, 'Portable Drone Detection') },
+        { href: '/solutions/drone-detector', label: intentText(locale as Locale, 'Drone Detector'), newTab: true },
+        { href: '/solutions/drone-defender', label: intentText(locale as Locale, 'Drone Defender'), newTab: true },
+        { href: '/solutions/drone-locator', label: intentText(locale as Locale, 'Drone Locator'), newTab: true },
+        { href: '/solutions/drone-shield', label: intentText(locale as Locale, 'Drone Shield'), newTab: true },
+        { href: '/solutions/drone-jammer', label: intentText(locale as Locale, 'Drone Jammer'), newTab: true },
       ]
     : [];
 
@@ -45,7 +47,7 @@ export function getFooterSolutionLinks(locale: string, dict: any): FooterLink[] 
     return uniqueLinks([
       solutionIndex,
       lowAltitudeTopic,
-      ...englishIntentLandingLinks,
+      ...localizedIntentLandingLinks,
       ...englishCuasSolutionCenterGroups.map((group) => ({
         href: `/solutions/${group.handles[0]}`,
         label: dict.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel,

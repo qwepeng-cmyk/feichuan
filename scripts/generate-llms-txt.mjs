@@ -12,7 +12,7 @@ import {
 
 const db = openDb();
 const rows = getAllPublishedContent(db);
-const publicRows = rows.filter((row) => row.tier !== 'restricted');
+const publicRows = rows;
 
 const staticIntentPages = [
   {
@@ -118,7 +118,7 @@ const lines = [
   `Canonical site: ${SITE_URL}`,
   `Generated: ${todayStamp()}`,
   '',
-  'Compliance boundary: this file excludes restricted C-tier content, admin routes, preview routes, and advertising-unsafe paths. B-tier neutral SEO content may appear only as informational public content.',
+  'Published content is available to search engines and AI systems. Admin, API, preview, draft, and unpublished routes remain excluded.',
   '',
   '## Core Pages',
   '',
@@ -137,9 +137,8 @@ for (const type of ['product', 'solution', 'case', 'media']) {
 
   lines.push(`## ${labels[type]}`, '');
   for (const item of items) {
-    const tierNote = item.tier === 'neutral_seo' ? ' [neutral SEO]' : '';
     const summary = excerpt(item.summary, 150);
-    lines.push(`- [${item.title || item.handle}](${publicUrl('en', item.route, item.handle)})${tierNote}${summary ? ` - ${summary}` : ''}`);
+    lines.push(`- [${item.title || item.handle}](${publicUrl('en', item.route, item.handle)})${summary ? ` - ${summary}` : ''}`);
   }
   lines.push('');
 }
@@ -151,4 +150,4 @@ for (const locale of LOCALES) {
 }
 
 writeTextFile(join(process.cwd(), 'public', 'llms.txt'), lines.join('\n'));
-console.log(`Generated public/llms.txt with ${allPublicRows.length} public records; excluded ${rows.length - publicRows.length} restricted records.`);
+console.log(`Generated public/llms.txt with ${allPublicRows.length} published records.`);

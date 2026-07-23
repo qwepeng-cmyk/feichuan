@@ -13,6 +13,7 @@ export async function GET() {
       data: {
         zoosnetEnabled: canLoadZoosnet && settings.zoosnetEnabled,
         messageBoxEnabled: settings.messageBoxEnabled,
+        messageBoxDelayMinutes: settings.messageBoxDelayMinutes,
       },
     });
   } catch {

@@ -20,8 +20,7 @@ const USABLE_CITATION_MAX = 220;
 
 const db = openDb();
 const rows = getAllPublishedContent(db);
-const publicRows = rows.filter((row) => row.tier !== 'restricted');
-const restrictedRows = rows.filter((row) => row.tier === 'restricted');
+const publicRows = rows;
 
 const robotsPath = join(process.cwd(), 'public', 'robots.txt');
 const llmsPath = join(process.cwd(), 'public', 'llms.txt');
@@ -109,8 +108,7 @@ function scoreCitability(row) {
   if (/\b\d+(?:[.,]\d+)?%?\b/.test(text)) score += 15;
   if (/[.;:]/.test(text) && words >= 25) score += 15;
   if (row.title && text.toLowerCase().includes(String(row.title).split(/\s+/)[0].toLowerCase())) score += 10;
-  if (row.tier === 'normal') score += 10;
-  else if (row.tier === 'neutral_seo') score += 5;
+  score += 10;
 
   return Math.min(score, 100);
 }
@@ -140,13 +138,6 @@ for (const section of ['## Core Pages', '## Products', '## Solutions', '## Media
 if (llmsUrls.some((url) => /\/admin\b|\/api\b|preview\b/i.test(url))) {
   failures.push('llms.txt contains admin, API, or preview URLs.');
 }
-for (const row of restrictedRows) {
-  const url = publicUrl('en', row.route, row.handle);
-  if (llmsUrls.includes(url)) {
-    failures.push(`Restricted C-tier URL leaked into llms.txt: ${url}`);
-  }
-}
-
 const appFiles = collectFiles(join(process.cwd(), 'src', 'app'));
 const schemaFiles = appFiles.filter((file) => {
   const content = readFileSync(file, 'utf8');
@@ -196,7 +187,6 @@ const report = [
   '',
   `- 是否存在：${existsSync(llmsPath) ? 'yes' : 'no'}`,
   `- URL 数量：${llmsUrls.length}`,
-  `- restricted URL 泄漏：${restrictedRows.some((row) => llmsUrls.includes(publicUrl('en', row.route, row.handle))) ? 'found' : 'none'}`,
   `- admin/API/preview 泄漏：${llmsUrls.some((url) => /\/admin\b|\/api\b|preview\b/i.test(url)) ? 'found' : 'none'}`,
   '',
   '## Schema / 实体准备度',
@@ -210,11 +200,11 @@ const report = [
   `- 强引用候选：${strongCitability.length}`,
   `- 弱引用候选：${weakCitability.length}`,
   '',
-  '| 低分公开记录 | 层级 | 词数 | 得分 | URL |',
-  '| --- | --- | ---: | ---: | --- |',
+  '| 低分公开记录 | 词数 | 得分 | URL |',
+  '| --- | ---: | ---: | --- |',
   ...citabilityRows
     .slice(0, 12)
-    .map((row) => `| ${row.type}/${row.handle} | ${row.tier} | ${row.words} | ${row.score} | ${publicUrl('en', row.route, row.handle)} |`),
+    .map((row) => `| ${row.type}/${row.handle} | ${row.words} | ${row.score} | ${publicUrl('en', row.route, row.handle)} |`),
   '',
   '## 失败项',
   '',
@@ -228,8 +218,8 @@ const report = [
   '',
   '- 为产品、方案、媒体详情页增加服务端 Organization、WebSite、BreadcrumbList、Product、Service、Article JSON-LD。',
   '- 将弱引用页面改写成 134-167 词的自包含回答段，加入具体规格、日期和证据。',
-  '- 继续确保 C 层 restricted 内容不进入 `llms.txt`、公开 Schema、sitemap 和 Firecrawl 抓取。',
-  '- 使用 Firecrawl 时必须遵守 `docs/seo-agent-setup.md` 中的 include/exclude 边界。',
+  '- `llms.txt`、公开 Schema、sitemap 和 Firecrawl 应覆盖全部已发布内容。',
+  '- Firecrawl 只需排除 admin、API、preview、draft 和未发布路径。',
 ];
 
 const reportPath = join(process.cwd(), 'docs', 'seo', `geo-audit-${todayStamp()}.md`);

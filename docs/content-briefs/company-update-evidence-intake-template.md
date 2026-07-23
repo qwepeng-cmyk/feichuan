@@ -37,8 +37,8 @@ Minimum photo set:
 - What the evidence does not prove:
 - Customer names, faces, badges, serial numbers, screens, maps, addresses, or documents requiring redaction:
 - Claims needing human confirmation:
-- Compliance tier: A normal / B neutral SEO / C restricted
-- Restricted capability wording present: yes / no
+- Intended publication state: published / draft / preview-only / unpublished
+- Technical capability wording verified against evidence: yes / no
 
 Role wording must remain literal:
 
@@ -63,7 +63,7 @@ Role wording must remain literal:
 - Facts checked by:
 - Images checked by:
 - Redactions checked by:
-- Compliance checked by:
+- Publication status checked by:
 - Approved publication date:
 - Follow-up evidence still required:
 

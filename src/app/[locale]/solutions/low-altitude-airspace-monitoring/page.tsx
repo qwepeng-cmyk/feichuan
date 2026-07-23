@@ -19,6 +19,7 @@ import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { breadcrumbSchema, pageUrl } from '@/lib/structuredData';
 import DeferredInquiryForm from './DeferredInquiryForm';
 import styles from './LowAltitudeAirspaceMonitoring.module.css';
+import ruOperationalCopy from '@/dictionaries/low-altitude-airspace-monitoring/ru.json';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
 const pageTitle = 'Low-Altitude Airspace Security & C-UAS';
@@ -27,6 +28,7 @@ const pageDescription =
 
 const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
   ru: {
+    ...ruOperationalCopy,
     'Low-Altitude Airspace Security & C-UAS': 'Безопасность низковысотного воздушного пространства и C-UAS',
     'C-UAS and anti drone site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
       'Планирование C-UAS и anti-drone решений для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров: раннее предупреждение, идентификация, позиционирование, сопровождение, обработка событий, записи и подготовка предложения.',

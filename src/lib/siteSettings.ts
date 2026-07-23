@@ -10,6 +10,7 @@ export interface TrackingSettings {
 export interface ChatSettings {
   zoosnetEnabled: boolean;
   messageBoxEnabled: boolean;
+  messageBoxDelayMinutes: number;
 }
 
 const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
@@ -22,12 +23,22 @@ const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
 const DEFAULT_CHAT_SETTINGS: ChatSettings = {
   zoosnetEnabled: true,
   messageBoxEnabled: false,
+  messageBoxDelayMinutes: 3,
 };
+
+const MIN_MESSAGE_BOX_DELAY_MINUTES = 1;
+const MAX_MESSAGE_BOX_DELAY_MINUTES = 60;
 
 function parseBoolean(value: unknown, fallback: boolean) {
   if (value === 'true') return true;
   if (value === 'false') return false;
   return fallback;
+}
+
+function parseInteger(value: unknown, fallback: number, min: number, max: number) {
+  const parsed = typeof value === 'number' ? value : Number.parseInt(String(value), 10);
+  if (!Number.isFinite(parsed)) return fallback;
+  return Math.min(max, Math.max(min, Math.round(parsed)));
 }
 
 export function getTrackingSettings(): TrackingSettings {
@@ -74,6 +85,12 @@ export function getChatSettings(): ChatSettings {
   return {
     zoosnetEnabled: parseBoolean(values['chat.zoosnetEnabled'], DEFAULT_CHAT_SETTINGS.zoosnetEnabled),
     messageBoxEnabled: parseBoolean(values['chat.messageBoxEnabled'], DEFAULT_CHAT_SETTINGS.messageBoxEnabled),
+    messageBoxDelayMinutes: parseInteger(
+      values['chat.messageBoxDelayMinutes'],
+      DEFAULT_CHAT_SETTINGS.messageBoxDelayMinutes,
+      MIN_MESSAGE_BOX_DELAY_MINUTES,
+      MAX_MESSAGE_BOX_DELAY_MINUTES
+    ),
   };
 }
 
@@ -86,6 +103,19 @@ export function updateChatSettings(settings: ChatSettings) {
       updated_at = CURRENT_TIMESTAMP
   `);
 
-  update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
-  update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
+  const transaction = db.transaction(() => {
+    update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
+    update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
+    update.run(
+      'chat.messageBoxDelayMinutes',
+      String(parseInteger(
+        settings.messageBoxDelayMinutes,
+        DEFAULT_CHAT_SETTINGS.messageBoxDelayMinutes,
+        MIN_MESSAGE_BOX_DELAY_MINUTES,
+        MAX_MESSAGE_BOX_DELAY_MINUTES
+      ))
+    );
+  });
+
+  transaction();
 }

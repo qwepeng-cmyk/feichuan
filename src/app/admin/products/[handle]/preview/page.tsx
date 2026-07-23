@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
 
 export default function AdminProductPreview({ params }: { params: { handle: string } }) {
@@ -13,12 +12,10 @@ export default function AdminProductPreview({ params }: { params: { handle: stri
     return <DroneLaserEngagementSystem mode="preview" locale="en" />;
   }
 
-  const tier = getComplianceTier('product', product.handle);
-  const layer = getComplianceLayer(tier);
   const parameters = parseJson(product.parameters_en, {});
 
   return (
-    <PreviewShell title={product.product_name_en} editHref={`/admin/products/${product.handle}`} layer={layer.label}>
+    <PreviewShell title={product.product_name_en} editHref={`/admin/products/${product.handle}`} layer="Preview">
       <PreviewImage src={product.main_image} alt={product.product_name_en} />
       <PreviewSection title="Summary">{product.summary_en || '-'}</PreviewSection>
       <PreviewSection title="Key Application">{product.key_application_en || '-'}</PreviewSection>

@@ -4,6 +4,7 @@ import { ArrowUpRight, BadgeCheck, Check, Eye, MapPinned, Radar, ScanSearch, Sir
 import type { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
 import type { IntentLandingConfig } from '@/lib/intentLandingPages';
+import { intentText } from '@/lib/intentLandingLocalization';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
 import styles from './IntentLandingPage.module.css';
@@ -21,7 +22,7 @@ export default function IntentLandingPage({
 }) {
   return (
     <main className={styles.page}>
-      <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+      <nav className={styles.breadcrumbs} aria-label={intentText(locale, 'Breadcrumb')}>
         <Link prefetch={false} href={localePath(locale, '/')}>{dict.nav.home || 'Home'}</Link>
         <span>/</span>
         <Link prefetch={false} href={localePath(locale, '/solutions')}>{dict.nav.solutions || 'Solutions'}</Link>
@@ -56,7 +57,7 @@ export default function IntentLandingPage({
           />
           <div className={styles.heroVisualLabel}>
             <Radar size={20} aria-hidden="true" />
-            <span>Detection layer / site configuration</span>
+            <span>{intentText(locale, 'Detection layer / site configuration')}</span>
           </div>
         </div>
       </section>
@@ -65,7 +66,7 @@ export default function IntentLandingPage({
         <div className={styles.sectionIntro}>
           <span className={styles.sectionNumber}>01</span>
           <div>
-            <span className={styles.sectionKicker}>APPLICATION CONTEXT</span>
+            <span className={styles.sectionKicker}>{intentText(locale, 'APPLICATION CONTEXT')}</span>
             <h2 id="applications-heading">{config.applicationHeading}</h2>
           </div>
         </div>
@@ -85,7 +86,7 @@ export default function IntentLandingPage({
         <div className={styles.sectionIntro}>
           <span className={styles.sectionNumber}>02</span>
           <div>
-            <span className={styles.sectionKicker}>COMPLEMENTARY SENSOR LAYERS</span>
+            <span className={styles.sectionKicker}>{intentText(locale, 'COMPLEMENTARY SENSOR LAYERS')}</span>
             <h2 id="products-heading">{config.productsHeading}</h2>
             <p>{config.productsIntro}</p>
           </div>
@@ -109,7 +110,7 @@ export default function IntentLandingPage({
                 <ul>
                   {product.facts.map((fact) => <li key={fact}><BadgeCheck size={15} aria-hidden="true" />{fact}</li>)}
                 </ul>
-                <span className={styles.textLink}>View product details <ArrowUpRight size={16} aria-hidden="true" /></span>
+                <span className={styles.textLink}>{intentText(locale, 'View product details')} <ArrowUpRight size={16} aria-hidden="true" /></span>
               </div>
             </Link>
           ))}
@@ -120,7 +121,7 @@ export default function IntentLandingPage({
         <div className={styles.sectionIntro}>
           <span className={styles.sectionNumber}>03</span>
           <div>
-            <span className={styles.sectionKicker}>BUYER COMPARISON</span>
+            <span className={styles.sectionKicker}>{intentText(locale, 'BUYER COMPARISON')}</span>
             <h2 id="comparison-heading">{config.comparisonHeading}</h2>
             <p>{config.comparisonIntro}</p>
           </div>
@@ -129,7 +130,7 @@ export default function IntentLandingPage({
           <table>
             <thead>
               <tr>
-                <th scope="col">Selection factor</th>
+                <th scope="col">{intentText(locale, 'Selection factor')}</th>
                 {config.comparisonColumns.map((column) => <th scope="col" key={column}>{column}</th>)}
               </tr>
             </thead>
@@ -149,7 +150,7 @@ export default function IntentLandingPage({
         <div className={styles.sectionIntroLight}>
           <span className={styles.sectionNumberLight}>04</span>
           <div>
-            <span className={styles.sectionKickerLight}>OPERATING LOOP</span>
+            <span className={styles.sectionKickerLight}>{intentText(locale, 'OPERATING LOOP')}</span>
             <h2 id="workflow-heading">{config.workflowHeading}</h2>
             <p>{config.workflowIntro}</p>
           </div>
@@ -171,7 +172,7 @@ export default function IntentLandingPage({
         </div>
         <p className={styles.workflowNote}>
           <Siren size={18} aria-hidden="true" />
-          Define escalation contacts, decision authority, site procedures and record-retention requirements before commissioning.
+          {intentText(locale, 'Define escalation contacts, decision authority, site procedures and record-retention requirements before commissioning.')}
         </p>
       </section>
 
@@ -179,7 +180,7 @@ export default function IntentLandingPage({
         <div className={styles.sectionIntro}>
           <span className={styles.sectionNumber}>05</span>
           <div>
-            <span className={styles.sectionKicker}>SOLUTION SCENARIOS</span>
+            <span className={styles.sectionKicker}>{intentText(locale, 'SOLUTION SCENARIOS')}</span>
             <h2 id="scenarios-heading">{config.scenariosHeading}</h2>
             <p>{config.scenariosIntro}</p>
           </div>
@@ -202,7 +203,7 @@ export default function IntentLandingPage({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {scenario.linkLabel || 'View case details'} <ArrowUpRight size={16} aria-hidden="true" />
+                  {scenario.linkLabel || intentText(locale, 'View case details')} <ArrowUpRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </article>
@@ -213,7 +214,7 @@ export default function IntentLandingPage({
       <section className={styles.faqInquiry} aria-labelledby="faq-heading">
         <div className={styles.faqColumn}>
           <span className={styles.sectionNumber} aria-hidden="true">06</span>
-          <span className={styles.sectionKicker}>FAQ</span>
+          <span className={styles.sectionKicker}>{intentText(locale, 'FAQ')}</span>
           <h2 id="faq-heading">{config.faqHeading}</h2>
           <div className={styles.faqList}>
             {config.faqs.map((faq, index) => (
@@ -227,7 +228,7 @@ export default function IntentLandingPage({
         <div id="inquiry" className={styles.inquiryColumn}>
           <div className={styles.inquiryMarker} aria-hidden="true">
             <span className={styles.sectionNumber}>07</span>
-            <span className={styles.sectionKicker}>PROJECT INQUIRY</span>
+            <span className={styles.sectionKicker}>{intentText(locale, 'PROJECT INQUIRY')}</span>
           </div>
           <div className="pc_only">
             <InquiryForm dict={dict} />

@@ -6,9 +6,6 @@ import styles from './seoMonitoring.module.css';
 export const dynamic = 'force-dynamic';
 
 type TierCounts = {
-  normal: number;
-  neutral_seo: number;
-  restricted: number;
   public: number;
   total: number;
 };
@@ -35,13 +32,11 @@ type SeoSnapshot = {
   siteUrl: string;
   content: {
     publicRecords: number;
-    restrictedRecords: number;
     byTypeAndTier: Record<string, TierCounts>;
   };
   llms: {
     urlCount: number;
     privatePathLeaks: string[];
-    restrictedLeaks: string[];
   };
   robots: {
     hasSitemap: boolean;
@@ -68,7 +63,6 @@ type KeywordRow = {
   locale: string;
   target_url: string;
   intent: string;
-  tier: string;
   priority: string;
   source: string;
   notes: string;
@@ -176,7 +170,6 @@ function readKeywords() {
         locale: row.locale || 'en',
         target_url: row.route,
         intent: row.page_type || 'page-target',
-        tier: row.compliance_tier || 'normal',
         priority: Number(row.audit_score || 0) < 50 ? 'P0' : Number(row.audit_score || 0) < 70 ? 'P1' : 'P2',
         source: row.target_source || 'page-seo-keyword-targets',
         notes: `${row.audit_status || 'unknown'} / ${row.target_cluster || ''}`.trim(),
@@ -243,7 +236,7 @@ export default function SeoMonitoringPage() {
     );
   }
 
-  const hasLeaks = snapshot.llms.restrictedLeaks.length > 0 || snapshot.llms.privatePathLeaks.length > 0;
+  const hasLeaks = snapshot.llms.privatePathLeaks.length > 0;
   const allRobotsGates =
     snapshot.robots.hasSitemap &&
     snapshot.robots.disallowsAdmin &&
@@ -363,9 +356,8 @@ export default function SeoMonitoringPage() {
             {statusBadge(!hasLeaks, '公开集合正常', '泄漏风险')}
           </div>
           <div className={styles.metricList}>
-            {metric('公开 A/B 记录', snapshot.content.publicRecords, '允许进入 SEO/GEO')}
-            {metric('C 层 restricted', snapshot.content.restrictedRecords, '默认不公开输出')}
-            {metric('llms.txt URL', snapshot.llms.urlCount, hasLeaks ? '存在泄漏风险' : '无 C 层泄漏')}
+            {metric('已发布记录', snapshot.content.publicRecords, '全部进入 SEO/GEO')}
+            {metric('llms.txt URL', snapshot.llms.urlCount, hasLeaks ? '存在私有路径泄漏风险' : '公开集合正常')}
             {metric('本地 sitemap 文件', snapshot.sitemap.localFileExists ? 'exists' : 'missing', '线上可用时需复核')}
             {metric('Schema 覆盖', `${snapshot.schema.coveredPublicRecords}/${snapshot.content.publicRecords}`, '公开记录结构化数据')}
           </div>
@@ -374,7 +366,7 @@ export default function SeoMonitoringPage() {
         <div className={styles.panel}>
           <div className={styles.panelHeader}>
             <h2 className={styles.panelTitle}>
-              <Braces size={18} /> A/B/C 内容分布
+              <Braces size={18} /> 已发布内容分布
             </h2>
           </div>
           <div className={styles.tableWrap}>
@@ -382,21 +374,13 @@ export default function SeoMonitoringPage() {
               <thead>
                 <tr>
                   <th>Type</th>
-                  <th>A</th>
-                  <th>B</th>
-                  <th>C</th>
-                  <th>Public</th>
-                  <th>Total</th>
+                  <th>Published</th>
                 </tr>
               </thead>
               <tbody>
                 {Object.entries(snapshot.content.byTypeAndTier).map(([type, counts]) => (
                   <tr key={type}>
                     <td>{type}</td>
-                    <td>{counts.normal}</td>
-                    <td>{counts.neutral_seo}</td>
-                    <td>{counts.restricted}</td>
-                    <td>{counts.public}</td>
                     <td>{counts.total}</td>
                   </tr>
                 ))}
@@ -421,7 +405,6 @@ export default function SeoMonitoringPage() {
                 <th>Locale</th>
                 <th>Target URL</th>
                 <th>Intent</th>
-                <th>Tier</th>
                 <th>Priority</th>
                 <th>Notes</th>
               </tr>
@@ -433,7 +416,6 @@ export default function SeoMonitoringPage() {
                   <td>{item.locale}</td>
                   <td>{item.target_url}</td>
                   <td>{item.intent}</td>
-                  <td>{item.tier}</td>
                   <td>{item.priority}</td>
                   <td>{item.notes}</td>
                 </tr>

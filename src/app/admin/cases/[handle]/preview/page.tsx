@@ -2,18 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 
 export default function AdminCasePreview({ params }: { params: { handle: string } }) {
   const item = db.prepare('SELECT * FROM cases WHERE handle = ?').get(params.handle) as any;
   if (!item) notFound();
 
-  const tier = getComplianceTier('case', item.handle);
-  const layer = getComplianceLayer(tier);
   const images = parseJson(item.case_images, []);
 
   return (
-    <PreviewShell title={item.title_en} editHref={`/admin/cases/${item.handle}`} layer={layer.label}>
+    <PreviewShell title={item.title_en} editHref={`/admin/cases/${item.handle}`} layer="Preview">
       <PreviewImage src={item.main_image} alt={item.title_en} />
       <PreviewSection title="Region">{[item.region_en, item.country_en].filter(Boolean).join(' / ') || '-'}</PreviewSection>
       <PreviewSection title="Description"><div style={{ whiteSpace: 'pre-wrap' }}>{item.description_en || '-'}</div></PreviewSection>

@@ -1,11 +1,10 @@
 import type { MetadataRoute } from 'next';
 import db from '@/lib/db';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
 import { i18n, type Locale } from '@/i18n/config';
 
 const SITE_URL = 'https://n-tet.com';
 const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
-const ENGLISH_INTENT_PATHS = [
+const EN_RU_INTENT_PATHS = [
   '/solutions/low-altitude-airspace-monitoring',
   '/solutions/drone-detector',
   '/solutions/drone-radar-detection',
@@ -54,7 +53,7 @@ function publishedHandles(type: ContentType) {
 
   return rows
     .map((row) => row.handle)
-    .filter((handle): handle is string => Boolean(handle && isPublicComplianceContent(type, handle)));
+    .filter((handle): handle is string => Boolean(handle));
 }
 
 function accessoryHandles() {
@@ -92,8 +91,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push(sitemapEntry(locale, path, path === '/' ? 1 : 0.8));
     }
 
-    if (locale === 'en') {
-      for (const path of ENGLISH_INTENT_PATHS) {
+    if (['en', 'ru'].includes(locale)) {
+      for (const path of EN_RU_INTENT_PATHS) {
         entries.push(sitemapEntry(locale, path, 0.85));
       }
     }

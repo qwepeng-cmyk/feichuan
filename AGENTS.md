@@ -84,12 +84,12 @@ DB 路径用 `scripts/update-db-refs.mjs` 批量同步，硬编码文件需手�
 - Cloudflare 免费套餐还可以继续做页面级缓存：优先考虑 `/products*`、`/solutions*`、`/cases*`、`/media*` 的 Cache Everything / Edge TTL；必须排除 `/api*`、`/admin*`、表单提交和需要动态状态的路径。
 - 服务器只有 4GB 内存，仍然不要在服务器跑 `npm run build`；速度优化后的构建产物继续按本地 WSL build、打包 `.next`、上传服务器、PM2 restart 的流程走。
 
-## 广告合规术语口径（2026-07-14）
+## 内容发布口径（2026-07-22）
 
-- `anti drone` / `anti-drone`、`counter drone`、`counter-UAS` / `counter-UAV`、`C-UAS` 是允许公开用于 A 层广告承接页、广告文案、SEO/GEO 与 Schema 的行业类别词，不能仅因命中这些词就判为 restricted。
-- 放开行业类别词不等于放开主动能力词。`jammer` / `jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down` 等主动干扰、诱骗、迫降或武器化表述继续按现有 A/B/C 规则限制。
-- **定向例外（2026-07-15，名称口径更新）**：`directional-rf-interference-device` 与 `omni-directional-rf-interference-device` 经明确确认保持 A 层公开产品，公开名称恢复为 `Directional RF Jammer` 与 `Omni-directional RF Jammer`，可进入 Fixed-Site 产品列表、详情页以及相关 Defender、Locator、Drone Jammer 落地页与公开 SEO/GEO 输出。旧的 `directional-rf-jammer` / `omni-directional-rf-jammer` handle 与其他 jammer、jamming、spoofing 或武器化内容继续保持 restricted；公开例外仅限这两个现有产品 handle 和对应解决方案语境。
-- 内容层级仍以 `src/lib/complianceTaxonomy.ts` 为准；公开风险审计和关键词覆盖矩阵必须与上述术语口径保持一致。
+- 网站、SEO、GEO、Schema、sitemap、`llms.txt` 与广告均不再应用 A/B/C 合规分层或敏感词门禁。
+- `jammer`、`jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down`、`anti drone`、`counter-UAS` 等词不因词语本身被隐藏、替换、降级或排除。
+- 所有内容只按正常的 `is_published` 发布状态控制公开与下线；后台、API、preview、draft 与未发布记录仍不公开。
+- `src/lib/complianceTaxonomy.ts` 已删除；不得重新引入用于限制网站、SEO、GEO 或广告内容的同类门禁。
 
 ## Frontend Design Skill（前端设计规范）
 

@@ -26,6 +26,7 @@ type EmailForm = {
 type ChatForm = {
     zoosnetEnabled: boolean;
     messageBoxEnabled: boolean;
+    messageBoxDelayMinutes: number;
 };
 
 const card: React.CSSProperties = {
@@ -93,6 +94,7 @@ const emptyEmail: EmailForm = {
 const emptyChat: ChatForm = {
     zoosnetEnabled: true,
     messageBoxEnabled: false,
+    messageBoxDelayMinutes: 3,
 };
 
 export default function AdminSettingsPage() {
@@ -345,8 +347,29 @@ export default function AdminSettingsPage() {
                             Enable floating message box
                         </label>
 
+                        <label style={{ maxWidth: '360px', opacity: chatForm.messageBoxEnabled ? 1 : 0.58 }}>
+                            <span style={label}>Auto-open delay (minutes)</span>
+                            <input
+                                type="number"
+                                min={1}
+                                max={60}
+                                step={1}
+                                style={input}
+                                value={chatForm.messageBoxDelayMinutes}
+                                disabled={!chatForm.messageBoxEnabled}
+                                onChange={(e) => setChatForm((prev) => ({
+                                    ...prev,
+                                    messageBoxDelayMinutes: Number(e.target.value),
+                                }))}
+                                aria-describedby="message-box-delay-help"
+                            />
+                            <div id="message-box-delay-help" style={helper}>
+                                The message box opens 1–60 minutes after the visitor arrives, then remains available during the browser session.
+                            </div>
+                        </label>
+
                         <div style={{ padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
-                            Zoosnet and the floating message box can be controlled separately. Use the message box when live chat is offline or disabled.
+                            Zoosnet and the floating message box can be controlled separately. The timer starts when the visitor enters the site and continues across page navigation.
                         </div>
                     </div>
 
