@@ -588,7 +588,7 @@ function writeMarkdown(rows) {
     '2. 产品/方案页优先补：应用场景、技术参数、选型注意事项、相关案例、FAQ、推荐产品内链。',
     '3. 媒体文章优先补：作者/编辑责任、更新时间、数据点、引用来源、结论摘要和相关页面内链。',
     '4. 英文高价值 landing pages 优先补 FAQ 和可引用短段落，提升 GEO / AI citation readiness。',
-    '5. 所有已发布页面均可进入网站、SEO、GEO、Schema 与广告内容扩展。',
+    '5. 已发布页面保持公开；C-UAS 可索引页面进入 SEO、GEO、Schema 与广告内容扩展。',
     '',
     '## 风险分层',
     '',

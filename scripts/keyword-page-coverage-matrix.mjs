@@ -400,7 +400,7 @@ ${renderRows(unmapped, 40)}
 3. Put the primary keyword in title, description, H1, and the intro paragraph.
 4. Put supporting keywords in H2, scenario paragraphs, FAQ, and related links.
 5. Localized pages should inherit the English mapping first, then use localized keyword wording.
-6. Published pages may be used for SEO, GEO, Schema, sitemap, llms.txt, and advertising.
+6. Published pages remain publicly accessible; C-UAS indexable pages may be used for SEO, GEO, Schema, sitemap, llms.txt, and advertising.
 7. After changes, run npm run build and npm run audit:keywords.
 `;
 

@@ -18,6 +18,7 @@ interface BuildSeoMetadataOptions {
   fallbackDescription?: string | null;
   fallbackKeywords?: string[];
   image?: string | null;
+  indexable?: boolean;
 }
 
 const KEYWORD_BACKED_SEO: Record<string, SeoEntry> = {
@@ -714,6 +715,7 @@ export function buildSeoMetadata({
   fallbackDescription,
   fallbackKeywords: fallbackKeywordList,
   image,
+  indexable = true,
 }: BuildSeoMetadataOptions): Metadata {
   const entry = getKeywordBackedSeo(path, locale);
   const canonical = localizedPath(locale, path);
@@ -726,6 +728,14 @@ export function buildSeoMetadata({
     title,
     description,
     keywords,
+    robots: {
+      index: indexable,
+      follow: true,
+      googleBot: {
+        index: indexable,
+        follow: true,
+      },
+    },
     other: {
       'content-language': locale,
     },

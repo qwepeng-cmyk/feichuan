@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { createRequire } from 'node:module';
+import { isCuasIndexableRow } from './cuas-indexability.mjs';
 
 const require = createRequire(import.meta.url);
 let Database = null;
@@ -26,6 +27,7 @@ export const CONTENT_TYPES = {
     handleColumn: 'handle',
     titleColumn: 'product_name_en',
     summaryColumn: 'summary_en',
+    categoryColumn: 'category_primary',
   },
   solution: {
     table: 'solutions',
@@ -33,6 +35,7 @@ export const CONTENT_TYPES = {
     handleColumn: 'handle',
     titleColumn: 'product_name_en',
     summaryColumn: 'summary_en',
+    categoryColumn: 'category_id',
   },
   case: {
     table: 'cases',
@@ -40,6 +43,7 @@ export const CONTENT_TYPES = {
     handleColumn: 'handle',
     titleColumn: 'title_en',
     summaryColumn: 'description_en',
+    categoryColumn: 'solution_category_id',
   },
   media: {
     table: 'media',
@@ -47,6 +51,7 @@ export const CONTENT_TYPES = {
     handleColumn: 'id',
     titleColumn: 'title',
     summaryColumn: 'content',
+    categoryColumn: 'category',
   },
 };
 
@@ -72,7 +77,8 @@ export function getPublishedContent(db, type) {
   const config = CONTENT_TYPES[type];
   const rows = db
     .prepare(
-      `SELECT ${config.handleColumn} AS handle, ${config.titleColumn} AS title, ${config.summaryColumn} AS summary, is_published
+      `SELECT ${config.handleColumn} AS handle, ${config.titleColumn} AS title, ${config.summaryColumn} AS summary,
+              ${config.categoryColumn} AS category, is_published
        FROM ${config.table}
        WHERE COALESCE(is_published, 1) = 1
        ORDER BY title COLLATE NOCASE`
@@ -88,6 +94,10 @@ export function getPublishedContent(db, type) {
 
 export function getAllPublishedContent(db) {
   return Object.keys(CONTENT_TYPES).flatMap((type) => getPublishedContent(db, type));
+}
+
+export function getAllCuasIndexableContent(db) {
+  return getAllPublishedContent(db).filter(isCuasIndexableRow);
 }
 
 export function publicUrl(locale, route, handle) {

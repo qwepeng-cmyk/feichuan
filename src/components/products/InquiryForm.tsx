@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
 import { getContactMethod, getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
+import { trackPersistedInquiryConversion } from '@/components/tracking/googleAdsConversion';
 import uxStyles from './InquiryForm.module.css';
 
 type FormStep = 1 | 2;
@@ -15,6 +16,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
     const ux = getInquiryFormUxCopy(pathname);
     const formId = useId();
     const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+    const submissionInFlightRef = useRef(false);
     const fieldIds = {
         application: `${formId}-application`,
         name: `${formId}-name`,
@@ -97,9 +99,12 @@ export default function InquiryForm({ dict }: { dict?: any }) {
             setContactError(ux.contactRequiredError);
             return;
         }
+        if (submissionInFlightRef.current) return;
 
         setContactError('');
+        submissionInFlightRef.current = true;
         setIsSending(true);
+        let submissionSucceeded = false;
 
         try {
             const response = await fetch('/api/inquiries', {
@@ -123,7 +128,16 @@ export default function InquiryForm({ dict }: { dict?: any }) {
 
             const result = await response.json().catch(() => null);
 
-            if (response.ok && result?.success === true && result?.inquiryId) {
+            const inquiryId = Number(result?.inquiryId);
+
+            if (response.ok && result?.success === true && Number.isSafeInteger(inquiryId) && inquiryId > 0) {
+                submissionSucceeded = true;
+                trackPersistedInquiryConversion({
+                    inquiryId,
+                    conversionSource: 'desktop_inquiry_form',
+                    formName: 'public_inquiry',
+                    pagePath: pathname,
+                });
                 router.push(localePath(localeFromPathname(pathname), '/thank-you'));
             } else {
                 console.error('Inquiry submit failed:', result);
@@ -133,7 +147,10 @@ export default function InquiryForm({ dict }: { dict?: any }) {
             console.error('Inquiry error:', error);
             alert(d.failed || 'Something went wrong. Please try again.');
         } finally {
-            setIsSending(false);
+            if (!submissionSucceeded) {
+                submissionInFlightRef.current = false;
+                setIsSending(false);
+            }
         }
     };
 

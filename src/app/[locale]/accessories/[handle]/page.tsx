@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
     fallbackDescription: description,
     fallbackKeywords: [name, 'drone accessories', 'UAV components', 'industrial UAV parts'],
     image: product.main_image,
+    indexable: false,
   });
 }
 
@@ -50,6 +51,7 @@ async function AccessoryDetailContent({ handle, locale }: { handle: string; loca
       dict={dict}
       basePath="/accessories"
       catalogLabel={dict.nav.accessories || dict.accessories.title}
+      indexable={false}
     />
   );
 }

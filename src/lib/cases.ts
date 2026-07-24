@@ -1,5 +1,6 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
+import { isCuasCaseHandle } from './cuasIndexability';
 
 export const getAllCases = unstable_cache(
   async () => {
@@ -23,7 +24,7 @@ export const getAllCases = unstable_cache(
       FROM cases
       WHERE COALESCE(is_published, 1) = 1
     `).all() as any[];
-    return rows;
+    return rows.filter((row) => isCuasCaseHandle(row.handle));
   },
   ['all-cases-content-gates-retired-20260722-v1'],
   { revalidate: 3600, tags: ['cases'] }

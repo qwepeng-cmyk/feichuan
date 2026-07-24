@@ -30,6 +30,7 @@ const fallbackTracking = {
   gtmContainerId: 'GTM-PJN9QQWN',
   gtmEnabled: true,
 };
+const googleAdsTagId = 'AW-18157207807';
 
 async function loadTrackingSettings() {
   try {
@@ -150,7 +151,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaMeasurementId}');`,
+gtag('config', '${gaMeasurementId}');
+gtag('config', '${googleAdsTagId}');`,
               }}
             />
           </>

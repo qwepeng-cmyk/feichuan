@@ -1,5 +1,6 @@
 import { join } from 'node:path';
-import { getAllPublishedContent, openDb, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { getAllCuasIndexableContent, openDb, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { cuasIndexabilityPolicy, isCuasIndexableRow } from './cuas-indexability.mjs';
 
 function parseHandles(value) {
   if (!value) return [];
@@ -17,17 +18,22 @@ function parseHandles(value) {
 
 const db = openDb();
 const products = new Map(
-  getAllPublishedContent(db)
+  getAllCuasIndexableContent(db)
     .filter((row) => row.type === 'product')
     .map((row) => [row.handle, row])
 );
 
 const cases = db
   .prepare('SELECT handle, recommended_product_handles FROM cases WHERE COALESCE(is_published, 1) = 1 ORDER BY handle')
-  .all();
+  .all()
+  .filter((row) => isCuasIndexableRow({ type: 'case', handle: row.handle, category: '' }));
 const solutions = db
   .prepare('SELECT handle, recommended_products FROM solutions WHERE COALESCE(is_published, 1) = 1 ORDER BY handle')
-  .all();
+  .all()
+  .filter((row) =>
+    isCuasIndexableRow({ type: 'solution', handle: row.handle, category: '' }) &&
+    !cuasIndexabilityPolicy.catalogSolutions.some((solution) => solution.handle === row.handle)
+  );
 
 const issues = [];
 for (const item of [...cases, ...solutions]) {

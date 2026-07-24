@@ -8,9 +8,12 @@ import Link from 'next/link';
 import { localePath } from '@/lib/localePath';
 import styles from './ProductBrochureDownload.module.css';
 
+const GOOGLE_ADS_PDF_CONVERSION_SEND_TO = 'AW-18157207807/S4pzCKPj2dUcEP-BhNJD';
+
 declare global {
   interface Window {
     dataLayer?: Array<Record<string, unknown>>;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -31,6 +34,20 @@ function track(event: string, pathname: string, productHandle: string, inquiryId
     product_handle: productHandle,
     ...(inquiryId ? { inquiry_id: inquiryId } : {}),
   });
+}
+
+function trackGoogleAdsPdfConversion() {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+
+  try {
+    window.gtag('event', 'conversion', {
+      send_to: GOOGLE_ADS_PDF_CONVERSION_SEND_TO,
+      value: 100.0,
+      currency: 'CNY',
+    });
+  } catch {
+    // Analytics must never interrupt a download when tracking is blocked or unavailable.
+  }
 }
 
 export default function ProductBrochureDownload({
@@ -114,6 +131,7 @@ export default function ProductBrochureDownload({
       link.remove();
       window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1500);
 
+      trackGoogleAdsPdfConversion();
       setIsComplete(true);
       track('ntet_product_brochure_download', pathname, productHandle, inquiryId);
     } catch (submitError) {

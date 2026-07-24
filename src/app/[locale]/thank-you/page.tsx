@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import { CheckCircle, Mail, ShieldCheck } from 'lucide-react';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
-import LeadConversionTracker from '@/components/tracking/LeadConversionTracker';
 
 const copy = {
     en: {
@@ -86,7 +85,6 @@ export default function ThankYouPage({ params }: { params: { locale: Locale } })
 
     return (
         <main style={{ background: '#f4f7fb' }}>
-            <LeadConversionTracker />
             <section
                 style={{
                     minHeight: 'calc(100vh - 180px)',

@@ -276,6 +276,53 @@ function EngineeringResources({ locale, mobile = false }: { locale: string; mobi
     ));
 }
 
+function BusinessLicence({ locale, mobile = false }: { locale: string; mobile?: boolean }) {
+    return localizeCuasTree(locale, (
+        <section
+            className={`${styles.licenceSection} ${mobile ? styles.licenceSectionMobile : ''}`}
+            aria-label="Business License"
+        >
+            <div className={mobile ? styles.licenceMobileInner : `${styles.shell} ${styles.licenceLayout}`}>
+                <div className={styles.licenceCopy}>
+                    <p className={styles.sectionEyebrow}>Company Credentials</p>
+                    <p>
+                        N-TET operates through Beijing Feichuan Equipment Technology Co., Ltd.,
+                        a company registered in Beijing, China.
+                    </p>
+                    <div className={styles.licenceMeta}>
+                        <ShieldCheck size={22} strokeWidth={1.8} aria-hidden="true" />
+                        <span>
+                            <strong>Business License</strong>
+                            Registered company document
+                        </span>
+                    </div>
+                </div>
+
+                <a
+                    className={styles.licenceDocument}
+                    href="/about/licence.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open the full business license image"
+                >
+                    <span className={styles.licenceIndex} aria-hidden="true">CREDENTIAL / 01</span>
+                    <div className={styles.licenceImage}>
+                        <Image
+                            src="/about/licence.jpg"
+                            alt="Business license of Beijing Feichuan Equipment Technology Co., Ltd."
+                            fill
+                            sizes={mobile ? 'calc(100vw - 40px)' : '(max-width: 1200px) 58vw, 760px'}
+                        />
+                    </div>
+                    <span className={styles.licenceAction}>
+                        View full document <ArrowUpRight size={16} aria-hidden="true" />
+                    </span>
+                </a>
+            </div>
+        </section>
+    ));
+}
+
 function DesktopCuasAbout({ locale, dict }: { locale: string; dict?: any }) {
     return localizeCuasTree(locale, (
         <div className={styles.desktopPage}>
@@ -432,6 +479,8 @@ function DesktopCuasAbout({ locale, dict }: { locale: string; dict?: any }) {
                     </div>
                 </section>
 
+                <BusinessLicence locale={locale} />
+
                 <section className={styles.faqSection}>
                     <div className={`${styles.shell} ${styles.faqLayout}`}>
                         <div className={styles.faqIntro}>
@@ -585,6 +634,8 @@ function MobileCuasAbout({ locale, dict }: { locale: string; dict?: any }) {
                         })}
                     </div>
                 </section>
+
+                <BusinessLicence locale={locale} mobile />
 
                 <section className={styles.mobileFaq}>
                     <div className={styles.mobileSectionHead}>

@@ -73,6 +73,7 @@ export default function CatalogDetailContent({
   dict,
   basePath,
   catalogLabel,
+  indexable = true,
 }: {
   product: any;
   handle: string;
@@ -80,6 +81,7 @@ export default function CatalogDetailContent({
   dict: any;
   basePath: '/products' | '/accessories';
   catalogLabel: string;
+  indexable?: boolean;
 }) {
   const name = product[`product_name_${locale}`] || product.product_name_en || product.name;
   const summary = product[`summary_${locale}`] || product.summary_en;
@@ -146,7 +148,7 @@ export default function CatalogDetailContent({
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      {indexable && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>

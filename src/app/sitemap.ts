@@ -1,9 +1,16 @@
 import type { MetadataRoute } from 'next';
 import db from '@/lib/db';
 import { i18n, type Locale } from '@/i18n/config';
+import {
+  CUAS_CATALOG_SOLUTION_HANDLES,
+  isCuasCaseHandle,
+  isCuasMediaHandle,
+  isCuasProductCategory,
+  isCuasSolutionHandle,
+} from '@/lib/cuasIndexability';
 
 const SITE_URL = 'https://n-tet.com';
-const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
+const STATIC_PATHS = ['/', '/products', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
 const EN_RU_INTENT_PATHS = [
   '/solutions/low-altitude-airspace-monitoring',
   '/solutions/drone-detector',
@@ -29,58 +36,37 @@ function urlFor(locale: Locale, path: string) {
   return `${SITE_URL}${locale === 'en' ? '' : `/${locale}`}${normalizedPath}`;
 }
 
-function sitemapEntry(locale: Locale, path: string, priority: number): MetadataRoute.Sitemap[number] {
+function sitemapEntry(locale: Locale, path: string): MetadataRoute.Sitemap[number] {
   return {
     url: urlFor(locale, path),
-    lastModified: new Date(),
-    changeFrequency: path === '/' ? 'weekly' : 'monthly',
-    priority,
   };
 }
 
 function publishedHandles(type: ContentType) {
   const config = CONTENT_CONFIG[type];
-  const productCategoryFilter = type === 'product' ? "AND category_primary <> 'uav-accessories'" : '';
+  const categoryColumn =
+    type === 'product' ? 'category_primary' :
+    type === 'solution' ? 'category_id' :
+    type === 'case' ? 'solution_category_id' :
+    'category';
   const rows = db
     .prepare(
-      `SELECT ${config.handleColumn} AS handle
+      `SELECT ${config.handleColumn} AS handle, ${categoryColumn} AS category
        FROM ${config.table}
        WHERE COALESCE(is_published, 1) = 1
-       ${productCategoryFilter}
        ORDER BY ${config.handleColumn} COLLATE NOCASE`
     )
-    .all() as Array<{ handle?: string | null }>;
+    .all() as Array<{ handle?: string | null; category?: string | null }>;
 
   return rows
-    .map((row) => row.handle)
-    .filter((handle): handle is string => Boolean(handle));
-}
-
-function accessoryHandles() {
-  const rows = db
-    .prepare(
-      `SELECT handle
-       FROM products
-       WHERE COALESCE(is_published, 1) = 1
-         AND category_primary = 'uav-accessories'
-       ORDER BY handle COLLATE NOCASE`
-    )
-    .all() as Array<{ handle?: string | null }>;
-
-  return rows.map((row) => row.handle).filter((handle): handle is string => Boolean(handle));
-}
-
-function solutionCategories() {
-  const rows = db
-    .prepare(
-      `SELECT DISTINCT category_id
-       FROM solutions
-       WHERE COALESCE(is_published, 1) = 1
-       ORDER BY category_id COLLATE NOCASE`
-    )
-    .all() as Array<{ category_id?: string | null }>;
-
-  return rows.map((row) => row.category_id).filter((categoryId): categoryId is string => Boolean(categoryId));
+    .filter((row) => {
+      if (!row.handle) return false;
+      if (type === 'product') return isCuasProductCategory(row.category);
+      if (type === 'solution') return isCuasSolutionHandle(row.handle);
+      if (type === 'case') return isCuasCaseHandle(row.handle);
+      return isCuasMediaHandle(row.handle);
+    })
+    .map((row) => row.handle as string);
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -88,27 +74,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const locale of i18n.locales) {
     for (const path of STATIC_PATHS) {
-      entries.push(sitemapEntry(locale, path, path === '/' ? 1 : 0.8));
+      entries.push(sitemapEntry(locale, path));
     }
 
     if (['en', 'ru'].includes(locale)) {
       for (const path of EN_RU_INTENT_PATHS) {
-        entries.push(sitemapEntry(locale, path, 0.85));
+        entries.push(sitemapEntry(locale, path));
       }
-    }
-
-    for (const categoryId of solutionCategories()) {
-      entries.push(sitemapEntry(locale, `/solutions/category/${categoryId}`, 0.65));
     }
 
     for (const [type, config] of Object.entries(CONTENT_CONFIG) as Array<[ContentType, (typeof CONTENT_CONFIG)[ContentType]]>) {
-      for (const handle of publishedHandles(type)) {
-        entries.push(sitemapEntry(locale, `/${config.route}/${handle}`, 0.7));
+      const handles = type === 'solution'
+        ? Array.from(new Set([...publishedHandles(type), ...CUAS_CATALOG_SOLUTION_HANDLES]))
+        : publishedHandles(type);
+      for (const handle of handles) {
+        entries.push(sitemapEntry(locale, `/${config.route}/${handle}`));
       }
-    }
-
-    for (const handle of accessoryHandles()) {
-      entries.push(sitemapEntry(locale, `/accessories/${handle}`, 0.7));
     }
   }
 

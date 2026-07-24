@@ -5,6 +5,8 @@ import { sendInquiryNotification } from '@/lib/inquiryEmail';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function cleanText(value: unknown) {
     return String(value ?? '').trim();
 }
@@ -25,6 +27,12 @@ export async function POST(request: Request) {
         if (!email || !phone) {
             return NextResponse.json(
                 { success: false, error: 'Email and Phone / WhatsApp are required' },
+                { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
+            );
+        }
+        if (!EMAIL_PATTERN.test(email)) {
+            return NextResponse.json(
+                { success: false, error: 'A valid email address is required' },
                 { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
             );
         }

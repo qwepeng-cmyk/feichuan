@@ -3,7 +3,7 @@ import { extname, join } from 'node:path';
 import {
   SITE_URL,
   excerpt,
-  getAllPublishedContent,
+  getAllCuasIndexableContent,
   openDb,
   publicUrl,
   readTextFileIfExists,
@@ -19,7 +19,7 @@ const USABLE_CITATION_MIN = 75;
 const USABLE_CITATION_MAX = 220;
 
 const db = openDb();
-const rows = getAllPublishedContent(db);
+const rows = getAllCuasIndexableContent(db);
 const publicRows = rows;
 
 const robotsPath = join(process.cwd(), 'public', 'robots.txt');
@@ -218,8 +218,8 @@ const report = [
   '',
   '- 为产品、方案、媒体详情页增加服务端 Organization、WebSite、BreadcrumbList、Product、Service、Article JSON-LD。',
   '- 将弱引用页面改写成 134-167 词的自包含回答段，加入具体规格、日期和证据。',
-  '- `llms.txt`、公开 Schema、sitemap 和 Firecrawl 应覆盖全部已发布内容。',
-  '- Firecrawl 只需排除 admin、API、preview、draft 和未发布路径。',
+  '- `llms.txt`、公开 Schema、sitemap 和 Firecrawl 应覆盖 C-UAS 可索引内容。',
+  '- Firecrawl 除排除 admin、API、preview、draft 和未发布路径外，还应使用 C-UAS 索引策略限定公开发现范围。',
 ];
 
 const reportPath = join(process.cwd(), 'docs', 'seo', `geo-audit-${todayStamp()}.md`);

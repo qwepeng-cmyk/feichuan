@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
@@ -10,7 +10,6 @@ import {
   CONTACT_WHATSAPP_NUMBER,
   type ContactChannelId,
 } from '@/lib/contactSettings';
-import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
 import { getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
 import styles from './WhatsAppLeadButton.module.css';
 
@@ -192,6 +191,7 @@ export default function WhatsAppLeadButton({
   channel = 'whatsapp',
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
+  const submissionInFlightRef = useRef(false);
   const channelConfig = CONTACT_CHANNELS[channel];
   const copy = getCopy(pathname, channel);
   const ux = getInquiryFormUxCopy(pathname);
@@ -282,7 +282,9 @@ export default function WhatsAppLeadButton({
       setError(copy.countryCodeError);
       return;
     }
+    if (submissionInFlightRef.current) return;
 
+    submissionInFlightRef.current = true;
     setIsSending(true);
     const reservedWindow = window.open('', '_blank');
     if (reservedWindow) {
@@ -315,12 +317,6 @@ export default function WhatsAppLeadButton({
         product_handle: productHandle,
         cta_location: ctaLocation,
       });
-      trackGoogleAdsFormConversion({
-        conversion_source: sourceLabel,
-        form_name: channel === 'whatsapp' ? 'whatsapp_pre_chat' : 'vk_pre_contact',
-        inquiry_id: result.inquiryId,
-        page_path: pathname,
-      });
       setIsOpen(false);
       openContactChannel(leadMessage, reservedWindow);
     } catch (err) {
@@ -331,6 +327,7 @@ export default function WhatsAppLeadButton({
       setError(saveError);
       track(`${eventPrefix}_error`);
     } finally {
+      submissionInFlightRef.current = false;
       setIsSending(false);
     }
   };

@@ -1,6 +1,7 @@
 import db from './db';
 import { unstable_cache } from 'next/cache';
 import mediaArabicEditorial from '@/content/mediaArabicEditorial.json';
+import { isCuasMediaHandle } from './cuasIndexability';
 
 export interface MediaMetadata {
   id: string;
@@ -39,7 +40,7 @@ export const getAllMedia = unstable_cache(
       } catch (e) {
         return null;
       }
-    }).filter(Boolean)
+    }).filter((item) => item && isCuasMediaHandle(item.id))
       .sort((a, b) => {
         const aTime = Date.parse(a.date || '');
         const bTime = Date.parse(b.date || '');

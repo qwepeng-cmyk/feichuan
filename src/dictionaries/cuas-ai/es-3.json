@@ -117,5 +117,14 @@
   "When implementing an anti-drone system, the following technical dimensions must be prioritized to ensure effectiveness and reliability.": "Al implantar un sistema de vigilancia de drones deben priorizarse los siguientes aspectos técnicos para garantizar su eficacia y fiabilidad.",
   "Where RF development meets repeatable testing.": "Donde el desarrollo RF se combina con ensayos repetibles.",
   "Yes. Both fixed-site and vehicle-mounted configurations can be discussed. Installation space, power supply, network connection, mobility, sensor placement and environmental conditions should be confirmed before the configuration is finalized.": "Sí. Pueden estudiarse configuraciones fijas y montadas en vehículos. Antes de cerrarlas deben confirmarse el espacio, la alimentación, la red, la movilidad, la ubicación de sensores y el entorno.",
-  "Yes. N-TET can coordinate portable, fixed-site, vehicle-mounted and management-platform equipment as a configured project scope. The final combination depends on the site, coverage objective, deployment method, interfaces and local operating requirements.": "Sí. N-TET puede coordinar equipos portátiles, fijos, montados en vehículos y plataformas de gestión. La combinación depende del lugar, la cobertura, el despliegue, las interfaces y los requisitos locales."
+  "Yes. N-TET can coordinate portable, fixed-site, vehicle-mounted and management-platform equipment as a configured project scope. The final combination depends on the site, coverage objective, deployment method, interfaces and local operating requirements.": "Sí. N-TET puede coordinar equipos portátiles, fijos, montados en vehículos y plataformas de gestión. La combinación depende del lugar, la cobertura, el despliegue, las interfaces y los requisitos locales.",
+  "Company Credentials": "Credenciales de la empresa",
+  "Official registration, clearly presented.": "Registro oficial, presentado con claridad.",
+  "N-TET operates through Beijing Feichuan Equipment Technology Co., Ltd., a company registered in Beijing, China.": "N-TET opera a través de Beijing Feichuan Equipment Technology Co., Ltd., una empresa registrada en Pekín, China.",
+  "Business License": "Licencia comercial",
+  "Registered company document": "Documento de registro de la empresa",
+  "Open the full business license image": "Abrir la imagen completa de la licencia comercial",
+  "CREDENTIAL / 01": "CREDENCIAL / 01",
+  "View full document": "Ver documento completo",
+  "Business license of Beijing Feichuan Equipment Technology Co., Ltd.": "Licencia comercial de Beijing Feichuan Equipment Technology Co., Ltd."
 }

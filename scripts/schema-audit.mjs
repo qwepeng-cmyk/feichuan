@@ -1,8 +1,9 @@
 import { join } from 'node:path';
-import { getAllPublishedContent, openDb, publicUrl, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { getAllCuasIndexableContent, openDb, publicUrl, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { cuasIndexabilityPolicy } from './cuas-indexability.mjs';
 
 const db = openDb();
-const rows = getAllPublishedContent(db);
+const rows = getAllCuasIndexableContent(db);
 
 const schemaByType = {
   product: 'Product',
@@ -11,13 +12,25 @@ const schemaByType = {
   media: 'Article',
 };
 
-const candidates = rows.map((row) => ({
-  type: row.type,
-  handle: row.handle,
-  title: row.title,
-  url: publicUrl('en', row.route, row.handle),
-  schema: schemaByType[row.type],
-}));
+const catalogSolutionHandles = new Set(cuasIndexabilityPolicy.catalogSolutions.map((solution) => solution.handle));
+const candidates = [
+  ...rows
+    .filter((row) => row.type !== 'solution' || !catalogSolutionHandles.has(row.handle))
+    .map((row) => ({
+      type: row.type,
+      handle: row.handle,
+      title: row.title,
+      url: publicUrl('en', row.route, row.handle),
+      schema: schemaByType[row.type],
+    })),
+  ...cuasIndexabilityPolicy.catalogSolutions.map((solution) => ({
+    type: 'solution',
+    handle: solution.handle,
+    title: solution.title,
+    url: publicUrl('en', 'solutions', solution.handle),
+    schema: 'Service',
+  })),
+];
 
 const report = [
   '# N-TET Schema 审计',
@@ -26,8 +39,8 @@ const report = [
   '',
   '## 策略',
   '',
-  '- 所有已发布记录均可根据页面类型使用 Product、Service、Article、BreadcrumbList 与 Organization Schema。',
-  '- 不应用 A/B/C 或敏感词门禁。后台、API、preview、draft 与未发布记录仍不输出公开 Schema。',
+  '- C-UAS 可索引记录可根据页面类型使用 Product、Service、Article、BreadcrumbList 与 Organization Schema。',
+  '- 不应用 A/B/C 或敏感词门禁。后台、API、preview、draft、未发布记录与非 C-UAS 页面不输出公开详情 Schema。',
   '',
   '## 推荐公开 Schema 候选',
   '',

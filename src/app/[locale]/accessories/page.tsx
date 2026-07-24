@@ -22,6 +22,7 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     path: '/accessories',
     fallbackTitle: 'UAV Components for System Integration',
     fallbackDescription: 'Browse N-TET UAV components for flight control, propulsion, data links, power systems, EO payloads, integration, and maintenance.',
+    indexable: false,
   });
 }
 

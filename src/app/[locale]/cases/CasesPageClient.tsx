@@ -16,6 +16,7 @@ import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import { isCuasCaseHandle } from '@/lib/cuasIndexability';
 
 interface CaseItem {
     handle: string;
@@ -26,18 +27,6 @@ interface CaseItem {
     solution_category_id?: string;
     [key: string]: any;
 }
-
-const CUAS_CASE_HANDLES = new Set([
-    'airport-security-application',
-    'pakistan-power-plant-airspace-monitoring',
-    'pakistan-power-plant-low-altitude-monitoring',
-    'brazil-refinery-airspace-monitoring',
-    'brazil-refinery-low-altitude-monitoring',
-    'nigeria-factory-airspace-monitoring',
-    'nigeria-factory-low-altitude-monitoring',
-    'asian-games-security',
-    'water-conservancy-security',
-]);
 
 export default function CasesPageClient({ 
     allCases,
@@ -61,7 +50,7 @@ export default function CasesPageClient({
     const seoIntroBody = buildKeywordIntro(seoTarget, dict.cases.bannerTitle, locale) || dict.cases.seoIntroBody;
     const isCuasPage = ['en', 'ru', 'es', 'ar'].includes(locale);
     const pageCases = useMemo(
-        () => isCuasPage ? allCases.filter((item) => CUAS_CASE_HANDLES.has(item.handle)) : allCases,
+        () => isCuasPage ? allCases.filter((item) => isCuasCaseHandle(item.handle)) : allCases,
         [allCases, isCuasPage]
     );
     const solutionGroups = isCuasPage ? englishCuasCaseCenterSolutionGroups : caseCenterSolutionGroups;

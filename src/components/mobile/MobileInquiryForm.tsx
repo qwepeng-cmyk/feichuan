@@ -6,6 +6,7 @@ import styles from './MobileProductCenter.module.css';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
 import { getContactMethod, getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
+import { trackPersistedInquiryConversion } from '@/components/tracking/googleAdsConversion';
 
 type FormStep = 1 | 2;
 
@@ -15,6 +16,7 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
     const ux = getInquiryFormUxCopy(pathname);
     const formId = useId();
     const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+    const submissionInFlightRef = useRef(false);
     const fieldIds = {
         application: `${formId}-application`,
         name: `${formId}-name`,
@@ -98,9 +100,12 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
             setContactError(ux.contactRequiredError);
             return;
         }
+        if (submissionInFlightRef.current) return;
 
         setContactError('');
+        submissionInFlightRef.current = true;
         setSubmitStatus('loading');
+        let submissionSucceeded = false;
 
         try {
             const response = await fetch('/api/inquiries', {
@@ -124,7 +129,16 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
 
             const result = await response.json().catch(() => null);
 
-            if (response.ok && result?.success === true && result?.inquiryId) {
+            const inquiryId = Number(result?.inquiryId);
+
+            if (response.ok && result?.success === true && Number.isSafeInteger(inquiryId) && inquiryId > 0) {
+                submissionSucceeded = true;
+                trackPersistedInquiryConversion({
+                    inquiryId,
+                    conversionSource: variant === 'drawer' ? 'mobile_inquiry_drawer' : 'mobile_inquiry_form',
+                    formName: 'public_inquiry',
+                    pagePath: pathname,
+                });
                 router.push(localePath(localeFromPathname(pathname), '/thank-you'));
             } else {
                 console.error('Inquiry submit failed:', result);
@@ -133,6 +147,10 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
         } catch (error) {
             console.error('Inquiry submit error:', error);
             setSubmitStatus('error');
+        } finally {
+            if (!submissionSucceeded) {
+                submissionInFlightRef.current = false;
+            }
         }
     };
 

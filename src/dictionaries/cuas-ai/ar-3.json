@@ -117,5 +117,14 @@
   "When implementing an anti-drone system, the following technical dimensions must be prioritized to ensure effectiveness and reliability.": "عند تنفيذ نظام مراقبة الطائرات المسيّرة، يجب إعطاء الأولوية للجوانب الفنية التالية لضمان الفاعلية والموثوقية.",
   "Where RF development meets repeatable testing.": "حيث يلتقي تطوير RF بالاختبار القابل للتكرار.",
   "Yes. Both fixed-site and vehicle-mounted configurations can be discussed. Installation space, power supply, network connection, mobility, sensor placement and environmental conditions should be confirmed before the configuration is finalized.": "نعم. يمكن مناقشة التكوين الثابت أو المركب على مركبة. ويجب تأكيد مساحة التركيب والطاقة والشبكة والحركة ومواقع المستشعرات والبيئة قبل اعتماد التكوين.",
-  "Yes. N-TET can coordinate portable, fixed-site, vehicle-mounted and management-platform equipment as a configured project scope. The final combination depends on the site, coverage objective, deployment method, interfaces and local operating requirements.": "نعم. تستطيع N-TET تنسيق المعدات المحمولة والثابتة والمركبة ومنصة الإدارة. ويعتمد التكوين النهائي على الموقع والتغطية وطريقة النشر والواجهات والمتطلبات المحلية."
+  "Yes. N-TET can coordinate portable, fixed-site, vehicle-mounted and management-platform equipment as a configured project scope. The final combination depends on the site, coverage objective, deployment method, interfaces and local operating requirements.": "نعم. تستطيع N-TET تنسيق المعدات المحمولة والثابتة والمركبة ومنصة الإدارة. ويعتمد التكوين النهائي على الموقع والتغطية وطريقة النشر والواجهات والمتطلبات المحلية.",
+  "Company Credentials": "بيانات اعتماد الشركة",
+  "Official registration, clearly presented.": "تسجيل رسمي معروض بوضوح.",
+  "N-TET operates through Beijing Feichuan Equipment Technology Co., Ltd., a company registered in Beijing, China.": "تعمل N-TET من خلال شركة Beijing Feichuan Equipment Technology Co., Ltd. المسجلة في بكين، الصين.",
+  "Business License": "الرخصة التجارية",
+  "Registered company document": "وثيقة تسجيل الشركة",
+  "Open the full business license image": "فتح الصورة الكاملة للرخصة التجارية",
+  "CREDENTIAL / 01": "وثيقة / 01",
+  "View full document": "عرض الوثيقة كاملة",
+  "Business license of Beijing Feichuan Equipment Technology Co., Ltd.": "الرخصة التجارية لشركة Beijing Feichuan Equipment Technology Co., Ltd."
 }

@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import {
   CONTENT_TYPES,
   SITE_URL,
-  getAllPublishedContent,
+  getAllCuasIndexableContent,
   openDb,
   readTextFileIfExists,
   todayStamp,
@@ -11,7 +11,7 @@ import {
 } from './ntet-seo-utils.mjs';
 
 const db = openDb();
-const rows = getAllPublishedContent(db);
+const rows = getAllCuasIndexableContent(db);
 const llmsPath = join(process.cwd(), 'public', 'llms.txt');
 const robotsPath = join(process.cwd(), 'public', 'robots.txt');
 const llms = readTextFileIfExists(llmsPath);
@@ -24,6 +24,9 @@ if (!existsSync(llmsPath)) failures.push('public/llms.txt is missing. Run `npm r
 if (!robots.includes('Sitemap:')) warnings.push('public/robots.txt does not declare a Sitemap URL.');
 if (llmsUrls.some((url) => /\/admin\b|\/api\b|preview\b/i.test(url))) {
   failures.push('public/llms.txt contains admin, API, or preview paths.');
+}
+if (llmsUrls.some((url) => /\/accessories(?:\/|$)/i.test(url))) {
+  failures.push('public/llms.txt contains non-C-UAS accessory paths.');
 }
 
 const publishedByType = Object.fromEntries(Object.keys(CONTENT_TYPES).map((type) => [type, 0]));
@@ -39,13 +42,13 @@ const report = [
   `生成日期：${todayStamp()}`,
   `站点：${SITE_URL}`,
   '',
-  '## 已发布内容',
+  '## C-UAS 可索引内容',
   '',
-  '| Type | Published |',
+  '| Type | Indexable |',
   '| --- | ---: |',
   ...Object.entries(publishedByType).map(([type, count]) => `| ${type} | ${count} |`),
   '',
-  '全部已发布内容均纳入网站、SEO、GEO、Schema、sitemap、llms.txt 与广告，不应用 A/B/C 或敏感词门禁。',
+  '公开可访问状态仍由 is_published 控制；SEO/GEO 发现范围使用明确的 C-UAS 分类与页面名单，不应用 A/B/C 或敏感词门禁。',
   '',
   '## 检查项',
   '',

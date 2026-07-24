@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
@@ -423,6 +424,32 @@ function shellQuote(value) {
   return `'${String(value).replace(/'/g, `'\\''`)}'`;
 }
 
+function localInquiryFingerprint(databasePath) {
+  const database = new DatabaseSync(databasePath, { readOnly: true });
+  try {
+    const table = database
+      .prepare("select name from sqlite_master where type='table' and name='inquiries'")
+      .get();
+    if (!table) return '';
+    const rows = database.prepare('select * from inquiries order by id').all();
+    return createHash('sha256').update(JSON.stringify(rows)).digest('hex');
+  } finally {
+    database.close();
+  }
+}
+
+function remoteInquiryFingerprint() {
+  const script = [
+    "const D=require('better-sqlite3')",
+    "const c=require('node:crypto')",
+    "const d=new D('data/ntet.db',{readonly:true})",
+    "const rows=d.prepare('select * from inquiries order by id').all()",
+    "process.stdout.write(c.createHash('sha256').update(JSON.stringify(rows)).digest('hex'))",
+    'd.close()',
+  ].join(';');
+  return ssh(`cd ${shellQuote(deployPath)} && node -e ${shellQuote(script)}`, { capture: true });
+}
+
 function remoteSymlinkCommand() {
   const normalizedBuildRoot = buildRoot.replace(/\\/g, '/');
   const links = Array.from(new Set([legacyBuildRoot, normalizedBuildRoot]));
@@ -453,15 +480,26 @@ function syncDatabaseIfChanged() {
 
   mkdirSync(join(sourceRoot, 'scratch'), { recursive: true });
   const remoteDbSnapshot = join(sourceRoot, 'scratch', 'remote-ntet-before-deploy.db');
+  let inquiriesMatch = false;
   try {
-    scpFromRemote(`${deployPath}/data/ntet.db`, remoteDbSnapshot);
-    const mergeResult = mergeRemoteInquiriesIntoLocal(localDb, remoteDbSnapshot);
-    console.log(
-      `Inquiry DB guard: remote=${mergeResult.remoteCount} localBefore=${mergeResult.localCountBefore} ` +
-      `merged=${mergeResult.inserted} localAfter=${mergeResult.localCountAfter}`
-    );
-  } catch (error) {
-    throw new Error(`Could not merge remote inquiries before DB sync: ${error instanceof Error ? error.message : error}`);
+    inquiriesMatch = localInquiryFingerprint(localDb) === remoteInquiryFingerprint();
+  } catch {
+    inquiriesMatch = false;
+  }
+
+  if (inquiriesMatch) {
+    console.log('Inquiry DB guard: local and remote inquiry fingerprints match; skipped database download.');
+  } else {
+    try {
+      scpFromRemote(`${deployPath}/data/ntet.db`, remoteDbSnapshot);
+      const mergeResult = mergeRemoteInquiriesIntoLocal(localDb, remoteDbSnapshot);
+      console.log(
+        `Inquiry DB guard: remote=${mergeResult.remoteCount} localBefore=${mergeResult.localCountBefore} ` +
+        `merged=${mergeResult.inserted} localAfter=${mergeResult.localCountAfter}`
+      );
+    } catch (error) {
+      throw new Error(`Could not merge remote inquiries before DB sync: ${error instanceof Error ? error.message : error}`);
+    }
   }
 
   localHash = sha256(localDb);

@@ -6,6 +6,7 @@ import type { CSSProperties, FormEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
+import { trackPersistedInquiryConversion } from '@/components/tracking/googleAdsConversion';
 import styles from './FloatingMessageBox.module.css';
 
 type ChatSettingsResponse = {
@@ -39,6 +40,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
   const pathname = usePathname();
   const router = useRouter();
   const visitStartedAt = useRef(visitStartedAtMs ?? Date.now());
+  const submissionInFlightRef = useRef(false);
   const [enabled, setEnabled] = useState(false);
   const [autoOpenDelayMinutes, setAutoOpenDelayMinutes] = useState(DEFAULT_AUTO_OPEN_DELAY_MINUTES);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -163,7 +165,10 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
       setIsSending(false);
       return;
     }
+    if (submissionInFlightRef.current) return;
 
+    submissionInFlightRef.current = true;
+    let submissionSucceeded = false;
     try {
       const response = await fetch('/api/inquiries', {
         method: 'POST',
@@ -186,6 +191,18 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
         throw new Error(result?.error || 'Failed to submit message');
       }
 
+      const inquiryId = Number(result.inquiryId);
+      if (!Number.isSafeInteger(inquiryId) || inquiryId <= 0) {
+        throw new Error('Inquiry was not confirmed by the server');
+      }
+
+      trackPersistedInquiryConversion({
+        inquiryId,
+        conversionSource: 'floating_message_box',
+        formName: 'public_inquiry',
+        pagePath: pathname,
+      });
+      submissionSucceeded = true;
       setFormData(emptyForm);
       setStatus('success');
       router.push(localePath(localeFromPathname(pathname), '/thank-you'));
@@ -194,7 +211,10 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
       setErrorMessage('Could not submit. Please try again or contact us by WhatsApp.');
       setStatus('error');
     } finally {
-      setIsSending(false);
+      if (!submissionSucceeded) {
+        submissionInFlightRef.current = false;
+        setIsSending(false);
+      }
     }
   };
 

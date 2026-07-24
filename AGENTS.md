@@ -88,7 +88,9 @@ DB 路径用 `scripts/update-db-refs.mjs` 批量同步，硬编码文件需手�
 
 - 网站、SEO、GEO、Schema、sitemap、`llms.txt` 与广告均不再应用 A/B/C 合规分层或敏感词门禁。
 - `jammer`、`jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down`、`anti drone`、`counter-UAS` 等词不因词语本身被隐藏、替换、降级或排除。
-- 所有内容只按正常的 `is_published` 发布状态控制公开与下线；后台、API、preview、draft 与未发布记录仍不公开。
+- 所有内容仍按正常的 `is_published` 发布状态控制公开与下线；后台、API、preview、draft 与未发布记录仍不公开。
+- 自 2026-07-24 起，公开可访问状态与搜索索引状态分开：`is_published=1` 的历史非 C-UAS 页面可以继续访问，但使用 `noindex, follow`，并从 sitemap、详情 Schema、`llms.txt` 与 C-UAS 列表入口排除。
+- C-UAS 索引范围只由 `src/config/cuasIndexability.json` 的产品分类与明确页面名单控制，不使用关键词、敏感词或 A/B/C 内容等级判断。
 - `src/lib/complianceTaxonomy.ts` 已删除；不得重新引入用于限制网站、SEO、GEO 或广告内容的同类门禁。
 
 ## Frontend Design Skill（前端设计规范）

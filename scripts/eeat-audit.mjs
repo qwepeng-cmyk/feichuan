@@ -1,8 +1,9 @@
 import { join } from 'node:path';
-import { getAllPublishedContent, openDb, stripHtml, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { getAllCuasIndexableContent, openDb, stripHtml, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { isCuasIndexableRow } from './cuas-indexability.mjs';
 
 const db = openDb();
-const rows = getAllPublishedContent(db);
+const rows = getAllCuasIndexableContent(db);
 const warnings = [];
 
 for (const row of rows) {
@@ -14,7 +15,8 @@ for (const row of rows) {
 
 const mediaRows = db
   .prepare('SELECT id, title, date, content, is_published FROM media WHERE COALESCE(is_published, 1) = 1 ORDER BY date DESC')
-  .all();
+  .all()
+  .filter((row) => isCuasIndexableRow({ type: 'media', handle: row.id, category: 'media' }));
 
 for (const row of mediaRows) {
   if (!row.date) warnings.push(`media/${row.id} has no publication date.`);
@@ -28,7 +30,7 @@ const report = [
   '',
   '## 范围',
   '',
-  '- 检查所有已发布记录，不应用内容分层或敏感词排除。',
+  '- 检查 C-UAS 可索引记录，不应用 A/B/C 分层或敏感词排除。',
   '',
   '## 启发式警告',
   '',

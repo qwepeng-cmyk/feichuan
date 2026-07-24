@@ -60,6 +60,7 @@ export function generateMetadata({ params }: { params: { categoryId: string; loc
     path: `/solutions/category/${params.categoryId}`,
     fallbackTitle: title,
     fallbackDescription: localizedField(landingData as any, 'industryNeeds', params.locale),
+    indexable: false,
   });
 }
 

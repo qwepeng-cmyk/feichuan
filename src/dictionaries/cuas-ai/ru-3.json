@@ -117,5 +117,14 @@
   "When implementing an anti-drone system, the following technical dimensions must be prioritized to ensure effectiveness and reliability.": "При внедрении системы мониторинга дронов необходимо в первую очередь определить следующие технические параметры, влияющие на эффективность и надежность.",
   "Where RF development meets repeatable testing.": "Где RF-разработка сочетается с воспроизводимыми испытаниями.",
   "Yes. Both fixed-site and vehicle-mounted configurations can be discussed. Installation space, power supply, network connection, mobility, sensor placement and environmental conditions should be confirmed before the configuration is finalized.": "Да. Можно обсудить стационарную и автомобильную конфигурации. До утверждения состава необходимо подтвердить монтажное пространство, питание, сеть, требования к мобильности, размещение датчиков и условия окружающей среды.",
-  "Yes. N-TET can coordinate portable, fixed-site, vehicle-mounted and management-platform equipment as a configured project scope. The final combination depends on the site, coverage objective, deployment method, interfaces and local operating requirements.": "Да. N-TET может объединить переносное, стационарное, автомобильное оборудование и платформу управления в согласованный объем проекта. Итоговый состав зависит от объекта, цели покрытия, способа развертывания, интерфейсов и местных эксплуатационных требований."
+  "Yes. N-TET can coordinate portable, fixed-site, vehicle-mounted and management-platform equipment as a configured project scope. The final combination depends on the site, coverage objective, deployment method, interfaces and local operating requirements.": "Да. N-TET может объединить переносное, стационарное, автомобильное оборудование и платформу управления в согласованный объем проекта. Итоговый состав зависит от объекта, цели покрытия, способа развертывания, интерфейсов и местных эксплуатационных требований.",
+  "Company Credentials": "Регистрационные данные компании",
+  "Official registration, clearly presented.": "Официальная регистрация — открыто и наглядно.",
+  "N-TET operates through Beijing Feichuan Equipment Technology Co., Ltd., a company registered in Beijing, China.": "N-TET работает через компанию Beijing Feichuan Equipment Technology Co., Ltd., зарегистрированную в Пекине, Китай.",
+  "Business License": "Лицензия на ведение деятельности",
+  "Registered company document": "Регистрационный документ компании",
+  "Open the full business license image": "Открыть полное изображение лицензии",
+  "CREDENTIAL / 01": "ДОКУМЕНТ / 01",
+  "View full document": "Открыть документ",
+  "Business license of Beijing Feichuan Equipment Technology Co., Ltd.": "Лицензия компании Beijing Feichuan Equipment Technology Co., Ltd."
 }

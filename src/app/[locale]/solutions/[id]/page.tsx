@@ -16,6 +16,7 @@ import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { englishCuasSolutionHandles, getCuasSolution } from '@/lib/cuasSolutionCatalog';
 import { getCuasIndustryPageData } from '@/lib/cuasIndustryPageData';
 import CuasIndustryDefensePage from '@/components/solutions/CuasIndustryDefensePage';
+import { isCuasProductCategory, isCuasSolutionHandle } from '@/lib/cuasIndexability';
 
 async function getLocalizedSolution(id: string, locale: Locale) {
   const catalogSolution = getCuasSolution(id, locale);
@@ -45,6 +46,7 @@ export async function generateMetadata({ params }: { params: { id: string; local
     fallbackTitle: title,
     fallbackDescription: description,
     image: mainImage,
+    indexable: isCuasSolutionHandle(params.id),
   });
 }
 
@@ -90,7 +92,9 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
       recommendedHandles = [];
   }
 
-  const recommendedProducts = allProducts.filter(p => recommendedHandles.includes(p.handle));
+  const recommendedProducts = allProducts.filter((product) =>
+    recommendedHandles.includes(product.handle) && isCuasProductCategory(product.category)
+  );
 
   let recommendedCaseHandles: string[] = [];
   try {
@@ -127,7 +131,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
   if (industryPageData) {
     return (
       <>
-        <JsonLd data={jsonLd} />
+        {isCuasSolutionHandle(id) && <JsonLd data={jsonLd} />}
         <CuasIndustryDefensePage
           solution={solution}
           pageData={industryPageData}
@@ -140,7 +144,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      {isCuasSolutionHandle(id) && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <SolutionDetailClient

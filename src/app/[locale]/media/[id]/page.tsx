@@ -14,6 +14,7 @@ import { articleJsonLd, pageUrl, stripHtml } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
+import { isCuasMediaHandle } from '@/lib/cuasIndexability';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: { params: { id: string; local
         fallbackTitle: newsTitle,
         fallbackDescription: stripHtml(newsContent).slice(0, 240),
         image: news.image,
+        indexable: isCuasMediaHandle(params.id),
     });
 }
 
@@ -74,7 +76,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 
     return (
         <>
-            <JsonLd data={jsonLd} />
+            {isCuasMediaHandle(id) && <JsonLd data={jsonLd} />}
 
             <div className="pc_only">
                 <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>

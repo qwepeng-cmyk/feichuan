@@ -3,15 +3,16 @@ import {
   LOCALES,
   SITE_URL,
   excerpt,
-  getAllPublishedContent,
+  getAllCuasIndexableContent,
   openDb,
   publicUrl,
   todayStamp,
   writeTextFile,
 } from './ntet-seo-utils.mjs';
+import { cuasIndexabilityPolicy } from './cuas-indexability.mjs';
 
 const db = openDb();
-const rows = getAllPublishedContent(db);
+const rows = getAllCuasIndexableContent(db);
 const publicRows = rows;
 
 const staticIntentPages = [
@@ -81,10 +82,18 @@ const staticIntentPages = [
   },
 ];
 
-const staticHandles = new Set(staticIntentPages.map((page) => `${page.type}:${page.handle}`));
+const catalogSolutionPages = cuasIndexabilityPolicy.catalogSolutions.map((solution) => ({
+  type: 'solution',
+  route: 'solutions',
+  handle: solution.handle,
+  title: solution.title,
+  summary: solution.summary,
+}));
+const staticPages = [...catalogSolutionPages, ...staticIntentPages];
+const staticHandles = new Set(staticPages.map((page) => `${page.type}:${page.handle}`));
 const allPublicRows = [
   ...publicRows.filter((row) => !staticHandles.has(`${row.type}:${row.handle}`)),
-  ...staticIntentPages,
+  ...staticPages,
 ];
 const groups = Object.groupBy(allPublicRows, (row) => row.type);
 
@@ -113,12 +122,12 @@ function localizedPageUrl(locale, path = '') {
 const lines = [
   '# N-TET',
   '',
-  '> N-TET provides UAV systems, low-altitude monitoring, industrial security, and engineering-material content for international buyers and project teams.',
+  '> N-TET is a Counter-UAS systems provider specializing in drone detection, identification, tracking, low-altitude airspace monitoring, command integration, and authorized mitigation.',
   '',
   `Canonical site: ${SITE_URL}`,
   `Generated: ${todayStamp()}`,
   '',
-  'Published content is available to search engines and AI systems. Admin, API, preview, draft, and unpublished routes remain excluded.',
+  'This file lists the public C-UAS pages intended for search and AI discovery. Admin, API, preview, draft, unpublished, and non-C-UAS catalog routes remain excluded.',
   '',
   '## Core Pages',
   '',
@@ -150,4 +159,4 @@ for (const locale of LOCALES) {
 }
 
 writeTextFile(join(process.cwd(), 'public', 'llms.txt'), lines.join('\n'));
-console.log(`Generated public/llms.txt with ${allPublicRows.length} published records.`);
+console.log(`Generated public/llms.txt with ${allPublicRows.length} C-UAS indexable records.`);

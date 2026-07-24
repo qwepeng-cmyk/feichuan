@@ -9,6 +9,7 @@ import CatalogDetailContent from '@/components/products/CatalogDetailContent';
 import DroneNetLauncherDetail from '@/components/products/DroneNetLauncherDetail';
 import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
 import { buildSeoMetadata, getProductSeo } from '@/lib/seoMetadata';
+import { isCuasProductCategory } from '@/lib/cuasIndexability';
 
 export const dynamicParams = false;
 
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
   const name = product[`product_name_${params.locale}`] || product.product_name_en || product.name;
   const description = product[`summary_${params.locale}`] || product.summary_en || undefined;
   const productSeo = getProductSeo(params.handle, name, product.category_primary || product.category, params.locale);
+  const indexable = isCuasProductCategory(product.category_primary || product.category);
 
   return buildSeoMetadata({
     locale: params.locale,
@@ -33,6 +35,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
     fallbackDescription: productSeo.description || description,
     fallbackKeywords: productSeo.keywords,
     image: product.main_image,
+    indexable,
   });
 }
 
@@ -61,6 +64,7 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
       dict={dict}
       basePath="/products"
       catalogLabel={dict.nav.products}
+      indexable={isCuasProductCategory(product.category_primary || product.category)}
     />
   );
 }
