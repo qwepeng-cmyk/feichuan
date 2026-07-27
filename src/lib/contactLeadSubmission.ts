@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server';
 import db from '@/lib/db';
 import { sendInquiryNotification } from '@/lib/inquiryEmail';
 import type { ContactChannelId } from '@/lib/contactSettings';
+import {
+  getPhoneCountry,
+  getPhoneCountryByDialCode,
+  normalizeInternationalPhone,
+} from '@/lib/phoneCountryCodes';
 
 function cleanText(value: unknown) {
   return String(value ?? '').trim();
@@ -21,8 +26,19 @@ export async function handleContactLeadPost(request: Request) {
     const channel = resolveChannel(body.channel);
     const channelLabel = channel === 'vk' ? 'VK' : 'WhatsApp';
     const name = cleanText(body.name);
-    const countryCode = cleanText(body.countryCode);
-    const phone = cleanText(body.phone);
+    const submittedCountryIso = cleanText(body.countryIso).toUpperCase();
+    const requestCountryIso = cleanText(
+      request.headers.get('cf-ipcountry') || request.headers.get('x-vercel-ip-country')
+    ).toUpperCase();
+    const submittedCountryCode = cleanText(body.countryCode);
+    const explicitCountry = getPhoneCountryByDialCode(submittedCountryCode);
+    const countryIso = explicitCountry?.iso || (getPhoneCountry(submittedCountryIso)
+      ? submittedCountryIso
+      : requestCountryIso);
+    const countryCode = submittedCountryCode
+      || getPhoneCountry(countryIso)?.dialCode
+      || '';
+    const phone = normalizeInternationalPhone(cleanText(body.phone), countryIso, countryCode);
     const leadMessage = cleanShortMessage(body.message);
     const sourceLabel = cleanText(body.sourceLabel) || `${channel}_cta`;
     const pagePath = cleanText(body.pagePath);
@@ -38,14 +54,7 @@ export async function handleContactLeadPost(request: Request) {
       );
     }
 
-    if (!phone.startsWith('+') && !/^\+\d{1,4}$/.test(countryCode)) {
-      return NextResponse.json(
-        { success: false, error: 'Country code is required unless the phone number starts with +' },
-        { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
-      );
-    }
-
-    const displayPhone = phone.startsWith('+') ? phone : `${countryCode} ${phone}`;
+    const displayPhone = phone;
     const storedEmail = `${channel}-lead@n-tet.com`;
     const contactMethod = `${channelLabel} Pre-contact`;
     const demands = [`${channelLabel} pre-contact lead`];
@@ -73,7 +82,7 @@ export async function handleContactLeadPost(request: Request) {
       '',
       storedEmail,
       contactMethod,
-      phone.startsWith('+') ? '' : countryCode,
+      '',
       phone,
       JSON.stringify(demands),
       message,
@@ -91,7 +100,7 @@ export async function handleContactLeadPost(request: Request) {
           company: '',
           email: storedEmail,
           contactMethod,
-          countryCode: phone.startsWith('+') ? '' : countryCode,
+          countryCode: '',
           phone,
           demands,
           message,

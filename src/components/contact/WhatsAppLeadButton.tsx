@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
@@ -11,6 +11,7 @@ import {
   type ContactChannelId,
 } from '@/lib/contactSettings';
 import { getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
+import { getPhoneCountry } from '@/lib/phoneCountryCodes';
 import styles from './WhatsAppLeadButton.module.css';
 
 declare global {
@@ -48,77 +49,72 @@ const vkModalCopy = {
   close: 'Закрыть форму связи',
   nameError: 'Введите имя перед продолжением.',
   phoneError: 'Введите номер телефона, чтобы продолжить.',
-  countryCodeError: 'Укажите код страны или введите полный номер с символом +.',
 };
 
 const modalCopy = {
   en: {
     eyebrow: 'C-UAS Product Consultation',
-    title: 'Talk to a C-UAS Product Specialist',
-    helper: "Enter your WhatsApp number first. We'll open WhatsApp with a ready-to-send message.",
+    title: 'Leave your WhatsApp number so our technical specialist can send you the product datasheet & pricing.',
+    helper: 'Enter the country code with or without +, then type your number in any familiar format. We will format it automatically.',
     nameLabel: 'Name *',
     phoneLabel: 'WhatsApp / Phone *',
     countryCodeAria: 'Country code',
-    countryCodePlaceholder: 'Country Code',
-    phonePlaceholder: 'WhatsApp number, or full number with +',
+    countryCodePlaceholder: 'Country code',
+    phonePlaceholder: 'e.g. 050 123 4567',
     saving: 'Saving...',
     submit: 'Open WhatsApp',
     note: 'The message is pre-filled; you still need to press Send in WhatsApp.',
     close: 'Close WhatsApp contact form',
     nameError: 'Please enter your name before opening WhatsApp.',
     phoneError: 'Please enter your WhatsApp number before continuing.',
-    countryCodeError: 'Please enter a country code, or enter the full number with +.',
   },
   ru: {
     eyebrow: 'Консультация в WhatsApp',
-    title: 'Подтвердите контактные данные',
-    helper: 'Оставьте номер WhatsApp. Затем мы откроем WhatsApp с готовым сообщением.',
+    title: 'Оставьте номер WhatsApp, чтобы наш технический специалист отправил спецификацию и цены.',
+    helper: 'Введите код страны с символом + или без него, затем номер в привычном формате. Мы отформатируем его автоматически.',
     nameLabel: 'Имя *',
     phoneLabel: 'WhatsApp / телефон *',
     countryCodeAria: 'Код страны',
-    countryCodePlaceholder: 'например +1',
-    phonePlaceholder: 'Номер WhatsApp или полный номер с +',
+    countryCodePlaceholder: 'Код страны',
+    phonePlaceholder: 'например, 050 123 4567',
     saving: 'Сохранение...',
     submit: 'Открыть WhatsApp',
     note: 'Сообщение WhatsApp уже подготовлено, но посетителю все равно нужно нажать Send.',
     close: 'Закрыть форму WhatsApp',
     nameError: 'Введите имя перед открытием WhatsApp.',
     phoneError: 'Введите номер WhatsApp, чтобы продолжить.',
-    countryCodeError: 'Введите код страны или полный номер с +.',
   },
   es: {
     eyebrow: 'Consulta por WhatsApp',
-    title: 'Confirme sus datos de contacto',
-    helper: 'Deje primero su numero de WhatsApp. Luego abriremos WhatsApp con un mensaje listo para enviar.',
+    title: 'Deje su numero de WhatsApp para que nuestro especialista tecnico le envie la ficha del producto y los precios.',
+    helper: 'Introduzca el codigo de pais con o sin + y el numero en su formato habitual. Lo formatearemos automaticamente.',
     nameLabel: 'Nombre *',
     phoneLabel: 'WhatsApp / telefono *',
     countryCodeAria: 'Codigo de pais',
-    countryCodePlaceholder: 'ej. +1',
-    phonePlaceholder: 'Numero de WhatsApp o numero completo con +',
+    countryCodePlaceholder: 'Codigo de pais',
+    phonePlaceholder: 'p. ej. 050 123 4567',
     saving: 'Guardando...',
     submit: 'Abrir WhatsApp',
     note: 'El mensaje de WhatsApp ya esta preparado, pero el visitante aun debe pulsar Enviar.',
     close: 'Cerrar formulario de WhatsApp',
     nameError: 'Ingrese su nombre antes de abrir WhatsApp.',
     phoneError: 'Ingrese su numero de WhatsApp para continuar.',
-    countryCodeError: 'Ingrese un codigo de pais o el numero completo con +.',
   },
   ar: {
     eyebrow: 'استشارة عبر WhatsApp',
-    title: 'أكد بيانات التواصل',
-    helper: 'اترك رقم WhatsApp اولا. بعد ذلك سنفتح WhatsApp برسالة جاهزة للارسال.',
+    title: 'اترك رقم WhatsApp ليرسل لك متخصصنا الفني مواصفات المنتج والأسعار.',
+    helper: 'أدخل رمز الدولة مع علامة + أو بدونها، ثم الرقم بالتنسيق المعتاد. سننسقه تلقائيا.',
     nameLabel: 'الاسم *',
     phoneLabel: 'WhatsApp / الهاتف *',
     countryCodeAria: 'رمز الدولة',
-    countryCodePlaceholder: 'مثال +1',
-    phonePlaceholder: 'رقم WhatsApp او الرقم الكامل مع +',
+    countryCodePlaceholder: 'رمز الدولة',
+    phonePlaceholder: 'مثال 050 123 4567',
     saving: 'جار الحفظ...',
     submit: 'فتح WhatsApp',
     note: 'رسالة WhatsApp جاهزة مسبقا، لكن على الزائر الضغط على Send.',
     close: 'اغلاق نموذج WhatsApp',
     nameError: 'يرجى ادخال الاسم قبل فتح WhatsApp.',
     phoneError: 'يرجى ادخال رقم WhatsApp للمتابعة.',
-    countryCodeError: 'يرجى ادخال رمز الدولة او الرقم الكامل مع +.',
   },
 };
 
@@ -202,10 +198,43 @@ export default function WhatsAppLeadButton({
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
+    countryIso: '',
     countryCode: '',
     phone: '',
     message: '',
   });
+  const countryManuallySelectedRef = useRef(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const controller = new AbortController();
+    fetch('/api/contact-country', {
+      cache: 'no-store',
+      signal: controller.signal,
+    })
+      .then((response) => response.ok ? response.json() : null)
+      .then((result) => {
+        if (
+          !countryManuallySelectedRef.current
+          && typeof result?.countryIso === 'string'
+          && getPhoneCountry(result.countryIso)
+        ) {
+          setFormData((previous) => ({
+            ...previous,
+            countryIso: result.countryIso,
+            countryCode: result.dialCode || previous.countryCode,
+          }));
+        }
+      })
+      .catch((lookupError) => {
+        if ((lookupError as Error)?.name !== 'AbortError') {
+          console.debug('Country-code lookup unavailable; using locale default.');
+        }
+      });
+
+    return () => controller.abort();
+  }, [isOpen]);
 
   const eventPrefix = channel === 'whatsapp' ? 'ntet_whatsapp_lead' : 'ntet_vk_lead';
 
@@ -268,18 +297,10 @@ export default function WhatsAppLeadButton({
 
     const name = formData.name.trim();
     const phone = formData.phone.trim();
-    const countryCode = formData.countryCode.trim();
     const leadMessage = formData.message.trim();
-    const hasInternationalPrefix = /^\+/.test(phone);
-    const hasUsableCountryCode = /^\+\d{1,4}$/.test(countryCode);
 
-    if (!phone) {
+    if (!phone || !/\d/.test(phone)) {
       setError(copy.phoneError);
-      return;
-    }
-
-    if (!hasInternationalPrefix && !hasUsableCountryCode) {
-      setError(copy.countryCodeError);
       return;
     }
     if (submissionInFlightRef.current) return;
@@ -298,6 +319,8 @@ export default function WhatsAppLeadButton({
         keepalive: true,
         body: JSON.stringify({
           ...formData,
+          phone,
+          countryCode: formData.countryCode,
           channel,
           sourceLabel,
           pagePath: pathname,
@@ -389,9 +412,11 @@ export default function WhatsAppLeadButton({
                       className={`${styles.input} ${styles.countryCodeInput}`}
                       value={formData.countryCode}
                       onChange={(event) => {
-                        const rawValue = event.target.value.replace(/[^\d+]/g, '');
-                        const normalizedValue = rawValue.startsWith('+') ? rawValue : `+${rawValue.replace(/\+/g, '')}`;
-                        setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) }));
+                        countryManuallySelectedRef.current = true;
+                        const input = event.target.value;
+                        const digits = input.replace(/\D/g, '').replace(/^00/, '').slice(0, 4);
+                        const value = input.trimStart().startsWith('+') && digits ? `+${digits}` : digits;
+                        setFormData((prev) => ({ ...prev, countryCode: value }));
                       }}
                       inputMode="tel"
                       autoComplete="tel-country-code"
