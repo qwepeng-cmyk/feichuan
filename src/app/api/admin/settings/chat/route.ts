@@ -16,7 +16,7 @@ export async function PUT(request: Request) {
     const body = await request.json();
 
     updateChatSettings({
-      zoosnetEnabled: Boolean(body.zoosnetEnabled),
+      tawkEnabled: Boolean(body.tawkEnabled),
       messageBoxEnabled: Boolean(body.messageBoxEnabled),
       messageBoxDelayMinutes: Number(body.messageBoxDelayMinutes),
     });

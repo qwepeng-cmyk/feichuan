@@ -8,7 +8,7 @@ export interface TrackingSettings {
 }
 
 export interface ChatSettings {
-  zoosnetEnabled: boolean;
+  tawkEnabled: boolean;
   messageBoxEnabled: boolean;
   messageBoxDelayMinutes: number;
 }
@@ -21,7 +21,7 @@ const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
 };
 
 const DEFAULT_CHAT_SETTINGS: ChatSettings = {
-  zoosnetEnabled: true,
+  tawkEnabled: true,
   messageBoxEnabled: false,
   messageBoxDelayMinutes: 3,
 };
@@ -83,7 +83,7 @@ export function getChatSettings(): ChatSettings {
   const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 
   return {
-    zoosnetEnabled: parseBoolean(values['chat.zoosnetEnabled'], DEFAULT_CHAT_SETTINGS.zoosnetEnabled),
+    tawkEnabled: parseBoolean(values['chat.tawkEnabled'], DEFAULT_CHAT_SETTINGS.tawkEnabled),
     messageBoxEnabled: parseBoolean(values['chat.messageBoxEnabled'], DEFAULT_CHAT_SETTINGS.messageBoxEnabled),
     messageBoxDelayMinutes: parseInteger(
       values['chat.messageBoxDelayMinutes'],
@@ -104,7 +104,7 @@ export function updateChatSettings(settings: ChatSettings) {
   `);
 
   const transaction = db.transaction(() => {
-    update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
+    update.run('chat.tawkEnabled', String(settings.tawkEnabled));
     update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
     update.run(
       'chat.messageBoxDelayMinutes',

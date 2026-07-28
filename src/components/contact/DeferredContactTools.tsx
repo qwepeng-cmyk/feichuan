@@ -7,7 +7,7 @@ const FloatingMessageBox = dynamic(() => import('./FloatingMessageBox'), {
   ssr: false,
 });
 
-const ZoosnetBusinessChat = dynamic(() => import('./ZoosnetBusinessChat'), {
+const TawkBusinessChat = dynamic(() => import('./TawkBusinessChat'), {
   ssr: false,
 });
 
@@ -50,7 +50,7 @@ export default function DeferredContactTools() {
 
   return (
     <>
-      <ZoosnetBusinessChat />
+      <TawkBusinessChat />
       <FloatingMessageBox visitStartedAtMs={visitStartedAt.current} />
     </>
   );

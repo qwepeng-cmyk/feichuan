@@ -24,7 +24,7 @@ type EmailForm = {
 };
 
 type ChatForm = {
-    zoosnetEnabled: boolean;
+    tawkEnabled: boolean;
     messageBoxEnabled: boolean;
     messageBoxDelayMinutes: number;
 };
@@ -92,7 +92,7 @@ const emptyEmail: EmailForm = {
 };
 
 const emptyChat: ChatForm = {
-    zoosnetEnabled: true,
+    tawkEnabled: true,
     messageBoxEnabled: false,
     messageBoxDelayMinutes: 3,
 };
@@ -332,10 +332,10 @@ export default function AdminSettingsPage() {
                         <label style={checkboxLabel}>
                             <input
                                 type="checkbox"
-                                checked={chatForm.zoosnetEnabled}
-                                onChange={(e) => setChatForm((prev) => ({ ...prev, zoosnetEnabled: e.target.checked }))}
+                                checked={chatForm.tawkEnabled}
+                                onChange={(e) => setChatForm((prev) => ({ ...prev, tawkEnabled: e.target.checked }))}
                             />
-                            Enable Zoosnet business chat
+                            Enable Tawk business chat
                         </label>
 
                         <label style={checkboxLabel}>
@@ -369,7 +369,7 @@ export default function AdminSettingsPage() {
                         </label>
 
                         <div style={{ padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
-                            Zoosnet and the floating message box can be controlled separately. The timer starts when the visitor enters the site and continues across page navigation.
+                            Tawk and the floating message box can be controlled separately. The timer starts when the visitor enters the site and continues across page navigation.
                         </div>
                     </div>
 

@@ -5,13 +5,13 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const canLoadZoosnet = process.env.NEXT_PUBLIC_DISABLE_ZOOSNET !== 'true';
+    const canLoadTawk = process.env.NEXT_PUBLIC_DISABLE_TAWK !== 'true';
     const settings = getChatSettings();
 
     return NextResponse.json({
       success: true,
       data: {
-        zoosnetEnabled: canLoadZoosnet && settings.zoosnetEnabled,
+        tawkEnabled: canLoadTawk && settings.tawkEnabled,
         messageBoxEnabled: settings.messageBoxEnabled,
         messageBoxDelayMinutes: settings.messageBoxDelayMinutes,
       },

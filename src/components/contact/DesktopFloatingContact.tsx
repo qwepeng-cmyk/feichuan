@@ -9,13 +9,11 @@ import { cuasText } from '@/lib/cuasLocaleCopy';
 
 declare global {
   interface Window {
-    openZoosUrl?: (url?: string, data?: string) => void;
-    LR_showminiDiv?: (islrminimin?: number, data?: string) => void;
-    lrminiMax?: () => void;
-    LR_HideInvite?: () => void;
-    clickopenmini?: number;
-    LiveReceptionCode_isonline?: boolean;
-    LR_robot?: string;
+    Tawk_API?: {
+      getStatus?: () => string;
+      maximize?: () => void;
+      showWidget?: () => void;
+    };
     dataLayer?: Array<Record<string, unknown>>;
   }
 }
@@ -39,7 +37,7 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
       .then((res) => res.json())
       .then((json) => {
         if (!isMounted) return;
-        setIsBusinessChatEnabled(Boolean(json?.success && json?.data?.zoosnetEnabled));
+        setIsBusinessChatEnabled(Boolean(json?.success && json?.data?.tawkEnabled));
       })
       .catch(() => {
         if (isMounted) setIsBusinessChatEnabled(false);
@@ -52,9 +50,7 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
 
   useEffect(() => {
     const updateOnlineState = () => {
-      const hasOnlineAgent = window.LiveReceptionCode_isonline === true;
-      const hasRobotFallback = typeof window.LR_robot === 'string' && window.LR_robot.length > 0;
-      setIsBusinessChatOnline(hasOnlineAgent || hasRobotFallback);
+      setIsBusinessChatOnline(window.Tawk_API?.getStatus?.() === 'online');
     };
 
     updateOnlineState();
@@ -97,41 +93,25 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
       page_path: pathname,
     });
 
-    const hideInvitePanels = () => {
-      window.LR_HideInvite?.();
-      ['LRfloater0', 'LRfloater1', 'LRdiv0', 'LRdiv1'].forEach((id) => {
-        const panel = document.getElementById(id);
-        if (panel) {
-          panel.style.display = 'none';
-        }
-      });
-    };
-
-    const openMiniChat = () => {
-      if (typeof window.LR_showminiDiv !== 'function') {
+    const openTawkChat = () => {
+      if (typeof window.Tawk_API?.maximize !== 'function') {
         return false;
       }
 
-      window.clickopenmini = 1;
-      hideInvitePanels();
-      window.LR_showminiDiv(0);
-      window.lrminiMax?.();
-      hideInvitePanels();
-      window.setTimeout(() => window.lrminiMax?.(), 400);
-      window.setTimeout(hideInvitePanels, 500);
-      window.setTimeout(hideInvitePanels, 1200);
+      window.Tawk_API.showWidget?.();
+      window.Tawk_API.maximize();
       return true;
     };
 
-    if (openMiniChat()) return;
+    if (openTawkChat()) return;
 
     let attempts = 0;
     const retryTimer = window.setInterval(() => {
       attempts += 1;
-      if (openMiniChat() || attempts >= 8) {
+      if (openTawkChat() || attempts >= 20) {
         window.clearInterval(retryTimer);
       }
-    }, 250);
+    }, 300);
   };
 
   const scrollToTop = () => {
@@ -159,7 +139,7 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
           ariaLabel={cuasText(locale, 'Get Datasheet & Pricing on WhatsApp')}
         >
           <PrimaryContactIcon size={25} />
-          <span>{cuasText(locale, 'Get Datasheet & Pricing on WhatsApp')}</span>
+          <span>WhatsApp</span>
         </PrimaryContactButton>
 
         <button
