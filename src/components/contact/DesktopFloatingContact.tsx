@@ -156,10 +156,10 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
         <PrimaryContactButton
           sourceLabel="desktop_floating_whatsapp"
           className={`${styles.actionButton} ${styles.whatsapp}`}
-          ariaLabel={cuasText(locale, 'Open WhatsApp contact')}
+          ariaLabel={cuasText(locale, 'Get Datasheet & Pricing on WhatsApp')}
         >
           <PrimaryContactIcon size={25} />
-          <span>WhatsApp</span>
+          <span>{cuasText(locale, 'Get Datasheet & Pricing on WhatsApp')}</span>
         </PrimaryContactButton>
 
         <button

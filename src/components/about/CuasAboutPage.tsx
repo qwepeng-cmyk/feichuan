@@ -202,7 +202,7 @@ function PurchaseActions({ locale, mobile = false }: { locale: string; mobile?: 
                 ctaLocation={mobile ? 'about_mobile' : 'about_desktop'}
                 className={styles.primaryAction}
             >
-                Get Price on WhatsApp <ArrowUpRight size={18} aria-hidden="true" />
+                Get Datasheet & Pricing on WhatsApp <ArrowUpRight size={18} aria-hidden="true" />
             </PrimaryContactButton>
             <Link className={styles.secondaryAction} href={localePath(locale, '/contact')} prefetch={false}>
                 Request Brochure <ArrowRight size={17} aria-hidden="true" />

@@ -12,19 +12,37 @@ export default function MobileStickyBar({ dict }: { locale: string; dict: any })
   const buttonStyle: React.CSSProperties = {
     flex: '1 1 0',
     minWidth: 0,
+    position: 'relative',
+    boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '8px',
-    height: '46px',
+    height: '52px',
+    padding: '0 7px 0 29px',
     borderRadius: '4px',
     color: '#fff',
-    fontSize: '14px',
+    fontSize: '11.5px',
     fontWeight: 700,
     textDecoration: 'none',
     lineHeight: 1.2,
     textAlign: 'center',
     border: 'none',
+    overflow: 'hidden',
+  };
+
+  const iconStyle: React.CSSProperties = {
+    position: 'absolute',
+    left: '9px',
+    top: '50%',
+    flexShrink: 0,
+    transform: 'translateY(-50%)',
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    minWidth: 0,
+    lineHeight: 1.15,
+    overflowWrap: 'break-word',
   };
 
   return (
@@ -36,7 +54,7 @@ export default function MobileStickyBar({ dict }: { locale: string; dict: any })
       width: 'auto',
       maxWidth: '100vw',
       boxSizing: 'border-box',
-      height: '70px',
+      height: '78px',
       background: '#fff',
       display: 'flex',
       alignItems: 'center',
@@ -48,18 +66,18 @@ export default function MobileStickyBar({ dict }: { locale: string; dict: any })
       <button
         type="button"
         onClick={() => setQuoteOpen(true)}
-        style={{ ...buttonStyle, background: '#4a79d1', cursor: 'pointer', fontSize: '12px' }}
+        style={{ ...buttonStyle, background: '#4a79d1', cursor: 'pointer', fontSize: '11.5px' }}
       >
-        <FileText size={18} aria-hidden="true" />
-        {dict.inquiry?.title || 'Get Expert Drone Defense Advice'}
+        <FileText size={15} style={iconStyle} aria-hidden="true" />
+        <span style={labelStyle}>{dict.inquiry?.title || 'Get Expert Drone Defense Advice'}</span>
       </button>
 
       <PrimaryContactButton
         sourceLabel="mobile_sticky_whatsapp"
         style={{ ...buttonStyle, background: 'var(--contact-channel-accent)' }}
       >
-        <MessageCircle size={18} aria-hidden="true" />
-        {dict.products.whatsapp}
+        <MessageCircle size={15} style={iconStyle} aria-hidden="true" />
+        <span style={labelStyle}>{dict.products.whatsapp}</span>
       </PrimaryContactButton>
 
       <MobileQuoteDrawer dict={dict} open={quoteOpen} onClose={closeQuote} />

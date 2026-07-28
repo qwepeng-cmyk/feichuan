@@ -463,7 +463,7 @@ export default function HomeRebuildPreview({
               sourceLabel="home_rebuild_hero_whatsapp"
               className={styles.primaryButton}
             >
-              Get Price on WhatsApp
+              Get Datasheet & Pricing on WhatsApp
               <ArrowUpRight size={18} />
             </PrimaryContactButton>
             <a className={styles.secondaryButton} href="#products">
@@ -843,7 +843,7 @@ export default function HomeRebuildPreview({
             sourceLabel="home_rebuild_purchase_whatsapp"
             className={styles.purchasePrimary}
           >
-            Get Price on WhatsApp
+            Get Datasheet & Pricing on WhatsApp
             <ArrowUpRight size={18} />
           </PrimaryContactButton>
           <Link className={styles.purchaseSecondary} href={localePath(locale, "/contact")}>

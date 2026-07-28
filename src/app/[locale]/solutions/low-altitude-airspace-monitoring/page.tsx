@@ -166,7 +166,7 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
       'Для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров. N-TET помогает спланировать C-UAS по реальным условиям объекта: сенсорное оборудование, проверка оператором, записи платформы и стационарные, мобильные на автомобиле или переносные варианты развертывания.',
     'Get Site Layout & Quote': 'Получить схему объекта и предложение',
-    'WhatsApp Chat': 'Чат WhatsApp',
+    'Get Datasheet & Pricing on WhatsApp': 'Получить спецификацию и цены в VK',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'Основано на стационарных и мобильных схемах работы: спланировать объект, поднять раннее предупреждение, идентифицировать, позиционировать, сопровождать, координировать реагирование и сохранять проверяемые записи.',
     'C-UAS Equipment for Site Plans': 'Оборудование C-UAS для планов объектов',
@@ -356,7 +356,7 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
       'Para aeropuertos, refinerías, plantas eléctricas, puertos, recintos y grandes perímetros. N-TET ayuda a planificar una configuración C-UAS desde condiciones reales del sitio: equipos de sensado, revisión del operador, registros de plataforma y opciones fijas, móviles en vehículo o portátiles.',
     'Get Site Layout & Quote': 'Solicitar diseño del sitio y cotización',
-    'WhatsApp Chat': 'Chat por WhatsApp',
+    'Get Datasheet & Pricing on WhatsApp': 'Ficha técnica y precios por WhatsApp',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'Adaptado a patrones de operación fija y móvil: planificar el sitio, activar alerta temprana, identificar, posicionar, seguir, coordinar respuesta y conservar registros revisables.',
     'C-UAS Equipment for Site Plans': 'Equipos C-UAS para planes de sitio',
@@ -546,7 +546,7 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
       'للمطارات والمصافي ومحطات الطاقة والموانئ والمرافق والمحيطات الواسعة. تساعد N-TET في تخطيط إعداد C-UAS من ظروف الموقع الفعلية: معدات الاستشعار، مراجعة المشغل، سجلات المنصة، وخيارات النشر الثابتة أو المتنقلة بالمركبة أو المحمولة.',
     'Get Site Layout & Quote': 'اطلب مخطط الموقع وعرض السعر',
-    'WhatsApp Chat': 'محادثة WhatsApp',
+    'Get Datasheet & Pricing on WhatsApp': 'المواصفات والأسعار عبر WhatsApp',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'مقتبس من أنماط التشغيل الثابتة والمتحركة: تخطيط الموقع، إطلاق الإنذار المبكر، التعريف، تحديد الموقع، التتبع، تنسيق الاستجابة، والاحتفاظ بسجلات قابلة للمراجعة.',
     'C-UAS Equipment for Site Plans': 'معدات C-UAS لخطط المواقع',
@@ -1301,7 +1301,7 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <PrimaryContactButton sourceLabel="low_altitude_landing_hero_whatsapp" className={`${styles.secondaryCta} ${styles.whatsappCta}`}>
-              {copy(locale, 'WhatsApp Chat')}
+              {copy(locale, 'Get Datasheet & Pricing on WhatsApp')}
             </PrimaryContactButton>
           </div>
         </div>
