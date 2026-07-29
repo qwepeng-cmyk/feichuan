@@ -33,19 +33,19 @@ const productSets: Record<defenseProductSet, readonly FeaturedProduct[]> = {
   ],
   mobile: [
     {
-      handle: 'stationary-active-rf-defense-system',
-      name: 'Fixed Low-Altitude Defense Site Unit',
-      image: '/products/rf-systems/stationary-rf-analysis-unit.webp',
+      handle: 'handheld-rf-detection-system-mini',
+      name: 'PL280H Handheld RF Detection System',
+      image: '/products/02-detection-monitoring/handheld-rf-detection-system-pl280h.webp',
     },
     {
-      handle: 'portable-integrated-detection-event-logging-pro-low-altitude-monitoring',
-      name: 'Integrated Low-Altitude Defense Field Kit (Pro)',
-      image: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp',
+      handle: 'portable-rf-detection-case',
+      name: 'Portable RF Identification System',
+      image: '/products/02-detection-monitoring/portable-rf-detection-case.webp',
     },
     {
-      handle: 'portable-active-rf-defense-system',
-      name: 'Portable Low-Altitude Defense Field Unit',
-      image: '/products/rf-systems/portable-navigation-signal-analysis-unit.webp',
+      handle: 'handheld-integrated-sdr-low-altitude-monitoring',
+      name: 'Handheld Integrated SDR Monitoring System',
+      image: '/products/rf-systems/portable-integrated-rf-analysis-unit.webp',
     },
   ],
 };

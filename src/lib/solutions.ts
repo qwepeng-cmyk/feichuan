@@ -1,6 +1,7 @@
 import { supabase } from './supabase';
 import { unstable_cache } from 'next/cache';
 import { sanitizePublicRecord } from './publicCopy';
+import { isHiddenPublicSolutionHandle } from './publicCatalogPolicy';
 
 export interface Solution {
     id: string;
@@ -39,7 +40,9 @@ export const getAllSolutions = unstable_cache(
         if (error) throw error;
         const rows = (data || []) as any[];
         
-        return rows.map(row => sanitizePublicRecord({
+        return rows
+            .filter((row) => !isHiddenPublicSolutionHandle(row.handle))
+            .map(row => sanitizePublicRecord({
                 ...row,
                 id: row.handle,
                 title_en: row.product_name_en,
@@ -61,6 +64,7 @@ export const getSolutionById = unstable_cache(
             .maybeSingle();
         if (error) throw error;
         if (!row) return null;
+        if (isHiddenPublicSolutionHandle(id)) return null;
 
         let data: any = {};
         try {
@@ -90,7 +94,9 @@ export const getAllSolutionHandles = unstable_cache(
             .eq('is_published', 1);
         if (error) throw error;
         const rows = (data || []) as any[];
-        return rows.map(r => r.handle);
+        return rows
+            .map(r => r.handle)
+            .filter((handle) => !isHiddenPublicSolutionHandle(handle));
     },
     ['solution-handles-yandex-copy-20260728-v2'],
     { revalidate: 3600, tags: ['solutions'] }

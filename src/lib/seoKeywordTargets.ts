@@ -1,3 +1,5 @@
+import { sanitizePublicCopy, sanitizePublicRecord } from './publicCopy';
+
 // Edited for Yandex.Direct compliance
 export interface SeoKeywordTarget {
   primary: string;
@@ -555,11 +557,11 @@ const LOCALIZED_TARGETS: Partial<Record<'es' | 'ru' | 'ar', Record<string, SeoKe
   },
   ru: {
     '/': {
-      primary: 'оборудование Low-Altitude Defense',
-      secondary: ['системы защиты от платформ', 'обнаружение платформ', 'мониторинг воздушного пространства'],
-      h1: 'Оборудование Low-Altitude Defense и интеграция систем',
-      overviewHeading: 'Системы Low-Altitude Defense для обнаружения и мониторинга воздушного пространства',
-      intro: 'N-TET поставляет оборудование Low-Altitude Defense и интегрирует системы обнаружения, идентификации, сопровождения и координации реагирования для критически важных и общественных объектов.',
+      primary: 'оборудование для низковысотного мониторинга',
+      secondary: ['RF-мониторинг', 'радар малых высот', 'мониторинг воздушного пространства'],
+      h1: 'Оборудование для низковысотного мониторинга и интеграция систем',
+      overviewHeading: 'Системы обнаружения и мониторинга воздушного пространства на малых высотах',
+      intro: 'N-TET поставляет оборудование и интегрирует системы обнаружения, идентификации, сопровождения и регистрации событий для промышленных и общественных объектов.',
       source: 'google_ads_keywords',
     },
     '/about': {
@@ -762,7 +764,7 @@ export function getSeoKeywordTarget(options: {
       ? LOCALIZED_TARGETS[options.locale]?.[normalized]
       : undefined;
   const target = localizedTarget || TARGETS[normalized];
-  if (target) return target;
+  if (target) return sanitizePublicRecord(target);
 
   const categoryKeywords = options.category ? CATEGORY_FALLBACKS[options.category] || [] : [];
   const fallbackKeywords = (options.fallbackKeywords || []).filter(Boolean);
@@ -772,13 +774,13 @@ export function getSeoKeywordTarget(options: {
     ...fallbackKeywords.slice(1),
   ])).filter((item) => item && item.toLowerCase() !== primary.toLowerCase()).slice(0, 5);
 
-  return {
+  return sanitizePublicRecord({
     primary,
     secondary,
     h1: primary,
     overviewHeading: inferOverviewHeading(primary, options.pageKind, options.locale),
     source: 'inferred_seo_keyword',
-  };
+  });
 }
 
 export function getSeoKeywordBackedEntry(route: string, locale = 'ru') {
@@ -787,23 +789,24 @@ export function getSeoKeywordBackedEntry(route: string, locale = 'ru') {
     locale === 'es' || locale === 'ru' || locale === 'ar'
       ? LOCALIZED_TARGETS[locale]?.[normalized]
       : undefined;
-  return localizedTarget || TARGETS[normalized];
+  const target = localizedTarget || TARGETS[normalized];
+  return target ? sanitizePublicRecord(target) : undefined;
 }
 
 export function buildKeywordIntro(target: SeoKeywordTarget, fallbackSubject: string, locale = 'ru') {
-  if (target.intro) return target.intro;
+  if (target.intro) return sanitizePublicCopy(target.intro);
   if (target.source === 'google_ads_keywords') {
     const related = target.secondary.slice(0, 3).join(', ');
     if (locale === 'es') {
-      return `${target.primary} es el tema principal de esta página, con cobertura relacionada para ${related || fallbackSubject}.`;
+      return sanitizePublicCopy(`${target.primary} es el tema principal de esta página, con cobertura relacionada para ${related || fallbackSubject}.`);
     }
     if (locale === 'ru') {
-      return `${target.primary} является основной темой этой страницы; также раскрываются связанные задачи: ${related || fallbackSubject}.`;
+      return sanitizePublicCopy(`${target.primary} является основной темой этой страницы; также раскрываются связанные задачи: ${related || fallbackSubject}.`);
     }
     if (locale === 'ar') {
-      return `توضح هذه الصفحة ${target.primary}، مع معلومات مرتبطة بـ ${related || fallbackSubject}.`;
+      return sanitizePublicCopy(`توضح هذه الصفحة ${target.primary}، مع معلومات مرتبطة بـ ${related || fallbackSubject}.`);
     }
-    return `${target.primary} is the primary search theme for this page, with related coverage for ${related || fallbackSubject}.`;
+    return sanitizePublicCopy(`${target.primary} is the primary search theme for this page, with related coverage for ${related || fallbackSubject}.`);
   }
   return '';
 }

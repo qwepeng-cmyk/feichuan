@@ -6,10 +6,9 @@ import { getProductByHandle, getAllProductHandles } from '@/lib/products';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import CatalogDetailContent from '@/components/products/CatalogDetailContent';
-import CaptureNetLauncherDetail from '@/components/products/CaptureNetLauncherDetail';
-import DirectedEnergySystem from '@/components/products/DirectedEnergySystem';
 import { buildSeoMetadata, getProductSeo } from '@/lib/seoMetadata';
 import { isdefenseProductCategory } from '@/lib/indexability';
+import PerformanceConditionsNote from '@/components/common/PerformanceConditionsNote';
 
 export const dynamicParams = false;
 
@@ -46,14 +45,6 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
 
   if (!product) {
     notFound();
-  }
-
-  if (handle === 'handheld-capture-launcher') {
-    return <CaptureNetLauncherDetail product={product} locale={locale} dict={dict} />;
-  }
-
-  if (handle === 'directed-energy-system') {
-    return <DirectedEnergySystem mode="public" locale={locale} />;
   }
 
   return (
@@ -104,6 +95,7 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
       }>
         <ProductDetailContent handle={handle} locale={locale} />
       </Suspense>
+      <PerformanceConditionsNote locale={locale} />
     </>
   );
 }

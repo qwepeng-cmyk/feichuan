@@ -65,14 +65,12 @@
     }
   ],
   "intentSolutionHandles": [
-    "low-altitude-airspace-monitoring",
     "multi-sensor-detection",
     "low-altitude-radar-monitoring",
     "portable-detection-system",
     "perimeter-defense-system",
     "rf-target-positioning",
-    "layered-site-protection",
-    "rf-signal-suppression"
+    "layered-site-protection"
   ],
   "caseHandles": [
     "airport-security-application",

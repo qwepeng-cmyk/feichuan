@@ -13,6 +13,15 @@ function isProtectedFrontendPreview(pathname: string) {
     return segments[0] === 'preview-products';
 }
 
+const WITHDRAWN_PUBLIC_ROUTES = new Set([
+    'products/low-altitude-airspace-monitoring',
+    'solutions/low-altitude-airspace-monitoring',
+]);
+
+function isWithdrawnPublicRoute(pathname: string) {
+    return WITHDRAWN_PUBLIC_ROUTES.has(publicPathSegments(pathname).join('/'));
+}
+
 function isLocalHostname(hostname: string) {
     const cleanHostname = hostname.replace(/^\[/, '').replace(/\]$/, '').split(':')[0];
     const parts = cleanHostname.split('.').map((part) => Number(part));
@@ -28,16 +37,10 @@ function isLocalHostname(hostname: string) {
         isPrivateIpv4;
 }
 
-const LEGACY_SOLUTION_REDIRECTS: Record<string, string> = {
-  'rf-interference-device': '/solutions/rf-signal-suppression',
-};
+const LEGACY_SOLUTION_REDIRECTS: Record<string, string> = {};
 
 const LEGACY_PRODUCT_REDIRECTS: Record<string, string> = {
-  'uav-navigation-airspace-data-verification-system':
-    '/products/aerial-navigation-airspace-data-verification-system',
   'uav-remote-id-monitoring-system': '/products/aerial-remote-id-monitoring-system',
-  'handheld-drone-net-launcher': '/products/handheld-capture-launcher',
-  'drone-laser-engagement-system': '/products/directed-energy-system',
 };
 
 function legacyProductPath(pathname: string) {
@@ -126,6 +129,16 @@ export function middleware(request: NextRequest) {
         pathname === '/favicon.ico'
     ) {
         return NextResponse.next();
+    }
+
+    if (isWithdrawnPublicRoute(pathname)) {
+        return new NextResponse(null, {
+            status: 404,
+            headers: {
+                'Cache-Control': 'public, max-age=0, must-revalidate',
+                'X-Robots-Tag': 'noindex, nofollow',
+            },
+        });
     }
 
     const brandPath = normalizedBrandPath(pathname);

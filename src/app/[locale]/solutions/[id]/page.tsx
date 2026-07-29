@@ -17,6 +17,7 @@ import { englishdefenseSolutionHandles, getdefenseSolution } from '@/lib/solutio
 import { getdefenseIndustryPageData } from '@/lib/industryPageData';
 import IndustryDefensePage from '@/components/solutions/IndustryDefensePage';
 import { isdefenseProductCategory, isdefenseSolutionHandle } from '@/lib/indexability';
+import PerformanceConditionsNote from '@/components/common/PerformanceConditionsNote';
 
 async function getLocalizedSolution(id: string, locale: Locale) {
   const catalogSolution = getdefenseSolution(id, locale);
@@ -138,6 +139,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
           locale={locale}
           dict={dict}
         />
+        <PerformanceConditionsNote locale={locale} />
       </>
     );
   }
@@ -166,6 +168,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
         />
       </div>
 
+      <PerformanceConditionsNote locale={locale} />
       <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>
   );

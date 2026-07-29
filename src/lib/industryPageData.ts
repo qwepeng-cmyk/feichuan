@@ -25,13 +25,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Strategic Monitoring',
-        description: 'Focuses on 24/7 industrial-grade sensing by merging warning and guard zones. It employs multi-sensor fusion to filter complex industrial clutter and pinpoints pilot coordinates, enabling threat neutralization at the source.',
+        description: 'Uses continuous industrial sensing within documented power, network and environmental limits. Multi-sensor fusion helps filter industrial clutter, correlate tracks and provide location evidence for operator review.',
         background: asset('critical-infrastructure-airspace-monitoring', 1),
         productSet: 'fixed',
       },
       {
         title: 'Emergency Response',
-        description: 'Secures the core zone with a "red-line" automation logic. By utilizing EMC-compliant navigation signal manipulation, it surgicality redirects threats away from critical assets, ensuring absolute operational integrity for key buildings.',
+        description: 'Applies a documented escalation workflow in the core zone. Confirmed RF, radar and EO/IR observations are recorded and shared with authorized site teams for coordinated response under local procedures.',
         background: asset('critical-infrastructure-airspace-monitoring', 2),
         productSet: 'mobile',
       },
@@ -49,7 +49,7 @@ const pages: defenseIndustryPageData[] = [
       },
       {
         title: 'Defeat Units',
-        description: 'We provides a graduated response: Directional suppressors at the perimeter force expulsion through signal suppression, while Navigation signal manipulation in core zones safely decoys platforms to avoid crash risks. Optional Lasers serve as a final line for surgical neutralization, ensuring absolute protection of critical infrastructure through this multi-tier, high-precision mitigation strategy.',
+        description: 'Provides a graduated monitoring workflow: passive RF sensing at the perimeter, radar tracking in managed sectors, EO/IR confirmation near critical assets and command-platform handoff for authorized response. Coverage and range depend on the documented test conditions and the final site layout.',
         background: asset('power-plant-airspace-monitoring', 2),
         productSet: 'mobile',
       },
@@ -61,13 +61,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Tactical Agility',
-        description: 'Serving as a vital supplement to fixed infrastructure, portable tactical units provide the essential mobility and rapid-response capabilities required for a dynamic airport security framework. Specialized "detect-and-strike-in-one" devices empower security personnel to move swiftly to the platform’s location for immediate field intervention.',
+        description: 'Portable passive sensors supplement fixed airport infrastructure with flexible monitoring positions. Verified observations and location context help trained security personnel coordinate field checks under the airport response plan.',
         background: asset('airport-security-protection', 1),
         productSet: 'mobile',
       },
       {
         title: 'Strategic Foundation',
-        description: 'Our fixed-site infrastructure establishes a comprehensive multi-layered defense capability through a networked deployment that eliminates all surveillance blind spots. In the Outer Perimeter, we integrate Remote ID receivers with RF detection for routine, long-range monitoring and early warning. Within the Management Zone, we deploy multi-modal sensing—combining radar, EO/IR optical tracking, and RF detection—to achieve high-precision situational awareness, linked with electromagnetic suppression systems to rapidly neutralize threats. Finally, for the Core Protection Zone safeguarding critical assets like runways and terminals, we implement absolute countermeasures. This involves high-energy laser systems designed to provide instantaneous neutralization of imminent dangers.',
+        description: 'The fixed-site architecture uses networked Remote ID, passive RF, radar and EO/IR sensors to reduce monitoring gaps. The command platform correlates observations and records operator decisions. Final coverage is established through an RF survey, line-of-sight review and acceptance testing; terrain, weather, target characteristics and local spectrum conditions can affect results.',
         background: asset('airport-security-protection', 2),
         productSet: 'fixed',
       },
@@ -79,13 +79,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Strategic Foundation',
-        description: "Fixed Strategic Nodes are deployed at high-vantage points or monitoring towers to provide persistent 24/7 unmanned surveillance. The system utilizes radar and RF for wide-area search and pilot localization, with EO/IR for night verification. For a 'zero-intrusion' objective, high-power interference and signal manipulation create an electronic shield, enabling automated alerts and decisive platform expulsion from core airspace.",
+        description: 'Fixed monitoring nodes use passive RF and radar for wide-area observation, with EO/IR for visual verification. Automated alerts support operator review and documented coordination; usable range varies with terrain, mounting, weather, target signature and local RF conditions.',
         background: asset('border-airspace-monitoring', 1),
         productSet: 'fixed',
       },
       {
         title: 'Tactical Agility',
-        description: 'Deploying vehicle-mounted and man-portable systems for dynamic coverage along remote stretches. These units bridge the gaps in static surveillance, providing the agility needed for rapid intervention and pilot apprehension in wilderness areas.',
+        description: 'Vehicle-mounted and portable passive sensors support planned monitoring positions along remote stretches. They help field teams review gaps in fixed coverage and coordinate authorized checks using recorded observations.',
         background: asset('border-airspace-monitoring', 2),
         productSet: 'mobile',
       },
@@ -97,13 +97,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Fixed Strategic Grid',
-        description: 'Fixed permanent sensing nodes—integrating RF, Radar, EO/IR, and RemoteID—are installed at landmarks and intersections to provide 24/7 urban monitoring. This networked grid feeds real-time data into a centralized Command Center (C2), creating an "electronic shield" for autonomous anomaly detection and city-wide early warning.',
+        description: 'Fixed RF, radar, EO/IR and Remote ID sensing nodes can support continuous urban monitoring within documented infrastructure limits. The network correlates observations in a command center for anomaly review, event records and coordinated early warning.',
         background: asset('public-safety-airspace-monitoring', 1),
         productSet: 'fixed',
       },
       {
         title: 'Rapid Response',
-        description: 'Patrol units utilize vehicle-mounted and man-portable "detect-and-strike" systems. When the grid triangulates a threat, the C2 Center dispatches the nearest mobile team. These units perform "last mile" intervention, surgically neutralizing platforms while apprehending pilots to eliminate unauthorized flights at the source.',
+        description: 'Vehicle-mounted and portable monitoring units give patrol teams local RF and visual context. When the command center confirms an event, it can dispatch the appropriate team and preserve the observation trail for authorized field response.',
         background: asset('public-safety-airspace-monitoring', 2),
         productSet: 'mobile',
       },
@@ -115,13 +115,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Strategic Base',
-        description: 'Employs all-in-one detection and mitigation units mounted on strategic elevations for autonomous, facility-wide protection.',
+        description: 'Uses fixed passive RF, radar and EO/IR sensors at reviewed elevations for facility monitoring and traceable event records.',
         background: asset('correctional-facility-airspace-monitoring', 1),
         productSet: 'fixed',
       },
       {
         title: 'Tactical Units',
-        description: 'Provides patrol teams with portable devices to eliminate blind spots and leverage live pilot tracking for swift apprehension and source neutralization outside the prison walls.',
+        description: 'Provides patrol teams with portable passive sensors to reduce monitoring gaps and review location evidence outside the prison perimeter. Results remain subject to site obstructions and local RF conditions.',
         background: asset('correctional-facility-airspace-monitoring', 2),
         productSet: 'mobile',
       },
@@ -133,7 +133,7 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Fixed Infrastructure',
-        description: 'Strategically mounted on high vantage points, this 24/7 all-weather foundation provides a tiered defense: detecting via radar/RF and confirming targets through EO/IR. It enables a graduated response, utilizing distributed RF interference and navigation signal manipulation to safely redirect or ground threats, ensuring comprehensive, non-kinetic protection for critical port assets.',
+        description: 'Reviewed high-vantage positions support passive RF and radar observation with EO/IR confirmation. The command workflow records confirmed events for coordinated port response. Coverage depends on mounting, weather, sea clutter, target signature and acceptance-test conditions.',
         background: asset('port-airspace-monitoring', 1),
         productSet: 'fixed',
       },
@@ -151,13 +151,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Fixed Nodes',
-        description: 'Semi-fixed tactical stations are strategically built at elevated vantage points—such as stadium rooftops, the upper floors of nearby hotels, or temporary onsite mobile towers—and are equipped as integrated units with RF detectors and RF interference.',
+        description: 'Semi-fixed monitoring stations can be placed at reviewed vantage points such as stadium rooftops or temporary towers and equipped with passive RF detectors, radar and EO/IR verification.',
         background: asset('mass-event-airspace-monitoring', 1),
         productSet: 'fixed',
       },
       {
         title: 'Mobile Units',
-        description: 'Integrates vehicle-mounted command units—serving as temporary on-site command posts—with man-portable patrols equipped with handheld devices. This combination fills coverage gaps and delivers precision, non-kinetic intervention in high-density areas, ensuring seamless air security from wide-area surveillance to endpoint response.',
+        description: 'Vehicle-mounted command units and portable patrol sensors support temporary operating posts. The combination helps reduce coverage gaps, preserve event records and coordinate authorized response in high-density areas.',
         background: asset('mass-event-airspace-monitoring', 2),
         productSet: 'mobile',
       },
@@ -169,13 +169,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Tactical Support',
-        description: 'Our Mobile Ensemble integrates covert systems into escort vehicles as hidden command hubs, paired with man-portable units. This enables rapid, synchronized platform detection and neutralization in a low-profile format.',
+        description: 'The mobile configuration links discreet vehicle-based command equipment with portable passive sensors for synchronized detection, verification and operator coordination.',
         background: asset('vip-private-property-airspace-monitoring', 1),
         productSet: 'mobile',
       },
       {
         title: 'Strategic Base',
-        description: "RF platform sensors and omnidirectional suppressors are installed on rooftops or perimeter walls to create a 24/7 'Electronic Defense Dome.' This system ensure total privacy and automated protection without interfering with the VIP's domestic lifestyle.",
+        description: 'Passive RF, radar and EO/IR sensors can be installed at reviewed rooftop or perimeter positions for continuous monitoring within documented operating limits. Final placement follows a privacy, RF and line-of-sight survey.',
         background: asset('vip-private-property-airspace-monitoring', 2),
         productSet: 'fixed',
       },
@@ -187,13 +187,13 @@ const pages: defenseIndustryPageData[] = [
     stages: [
       {
         title: 'Strategic Base',
-        description: "This is the 'Always-On' foundation for 24/7 campus protection. Strategically mounted on rooftops or dedicated towers, these units provide a persistent electronic 'dome' over the facility.",
+        description: 'Fixed passive sensors provide continuous campus monitoring within documented power, network and environmental limits. Rooftop or tower placement is confirmed by site survey and acceptance testing.',
         background: asset('enterprise-airspace-monitoring', 1),
         productSet: 'fixed',
       },
       {
         title: 'Tactical Support',
-        description: 'This provides "First Responder" flexibility for security patrols, utilizing man-portable devices to eliminate surveillance blind spots. Real-time data synchronization ensures teams can rapidly pinpoint pilot coordinates and neutralize threats at the source.',
+        description: 'Portable passive sensors provide flexible support for security patrols and help reduce monitoring gaps. Data synchronization gives teams location context and traceable records for coordinated field checks.',
         background: asset('enterprise-airspace-monitoring', 2),
         productSet: 'mobile',
       },

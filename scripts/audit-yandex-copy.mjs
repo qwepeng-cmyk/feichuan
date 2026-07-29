@@ -1,6 +1,23 @@
 const baseUrl = (process.env.SOURCE_BASE_URL || 'http://127.0.0.1:3000').replace(/\/+$/, '');
 
+const utf8RestrictedPatterns = [
+  ['forced landing', /\bforced[\s_-]*landing\b/gi],
+  ['shoot down', /\bshoot[\s_-]*down\b/gi],
+  ['weapon', /\bweapon(?:s)?\b/gi],
+  ['anti-drone (ru)', /\u0430\u043d\u0442\u0438\u0434\u0440\u043e\u043d[\u0430-\u044f\u0451-]*/gi],
+  ['drone (ru)', /\u0434\u0440\u043e\u043d[\u0430-\u044f\u0451-]*/gi],
+  ['UAV (ru)', /\u0431\u043f\u043b\u0430/gi],
+  ['unmanned (ru)', /\u0431\u0435\u0441\u043f\u0438\u043b\u043e\u0442\u043d[\u0430-\u044f\u0451-]*/gi],
+  ['jammer (ru)', /\u0433\u043b\u0443\u0448\u0438\u043b\u043a[\u0430-\u044f\u0451-]*/gi],
+  ['spoofing (ru)', /\u0441\u043f\u0443\u0444\u0438\u043d\u0433[\u0430-\u044f\u0451-]*/gi],
+  ['forced landing (ru)', /\u043f\u0440\u0438\u043d\u0443\u0434\u0438\u0442\u0435\u043b\u044c\u043d[\u0430-\u044f\u0451-]*\s+\u043f\u043e\u0441\u0430\u0434\u043a[\u0430-\u044f\u0451-]*/gi],
+  ['weapon (ru)', /\u043e\u0440\u0443\u0436\u0438[\u0430-\u044f\u0451-]*/gi],
+  ['drone (zh)', /\u65e0\u4eba\u673a/g],
+  ['anti-drone (zh)', /\u53cd\u65e0\u4eba\u673a|\u53cd\u65e0/g],
+];
+
 const restrictedPatterns = [
+  ...utf8RestrictedPatterns,
   ['counter-UAS', /\bcounter[\s_-]*u(?:as|av)\b/gi],
   ['C-UAS', /\bc[\s_-]*uas\b/gi],
   ['CUAS', /\bcuas\b/gi],

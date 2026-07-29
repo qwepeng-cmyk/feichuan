@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   LOCALES,
@@ -13,19 +14,33 @@ import { cuasIndexabilityPolicy } from './cuas-indexability.mjs';
 
 const db = openDb();
 const rows = getAllCuasIndexableContent(db);
-const publicRows = rows;
+const publicCatalogPolicy = JSON.parse(
+  readFileSync(join(process.cwd(), 'src', 'config', 'publicCatalogPolicy.json'), 'utf8'),
+);
+const passiveDetectionProductHandles = new Set(
+  publicCatalogPolicy.passiveDetectionProductHandles,
+);
+const publicRows = rows.filter(
+  (row) => row.type === 'product' && passiveDetectionProductHandles.has(row.handle),
+);
 
 const copyReplacements = [
-  [/\bcounter[\s_-]*u(?:as|av)\b/giu, 'Low-Altitude Defense'],
-  [/\bc[\s_-]*uas\b/giu, 'Low-Altitude Defense'],
-  [/\bcuas\b/giu, 'Low-Altitude Defense'],
-  [/\banti[\s_-]*(?:drone|uav)\b/giu, 'Low-Altitude Defense'],
+  [/\blow[\s-]*altitude defense\b/giu, 'низковысотный мониторинг'],
+  [/\bcounter[\s_-]*u(?:as|av)\b/giu, 'низковысотный мониторинг'],
+  [/\bc[\s_-]*uas\b/giu, 'низковысотный мониторинг'],
+  [/\bcuas\b/giu, 'низковысотный мониторинг'],
+  [/\banti[\s_-]*(?:drone|uav)\b/giu, 'низковысотный мониторинг'],
   [/\bdrone(?:s)?\b/giu, 'низковысотная цель'],
-  [/\buav(?:s)?\b/giu, 'воздушная платформа'],
-  [/антидрон\p{L}*/giu, 'комплекс низковысотной защиты'],
+  [/\buav(?:s)?\b/giu, 'low-altitude target'],
+  [/антидрон\p{L}*/giu, 'комплекс низковысотного мониторинга'],
+  [/дронами/giu, 'низковысотными целями'],
+  [/дронов/giu, 'низковысотных целей'],
+  [/дроны/giu, 'низковысотные цели'],
+  [/дрона/giu, 'низковысотной цели'],
+  [/дроном/giu, 'низковысотной целью'],
   [/дрон\p{L}*/giu, 'низковысотная цель'],
-  [/бпла/giu, 'воздушная платформа'],
-  [/беспилотн\p{L}*/giu, 'воздушная платформа'],
+  [/бпла/giu, 'низковысотных целей'],
+  [/беспилотн\p{L}*/giu, 'низковысотных целей'],
   [/\bjammer(?:s)?\b/giu, 'RF suppressor'],
   [/\bjamming\b/giu, 'signal suppression'],
   [/глушил\p{L}*/giu, 'подавление радиосигнала'],
@@ -36,18 +51,18 @@ function safeCopy(value = '') {
   return copyReplacements.reduce(
     (copy, [pattern, replacement]) => copy.replace(pattern, replacement),
     String(value),
+  ).replace(
+    /(выявляет|обнаруживает|идентифицирует|сопровождает)\s+низковысотных целей/giu,
+    '$1 низковысотные цели',
   );
 }
 
+function russianSummary(value = '') {
+  const sanitized = safeCopy(value);
+  return /[А-Яа-яЁё]/u.test(sanitized) ? sanitized : '';
+}
+
 const staticIntentPages = [
-  {
-    type: 'solution',
-    route: 'solutions',
-    handle: 'low-altitude-airspace-monitoring',
-    title: 'Low-Altitude Airspace Monitoring Solution',
-    summary: 'Plan low-altitude airspace monitoring for critical sites with RF sensing, radar, Remote ID, EO/IR verification, command coordination and authorized-response workflows.',
-    tier: 'normal',
-  },
   {
     type: 'solution',
     route: 'solutions',
@@ -113,12 +128,7 @@ const catalogSolutionPages = cuasIndexabilityPolicy.catalogSolutions.map((soluti
   title: safeCopy(solution.title),
   summary: safeCopy(solution.summary),
 }));
-const staticPages = [...catalogSolutionPages, ...staticIntentPages];
-const staticHandles = new Set(staticPages.map((page) => `${page.type}:${page.handle}`));
-const allPublicRows = [
-  ...publicRows.filter((row) => !staticHandles.has(`${row.type}:${row.handle}`)),
-  ...staticPages,
-];
+const allPublicRows = publicRows;
 const groups = Object.groupBy(allPublicRows, (row) => row.type);
 
 const labels = {
@@ -129,12 +139,7 @@ const labels = {
 };
 
 const corePages = [
-  ['Главная', ''],
   ['Оборудование', 'products'],
-  ['Решения', 'solutions'],
-  ['Проекты', 'cases'],
-  ['Медиа', 'media'],
-  ['Контакты', 'contact'],
 ];
 
 function localizedPageUrl(locale, path = '') {
@@ -145,12 +150,12 @@ function localizedPageUrl(locale, path = '') {
 const lines = [
   '# N-TET',
   '',
-  '> N-TET поставляет оборудование Low-Altitude Defense для обнаружения, идентификации и сопровождения низковысотных целей, мониторинга воздушного пространства и интеграции платформ управления.',
+  '> N-TET поставляет пассивное оборудование для обнаружения, идентификации, сопровождения низковысотных целей и мониторинга воздушного пространства.',
   '',
   `Canonical site: ${SITE_URL}`,
   `Generated: ${todayStamp()}`,
   '',
-  'Файл содержит опубликованные страницы Low-Altitude Defense для поисковых систем и AI-платформ. Административные, API, preview, draft и неопубликованные маршруты исключены.',
+  'Файл содержит только опубликованные страницы пассивного оборудования обнаружения и мониторинга. Решения активного воздействия, физического перехвата, административные, API, preview, draft и неопубликованные маршруты исключены.',
   '',
   '## Core Pages',
   '',
@@ -169,7 +174,7 @@ for (const type of ['product', 'solution', 'case', 'media']) {
 
   lines.push(`## ${labels[type]}`, '');
   for (const item of items) {
-    const summary = safeCopy(excerpt(item.summary, 150));
+    const summary = excerpt(russianSummary(item.summary), 150);
     lines.push(`- [${safeCopy(item.title || item.handle)}](${publicUrl('ru', item.route, item.handle)})${summary ? ` - ${summary}` : ''}`);
   }
   lines.push('');
@@ -182,4 +187,4 @@ for (const locale of LOCALES) {
 }
 
 writeTextFile(join(process.cwd(), 'public', 'llms.txt'), lines.join('\n'));
-console.log(`Generated public/llms.txt with ${allPublicRows.length} Low-Altitude Defense records.`);
+console.log(`Generated public/llms.txt with ${allPublicRows.length} passive monitoring records.`);

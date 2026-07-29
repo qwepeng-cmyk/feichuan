@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import {
   ArrowRight,
   CheckCircle2,
@@ -11,6 +12,7 @@ import {
   Target,
 } from 'lucide-react';
 import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
+import PerformanceConditionsNote from '@/components/common/PerformanceConditionsNote';
 import JsonLd from '@/components/seo/JsonLd';
 import { getDictionary } from '@/i18n/getDictionary';
 import { type Locale } from '@/i18n/config';
@@ -20,6 +22,7 @@ import { breadcrumbSchema, pageUrl } from '@/lib/structuredData';
 import DeferredInquiryForm from './DeferredInquiryForm';
 import styles from './LowAltitudeAirspaceMonitoring.module.css';
 import ruOperationalCopy from '@/dictionaries/low-altitude-airspace-monitoring/ru.json';
+import { sanitizePublicCopy } from '@/lib/publicCopy';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
 const pageTitle = 'Low-Altitude Airspace Security & Low-Altitude Defense';
@@ -43,7 +46,7 @@ const localizedStrings: Partial<Record<string, Record<string, string>>> = {
     'Perimeter overflight': 'Пролет над периметром',
     'Restricted airspace intrusion': 'Вход в ограниченное воздушное пространство',
     'Utility corridor incident': 'Инцидент в инженерном коридоре',
-    'Public-building platform sighting': 'Обнаружение воздушная платформаа у общественного здания',
+    'Public-building platform sighting': 'Обнаружение низковысотной цели у общественного здания',
     'Site Plan': 'План площадки',
     'Define perimeter zones, key areas, operator roles, alert contacts, and a practical Low-Altitude Defense layout before equipment selection.':
       'Определите зоны периметра, ключевые участки, роли операторов, контакты оповещения и практичную схему Low-Altitude Defense до выбора оборудования.',
@@ -146,7 +149,7 @@ const localizedStrings: Partial<Record<string, Record<string, string>>> = {
     'Directional RF site unit': 'Направленный RF-модуль объекта',
     'Directional RF event logging': 'Регистрация направленных RF-событий',
     'Supports positioning and response review': 'Поддерживает позиционирование и проверку реагирования',
-    'Unauthorized Platform Events Are Increasing': 'Количество несанкционированных событий с воздушная платформаами растет',
+    'Unauthorized Platform Events Are Increasing': 'Количество несанкционированных событий с низковысотными целями растет',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'Типовые ситуации для охраняемых объектов, транспортных зон, общественных зданий, инженерных коридоров и критичных операций.',
     'System composition': 'Состав системы',
@@ -601,7 +604,10 @@ const localizedStrings: Partial<Record<string, Record<string, string>>> = {
 };
 
 function copy(locale: Locale, value: string) {
-  return localizedStrings[locale]?.[value] || value;
+  const translated = locale === 'ru'
+    ? ruOperationalCopy[value as keyof typeof ruOperationalCopy] || localizedStrings[locale]?.[value]
+    : localizedStrings[locale]?.[value];
+  return sanitizePublicCopy(translated || value);
 }
 
 const painPoints = [
@@ -726,61 +732,61 @@ const equipmentCapabilityGroups = [
   },
   {
     label: 'B',
-    title: 'Response & Control',
-    subtitle: 'Soft response equipment for full-site handling',
-    text: 'Use fixed, navigation-signal, and portable response equipment according to site rules, deployment time, and operator approval workflow.',
-    controlGroupLabel: 'Soft Response (Electromagnetic Means)',
+    title: 'Verification & Coordination',
+    subtitle: 'Passive verification equipment for documented site workflows',
+    text: 'Use fixed passive RF, Remote ID and portable monitoring equipment according to the site layout, deployment time and operator review workflow.',
+    controlGroupLabel: 'Passive Verification & Event Records',
     controlCards: [
       {
-        title: 'Fixed Low-Altitude Defense Site Unit',
-        points: ['Control and video-link bands', 'Key-band and model-profile setup', 'Remote supervision and guard duty'],
-        src: '/products/rf-systems/stationary-rf-analysis-unit.webp',
-        alt: 'Fixed Low-Altitude Defense site unit',
-        href: '/products/stationary-active-rf-defense-system',
+        title: 'Stationary RF Identification System',
+        points: ['Passive spectrum monitoring', 'Signal-profile review', 'Remote supervision and event records'],
+        src: '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
+        alt: 'Stationary passive RF identification system',
+        href: '/products/stationary-rf-detection-system',
       },
       {
-        title: 'Low-Altitude Defense Signal Verification System',
-        points: ['Navigation-signal scenario support', 'Guide activity away from protected lines', 'Compact, low-disruption deployment'],
-        src: '/products/rf-systems/navigation-signal-analysis-system.webp',
-        alt: 'Low-Altitude Defense signal verification equipment',
-        href: '/products/aerial-navigation-airspace-data-verification-system',
+        title: 'Aerial Platform Remote ID Recognition System',
+        points: ['Cooperative identity reception', 'Position and operator context', 'Traceable event records'],
+        src: '/products/aerial-systems/aerial-Remote-ID-Monitoring-System.webp',
+        alt: 'Remote ID recognition equipment for passive verification',
+        href: '/products/aerial-remote-id-monitoring-system',
       },
       {
-        title: 'Portable Low-Altitude Defense Field Shield',
-        points: ['Ready-to-use field support', 'Single-person temporary deployment', 'Simple operation for approved sites'],
-        src: '/products/rf-systems/portable-rf-field-unit.webp',
-        alt: 'Portable response shield equipment',
-        href: '/products/portable-low-altitude-monitoring-event-logging-shield',
+        title: 'Portable RF Identification System',
+        points: ['Portable passive monitoring', 'Single-person temporary deployment', 'Local review and event export'],
+        src: '/products/02-detection-monitoring/portable-rf-detection-case.webp',
+        alt: 'Portable passive RF identification equipment',
+        href: '/products/portable-rf-detection-case',
       },
     ],
-    note: 'Soft response first; hard response only as fallback.',
+    note: 'Sensor observations require operator review and the documented site response procedure.',
     summary:
-      'Typical sites prioritize electromagnetic response methods because they are easier to approve, lower-disruption, and lower-collateral when used under local authorization.',
+      'Passive RF, Remote ID, radar and EO/IR evidence can be correlated before an authorized site team decides how to respond.',
   },
   {
     label: 'C',
-    title: 'Detection-and-Response Integrated Units',
-    subtitle: 'Detection, identification, and response in one unit',
-    text: 'Use integrated portable, fixed-site, and vehicle-mobile units when the site needs sensing, operator confirmation, and approved response in one deployable system.',
+    title: 'Integrated Detection & Verification Units',
+    subtitle: 'Detection, identification, confirmation and records in one workflow',
+    text: 'Use integrated portable, fixed-site and vehicle-mobile sensor units when the site needs observation, operator confirmation and event records in one deployable system.',
     integratedGroups: [
       {
         title: 'Single-Operator',
         cards: [
           {
-            title: 'Backpack Detection-and-Response Kit',
-            text: 'Single-operator sensing, positioning, tracking, and response support.',
-            points: ['Accurate field use', 'Portable deployment', 'Lightweight operation'],
+            title: 'Handheld Integrated Monitoring Kit',
+            text: 'Single-operator passive sensing, spectrum analysis and event-record support.',
+            points: ['Field spectrum review', 'Portable deployment', 'Lightweight operation'],
             src: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp',
-            alt: 'Backpack integrated Low-Altitude Defense field kit',
-            href: '/products/portable-integrated-detection-event-logging-pro-low-altitude-monitoring',
+            alt: 'Handheld integrated passive RF monitoring kit',
+            href: '/products/handheld-integrated-sdr-low-altitude-monitoring',
           },
           {
-            title: 'Portable Detection-and-Response Unit',
-            text: 'Hand-carried unit for visual operation and rapid approved response.',
-            points: ['Visual operation', 'Automatic response support', 'Rugged outdoor build'],
-            src: '/products/rf-systems/portable-navigation-signal-analysis-unit.webp',
-            alt: 'Portable Low-Altitude Defense field unit',
-            href: '/products/portable-active-rf-defense-system',
+            title: 'Portable RF Identification Unit',
+            text: 'Hand-carried passive receiver for local spectrum review and event records.',
+            points: ['Visual operation', 'Operator review', 'Rugged outdoor build'],
+            src: '/products/02-detection-monitoring/portable-rf-detection-case.webp',
+            alt: 'Portable passive RF identification unit',
+            href: '/products/portable-rf-detection-case',
           },
         ],
       },
@@ -788,20 +794,20 @@ const equipmentCapabilityGroups = [
         title: 'Fixed-Site',
         cards: [
           {
-            title: 'Fixed Detection-and-Response Unit',
-            text: 'Integrated high-performance site equipment for key-area coverage.',
-            points: ['Multiple response profiles', 'Key-area protection', 'Precise event handling'],
-            src: '/products/rf-systems/stationary-rf-analysis-unit.webp',
-            alt: 'Fixed detection and response site unit',
-            href: '/products/stationary-active-rf-defense-system',
+            title: 'Fixed Passive RF Monitoring Unit',
+            text: 'Stationary spectrum monitoring equipment for reviewed site sectors.',
+            points: ['Signal-profile library', 'Priority-sector monitoring', 'Traceable event handling'],
+            src: '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
+            alt: 'Fixed passive RF monitoring unit',
+            href: '/products/stationary-rf-detection-system',
           },
           {
-            title: 'Fixed Detection-Guidance-Response Unit',
-            text: 'Full-band sensing with low-disruption guidance workflows.',
-            points: ['High-performance design', 'Long-range approved response', 'Self-built profile library'],
-            src: '/products/rf-systems/navigation-signal-analysis-system.webp',
-            alt: 'Fixed signal verification and guidance unit',
-            href: '/products/aerial-navigation-airspace-data-verification-system',
+            title: 'Fixed Remote ID Recognition Unit',
+            text: 'Passive cooperative-identity reception with map context and event records.',
+            points: ['Identity reception', 'Position context', 'Recorded operator review'],
+            src: '/products/aerial-systems/aerial-Remote-ID-Monitoring-System.webp',
+            alt: 'Fixed Remote ID recognition unit',
+            href: '/products/aerial-remote-id-monitoring-system',
           },
           {
             title: 'Radar-Vision Integrated Unit',
@@ -818,23 +824,23 @@ const equipmentCapabilityGroups = [
         cards: [
           {
             title: 'Vehicle-Mobile Low-Altitude Defense Unit',
-            text: 'Vehicle-mounted sensing and response equipment for mobile patrol and temporary coverage.',
-            points: ['On-site calibration', 'Platform mobility', 'Configurable equipment'],
+            text: 'Vehicle-mounted passive sensing equipment for mobile patrol and temporary monitoring.',
+            points: ['On-site calibration', 'Platform mobility', 'Configurable sensor equipment'],
             src: '/solutions/low-altitude-airspace-monitoring/vehicle-mobile-defense.webp',
             alt: 'Vehicle-mobile Low-Altitude Defense unit',
           },
         ],
       },
     ],
-    note: 'Detection, identification, and response are designed as one integrated workflow.',
+    note: 'Published performance values require validation under the documented test and site conditions.',
     summary:
-      'From single-operator field kits to fixed-site systems and mobile vehicle deployments, equipment can be selected by scenario and deployed as a compact operating system.',
+      'From single-operator field kits to fixed-site systems and mobile vehicle deployments, passive sensors can be selected by scenario and linked through one evidence workflow.',
   },
   {
     label: 'D',
     title: 'Low-Altitude Management Platform',
     subtitle: 'Unified command, map, alert, and records',
-    text: 'Connect radar, RF, EO, Remote ID, operator review, response linkage, and event records on one platform.',
+    text: 'Connect radar, passive RF, EO/IR, Remote ID, operator review, coordination status and event records on one platform.',
     points: ['Fixed command workstation', 'Mobile operator access', 'Map, alert, and record management'],
     images: [
       {
@@ -854,7 +860,7 @@ const packages = [
       'Wide-area low-altitude detection',
       'Early warning and threat-level review',
       'Authorized response coordination',
-      '24/7 automated site watch',
+      'Continuous monitoring within documented operating limits',
     ],
   },
   {
@@ -1356,6 +1362,8 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
         </div>
       </section>
 
+      <PerformanceConditionsNote locale={locale} />
+
       <section id="inquiry" className={styles.inquirySection}>
         <DeferredInquiryForm dict={dict} />
       </section>
@@ -1364,6 +1372,8 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
 }
 
 export default async function LowAltitudeAirspaceMonitoringPage({ params }: { params: { locale: Locale } }) {
+  notFound();
+
   const { locale } = params;
   const dict = await getDictionary(locale);
   const breadcrumbs = [

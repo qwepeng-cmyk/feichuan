@@ -1,0 +1,32 @@
+{
+  "hiddenProductHandles": [
+    "handheld-capture-launcher",
+    "directed-energy-system",
+    "directional-rf-interference-device",
+    "omni-directional-rf-interference-device",
+    "aerial-navigation-airspace-data-verification-system"
+  ],
+  "hiddenSolutionHandles": [
+    "rf-signal-suppression",
+    "rf-interference-device"
+  ],
+  "hiddenMediaHandles": [
+    "overseas-low-altitude-security-part-i-2026",
+    "overseas-low-altitude-security-part-ii-2026"
+  ],
+  "passiveDetectionProductHandles": [
+    "stationary-rf-detection-system",
+    "portable-rf-detection-case",
+    "handheld-rf-detection-system-mini",
+    "handheld-integrated-sdr-low-altitude-monitoring",
+    "low-altitude-detection-radar-ku-band",
+    "low-altitude-3d-pulse-doppler-radar",
+    "composite-electro-optical-tracking-system",
+    "aerial-remote-id-monitoring-system",
+    "fc-dma-long-range-optical-turntable",
+    "fc-dms10-smart-electronic-sentinel",
+    "fc-dtvc-dual-band-thermal-ptz",
+    "fc-rds500-4r-radar-vision-sentinel",
+    "fc-ttvc-intelligent-multi-band-camera"
+  ]
+}

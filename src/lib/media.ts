@@ -2,6 +2,7 @@ import { supabase } from './supabase';
 import { unstable_cache } from 'next/cache';
 import { isdefenseMediaHandle } from './indexability';
 import { sanitizePublicRecord } from './publicCopy';
+import { isHiddenPublicMediaHandle } from './publicCatalogPolicy';
 
 export interface MediaMetadata {
   id: string;
@@ -49,7 +50,7 @@ export const getAllMedia = unstable_cache(
       } catch (e) {
         return null;
       }
-    }).filter((item) => item && isdefenseMediaHandle(item.id))
+    }).filter((item) => item && isdefenseMediaHandle(item.id) && !isHiddenPublicMediaHandle(item.id))
       .sort((a, b) => {
         const aTime = Date.parse(a.date || '');
         const bTime = Date.parse(b.date || '');
@@ -57,7 +58,7 @@ export const getAllMedia = unstable_cache(
         return bTime - aTime;
       });
   },
-  ['all-media-yandex-copy-20260728-v2'],
+  ['all-media-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['media'] }
 );
 
@@ -69,14 +70,16 @@ export const getAllMediaIds = unstable_cache(
       .eq('is_published', 1);
     if (error) throw error;
     const rows = (data || []) as any[];
-    return rows.map(r => r.id);
+    return rows.map(r => r.id).filter(id => !isHiddenPublicMediaHandle(id));
   },
-  ['media-ids-yandex-copy-20260728-v2'],
+  ['media-ids-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['media'] }
 );
 
 export const getMediaById = unstable_cache(
   async function getMediaById(id: string) {
+    if (isHiddenPublicMediaHandle(id)) return null;
+
     const { data: row, error } = await supabase
       .from('media')
       .select('raw_json')
@@ -94,6 +97,6 @@ export const getMediaById = unstable_cache(
       return null;
     }
   },
-  ['media-detail-yandex-copy-20260728-v2'],
+  ['media-detail-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['media'] }
 );

@@ -11,6 +11,7 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { localizedField } from '@/lib/localization';
+import { sanitizePublicRecord } from '@/lib/publicCopy';
 
 interface SolutionJson {
   product_name: string;
@@ -76,11 +77,12 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
       summary_ru: localized.summary_ru || solution.summary_ru,
     };
   });
+  subSolutions = sanitizePublicRecord(subSolutions);
 
   // Fetch Recommended Products
   const productsByCategory = await getAllProducts(locale);
   const allProducts = Object.values(productsByCategory).flat();
-  const landingData = categoryLandingData[categoryId];
+  const landingData = sanitizePublicRecord(categoryLandingData[categoryId]);
   const recommendedHandles = landingData?.recommendedProductHandles || [];
   const recommendedProducts = allProducts.filter(p => recommendedHandles.includes(p.handle));
 

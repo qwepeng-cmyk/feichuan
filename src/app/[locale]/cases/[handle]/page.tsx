@@ -21,6 +21,7 @@ import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 import CaseEquipmentList from '@/components/cases/CaseEquipmentList';
 import { isdefenseCaseHandle, isdefenseProductCategory } from '@/lib/indexability';
+import { sanitizePublicCopy, sanitizePublicRecord } from '@/lib/publicCopy';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
 
 function parseList(value: unknown): string[] {
   if (!value) return [];
-  if (Array.isArray(value)) return value.filter(Boolean).map(String);
+  if (Array.isArray(value)) return value.filter(Boolean).map((item) => sanitizePublicCopy(String(item)));
 
   if (typeof value === 'string') {
     const trimmed = value.trim();
@@ -62,14 +63,16 @@ function parseList(value: unknown): string[] {
 
     try {
       const parsed = JSON.parse(trimmed);
-      if (Array.isArray(parsed)) return parsed.filter(Boolean).map(String);
+      if (Array.isArray(parsed)) {
+        return parsed.filter(Boolean).map((item) => sanitizePublicCopy(String(item)));
+      }
     } catch (e) {
       // Some admin fields have historically been saved as plain strings.
     }
 
     return trimmed
       .split(/[\n,]/)
-      .map((item) => item.trim())
+      .map((item) => sanitizePublicCopy(item.trim()))
       .filter(Boolean);
   }
 
@@ -90,7 +93,7 @@ function firstNonEmptyList(...values: unknown[]): string[] {
 }
 
 function localizeSnapshotLabel(label: string, dict: any) {
-  return dict?.cases?.snapshotLabels?.[label] || label;
+  return sanitizePublicCopy(dict?.cases?.snapshotLabels?.[label] || label);
 }
 
 function parseSnapshot(value: unknown, dict: any): { label: string; value: string }[] {
@@ -113,7 +116,7 @@ function parseSnapshot(value: unknown, dict: any): { label: string; value: strin
       if (!item || typeof item !== 'object') return null;
       const record = item as { label?: unknown; value?: unknown };
       const label = typeof record.label === 'string' ? record.label.trim() : '';
-      const itemValue = typeof record.value === 'string' ? record.value.trim() : '';
+      const itemValue = typeof record.value === 'string' ? sanitizePublicCopy(record.value.trim()) : '';
       return label && itemValue ? { label: localizeSnapshotLabel(label, dict), value: itemValue } : null;
     })
     .filter((item): item is { label: string; value: string } => Boolean(item));
@@ -123,14 +126,15 @@ function parseSnapshot(value: unknown, dict: any): { label: string; value: strin
 async function CaseDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
 
-  const caseData = await getCaseByHandle(handle);
+  const rawCaseData = await getCaseByHandle(handle);
 
-  if (!caseData) {
+  if (!rawCaseData) {
     notFound();
   }
+  const caseData = sanitizePublicRecord(rawCaseData);
 
-  const title = caseData[`title_${locale}`] || caseData.title_en || caseData.title;
-  const description = caseData[`description_${locale}`] || caseData.description_en || caseData.description;
+  const title = sanitizePublicCopy(caseData[`title_${locale}`] || caseData.title_en || caseData.title);
+  const description = sanitizePublicCopy(caseData[`description_${locale}`] || caseData.description_en || caseData.description);
   const seoTarget = getSeoKeywordTarget({
     route: `/cases/${handle}`,
     title,

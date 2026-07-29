@@ -54,6 +54,6 @@ export const getCaseByHandle = unstable_cache(
         return sanitizePublicRecord(row);
     }
   },
-  ['case-detail-yandex-copy-20260728-v2'],
+  ['case-detail-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['cases'] }
 );

@@ -1,5 +1,6 @@
 import type { Locale } from './config';
 import { getdefenseDictionaryOverrides, mergeLocaleDictionary } from '@/lib/localeCopy';
+import { sanitizePublicRecord } from '@/lib/publicCopy';
 
 // We enumerate manually so webpack can static-analyze imports
 const dictionaries = {
@@ -9,5 +10,7 @@ const dictionaries = {
 export const getDictionary = async (locale: Locale) => {
   const loader = dictionaries[locale] || dictionaries.ru;
   const dictionary = await loader();
-  return mergeLocaleDictionary(dictionary, getdefenseDictionaryOverrides(locale));
+  return sanitizePublicRecord(
+    mergeLocaleDictionary(dictionary, getdefenseDictionaryOverrides(locale)),
+  );
 };

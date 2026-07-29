@@ -74,8 +74,7 @@ export default function Header({
             items: [
                 { label: 'PL280H Handheld RF Detection System', href: '/products/handheld-rf-detection-system-mini', image: '/products/02-detection-monitoring/handheld-rf-detection-system-pl280h.webp' },
                 { label: 'Portable RF Identification System', href: '/products/portable-rf-detection-case', image: '/products/02-detection-monitoring/portable-rf-detection-case.webp' },
-                { label: 'Portable Low-Altitude Defense Field Shield', href: '/products/portable-low-altitude-monitoring-event-logging-shield', image: '/products/rf-systems/portable-rf-field-unit.webp' },
-                { label: 'Integrated Low-Altitude Defense Field Kit', href: '/products/portable-integrated-detection-event-logging-low-altitude-monitoring-basic', image: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp' },
+                { label: 'Handheld Integrated SDR Monitoring System', href: '/products/handheld-integrated-sdr-low-altitude-monitoring', image: '/products/rf-systems/portable-integrated-rf-analysis-unit.webp' },
             ],
         },
         {
@@ -87,19 +86,6 @@ export default function Header({
                 { label: 'Low-Altitude Early-Warning Radar (X-Band)', href: '/products/low-altitude-3d-pulse-doppler-radar', image: '/products/02-detection-monitoring/low-altitude-detection-radar-x-band.webp' },
                 { label: 'Electro-Optical (EO) Tracking System', href: '/products/composite-electro-optical-tracking-system', image: '/products/02-detection-monitoring/electro-optical-tracking-system.webp' },
                 { label: 'Aerial Platform Remote ID Recognition System', href: '/products/aerial-remote-id-monitoring-system', image: '/products/aerial-systems/aerial-Remote-ID-Monitoring-System.webp' },
-                { label: 'Low-Altitude Defense Signal Verification System', href: '/products/aerial-navigation-airspace-data-verification-system', image: '/products/rf-systems/navigation-signal-analysis-system.webp' },
-                ...(locale === 'ru' ? [] : [
-                    { label: 'Directional RF Suppressor', href: '/products/directional-rf-interference-device', image: '/products/rf-systems/directional-rf-unit.webp' },
-                    { label: 'Omni-directional RF Suppressor', href: '/products/omni-directional-rf-interference-device', image: '/products/rf-systems/omni-directional-rf-unit.webp' },
-                ]),
-            ],
-        },
-        {
-            title: 'Physical Interception Systems',
-            href: '/products#physical-interception-systems',
-            items: [
-                { label: 'Handheld Capture Net Launcher', href: '/products/handheld-capture-launcher', image: '/products/handheld-capture-launcher/handheld-capture-launcher.webp' },
-                { label: '3kW Perimeter Defense Laser System', href: '/products/directed-energy-system', image: '/products/directed-energy-system/3kw-tracking-turret.webp' },
             ],
         },
         {

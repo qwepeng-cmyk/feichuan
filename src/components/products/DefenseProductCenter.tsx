@@ -26,8 +26,7 @@ type ProductGroup = {
 const portableHandles = [
   'handheld-rf-detection-system-mini',
   'portable-rf-detection-case',
-  'portable-low-altitude-monitoring-event-logging-shield',
-  'portable-integrated-detection-event-logging-low-altitude-monitoring-basic',
+  'handheld-integrated-sdr-low-altitude-monitoring',
 ];
 
 const fixedSiteHandles = [
@@ -36,9 +35,6 @@ const fixedSiteHandles = [
   'low-altitude-3d-pulse-doppler-radar',
   'composite-electro-optical-tracking-system',
   'aerial-remote-id-monitoring-system',
-  'aerial-navigation-airspace-data-verification-system',
-  'directional-rf-interference-device',
-  'omni-directional-rf-interference-device',
 ];
 
 function PortableIcon() {
@@ -110,7 +106,7 @@ const groups: ProductGroup[] = [
   {
     id: 'fixed-site-defense-systems',
     title: 'Fixed-Site Low-Altitude Defense Systems',
-    description: 'Fixed RF, radar, EO tracking, Remote ID and signal verification equipment for continuous low-altitude monitoring.',
+    description: 'Fixed passive RF, radar, EO tracking and Remote ID equipment for continuous low-altitude monitoring.',
     handles: fixedSiteHandles,
     icon: <FixedSiteIcon />,
   },
@@ -129,7 +125,7 @@ const groups: ProductGroup[] = [
   {
     id: 'electro-optical-products',
     title: 'EO/IR Tracking & Verification',
-    description: 'EO/IR PTZ, thermal imaging, laser camera and radar-vision products for visual confirmation and perimeter awareness.',
+    description: 'EO/IR PTZ, thermal imaging, long-range optical and radar-vision products for visual confirmation and perimeter awareness.',
     icon: <OpticalIcon />,
   },
 ];

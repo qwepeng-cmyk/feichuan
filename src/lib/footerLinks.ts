@@ -26,11 +26,6 @@ export function getFooterSolutionLinks(locale: string, dict: any): FooterLink[] 
     label: dict.solutions?.pageTitle || dict.nav?.solutions || 'Solutions',
   };
 
-  const lowAltitudeTopic = {
-    href: '/solutions/low-altitude-airspace-monitoring',
-    label: dict.megaMenu?.lowAltitudeAirspaceMonitoring || 'Low-Altitude Airspace Monitoring Solution',
-  };
-
   const localizedIntentLandingLinks: FooterLink[] = [
     { href: '/solutions/low-altitude-radar-monitoring', label: intentText(locale as Locale, 'Target Detection Radar') },
     { href: '/solutions/portable-detection-system', label: intentText(locale as Locale, 'Portable Target Detection') },
@@ -38,12 +33,10 @@ export function getFooterSolutionLinks(locale: string, dict: any): FooterLink[] 
     { href: '/solutions/perimeter-defense-system', label: intentText(locale as Locale, 'Perimeter Defense'), newTab: true },
     { href: '/solutions/rf-target-positioning', label: intentText(locale as Locale, 'Target Locator'), newTab: true },
     { href: '/solutions/layered-site-protection', label: intentText(locale as Locale, 'Site Protection'), newTab: true },
-    { href: '/solutions/rf-signal-suppression', label: intentText(locale as Locale, 'RF Suppressor'), newTab: true },
   ];
 
   return uniqueLinks([
     solutionIndex,
-    lowAltitudeTopic,
     ...localizedIntentLandingLinks,
     ...englishdefenseSolutionCenterGroups.map((group) => ({
       href: `/solutions/${group.handles[0]}`,

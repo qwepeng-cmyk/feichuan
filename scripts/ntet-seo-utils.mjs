@@ -3,18 +3,28 @@ import { dirname, join, resolve } from 'node:path';
 import { createRequire } from 'node:module';
 import { isCuasIndexableRow } from './cuas-indexability.mjs';
 
+const publicCatalogPolicy = JSON.parse(
+  readFileSync(join(process.cwd(), 'src', 'config', 'publicCatalogPolicy.json'), 'utf8'),
+);
+const hiddenProductHandles = new Set(publicCatalogPolicy.hiddenProductHandles || []);
+const hiddenSolutionHandles = new Set(publicCatalogPolicy.hiddenSolutionHandles || []);
+const hiddenMediaHandles = new Set(publicCatalogPolicy.hiddenMediaHandles || []);
+const passiveDetectionProductHandles = new Set(publicCatalogPolicy.passiveDetectionProductHandles || []);
+
 const require = createRequire(import.meta.url);
 let Database = null;
+const { DatabaseSync } = require('node:sqlite');
+
+class NodeSqliteReadonlyDatabase extends DatabaseSync {
+  constructor(dbPath) {
+    super(dbPath, { readOnly: true });
+  }
+}
 
 try {
   Database = require('better-sqlite3');
 } catch {
-  const { DatabaseSync } = require('node:sqlite');
-  Database = class NodeSqliteReadonlyDatabase extends DatabaseSync {
-    constructor(dbPath) {
-      super(dbPath, { readOnly: true });
-    }
-  };
+  Database = NodeSqliteReadonlyDatabase;
 }
 
 export const SITE_URL = (process.env.SITE_URL || 'https://n-tet.com').replace(/\/+$/, '');
@@ -70,7 +80,11 @@ export function getDbPath() {
 export function openDb() {
   const dbPath = getDbPath();
   if (!existsSync(dbPath)) throw new Error(`Database not found: ${dbPath}`);
-  return new Database(dbPath, { readonly: true });
+  try {
+    return new Database(dbPath, { readonly: true });
+  } catch {
+    return new NodeSqliteReadonlyDatabase(dbPath);
+  }
 }
 
 export function getPublishedContent(db, type) {
@@ -97,7 +111,16 @@ export function getAllPublishedContent(db) {
 }
 
 export function getAllCuasIndexableContent(db) {
-  return getAllPublishedContent(db).filter(isCuasIndexableRow);
+  return getAllPublishedContent(db)
+    .filter(isCuasIndexableRow)
+    .filter((row) => {
+      if (row.type === 'product') {
+        return passiveDetectionProductHandles.has(row.handle) && !hiddenProductHandles.has(row.handle);
+      }
+      if (row.type === 'solution') return !hiddenSolutionHandles.has(row.handle);
+      if (row.type === 'media') return !hiddenMediaHandles.has(row.handle);
+      return true;
+    });
 }
 
 export function publicUrl(locale, route, handle) {

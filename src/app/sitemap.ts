@@ -8,18 +8,22 @@ import {
   isIndexableProductCategory,
   isIndexableSolutionHandle,
 } from '@/lib/indexability';
+import {
+  isHiddenPublicMediaHandle,
+  isHiddenPublicProductHandle,
+  isHiddenPublicSolutionHandle,
+  isPassiveDetectionProductHandle,
+} from '@/lib/publicCatalogPolicy';
 
 const SITE_URL = 'https://n-tet.com';
 const STATIC_PATHS = ['/', '/products', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
 const INTENT_PATHS = [
-  '/solutions/low-altitude-airspace-monitoring',
   '/solutions/multi-sensor-detection',
   '/solutions/low-altitude-radar-monitoring',
   '/solutions/portable-detection-system',
   '/solutions/perimeter-defense-system',
   '/solutions/rf-target-positioning',
   '/solutions/layered-site-protection',
-  '/solutions/rf-signal-suppression',
 ];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';
@@ -63,9 +67,16 @@ async function publishedHandles(type: ContentType) {
   return rows
     .filter((row) => {
       if (!row.handle) return false;
-      if (type === 'product') return isIndexableProductCategory(row.category);
-      if (type === 'solution') return isIndexableSolutionHandle(row.handle);
+      if (type === 'product') {
+        return !isHiddenPublicProductHandle(row.handle) &&
+          isPassiveDetectionProductHandle(row.handle) &&
+          isIndexableProductCategory(row.category);
+      }
+      if (type === 'solution') {
+        return !isHiddenPublicSolutionHandle(row.handle) && isIndexableSolutionHandle(row.handle);
+      }
       if (type === 'case') return isIndexableCaseHandle(row.handle);
+      if (type === 'media') return !isHiddenPublicMediaHandle(row.handle) && isIndexableMediaHandle(row.handle);
       return isIndexableMediaHandle(row.handle);
     })
     .map((row) => row.handle as string);

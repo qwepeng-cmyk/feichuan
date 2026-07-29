@@ -7,6 +7,7 @@ import type { IntentLandingConfig } from '@/lib/intentLandingPages';
 import { intentText } from '@/lib/intentLandingLocalization';
 import InquiryForm from '@/components/products/InquiryForm';
 import MobileInquiryForm from '@/components/mobile/MobileInquiryForm';
+import PerformanceConditionsNote from '@/components/common/PerformanceConditionsNote';
 import styles from './IntentLandingPage.module.css';
 
 const workflowIcons = [Radar, ScanSearch, Eye, Siren];
@@ -210,6 +211,8 @@ export default function IntentLandingPage({
           ))}
         </div>
       </section>
+
+      <PerformanceConditionsNote locale={locale} />
 
       <section className={styles.faqInquiry} aria-labelledby="faq-heading">
         <div className={styles.faqColumn}>

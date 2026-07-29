@@ -71,7 +71,7 @@ export function trackPersistedInquiryConversion({
   }
 
   if (typeof window.ym === 'function' && document.documentElement.lang === 'ru') {
-    window.ym(110881050, 'reachGoal', 'ntet_form_submit');
+    window.ym(111119625, 'reachGoal', 'ntet_form_submit');
   }
 
   rememberTrackedInquiry(inquiryId);
