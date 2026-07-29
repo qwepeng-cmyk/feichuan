@@ -8,7 +8,8 @@ where handle in (
   'directed-energy-system',
   'directional-rf-interference-device',
   'omni-directional-rf-interference-device',
-  'aerial-navigation-airspace-data-verification-system'
+  'aerial-navigation-airspace-data-verification-system',
+  'handheld-integrated-sdr-low-altitude-monitoring'
 );
 
 update public.solutions

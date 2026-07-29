@@ -4,7 +4,8 @@
     "directed-energy-system",
     "directional-rf-interference-device",
     "omni-directional-rf-interference-device",
-    "aerial-navigation-airspace-data-verification-system"
+    "aerial-navigation-airspace-data-verification-system",
+    "handheld-integrated-sdr-low-altitude-monitoring"
   ],
   "hiddenSolutionHandles": [
     "rf-signal-suppression",
@@ -18,7 +19,6 @@
     "stationary-rf-detection-system",
     "portable-rf-detection-case",
     "handheld-rf-detection-system-mini",
-    "handheld-integrated-sdr-low-altitude-monitoring",
     "low-altitude-detection-radar-ku-band",
     "low-altitude-3d-pulse-doppler-radar",
     "composite-electro-optical-tracking-system",

@@ -773,14 +773,6 @@ const equipmentCapabilityGroups = [
         title: 'Single-Operator',
         cards: [
           {
-            title: 'Handheld Integrated Monitoring Kit',
-            text: 'Single-operator passive sensing, spectrum analysis and event-record support.',
-            points: ['Field spectrum review', 'Portable deployment', 'Lightweight operation'],
-            src: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp',
-            alt: 'Handheld integrated passive RF monitoring kit',
-            href: '/products/handheld-integrated-sdr-low-altitude-monitoring',
-          },
-          {
             title: 'Portable RF Identification Unit',
             text: 'Hand-carried passive receiver for local spectrum review and event records.',
             points: ['Visual operation', 'Operator review', 'Rugged outdoor build'],

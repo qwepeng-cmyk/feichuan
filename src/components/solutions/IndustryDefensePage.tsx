@@ -42,11 +42,6 @@ const productSets: Record<defenseProductSet, readonly FeaturedProduct[]> = {
       name: 'Portable RF Identification System',
       image: '/products/02-detection-monitoring/portable-rf-detection-case.webp',
     },
-    {
-      handle: 'handheld-integrated-sdr-low-altitude-monitoring',
-      name: 'Handheld Integrated SDR Monitoring System',
-      image: '/products/rf-systems/portable-integrated-rf-analysis-unit.webp',
-    },
   ],
 };
 

@@ -22,6 +22,7 @@ function normalizeSource(value: string) {
 
 export function defenseText(locale: string, english: string) {
   const source = normalizeSource(english);
+  if (/^(?:\/|https?:\/\/|data:)/i.test(source)) return source;
   return sanitizePublicCopy(bundles[locale as Locale]?.strings[source] || source);
 }
 

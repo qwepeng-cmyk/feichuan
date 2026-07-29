@@ -26,7 +26,6 @@ type ProductGroup = {
 const portableHandles = [
   'handheld-rf-detection-system-mini',
   'portable-rf-detection-case',
-  'handheld-integrated-sdr-low-altitude-monitoring',
 ];
 
 const fixedSiteHandles = [

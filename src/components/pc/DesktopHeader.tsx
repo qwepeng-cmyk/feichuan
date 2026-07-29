@@ -74,7 +74,6 @@ export default function Header({
             items: [
                 { label: 'PL280H Handheld RF Detection System', href: '/products/handheld-rf-detection-system-mini', image: '/products/02-detection-monitoring/handheld-rf-detection-system-pl280h.webp' },
                 { label: 'Portable RF Identification System', href: '/products/portable-rf-detection-case', image: '/products/02-detection-monitoring/portable-rf-detection-case.webp' },
-                { label: 'Handheld Integrated SDR Monitoring System', href: '/products/handheld-integrated-sdr-low-altitude-monitoring', image: '/products/rf-systems/portable-integrated-rf-analysis-unit.webp' },
             ],
         },
         {

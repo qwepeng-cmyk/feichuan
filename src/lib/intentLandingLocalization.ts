@@ -120,6 +120,7 @@ const russianStrings: Record<string, string> = {
 };
 
 export function intentText(locale: Locale, value: string) {
+  if (/^(?:\/|https?:\/\/|data:)/i.test(value)) return value;
   return sanitizePublicCopy(russianStrings[value] || value);
 }
 
