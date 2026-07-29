@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
 
-export default function AdminCasePreview({ params }: { params: { handle: string } }) {
-  const item = db.prepare('SELECT * FROM cases WHERE handle = ?').get(params.handle) as any;
+export default async function AdminCasePreview({ params }: { params: { handle: string } }) {
+  const item = await db.prepare('SELECT * FROM cases WHERE handle = ?').get(params.handle) as any;
   if (!item) notFound();
 
   const images = parseJson(item.case_images, []);

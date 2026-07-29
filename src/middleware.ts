@@ -28,10 +28,31 @@ function isLocalHostname(hostname: string) {
         isPrivateIpv4;
 }
 
+const LEGACY_SOLUTION_REDIRECTS: Record<string, string> = {
+  'rf-interference-device': '/solutions/rf-signal-suppression',
+};
+
+const LEGACY_PRODUCT_REDIRECTS: Record<string, string> = {
+  'uav-navigation-airspace-data-verification-system':
+    '/products/aerial-navigation-airspace-data-verification-system',
+  'uav-remote-id-monitoring-system': '/products/aerial-remote-id-monitoring-system',
+  'handheld-drone-net-launcher': '/products/handheld-capture-launcher',
+  'drone-laser-engagement-system': '/products/directed-energy-system',
+};
+
+function legacyProductPath(pathname: string) {
+    const segments = publicPathSegments(pathname);
+    if (segments[0] === 'products' && segments[1] && LEGACY_PRODUCT_REDIRECTS[segments[1]]) {
+        return LEGACY_PRODUCT_REDIRECTS[segments[1]];
+    }
+
+    return '';
+}
+
 function legacySolutionPath(pathname: string) {
     const segments = publicPathSegments(pathname);
-    if (segments[0] === 'solutions' && segments[1] === 'rf-interference-device') {
-        return '/solutions/drone-jammer';
+    if (segments[0] === 'solutions' && segments[1] && LEGACY_SOLUTION_REDIRECTS[segments[1]]) {
+        return LEGACY_SOLUTION_REDIRECTS[segments[1]];
     }
 
     return '';
@@ -115,6 +136,11 @@ export function middleware(request: NextRequest) {
     const solutionPath = legacySolutionPath(pathname);
     if (solutionPath) {
         return NextResponse.redirect(new URL(solutionPath, request.url), { status: 301 });
+    }
+
+    const productPath = legacyProductPath(pathname);
+    if (productPath) {
+        return NextResponse.redirect(new URL(productPath, request.url), { status: 301 });
     }
 
     // --- i18n Locale Routing ---

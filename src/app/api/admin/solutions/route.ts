@@ -5,7 +5,7 @@ import { createHandle } from '@/lib/admin-utils';
 
 export async function GET() {
     try {
-        const rows = db.prepare('SELECT handle, category_name, product_name_en, main_image, COALESCE(is_published, 1) AS is_published FROM solutions ORDER BY id DESC').all() as any[];
+        const rows = await db.prepare('SELECT handle, category_name, product_name_en, main_image, COALESCE(is_published, 1) AS is_published FROM solutions ORDER BY id DESC').all() as any[];
         const data = rows.map((solution) => ({
             ...solution,
             is_public_visible: solution.is_published !== 0,
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
         const rawData = { ...body, is_published: isPublished };
         
-        db.prepare(`
+        await db.prepare(`
             INSERT INTO solutions (
                 handle, category_id, category_name, product_name_en, product_name_ru, 
                 summary_en, summary_ru, key_application_en, key_application_ru,

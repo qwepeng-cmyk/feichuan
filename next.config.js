@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   distDir: process.env.NEXT_DIST_DIR || '.next',
   experimental: {
-    serverComponentsExternalPackages: ['better-sqlite3'],
+    cpus: 1,
   },
   images: {
     unoptimized: true,

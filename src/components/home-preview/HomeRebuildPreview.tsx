@@ -14,28 +14,39 @@ import {
 } from "lucide-react";
 import PrimaryContactButton from "@/components/contact/PrimaryContactButton";
 import { localePath } from "@/lib/localePath";
-import { localizeCuasTree } from "@/lib/cuasLocaleCopy";
+import { localizedefenseTree } from "@/lib/localeCopy";
 import styles from "./HomeRebuildPreview.module.css";
 
 type PreviewDict = Record<string, any>;
 
+const heroSlides = [
+  {
+    src: "/index/home-hero-power-plant.webp",
+    label: "Промышленный энергетический объект",
+  },
+  {
+    src: "/index/home-hero-airport.webp",
+    label: "Периметр аэропорта",
+  },
+];
+
 const productCategories = [
   {
     number: "01",
-    title: "Portable C-UAS Devices",
-    navLabel: "Portable C-UAS",
-    icon: "/home-preview/icons/portable-cuas.svg?v=2",
+    title: "Portable Low-Altitude Defense Devices",
+    navLabel: "Portable Low-Altitude Defense",
+    icon: "/home-preview/icons/portable-defense.svg?v=2",
     subtitle: "Rapid deployment",
-    image: "/products/02-drone-detection/portable-rf-detection-case.webp",
+    image: "/products/02-detection-monitoring/portable-rf-detection-case.webp",
     description:
-      "Hand-carried RF detection and counter-drone equipment for patrol teams, temporary sites and event security.",
-    capabilities: ["RF detection and identification", "Portable jamming options"],
+      "Hand-carried RF detection and counter-platform equipment for patrol teams, temporary sites and event security.",
+    capabilities: ["RF detection and identification", "Portable signal suppression options"],
     href: "/products/portable-rf-detection-case",
     products: [
       {
         model: "PL280P",
         name: "Portable RF Detection Case",
-        image: "/products/02-drone-detection/portable-rf-detection-case.webp",
+        image: "/products/02-detection-monitoring/portable-rf-detection-case.webp",
         href: "/products/portable-rf-detection-case",
         scale: 2.05,
       },
@@ -64,34 +75,34 @@ const productCategories = [
   },
   {
     number: "02",
-    title: "Fixed-Site C-UAS Systems",
-    navLabel: "Fixed-Site C-UAS",
-    icon: "/home-preview/icons/fixed-site-cuas.svg?v=2",
+    title: "Fixed-Site Low-Altitude Defense Systems",
+    navLabel: "Fixed-Site Low-Altitude Defense",
+    icon: "/home-preview/icons/fixed-site-defense.svg?v=2",
     subtitle: "24/7 site protection",
-    image: "/products/02-drone-detection/stationary-rf-detection-system.webp",
+    image: "/products/02-detection-monitoring/stationary-rf-detection-system.webp",
     description:
-      "Fixed RF, radar and EO equipment for continuous detection, tracking, jamming and spoofing workflows.",
+      "Fixed RF, radar and EO equipment for continuous detection, tracking, signal suppression and signal manipulation workflows.",
     capabilities: ["Unattended monitoring", "Multi-sensor integration"],
     href: "/products/stationary-rf-detection-system",
     products: [
       {
         model: "RF GUARD",
         name: "Stationary RF Detection System",
-        image: "/products/02-drone-detection/stationary-rf-detection-system.webp",
+        image: "/products/02-detection-monitoring/stationary-rf-detection-system.webp",
         href: "/products/stationary-rf-detection-system",
         scale: 1.8,
       },
       {
         model: "KU RADAR",
         name: "Low-Altitude Detection Radar",
-        image: "/products/02-drone-detection/low-altitude-detection-radar.webp",
+        image: "/products/02-detection-monitoring/low-altitude-detection-radar.webp",
         href: "/products/low-altitude-detection-radar-ku-band",
         scale: 1.65,
       },
       {
         model: "EO TRACK",
         name: "Electro-Optical Tracking System",
-        image: "/products/02-drone-detection/electro-optical-tracking-system.webp",
+        image: "/products/02-detection-monitoring/electro-optical-tracking-system.webp",
         href: "/products/composite-electro-optical-tracking-system",
         scale: 1.65,
       },
@@ -106,20 +117,20 @@ const productCategories = [
   },
   {
     number: "03",
-    title: "Vehicle-Mounted C-UAS Systems",
-    navLabel: "Vehicle-Mounted C-UAS",
-    icon: "/home-preview/icons/vehicle-cuas.svg?v=2",
-    subtitle: "Mobile C-UAS operations",
-    image: "/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp",
+    title: "Vehicle-Mounted Low-Altitude Defense Systems",
+    navLabel: "Vehicle-Mounted Low-Altitude Defense",
+    icon: "/home-preview/icons/vehicle-defense.svg?v=2",
+    subtitle: "Mobile Low-Altitude Defense operations",
+    image: "/solutions/low-altitude-airspace-monitoring/vehicle-mobile-defense.webp",
     description:
-      "Vehicle-integrated counter-drone equipment for fast deployment, mobile patrol and changing protection zones.",
+      "Vehicle-integrated counter-platform equipment for fast deployment, mobile patrol and changing protection zones.",
     capabilities: ["Vehicle-ready configuration", "Detection and countermeasure options"],
     href: "/solutions/low-altitude-airspace-monitoring",
     products: [
       {
-        model: "MOBILE C-UAS",
-        name: "Vehicle-Mounted Counter-Drone System",
-        image: "/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp",
+        model: "MOBILE Low-Altitude Defense",
+        name: "Vehicle-Mounted Counter-Platform System",
+        image: "/solutions/low-altitude-airspace-monitoring/vehicle-mobile-defense.webp",
         href: "/solutions/low-altitude-airspace-monitoring",
         cover: true,
         scale: 1,
@@ -142,13 +153,13 @@ const productCategories = [
   },
   {
     number: "04",
-    title: "C-UAS Control Platform",
+    title: "Low-Altitude Defense Control Platform",
     navLabel: "Control Platform",
     icon: "/home-preview/icons/control-platform.svg?v=2",
     subtitle: "Unified command",
     image: "/solutions/low-altitude-airspace-monitoring/ppt-platform-interface.webp",
     description:
-      "A visual command platform connecting RF detection, radar, EO tracking, Remote ID, jammers and spoofers.",
+      "A visual command platform connecting RF detection, radar, EO tracking, Remote ID, suppressors and spoofers.",
     capabilities: ["Unified situational display", "Alarm and device linkage"],
     href: "/solutions/low-altitude-airspace-monitoring",
     products: [
@@ -163,7 +174,7 @@ const productCategories = [
       {
         model: "COMMAND CENTER",
         name: "Airspace Monitoring Command Center",
-        image: "/products/02-drone-detection/low-altitude-monitoring-command-center-hero.webp",
+        image: "/products/02-detection-monitoring/low-altitude-monitoring-command-center-hero.webp",
         href: "/solutions/low-altitude-airspace-monitoring",
         cover: true,
         scale: 1,
@@ -182,90 +193,90 @@ const productCategories = [
 
 const solutionCards = [
   {
-    title: "Anti-Drone for Critical Infrastructure",
+    title: "Perimeter Defense for Critical Infrastructure",
     navLabel: "Critical Infrastructure",
-    description: "Layered detection and countermeasures protect power, data and water facilities from unauthorized drones.",
-    image: "/solutions/cuas-applications/cuas_index_solution/01 Critical Infrastructure.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/01 Critical Infrastructure.webp",
+    description: "Layered detection and countermeasures protect power, data and water facilities from unauthorized platforms.",
+    image: "/solutions/defense-applications/defense_index_solution/01 Critical Infrastructure.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/01 Critical Infrastructure.webp",
     href: "/solutions/critical-infrastructure-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Power Plants",
+    title: "Perimeter Defense for Power Plants",
     navLabel: "Power Plants",
-    description: "Continuous drone detection and response help protect generation sites and critical energy operations.",
-    image: "/solutions/cuas-applications/cuas_index_solution/02 Power Plants.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/02 Power Plants.webp",
+    description: "Continuous platform detection and response help protect generation sites and critical energy operations.",
+    image: "/solutions/defense-applications/defense_index_solution/02 Power Plants.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/02 Power Plants.webp",
     href: "/solutions/power-plant-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Airports",
+    title: "Perimeter Defense for Airports",
     navLabel: "Airports",
-    description: "Layered C-UAS monitoring detects runway incursions and supports rapid response around controlled airspace.",
-    image: "/solutions/cuas-applications/cuas_index_solution/03 Airports.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/03 Airports.webp",
+    description: "Layered Low-Altitude Defense monitoring detects runway incursions and supports rapid response around controlled airspace.",
+    image: "/solutions/defense-applications/defense_index_solution/03 Airports.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/03 Airports.webp",
     href: "/solutions/airport-security-protection",
   },
   {
-    title: "Anti-Drone for Borders",
+    title: "Perimeter Defense for Borders",
     navLabel: "Borders",
     description: "Fixed and portable systems support long-range detection, pilot localization and mobile patrol response.",
-    image: "/solutions/cuas-applications/cuas_index_solution/04 Borders.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/04 Borders.webp",
+    image: "/solutions/defense-applications/defense_index_solution/04 Borders.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/04 Borders.webp",
     href: "/solutions/border-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Public Safety",
+    title: "Perimeter Defense for Public Safety",
     navLabel: "Public Safety",
     description: "Rapidly deployable equipment helps law enforcement respond to aerial threats in urban areas.",
-    image: "/solutions/cuas-applications/cuas_index_solution/05 Public Safety.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/05 Public Safety.webp",
+    image: "/solutions/defense-applications/defense_index_solution/05 Public Safety.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/05 Public Safety.webp",
     href: "/solutions/public-safety-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Prisons",
+    title: "Perimeter Defense for Prisons",
     navLabel: "Prisons",
-    description: "Detect drone deliveries, locate operators and protect correctional facility perimeters.",
-    image: "/solutions/cuas-applications/cuas_index_solution/06 Prisons.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/06 Prisons.webp",
+    description: "Detect platform deliveries, locate operators and protect correctional facility perimeters.",
+    image: "/solutions/defense-applications/defense_index_solution/06 Prisons.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/06 Prisons.webp",
     href: "/solutions/correctional-facility-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Ports",
+    title: "Perimeter Defense for Ports",
     navLabel: "Ports",
-    description: "Maritime-ready systems protect terminals, fuel zones and logistics operations from drone disruption.",
-    image: "/solutions/cuas-applications/cuas_index_solution/07 Ports.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/07 Ports.webp",
+    description: "Maritime-ready systems protect terminals, fuel zones and logistics operations from platform disruption.",
+    image: "/solutions/defense-applications/defense_index_solution/07 Ports.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/07 Ports.webp",
     href: "/solutions/port-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Mass Events",
+    title: "Perimeter Defense for Mass Events",
     navLabel: "Mass Events",
     description: "Portable and vehicle-mounted equipment protects stadiums, exhibitions and public gatherings.",
-    image: "/solutions/cuas-applications/cuas_index_solution/08 Mass Events.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/08 Mass Events.webp",
+    image: "/solutions/defense-applications/defense_index_solution/08 Mass Events.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/08 Mass Events.webp",
     href: "/solutions/mass-event-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for VIPs & Private Property",
+    title: "Perimeter Defense for VIPs & Private Property",
     navLabel: "VIPs & Private Property",
     description: "Low-profile detection and mobile countermeasures protect private sites, convoys and executive movements.",
-    image: "/solutions/cuas-applications/cuas_index_solution/09 VIPs & Private Property.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/09 VIPs & Private Property.webp",
+    image: "/solutions/defense-applications/defense_index_solution/09 VIPs & Private Property.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/09 VIPs & Private Property.webp",
     href: "/solutions/vip-private-property-airspace-monitoring",
   },
   {
-    title: "Anti-Drone for Enterprises",
+    title: "Perimeter Defense for Enterprises",
     navLabel: "Enterprises",
     description: "Continuous monitoring protects offices, R&D sites and campuses from unauthorized aerial surveillance.",
-    image: "/solutions/cuas-applications/cuas_index_solution/10 Enterprises.webp",
-    centerImage: "/solutions/cuas-applications/cuas_solution_center/10 Enterprises.webp",
+    image: "/solutions/defense-applications/defense_index_solution/10 Enterprises.webp",
+    centerImage: "/solutions/defense-applications/defense_solution_center/10 Enterprises.webp",
     href: "/solutions/enterprise-airspace-monitoring",
   },
 ];
 
 const projectCards = [
   {
-    title: "Airport C-UAS",
+    title: "Airport Low-Altitude Defense",
     image: "/cases/airport-security-application/main-home.webp",
     href: "/cases/airport-security-application",
   },
@@ -310,7 +321,7 @@ const technologySteps = [
   {
     number: "03",
     title: "Control",
-    text: "Jamming, spoofing and linked command devices support a configurable counter-drone response.",
+    text: "signal suppression, signal manipulation and linked command devices support a configurable counter-platform response.",
   },
 ];
 
@@ -322,6 +333,7 @@ export default function HomeRebuildPreview({
   dict: PreviewDict;
 }) {
   const solutionTrackRef = useRef<HTMLDivElement>(null);
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const [activeSolution, setActiveSolution] = useState(0);
   const [activeCategory, setActiveCategory] = useState(0);
   const selectedCategory = productCategories[activeCategory];
@@ -362,6 +374,16 @@ export default function HomeRebuildPreview({
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const rotation = window.setInterval(() => {
+      setActiveHeroSlide((current) => (current + 1) % heroSlides.length);
+    }, 6500);
+
+    return () => window.clearInterval(rotation);
+  }, []);
 
   useEffect(() => {
     const track = solutionTrackRef.current;
@@ -436,25 +458,28 @@ export default function HomeRebuildPreview({
     };
   }, []);
 
-  return localizeCuasTree(locale, (
+  return localizedefenseTree(locale, (
     <main className={styles.preview}>
       <section className={styles.hero}>
-        <video
-          className={styles.heroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          <source media="(min-width: 992px)" src="/index_banner_bg_5.mp4" type="video/mp4" />
-        </video>
+        <div className={styles.heroMedia} aria-hidden="true">
+          {heroSlides.map((slide, index) => (
+            <Image
+              key={slide.src}
+              src={slide.src}
+              alt=""
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className={`${styles.heroImage} ${activeHeroSlide === index ? styles.heroImageActive : ""}`}
+            />
+          ))}
+        </div>
         <div className={styles.heroShade} />
         <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}>N-TET C-UAS Equipment</p>
-          <h1>Professional C-UAS Equipment Manufacturer &amp; System Supplier</h1>
+          <p className={styles.heroEyebrow}>N-TET Low-Altitude Defense Equipment</p>
+          <h1>Professional Low-Altitude Defense Equipment Manufacturer &amp; System Supplier</h1>
           <p className={styles.heroCopy}>
-            Portable, fixed-site and vehicle-mounted C-UAS equipment with
+            Portable, fixed-site and vehicle-mounted Low-Altitude Defense equipment with
             multi-sensor integration and a unified control platform for detection,
             identification, tracking and coordinated response.
           </p>
@@ -472,16 +497,28 @@ export default function HomeRebuildPreview({
             </a>
           </div>
         </div>
+        <div className={styles.heroPagination} aria-label="Слайды главного баннера">
+          {heroSlides.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              aria-label={`Показать баннер: ${slide.label}`}
+              aria-current={activeHeroSlide === index ? "true" : undefined}
+              className={activeHeroSlide === index ? styles.heroDotActive : ""}
+              onClick={() => setActiveHeroSlide(index)}
+            />
+          ))}
+        </div>
       </section>
 
       <section className="section-solutions" id="solutions">
         <div className="container-wide">
           <div className="solutions-header-row">
             <div>
-              <h2 className="solutions-heading">Counter-Drone Solutions</h2>
+              <h2 className="solutions-heading">Counter-Platform Solutions</h2>
             </div>
           </div>
-          <div className={`solutions-scenario-nav ${styles.solutionDesktopNav}`} role="tablist" aria-label="Select a counter-drone application">
+          <div className={`solutions-scenario-nav ${styles.solutionDesktopNav}`} role="tablist" aria-label="Select a counter-platform application">
             {solutionCards.map((solution, index) => (
               <button
                 type="button"
@@ -577,14 +614,14 @@ export default function HomeRebuildPreview({
       <section className={styles.productsSection} id="products">
         <div className={styles.sectionHeader}>
           <p>Select by Deployment</p>
-          <h2>Select Your Counter-Drone Equipment</h2>
+          <h2>Select Your Counter-Platform Equipment</h2>
           <div className={styles.sectionLead}>
             Start with how and where the system will be deployed. Select an
-            equipment type to review the matching C-UAS configuration.
+            equipment type to review the matching Low-Altitude Defense configuration.
           </div>
           <span />
         </div>
-        <div className={styles.categoryNav} role="tablist" aria-label="Counter-drone equipment type">
+        <div className={styles.categoryNav} role="tablist" aria-label="Counter-platform equipment type">
           {productCategories.map((category, index) => {
             const isActive = index === activeCategory;
 
@@ -739,7 +776,7 @@ export default function HomeRebuildPreview({
 
       <section className={styles.technologySection}>
         <div className={styles.technologyIntro}>
-          <p>End-to-End C-UAS Chain</p>
+          <p>End-to-End Low-Altitude Defense Chain</p>
           <h2>See. Identify. Control.</h2>
           <div>
             N-TET combines sensing, intelligent assessment and configurable
@@ -779,11 +816,11 @@ export default function HomeRebuildPreview({
             </span>
           </div>
           <div className={styles.aboutContent}>
-            <p className={styles.aboutEyebrow}>N-TET / C-UAS Manufacturing &amp; Integration</p>
+            <p className={styles.aboutEyebrow}>N-TET / Low-Altitude Defense Manufacturing &amp; Integration</p>
             <h2>{dict.home.sections.about}</h2>
             <p className={styles.aboutCopy}>{dict.home.about.content}</p>
             <ul className={styles.aboutCapabilities}>
-              <li><ShieldCheck size={17} aria-hidden="true" /> C-UAS Equipment Supply</li>
+              <li><ShieldCheck size={17} aria-hidden="true" /> Low-Altitude Defense Equipment Supply</li>
               <li><ShieldCheck size={17} aria-hidden="true" /> Multi-Sensor System Integration</li>
               <li><ShieldCheck size={17} aria-hidden="true" /> Testing &amp; International Delivery</li>
             </ul>
@@ -802,7 +839,7 @@ export default function HomeRebuildPreview({
       <section className={styles.caseSection}>
         <div className={styles.sectionHeader}>
           <p>Deployment Evidence</p>
-          <h2>Counter-Drone Projects</h2>
+          <h2>Counter-Platform Projects</h2>
           <span />
         </div>
         <div className={styles.caseGrid}>
@@ -831,7 +868,7 @@ export default function HomeRebuildPreview({
 
       <section className={styles.purchaseCta}>
         <div>
-          <p>Buying Counter-Drone Equipment?</p>
+          <p>Buying Counter-Platform Equipment?</p>
           <h2>Tell Us the Site and Device Type</h2>
           <span>
             Ask for pricing, specifications, delivery lead time and a product

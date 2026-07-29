@@ -3,13 +3,13 @@ interface CaseDisplayItem {
   title_en?: string;
 }
 
-const UAV_CASE_ORDER = [
-  'anhui-flood-season-uav-patrol',
-  'ice-snow-emergency-uav-inspection',
-  'lidar-tree-obstruction-uav-inspection',
-  'southern-grid-wildfire-uav-inspection',
-  'wildfire-emergency-transmission-line-uav-patrol',
-  'zhaoqing-long-distance-power-line-uav-inspection',
+const AERIAL_PLATFORM_CASE_ORDER = [
+  'anhui-flood-season-aerial-patrol',
+  'ice-snow-emergency-aerial-inspection',
+  'lidar-tree-obstruction-aerial-inspection',
+  'southern-grid-wildfire-aerial-inspection',
+  'wildfire-emergency-transmission-line-aerial-patrol',
+  'zhaoqing-long-distance-power-line-aerial-inspection',
 ];
 
 const CRITICAL_INFRASTRUCTURE_CASE_ORDER = [
@@ -20,9 +20,6 @@ const CRITICAL_INFRASTRUCTURE_CASE_ORDER = [
   'brazil-refinery-airspace-monitoring',
   'nigeria-factory-low-altitude-monitoring',
   'nigeria-factory-airspace-monitoring',
-  'pakistan-power-plant-anti-uav',
-  'brazil-refinery-anti-uav',
-  'nigeria-factory-anti-uav',
 ];
 
 const KEY_AREA_SECURITY_CASE_ORDER = [
@@ -31,7 +28,7 @@ const KEY_AREA_SECURITY_CASE_ORDER = [
 ];
 
 const CASE_DISPLAY_ORDER = new Map<string, number>(
-  [...CRITICAL_INFRASTRUCTURE_CASE_ORDER, ...KEY_AREA_SECURITY_CASE_ORDER, ...UAV_CASE_ORDER].map((handle, index) => [handle, index])
+  [...CRITICAL_INFRASTRUCTURE_CASE_ORDER, ...KEY_AREA_SECURITY_CASE_ORDER, ...AERIAL_PLATFORM_CASE_ORDER].map((handle, index) => [handle, index])
 );
 
 export function getCaseDisplayRank(item: CaseDisplayItem) {

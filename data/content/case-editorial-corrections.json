@@ -1,36 +1,36 @@
-{
+﻿{
   "airport-security-application": {
-    "title_en": "Airport C-UAS Application",
-    "description_en": "Airport C-UAS Application\nTo address unauthorized drone flights, hostile intrusion, and illicit surveillance around an airport, the project deployed an integrated C-UAS system combining RF spectrum detection, directional RF jamming, portable countermeasure units, and a command platform. The RF layer provided continuous monitoring within approximately 3 km of the airport and supported drone identification and operator-location analysis. Directional jamming could suppress GPS/BeiDou navigation and remote-control links so an unauthorized UAV would return or land, while frequency planning was used to avoid tower communications and other protected bands. Portable units supported rapid deployment around runways, terminals, and other priority areas. The command platform combined monitoring records, maps, and response plans for coordination with air-traffic control and public-security teams. The source material identifies Hangzhou Xiaoshan International Airport as an application site.",
+    "title_en": "Airport Site Defense Application",
+    "description_en": "Airport Site Defense Application\nTo address unauthorized low-altitude target flights, hostile intrusion, and illicit surveillance around an airport, the project deployed an integrated Site Defense system combining RF spectrum detection, directional RF signal suppression, portable countermeasure units, and a command platform. The RF layer provided continuous monitoring within approximately 3 km of the airport and supported low-altitude target identification and operator-location analysis. Directional signal suppression could suppress GPS/BeiDou navigation and remote-control links so an unauthorized Aerial Platform would return or land, while frequency planning was used to avoid tower communications and other protected bands. Portable units supported rapid deployment around runways, terminals, and other priority areas. The command platform combined monitoring records, maps, and response plans for coordination with air-traffic control and public-security teams. The source material identifies Hangzhou Xiaoshan International Airport as an application site.",
     "devices_en": [
       "Stationary RF Detection System",
-      "Directional RF Jammer",
-      "Portable C-UAS Field Shield",
-      "C-UAS Command Platform"
+      "Directional RF Suppressor",
+      "Portable Site Defense Field Shield",
+      "Site Defense Command Platform"
     ],
-    "title_ru": "Применение C-UAS в аэропорту",
-    "description_ru": "Применение C-UAS в аэропорту\nДля противодействия несанкционированным полётам дронов, враждебным вторжениям и незаконному наблюдению на территории аэропорта был развёрнут комплекс C-UAS, объединяющий радиочастотное обнаружение, направленное радиочастотное подавление, переносные средства противодействия и командную платформу. Радиочастотный уровень обеспечивал непрерывный мониторинг в радиусе около 3 км от аэропорта, идентификацию БПЛА и анализ местоположения оператора. Направленное подавление могло блокировать навигацию GPS/BeiDou и каналы дистанционного управления, вызывая возврат или посадку несанкционированного БПЛА; частотное планирование применялось для защиты связи диспетчерской вышки и других разрешённых диапазонов. Переносные средства быстро развёртывались у ВПП, терминалов и других приоритетных зон. Командная платформа объединяла записи мониторинга, карты и планы реагирования для координации со службами управления воздушным движением и общественной безопасности. В исходном материале в качестве места применения указан международный аэропорт Ханчжоу Сяошань.",
+    "title_ru": "Применение Site Defense в аэропорту",
+    "description_ru": "Применение Site Defense в аэропорту\nДля противодействия несанкционированным полётам воздушных платформ, враждебным вторжениям и незаконному наблюдению на территории аэропорта был развёрнут комплекс Site Defense, объединяющий радиочастотное обнаружение, направленное радиочастотное подавление, переносные средства противодействия и командную платформу. Радиочастотный уровень обеспечивал непрерывный мониторинг в радиусе около 3 км от аэропорта, идентификацию воздушная платформа и анализ местоположения оператора. Направленное подавление могло блокировать навигацию GPS/BeiDou и каналы дистанционного управления, вызывая возврат или посадку несанкционированного воздушная платформа; частотное планирование применялось для защиты связи диспетчерской вышки и других разрешённых диапазонов. Переносные средства быстро развёртывались у ВПП, терминалов и других приоритетных зон. Командная платформа объединяла записи мониторинга, карты и планы реагирования для координации со службами управления воздушным движением и общественной безопасности. В исходном материале в качестве места применения указан международный аэропорт Ханчжоу Сяошань.",
     "devices_ru": [
       "Стационарная система радиочастотного обнаружения",
       "Направленный радиочастотный подавитель",
-      "Переносной комплекс противодействия БПЛА",
-      "Командная платформа C-UAS"
+      "Переносной комплекс противодействия воздушная платформа",
+      "Командная платформа Site Defense"
     ],
-    "title_es": "Aplicación C-UAS en un aeropuerto",
-    "description_es": "Aplicación C-UAS en un aeropuerto\nPara responder a vuelos no autorizados de drones, intrusiones hostiles y vigilancia ilícita en un aeropuerto, el proyecto desplegó un sistema C-UAS integrado con detección de espectro RF, interferencia RF direccional, unidades portátiles de contramedidas y una plataforma de mando. La capa RF proporcionó vigilancia continua en un radio aproximado de 3 km alrededor del aeropuerto y permitió identificar drones y analizar la ubicación del operador. La interferencia direccional podía suprimir la navegación GPS/BeiDou y los enlaces de control remoto para provocar el regreso o el aterrizaje del UAV no autorizado; la planificación de frecuencias se utilizó para proteger las comunicaciones de la torre y otras bandas autorizadas. Las unidades portátiles permitían un despliegue rápido en pistas, terminales y otras zonas prioritarias. La plataforma de mando integraba registros de vigilancia, mapas y planes de respuesta para coordinarse con control de tráfico aéreo y seguridad pública. El material fuente identifica el Aeropuerto Internacional de Hangzhou Xiaoshan como lugar de aplicación.",
+    "title_es": "Aplicación Site Defense en un aeropuerto",
+    "description_es": "Aplicación Site Defense en un aeropuerto\nPara responder a vuelos no autorizados de aerial platforms, intrusiones hostiles y vigilancia ilícita en un aeropuerto, el proyecto desplegó un sistema Site Defense integrado con detección de espectro RF, interferencia RF direccional, unidades portátiles de contramedidas y una plataforma de mando. La capa RF proporcionó vigilancia continua en un radio aproximado de 3 km alrededor del aeropuerto y permitió identificar aerial platforms y analizar la ubicación del operador. La interferencia direccional podía suprimir la navegación GPS/BeiDou y los enlaces de control remoto para provocar el regreso o el aterrizaje del Aerial Platform no autorizado; la planificación de frecuencias se utilizó para proteger las comunicaciones de la torre y otras bandas autorizadas. Las unidades portátiles permitían un despliegue rápido en pistas, terminales y otras zonas prioritarias. La plataforma de mando integraba registros de vigilancia, mapas y planes de respuesta para coordinarse con control de tráfico aéreo y seguridad pública. El material fuente identifica el Aeropuerto Internacional de Hangzhou Xiaoshan como lugar de aplicación.",
     "devices_es": [
       "Sistema fijo de detección RF",
       "Inhibidor RF direccional",
-      "Escudo C-UAS portátil",
-      "Plataforma de mando C-UAS"
+      "Escudo Site Defense portátil",
+      "Plataforma de mando Site Defense"
     ],
-    "title_ar": "تطبيق نظام C-UAS في مطار",
-    "description_ar": "تطبيق نظام C-UAS في مطار\nلمواجهة الرحلات غير المصرح بها للطائرات المسيّرة ومحاولات التسلل والمراقبة غير المشروعة في محيط المطار، نُشر نظام C-UAS متكامل يجمع بين كشف الطيف الراديوي والتشويش الراديوي الاتجاهي ووحدات المواجهة المحمولة ومنصة قيادة. وفّرت طبقة الترددات الراديوية مراقبة مستمرة ضمن نطاق يقارب 3 كم حول المطار، مع دعم تحديد نوع الطائرة وتحليل موقع المشغّل. ويمكن للتشويش الاتجاهي تعطيل إشارات الملاحة GPS/BeiDou وروابط التحكم عن بُعد لدفع الطائرة غير المصرح بها إلى العودة أو الهبوط، مع تخطيط الترددات لتجنب اتصالات برج المراقبة والنطاقات المحمية. كما أتاحت الوحدات المحمولة الانتشار السريع قرب المدارج وصالات الركاب والمناطق ذات الأولوية. وجمعت منصة القيادة سجلات الرصد والخرائط وخطط الاستجابة للتنسيق مع مراقبة الحركة الجوية والأمن العام. وتحدد المادة المصدر مطار هانغتشو شياوشان الدولي كموقع للتطبيق.",
+    "title_ar": "تطبيق نظام Site Defense في مطار",
+    "description_ar": "تطبيق نظام Site Defense في مطار\nلمواجهة الرحلات غير المصرح بها للطائرات المسيّرة ومحاولات التسلل والمراقبة غير المشروعة في محيط المطار، نُشر نظام Site Defense متكامل يجمع بين كشف الطيف الراديوي والتشويش الراديوي الاتجاهي ووحدات المواجهة المحمولة ومنصة قيادة. وفّرت طبقة الترددات الراديوية مراقبة مستمرة ضمن نطاق يقارب 3 كم حول المطار، مع دعم تحديد نوع الطائرة وتحليل موقع المشغّل. ويمكن للتشويش الاتجاهي تعطيل إشارات الملاحة GPS/BeiDou وروابط التحكم عن بُعد لدفع الطائرة غير المصرح بها إلى العودة أو الهبوط، مع تخطيط الترددات لتجنب اتصالات برج المراقبة والنطاقات المحمية. كما أتاحت الوحدات المحمولة الانتشار السريع قرب المدارج وصالات الركاب والمناطق ذات الأولوية. وجمعت منصة القيادة سجلات الرصد والخرائط وخطط الاستجابة للتنسيق مع مراقبة الحركة الجوية والأمن العام. وتحدد المادة المصدر مطار هانغتشو شياوشان الدولي كموقع للتطبيق.",
     "devices_ar": [
       "نظام ثابت لكشف الترددات الراديوية",
       "جهاز تشويش RF اتجاهي",
-      "درع C-UAS محمول",
-      "منصة قيادة C-UAS"
+      "درع Site Defense محمول",
+      "منصة قيادة Site Defense"
     ],
     "recommended_product_handles": [
       "stationary-rf-detection-system",
@@ -38,17 +38,17 @@
       "portable-low-altitude-monitoring-event-logging-shield"
     ],
     "case_snapshot_en": [
-      { "label": "Application", "value": "Airport low-altitude security and unauthorized-drone response" },
+      { "label": "Application", "value": "Airport low-altitude security and unauthorized-low-altitude target response" },
       { "label": "Location", "value": "Hangzhou Xiaoshan International Airport, China" },
-      { "label": "Key Capability", "value": "RF detection, directional RF jamming, portable response and command coordination" }
+      { "label": "Key Capability", "value": "RF detection, directional RF signal suppression, portable response and command coordination" }
     ],
     "case_snapshot_ru": [
-      { "label": "Применение", "value": "Безопасность малых высот в аэропорту и реагирование на несанкционированные БПЛА" },
+      { "label": "Применение", "value": "Безопасность малых высот в аэропорту и реагирование на несанкционированные воздушная платформа" },
       { "label": "Местоположение", "value": "Международный аэропорт Ханчжоу Сяошань, Китай" },
       { "label": "Ключевая возможность", "value": "Радиочастотное обнаружение, направленное подавление, переносное реагирование и командная координация" }
     ],
     "case_snapshot_es": [
-      { "label": "Aplicación", "value": "Seguridad de baja altitud en aeropuertos y respuesta a drones no autorizados" },
+      { "label": "Aplicación", "value": "Seguridad de baja altitud en aeropuertos y respuesta a aerial platforms no autorizados" },
       { "label": "Ubicación", "value": "Aeropuerto Internacional de Hangzhou Xiaoshan, China" },
       { "label": "Capacidad principal", "value": "Detección RF, interferencia RF direccional, respuesta portátil y coordinación de mando" }
     ],
@@ -59,37 +59,37 @@
     ]
   },
   "asian-games-security": {
-    "title_en": "Asian Games Low-Altitude C-UAS Application",
-    "description_en": "Asian Games Low-Altitude C-UAS Application\nDuring the 2023 Hangzhou Asian Games, the project used a multi-city C-UAS system combining RF detection, directional RF jamming, portable C-UAS shields, and a unified command platform. The platform coordinated monitoring and response information across Hangzhou, Shaoxing, Jinhua, and other host or co-host cities. Directional jamming was used to suppress unauthorized-drone links while frequency coordination protected event broadcasting and other authorized radio services. Portable units supported temporary venues and transport hubs; the source material records a 10-minute deployment at the Huzhou sub-venue. Monitoring data from Wenzhou, Quzhou, and other operating areas was returned to the central platform for early warning and coordinated handling. The public case documents the equipment architecture and multi-city workflow without disclosing sensitive operating parameters.",
+    "title_en": "Asian Games Low-Altitude Site Defense Application",
+    "description_en": "Asian Games Low-Altitude Site Defense Application\nDuring the 2023 Hangzhou Asian Games, the project used a multi-city Site Defense system combining RF detection, directional RF signal suppression, portable Site Defense shields, and a unified command platform. The platform coordinated monitoring and response information across Hangzhou, Shaoxing, Jinhua, and other host or co-host cities. Directional signal suppression was used to suppress unauthorized-low-altitude target links while frequency coordination protected event broadcasting and other authorized radio services. Portable units supported temporary venues and transport hubs; the source material records a 10-minute deployment at the Huzhou sub-venue. Monitoring data from Wenzhou, Quzhou, and other operating areas was returned to the central platform for early warning and coordinated handling. The public case documents the equipment architecture and multi-city workflow without disclosing sensitive operating parameters.",
     "devices_en": [
       "Stationary RF Detection System",
-      "Directional RF Jammer",
-      "Portable C-UAS Field Shield",
-      "C-UAS Command Platform"
+      "Directional RF Suppressor",
+      "Portable Site Defense Field Shield",
+      "Site Defense Command Platform"
     ],
-    "title_ru": "Применение C-UAS на Азиатских играх",
-    "description_ru": "Применение C-UAS на Азиатских играх\nВо время Азиатских игр 2023 года в Ханчжоу использовалась многоуровневая городская система C-UAS, объединяющая радиочастотное обнаружение, направленное радиочастотное подавление, переносные антидроновые комплексы и единую командную платформу. Платформа координировала данные мониторинга и реагирования между Ханчжоу, Шаосином, Цзиньхуа и другими городами проведения соревнований. Направленное подавление применялось против каналов несанкционированных БПЛА, а частотная координация защищала телевизионную трансляцию и другие разрешённые радиослужбы. Переносные средства использовались на временных площадках и транспортных узлах; исходный материал фиксирует развёртывание за 10 минут на площадке в Хучжоу. Данные из Вэньчжоу, Цюйчжоу и других зон поступали на центральную платформу для раннего предупреждения и согласованного реагирования. Публичное описание раскрывает архитектуру и многосторонний рабочий процесс без чувствительных эксплуатационных параметров.",
+    "title_ru": "Применение Site Defense на Азиатских играх",
+    "description_ru": "Применение Site Defense на Азиатских играх\nВо время Азиатских игр 2023 года в Ханчжоу использовалась многоуровневая городская система Site Defense, объединяющая радиочастотное обнаружение, направленное радиочастотное подавление, переносные периметровые защитные комплексы и единую командную платформу. Платформа координировала данные мониторинга и реагирования между Ханчжоу, Шаосином, Цзиньхуа и другими городами проведения соревнований. Направленное подавление применялось против каналов несанкционированных воздушная платформа, а частотная координация защищала телевизионную трансляцию и другие разрешённые радиослужбы. Переносные средства использовались на временных площадках и транспортных узлах; исходный материал фиксирует развёртывание за 10 минут на площадке в Хучжоу. Данные из Вэньчжоу, Цюйчжоу и других зон поступали на центральную платформу для раннего предупреждения и согласованного реагирования. Публичное описание раскрывает архитектуру и многосторонний рабочий процесс без чувствительных эксплуатационных параметров.",
     "devices_ru": [
       "Стационарная система радиочастотного обнаружения",
       "Направленный радиочастотный подавитель",
-      "Переносной комплекс противодействия БПЛА",
-      "Командная платформа C-UAS"
+      "Переносной комплекс противодействия воздушная платформа",
+      "Командная платформа Site Defense"
     ],
-    "title_es": "Aplicación C-UAS de baja altitud en los Juegos Asiáticos",
-    "description_es": "Aplicación C-UAS de baja altitud en los Juegos Asiáticos\nDurante los Juegos Asiáticos de Hangzhou 2023, el proyecto utilizó un sistema C-UAS multiciudad con detección RF, interferencia RF direccional, escudos C-UAS portátiles y una plataforma de mando unificada. La plataforma coordinó la información de vigilancia y respuesta entre Hangzhou, Shaoxing, Jinhua y otras ciudades anfitrionas o coanfitrionas. La interferencia direccional se utilizó para suprimir enlaces de drones no autorizados, mientras que la coordinación de frecuencias protegía la retransmisión del evento y otros servicios de radio autorizados. Las unidades portátiles cubrieron recintos temporales y centros de transporte; el material fuente registra un despliegue de 10 minutos en la subsede de Huzhou. Los datos de Wenzhou, Quzhou y otras zonas se enviaban a la plataforma central para alerta temprana y respuesta coordinada. El caso público documenta la arquitectura y el flujo multiciudad sin divulgar parámetros operativos sensibles.",
+    "title_es": "Aplicación Site Defense de baja altitud en los Juegos Asiáticos",
+    "description_es": "Aplicación Site Defense de baja altitud en los Juegos Asiáticos\nDurante los Juegos Asiáticos de Hangzhou 2023, el proyecto utilizó un sistema Site Defense multiciudad con detección RF, interferencia RF direccional, escudos Site Defense portátiles y una plataforma de mando unificada. La plataforma coordinó la información de vigilancia y respuesta entre Hangzhou, Shaoxing, Jinhua y otras ciudades anfitrionas o coanfitrionas. La interferencia direccional se utilizó para suprimir enlaces de aerial platforms no autorizados, mientras que la coordinación de frecuencias protegía la retransmisión del evento y otros servicios de radio autorizados. Las unidades portátiles cubrieron recintos temporales y centros de transporte; el material fuente registra un despliegue de 10 minutos en la subsede de Huzhou. Los datos de Wenzhou, Quzhou y otras zonas se enviaban a la plataforma central para alerta temprana y respuesta coordinada. El caso público documenta la arquitectura y el flujo multiciudad sin divulgar parámetros operativos sensibles.",
     "devices_es": [
       "Sistema fijo de detección RF",
       "Inhibidor RF direccional",
-      "Escudo C-UAS portátil",
-      "Plataforma de mando C-UAS"
+      "Escudo Site Defense portátil",
+      "Plataforma de mando Site Defense"
     ],
-    "title_ar": "تطبيق نظام C-UAS في دورة الألعاب الآسيوية",
-    "description_ar": "تطبيق نظام C-UAS في دورة الألعاب الآسيوية\nخلال دورة الألعاب الآسيوية في هانغتشو عام 2023، استخدم المشروع نظام C-UAS متعدد المدن يجمع بين كشف RF والتشويش الراديوي الاتجاهي ودروع C-UAS المحمولة ومنصة قيادة موحدة. نسّقت المنصة معلومات الرصد والاستجابة بين هانغتشو وشاوشينغ وجينهوا ومدن الاستضافة الأخرى. واستُخدم التشويش الاتجاهي لتعطيل روابط الطائرات غير المصرح بها، مع تنسيق الترددات لحماية بث الفعاليات والخدمات الراديوية المعتمدة. دعمت الوحدات المحمولة المواقع المؤقتة ومراكز النقل، وتسجل المادة المصدر إكمال الانتشار في موقع هوتشو خلال 10 دقائق. كما أُرسلت بيانات الرصد من ونتشو وتشوتشو ومناطق تشغيل أخرى إلى المنصة المركزية للإنذار المبكر والاستجابة المنسقة. يوثق الوصف العام بنية المعدات وآلية العمل متعددة المدن من دون نشر المعلمات التشغيلية الحساسة.",
+    "title_ar": "تطبيق نظام Site Defense في دورة الألعاب الآسيوية",
+    "description_ar": "تطبيق نظام Site Defense في دورة الألعاب الآسيوية\nخلال دورة الألعاب الآسيوية في هانغتشو عام 2023، استخدم المشروع نظام Site Defense متعدد المدن يجمع بين كشف RF والتشويش الراديوي الاتجاهي ودروع Site Defense المحمولة ومنصة قيادة موحدة. نسّقت المنصة معلومات الرصد والاستجابة بين هانغتشو وشاوشينغ وجينهوا ومدن الاستضافة الأخرى. واستُخدم التشويش الاتجاهي لتعطيل روابط الطائرات غير المصرح بها، مع تنسيق الترددات لحماية بث الفعاليات والخدمات الراديوية المعتمدة. دعمت الوحدات المحمولة المواقع المؤقتة ومراكز النقل، وتسجل المادة المصدر إكمال الانتشار في موقع هوتشو خلال 10 دقائق. كما أُرسلت بيانات الرصد من ونتشو وتشوتشو ومناطق تشغيل أخرى إلى المنصة المركزية للإنذار المبكر والاستجابة المنسقة. يوثق الوصف العام بنية المعدات وآلية العمل متعددة المدن من دون نشر المعلمات التشغيلية الحساسة.",
     "devices_ar": [
       "نظام ثابت لكشف الترددات الراديوية",
       "جهاز تشويش RF اتجاهي",
-      "درع C-UAS محمول",
-      "منصة قيادة C-UAS"
+      "درع Site Defense محمول",
+      "منصة قيادة Site Defense"
     ],
     "recommended_product_handles": [
       "stationary-rf-detection-system",
@@ -99,7 +99,7 @@
     "case_snapshot_en": [
       { "label": "Application", "value": "Multi-city low-altitude security for the 2023 Hangzhou Asian Games" },
       { "label": "Location", "value": "Hangzhou and co-host cities, China" },
-      { "label": "Key Capability", "value": "RF detection, directional RF jamming, rapid portable deployment and unified command" }
+      { "label": "Key Capability", "value": "RF detection, directional RF signal suppression, rapid portable deployment and unified command" }
     ],
     "case_snapshot_ru": [
       { "label": "Применение", "value": "Многосторонняя безопасность малых высот на Азиатских играх 2023 года в Ханчжоу" },
@@ -118,26 +118,26 @@
     ]
   },
   "water-conservancy-security": {
-    "title_en": "Water Conservancy Facility C-UAS Application",
-    "description_en": "Water Conservancy Facility C-UAS Application\nFor hydropower stations, dams, powerhouses, transmission hubs, and other water-conservancy infrastructure, the project used an active C-UAS architecture combining RF detection and RF jamming. The detection layer identified unauthorized-drone activity, while the jamming layer provided an authorized response when required. Equipment was configured for the high-humidity and dusty conditions found around hydropower facilities. A tiered protection plan separated the dam core, reservoir area, powerhouse, and supporting zones so operators could apply different monitoring and response rules by risk level. The resulting workflow connected detection, identification, jamming, event records, and operator review. The source material states that the configuration was deployed at multiple large hydropower facilities in China; customer and site names are not disclosed on the public page.",
+    "title_en": "Water Conservancy Facility Site Defense Application",
+    "description_en": "Water Conservancy Facility Site Defense Application\nFor hydropower stations, dams, powerhouses, transmission hubs, and other water-conservancy infrastructure, the project used an active Site Defense architecture combining RF detection and RF signal suppression. The detection layer identified unauthorized-low-altitude target activity, while the signal suppression layer provided an authorized response when required. Equipment was configured for the high-humidity and dusty conditions found around hydropower facilities. A tiered protection plan separated the dam core, reservoir area, powerhouse, and supporting zones so operators could apply different monitoring and response rules by risk level. The resulting workflow connected detection, identification, signal suppression, event records, and operator review. The source material states that the configuration was deployed at multiple large hydropower facilities in China; customer and site names are not disclosed on the public page.",
     "devices_en": [
       "Stationary RF Detection System",
-      "RF Jamming Equipment"
+      "RF signal suppression Equipment"
     ],
-    "title_ru": "Применение C-UAS на объектах водного хозяйства",
-    "description_ru": "Применение C-UAS на объектах водного хозяйства\nДля гидроэлектростанций, плотин, машинных залов, узлов передачи электроэнергии и другой водохозяйственной инфраструктуры в проекте применялась активная архитектура C-UAS, объединяющая радиочастотное обнаружение и радиочастотное подавление. Уровень обнаружения выявлял активность несанкционированных БПЛА, а уровень подавления обеспечивал разрешённое реагирование при необходимости. Оборудование было настроено для условий высокой влажности и запылённости, характерных для гидроэнергетических объектов. Многоуровневая схема защиты разделяла ядро плотины, акваторию водохранилища, машинный зал и вспомогательные зоны, позволяя применять разные правила мониторинга и реагирования в зависимости от риска. Рабочий процесс связывал обнаружение, идентификацию, подавление, регистрацию событий и операторскую проверку. В исходном материале указано внедрение на нескольких крупных гидроэнергетических объектах Китая; имена заказчиков и площадок на публичной странице не раскрываются.",
+    "title_ru": "Применение Site Defense на объектах водного хозяйства",
+    "description_ru": "Применение Site Defense на объектах водного хозяйства\nДля гидроэлектростанций, плотин, машинных залов, узлов передачи электроэнергии и другой водохозяйственной инфраструктуры в проекте применялась активная архитектура Site Defense, объединяющая радиочастотное обнаружение и радиочастотное подавление. Уровень обнаружения выявлял активность несанкционированных воздушная платформа, а уровень подавления обеспечивал разрешённое реагирование при необходимости. Оборудование было настроено для условий высокой влажности и запылённости, характерных для гидроэнергетических объектов. Многоуровневая схема защиты разделяла ядро плотины, акваторию водохранилища, машинный зал и вспомогательные зоны, позволяя применять разные правила мониторинга и реагирования в зависимости от риска. Рабочий процесс связывал обнаружение, идентификацию, подавление, регистрацию событий и операторскую проверку. В исходном материале указано внедрение на нескольких крупных гидроэнергетических объектах Китая; имена заказчиков и площадок на публичной странице не раскрываются.",
     "devices_ru": [
       "Стационарная система радиочастотного обнаружения",
       "Оборудование радиочастотного подавления"
     ],
-    "title_es": "Aplicación C-UAS en instalaciones hidráulicas",
-    "description_es": "Aplicación C-UAS en instalaciones hidráulicas\nPara centrales hidroeléctricas, presas, casas de máquinas, nodos de transmisión y otras infraestructuras hidráulicas, el proyecto utilizó una arquitectura C-UAS activa que combinaba detección RF e interferencia RF. La capa de detección identificaba la actividad de drones no autorizados y la capa de interferencia permitía una respuesta autorizada cuando era necesaria. Los equipos se configuraron para las condiciones de alta humedad y polvo presentes en instalaciones hidroeléctricas. Un plan de protección por niveles separaba el núcleo de la presa, el embalse, la casa de máquinas y las zonas auxiliares, de modo que los operadores aplicaran reglas distintas según el nivel de riesgo. El flujo resultante conectaba detección, identificación, interferencia, registro de eventos y revisión del operador. El material fuente indica que la configuración se desplegó en varias grandes instalaciones hidroeléctricas de China; la página pública no divulga los nombres de los clientes ni de los emplazamientos.",
+    "title_es": "Aplicación Site Defense en instalaciones hidráulicas",
+    "description_es": "Aplicación Site Defense en instalaciones hidráulicas\nPara centrales hidroeléctricas, presas, casas de máquinas, nodos de transmisión y otras infraestructuras hidráulicas, el proyecto utilizó una arquitectura Site Defense activa que combinaba detección RF e interferencia RF. La capa de detección identificaba la actividad de aerial platforms no autorizados y la capa de interferencia permitía una respuesta autorizada cuando era necesaria. Los equipos se configuraron para las condiciones de alta humedad y polvo presentes en instalaciones hidroeléctricas. Un plan de protección por niveles separaba el núcleo de la presa, el embalse, la casa de máquinas y las zonas auxiliares, de modo que los operadores aplicaran reglas distintas según el nivel de riesgo. El flujo resultante conectaba detección, identificación, interferencia, registro de eventos y revisión del operador. El material fuente indica que la configuración se desplegó en varias grandes instalaciones hidroeléctricas de China; la página pública no divulga los nombres de los clientes ni de los emplazamientos.",
     "devices_es": [
       "Sistema fijo de detección RF",
       "Equipo de interferencia RF"
     ],
-    "title_ar": "تطبيق نظام C-UAS في منشآت المياه والطاقة الكهرومائية",
-    "description_ar": "تطبيق نظام C-UAS في منشآت المياه والطاقة الكهرومائية\nاستخدم المشروع في محطات الطاقة الكهرومائية والسدود وبيوت التوليد وعقد نقل الكهرباء وغيرها من منشآت المياه بنية C-UAS نشطة تجمع بين كشف RF والتشويش الراديوي. تولت طبقة الكشف تحديد نشاط الطائرات غير المصرح بها، بينما وفرت طبقة التشويش استجابة مصرحاً بها عند الحاجة. وجرى تهيئة المعدات للعمل في ظروف الرطوبة العالية والغبار المحيطة بالمنشآت الكهرومائية. وقسّمت خطة الحماية المتدرجة قلب السد ومنطقة الخزان وبيت التوليد والمناطق المساندة، بحيث يطبق المشغلون قواعد رصد واستجابة مختلفة حسب مستوى المخاطر. وربط سير العمل بين الكشف والتحديد والتشويش وسجلات الأحداث ومراجعة المشغل. وتشير المادة المصدر إلى نشر هذا التكوين في عدة منشآت كهرومائية كبيرة داخل الصين، من دون كشف أسماء العملاء أو المواقع في الصفحة العامة.",
+    "title_ar": "تطبيق نظام Site Defense في منشآت المياه والطاقة الكهرومائية",
+    "description_ar": "تطبيق نظام Site Defense في منشآت المياه والطاقة الكهرومائية\nاستخدم المشروع في محطات الطاقة الكهرومائية والسدود وبيوت التوليد وعقد نقل الكهرباء وغيرها من منشآت المياه بنية Site Defense نشطة تجمع بين كشف RF والتشويش الراديوي. تولت طبقة الكشف تحديد نشاط الطائرات غير المصرح بها، بينما وفرت طبقة التشويش استجابة مصرحاً بها عند الحاجة. وجرى تهيئة المعدات للعمل في ظروف الرطوبة العالية والغبار المحيطة بالمنشآت الكهرومائية. وقسّمت خطة الحماية المتدرجة قلب السد ومنطقة الخزان وبيت التوليد والمناطق المساندة، بحيث يطبق المشغلون قواعد رصد واستجابة مختلفة حسب مستوى المخاطر. وربط سير العمل بين الكشف والتحديد والتشويش وسجلات الأحداث ومراجعة المشغل. وتشير المادة المصدر إلى نشر هذا التكوين في عدة منشآت كهرومائية كبيرة داخل الصين، من دون كشف أسماء العملاء أو المواقع في الصفحة العامة.",
     "devices_ar": [
       "نظام ثابت لكشف الترددات الراديوية",
       "معدات تشويش RF"
@@ -149,7 +149,7 @@
     ],
     "case_snapshot_en": [
       { "label": "Application", "value": "Low-altitude protection for hydropower and water-conservancy facilities" },
-      { "label": "Key Capability", "value": "RF detection, authorized RF jamming and tiered zone protection" },
+      { "label": "Key Capability", "value": "RF detection, authorized RF signal suppression and tiered zone protection" },
       { "label": "Operating Plan", "value": "Different monitoring and response rules for dam, reservoir, powerhouse and support zones" }
     ],
     "case_snapshot_ru": [
@@ -170,14 +170,14 @@
   },
   "brazil-refinery-low-altitude-monitoring": {
     "aliases": ["brazil-refinery-airspace-monitoring"],
-    "title_ru": "Применение C-UAS на нефтеперерабатывающем заводе в Бразилии",
-    "description_ru": "Применение C-UAS на нефтеперерабатывающем заводе в Бразилии в 2025 году\nИспользованное оборудование:\nСтационарное оборудование радиочастотной идентификации\nПлатформа контроля воздушной обстановки\nПрограммное обеспечение командной платформы\nОписание проекта:\nВ 2025 году на ключевых производственных участках и по периметру нефтеперерабатывающего завода была развёрнута система раннего предупреждения C-UAS. Стационарное оборудование собирает данные о радиочастотной активности, а платформа объединяет воздушные трассы, оповещения, заметки операторов, проверку позиционирования и статус сопровождения. Командная платформа поддерживает журналирование событий, межведомственное уведомление и документированные процедуры реагирования. Публичное описание ограничено ранним предупреждением, идентификацией, позиционированием, сопровождением, доказательными записями и согласованными процедурами реагирования.",
+    "title_ru": "Применение Site Defense на нефтеперерабатывающем заводе в Бразилии",
+    "description_ru": "Применение Site Defense на нефтеперерабатывающем заводе в Бразилии в 2025 году\nИспользованное оборудование:\nСтационарное оборудование радиочастотной идентификации\nПлатформа контроля воздушной обстановки\nПрограммное обеспечение командной платформы\nОписание проекта:\nВ 2025 году на ключевых производственных участках и по периметру нефтеперерабатывающего завода была развёрнута система раннего предупреждения Site Defense. Стационарное оборудование собирает данные о радиочастотной активности, а платформа объединяет воздушные трассы, оповещения, заметки операторов, проверку позиционирования и статус сопровождения. Командная платформа поддерживает журналирование событий, межведомственное уведомление и документированные процедуры реагирования. Публичное описание ограничено ранним предупреждением, идентификацией, позиционированием, сопровождением, доказательными записями и согласованными процедурами реагирования.",
     "devices_ru": [
       "Стационарное оборудование радиочастотной идентификации",
       "Платформа контроля воздушной обстановки",
       "Программное обеспечение командной платформы"
     ],
-    "description_ar": "حالة C-UAS في مصفاة بالبرازيل عام 2025\nالمعدات المستخدمة:\nمعدات ثابتة لتحديد إشارات الطيف الراديوي\nمنصة للوعي بالمجال الجوي\nبرنامج منصة القيادة والتحكم\nوصف المشروع:\nفي عام 2025 نُشرت عملية إنذار مبكر بنظام C-UAS للمناطق الإنتاجية الرئيسية ومحيط المصفاة. تجمع معدات التعرف الثابتة نشاط الترددات الراديوية، بينما تنظم منصة الوعي مسارات المجال الجوي وسجلات التنبيه وملاحظات المشغل ومراجعة الموقع وحالة التتبع في واجهة واحدة. وتدعم منصة القيادة الفرق المخولة بتسجيل الأحداث والإخطار بين الإدارات وإجراءات الاستجابة الموثقة. يركز الوصف العام على الإنذار المبكر والتحديد وتحديد الموقع والتتبع وسجلات الأدلة وإجراءات الاستجابة المنضبطة.",
+    "description_ar": "حالة Site Defense في مصفاة بالبرازيل عام 2025\nالمعدات المستخدمة:\nمعدات ثابتة لتحديد إشارات الطيف الراديوي\nمنصة للوعي بالمجال الجوي\nبرنامج منصة القيادة والتحكم\nوصف المشروع:\nفي عام 2025 نُشرت عملية إنذار مبكر بنظام Site Defense للمناطق الإنتاجية الرئيسية ومحيط المصفاة. تجمع معدات التعرف الثابتة نشاط الترددات الراديوية، بينما تنظم منصة الوعي مسارات المجال الجوي وسجلات التنبيه وملاحظات المشغل ومراجعة الموقع وحالة التتبع في واجهة واحدة. وتدعم منصة القيادة الفرق المخولة بتسجيل الأحداث والإخطار بين الإدارات وإجراءات الاستجابة الموثقة. يركز الوصف العام على الإنذار المبكر والتحديد وتحديد الموقع والتتبع وسجلات الأدلة وإجراءات الاستجابة المنضبطة.",
     "case_snapshot_ru": [
       { "label": "Применение", "value": "Мониторинг малых высот и регистрация событий" },
       { "label": "План эксплуатации", "value": "Контроль воздушной обстановки, проверка оповещений и координация реагирования" },
@@ -196,7 +196,7 @@
   },
   "nigeria-factory-low-altitude-monitoring": {
     "aliases": ["nigeria-factory-airspace-monitoring"],
-    "description_ar": "حالة C-UAS في مجمع صناعي بنيجيريا عام 2025\nالمعدات المستخدمة:\nمعدات متنقلة لكشف الطيف الراديوي\nمعدات للتحقق من الإشارات\nمنصة للقيادة والتحكم\nوصف المشروع:\nفي عام 2025 نُشرت عملية C-UAS متنقلة للمجال منخفض الارتفاع تغطي مناطق الإنتاج وطرق الخدمات اللوجستية ونقاط التفتيش المحيطية في المجمع الصناعي. أتاحت معدات كشف الطيف المتنقلة تغطية مرنة للموقع الكبير، بينما ساعدت معدات التحقق ومنصة القيادة المشغلين على مراجعة أحداث المجال الجوي والاحتفاظ بالسجلات وتنسيق إجراءات الاستجابة المعتمدة.",
+    "description_ar": "حالة Site Defense في مجمع صناعي بنيجيريا عام 2025\nالمعدات المستخدمة:\nمعدات متنقلة لكشف الطيف الراديوي\nمعدات للتحقق من الإشارات\nمنصة للقيادة والتحكم\nوصف المشروع:\nفي عام 2025 نُشرت عملية Site Defense متنقلة للمجال منخفض الارتفاع تغطي مناطق الإنتاج وطرق الخدمات اللوجستية ونقاط التفتيش المحيطية في المجمع الصناعي. أتاحت معدات كشف الطيف المتنقلة تغطية مرنة للموقع الكبير، بينما ساعدت معدات التحقق ومنصة القيادة المشغلين على مراجعة أحداث المجال الجوي والاحتفاظ بالسجلات وتنسيق إجراءات الاستجابة المعتمدة.",
     "case_snapshot_es": [
       { "label": "Aplicación", "value": "Monitoreo móvil de baja altitud para un complejo industrial" },
       { "label": "Plan operativo", "value": "Cobertura de producción, vías logísticas y controles perimetrales" },
@@ -210,28 +210,28 @@
   },
   "pakistan-power-plant-low-altitude-monitoring": {
     "aliases": ["pakistan-power-plant-airspace-monitoring"],
-    "title_ru": "Применение C-UAS на электростанции в Пакистане",
-    "description_ru": "Применение C-UAS на электростанции в Пакистане в 2024 году\nИспользованное оборудование:\nСтационарное оборудование радиочастотной идентификации\nОборудование проверки сигналов\nПрограммное обеспечение командной платформы\nОписание проекта:\nВ 2024 году для периметра и ключевых эксплуатационных зон электростанции был разработан план раннего предупреждения C-UAS. Стационарное оборудование обеспечивало непрерывное наблюдение за воздушной активностью поблизости, а проверка сигналов предоставляла контрольные данные уполномоченным операторам. Командная платформа связывала оповещения, карты, заметки операторов, записи позиционирования, статус сопровождения и процедуры реагирования, позволяя площадке вести прослеживаемый журнал событий и координировать действия по установленным процедурам.",
+    "title_ru": "Применение Site Defense на электростанции в Пакистане",
+    "description_ru": "Применение Site Defense на электростанции в Пакистане в 2024 году\nИспользованное оборудование:\nСтационарное оборудование радиочастотной идентификации\nОборудование проверки сигналов\nПрограммное обеспечение командной платформы\nОписание проекта:\nВ 2024 году для периметра и ключевых эксплуатационных зон электростанции был разработан план раннего предупреждения Site Defense. Стационарное оборудование обеспечивало непрерывное наблюдение за воздушной активностью поблизости, а проверка сигналов предоставляла контрольные данные уполномоченным операторам. Командная платформа связывала оповещения, карты, заметки операторов, записи позиционирования, статус сопровождения и процедуры реагирования, позволяя площадке вести прослеживаемый журнал событий и координировать действия по установленным процедурам.",
     "devices_ru": [
       "Стационарное оборудование радиочастотной идентификации",
       "Оборудование проверки сигналов",
       "Программное обеспечение командной платформы"
     ],
-    "description_ar": "حالة C-UAS في محطة طاقة بباكستان عام 2024\nالمعدات المستخدمة:\nمعدات ثابتة لتحديد إشارات الطيف الراديوي\nمعدات للتحقق من الإشارات\nبرنامج منصة القيادة والتحكم\nوصف المشروع:\nفي عام 2024 قُدمت خطة إنذار مبكر بنظام C-UAS لمحيط محطة الطاقة ومناطق التشغيل الأساسية. دعمت معدات التعرف الثابتة الوعي المستمر بالنشاط الجوي القريب، وقدمت معدات التحقق من الإشارات بيانات مرجعية للمراجعة المخولة. وربطت منصة القيادة التنبيهات وواجهات الخرائط وملاحظات المشغل وسجلات تحديد الموقع وحالة التتبع وإجراءات الاستجابة، بما يتيح لفريق الموقع الاحتفاظ بسجلات أحداث قابلة للتتبع والتنسيق مع إجراءات المنشأة المعتمدة.",
+    "description_ar": "حالة Site Defense في محطة طاقة بباكستان عام 2024\nالمعدات المستخدمة:\nمعدات ثابتة لتحديد إشارات الطيف الراديوي\nمعدات للتحقق من الإشارات\nبرنامج منصة القيادة والتحكم\nوصف المشروع:\nفي عام 2024 قُدمت خطة إنذار مبكر بنظام Site Defense لمحيط محطة الطاقة ومناطق التشغيل الأساسية. دعمت معدات التعرف الثابتة الوعي المستمر بالنشاط الجوي القريب، وقدمت معدات التحقق من الإشارات بيانات مرجعية للمراجعة المخولة. وربطت منصة القيادة التنبيهات وواجهات الخرائط وملاحظات المشغل وسجلات تحديد الموقع وحالة التتبع وإجراءات الاستجابة، بما يتيح لفريق الموقع الاحتفاظ بسجلات أحداث قابلة للتتبع والتنسيق مع إجراءات المنشأة المعتمدة.",
     "case_snapshot_es": [
-      { "label": "Aplicación", "value": "Alerta temprana C-UAS para una central eléctrica" },
+      { "label": "Aplicación", "value": "Alerta temprana Site Defense para una central eléctrica" },
       { "label": "Plan operativo", "value": "Conciencia del perímetro, verificación de señales y coordinación con procedimientos de la instalación" },
       { "label": "Resultado", "value": "Alertas, mapas, notas del operador y registros de seguimiento trazables" }
     ],
     "case_snapshot_ar": [
-      { "label": "التطبيق", "value": "إنذار مبكر بنظام C-UAS لمحطة طاقة" },
+      { "label": "التطبيق", "value": "إنذار مبكر بنظام Site Defense لمحطة طاقة" },
       { "label": "خطة التشغيل", "value": "الوعي بالمحيط والتحقق من الإشارات والتنسيق مع إجراءات المنشأة" },
       { "label": "النتيجة", "value": "تنبيهات وخرائط وملاحظات مشغل وسجلات تتبع قابلة للمراجعة" }
     ]
   },
-  "anhui-flood-season-uav-patrol": {
-    "description_ar": "دورية UAV طارئة خلال موسم الفيضانات في آنهوي\nلتلبية متطلبات سلامة خطوط الكهرباء خلال موسم الفيضانات الصيفي، استخدمت State Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي لتنفيذ دوريات طارئة خاصة لمكافحة الفيضانات في ممر الطاقة الكثيف بمنطقة تشيتشو جيوهوا. أنجزت العملية أكثر من 150 طلعة، وحققت نقل إشارات المهمة لمسافات بعيدة جداً، وأتمت مهمة التفتيش في الموعد وبالجودة المطلوبة، مما عزز سلامة ممرات الطاقة خلال موسم الفيضانات.",
-    "description_es": "Patrulla UAV de emergencia en temporada de inundaciones de Anhui\nPara cumplir los requisitos de seguridad de las líneas eléctricas durante la temporada de inundaciones de verano, State Grid utilizó nuestros UAV de ala fija VTOL para realizar patrullas especiales de emergencia en el corredor eléctrico de Chizhou Jiuhua. La operación completó más de 150 vuelos, logró la transmisión de señales de misión a muy larga distancia y finalizó la inspección de la temporada de inundaciones según el calendario y con la calidad requerida.",
+  "anhui-flood-season-Aerial Platform-patrol": {
+    "description_ar": "دورية Aerial Platform طارئة خلال موسم الفيضانات في آنهوي\nلتلبية متطلبات سلامة خطوط الكهرباء خلال موسم الفيضانات الصيفي، استخدمت State Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي لتنفيذ دوريات طارئة خاصة لمكافحة الفيضانات في ممر الطاقة الكثيف بمنطقة تشيتشو جيوهوا. أنجزت العملية أكثر من 150 طلعة، وحققت نقل إشارات المهمة لمسافات بعيدة جداً، وأتمت مهمة التفتيش في الموعد وبالجودة المطلوبة، مما عزز سلامة ممرات الطاقة خلال موسم الفيضانات.",
+    "description_es": "Patrulla Aerial Platform de emergencia en temporada de inundaciones de Anhui\nPara cumplir los requisitos de seguridad de las líneas eléctricas durante la temporada de inundaciones de verano, State Grid utilizó nuestros Aerial Platform de ala fija VTOL para realizar patrullas especiales de emergencia en el corredor eléctrico de Chizhou Jiuhua. La operación completó más de 150 vuelos, logró la transmisión de señales de misión a muy larga distancia y finalizó la inspección de la temporada de inundaciones según el calendario y con la calidad requerida.",
     "case_snapshot_es": [
       { "label": "Aplicación", "value": "Patrulla de emergencia de corredores eléctricos en temporada de inundaciones" },
       { "label": "Ubicación", "value": "Chizhou Jiuhua, Anhui, China" },
@@ -240,8 +240,8 @@
       { "label": "Resultado", "value": "Tarea de patrulla completada según el calendario" }
     ]
   },
-  "ice-snow-emergency-uav-inspection": {
-    "description_ar": "تفتيش UAV طارئ أثناء كوارث الجليد والثلوج\nفي بيئة شديدة البرودة بلغت -15 درجة مئوية، استخدمت State Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي والمزودة بتقنية LiDAR لتفتيش 400 كم من ممرات نقل بجهد 500 كيلوفولت، بما في ذلك خط Yanping وخطا Pingji الأول والثاني. استخدمت العملية خمس مناطق تمركز، منها مدينة يانجي ومقاطعة أنتو، ونشرت 18 نقطة مؤقتة للإقلاع والهبوط، وأكملت جمع البيانات بالمسح الليزري ثلاثي الأبعاد. وحددت 12 عيباً شديداً ناتجاً عن تراكم الجليد على الأبراج والتجهيزات، وأصدرت 12 تقرير حالة سريعاً لدعم صيانة خطوط الجهد العالي جداً في الطقس القارس.",
+  "ice-snow-emergency-Aerial Platform-inspection": {
+    "description_ar": "تفتيش Aerial Platform طارئ أثناء كوارث الجليد والثلوج\nفي بيئة شديدة البرودة بلغت -15 درجة مئوية، استخدمت State Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي والمزودة بتقنية LiDAR لتفتيش 400 كم من ممرات نقل بجهد 500 كيلوفولت، بما في ذلك خط Yanping وخطا Pingji الأول والثاني. استخدمت العملية خمس مناطق تمركز، منها مدينة يانجي ومقاطعة أنتو، ونشرت 18 نقطة مؤقتة للإقلاع والهبوط، وأكملت جمع البيانات بالمسح الليزري ثلاثي الأبعاد. وحددت 12 عيباً شديداً ناتجاً عن تراكم الجليد على الأبراج والتجهيزات، وأصدرت 12 تقرير حالة سريعاً لدعم صيانة خطوط الجهد العالي جداً في الطقس القارس.",
     "case_snapshot_es": [
       { "label": "Aplicación", "value": "Inspección de emergencia de corredores de 500 kV afectados por hielo" },
       { "label": "Ubicación", "value": "Ciudad de Yanji, condado de Antu y zonas cercanas, China" },
@@ -250,8 +250,8 @@
       { "label": "Resultado", "value": "12 defectos graves de hielo identificados y 12 informes rápidos emitidos" }
     ]
   },
-  "lidar-tree-obstruction-uav-inspection": {
-    "description_ar": "تفتيش UAV بتقنية LiDAR لعوائق الأشجار\nفي شتاء 2024 استخدمت إحدى شركات Southern Grid طائرات ثابتة الجناح ذات إقلاع وهبوط عمودي ومتكاملة مع نظام LiDAR لتنفيذ مسح جوي ضمن مهمة خاصة لتفتيش مخاطر عوائق الأشجار. حصلت المهمة على مجموعات بيانات سحابة نقطية ثلاثية الأبعاد عالية الدقة والموثوقية، وقدمت بيانات أساسية لتحليل المخاطر الخفية وإعداد تقارير التفتيش لاحقاً.",
+  "lidar-tree-obstruction-Aerial Platform-inspection": {
+    "description_ar": "تفتيش Aerial Platform بتقنية LiDAR لعوائق الأشجار\nفي شتاء 2024 استخدمت إحدى شركات Southern Grid طائرات ثابتة الجناح ذات إقلاع وهبوط عمودي ومتكاملة مع نظام LiDAR لتنفيذ مسح جوي ضمن مهمة خاصة لتفتيش مخاطر عوائق الأشجار. حصلت المهمة على مجموعات بيانات سحابة نقطية ثلاثية الأبعاد عالية الدقة والموثوقية، وقدمت بيانات أساسية لتحليل المخاطر الخفية وإعداد تقارير التفتيش لاحقاً.",
     "case_snapshot_es": [
       { "label": "Aplicación", "value": "Inspección de riesgos por obstrucción de árboles" },
       { "label": "Ubicación", "value": "Área operativa de Southern Grid, China" },
@@ -260,9 +260,9 @@
       { "label": "Resultado", "value": "Datos esenciales entregados para análisis de riesgos e informes" }
     ]
   },
-  "southern-grid-wildfire-uav-inspection": {
-    "description_ar": "تفتيش UAV للوقاية من حرائق الغابات في Southern Grid\nخلال موسم حرائق الغابات الربيعي مرتفع الخطورة، تشكل الحرائق تهديداً لاستقرار الشبكة واستمرارية إمداد الكهرباء. استخدمت Southern Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي لتنفيذ تفتيش ذكي لمسافة 280 كم من خطوط النقل الجبلية. استمرت العملية 4 أيام وشملت 8 طلعات، وحددت ما يقارب 10 نقاط معرضة لخطر الحرائق. أُبلغ عن جميع المخاطر في الوقت الفعلي وعولجت بسرعة، مما ساعد على حماية خطوط النقل وإمدادات الكهرباء.",
-    "description_es": "Inspección UAV para prevención de incendios forestales de Southern Grid\nDurante la temporada primaveral de alto riesgo, los incendios forestales amenazan la operación estable de la red y el suministro eléctrico. Southern Grid utilizó nuestros UAV de ala fija VTOL para inspeccionar de forma inteligente 280 km de líneas de transmisión de montaña. La operación duró 4 días y 8 vuelos e identificó cerca de 10 puntos de riesgo. Todos los riesgos se comunicaron en tiempo real y se atendieron con rapidez, ayudando a proteger las líneas de transmisión y la continuidad del suministro.",
+  "southern-grid-wildfire-Aerial Platform-inspection": {
+    "description_ar": "تفتيش Aerial Platform للوقاية من حرائق الغابات في Southern Grid\nخلال موسم حرائق الغابات الربيعي مرتفع الخطورة، تشكل الحرائق تهديداً لاستقرار الشبكة واستمرارية إمداد الكهرباء. استخدمت Southern Grid طائراتنا ثابتة الجناح ذات الإقلاع والهبوط العمودي لتنفيذ تفتيش ذكي لمسافة 280 كم من خطوط النقل الجبلية. استمرت العملية 4 أيام وشملت 8 طلعات، وحددت ما يقارب 10 نقاط معرضة لخطر الحرائق. أُبلغ عن جميع المخاطر في الوقت الفعلي وعولجت بسرعة، مما ساعد على حماية خطوط النقل وإمدادات الكهرباء.",
+    "description_es": "Inspección Aerial Platform para prevención de incendios forestales de Southern Grid\nDurante la temporada primaveral de alto riesgo, los incendios forestales amenazan la operación estable de la red y el suministro eléctrico. Southern Grid utilizó nuestros Aerial Platform de ala fija VTOL para inspeccionar de forma inteligente 280 km de líneas de transmisión de montaña. La operación duró 4 días y 8 vuelos e identificó cerca de 10 puntos de riesgo. Todos los riesgos se comunicaron en tiempo real y se atendieron con rapidez, ayudando a proteger las líneas de transmisión y la continuidad del suministro.",
     "case_snapshot_es": [
       { "label": "Aplicación", "value": "Inspección preventiva de incendios en líneas de montaña" },
       { "label": "Ubicación", "value": "Corredor montañoso de Southern Grid, China" },
@@ -271,8 +271,8 @@
       { "label": "Resultado", "value": "Cerca de 10 puntos de riesgo identificados y atendidos" }
     ]
   },
-  "wildfire-emergency-transmission-line-uav-patrol": {
-    "description_ar": "دورية UAV طارئة لخطوط النقل أثناء حرائق الغابات\nفي عام 2025 نفذ فريق أعمال الطاقة للطائرات ثابتة الجناح ذات الإقلاع والهبوط العمودي مهمة تفتيش لصالح State Grid شملت ممرات نقل في 13 منطقة، منها هونان وشاندونغ وشانشي وخبي وآنهوي. أجرى الفريق دوريات يومية وأكمل عشرات الآلاف من الكيلومترات من أعمال تفتيش خطوط النقل، محققاً أهداف المرحلة. ولرفع الكفاءة والدقة، أضيفت مسارات الطيران ونقاط الأبراج المهمة إلى بث فيديو التفتيش في الوقت الفعلي، مما ساعد الموظفين على تحديد الأعطال والمخاطر بسرعة ومتابعة تقدم المهمة بصرياً.",
+  "wildfire-emergency-transmission-line-Aerial Platform-patrol": {
+    "description_ar": "دورية Aerial Platform طارئة لخطوط النقل أثناء حرائق الغابات\nفي عام 2025 نفذ فريق أعمال الطاقة للطائرات ثابتة الجناح ذات الإقلاع والهبوط العمودي مهمة تفتيش لصالح State Grid شملت ممرات نقل في 13 منطقة، منها هونان وشاندونغ وشانشي وخبي وآنهوي. أجرى الفريق دوريات يومية وأكمل عشرات الآلاف من الكيلومترات من أعمال تفتيش خطوط النقل، محققاً أهداف المرحلة. ولرفع الكفاءة والدقة، أضيفت مسارات الطيران ونقاط الأبراج المهمة إلى بث فيديو التفتيش في الوقت الفعلي، مما ساعد الموظفين على تحديد الأعطال والمخاطر بسرعة ومتابعة تقدم المهمة بصرياً.",
     "case_snapshot_es": [
       { "label": "Aplicación", "value": "Patrulla diaria de corredores de transmisión para inspección de emergencia por incendios" },
       { "label": "Ubicación", "value": "Hunan, Shandong, Shanxi, Hebei, Anhui y 13 regiones de China" },
@@ -281,8 +281,10 @@
       { "label": "Resultado", "value": "Objetivos de inspección por fases completados" }
     ]
   },
-  "zhaoqing-long-distance-power-line-uav-inspection": {
+  "zhaoqing-long-distance-power-line-Aerial Platform-inspection": {
     "is_published": false,
     "recommended_product_handles": []
   }
 }
+
+

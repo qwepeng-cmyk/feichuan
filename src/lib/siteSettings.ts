@@ -1,4 +1,5 @@
 import db from './db';
+import { supabase } from './supabase';
 
 export interface TrackingSettings {
   gaMeasurementId: string;
@@ -41,10 +42,13 @@ function parseInteger(value: unknown, fallback: number, min: number, max: number
   return Math.min(max, Math.max(min, Math.round(parsed)));
 }
 
-export function getTrackingSettings(): TrackingSettings {
-  const rows = db.prepare(
-    "SELECT key, value FROM site_settings WHERE key LIKE 'tracking.%'"
-  ).all() as Array<{ key: string; value: string | null }>;
+export async function getTrackingSettings(): Promise<TrackingSettings> {
+  const { data, error } = await supabase
+    .from('site_settings')
+    .select('key, value')
+    .like('key', 'tracking.%');
+  if (error) throw error;
+  const rows = (data || []) as Array<{ key: string; value: string | null }>;
 
   const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 
@@ -56,29 +60,29 @@ export function getTrackingSettings(): TrackingSettings {
   };
 }
 
-export function updateTrackingSettings(settings: TrackingSettings) {
-  const update = db.prepare(`
-    INSERT INTO site_settings (key, value, updated_at)
-    VALUES (?, ?, CURRENT_TIMESTAMP)
-    ON CONFLICT(key) DO UPDATE SET
-      value = excluded.value,
-      updated_at = CURRENT_TIMESTAMP
-  `);
-
-  const transaction = db.transaction(() => {
-    update.run('tracking.gaMeasurementId', settings.gaMeasurementId.trim());
-    update.run('tracking.gaEnabled', String(settings.gaEnabled));
-    update.run('tracking.gtmContainerId', settings.gtmContainerId.trim());
-    update.run('tracking.gtmEnabled', String(settings.gtmEnabled));
+export async function updateTrackingSettings(settings: TrackingSettings) {
+  await db.transaction(async (transactionDb) => {
+    const update = transactionDb.prepare(`
+      INSERT INTO site_settings (key, value, updated_at)
+      VALUES (?, ?, CURRENT_TIMESTAMP)
+      ON CONFLICT(key) DO UPDATE SET
+        value = excluded.value,
+        updated_at = CURRENT_TIMESTAMP
+    `);
+    await update.run('tracking.gaMeasurementId', settings.gaMeasurementId.trim());
+    await update.run('tracking.gaEnabled', String(settings.gaEnabled));
+    await update.run('tracking.gtmContainerId', settings.gtmContainerId.trim());
+    await update.run('tracking.gtmEnabled', String(settings.gtmEnabled));
   });
-
-  transaction();
 }
 
-export function getChatSettings(): ChatSettings {
-  const rows = db.prepare(
-    "SELECT key, value FROM site_settings WHERE key LIKE 'chat.%'"
-  ).all() as Array<{ key: string; value: string | null }>;
+export async function getChatSettings(): Promise<ChatSettings> {
+  const { data, error } = await supabase
+    .from('site_settings')
+    .select('key, value')
+    .like('key', 'chat.%');
+  if (error) throw error;
+  const rows = (data || []) as Array<{ key: string; value: string | null }>;
 
   const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 
@@ -94,19 +98,18 @@ export function getChatSettings(): ChatSettings {
   };
 }
 
-export function updateChatSettings(settings: ChatSettings) {
-  const update = db.prepare(`
-    INSERT INTO site_settings (key, value, updated_at)
-    VALUES (?, ?, CURRENT_TIMESTAMP)
-    ON CONFLICT(key) DO UPDATE SET
-      value = excluded.value,
-      updated_at = CURRENT_TIMESTAMP
-  `);
-
-  const transaction = db.transaction(() => {
-    update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
-    update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
-    update.run(
+export async function updateChatSettings(settings: ChatSettings) {
+  await db.transaction(async (transactionDb) => {
+    const update = transactionDb.prepare(`
+      INSERT INTO site_settings (key, value, updated_at)
+      VALUES (?, ?, CURRENT_TIMESTAMP)
+      ON CONFLICT(key) DO UPDATE SET
+        value = excluded.value,
+        updated_at = CURRENT_TIMESTAMP
+    `);
+    await update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
+    await update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
+    await update.run(
       'chat.messageBoxDelayMinutes',
       String(parseInteger(
         settings.messageBoxDelayMinutes,
@@ -116,6 +119,4 @@ export function updateChatSettings(settings: ChatSettings) {
       ))
     );
   });
-
-  transaction();
 }

@@ -67,6 +67,7 @@ export default function DeferredWhatsAppLeadButton({
         style={style}
         aria-label={ariaLabel}
         aria-busy={isLoading || undefined}
+        data-contact-channel-label={channelConfig.label}
         onClick={openModal}
       >
         {children}

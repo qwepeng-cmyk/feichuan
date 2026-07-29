@@ -20,7 +20,7 @@ export type PrivacyPolicyContent = {
   sections: PrivacyPolicySection[];
 };
 
-const policies: Record<Locale, PrivacyPolicyContent> = {
+const policies: Record<string, PrivacyPolicyContent> = {
   en: {
     title: 'Privacy Policy',
     eyebrow: 'Legal & Data Protection',
@@ -171,7 +171,7 @@ const policies: Record<Locale, PrivacyPolicyContent> = {
         id: 'retention',
         title: '6. Срок хранения и безопасность',
         paragraphs: [
-          'Мы храним персональные данные только столько, сколько обоснованно необходимо для целей этой политики: обработки запросов, ведения деловой документации, обеспечения безопасности и выполнения требований закона. Мы применяем разумные административные и технические меры защиты, однако абсолютную безопасность передачи или хранения данных в интернете гарантировать невозможно.',
+          'Мы храним персональные данные только столько, сколько обоснованно необходимо для целей этой политики: обработки запросов, ведения деловой документации, обеспечения безопасности и выполнения требований закона. Мы применяем разумные административные и технические меры защиты, однако полную безопасность передачи или хранения данных в интернете гарантировать невозможно.',
         ],
       },
       {
@@ -392,5 +392,5 @@ const policies: Record<Locale, PrivacyPolicyContent> = {
 };
 
 export function getPrivacyPolicyContent(locale: string): PrivacyPolicyContent {
-  return policies[locale as Locale] || policies.en;
+  return policies.ru;
 }

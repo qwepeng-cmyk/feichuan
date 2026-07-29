@@ -1,0 +1,114 @@
+{
+  "productCategories": [
+    "perimeter-defense",
+    "detection-monitoring",
+    "perimeter-intelligence"
+  ],
+  "legacySolutionHandles": [
+    "airport-low-altitude-monitoring",
+    "chemical-plant-protection",
+    "hydroelectric-dam-protection",
+    "oil-production-base-protection",
+    "power-generation-facility-low-altitude-monitoring",
+    "airport-security-protection"
+  ],
+  "catalogSolutions": [
+    {
+      "handle": "critical-infrastructure-airspace-monitoring",
+      "title": "Critical Infrastructure Low-Altitude Defense",
+      "summary": "Layered airspace monitoring for critical infrastructure using RF detection, radar, Remote ID, EO/IR confirmation, event records, and coordinated response workflows."
+    },
+    {
+      "handle": "power-plant-airspace-monitoring",
+      "title": "Power Plants Security Low-Altitude Defense",
+      "summary": "Continuous monitoring for power plants, switchyards, dams, and energy facilities with multi-sensor detection, tracking, visual confirmation, and authorized response coordination."
+    },
+    {
+      "handle": "airport-security-protection",
+      "title": "Airport Low-Altitude Defense",
+      "summary": "Airport planning for approach areas and operational perimeters using RF, radar, Remote ID, EO/IR verification, event review, and coordinated security response."
+    },
+    {
+      "handle": "border-airspace-monitoring",
+      "title": "Border Security Low-Altitude Defense",
+      "summary": "Fixed, mobile, and portable monitoring for border sectors using multi-sensor detection, operator localization, visual confirmation, and field response coordination."
+    },
+    {
+      "handle": "public-safety-airspace-monitoring",
+      "title": "Public Safety Low-Altitude Defense",
+      "summary": "Deployable and fixed airspace awareness for municipal operations, public-security zones, and coordinated urban incident response."
+    },
+    {
+      "handle": "correctional-facility-airspace-monitoring",
+      "title": "Prison Low-Altitude Defense",
+      "summary": "Persistent monitoring for correctional facilities, supporting target and operator detection, track records, visual verification, and authorized response workflows."
+    },
+    {
+      "handle": "port-airspace-monitoring",
+      "title": "Port Security Low-Altitude Defense",
+      "summary": "Coastal and terminal airspace awareness for ports and logistics zones using radar, RF, EO/IR, event records, and coordinated response."
+    },
+    {
+      "handle": "mass-event-airspace-monitoring",
+      "title": "Mass Events Low-Altitude Defense",
+      "summary": "Rapidly deployable monitoring for stadiums, festivals, and major gatherings with multi-sensor awareness, target verification, and non-kinetic response coordination."
+    },
+    {
+      "handle": "vip-private-property-airspace-monitoring",
+      "title": "VIP and Private Property Low-Altitude Defense",
+      "summary": "Discreet fixed, portable, and vehicle-based monitoring for executive protection, private property, and temporary secure locations."
+    },
+    {
+      "handle": "enterprise-airspace-monitoring",
+      "title": "Enterprise Low-Altitude Defense",
+      "summary": "Configurable monitoring for factories, campuses, warehouses, and research facilities with detection, tracking, forensic records, and security-system integration."
+    }
+  ],
+  "intentSolutionHandles": [
+    "low-altitude-airspace-monitoring",
+    "multi-sensor-detection",
+    "low-altitude-radar-monitoring",
+    "portable-detection-system",
+    "perimeter-defense-system",
+    "rf-target-positioning",
+    "layered-site-protection",
+    "rf-signal-suppression"
+  ],
+  "caseHandles": [
+    "airport-security-application",
+    "asian-games-security",
+    "brazil-refinery-low-altitude-monitoring",
+    "nigeria-factory-low-altitude-monitoring",
+    "pakistan-power-plant-low-altitude-monitoring",
+    "water-conservancy-security"
+  ],
+  "mediaHandles": [
+    "ntet-system-assumptions-open-questions-2024",
+    "ntet-system-interface-review-2024",
+    "ntet-system-technical-documentation-2025",
+    "ntet-equipment-bench-checks-2025",
+    "ntet-multi-sensor-configuration-method-2025",
+    "ntet-portable-fixed-vehicle-system-review-2025",
+    "ntet-requirements-to-system-configuration-2024",
+    "ntet-target-engineering-system-perspective-2026",
+    "project-inquiry-review-low-altitude-monitoring-2026",
+    "site-photo-review-before-system-layout-2026",
+    "critical-infrastructure-monitoring-record-chain-2026",
+    "system-alert-quality-operator-context-2024",
+    "system-concept-of-operations-before-procurement-2024",
+    "system-critical-infrastructure-deployment-2026",
+    "system-detection-technology-comparison-2024",
+    "system-event-logging-data-retention-2026",
+    "system-site-survey-critical-infrastructure-2025",
+    "target-detection-range-site-coverage-2025",
+    "low-altitude-economy-2026-outlook",
+    "low-altitude-economy-operations-owner-2026",
+    "overseas-low-altitude-security-part-i-2026",
+    "overseas-low-altitude-security-part-ii-2026",
+    "radar-rf-optical-nuisance-alert-reduction-2026",
+    "remote-id-rf-detection-complementary-2025",
+    "weather-terrain-urban-clutter-target-detection-2025",
+    "eo-ir-payload-selection-field-note-2026",
+    "multi-sensor-system-architecture-2026"
+  ]
+}

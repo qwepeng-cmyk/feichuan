@@ -20,7 +20,7 @@ import { buildSeoMetadata } from '@/lib/seoMetadata';
 import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 import CaseEquipmentList from '@/components/cases/CaseEquipmentList';
-import { isCuasCaseHandle, isCuasProductCategory } from '@/lib/cuasIndexability';
+import { isdefenseCaseHandle, isdefenseProductCategory } from '@/lib/indexability';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
     fallbackTitle: title,
     fallbackDescription: description,
     image: caseData.main_image,
-    indexable: isCuasCaseHandle(params.handle),
+    indexable: isdefenseCaseHandle(params.handle),
   });
 }
 
@@ -167,7 +167,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
   const recommendedProducts: any[] = [];
   for (const productHandle of recommendedProductHandles) {
     const product = await getProductByHandle(productHandle);
-    if (product && isCuasProductCategory(product.category_primary || product.category)) {
+    if (product && isdefenseProductCategory(product.category_primary || product.category)) {
       recommendedProducts.push({
         ...product,
         name: product[`product_name_${locale}`] || product.product_name_en || product.name,
@@ -201,7 +201,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 
   return (
     <>
-      {isCuasCaseHandle(handle) && <JsonLd data={jsonLd} />}
+      {isdefenseCaseHandle(handle) && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>

@@ -8,7 +8,7 @@ interface ProductSummary {
 }
 
 type ProductCategories = Record<string, ProductSummary[]>;
-const PRODUCTS_API_VERSION = 'cuas-public-copy-pl280h-main-image-v2-20260701';
+const PRODUCTS_API_VERSION = 'defense-public-copy-pl280h-main-image-v2-20260701';
 
 declare global {
   interface Window {
@@ -29,8 +29,8 @@ function getProductsRequestCache() {
 }
 
 export function fetchProductsForClient(locale: string) {
-  const cacheKey = `${locale || 'en'}:${PRODUCTS_API_VERSION}`;
-  const localeParam = locale || 'en';
+  const cacheKey = `${locale || 'ru'}:${PRODUCTS_API_VERSION}`;
+  const localeParam = locale || 'ru';
   const productsRequestCache = getProductsRequestCache();
   const cached = productsRequestCache.get(cacheKey);
 

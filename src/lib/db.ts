@@ -1,233 +1,125 @@
-import Database from 'better-sqlite3';
-import path from 'path';
-import fs from 'fs';
+import 'server-only';
+import postgres from 'postgres';
 
-// Ensure data directory exists
-const dataDir = path.join(process.cwd(), 'data');
-if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+type QueryRow = Record<string, unknown>;
+
+export interface RunResult {
+  changes: number;
+  lastInsertRowid?: number | string;
 }
 
-const dbPath = process.env.DATABASE_URL 
-    ? path.resolve(process.cwd(), process.env.DATABASE_URL)
-    : path.join(dataDir, 'ntet.db');
-
-// Create database instance
-const db = new Database(dbPath, { verbose: undefined }); // Set verbose to console.log for debugging
-
-// Initialize tables
-db.exec(`
-    CREATE TABLE IF NOT EXISTS products (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        handle TEXT UNIQUE NOT NULL,
-        product_name_en TEXT NOT NULL,
-        category_primary TEXT NOT NULL,
-        summary_en TEXT,
-        key_application_en TEXT,
-        key_parameter_1_en TEXT,
-        key_parameter_2_en TEXT,
-        parameters_en TEXT,
-        detail_html_en TEXT,
-        product_name_ru TEXT,
-        summary_ru TEXT,
-        key_application_ru TEXT,
-        key_parameter_1_ru TEXT,
-        key_parameter_2_ru TEXT,
-        parameters_ru TEXT,
-        detail_html_ru TEXT,
-        main_image TEXT,
-        is_published INTEGER DEFAULT 1,
-        raw_json TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS solutions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        handle TEXT UNIQUE NOT NULL,
-        category_id TEXT NOT NULL,
-        category_name TEXT NOT NULL,
-        product_name_en TEXT NOT NULL,
-        summary_en TEXT,
-        key_application_en TEXT,
-        parameters_en TEXT,
-        detail_html_en TEXT,
-        product_name_ru TEXT,
-        summary_ru TEXT,
-        key_application_ru TEXT,
-        key_parameter_1_ru TEXT,
-        key_parameter_2_ru TEXT,
-        parameters_ru TEXT,
-        detail_html_ru TEXT,
-        main_image TEXT,
-        recommended_products TEXT,
-        is_published INTEGER DEFAULT 1,
-        raw_json TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS cases (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        handle TEXT UNIQUE NOT NULL,
-        title_en TEXT NOT NULL,
-        description_en TEXT,
-        devices_en TEXT,
-        parameters_en TEXT,
-        title_ru TEXT,
-        description_ru TEXT,
-        devices_ru TEXT,
-        parameters_ru TEXT,
-        main_image TEXT,
-        case_images TEXT,
-        region_en TEXT,
-        country_en TEXT,
-        region_ru TEXT,
-        country_ru TEXT,
-        solution_category_id TEXT,
-        recommended_product_handles TEXT,
-        is_published INTEGER DEFAULT 1,
-        raw_json TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS media (
-        id TEXT PRIMARY KEY,
-        category TEXT NOT NULL,
-        title TEXT NOT NULL,
-        date TEXT NOT NULL,
-        image TEXT,
-        content TEXT,
-        title_ru TEXT,
-        content_ru TEXT,
-        is_published INTEGER DEFAULT 1,
-        raw_json TEXT,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS inquiries (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        company TEXT,
-        email TEXT NOT NULL,
-        contact_method TEXT,
-        country_code TEXT,
-        phone TEXT,
-        demands TEXT,
-        message TEXT,
-        source_page TEXT,
-        is_read INTEGER DEFAULT 0,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE IF NOT EXISTS site_settings (
-        key TEXT PRIMARY KEY,
-        value TEXT,
-        updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-
-    -- Optimized Indexes for Performance
-    CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_primary);
-    CREATE INDEX IF NOT EXISTS idx_solutions_category ON solutions(category_id);
-    CREATE INDEX IF NOT EXISTS idx_cases_solution_category ON cases(solution_category_id);
-    CREATE INDEX IF NOT EXISTS idx_media_category ON media(category);
-    CREATE INDEX IF NOT EXISTS idx_products_handle ON products(handle);
-    CREATE INDEX IF NOT EXISTS idx_solutions_handle ON solutions(handle);
-    CREATE INDEX IF NOT EXISTS idx_cases_handle ON cases(handle);
-`);
-
-function ensureColumn(table: string, column: string, definition: string) {
-    const columns = db.prepare(`PRAGMA table_info(${table})`).all() as { name: string }[];
-    if (!columns.some((item) => item.name === column)) {
-        try {
-            db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
-        } catch (error) {
-            if (!(error instanceof Error) || !error.message.includes('duplicate column name')) {
-                throw error;
-            }
-        }
-    }
+interface PreparedStatement {
+  all(...parameters: any[]): Promise<QueryRow[]>;
+  get(...parameters: any[]): Promise<QueryRow | undefined>;
+  run(...parameters: any[]): Promise<RunResult>;
 }
 
-ensureColumn('products', 'is_published', 'INTEGER DEFAULT 1');
-ensureColumn('solutions', 'is_published', 'INTEGER DEFAULT 1');
-ensureColumn('cases', 'is_published', 'INTEGER DEFAULT 1');
-ensureColumn('media', 'is_published', 'INTEGER DEFAULT 1');
-ensureColumn('products', 'product_name_es', 'TEXT');
-ensureColumn('products', 'summary_es', 'TEXT');
-ensureColumn('products', 'key_application_es', 'TEXT');
-ensureColumn('products', 'key_parameter_1_es', 'TEXT');
-ensureColumn('products', 'key_parameter_2_es', 'TEXT');
-ensureColumn('products', 'parameters_es', 'TEXT');
-ensureColumn('products', 'detail_html_es', 'TEXT');
-ensureColumn('products', 'product_name_ar', 'TEXT');
-ensureColumn('products', 'summary_ar', 'TEXT');
-ensureColumn('products', 'key_application_ar', 'TEXT');
-ensureColumn('products', 'key_parameter_1_ar', 'TEXT');
-ensureColumn('products', 'key_parameter_2_ar', 'TEXT');
-ensureColumn('products', 'parameters_ar', 'TEXT');
-ensureColumn('products', 'detail_html_ar', 'TEXT');
-ensureColumn('solutions', 'product_name_es', 'TEXT');
-ensureColumn('solutions', 'summary_es', 'TEXT');
-ensureColumn('solutions', 'key_application_es', 'TEXT');
-ensureColumn('solutions', 'key_parameter_1_es', 'TEXT');
-ensureColumn('solutions', 'key_parameter_2_es', 'TEXT');
-ensureColumn('solutions', 'parameters_es', 'TEXT');
-ensureColumn('solutions', 'detail_html_es', 'TEXT');
-ensureColumn('solutions', 'product_name_ar', 'TEXT');
-ensureColumn('solutions', 'summary_ar', 'TEXT');
-ensureColumn('solutions', 'key_application_ar', 'TEXT');
-ensureColumn('solutions', 'key_parameter_1_ar', 'TEXT');
-ensureColumn('solutions', 'key_parameter_2_ar', 'TEXT');
-ensureColumn('solutions', 'parameters_ar', 'TEXT');
-ensureColumn('solutions', 'detail_html_ar', 'TEXT');
-ensureColumn('cases', 'title_es', 'TEXT');
-ensureColumn('cases', 'description_es', 'TEXT');
-ensureColumn('cases', 'devices_es', 'TEXT');
-ensureColumn('cases', 'parameters_es', 'TEXT');
-ensureColumn('cases', 'region_es', 'TEXT');
-ensureColumn('cases', 'country_es', 'TEXT');
-ensureColumn('cases', 'title_ar', 'TEXT');
-ensureColumn('cases', 'description_ar', 'TEXT');
-ensureColumn('cases', 'devices_ar', 'TEXT');
-ensureColumn('cases', 'parameters_ar', 'TEXT');
-ensureColumn('cases', 'region_ar', 'TEXT');
-ensureColumn('cases', 'country_ar', 'TEXT');
-ensureColumn('media', 'title_es', 'TEXT');
-ensureColumn('media', 'content_es', 'TEXT');
-ensureColumn('media', 'title_ar', 'TEXT');
-ensureColumn('media', 'content_ar', 'TEXT');
-db.exec(`
-    CREATE INDEX IF NOT EXISTS idx_products_published ON products(is_published);
-    CREATE INDEX IF NOT EXISTS idx_solutions_published ON solutions(is_published);
-    CREATE INDEX IF NOT EXISTS idx_cases_published ON cases(is_published);
-    CREATE INDEX IF NOT EXISTS idx_media_published ON media(is_published);
-`);
-
-const CONTENT_GATE_RETIREMENT_KEY = 'content_gates_retired_20260722';
-const contentGateRetirementApplied = db
-    .prepare('SELECT value FROM site_settings WHERE key = ?')
-    .get(CONTENT_GATE_RETIREMENT_KEY) as { value?: string } | undefined;
-
-if (!contentGateRetirementApplied) {
-    db.transaction(() => {
-        db.exec(`
-            UPDATE products
-            SET is_published = 1
-            WHERE handle IN (
-                'handheld-integrated-sdr-low-altitude-monitoring',
-                'handheld-integrated-multi-band-event-logging-directional-antenna-unit'
-            );
-        `);
-
-        db.prepare(`
-            INSERT INTO site_settings (key, value, updated_at)
-            VALUES (?, '1', CURRENT_TIMESTAMP)
-            ON CONFLICT(key) DO UPDATE SET value = '1', updated_at = CURRENT_TIMESTAMP
-        `).run(CONTENT_GATE_RETIREMENT_KEY);
-    })();
+interface DatabaseAdapter {
+  prepare(query: string): PreparedStatement;
+  transaction(
+    callback: (transactionDb: DatabaseAdapter) => Promise<void>,
+  ): Promise<void>;
 }
+
+const connectionString = process.env.SUPABASE_DATABASE_URL;
+
+if (!connectionString) {
+  throw new Error('SUPABASE_DATABASE_URL is required for server-side database access.');
+}
+
+const globalDatabase = globalThis as typeof globalThis & {
+  ntetPostgres?: ReturnType<typeof postgres>;
+};
+
+const sql =
+  globalDatabase.ntetPostgres ??
+  postgres(connectionString, {
+    max: 1,
+    idle_timeout: 10,
+    connect_timeout: 15,
+    prepare: false,
+  });
+
+if (process.env.NODE_ENV !== 'production') {
+  globalDatabase.ntetPostgres = sql;
+}
+
+function toPostgresQuery(query: string) {
+  let parameterIndex = 0;
+
+  return query
+    .replace(/\?/g, () => `$${++parameterIndex}`)
+    .replace(/\s+COLLATE\s+NOCASE/gi, '');
+}
+
+async function execute(query: string, parameters: any[] = []) {
+  return sql.unsafe<QueryRow[]>(toPostgresQuery(query), parameters);
+}
+
+const db: DatabaseAdapter = {
+  prepare(query: string) {
+    return {
+      async all(...parameters: any[]) {
+        return execute(query, parameters);
+      },
+
+      async get(...parameters: any[]) {
+        const rows = await execute(query, parameters);
+        return rows[0];
+      },
+
+      async run(...parameters: any[]): Promise<RunResult> {
+        const wantsInsertedId =
+          /^\s*INSERT\s+INTO\s+inquiries\b/i.test(query) &&
+          !/\bRETURNING\b/i.test(query);
+        const executableQuery = wantsInsertedId
+          ? `${query.trim().replace(/;$/, '')} RETURNING id`
+          : query;
+        const rows = await execute(executableQuery, parameters);
+
+        return {
+          changes: rows.count ?? rows.length,
+          lastInsertRowid: wantsInsertedId
+            ? (rows[0]?.id as number | string | undefined)
+            : undefined,
+        };
+      },
+    };
+  },
+
+  async transaction(callback: (transactionDb: DatabaseAdapter) => Promise<void>) {
+    await sql.begin(async (transactionSql) => {
+      const transactionDb = {
+        ...db,
+        prepare(query: string) {
+          return {
+            async all(...parameters: any[]) {
+              return transactionSql.unsafe<QueryRow[]>(
+                toPostgresQuery(query),
+                parameters,
+              );
+            },
+            async get(...parameters: any[]) {
+              const rows = await transactionSql.unsafe<QueryRow[]>(
+                toPostgresQuery(query),
+                parameters,
+              );
+              return rows[0];
+            },
+            async run(...parameters: any[]): Promise<RunResult> {
+              const rows = await transactionSql.unsafe<QueryRow[]>(
+                toPostgresQuery(query),
+                parameters,
+              );
+              return { changes: rows.count ?? rows.length };
+            },
+          };
+        },
+      } as DatabaseAdapter;
+
+      await callback(transactionDb);
+    });
+  },
+};
 
 export default db;

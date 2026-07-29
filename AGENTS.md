@@ -5,10 +5,29 @@
 - **域名**: https://n-tet.com/（Cloudflare CDN → 源站 43.129.170.171）
 - **服务器**: 4GB 内存，root@43.129.170.171，项目路径 `/www/wwwroot/n-tet.com`
 - **进程管理**: PM2，应用名 `n-tet`，监听 3000 端口
-- **栈**: Next.js 14.1.0 App Router + i18n（en/ru，default en）+ better-sqlite3
+- **栈**: Next.js 14.1.0 App Router + 俄语单语（仅 `ru`，default `ru`）+ better-sqlite3
+- **目标部署平台**: Vercel + Supabase Free + Cloudflare R2 Free
 - **本地路径**: `/Users/mattchyi/Documents/Project/fc/`，Node 22，Git 远端 main
 
-## 部署模式（重要）
+## 俄语单语分支规范
+
+- 当前分支是俄语专用网站，只保留 `ru` locale、俄语字典和俄语公开内容，不得重新加入英语、西班牙语、阿拉伯语或语言切换器。
+- 公开 URL 不带语言前缀，例如 `/products`、`/solutions`；内部由 middleware 重写到 `/ru/...`，显式 `/ru/...` 统一 301 到无前缀 URL。
+- 新增页面、Metadata、Schema、表单提示和导航默认使用俄语；不得为其他语种生成静态参数、hreflang、sitemap URL 或独立内容文件。
+- 数据模型暂时保留的历史多语言字段只用于迁移兼容，不得作为公开页面回退内容；后续迁移到 Supabase 时只迁移俄语站实际需要的字段。
+
+## 目标部署架构（重要）
+
+- **网站与 Next.js 应用**：部署到 **Vercel**。
+- **数据库**：使用 **Supabase Free Postgres**，承载产品、方案、案例、媒体、询盘、设置等结构化数据和后台写入。
+- **图片与公开静态媒体**：使用 **Cloudflare R2 Free**，不使用 Supabase Storage 承载网站图片；优先通过独立图片域名（如 `images.n-tet.com`）和 Cloudflare CDN 提供资源。
+- 迁移完成后，仓库 `public/` 仅保留构建和首屏真正必要的少量资源，不得继续提交大批产品图、案例图、视频或重复媒体文件。
+- 后续新增与改造默认以 Vercel Serverless/Edge 运行约束为准，不得依赖 PM2、常驻进程、可写本地持久磁盘或仅在单台服务器存在的绝对路径。
+- 新功能不得继续扩大 `better-sqlite3` 依赖；涉及现有 SQLite 数据与查询时，优先迁移到 Supabase Postgres。
+- Supabase URL、Supabase 密钥、R2 Account ID、R2 Access Key、R2 Secret Key、R2 Bucket 和公开资源域名等配置统一通过 Vercel Environment Variables 管理，不得硬编码进源码或提交到 Git。
+- 下方 PM2、`.next` 上传和服务器软链接流程仅作为迁移完成前的旧源站部署说明；**Vercel + Supabase Free + Cloudflare R2 Free** 是新的目标架构。
+
+## 旧源站部署模式（迁移完成前保留）
 
 服务器内存只有 4GB，**不在服务器上跑 `npm run build`**（会 OOM）。流程：
 
@@ -92,6 +111,40 @@ DB 路径用 `scripts/update-db-refs.mjs` 批量同步，硬编码文件需手�
 - 自 2026-07-24 起，公开可访问状态与搜索索引状态分开：`is_published=1` 的历史非 C-UAS 页面可以继续访问，但使用 `noindex, follow`，并从 sitemap、详情 Schema、`llms.txt` 与 C-UAS 列表入口排除。
 - C-UAS 索引范围只由 `src/config/cuasIndexability.json` 的产品分类与明确页面名单控制，不使用关键词、敏感词或 A/B/C 内容等级判断。
 - `src/lib/complianceTaxonomy.ts` 已删除；不得重新引入用于限制网站、SEO、GEO 或广告内容的同类门禁。
+
+## Yandex.Direct 反无业务规范（2026-07-28）
+
+本节是 Yandex.Direct 广告系列、广告素材及其专用落地页的强制规范。目标是在不出现无人机、反无人机和干扰器敏感表述的前提下，通过工业参数、工程术语、系统架构和产品图片向专业采购方传达低空防护能力。自 2026-07-28 起，俄语公开站的可见文案、Metadata、Schema、图片 alt 与 `llms.txt` 也执行本节的“三不含”表达口径；公开发布状态和索引范围仍分别由 `is_published` 与 `src/config/indexability.json` 控制，不因词语命中自动下线页面。
+
+### 三不含原则
+
+- Yandex 投放关键词不含无人机、反无人机相关词。
+- Yandex 广告标题与描述不含无人机、反无人机相关词。
+- Yandex 专用落地页的可见文案、`title`、`description`、`h1`、图片文件名和 alt 不含 `дрон`、`антидрон`、`глушилка`、`Anti-Drone`、`Drone Jammer`、`Drone Detection` 等表述。
+
+### 专业能力表达
+`
+- 用 `LSS (Low-Altitude, Slow-Speed, Small Target)`、RCS、速度和高度参数表达低空小目标探测能力。
+- 推荐表述：`Ku-Band 3D Pulse-Doppler Radar designed for trajectory tracking of ultra-small RCS targets (RCS ≤ 0.01 m²) at low altitudes (10m–1000m) and speeds of 0.5 m/s–50 m/s.`
+- 不使用 `Drone Jammer` 或 `Антидрон глушилка`；改用 `Directional Electromagnetic Signal Suppressor`、`RF Sector Neutralization Unit`、`Подавитель радиосигналов`、`Signal Suppression`、`Electromagnetic Shielding`。
+- 不使用 `Anti-Drone`；改用 `Perimeter Defense against Low-Altitude Small Targets`。
+- 不使用 `Drone Detection`；改用 `Radio Frequency Spectrum Analysis & RCS 0.01m² Radar Tracking`。
+
+### 系统架构与专业视觉
+
+### 产品图片规范
+
+- Yandex 落地页以工业级固定式、箱式设备为主，约 80% 的产品展示使用固定式雷达、光电设备、频谱箱和天线。
+- 避免使用带明显枪托、扳机、枪管或瞄准镜特征的手持设备大图和特写。
+- 图片文件名使用 `rf-spectrum-analyzer-unit.webp` 等工业设备命名，不使用 `anti-drone-gun-jammer.webp`。
+- 图片 alt 使用 `Stationary RF Spectrum Monitoring Unit for Industrial Sites` 等工业设备描述，不使用 `Drone Jammer Gun for sale`。
+
+
+### 审核与项目边界
+
+- 按“机器初审 + 人工抽查复审”准备广告链路；重点检查关键词、广告标题和描述、落地页 `title`、`h1`、正文、图片文件名、alt 与首屏产品图片。
+- 发布前运行 `npm run audit:yandex-copy`，检查 sitemap 内公开页面的可见文字、Metadata、Schema、图片 alt、公开资源引用和 `llms.txt`。
+- 历史数据库主键、内部 handle 和迁移兼容字段不得直接展示给访客；不得为了改文案破坏既有公开 URL，必要时通过安全别名和 301 迁移。
 
 ## Frontend Design Skill（前端设计规范）
 

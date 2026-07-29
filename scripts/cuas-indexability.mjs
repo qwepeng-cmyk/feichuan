@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const policyPath = join(process.cwd(), 'src', 'config', 'cuasIndexability.json');
+const policyPath = join(process.cwd(), 'src', 'config', 'indexability.json');
 export const cuasIndexabilityPolicy = JSON.parse(readFileSync(policyPath, 'utf8'));
 
 const productCategories = new Set(cuasIndexabilityPolicy.productCategories);

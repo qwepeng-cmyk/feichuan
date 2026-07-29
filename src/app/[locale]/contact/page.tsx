@@ -15,8 +15,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/contact',
-        fallbackTitle: 'Request C-UAS Equipment Pricing & System Proposal | N-TET',
-        fallbackDescription: 'Request C-UAS equipment pricing, product documents or a system configuration review for portable, fixed-site and vehicle-mounted projects.',
+        fallbackTitle: 'Request Low-Altitude Defense Equipment Pricing & System Proposal | N-TET',
+        fallbackDescription: 'Request Low-Altitude Defense equipment pricing, product documents or a system configuration review for portable, fixed-site and vehicle-mounted projects.',
         image: '/index/about_bg.webp',
     });
 }

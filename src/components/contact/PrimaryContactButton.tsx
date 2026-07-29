@@ -98,6 +98,7 @@ export default function PrimaryContactButton({
       style={channelStyle}
       aria-label={(ariaLabel || channel.openLabel).replace(/WhatsApp/gi, channel.label)}
       data-contact-channel={channel.id}
+      data-contact-channel-label={channel.label}
       onClick={trackOpen}
     >
       {localizedChildren}

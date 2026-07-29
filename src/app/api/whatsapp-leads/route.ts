@@ -63,7 +63,7 @@ export async function POST(request: Request) {
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
-    const result = insert.run(
+    const result = await insert.run(
       name || 'WhatsApp visitor',
       '',
       storedEmail,

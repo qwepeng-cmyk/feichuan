@@ -32,7 +32,7 @@ if (llmsUrls.some((url) => /\/accessories(?:\/|$)/i.test(url))) {
 const publishedByType = Object.fromEntries(Object.keys(CONTENT_TYPES).map((type) => [type, 0]));
 for (const row of rows) {
   publishedByType[row.type] += 1;
-  if (!row.title) warnings.push(`${row.type}/${row.handle} is published but has no English title.`);
+  if (!row.title) warnings.push(`${row.type}/${row.handle} is published but has no Russian title.`);
   if (!row.summary) warnings.push(`${row.type}/${row.handle} is published but has no summary/description.`);
 }
 

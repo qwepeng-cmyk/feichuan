@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
 
-export default function AdminMediaPreview({ params }: { params: { id: string } }) {
-  const article = db.prepare('SELECT * FROM media WHERE id = ?').get(params.id) as any;
+export default async function AdminMediaPreview({ params }: { params: { id: string } }) {
+  const article = await db.prepare('SELECT * FROM media WHERE id = ?').get(params.id) as any;
   if (!article) notFound();
 
   const layer = { label: 'Preview' };

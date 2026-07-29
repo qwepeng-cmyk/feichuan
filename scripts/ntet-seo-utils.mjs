@@ -18,39 +18,39 @@ try {
 }
 
 export const SITE_URL = (process.env.SITE_URL || 'https://n-tet.com').replace(/\/+$/, '');
-export const LOCALES = ['en', 'ru', 'es', 'ar'];
+export const LOCALES = ['ru'];
 
 export const CONTENT_TYPES = {
   product: {
     table: 'products',
     route: 'products',
     handleColumn: 'handle',
-    titleColumn: 'product_name_en',
-    summaryColumn: 'summary_en',
+    titleColumn: 'product_name_ru',
+    summaryColumn: 'summary_ru',
     categoryColumn: 'category_primary',
   },
   solution: {
     table: 'solutions',
     route: 'solutions',
     handleColumn: 'handle',
-    titleColumn: 'product_name_en',
-    summaryColumn: 'summary_en',
+    titleColumn: 'product_name_ru',
+    summaryColumn: 'summary_ru',
     categoryColumn: 'category_id',
   },
   case: {
     table: 'cases',
     route: 'cases',
     handleColumn: 'handle',
-    titleColumn: 'title_en',
-    summaryColumn: 'description_en',
+    titleColumn: 'title_ru',
+    summaryColumn: 'description_ru',
     categoryColumn: 'solution_category_id',
   },
   media: {
     table: 'media',
     route: 'media',
     handleColumn: 'id',
-    titleColumn: 'title',
-    summaryColumn: 'content',
+    titleColumn: 'title_ru',
+    summaryColumn: 'content_ru',
     categoryColumn: 'category',
   },
 };
@@ -101,8 +101,7 @@ export function getAllCuasIndexableContent(db) {
 }
 
 export function publicUrl(locale, route, handle) {
-  const prefix = locale === 'en' ? '' : `/${locale}`;
-  return `${SITE_URL}${prefix}/${route}/${handle}`;
+  return `${SITE_URL}/${route}/${handle}`;
 }
 
 export function stripHtml(value = '') {

@@ -22,7 +22,7 @@ interface Product {
 }
 
 function shouldBlendImageBackground(image?: string) {
-    return Boolean(image?.includes('/products/uav-systems/'));
+    return Boolean(image?.includes('/products/aerial-systems/'));
 }
 
 export default function ProductGridCard({
@@ -30,13 +30,11 @@ export default function ProductGridCard({
     locale,
     dict,
     priority = false,
-    basePath = '/products',
 }: {
     product: Product;
     locale?: string;
     dict?: any;
     priority?: boolean;
-    basePath?: '/products' | '/accessories';
 }) {
     const [hovered, setHovered] = useState(false);
     const prodName = localizedField(product, 'product_name', locale) || localizedField(product, 'name', locale) || product.name;
@@ -46,7 +44,7 @@ export default function ProductGridCard({
 
     return (
         <Link prefetch={false}
-            href={localePath(locale, `${basePath}/${product.handle}`)}
+            href={localePath(locale, `/products/${product.handle}`)}
             className="p-card-sbm"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}

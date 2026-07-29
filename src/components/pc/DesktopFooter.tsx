@@ -8,7 +8,8 @@ import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
 import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 import { getFooterProductLinks, getFooterSolutionLinks } from '@/lib/footerLinks';
-import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import { localizedefenseTree } from '@/lib/localeCopy';
+import { localePath } from '@/lib/localePath';
 
 export default function Footer({
     locale,
@@ -19,17 +20,17 @@ export default function Footer({
     dict: any;
     visibleProductCategoryIds?: ProductCategoryId[];
 }) {
-    const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const l = (path: string) => localePath(locale, path);
     const pathname = usePathname();
     const normalizedPathname = pathname.replace(/\/$/, '') || '/';
-    const localizedHomePath = locale === 'en' ? '/' : `/${locale}`;
+    const localizedHomePath = localePath(locale);
     const isHomeFooter = normalizedPathname === localizedHomePath;
     const solutionLinks = getFooterSolutionLinks(locale, dict);
     const productLinks = getFooterProductLinks(locale, dict).filter((item) =>
         item.categoryId ? hasVisibleProductCategory(visibleProductCategoryIds, item.categoryId) : true
     );
 
-    return localizeCuasTree(locale, (
+    return localizedefenseTree(locale, (
         <footer className="footer desktop-footer" style={{ background: '#000f24', color: 'rgba(255,255,255,0.68)', padding: '100px 0 40px' }}>
             <div className={`desktop-footer-shell ${isHomeFooter ? 'desktop-footer-shell-home' : 'desktop-footer-shell-inner'}`}>
                 <div className="desktop-footer-grid">
@@ -75,7 +76,7 @@ export default function Footer({
                     </div>
                     
                     <div>
-                        <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{locale === 'ar' ? 'مكتب مبيعات ومشاريع C-UAS' : ['en', 'ru', 'es'].includes(locale) ? 'C-UAS Sales & Project Desk' : dict.nav.contact}</h4>
+                        <h4 style={{ color: '#fff', marginBottom: '25px', fontSize: '1.8rem' }}>{dict.nav.contact}</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '1.4rem' }}>
                             <div>
                                 <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '4px', fontSize: '1.2rem', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>

@@ -8,16 +8,12 @@ import MobileInquiryForm from './MobileInquiryForm';
 import OptimizedRichText from '../common/OptimizedRichText';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import { getArabicTechnicalHighlight, getArabicTechnicalParameters } from '@/lib/arabicTechnicalCopy';
-import ProductBrochureDownload from '@/components/products/ProductBrochureDownload';
 
 interface ProductProps {
     product: any;
     locale: string;
     dict: any;
-    basePath?: '/products' | '/accessories';
     catalogLabel?: string;
-    brochurePageCount?: number;
 }
 
 function formatSpecLine(value?: string | null, fallbackLabel?: string) {
@@ -205,7 +201,8 @@ function renderMobileSpecRows(parameters: any): React.ReactNode {
     });
 }
 
-export default function MobileProductDetail({ product, locale, dict, basePath = '/products', catalogLabel, brochurePageCount }: ProductProps) {
+export default function MobileProductDetail({ product, locale, dict, catalogLabel }: ProductProps) {
+    const basePath = '/products';
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
 
@@ -213,14 +210,14 @@ export default function MobileProductDetail({ product, locale, dict, basePath = 
     const name = product[`product_name_${locale}`] || product.product_name_en || product.name;
     const summary = product[`summary_${locale}`] || product.summary_en;
     const keyApp = product[`key_application_${locale}`] || product.key_application_en;
-    const keyParam1 = getArabicTechnicalHighlight(product, 'key_parameter_1', locale);
-    const keyParam2 = getArabicTechnicalHighlight(product, 'key_parameter_2', locale);
+    const keyParam1 = product[`key_parameter_1_${locale}`] || product.key_parameter_1_en;
+    const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
     const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
     const sectionLabel = catalogLabel || dict.nav.products;
     
     let parameters: any = null;
     try {
-        const rawParams = getArabicTechnicalParameters(product, locale);
+        const rawParams = product[`parameters_${locale}`] || product.parameters_en;
         parameters = typeof rawParams === 'string' ? JSON.parse(rawParams) : rawParams;
     } catch (e) {
         parameters = {};
@@ -341,15 +338,6 @@ export default function MobileProductDetail({ product, locale, dict, basePath = 
                 >
                     {dict.products.getQuotation}
                 </a>
-
-                {brochurePageCount && (
-                    <ProductBrochureDownload
-                        productHandle={product.handle}
-                        productName={name}
-                        pageCount={brochurePageCount}
-                        compact
-                    />
-                )}
 
                 {/* Summary */}
                 {summary && (

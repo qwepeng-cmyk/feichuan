@@ -4,26 +4,25 @@ import { getAllProducts } from '@/lib/products';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import CuasProductCenter from '@/components/products/CuasProductCenter';
+import DefenseProductCenter from '@/components/products/DefenseProductCenter';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
         locale: params.locale,
         path: '/products',
-        fallbackTitle: 'Professional C-UAS Equipment',
-        fallbackDescription: 'Explore portable, fixed-site and vehicle-mounted C-UAS equipment plus unified airspace monitoring platforms for detection, identification and tracking.',
+        fallbackTitle: 'Professional Low-Altitude Defense Equipment',
+        fallbackDescription: 'Explore portable, fixed-site and vehicle-mounted Low-Altitude Defense equipment plus unified airspace monitoring platforms for detection, identification and tracking.',
     });
 }
 
 async function ProductsDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {
     const categoriesData = await getAllProducts(locale);
     return (
-        <CuasProductCenter
-            products={categoriesData['drone-detection'] || []}
+        <DefenseProductCenter
+            products={categoriesData['detection-monitoring'] || []}
             opticalProducts={categoriesData['perimeter-intelligence'] || []}
             locale={locale}
             dict={dict}
-            showLaserPreview={process.env.LOCAL_LASER_PREVIEW === '1'}
         />
     );
 }

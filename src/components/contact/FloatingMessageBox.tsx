@@ -236,7 +236,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
           <div className={styles.header}>
               <div>
                 <p className={styles.eyebrow}>Quick Message</p>
-              <h2 className={styles.title}>Get Expert Drone Defense Advice</h2>
+              <h2 className={styles.title}>Get Expert Platform Defense Advice</h2>
               <p className={styles.headerText}>Tell us your site type, project stage, or equipment needs. We can send suitable options, specs, or a quick quotation.</p>
             </div>
             <button type="button" className={styles.iconButton} onClick={() => setMinimized(true)} aria-label="Minimize message box">

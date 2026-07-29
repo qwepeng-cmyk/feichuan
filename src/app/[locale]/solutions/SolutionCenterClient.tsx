@@ -8,13 +8,13 @@ import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { localizedField } from '@/lib/localization';
 import {
-    englishCuasSolutionCenterGroups,
+    englishdefenseSolutionCenterGroups,
     solutionCenterCardImageByHandle,
     solutionCenterGroups,
     solutionCenterImageByHandle,
 } from '@/lib/solutionCenterGroups';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
-import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import { localizedefenseTree } from '@/lib/localeCopy';
 
 interface Solution {
     id: string;
@@ -78,7 +78,7 @@ export default function SolutionCenterClient({
     );
 
     const GROUP_ICONS: Record<string, ReactNode> = {
-        'uav-inspection-patrol': (
+        'aerial-inspection-patrol': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }}>
                 <g transform="translate(0, 0)">
                     <path d="M24 10l2 24-2 4-2-4 2-24z" fill="rgba(49, 91, 164, 0.05)" />
@@ -93,7 +93,7 @@ export default function SolutionCenterClient({
                 <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
-        'uav-emergency-response': (
+        'aerial-emergency-response': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.2" style={{ height: '48px', width: 'auto' }}>
                 <g transform="translate(0, 0)">
                     <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
@@ -153,10 +153,10 @@ export default function SolutionCenterClient({
         )
     };
 
-    type ActiveGroup = (typeof solutionCenterGroups)[number] | (typeof englishCuasSolutionCenterGroups)[number];
-    const useCuasCenter = ['en', 'ru', 'es', 'ar'].includes(locale);
-    const activeGroups: readonly ActiveGroup[] = useCuasCenter ? englishCuasSolutionCenterGroups : solutionCenterGroups;
-    const defaultCuasIcon = (
+    type ActiveGroup = (typeof solutionCenterGroups)[number] | (typeof englishdefenseSolutionCenterGroups)[number];
+    const usedefenseCenter = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const activeGroups: readonly ActiveGroup[] = usedefenseCenter ? englishdefenseSolutionCenterGroups : solutionCenterGroups;
+    const defaultdefenseIcon = (
         <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" style={{ height: '48px', width: 'auto' }} aria-hidden="true">
             <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
             <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
@@ -180,7 +180,7 @@ export default function SolutionCenterClient({
             id: group.id,
             name: t(group, 'label'),
             categoryHref: group.categoryHref,
-            icon: GROUP_ICONS[group.id] || defaultCuasIcon,
+            icon: GROUP_ICONS[group.id] || defaultdefenseIcon,
             solutions: group.handles
                 .map((handle) => solutionsById.get(handle))
                 .filter(Boolean) as Solution[],
@@ -193,10 +193,10 @@ export default function SolutionCenterClient({
     ).values());
 
     const shouldUseProductImageTreatment = (image?: string) => (
-        Boolean(image?.includes('/products/uav-systems/'))
+        Boolean(image?.includes('/products/aerial-systems/'))
     );
 
-    return localizeCuasTree(locale, (
+    return localizedefenseTree(locale, (
         <>
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -312,7 +312,7 @@ export default function SolutionCenterClient({
                         display: 'flex',
                         alignItems: 'center'
                     }}>
-                        <Image src="/solutions/cuas-applications/banner/solution_center_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
+                        <Image src="/solutions/defense-applications/banner/solution_center_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.22)', zIndex: 1 }} />
                         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                             <div style={{ maxWidth: '750px' }}>
@@ -321,12 +321,12 @@ export default function SolutionCenterClient({
                             </div>
                         </div>
                         <div style={{ position: 'absolute', right: '5%', bottom: '-10%', opacity: 0.05, transform: 'scale(1.2)', width: '400px', height: '400px' }}>
-                            <Image src="/logo1-small.webp" alt="N-TET C-UAS solutions emblem" fill style={{ objectFit: 'contain' }} />
+                            <Image src="/logo1-small.webp" alt="N-TET Low-Altitude Defense solutions emblem" fill style={{ objectFit: 'contain' }} />
                         </div>
                     </section>
 
                     <div className="solution-lists-wrap" style={{ padding: '48px 0 20px' }}>
-                        {useCuasCenter ? (
+                        {usedefenseCenter ? (
                             <section className="solution-center-section solution-center-overview">
                                 <div className="container">
                                     <div className="solution-center-grid">

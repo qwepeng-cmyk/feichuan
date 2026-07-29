@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
 
-export default function AdminSolutionPreview({ params }: { params: { id: string } }) {
-  const solution = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(params.id) as any;
+export default async function AdminSolutionPreview({ params }: { params: { id: string } }) {
+  const solution = await db.prepare('SELECT * FROM solutions WHERE handle = ?').get(params.id) as any;
   if (!solution) notFound();
 
   const parameters = parseJson(solution.parameters_en, {});

@@ -8,13 +8,13 @@ import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import {
     caseCenterSolutionGroups,
-    englishCuasCaseCenterSolutionGroups,
+    englishdefenseCaseCenterSolutionGroups,
     getCaseSolutionGroupId,
-    getEnglishCuasCaseSolutionGroupId,
+    getEnglishdefenseCaseSolutionGroupId,
 } from '@/lib/caseSolutionGroups';
 import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import { localizedefenseTree } from '@/lib/localeCopy';
 
 interface CaseItem {
     handle: string;
@@ -39,8 +39,8 @@ export default function MobileCaseCenter({
     const [selectedRegionId, setSelectedRegionId] = useState('all');
     const [regionOpen, setRegionOpen] = useState(false);
     const [solutionOpen, setSolutionOpen] = useState(false);
-    const isCuasPage = ['en', 'ru', 'es', 'ar'].includes(locale);
-    const solutionGroups = isCuasPage ? englishCuasCaseCenterSolutionGroups : caseCenterSolutionGroups;
+    const isdefensePage = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const solutionGroups = isdefensePage ? englishdefenseCaseCenterSolutionGroups : caseCenterSolutionGroups;
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.allSolutions || 'All Solutions' },
@@ -65,8 +65,8 @@ export default function MobileCaseCenter({
 
     const filteredCases = useMemo(() => {
         return orderedCases.filter(item => {
-            const itemSolutionId = isCuasPage
-                ? getEnglishCuasCaseSolutionGroupId(item)
+            const itemSolutionId = isdefensePage
+                ? getEnglishdefenseCaseSolutionGroupId(item)
                 : getCaseSolutionGroupId(item);
             const matchesSolution = selectedSolution === 'all' || itemSolutionId === selectedSolution;
             
@@ -83,9 +83,9 @@ export default function MobileCaseCenter({
             
             return matchesSolution && matchesRegion;
         });
-    }, [isCuasPage, orderedCases, selectedSolution, selectedRegionId]);
+    }, [isdefensePage, orderedCases, selectedSolution, selectedRegionId]);
 
-    return localizeCuasTree(locale, (
+    return localizedefenseTree(locale, (
         <div className={styles.wrapper}>
             {(regionOpen || solutionOpen) && (
                 <div className={styles.backdrop} onClick={() => {

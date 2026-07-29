@@ -13,20 +13,20 @@ import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { englishCuasSolutionHandles, getCuasSolution } from '@/lib/cuasSolutionCatalog';
-import { getCuasIndustryPageData } from '@/lib/cuasIndustryPageData';
-import CuasIndustryDefensePage from '@/components/solutions/CuasIndustryDefensePage';
-import { isCuasProductCategory, isCuasSolutionHandle } from '@/lib/cuasIndexability';
+import { englishdefenseSolutionHandles, getdefenseSolution } from '@/lib/solutionCatalog';
+import { getdefenseIndustryPageData } from '@/lib/industryPageData';
+import IndustryDefensePage from '@/components/solutions/IndustryDefensePage';
+import { isdefenseProductCategory, isdefenseSolutionHandle } from '@/lib/indexability';
 
 async function getLocalizedSolution(id: string, locale: Locale) {
-  const catalogSolution = getCuasSolution(id, locale);
+  const catalogSolution = getdefenseSolution(id, locale);
   if (catalogSolution) return catalogSolution;
   return getSolutionById(id);
 }
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
-  return Array.from(new Set([...handles, ...englishCuasSolutionHandles]))
+  return Array.from(new Set([...handles, ...englishdefenseSolutionHandles]))
     .map((id) => ({
       id,
     }));
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: { id: string; local
     fallbackTitle: title,
     fallbackDescription: description,
     image: mainImage,
-    indexable: isCuasSolutionHandle(params.id),
+    indexable: isdefenseSolutionHandle(params.id),
   });
 }
 
@@ -93,7 +93,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
   }
 
   const recommendedProducts = allProducts.filter((product) =>
-    recommendedHandles.includes(product.handle) && isCuasProductCategory(product.category)
+    recommendedHandles.includes(product.handle) && isdefenseProductCategory(product.category)
   );
 
   let recommendedCaseHandles: string[] = [];
@@ -127,12 +127,12 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
     { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
   ];
 
-  const industryPageData = getCuasIndustryPageData(id, locale);
+  const industryPageData = getdefenseIndustryPageData(id, locale);
   if (industryPageData) {
     return (
       <>
-        {isCuasSolutionHandle(id) && <JsonLd data={jsonLd} />}
-        <CuasIndustryDefensePage
+        {isdefenseSolutionHandle(id) && <JsonLd data={jsonLd} />}
+        <IndustryDefensePage
           solution={solution}
           pageData={industryPageData}
           locale={locale}
@@ -144,7 +144,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 
   return (
     <>
-      {isCuasSolutionHandle(id) && <JsonLd data={jsonLd} />}
+      {isdefenseSolutionHandle(id) && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <SolutionDetailClient

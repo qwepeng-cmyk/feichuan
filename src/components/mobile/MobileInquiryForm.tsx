@@ -26,7 +26,7 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
         message: `${formId}-message`,
     };
     const d = dict?.inquiry || {
-        title: 'Get Expert Drone Defense Advice',
+        title: 'Get Expert Platform Defense Advice',
         subtitle: 'Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.',
         name: 'Name',
         company: 'Company Name',
@@ -298,7 +298,7 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
                                     setContactError('');
                                 }}
                                 onInvalid={(event) => {
-                                    if (localeFromPathname(pathname) === 'en') event.currentTarget.setCustomValidity('Please enter a valid email address.');
+                                    event.currentTarget.setCustomValidity('Введите корректный адрес электронной почты.');
                                 }}
                                 onInput={(event) => event.currentTarget.setCustomValidity('')}
                             />
@@ -321,7 +321,7 @@ export default function MobileInquiryForm({ dict, variant = 'page' }: { dict?: a
                                 }}
                                 placeholder={d.phonePlaceholder || 'Include country code, e.g. +1 555 123 4567'}
                                 onInvalid={(event) => {
-                                    if (localeFromPathname(pathname) === 'en') event.currentTarget.setCustomValidity('Please enter your Phone / WhatsApp number, including the country code.');
+                                    event.currentTarget.setCustomValidity('Введите номер телефона или WhatsApp с кодом страны.');
                                 }}
                                 onInput={(event) => event.currentTarget.setCustomValidity('')}
                             />

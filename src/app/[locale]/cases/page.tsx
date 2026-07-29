@@ -10,8 +10,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/cases',
-        fallbackTitle: 'C-UAS Deployment References',
-        fallbackDescription: 'Field references for C-UAS workflows, early warning, identification, positioning, tracking, alert review, and security operations across infrastructure sites.',
+        fallbackTitle: 'Low-Altitude Defense Deployment References',
+        fallbackDescription: 'Field references for Low-Altitude Defense workflows, early warning, identification, positioning, tracking, alert review, and security operations across infrastructure sites.',
     });
 }
 

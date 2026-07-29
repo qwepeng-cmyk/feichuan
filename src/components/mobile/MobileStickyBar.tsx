@@ -69,7 +69,7 @@ export default function MobileStickyBar({ dict }: { locale: string; dict: any })
         style={{ ...buttonStyle, background: '#4a79d1', cursor: 'pointer', fontSize: '11.5px' }}
       >
         <FileText size={15} style={iconStyle} aria-hidden="true" />
-        <span style={labelStyle}>{dict.inquiry?.title || 'Get Expert Drone Defense Advice'}</span>
+        <span style={labelStyle}>{dict.inquiry?.title || 'Get Expert Platform Defense Advice'}</span>
       </button>
 
       <PrimaryContactButton

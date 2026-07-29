@@ -99,7 +99,7 @@
   }
 
   .whatsapp::after {
-    content: 'WhatsApp';
+    content: attr(data-contact-channel-label);
     display: block;
     max-width: 60px;
     font-size: 12px;

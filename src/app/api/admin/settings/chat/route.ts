@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    return NextResponse.json({ success: true, data: getChatSettings() });
+    return NextResponse.json({ success: true, data: await getChatSettings() });
   } catch {
     return NextResponse.json({ success: false, error: 'Failed to load chat settings' }, { status: 500 });
   }
@@ -15,13 +15,13 @@ export async function PUT(request: Request) {
   try {
     const body = await request.json();
 
-    updateChatSettings({
+    await updateChatSettings({
       zoosnetEnabled: Boolean(body.zoosnetEnabled),
       messageBoxEnabled: Boolean(body.messageBoxEnabled),
       messageBoxDelayMinutes: Number(body.messageBoxDelayMinutes),
     });
 
-    return NextResponse.json({ success: true, data: getChatSettings() });
+    return NextResponse.json({ success: true, data: await getChatSettings() });
   } catch {
     return NextResponse.json({ success: false, error: 'Failed to save chat settings' }, { status: 500 });
   }

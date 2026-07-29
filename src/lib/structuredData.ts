@@ -20,7 +20,7 @@ function absoluteUrl(pathOrUrl?: string | null) {
 
 function pagePath(locale: Locale, path: string) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return locale === 'en' ? normalizedPath : `/${locale}${normalizedPath}`;
+  return normalizedPath;
 }
 
 export function pageUrl(locale: Locale, path: string) {
@@ -47,7 +47,7 @@ function compactObject<T extends Record<string, unknown>>(value: T): T {
   ) as T;
 }
 
-export function organizationSchema(locale: Locale = 'en') {
+export function organizationSchema(locale: Locale = 'ru') {
   return compactObject({
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -64,7 +64,7 @@ export function organizationSchema(locale: Locale = 'en') {
   });
 }
 
-export function websiteSchema(locale: Locale = 'en') {
+export function websiteSchema(locale: Locale = 'ru') {
   return compactObject({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -78,7 +78,7 @@ export function websiteSchema(locale: Locale = 'en') {
   });
 }
 
-export function siteGraphSchema(locale: Locale = 'en') {
+export function siteGraphSchema(locale: Locale = 'ru') {
   return {
     '@context': 'https://schema.org',
     '@graph': [organizationSchema(locale), websiteSchema(locale)],
@@ -104,7 +104,6 @@ export function productJsonLd({
   description,
   image,
   category,
-  basePath = '/products',
   breadcrumbs,
 }: {
   locale: Locale;
@@ -113,10 +112,9 @@ export function productJsonLd({
   description?: string | null;
   image?: string | null;
   category?: string | null;
-  basePath?: '/products' | '/accessories';
   breadcrumbs: BreadcrumbItem[];
 }) {
-  const url = pageUrl(locale, `${basePath}/${handle}`);
+  const url = pageUrl(locale, `/products/${handle}`);
   return {
     '@context': 'https://schema.org',
     '@graph': [

@@ -7,18 +7,18 @@ import { localePath } from '@/lib/localePath';
 const copy = {
     en: {
         title: 'Thank You',
-        badge: 'N-TET C-UAS Sales & Project Desk',
-        heading: 'Your C-UAS inquiry has been received.',
+        badge: 'N-TET Low-Altitude Defense Sales & Project Desk',
+        heading: 'Your Low-Altitude Defense inquiry has been received.',
         intro: 'Our team will review the equipment, application and project details you provided before following up through your selected contact method.',
         steps: [
             'Inquiry saved in the N-TET admin system',
             'Equipment and system requirements queued for review',
-            'A C-UAS product specialist will follow up through your selected contact method',
+            'A Low-Altitude Defense product specialist will follow up through your selected contact method',
         ],
         primary: 'Back to Home',
         secondary: 'View Products',
         noteTitle: 'Need to add more details?',
-        note: 'You can submit another message from any C-UAS product, solution, case, media or contact page.',
+        note: 'You can submit another message from any Low-Altitude Defense product, solution, case, media or contact page.',
     },
     ru: {
         title: 'Спасибо',

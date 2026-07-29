@@ -51,16 +51,16 @@ function parsePort(value: unknown, fallback: number) {
   return fallback;
 }
 
-function loadValues() {
-  const rows = db.prepare(
+async function loadValues() {
+  const rows = await db.prepare(
     "SELECT key, value FROM site_settings WHERE key LIKE 'email.%'"
   ).all() as Array<{ key: string; value: string | null }>;
 
   return Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 }
 
-export function getEmailSettings(): EmailSettings {
-  const values = loadValues();
+export async function getEmailSettings(): Promise<EmailSettings> {
+  const values = await loadValues();
 
   return {
     enabled: parseBoolean(values['email.enabled'], DEFAULT_EMAIL_SETTINGS.enabled),
@@ -78,8 +78,8 @@ export function getEmailSettings(): EmailSettings {
   };
 }
 
-export function getPublicEmailSettings(): PublicEmailSettings {
-  const settings = getEmailSettings();
+export async function getPublicEmailSettings(): Promise<PublicEmailSettings> {
+  const settings = await getEmailSettings();
 
   return {
     ...settings,
@@ -88,8 +88,8 @@ export function getPublicEmailSettings(): PublicEmailSettings {
   };
 }
 
-export function updateEmailSettings(settings: Partial<EmailSettings> & { keepExistingPassword?: boolean }) {
-  const current = getEmailSettings();
+export async function updateEmailSettings(settings: Partial<EmailSettings> & { keepExistingPassword?: boolean }) {
+  const current = await getEmailSettings();
   const next: EmailSettings = {
     enabled: Boolean(settings.enabled),
     brochureNotificationsEnabled: Boolean(settings.brochureNotificationsEnabled),
@@ -102,25 +102,23 @@ export function updateEmailSettings(settings: Partial<EmailSettings> & { keepExi
     receiverEmail: (settings.receiverEmail ?? '').trim(),
   };
 
-  const update = db.prepare(`
-    INSERT INTO site_settings (key, value, updated_at)
-    VALUES (?, ?, CURRENT_TIMESTAMP)
-    ON CONFLICT(key) DO UPDATE SET
-      value = excluded.value,
-      updated_at = CURRENT_TIMESTAMP
-  `);
+  await db.transaction(async (transactionDb) => {
+    const update = transactionDb.prepare(`
+      INSERT INTO site_settings (key, value, updated_at)
+      VALUES (?, ?, CURRENT_TIMESTAMP)
+      ON CONFLICT(key) DO UPDATE SET
+        value = excluded.value,
+        updated_at = CURRENT_TIMESTAMP
+    `);
 
-  const transaction = db.transaction(() => {
-    update.run('email.enabled', String(next.enabled));
-    update.run('email.brochureNotificationsEnabled', String(next.brochureNotificationsEnabled));
-    update.run('email.smtpHost', next.smtpHost);
-    update.run('email.smtpPort', String(next.smtpPort));
-    update.run('email.smtpSecure', String(next.smtpSecure));
-    update.run('email.smtpUser', next.smtpUser);
-    update.run('email.smtpPass', next.smtpPass);
-    update.run('email.fromEmail', next.fromEmail);
-    update.run('email.receiverEmail', next.receiverEmail);
+    await update.run('email.enabled', String(next.enabled));
+    await update.run('email.brochureNotificationsEnabled', String(next.brochureNotificationsEnabled));
+    await update.run('email.smtpHost', next.smtpHost);
+    await update.run('email.smtpPort', String(next.smtpPort));
+    await update.run('email.smtpSecure', String(next.smtpSecure));
+    await update.run('email.smtpUser', next.smtpUser);
+    await update.run('email.smtpPass', next.smtpPass);
+    await update.run('email.fromEmail', next.fromEmail);
+    await update.run('email.receiverEmail', next.receiverEmail);
   });
-
-  transaction();
 }

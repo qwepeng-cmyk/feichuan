@@ -53,7 +53,7 @@ const vkModalCopy = {
 
 const modalCopy = {
   en: {
-    eyebrow: 'C-UAS Product Consultation',
+    eyebrow: 'Low-Altitude Defense Product Consultation',
     title: 'Leave your WhatsApp number so our technical specialist can send you the product datasheet & pricing.',
     helper: 'Enter the country code with or without +, then type your number in any familiar format. We will format it automatically.',
     nameLabel: 'Name *',

@@ -8,12 +8,12 @@ import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import { localizedField } from '@/lib/localization';
 import {
-    englishCuasSolutionCenterGroups,
+    englishdefenseSolutionCenterGroups,
     solutionCenterCardImageByHandle,
     solutionCenterGroups,
     solutionCenterImageByHandle,
 } from '@/lib/solutionCenterGroups';
-import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import { localizedefenseTree } from '@/lib/localeCopy';
 
 interface Solution {
     id: string;
@@ -60,7 +60,7 @@ export default function MobileSolutionCenter({
     );
 
     const GROUP_ICONS: Record<string, React.ReactNode> = {
-        'uav-inspection-patrol': (
+        'aerial-inspection-patrol': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5">
                 <g transform="translate(0, 0)">
                     <path d="M24 10l2 24-2 4-2-4 2-24z" fill="rgba(49, 91, 164, 0.05)" />
@@ -75,7 +75,7 @@ export default function MobileSolutionCenter({
                 <g transform="translate(62, 0)">{ICON_CAMERA}</g>
             </svg>
         ),
-        'uav-emergency-response': (
+        'aerial-emergency-response': (
             <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.2">
                 <g transform="translate(0, 0)">
                     <path d="M24 18l4 2v6l-4 3-4-3v-6l4-2z" fill="rgba(49, 91, 164, 0.1)" strokeWidth="1.5" />
@@ -135,10 +135,10 @@ export default function MobileSolutionCenter({
         )
     };
 
-    type ActiveGroup = (typeof solutionCenterGroups)[number] | (typeof englishCuasSolutionCenterGroups)[number];
-    const useCuasCenter = ['en', 'ru', 'es', 'ar'].includes(locale);
-    const activeGroups: readonly ActiveGroup[] = useCuasCenter ? englishCuasSolutionCenterGroups : solutionCenterGroups;
-    const defaultCuasIcon = (
+    type ActiveGroup = (typeof solutionCenterGroups)[number] | (typeof englishdefenseSolutionCenterGroups)[number];
+    const usedefenseCenter = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const activeGroups: readonly ActiveGroup[] = usedefenseCenter ? englishdefenseSolutionCenterGroups : solutionCenterGroups;
+    const defaultdefenseIcon = (
         <svg viewBox="0 0 110 48" fill="none" stroke="#315ba4" strokeWidth="1.5" aria-hidden="true">
             <g transform="translate(0, 0)">{ICON_AIRSPACE}</g>
             <path d="M52 24h6M55 21v6" stroke="#ff9800" strokeWidth="3" strokeLinecap="round" />
@@ -163,7 +163,7 @@ export default function MobileSolutionCenter({
                 id: group.id,
                 name: t(group, 'label'),
                 categoryHref: group.categoryHref,
-                icon: GROUP_ICONS[group.id] || defaultCuasIcon,
+                icon: GROUP_ICONS[group.id] || defaultdefenseIcon,
                 solutions: group.handles
                     .map((handle) => solutionsById.get(handle))
                     .filter(Boolean) as Solution[],
@@ -177,10 +177,10 @@ export default function MobileSolutionCenter({
     ).values());
 
     const shouldUseProductImageTreatment = (image?: string) => (
-        Boolean(image?.includes('/products/uav-systems/'))
+        Boolean(image?.includes('/products/aerial-systems/'))
     );
 
-    return localizeCuasTree(locale, (
+    return localizedefenseTree(locale, (
         <div className={styles.wrapper}>
             <section className={styles.banner}>
                 <div className={styles.bannerOverlay}></div>
@@ -190,7 +190,7 @@ export default function MobileSolutionCenter({
             </section>
 
             <div className={styles.listContainer}>
-                {useCuasCenter ? (
+                {usedefenseCenter ? (
                     <section className={`${styles.categorySection} ${styles.overviewSection}`}>
                         <div className={styles.grid}>
                             {overviewSolutions.map((sol) => {

@@ -1,25 +1,25 @@
 import type { MetadataRoute } from 'next';
-import db from '@/lib/db';
+import { supabase } from '@/lib/supabase';
 import { i18n, type Locale } from '@/i18n/config';
 import {
-  CUAS_CATALOG_SOLUTION_HANDLES,
-  isCuasCaseHandle,
-  isCuasMediaHandle,
-  isCuasProductCategory,
-  isCuasSolutionHandle,
-} from '@/lib/cuasIndexability';
+  defense_CATALOG_SOLUTION_HANDLES,
+  isIndexableCaseHandle,
+  isIndexableMediaHandle,
+  isIndexableProductCategory,
+  isIndexableSolutionHandle,
+} from '@/lib/indexability';
 
 const SITE_URL = 'https://n-tet.com';
 const STATIC_PATHS = ['/', '/products', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
-const EN_RU_INTENT_PATHS = [
+const INTENT_PATHS = [
   '/solutions/low-altitude-airspace-monitoring',
-  '/solutions/drone-detector',
-  '/solutions/drone-radar-detection',
-  '/solutions/portable-drone-detection',
-  '/solutions/drone-defender',
-  '/solutions/drone-locator',
-  '/solutions/drone-shield',
-  '/solutions/drone-jammer',
+  '/solutions/multi-sensor-detection',
+  '/solutions/low-altitude-radar-monitoring',
+  '/solutions/portable-detection-system',
+  '/solutions/perimeter-defense-system',
+  '/solutions/rf-target-positioning',
+  '/solutions/layered-site-protection',
+  '/solutions/rf-signal-suppression',
 ];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';
@@ -33,7 +33,7 @@ const CONTENT_CONFIG: Record<ContentType, { table: string; route: string; handle
 
 function urlFor(locale: Locale, path: string) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return `${SITE_URL}${locale === 'en' ? '' : `/${locale}`}${normalizedPath}`;
+  return `${SITE_URL}${normalizedPath}`;
 }
 
 function sitemapEntry(locale: Locale, path: string): MetadataRoute.Sitemap[number] {
@@ -42,34 +42,36 @@ function sitemapEntry(locale: Locale, path: string): MetadataRoute.Sitemap[numbe
   };
 }
 
-function publishedHandles(type: ContentType) {
+async function publishedHandles(type: ContentType) {
   const config = CONTENT_CONFIG[type];
   const categoryColumn =
     type === 'product' ? 'category_primary' :
     type === 'solution' ? 'category_id' :
     type === 'case' ? 'solution_category_id' :
     'category';
-  const rows = db
-    .prepare(
-      `SELECT ${config.handleColumn} AS handle, ${categoryColumn} AS category
-       FROM ${config.table}
-       WHERE COALESCE(is_published, 1) = 1
-       ORDER BY ${config.handleColumn} COLLATE NOCASE`
-    )
-    .all() as Array<{ handle?: string | null; category?: string | null }>;
+  const { data, error } = await supabase
+    .from(config.table)
+    .select(`${config.handleColumn}, ${categoryColumn}`)
+    .eq('is_published', 1)
+    .order(config.handleColumn, { ascending: true });
+  if (error) throw error;
+  const rows = ((data || []) as unknown as Array<Record<string, unknown>>).map((row) => ({
+    handle: row[config.handleColumn] as string | null | undefined,
+    category: row[categoryColumn] as string | null | undefined,
+  }));
 
   return rows
     .filter((row) => {
       if (!row.handle) return false;
-      if (type === 'product') return isCuasProductCategory(row.category);
-      if (type === 'solution') return isCuasSolutionHandle(row.handle);
-      if (type === 'case') return isCuasCaseHandle(row.handle);
-      return isCuasMediaHandle(row.handle);
+      if (type === 'product') return isIndexableProductCategory(row.category);
+      if (type === 'solution') return isIndexableSolutionHandle(row.handle);
+      if (type === 'case') return isIndexableCaseHandle(row.handle);
+      return isIndexableMediaHandle(row.handle);
     })
     .map((row) => row.handle as string);
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of i18n.locales) {
@@ -77,16 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push(sitemapEntry(locale, path));
     }
 
-    if (['en', 'ru'].includes(locale)) {
-      for (const path of EN_RU_INTENT_PATHS) {
-        entries.push(sitemapEntry(locale, path));
-      }
+    for (const path of INTENT_PATHS) {
+      entries.push(sitemapEntry(locale, path));
     }
 
     for (const [type, config] of Object.entries(CONTENT_CONFIG) as Array<[ContentType, (typeof CONTENT_CONFIG)[ContentType]]>) {
+      const published = await publishedHandles(type);
       const handles = type === 'solution'
-        ? Array.from(new Set([...publishedHandles(type), ...CUAS_CATALOG_SOLUTION_HANDLES]))
-        : publishedHandles(type);
+        ? Array.from(new Set([...published, ...defense_CATALOG_SOLUTION_HANDLES]))
+        : published;
       for (const handle of handles) {
         entries.push(sitemapEntry(locale, `/${config.route}/${handle}`));
       }

@@ -1,11 +1,6 @@
 export const PRODUCT_CATEGORY_IDS = [
-  'uav-drone-systems',
-  'drone-detection',
+  'detection-monitoring',
   'perimeter-intelligence',
-  'industrial-engine-microgrid',
-  'security-screening',
-  'engineering-materials',
-  'field-hospitals',
 ] as const;
 
 export type ProductCategoryId = (typeof PRODUCT_CATEGORY_IDS)[number];

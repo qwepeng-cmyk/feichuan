@@ -3,7 +3,7 @@ import type { Locale } from '@/i18n/config';
 export const CONTACT_WHATSAPP_NUMBER = '8615903019526';
 export const CONTACT_WHATSAPP_DISPLAY = '+86 159 0301 9526';
 export const CONTACT_WHATSAPP_MESSAGE =
-  "Hi, I'm interested in N-TET C-UAS equipment. Please share product information and help me review a suitable configuration.";
+  "Hi, I'm interested in N-TET Low-Altitude Defense equipment. Please share product information and help me review a suitable configuration.";
 export const CONTACT_WHATSAPP_URL = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`;
 export const CONTACT_VK_URL = 'https://vk.ru/id948875824';
 export const CONTACT_VK_DISPLAY = 'vk.ru/id948875824';
@@ -51,10 +51,7 @@ export const CONTACT_CHANNELS: Record<ContactChannelId, ContactChannel> = {
  * Change this map when a market should use a different primary messenger.
  */
 export const PRIMARY_CONTACT_CHANNEL_BY_LOCALE: Record<Locale, ContactChannelId> = {
-  en: 'whatsapp',
   ru: 'vk',
-  es: 'whatsapp',
-  ar: 'whatsapp',
 };
 
 export function getPrimaryContactChannel(locale: Locale): ContactChannel {

@@ -1,6 +1,10 @@
 node_modules/
 .next/
 .next-*/
+outputs/
+reports/
+scratch/
+tsconfig.tsbuildinfo
 .DS_Store
 *.pptx
 *.zip
@@ -11,3 +15,4 @@ extracted_contents.txt
 data/ntet.db
 backups/
 .seo-cache/
+.vercel

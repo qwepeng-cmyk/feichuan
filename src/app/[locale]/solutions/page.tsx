@@ -4,19 +4,19 @@ import SolutionCenterClient from './SolutionCenterClient';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { getCuasSolutions } from '@/lib/cuasSolutionCatalog';
+import { getdefenseSolutions } from '@/lib/solutionCatalog';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
         locale: params.locale,
         path: '/solutions',
-        fallbackTitle: 'Drone Defense & Counter-UAS Solutions',
-        fallbackDescription: 'Counter-UAS (C-UAS) drone defense solutions for detection, identification, tracking and airspace monitoring at critical sites.',
+        fallbackTitle: 'Platform Defense & Low-Altitude Defense Solutions',
+        fallbackDescription: 'Low-Altitude Defense (Low-Altitude Defense) platform defense solutions for detection, identification, tracking and airspace monitoring at critical sites.',
     });
 }
 
 async function SolutionsDataWrapper({ locale, dict }: { locale: Locale; dict: any }) {
-    const pageSolutions = getCuasSolutions(locale);
+    const pageSolutions = getdefenseSolutions(locale);
     
     // Convert to a plain object array for safety during serialization
     const serializedSolutions = pageSolutions.map(s => ({

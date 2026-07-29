@@ -77,7 +77,7 @@ export async function handleContactLeadPost(request: Request) {
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
-    const result = insert.run(
+    const result = await insert.run(
       name || `${channelLabel} visitor`,
       '',
       storedEmail,

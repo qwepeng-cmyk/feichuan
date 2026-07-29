@@ -8,15 +8,15 @@ import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
 import {
     caseCenterSolutionGroups,
-    englishCuasCaseCenterSolutionGroups,
+    englishdefenseCaseCenterSolutionGroups,
     getCaseSolutionGroupId,
-    getEnglishCuasCaseSolutionGroupId,
+    getEnglishdefenseCaseSolutionGroupId,
 } from '@/lib/caseSolutionGroups';
 import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
-import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
-import { isCuasCaseHandle } from '@/lib/cuasIndexability';
+import { localizedefenseTree } from '@/lib/localeCopy';
+import { isdefenseCaseHandle } from '@/lib/indexability';
 
 interface CaseItem {
     handle: string;
@@ -48,12 +48,12 @@ export default function CasesPageClient({
     const bannerTitle = seoTarget.h1 || dict.cases.bannerTitle;
     const seoIntroTitle = seoTarget.overviewHeading || dict.cases.seoIntroTitle;
     const seoIntroBody = buildKeywordIntro(seoTarget, dict.cases.bannerTitle, locale) || dict.cases.seoIntroBody;
-    const isCuasPage = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const isdefensePage = ['en', 'ru', 'es', 'ar'].includes(locale);
     const pageCases = useMemo(
-        () => isCuasPage ? allCases.filter((item) => isCuasCaseHandle(item.handle)) : allCases,
-        [allCases, isCuasPage]
+        () => isdefensePage ? allCases.filter((item) => isdefenseCaseHandle(item.handle)) : allCases,
+        [allCases, isdefensePage]
     );
-    const solutionGroups = isCuasPage ? englishCuasCaseCenterSolutionGroups : caseCenterSolutionGroups;
+    const solutionGroups = isdefensePage ? englishdefenseCaseCenterSolutionGroups : caseCenterSolutionGroups;
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.all },
@@ -78,8 +78,8 @@ export default function CasesPageClient({
 
     const filteredCases = useMemo(() => {
         return orderedCases.filter(item => {
-            const itemSolutionId = isCuasPage
-                ? getEnglishCuasCaseSolutionGroupId(item)
+            const itemSolutionId = isdefensePage
+                ? getEnglishdefenseCaseSolutionGroupId(item)
                 : getCaseSolutionGroupId(item);
             const matchesSolution = selectedSolution === 'all' || itemSolutionId === selectedSolution;
 
@@ -96,7 +96,7 @@ export default function CasesPageClient({
 
             return matchesSolution && matchesRegion;
         });
-    }, [isCuasPage, orderedCases, selectedSolution, selectedRegionId]);
+    }, [isdefensePage, orderedCases, selectedSolution, selectedRegionId]);
 
     const renderRadioFilter = (
         label: string,
@@ -184,7 +184,7 @@ export default function CasesPageClient({
         </div>
     );
 
-    return localizeCuasTree(locale, (
+    return localizedefenseTree(locale, (
         <>
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -239,7 +239,7 @@ export default function CasesPageClient({
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <Image src={withStaticAssetVersion('/solutions/cuas-applications/banner/case_center_banner.webp')} fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={bannerTitle} />
+                    <Image src={withStaticAssetVersion('/solutions/defense-applications/banner/case_center_banner.webp')} fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority alt={bannerTitle} />
                     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                     <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                         <div style={{ maxWidth: '800px' }}>

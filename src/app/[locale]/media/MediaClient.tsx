@@ -8,16 +8,16 @@ import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
-const EN_CUAS_MEDIA_IDS = [
-    'ntet-uav-engineering-cuas-perspective-2026',
-    'cuas-event-logging-data-retention-2026',
+const EN_defense_MEDIA_IDS = [
+    'ntet-aerial-engineering-defense-perspective-2026',
+    'defense-event-logging-data-retention-2026',
     'ntet-multi-sensor-configuration-method-2025',
-    'drone-detection-range-site-coverage-2025',
-    'ntet-cuas-technical-documentation-2025',
-    'weather-terrain-urban-clutter-drone-detection-2025',
+    'detection-monitoring-range-site-coverage-2025',
+    'ntet-defense-technical-documentation-2025',
+    'weather-terrain-urban-clutter-detection-monitoring-2025',
     'ntet-equipment-bench-checks-2025',
-    'cuas-site-survey-critical-infrastructure-2025',
-    'ntet-portable-fixed-vehicle-cuas-review-2025',
+    'defense-site-survey-critical-infrastructure-2025',
+    'ntet-portable-fixed-vehicle-defense-review-2025',
     'remote-id-rf-detection-complementary-2025',
     'project-inquiry-review-low-altitude-monitoring-2026',
     'site-photo-review-before-system-layout-2026',
@@ -26,12 +26,12 @@ const EN_CUAS_MEDIA_IDS = [
     'low-altitude-economy-2026-outlook',
     'low-altitude-economy-operations-owner-2026',
     'eo-ir-payload-selection-field-note-2026',
-    'ntet-cuas-assumptions-open-questions-2024',
-    'cuas-alert-quality-operator-context-2024',
-    'ntet-cuas-interface-review-2024',
-    'cuas-concept-of-operations-before-procurement-2024',
-    'ntet-requirements-to-cuas-configuration-2024',
-    'cuas-detection-technology-comparison-2024',
+    'ntet-defense-assumptions-open-questions-2024',
+    'defense-alert-quality-operator-context-2024',
+    'ntet-defense-interface-review-2024',
+    'defense-concept-of-operations-before-procurement-2024',
+    'ntet-requirements-to-defense-configuration-2024',
+    'defense-detection-technology-comparison-2024',
 ];
 
 function stripMediaHtml(html = '') {
@@ -80,7 +80,7 @@ export default function MediaClient({
     };
 
     const displayNewsData = React.useMemo(() => {
-        const visibleIds = new Set(EN_CUAS_MEDIA_IDS);
+        const visibleIds = new Set(EN_defense_MEDIA_IDS);
         return newsData.filter((item) => visibleIds.has(item.id));
     }, [newsData, locale]);
 
@@ -117,7 +117,7 @@ export default function MediaClient({
                         borderBottom: '1px solid #e1e8f0'
                     }}>
                         <Image
-                            src="/solutions/cuas-applications/banner/media_center_banner.webp"
+                            src="/solutions/defense-applications/banner/media_center_banner.webp"
                             fill
                             style={{ objectFit: 'cover', objectPosition: 'center' }}
                             priority

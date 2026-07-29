@@ -50,7 +50,7 @@ export async function POST(request: Request) {
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `);
 
-        const result = insert.run(
+        const result = await insert.run(
             name,
             company,
             email,
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
             sourcePage
         );
         const inquiryId = Number(result.lastInsertRowid);
-        const savedInquiry = db.prepare(`
+        const savedInquiry = await db.prepare(`
             SELECT id, name, email, created_at
             FROM inquiries
             WHERE id = ?

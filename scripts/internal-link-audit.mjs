@@ -1,5 +1,5 @@
 import { join } from 'node:path';
-import { getAllCuasIndexableContent, openDb, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { openDb, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
 import { cuasIndexabilityPolicy, isCuasIndexableRow } from './cuas-indexability.mjs';
 
 function parseHandles(value) {
@@ -18,8 +18,9 @@ function parseHandles(value) {
 
 const db = openDb();
 const products = new Map(
-  getAllCuasIndexableContent(db)
-    .filter((row) => row.type === 'product')
+  db
+    .prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1')
+    .all()
     .map((row) => [row.handle, row])
 );
 

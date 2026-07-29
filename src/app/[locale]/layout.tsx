@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import DesktopFloatingContact from "@/components/contact/DesktopFloatingContact";
 import DeferredContactTools from "@/components/contact/DeferredContactTools";
-import LocaleDocumentState from "@/components/LocaleDocumentState";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -66,12 +65,9 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
       apple: '/apple-touch-icon.png?v=20260630-ntet-logo',
     },
     alternates: {
-      canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
+      canonical: '/',
       languages: {
-        'en': '/',
-        'ru': '/ru',
-        'es': '/es',
-        'ar': '/ar',
+        'ru': '/',
         'x-default': '/',
       },
     },
@@ -95,7 +91,6 @@ export default async function LocaleLayout({
   params: { locale: Locale };
 }) {
   const locale = params.locale;
-  const isRtl = locale === 'ar';
   if (!isValidLocale(locale)) {
     notFound();
   }
@@ -108,7 +103,7 @@ export default async function LocaleLayout({
   const yandexMetrikaId = locale === 'ru' ? 110881050 : null;
 
   return (
-    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-locale={locale} suppressHydrationWarning>
+    <html lang="ru" dir="ltr" data-locale="ru" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <NextTopLoader
           color="#315ba4"
@@ -121,8 +116,6 @@ export default async function LocaleLayout({
           speed={200}
           shadow="0 0 10px #315ba4,0 0 5px #315ba4"
         />
-        <LocaleDocumentState locale={locale} />
-
         {gtmContainerId && (
           <Script
             id="google-tag-manager"

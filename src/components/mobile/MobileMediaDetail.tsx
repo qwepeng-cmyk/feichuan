@@ -45,7 +45,7 @@ export default function MobileMediaDetail({ news, locale, dict }: MediaProps) {
             <article className={styles.articleContainer}>
                 <div className={styles.newsTitle}>{newsTitle}</div>
                 <div className={styles.newsMeta}>
-                    {locale === 'en' ? <>Published <time dateTime={news.date}>{newsDate}</time> · Reviewed by N-TET C-UAS Engineering Team</> : <time dateTime={news.date}>{newsDate}</time>}
+                    {locale === 'en' ? <>Published <time dateTime={news.date}>{newsDate}</time> · Reviewed by N-TET Low-Altitude Defense Engineering Team</> : <time dateTime={news.date}>{newsDate}</time>}
                 </div>
 
                 {news.image && (

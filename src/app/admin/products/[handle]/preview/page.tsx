@@ -2,14 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
-import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
+import DirectedEnergySystem from '@/components/products/DirectedEnergySystem';
 
-export default function AdminProductPreview({ params }: { params: { handle: string } }) {
-  const product = db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
+export default async function AdminProductPreview({ params }: { params: { handle: string } }) {
+  const product = await db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
   if (!product) notFound();
 
-  if (product.handle === 'drone-laser-engagement-system') {
-    return <DroneLaserEngagementSystem mode="preview" locale="en" />;
+  if (product.handle === 'directed-energy-system') {
+    return <DirectedEnergySystem mode="preview" locale="en" />;
   }
 
   const parameters = parseJson(product.parameters_en, {});

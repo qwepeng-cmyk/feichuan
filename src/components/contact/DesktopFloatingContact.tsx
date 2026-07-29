@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import PrimaryContactButton, { PrimaryContactIcon } from './PrimaryContactButton';
 import styles from './DesktopFloatingContact.module.css';
-import { cuasText } from '@/lib/cuasLocaleCopy';
+import { defenseText } from '@/lib/localeCopy';
 
 declare global {
   interface Window {
@@ -26,7 +26,7 @@ const floatingCopy: Record<string, { quickContact: string; consult: string; open
   ar: { quickContact: 'اتصال سريع', consult: 'استشارة', openChat: 'فتح محادثة الأعمال', leaveMessage: 'ترك رسالة', leaveMessageLabel: 'ترك رسالة', top: 'أعلى', topLabel: 'العودة إلى الأعلى' },
 };
 
-export default function DesktopFloatingContact({ locale = 'en' }: { locale?: string }) {
+export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: string }) {
   const pathname = usePathname();
   const copy = floatingCopy[locale] || { quickContact: 'Quick contact', consult: 'Consult', openChat: 'Open business chat', leaveMessage: 'Leave Message', leaveMessageLabel: 'Leave a message', top: 'Top', topLabel: 'Back to top' };
   const [isBusinessChatEnabled, setIsBusinessChatEnabled] = useState(false);
@@ -156,10 +156,10 @@ export default function DesktopFloatingContact({ locale = 'en' }: { locale?: str
         <PrimaryContactButton
           sourceLabel="desktop_floating_whatsapp"
           className={`${styles.actionButton} ${styles.whatsapp}`}
-          ariaLabel={cuasText(locale, 'Get Datasheet & Pricing on WhatsApp')}
+          ariaLabel={defenseText(locale, 'Get Datasheet & Pricing on WhatsApp')}
         >
           <PrimaryContactIcon size={25} />
-          <span>{cuasText(locale, 'Get Datasheet & Pricing on WhatsApp')}</span>
+          <span>{defenseText(locale, 'Get Datasheet & Pricing on WhatsApp')}</span>
         </PrimaryContactButton>
 
         <button

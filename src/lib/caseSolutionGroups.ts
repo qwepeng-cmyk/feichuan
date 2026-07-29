@@ -1,5 +1,5 @@
 import {
-  englishCuasSolutionCenterGroups,
+  englishdefenseSolutionCenterGroups,
   solutionCenterGroups,
   type SolutionCenterGroupId,
 } from './solutionCenterGroups';
@@ -13,44 +13,44 @@ export const caseSolutionGroups = solutionCenterGroups;
 export const caseCenterSolutionGroups = [
   'critical-infrastructure-protection',
   'key-area-security',
-  'uav-inspection-patrol',
-  'uav-emergency-response',
+  'aerial-platform-inspection-patrol',
+  'aerial-platform-emergency-response',
 ]
   .map((id) => solutionCenterGroups.find((group) => group.id === id))
   .filter(Boolean) as typeof solutionCenterGroups[number][];
-export const englishCuasCaseCenterSolutionGroups = englishCuasSolutionCenterGroups;
+export const englishdefenseCaseCenterSolutionGroups = englishdefenseSolutionCenterGroups;
 
-type EnglishCuasSolutionCenterGroupId = (typeof englishCuasSolutionCenterGroups)[number]['id'];
+type EnglishdefenseSolutionCenterGroupId = (typeof englishdefenseSolutionCenterGroups)[number]['id'];
 
 const CASE_GROUP_BY_HANDLE: Record<string, SolutionCenterGroupId> = {
-  'anhui-flood-season-uav-patrol': 'uav-inspection-patrol',
-  'ice-snow-emergency-uav-inspection': 'uav-inspection-patrol',
-  'lidar-tree-obstruction-uav-inspection': 'uav-inspection-patrol',
-  'southern-grid-wildfire-uav-inspection': 'uav-inspection-patrol',
-  'wildfire-emergency-transmission-line-uav-patrol': 'uav-inspection-patrol',
-  'zhaoqing-long-distance-power-line-uav-inspection': 'uav-inspection-patrol',
+  'anhui-flood-season-aerial-patrol': 'aerial-platform-inspection-patrol',
+  'ice-snow-emergency-aerial-inspection': 'aerial-platform-inspection-patrol',
+  'lidar-tree-obstruction-aerial-inspection': 'aerial-platform-inspection-patrol',
+  'southern-grid-wildfire-aerial-inspection': 'aerial-platform-inspection-patrol',
+  'wildfire-emergency-transmission-line-aerial-patrol': 'aerial-platform-inspection-patrol',
+  'zhaoqing-long-distance-power-line-aerial-inspection': 'aerial-platform-inspection-patrol',
   'brazil-refinery-airspace-monitoring': 'critical-infrastructure-protection',
   'brazil-refinery-low-altitude-monitoring': 'critical-infrastructure-protection',
-  'brazil-refinery-anti-uav': 'critical-infrastructure-protection',
+  'brazil-refinery-anti-aerial': 'critical-infrastructure-protection',
   'nigeria-factory-airspace-monitoring': 'critical-infrastructure-protection',
   'nigeria-factory-low-altitude-monitoring': 'critical-infrastructure-protection',
-  'nigeria-factory-anti-uav': 'critical-infrastructure-protection',
+  'nigeria-factory-anti-aerial': 'critical-infrastructure-protection',
   'pakistan-power-plant-airspace-monitoring': 'critical-infrastructure-protection',
   'pakistan-power-plant-low-altitude-monitoring': 'critical-infrastructure-protection',
-  'pakistan-power-plant-anti-uav': 'critical-infrastructure-protection',
+  'pakistan-power-plant-anti-aerial': 'critical-infrastructure-protection',
   'water-conservancy-security': 'critical-infrastructure-protection',
   'airport-security-application': 'key-area-security',
   'asian-games-security': 'key-area-security',
 };
 
 const LEGACY_CATEGORY_TO_GROUP: Record<string, SolutionCenterGroupId> = {
-  '01_BorderPatrol': 'uav-inspection-patrol',
+  '01_BorderPatrol': 'aerial-platform-inspection-patrol',
   '02_InfrastructureProtection': 'critical-infrastructure-protection',
   '03_KeyAreaSecurity': 'key-area-security',
-  '04_EmergencyRescue': 'uav-emergency-response',
+  '04_EmergencyRescue': 'aerial-platform-emergency-response',
 };
 
-const ENGLISH_CUAS_CASE_GROUP_BY_HANDLE: Record<string, EnglishCuasSolutionCenterGroupId> = {
+const ENGLISH_defense_CASE_GROUP_BY_HANDLE: Record<string, EnglishdefenseSolutionCenterGroupId> = {
   'airport-security-application': 'airports',
   'asian-games-security': 'mass-events',
   'water-conservancy-security': 'critical-infrastructure',
@@ -77,7 +77,7 @@ export function getCaseSolutionGroupId(item: CaseSolutionGroupInput): SolutionCe
   return LEGACY_CATEGORY_TO_GROUP[categoryId];
 }
 
-export function getEnglishCuasCaseSolutionGroupId(item: CaseSolutionGroupInput): EnglishCuasSolutionCenterGroupId | undefined {
+export function getEnglishdefenseCaseSolutionGroupId(item: CaseSolutionGroupInput): EnglishdefenseSolutionCenterGroupId | undefined {
   if (!item.handle) return undefined;
-  return ENGLISH_CUAS_CASE_GROUP_BY_HANDLE[item.handle];
+  return ENGLISH_defense_CASE_GROUP_BY_HANDLE[item.handle];
 }

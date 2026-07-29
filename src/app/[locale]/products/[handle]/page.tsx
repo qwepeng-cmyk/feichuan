@@ -6,10 +6,10 @@ import { getProductByHandle, getAllProductHandles } from '@/lib/products';
 import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import CatalogDetailContent from '@/components/products/CatalogDetailContent';
-import DroneNetLauncherDetail from '@/components/products/DroneNetLauncherDetail';
-import DroneLaserEngagementSystem from '@/components/products/DroneLaserEngagementSystem';
+import CaptureNetLauncherDetail from '@/components/products/CaptureNetLauncherDetail';
+import DirectedEnergySystem from '@/components/products/DirectedEnergySystem';
 import { buildSeoMetadata, getProductSeo } from '@/lib/seoMetadata';
-import { isCuasProductCategory } from '@/lib/cuasIndexability';
+import { isdefenseProductCategory } from '@/lib/indexability';
 
 export const dynamicParams = false;
 
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: { handle: string; l
   const name = product[`product_name_${params.locale}`] || product.product_name_en || product.name;
   const description = product[`summary_${params.locale}`] || product.summary_en || undefined;
   const productSeo = getProductSeo(params.handle, name, product.category_primary || product.category, params.locale);
-  const indexable = isCuasProductCategory(product.category_primary || product.category);
+  const indexable = isdefenseProductCategory(product.category_primary || product.category);
 
   return buildSeoMetadata({
     locale: params.locale,
@@ -48,12 +48,12 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
     notFound();
   }
 
-  if (handle === 'handheld-drone-net-launcher') {
-    return <DroneNetLauncherDetail product={product} locale={locale} dict={dict} />;
+  if (handle === 'handheld-capture-launcher') {
+    return <CaptureNetLauncherDetail product={product} locale={locale} dict={dict} />;
   }
 
-  if (handle === 'drone-laser-engagement-system') {
-    return <DroneLaserEngagementSystem mode="public" locale={locale} />;
+  if (handle === 'directed-energy-system') {
+    return <DirectedEnergySystem mode="public" locale={locale} />;
   }
 
   return (
@@ -62,9 +62,8 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
       handle={handle}
       locale={locale}
       dict={dict}
-      basePath="/products"
       catalogLabel={dict.nav.products}
-      indexable={isCuasProductCategory(product.category_primary || product.category)}
+      indexable={isdefenseProductCategory(product.category_primary || product.category)}
     />
   );
 }

@@ -22,7 +22,7 @@ function escapeHtml(value: unknown) {
     .replace(/'/g, '&#39;');
 }
 
-function isEmailReady(settings = getEmailSettings()) {
+function isEmailReady(settings: Awaited<ReturnType<typeof getEmailSettings>>) {
   return Boolean(
     settings.enabled &&
     settings.smtpHost &&
@@ -34,7 +34,7 @@ function isEmailReady(settings = getEmailSettings()) {
 }
 
 export async function sendInquiryNotification(inquiry: InquiryPayload) {
-  const settings = getEmailSettings();
+  const settings = await getEmailSettings();
 
   if (!isEmailReady(settings)) {
     return { skipped: true };

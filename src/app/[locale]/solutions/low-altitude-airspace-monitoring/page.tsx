@@ -22,16 +22,16 @@ import styles from './LowAltitudeAirspaceMonitoring.module.css';
 import ruOperationalCopy from '@/dictionaries/low-altitude-airspace-monitoring/ru.json';
 
 const pageHandle = 'low-altitude-airspace-monitoring';
-const pageTitle = 'Low-Altitude Airspace Security & C-UAS';
+const pageTitle = 'Low-Altitude Airspace Security & Low-Altitude Defense';
 const pageDescription =
-  'C-UAS, counter-UAS, anti drone, and drone detection site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, response review, records, and quotation support.';
+  'Low-Altitude Defense, low-altitude defense, anti platform, and platform detection site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, response review, records, and quotation support.';
 
-const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
+const localizedStrings: Partial<Record<string, Record<string, string>>> = {
   ru: {
     ...ruOperationalCopy,
-    'Low-Altitude Airspace Security & C-UAS': 'Безопасность низковысотного воздушного пространства и C-UAS',
-    'C-UAS and anti drone site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
-      'Планирование C-UAS и anti-drone решений для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров: раннее предупреждение, идентификация, позиционирование, сопровождение, обработка событий, записи и подготовка предложения.',
+    'Low-Altitude Airspace Security & Low-Altitude Defense': 'Безопасность низковысотного воздушного пространства и Low-Altitude Defense',
+    'Low-Altitude Defense and anti platform site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
+      'Планирование Low-Altitude Defense и anti-platform решений для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров: раннее предупреждение, идентификация, позиционирование, сопровождение, обработка событий, записи и подготовка предложения.',
     'Fixed, vehicle-mobile, or portable coverage': 'Стационарное, мобильное на автомобиле или переносное покрытие',
     'RF, radar, EO, and Remote ID in one plan': 'RF, радар, EO и Remote ID в одном плане',
     'Early warning, identify, position, track, and handle': 'Раннее предупреждение, идентификация, позиционирование, сопровождение и обработка',
@@ -43,10 +43,10 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Perimeter overflight': 'Пролет над периметром',
     'Restricted airspace intrusion': 'Вход в ограниченное воздушное пространство',
     'Utility corridor incident': 'Инцидент в инженерном коридоре',
-    'Public-building drone sighting': 'Обнаружение дрона у общественного здания',
+    'Public-building platform sighting': 'Обнаружение воздушная платформаа у общественного здания',
     'Site Plan': 'План площадки',
-    'Define perimeter zones, key areas, operator roles, alert contacts, and a practical C-UAS layout before equipment selection.':
-      'Определите зоны периметра, ключевые участки, роли операторов, контакты оповещения и практичную схему C-UAS до выбора оборудования.',
+    'Define perimeter zones, key areas, operator roles, alert contacts, and a practical Low-Altitude Defense layout before equipment selection.':
+      'Определите зоны периметра, ключевые участки, роли операторов, контакты оповещения и практичную схему Low-Altitude Defense до выбора оборудования.',
     'Early Warning': 'Раннее предупреждение',
     'Use RF, radar, EO, and Remote ID inputs to raise early warning when low-altitude activity appears near the site.':
       'Используйте данные RF, радара, EO и Remote ID для раннего предупреждения при появлении низковысотной активности рядом с объектом.',
@@ -112,8 +112,8 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Identify, locate, and review low-altitude activity around controlled zones and high-value facilities.':
       'Идентифицируйте, локализуйте и проверяйте низковысотную активность вокруг контролируемых зон и ценных объектов.',
     'Stadium & Event Airspace Security': 'Безопасность воздушного пространства стадионов и мероприятий',
-    'Support temporary or fixed C-UAS plans for venues, events, and public operations.':
-      'Поддерживайте временные или стационарные планы C-UAS для площадок, мероприятий и общественных операций.',
+    'Support temporary or fixed Low-Altitude Defense plans for venues, events, and public operations.':
+      'Поддерживайте временные или стационарные планы Low-Altitude Defense для площадок, мероприятий и общественных операций.',
     'Stationary RF Identification System': 'Стационарная RF-система идентификации',
     'Fixed RF early warning': 'Стационарное RF-раннее предупреждение',
     'Fixed-site RF awareness': 'RF-контроль стационарного объекта',
@@ -130,7 +130,7 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Visual identification': 'Визуальная идентификация',
     'Visual identification and review': 'Визуальная идентификация и проверка',
     'Day and night tracking support': 'Поддержка сопровождения днем и ночью',
-    'UAV Remote ID Recognition System': 'Система распознавания UAV Remote ID',
+    'Aerial Platform Remote ID Recognition System': 'Система распознавания Aerial Platform Remote ID',
     'Identity review': 'Проверка идентификатора',
     'Remote ID information reading': 'Считывание информации Remote ID',
     'Operator review and records': 'Проверка оператором и записи',
@@ -142,11 +142,11 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Mobile inspection': 'Мобильная проверка',
     'Handheld signal identification': 'Ручная идентификация сигнала',
     'Flexible perimeter patrol support': 'Гибкая поддержка патрулирования периметра',
-    'Directional RF C-UAS Site Unit': 'Направленный RF-модуль C-UAS для объекта',
+    'Directional RF Low-Altitude Defense Site Unit': 'Направленный RF-модуль Low-Altitude Defense для объекта',
     'Directional RF site unit': 'Направленный RF-модуль объекта',
     'Directional RF event logging': 'Регистрация направленных RF-событий',
     'Supports positioning and response review': 'Поддерживает позиционирование и проверку реагирования',
-    'Unauthorized Drone Events Are Increasing': 'Количество несанкционированных событий с дронами растет',
+    'Unauthorized Platform Events Are Increasing': 'Количество несанкционированных событий с воздушная платформаами растет',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'Типовые ситуации для охраняемых объектов, транспортных зон, общественных зданий, инженерных коридоров и критичных операций.',
     'System composition': 'Состав системы',
@@ -157,25 +157,25 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Fixed and Mobile Coverage Options': 'Стационарные и мобильные варианты покрытия',
     'Different sites can choose a fixed, vehicle-mobile, or portable setup according to perimeter size, deployment time, and operator workflow.':
       'Разные объекты могут выбрать стационарную, мобильную на автомобиле или переносную конфигурацию в зависимости от размера периметра, времени развертывания и процесса оператора.',
-    'C-UAS Site Security Plan': 'План безопасности объекта C-UAS',
+    'Low-Altitude Defense Site Security Plan': 'План безопасности объекта Low-Altitude Defense',
     'Low-Altitude Airspace': 'Низковысотное воздушное пространство',
     'Low-Altitude': 'Низкие высоты',
     'Security for Critical Sites': 'Безопасность критичных объектов',
-    'C-UAS site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.':
-      'Планирование C-UAS для стационарного, мобильного на автомобиле или переносного покрытия: раннее предупреждение, идентификация, позиционирование, сопровождение, обработка, записи и поддержка предложения.',
-    'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
-      'Для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров. N-TET помогает спланировать C-UAS по реальным условиям объекта: сенсорное оборудование, проверка оператором, записи платформы и стационарные, мобильные на автомобиле или переносные варианты развертывания.',
+    'Low-Altitude Defense site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.':
+      'Планирование Low-Altitude Defense для стационарного, мобильного на автомобиле или переносного покрытия: раннее предупреждение, идентификация, позиционирование, сопровождение, обработка, записи и поддержка предложения.',
+    'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a Low-Altitude Defense setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
+      'Для аэропортов, НПЗ, электростанций, портов, площадок мероприятий и крупных периметров. N-TET помогает спланировать Low-Altitude Defense по реальным условиям объекта: сенсорное оборудование, проверка оператором, записи платформы и стационарные, мобильные на автомобиле или переносные варианты развертывания.',
     'Get Site Layout & Quote': 'Получить схему объекта и предложение',
     'Get Datasheet & Pricing on WhatsApp': 'Получить спецификацию и цены в VK',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'Основано на стационарных и мобильных схемах работы: спланировать объект, поднять раннее предупреждение, идентифицировать, позиционировать, сопровождать, координировать реагирование и сохранять проверяемые записи.',
-    'C-UAS Equipment for Site Plans': 'Оборудование C-UAS для планов объектов',
+    'Low-Altitude Defense Equipment for Site Plans': 'Оборудование Low-Altitude Defense для планов объектов',
     'Choose fixed, mobile, radar, RF, EO, and Remote ID equipment according to the site plan, early warning, identification, positioning, tracking, response, and record requirements.':
       'Выбирайте стационарное, мобильное, радарное, RF, EO и Remote ID оборудование по требованиям схемы объекта, раннего предупреждения, идентификации, позиционирования, сопровождения, реагирования и записей.',
     'Low-Altitude Site Operations': 'Операции на низковысотных объектах',
     'Use these examples to plan low-altitude awareness, perimeter security, response coordination, and reviewable records for different operating sites.':
       'Используйте эти примеры для планирования низковысотного контроля, безопасности периметра, координации реагирования и проверяемых записей для разных объектов.',
-    'C-UAS Scenarios by Site Type': 'Сценарии C-UAS по типу объекта',
+    'Low-Altitude Defense Scenarios by Site Type': 'Сценарии Low-Altitude Defense по типу объекта',
     'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.':
       'Сначала выберите наиболее близкий тип объекта. Затем N-TET подберет стационарное, мобильное на автомобиле или переносное оборудование под периметр, дальность покрытия, процесс проверки и требования к предложению.',
     'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.':
@@ -206,22 +206,22 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     '20 MHz-6 GHz RF detection matrix': 'Матрица RF-обнаружения 20 МГц-6 ГГц',
     'Radar, RF, and EO data fusion platform': 'Платформа слияния данных радара, RF и EO',
     'Fixed and portable response with airport EMC design': 'Стационарное и переносное реагирование с EMC-дизайном для аэропорта',
-    'Asian Games Low-Altitude C-UAS Application': 'Применение C-UAS низких высот на Азиатских играх',
-    'C-UAS Case of a Group Factory in Nigeria': 'Кейс C-UAS для группового завода в Нигерии',
-    'C-UAS Case of a Power Plant in Pakistan': 'Кейс C-UAS для электростанции в Пакистане',
-    'C-UAS Case of a Refinery in Brazil': 'Кейс C-UAS для НПЗ в Бразилии',
-    'Airport C-UAS Application': 'Применение C-UAS в аэропорту',
-    'Water Conservancy Facility Low-Altitude C-UAS': 'C-UAS низких высот для водохозяйственного объекта',
+    'Asian Games Low-Altitude Low-Altitude Defense Application': 'Применение Low-Altitude Defense низких высот на Азиатских играх',
+    'Low-Altitude Defense Case of a Group Factory in Nigeria': 'Кейс Low-Altitude Defense для группового завода в Нигерии',
+    'Low-Altitude Defense Case of a Power Plant in Pakistan': 'Кейс Low-Altitude Defense для электростанции в Пакистане',
+    'Low-Altitude Defense Case of a Refinery in Brazil': 'Кейс Low-Altitude Defense для НПЗ в Бразилии',
+    'Airport Low-Altitude Defense Application': 'Применение Low-Altitude Defense в аэропорту',
+    'Water Conservancy Facility Low-Altitude Low-Altitude Defense': 'Low-Altitude Defense низких высот для водохозяйственного объекта',
     'Learn More': 'Подробнее',
     'Airspace Security': 'Безопасность воздушного пространства',
-    'C-UAS Equipment Options': 'Варианты оборудования C-UAS',
+    'Low-Altitude Defense Equipment Options': 'Варианты оборудования Low-Altitude Defense',
     'Site Operations': 'Операции на объекте',
     'View': 'Открыть',
   },
   es: {
-    'Low-Altitude Airspace Security & C-UAS': 'Seguridad del espacio aéreo de baja altitud y C-UAS',
-    'C-UAS and anti drone site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
-      'Planificación C-UAS y anti drone para aeropuertos, refinerías, plantas eléctricas, puertos, recintos y grandes perímetros, con alerta temprana, identificación, posicionamiento, seguimiento, gestión, registros y soporte de cotización.',
+    'Low-Altitude Airspace Security & Low-Altitude Defense': 'Seguridad del espacio aéreo de baja altitud y Low-Altitude Defense',
+    'Low-Altitude Defense and anti platform site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
+      'Planificación Low-Altitude Defense y anti platform para aeropuertos, refinerías, plantas eléctricas, puertos, recintos y grandes perímetros, con alerta temprana, identificación, posicionamiento, seguimiento, gestión, registros y soporte de cotización.',
     'Fixed, vehicle-mobile, or portable coverage': 'Cobertura fija, móvil en vehículo o portátil',
     'RF, radar, EO, and Remote ID in one plan': 'RF, radar, EO y Remote ID en un solo plan',
     'Early warning, identify, position, track, and handle': 'Alerta temprana, identificación, posicionamiento, seguimiento y gestión',
@@ -233,10 +233,10 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Perimeter overflight': 'Sobrevuelo del perímetro',
     'Restricted airspace intrusion': 'Intrusión en espacio aéreo restringido',
     'Utility corridor incident': 'Incidente en corredor de servicios',
-    'Public-building drone sighting': 'Avistamiento de drone junto a edificio público',
+    'Public-building platform sighting': 'Avistamiento de platform junto a edificio público',
     'Site Plan': 'Plan del sitio',
-    'Define perimeter zones, key areas, operator roles, alert contacts, and a practical C-UAS layout before equipment selection.':
-      'Defina zonas de perímetro, áreas clave, roles de operador, contactos de alerta y un diseño C-UAS práctico antes de seleccionar equipos.',
+    'Define perimeter zones, key areas, operator roles, alert contacts, and a practical Low-Altitude Defense layout before equipment selection.':
+      'Defina zonas de perímetro, áreas clave, roles de operador, contactos de alerta y un diseño Low-Altitude Defense práctico antes de seleccionar equipos.',
     'Early Warning': 'Alerta temprana',
     'Use RF, radar, EO, and Remote ID inputs to raise early warning when low-altitude activity appears near the site.':
       'Use entradas de RF, radar, EO y Remote ID para activar alerta temprana cuando aparezca actividad de baja altitud cerca del sitio.',
@@ -302,8 +302,8 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Identify, locate, and review low-altitude activity around controlled zones and high-value facilities.':
       'Identifique, localice y revise actividad de baja altitud alrededor de zonas controladas e instalaciones de alto valor.',
     'Stadium & Event Airspace Security': 'Seguridad aérea de estadios y eventos',
-    'Support temporary or fixed C-UAS plans for venues, events, and public operations.':
-      'Apoye planes C-UAS temporales o fijos para recintos, eventos y operaciones públicas.',
+    'Support temporary or fixed Low-Altitude Defense plans for venues, events, and public operations.':
+      'Apoye planes Low-Altitude Defense temporales o fijos para recintos, eventos y operaciones públicas.',
     'Stationary RF Identification System': 'Sistema fijo de identificación RF',
     'Fixed RF early warning': 'Alerta temprana RF fija',
     'Fixed-site RF awareness': 'Conciencia RF de sitio fijo',
@@ -320,7 +320,7 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Visual identification': 'Identificación visual',
     'Visual identification and review': 'Identificación visual y revisión',
     'Day and night tracking support': 'Soporte de seguimiento día y noche',
-    'UAV Remote ID Recognition System': 'Sistema de reconocimiento UAV Remote ID',
+    'Aerial Platform Remote ID Recognition System': 'Sistema de reconocimiento Aerial Platform Remote ID',
     'Identity review': 'Revisión de identidad',
     'Remote ID information reading': 'Lectura de información Remote ID',
     'Operator review and records': 'Revisión del operador y registros',
@@ -332,11 +332,11 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Mobile inspection': 'Inspección móvil',
     'Handheld signal identification': 'Identificación manual de señales',
     'Flexible perimeter patrol support': 'Soporte flexible para patrulla perimetral',
-    'Directional RF C-UAS Site Unit': 'Unidad RF direccional C-UAS para sitio',
+    'Directional RF Low-Altitude Defense Site Unit': 'Unidad RF direccional Low-Altitude Defense para sitio',
     'Directional RF site unit': 'Unidad RF direccional del sitio',
     'Directional RF event logging': 'Registro de eventos RF direccionales',
     'Supports positioning and response review': 'Soporta posicionamiento y revisión de respuesta',
-    'Unauthorized Drone Events Are Increasing': 'Los eventos no autorizados con drones están aumentando',
+    'Unauthorized Platform Events Are Increasing': 'Los eventos no autorizados con platforms están aumentando',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'Patrones observados en sitios controlados, áreas de transporte, edificios públicos, corredores de servicios y operaciones críticas.',
     'System composition': 'Composición del sistema',
@@ -347,25 +347,25 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Fixed and Mobile Coverage Options': 'Opciones de cobertura fija y móvil',
     'Different sites can choose a fixed, vehicle-mobile, or portable setup according to perimeter size, deployment time, and operator workflow.':
       'Cada sitio puede elegir una configuración fija, móvil en vehículo o portátil según tamaño del perímetro, tiempo de despliegue y flujo del operador.',
-    'C-UAS Site Security Plan': 'Plan de seguridad C-UAS del sitio',
+    'Low-Altitude Defense Site Security Plan': 'Plan de seguridad Low-Altitude Defense del sitio',
     'Low-Altitude Airspace': 'Espacio aéreo de baja altitud',
     'Low-Altitude': 'Baja altitud',
     'Security for Critical Sites': 'Seguridad para sitios críticos',
-    'C-UAS site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.':
-      'Planificación C-UAS para cobertura fija, móvil en vehículo o portátil, con alerta temprana, identificación, posicionamiento, seguimiento, gestión, registros y soporte de cotización.',
-    'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
-      'Para aeropuertos, refinerías, plantas eléctricas, puertos, recintos y grandes perímetros. N-TET ayuda a planificar una configuración C-UAS desde condiciones reales del sitio: equipos de sensado, revisión del operador, registros de plataforma y opciones fijas, móviles en vehículo o portátiles.',
+    'Low-Altitude Defense site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.':
+      'Planificación Low-Altitude Defense para cobertura fija, móvil en vehículo o portátil, con alerta temprana, identificación, posicionamiento, seguimiento, gestión, registros y soporte de cotización.',
+    'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a Low-Altitude Defense setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
+      'Para aeropuertos, refinerías, plantas eléctricas, puertos, recintos y grandes perímetros. N-TET ayuda a planificar una configuración Low-Altitude Defense desde condiciones reales del sitio: equipos de sensado, revisión del operador, registros de plataforma y opciones fijas, móviles en vehículo o portátiles.',
     'Get Site Layout & Quote': 'Solicitar diseño del sitio y cotización',
     'Get Datasheet & Pricing on WhatsApp': 'Ficha técnica y precios por WhatsApp',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'Adaptado a patrones de operación fija y móvil: planificar el sitio, activar alerta temprana, identificar, posicionar, seguir, coordinar respuesta y conservar registros revisables.',
-    'C-UAS Equipment for Site Plans': 'Equipos C-UAS para planes de sitio',
+    'Low-Altitude Defense Equipment for Site Plans': 'Equipos Low-Altitude Defense para planes de sitio',
     'Choose fixed, mobile, radar, RF, EO, and Remote ID equipment according to the site plan, early warning, identification, positioning, tracking, response, and record requirements.':
       'Elija equipos fijos, móviles, radar, RF, EO y Remote ID según el plan del sitio y los requisitos de alerta temprana, identificación, posicionamiento, seguimiento, respuesta y registros.',
     'Low-Altitude Site Operations': 'Operaciones de sitio de baja altitud',
     'Use these examples to plan low-altitude awareness, perimeter security, response coordination, and reviewable records for different operating sites.':
       'Use estos ejemplos para planificar conciencia de baja altitud, seguridad perimetral, coordinación de respuesta y registros revisables para distintos sitios.',
-    'C-UAS Scenarios by Site Type': 'Escenarios C-UAS por tipo de sitio',
+    'Low-Altitude Defense Scenarios by Site Type': 'Escenarios Low-Altitude Defense por tipo de sitio',
     'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.':
       'Elija primero el tipo de sitio más cercano. N-TET puede ajustar equipos fijos, móviles en vehículo o portátiles al perímetro, rango de cobertura, flujo de revisión y necesidades de cotización.',
     'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.':
@@ -396,22 +396,22 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     '20 MHz-6 GHz RF detection matrix': 'Matriz de detección RF de 20 MHz-6 GHz',
     'Radar, RF, and EO data fusion platform': 'Plataforma de fusión de datos de radar, RF y EO',
     'Fixed and portable response with airport EMC design': 'Respuesta fija y portátil con diseño EMC para aeropuerto',
-    'Asian Games Low-Altitude C-UAS Application': 'Aplicación C-UAS de baja altitud en los Juegos Asiáticos',
-    'C-UAS Case of a Group Factory in Nigeria': 'Caso C-UAS de una fábrica de grupo en Nigeria',
-    'C-UAS Case of a Power Plant in Pakistan': 'Caso C-UAS de una planta eléctrica en Pakistán',
-    'C-UAS Case of a Refinery in Brazil': 'Caso C-UAS de una refinería en Brasil',
-    'Airport C-UAS Application': 'Aplicación C-UAS en aeropuerto',
-    'Water Conservancy Facility Low-Altitude C-UAS': 'C-UAS de baja altitud para instalación hidráulica',
+    'Asian Games Low-Altitude Low-Altitude Defense Application': 'Aplicación Low-Altitude Defense de baja altitud en los Juegos Asiáticos',
+    'Low-Altitude Defense Case of a Group Factory in Nigeria': 'Caso Low-Altitude Defense de una fábrica de grupo en Nigeria',
+    'Low-Altitude Defense Case of a Power Plant in Pakistan': 'Caso Low-Altitude Defense de una planta eléctrica en Pakistán',
+    'Low-Altitude Defense Case of a Refinery in Brazil': 'Caso Low-Altitude Defense de una refinería en Brasil',
+    'Airport Low-Altitude Defense Application': 'Aplicación Low-Altitude Defense en aeropuerto',
+    'Water Conservancy Facility Low-Altitude Low-Altitude Defense': 'Low-Altitude Defense de baja altitud para instalación hidráulica',
     'Learn More': 'Más información',
     'Airspace Security': 'Seguridad aérea',
-    'C-UAS Equipment Options': 'Opciones de equipos C-UAS',
+    'Low-Altitude Defense Equipment Options': 'Opciones de equipos Low-Altitude Defense',
     'Site Operations': 'Operaciones del sitio',
     'View': 'Ver',
   },
   ar: {
-    'Low-Altitude Airspace Security & C-UAS': 'أمن المجال الجوي منخفض الارتفاع و C-UAS',
-    'C-UAS and anti drone site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
-      'تخطيط مواقع C-UAS ومكافحة الطائرات بدون طيار للمطارات والمصافي ومحطات الطاقة والموانئ والمرافق والحدود الواسعة، مع الإنذار المبكر والتعريف وتحديد الموقع والتتبع والمعالجة والسجلات ودعم عروض الأسعار.',
+    'Low-Altitude Airspace Security & Low-Altitude Defense': 'أمن المجال الجوي منخفض الارتفاع و Low-Altitude Defense',
+    'Low-Altitude Defense and anti platform site planning for airports, refineries, power plants, ports, venues, and large perimeters, covering early warning, identification, positioning, tracking, handling, records, and quotation support.':
+      'تخطيط مواقع Low-Altitude Defense ومكافحة الطائرات بدون طيار للمطارات والمصافي ومحطات الطاقة والموانئ والمرافق والحدود الواسعة، مع الإنذار المبكر والتعريف وتحديد الموقع والتتبع والمعالجة والسجلات ودعم عروض الأسعار.',
     'Fixed, vehicle-mobile, or portable coverage': 'تغطية ثابتة أو متنقلة بالمركبة أو محمولة',
     'RF, radar, EO, and Remote ID in one plan': 'RF والرادار و EO و Remote ID ضمن خطة واحدة',
     'Early warning, identify, position, track, and handle': 'إنذار مبكر وتعريف وتحديد موقع وتتبع ومعالجة',
@@ -423,10 +423,10 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Perimeter overflight': 'تحليق فوق المحيط',
     'Restricted airspace intrusion': 'دخول إلى مجال جوي مقيد',
     'Utility corridor incident': 'حادث في ممر خدمات',
-    'Public-building drone sighting': 'رصد طائرة بدون طيار قرب مبنى عام',
+    'Public-building platform sighting': 'رصد طائرة بدون طيار قرب مبنى عام',
     'Site Plan': 'خطة الموقع',
-    'Define perimeter zones, key areas, operator roles, alert contacts, and a practical C-UAS layout before equipment selection.':
-      'حدد مناطق المحيط والمناطق الرئيسية وأدوار المشغلين وجهات اتصال التنبيه ومخطط C-UAS عملي قبل اختيار المعدات.',
+    'Define perimeter zones, key areas, operator roles, alert contacts, and a practical Low-Altitude Defense layout before equipment selection.':
+      'حدد مناطق المحيط والمناطق الرئيسية وأدوار المشغلين وجهات اتصال التنبيه ومخطط Low-Altitude Defense عملي قبل اختيار المعدات.',
     'Early Warning': 'إنذار مبكر',
     'Use RF, radar, EO, and Remote ID inputs to raise early warning when low-altitude activity appears near the site.':
       'استخدم مدخلات RF والرادار و EO و Remote ID لإطلاق إنذار مبكر عند ظهور نشاط منخفض الارتفاع قرب الموقع.',
@@ -492,8 +492,8 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Identify, locate, and review low-altitude activity around controlled zones and high-value facilities.':
       'عرّف وحدد وراجع النشاط منخفض الارتفاع حول المناطق الخاضعة للسيطرة والمنشآت عالية القيمة.',
     'Stadium & Event Airspace Security': 'أمن المجال الجوي للملاعب والفعاليات',
-    'Support temporary or fixed C-UAS plans for venues, events, and public operations.':
-      'ادعم خطط C-UAS مؤقتة أو ثابتة للمرافق والفعاليات والعمليات العامة.',
+    'Support temporary or fixed Low-Altitude Defense plans for venues, events, and public operations.':
+      'ادعم خطط Low-Altitude Defense مؤقتة أو ثابتة للمرافق والفعاليات والعمليات العامة.',
     'Stationary RF Identification System': 'نظام تعريف RF ثابت',
     'Fixed RF early warning': 'إنذار RF مبكر ثابت',
     'Fixed-site RF awareness': 'وعي RF لموقع ثابت',
@@ -510,7 +510,7 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Visual identification': 'تعريف بصري',
     'Visual identification and review': 'تعريف بصري ومراجعة',
     'Day and night tracking support': 'دعم التتبع ليلا ونهارا',
-    'UAV Remote ID Recognition System': 'نظام تعرف UAV Remote ID',
+    'Aerial Platform Remote ID Recognition System': 'نظام تعرف Aerial Platform Remote ID',
     'Identity review': 'مراجعة الهوية',
     'Remote ID information reading': 'قراءة معلومات Remote ID',
     'Operator review and records': 'مراجعة المشغل والسجلات',
@@ -522,11 +522,11 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Mobile inspection': 'فحص متنقل',
     'Handheld signal identification': 'تعريف الإشارة يدويا',
     'Flexible perimeter patrol support': 'دعم مرن لدوريات المحيط',
-    'Directional RF C-UAS Site Unit': 'وحدة RF اتجاهية C-UAS للموقع',
+    'Directional RF Low-Altitude Defense Site Unit': 'وحدة RF اتجاهية Low-Altitude Defense للموقع',
     'Directional RF site unit': 'وحدة RF اتجاهية للموقع',
     'Directional RF event logging': 'تسجيل أحداث RF اتجاهية',
     'Supports positioning and response review': 'يدعم تحديد الموقع ومراجعة الاستجابة',
-    'Unauthorized Drone Events Are Increasing': 'أحداث الطائرات بدون طيار غير المصرح بها في ازدياد',
+    'Unauthorized Platform Events Are Increasing': 'أحداث الطائرات بدون طيار غير المصرح بها في ازدياد',
     'Patterns seen across controlled sites, transport areas, public buildings, utility corridors, and critical operations.':
       'أنماط تظهر في المواقع الخاضعة للسيطرة ومناطق النقل والمباني العامة وممرات الخدمات والعمليات الحرجة.',
     'System composition': 'تكوين النظام',
@@ -537,25 +537,25 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     'Fixed and Mobile Coverage Options': 'خيارات التغطية الثابتة والمتحركة',
     'Different sites can choose a fixed, vehicle-mobile, or portable setup according to perimeter size, deployment time, and operator workflow.':
       'يمكن للمواقع المختلفة اختيار إعداد ثابت أو متنقل بالمركبة أو محمول حسب حجم المحيط ووقت النشر وسير عمل المشغل.',
-    'C-UAS Site Security Plan': 'خطة أمن موقع C-UAS',
+    'Low-Altitude Defense Site Security Plan': 'خطة أمن موقع Low-Altitude Defense',
     'Low-Altitude Airspace': 'المجال الجوي منخفض الارتفاع',
     'Low-Altitude': 'منخفض الارتفاع',
     'Security for Critical Sites': 'أمن المواقع الحرجة',
-    'C-UAS site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.':
-      'تخطيط موقع C-UAS للتغطية الثابتة أو المتنقلة بالمركبة أو المحمولة، مع الإنذار المبكر والتعريف وتحديد الموقع والتتبع والمعالجة والسجلات ودعم عروض الأسعار.',
-    'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a C-UAS setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
-      'للمطارات والمصافي ومحطات الطاقة والموانئ والمرافق والمحيطات الواسعة. تساعد N-TET في تخطيط إعداد C-UAS من ظروف الموقع الفعلية: معدات الاستشعار، مراجعة المشغل، سجلات المنصة، وخيارات النشر الثابتة أو المتنقلة بالمركبة أو المحمولة.',
+    'Low-Altitude Defense site planning for fixed, vehicle-mobile, or portable coverage, with early warning, identification, positioning, tracking, handling, records, and quotation support.':
+      'تخطيط موقع Low-Altitude Defense للتغطية الثابتة أو المتنقلة بالمركبة أو المحمولة، مع الإنذار المبكر والتعريف وتحديد الموقع والتتبع والمعالجة والسجلات ودعم عروض الأسعار.',
+    'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps plan a Low-Altitude Defense setup from real site conditions: sensing equipment, operator review, platform records, and fixed, vehicle-mobile, or portable deployment options.':
+      'للمطارات والمصافي ومحطات الطاقة والموانئ والمرافق والمحيطات الواسعة. تساعد N-TET في تخطيط إعداد Low-Altitude Defense من ظروف الموقع الفعلية: معدات الاستشعار، مراجعة المشغل، سجلات المنصة، وخيارات النشر الثابتة أو المتنقلة بالمركبة أو المحمولة.',
     'Get Site Layout & Quote': 'اطلب مخطط الموقع وعرض السعر',
     'Get Datasheet & Pricing on WhatsApp': 'المواصفات والأسعار عبر WhatsApp',
     'Adapted from fixed and mobile operation patterns: plan the site, raise early warning, identify, position, track, coordinate response, and keep reviewable records.':
       'مقتبس من أنماط التشغيل الثابتة والمتحركة: تخطيط الموقع، إطلاق الإنذار المبكر، التعريف، تحديد الموقع، التتبع، تنسيق الاستجابة، والاحتفاظ بسجلات قابلة للمراجعة.',
-    'C-UAS Equipment for Site Plans': 'معدات C-UAS لخطط المواقع',
+    'Low-Altitude Defense Equipment for Site Plans': 'معدات Low-Altitude Defense لخطط المواقع',
     'Choose fixed, mobile, radar, RF, EO, and Remote ID equipment according to the site plan, early warning, identification, positioning, tracking, response, and record requirements.':
       'اختر المعدات الثابتة والمتحركة والرادار و RF و EO و Remote ID حسب خطة الموقع ومتطلبات الإنذار المبكر والتعريف وتحديد الموقع والتتبع والاستجابة والسجلات.',
     'Low-Altitude Site Operations': 'عمليات المواقع منخفضة الارتفاع',
     'Use these examples to plan low-altitude awareness, perimeter security, response coordination, and reviewable records for different operating sites.':
       'استخدم هذه الأمثلة لتخطيط الوعي منخفض الارتفاع وأمن المحيط وتنسيق الاستجابة والسجلات القابلة للمراجعة لمواقع تشغيل مختلفة.',
-    'C-UAS Scenarios by Site Type': 'سيناريوهات C-UAS حسب نوع الموقع',
+    'Low-Altitude Defense Scenarios by Site Type': 'سيناريوهات Low-Altitude Defense حسب نوع الموقع',
     'Choose the closest site type first. N-TET can then match fixed, vehicle-mobile, or portable equipment to the perimeter, coverage range, review workflow, and quotation needs.':
       'اختر أولا نوع الموقع الأقرب. بعدها يمكن لـ N-TET مطابقة المعدات الثابتة أو المتنقلة بالمركبة أو المحمولة مع المحيط ونطاق التغطية وسير المراجعة واحتياجات عرض السعر.',
     'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.':
@@ -586,22 +586,21 @@ const localizedStrings: Partial<Record<Locale, Record<string, string>>> = {
     '20 MHz-6 GHz RF detection matrix': 'مصفوفة كشف RF من 20 MHz إلى 6 GHz',
     'Radar, RF, and EO data fusion platform': 'منصة دمج بيانات الرادار و RF و EO',
     'Fixed and portable response with airport EMC design': 'استجابة ثابتة ومحمولة مع تصميم EMC للمطار',
-    'Asian Games Low-Altitude C-UAS Application': 'تطبيق C-UAS منخفض الارتفاع في الألعاب الآسيوية',
-    'C-UAS Case of a Group Factory in Nigeria': 'حالة C-UAS لمصنع مجموعة في نيجيريا',
-    'C-UAS Case of a Power Plant in Pakistan': 'حالة C-UAS لمحطة طاقة في باكستان',
-    'C-UAS Case of a Refinery in Brazil': 'حالة C-UAS لمصفاة في البرازيل',
-    'Airport C-UAS Application': 'تطبيق C-UAS في المطار',
-    'Water Conservancy Facility Low-Altitude C-UAS': 'C-UAS منخفض الارتفاع لمنشأة مائية',
+    'Asian Games Low-Altitude Low-Altitude Defense Application': 'تطبيق Low-Altitude Defense منخفض الارتفاع في الألعاب الآسيوية',
+    'Low-Altitude Defense Case of a Group Factory in Nigeria': 'حالة Low-Altitude Defense لمصنع مجموعة في نيجيريا',
+    'Low-Altitude Defense Case of a Power Plant in Pakistan': 'حالة Low-Altitude Defense لمحطة طاقة في باكستان',
+    'Low-Altitude Defense Case of a Refinery in Brazil': 'حالة Low-Altitude Defense لمصفاة في البرازيل',
+    'Airport Low-Altitude Defense Application': 'تطبيق Low-Altitude Defense في المطار',
+    'Water Conservancy Facility Low-Altitude Low-Altitude Defense': 'Low-Altitude Defense منخفض الارتفاع لمنشأة مائية',
     'Learn More': 'اعرف المزيد',
     'Airspace Security': 'أمن المجال الجوي',
-    'C-UAS Equipment Options': 'خيارات معدات C-UAS',
+    'Low-Altitude Defense Equipment Options': 'خيارات معدات Low-Altitude Defense',
     'Site Operations': 'عمليات الموقع',
     'View': 'عرض',
   },
 };
 
 function copy(locale: Locale, value: string) {
-  if (locale === 'en') return value;
   return localizedStrings[locale]?.[value] || value;
 }
 
@@ -680,7 +679,7 @@ const incidentGallery = [
     image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/utility-corridor-incident.webp',
   },
   {
-    caption: 'Public-building drone sighting',
+    caption: 'Public-building platform sighting',
     image: '/solutions/low-altitude-airspace-monitoring/incident-gallery/public-building-sighting.webp',
   },
 ];
@@ -695,30 +694,30 @@ const equipmentCapabilityGroups = [
       {
         title: 'Wireless RF Detection',
         points: ['Detection range up to 10 km', '800+ model library', 'Protocol parsing and direction finding'],
-        src: '/products/02-drone-detection/stationary-rf-detection-system.webp',
+        src: '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
         alt: 'Stationary RF awareness unit',
         href: '/products/stationary-rf-detection-system',
       },
       {
         title: 'Low-Altitude Radar',
-        points: ['Multi-target tracking', 'Detects silent drones', 'Range, bearing, speed, and altitude'],
-        src: '/products/02-drone-detection/low-altitude-detection-radar.webp',
+        points: ['Multi-target tracking', 'Detects silent platforms', 'Range, bearing, speed, and altitude'],
+        src: '/products/02-detection-monitoring/low-altitude-detection-radar.webp',
         alt: 'Low-altitude radar unit',
         href: '/products/low-altitude-detection-radar-ku-band',
       },
       {
         title: 'Electro-Optical Identification',
         points: ['Visual evidence capture', 'Day / night tracking options', 'Target category recognition'],
-        src: '/products/02-drone-detection/electro-optical-tracking-system.webp',
+        src: '/products/02-detection-monitoring/electro-optical-tracking-system.webp',
         alt: 'Electro-optical verification unit',
         href: '/products/composite-electro-optical-tracking-system',
       },
       {
         title: 'Remote ID Monitoring Device',
-        points: ['Reads electronic identity', 'Filters authorized UAV activity', 'Supports Remote ID compliance review'],
-        src: '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp',
+        points: ['Reads electronic identity', 'Filters authorized Aerial Platform activity', 'Supports Remote ID compliance review'],
+        src: '/products/aerial-systems/aerial-Remote-ID-Monitoring-System.webp',
         alt: 'Remote ID monitoring equipment',
-        href: '/products/uav-remote-id-monitoring-system',
+        href: '/products/aerial-remote-id-monitoring-system',
       },
     ],
     note: 'Pursue single-device sensing performance while emphasizing multi-technology coordination.',
@@ -733,21 +732,21 @@ const equipmentCapabilityGroups = [
     controlGroupLabel: 'Soft Response (Electromagnetic Means)',
     controlCards: [
       {
-        title: 'Fixed C-UAS Site Unit',
+        title: 'Fixed Low-Altitude Defense Site Unit',
         points: ['Control and video-link bands', 'Key-band and model-profile setup', 'Remote supervision and guard duty'],
         src: '/products/rf-systems/stationary-rf-analysis-unit.webp',
-        alt: 'Fixed C-UAS site unit',
+        alt: 'Fixed Low-Altitude Defense site unit',
         href: '/products/stationary-active-rf-defense-system',
       },
       {
-        title: 'C-UAS Signal Verification System',
+        title: 'Low-Altitude Defense Signal Verification System',
         points: ['Navigation-signal scenario support', 'Guide activity away from protected lines', 'Compact, low-disruption deployment'],
         src: '/products/rf-systems/navigation-signal-analysis-system.webp',
-        alt: 'C-UAS signal verification equipment',
-        href: '/products/uav-navigation-airspace-data-verification-system',
+        alt: 'Low-Altitude Defense signal verification equipment',
+        href: '/products/aerial-navigation-airspace-data-verification-system',
       },
       {
-        title: 'Portable C-UAS Field Shield',
+        title: 'Portable Low-Altitude Defense Field Shield',
         points: ['Ready-to-use field support', 'Single-person temporary deployment', 'Simple operation for approved sites'],
         src: '/products/rf-systems/portable-rf-field-unit.webp',
         alt: 'Portable response shield equipment',
@@ -772,7 +771,7 @@ const equipmentCapabilityGroups = [
             text: 'Single-operator sensing, positioning, tracking, and response support.',
             points: ['Accurate field use', 'Portable deployment', 'Lightweight operation'],
             src: '/products/rf-systems/portable-integrated-rf-analysis-pro.webp',
-            alt: 'Backpack integrated C-UAS field kit',
+            alt: 'Backpack integrated Low-Altitude Defense field kit',
             href: '/products/portable-integrated-detection-event-logging-pro-low-altitude-monitoring',
           },
           {
@@ -780,7 +779,7 @@ const equipmentCapabilityGroups = [
             text: 'Hand-carried unit for visual operation and rapid approved response.',
             points: ['Visual operation', 'Automatic response support', 'Rugged outdoor build'],
             src: '/products/rf-systems/portable-navigation-signal-analysis-unit.webp',
-            alt: 'Portable C-UAS field unit',
+            alt: 'Portable Low-Altitude Defense field unit',
             href: '/products/portable-active-rf-defense-system',
           },
         ],
@@ -802,7 +801,7 @@ const equipmentCapabilityGroups = [
             points: ['High-performance design', 'Long-range approved response', 'Self-built profile library'],
             src: '/products/rf-systems/navigation-signal-analysis-system.webp',
             alt: 'Fixed signal verification and guidance unit',
-            href: '/products/uav-navigation-airspace-data-verification-system',
+            href: '/products/aerial-navigation-airspace-data-verification-system',
           },
           {
             title: 'Radar-Vision Integrated Unit',
@@ -818,11 +817,11 @@ const equipmentCapabilityGroups = [
         title: 'Mobile Vehicle',
         cards: [
           {
-            title: 'Vehicle-Mobile C-UAS Unit',
+            title: 'Vehicle-Mobile Low-Altitude Defense Unit',
             text: 'Vehicle-mounted sensing and response equipment for mobile patrol and temporary coverage.',
             points: ['On-site calibration', 'Platform mobility', 'Configurable equipment'],
-            src: '/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp',
-            alt: 'Vehicle-mobile C-UAS unit',
+            src: '/solutions/low-altitude-airspace-monitoring/vehicle-mobile-defense.webp',
+            alt: 'Vehicle-mobile Low-Altitude Defense unit',
           },
         ],
       },
@@ -884,32 +883,32 @@ const packages = [
 
 const caseReferences = [
   {
-    title: 'Asian Games Low-Altitude C-UAS Application',
+    title: 'Asian Games Low-Altitude Low-Altitude Defense Application',
     image: '/cases/asian-games-security/main.webp',
     href: '/cases/asian-games-security',
   },
   {
-    title: 'C-UAS Case of a Group Factory in Nigeria',
+    title: 'Low-Altitude Defense Case of a Group Factory in Nigeria',
     image: '/cases/nigeria-factory-airspace-monitoring/main.webp',
     href: '/cases/nigeria-factory-low-altitude-monitoring',
   },
   {
-    title: 'C-UAS Case of a Power Plant in Pakistan',
+    title: 'Low-Altitude Defense Case of a Power Plant in Pakistan',
     image: '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
     href: '/cases/pakistan-power-plant-low-altitude-monitoring',
   },
   {
-    title: 'C-UAS Case of a Refinery in Brazil',
+    title: 'Low-Altitude Defense Case of a Refinery in Brazil',
     image: '/cases/brazil-refinery-airspace-monitoring/main-home.webp',
     href: '/cases/brazil-refinery-low-altitude-monitoring',
   },
   {
-    title: 'Airport C-UAS Application',
+    title: 'Airport Low-Altitude Defense Application',
     image: '/cases/airport-security-application/main-home.webp',
     href: '/cases/airport-security-application',
   },
   {
-    title: 'Water Conservancy Facility Low-Altitude C-UAS',
+    title: 'Water Conservancy Facility Low-Altitude Low-Altitude Defense',
     image: '/cases/water-conservancy-security/main.webp',
     href: '/cases/water-conservancy-security',
   },
@@ -922,32 +921,32 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     fallbackTitle: `${copy(params.locale, pageTitle)} | N-TET`,
     fallbackDescription: copy(params.locale, pageDescription),
     fallbackKeywords: [
-      'C-UAS systems',
-      'C-UAS technology',
-      'counter-UAS system',
-      'counter drone system',
-      'counter drone detection',
-      'anti drone',
-      'anti drone system',
-      'anti drone systems',
-      'anti drone solution',
-      'anti drone detection',
-      'anti drone equipment',
-      'anti drone radar',
-      'Drone detection and tracking',
-      'drone detector',
-      'drone radar',
-      'UAV detection system',
-      'C-UAS equipment',
+      'Low-Altitude Defense systems',
+      'Low-Altitude Defense technology',
+      'low-altitude defense system',
+      'counter platform system',
+      'counter platform detection',
+      'anti platform',
+      'anti platform system',
+      'anti platform systems',
+      'anti platform solution',
+      'anti platform detection',
+      'anti platform equipment',
+      'anti platform radar',
+      'Platform detection and tracking',
+      'platform detector',
+      'platform radar',
+      'Aerial Platform detection system',
+      'Low-Altitude Defense equipment',
       'RF detection system',
       'low-altitude detection radar',
       'electro-optical tracking system',
-      'detector de drone',
-      'detector de drones',
-      'radar de drone',
-      'radar de drones',
+      'detector de platform',
+      'detector de platforms',
+      'radar de platform',
+      'radar de platforms',
     ],
-    image: '/products/02-drone-detection/drone-detection-home.webp',
+    image: '/products/02-detection-monitoring/detection-monitoring-home.webp',
   });
 }
 
@@ -982,7 +981,7 @@ function SiteProblemSection({ locale }: { locale: Locale }) {
         <span className={styles.sectionEyebrow}>{copy(locale, 'Core challenge')}</span>
         <h2>{copy(locale, 'Cannot See, Cannot Identify, Cannot Control')}</h2>
         <p>
-          {copy(locale, 'Fast-growing UAV activity and slower management tools create low-altitude blind zones. Site teams first need to see targets, identify events, and keep the handling process under control.')}
+          {copy(locale, 'Fast-growing Aerial Platform activity and slower management tools create low-altitude blind zones. Site teams first need to see targets, identify events, and keep the handling process under control.')}
         </p>
       </div>
       <div className={styles.painPointGrid}>
@@ -1072,14 +1071,10 @@ function EquipmentCapabilitySection({ locale }: { locale: Locale }) {
       <div className={styles.compositionHeader}>
         <span className={styles.sectionEyebrow}>{copy(locale, 'Equipment capability')}</span>
         <h2>
-          {locale === 'en'
-            ? 'C-UAS, Counter-Drone and Anti Drone Detection Options'
-            : copy(locale, 'Equipment Is Organized Around the Operating Loop')}
+          {copy(locale, 'Equipment Is Organized Around the Operating Loop')}
         </h2>
         <p>
-          {locale === 'en'
-            ? 'Compare C-UAS, counter-UAS, counter drone, and anti drone system options across fixed-site, vehicle-mounted, portable, and handheld RF detection, radar, Remote ID monitoring, EO tracking, and command-platform integration.'
-            : copy(locale, 'Equipment is organized around the operating loop: sensing and detection first, verified handling second, integrated units third, and a command platform to close the loop.')}
+          {copy(locale, 'Equipment is organized around the operating loop: sensing and detection first, verified handling second, integrated units third, and a command platform to close the loop.')}
         </p>
       </div>
       <div className={styles.compositionFlow}>
@@ -1272,7 +1267,7 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.heroSection}>
         <Image
-          src="/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp"
+          src="/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-platform.webp"
           alt=""
           fill
           priority
@@ -1281,19 +1276,17 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
         />
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroCopy}>
-          <span className={styles.heroEyebrow}>{copy(locale, 'C-UAS Site Security Plan')}</span>
+          <span className={styles.heroEyebrow}>{copy(locale, 'Low-Altitude Defense Site Security Plan')}</span>
           <h1>
             <span className={styles.titleLine}>
-              {locale === 'en' ? 'C-UAS and Anti Drone Detection Systems' : copy(locale, 'Low-Altitude Airspace')}
+              {copy(locale, 'Low-Altitude Airspace')}
             </span>
             <span className={styles.titleLine}>
-              {locale === 'en' ? 'for Critical Sites' : copy(locale, 'Security for Critical Sites')}
+              {copy(locale, 'Security for Critical Sites')}
             </span>
           </h1>
           <p>
-            {locale === 'en'
-              ? 'N-TET plans C-UAS and counter-UAS systems, anti drone systems, and drone detection systems for airports, refineries, power plants, ports, venues, and large perimeters, combining RF drone detection, radar, Remote ID monitoring, EO verification, and site alert workflows.'
-              : copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps turn real site conditions into a practical C-UAS and low-altitude security plan.')}
+            {copy(locale, 'For airports, refineries, power plants, ports, venues, and large perimeters. N-TET helps turn real site conditions into a practical Low-Altitude Defense and low-altitude security plan.')}
           </p>
           <div className={styles.heroActions}>
             <Link prefetch={false} href="#inquiry" className={styles.primaryCta}>
@@ -1315,7 +1308,7 @@ function Landing({ locale, dict }: { locale: Locale; dict: any }) {
 
       <section className={styles.packageSection}>
         <div className={styles.sectionHeader}>
-          <h2>{copy(locale, 'C-UAS Scenarios by Site Type')}</h2>
+          <h2>{copy(locale, 'Low-Altitude Defense Scenarios by Site Type')}</h2>
           <p>{copy(locale, 'Use these site scenarios to match sensing coverage, review workflow, and approved response options for critical low-altitude security operations.')}</p>
         </div>
         <div className={styles.packageGrid}>
@@ -1385,7 +1378,7 @@ export default async function LowAltitudeAirspaceMonitoringPage({ params }: { pa
       '@id': `${pageAbsoluteUrl}#service`,
       name: pageTitle,
       description: pageDescription,
-      serviceType: 'low-altitude airspace security and C-UAS',
+      serviceType: 'low-altitude airspace security and Low-Altitude Defense',
       provider: {
         '@type': 'Organization',
         name: 'N-TET',

@@ -7,7 +7,8 @@ import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
 import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
 import { getFooterProductLinks, getFooterSolutionLinks } from '@/lib/footerLinks';
-import { localizeCuasTree } from '@/lib/cuasLocaleCopy';
+import { localizedefenseTree } from '@/lib/localeCopy';
+import { localePath } from '@/lib/localePath';
 
 export default function MobileFooter({
     locale,
@@ -18,13 +19,13 @@ export default function MobileFooter({
     dict: any;
     visibleProductCategoryIds?: ProductCategoryId[];
 }) {
-    const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const l = (path: string) => localePath(locale, path);
     const solutionLinks = getFooterSolutionLinks(locale, dict);
     const productLinks = getFooterProductLinks(locale, dict).filter((item) =>
         item.categoryId ? hasVisibleProductCategory(visibleProductCategoryIds, item.categoryId) : true
     );
 
-    return localizeCuasTree(locale, (
+    return localizedefenseTree(locale, (
         <footer className="mobile-footer" style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <Image src="/logo1-small.webp" alt="Logo" width={140} height={48} style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
@@ -94,7 +95,7 @@ export default function MobileFooter({
 
                 {/* Contact us */}
                 <div>
-                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '20px' }}>{locale === 'ar' ? 'مكتب مبيعات ومشاريع C-UAS' : ['en', 'ru', 'es'].includes(locale) ? 'C-UAS Sales & Project Desk' : dict.nav.contact}</h4>
+                    <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '20px' }}>{dict.nav.contact}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                         <div>
                             <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>

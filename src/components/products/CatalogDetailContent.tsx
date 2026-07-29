@@ -12,9 +12,6 @@ import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
-import { getArabicTechnicalHighlight, getArabicTechnicalParameters } from '@/lib/arabicTechnicalCopy';
-import { getProductBrochure } from '@/lib/productBrochures';
-import ProductBrochureDownload from './ProductBrochureDownload';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -71,7 +68,6 @@ export default function CatalogDetailContent({
   handle,
   locale,
   dict,
-  basePath,
   catalogLabel,
   indexable = true,
 }: {
@@ -79,43 +75,31 @@ export default function CatalogDetailContent({
   handle: string;
   locale: Locale;
   dict: any;
-  basePath: '/products' | '/accessories';
   catalogLabel: string;
   indexable?: boolean;
 }) {
   const name = product[`product_name_${locale}`] || product.product_name_en || product.name;
   const summary = product[`summary_${locale}`] || product.summary_en;
   const keyApp = product[`key_application_${locale}`] || product.key_application_en;
-  const keyParam1 = getArabicTechnicalHighlight(product, 'key_parameter_1', locale);
-  const keyParam2 = getArabicTechnicalHighlight(product, 'key_parameter_2', locale);
+  const keyParam1 = product[`key_parameter_1_${locale}`] || product.key_parameter_1_en;
+  const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
-  const parameters = readJsonLike(getArabicTechnicalParameters(product, locale));
+  const parameters = readJsonLike(product[`parameters_${locale}`] || product.parameters_en);
+  const basePath = '/products' as const;
   const seoTarget = getSeoKeywordTarget({
     route: `${basePath}/${handle}`,
     title: name,
     category: product.category_primary || product.category,
-    pageKind: basePath === '/accessories' ? 'accessory_detail' : 'product_detail',
+    pageKind: 'product_detail',
     fallbackKeywords: [name, product.category_primary || product.category].filter(Boolean),
     locale,
   });
   const displayName = seoTarget.h1 || name;
   const specsHeading = seoTarget.overviewHeading || dict.products.technicalSpecs;
   const keywordIntro = buildKeywordIntro(seoTarget, name, locale);
-  const overviewTitle =
-    locale === 'ar' ? 'نظرة عامة على المنتج' :
-    locale === 'es' ? 'Resumen del producto' :
-    locale === 'ru' ? 'Обзор продукта' :
-    'Product Overview';
-  const applicationLabel =
-    locale === 'ar' ? 'التطبيق' :
-    locale === 'es' ? 'Aplicación' :
-    locale === 'ru' ? 'Применение' :
-    'Application';
-  const keyParameterLabel =
-    locale === 'ar' ? 'المؤشر الرئيسي' :
-    locale === 'es' ? 'Parámetro clave' :
-    locale === 'ru' ? 'Ключевой параметр' :
-    'Key Parameter';
+  const overviewTitle = 'Обзор продукта';
+  const applicationLabel = 'Применение';
+  const keyParameterLabel = 'Ключевой параметр';
   const productOverview = [
     parseOverviewLine(keyParam1, keyParameterLabel),
     parseOverviewLine(keyParam2, keyParameterLabel),
@@ -123,7 +107,6 @@ export default function CatalogDetailContent({
   ].filter((item): item is { label: string; value: string } => Boolean(item))
     .filter((item) => !isCategoryOverviewItem(item));
   const galleryImages = readGalleryImages(product);
-  const brochure = locale === 'en' && basePath === '/products' ? getProductBrochure(handle) : null;
   const jsonLd = productJsonLd({
     locale,
     handle,
@@ -131,7 +114,6 @@ export default function CatalogDetailContent({
     description: summary,
     image: product.main_image,
     category: product.category_primary || product.category,
-    basePath,
     breadcrumbs: [
       { name: dict.nav.home, url: pageUrl(locale, '/') },
       { name: catalogLabel, url: pageUrl(locale, basePath) },
@@ -192,13 +174,6 @@ export default function CatalogDetailContent({
                         {dict.products.whatsapp}
                       </PrimaryContactButton>
                     </div>
-                    {brochure && (
-                      <ProductBrochureDownload
-                        productHandle={handle}
-                        productName={name}
-                        pageCount={brochure.pageCount}
-                      />
-                    )}
                   </div>
                 </div>
               </div>
@@ -252,9 +227,7 @@ export default function CatalogDetailContent({
           product={product}
           locale={locale}
           dict={dict}
-          basePath={basePath}
           catalogLabel={catalogLabel}
-          brochurePageCount={brochure?.pageCount}
         />
       </div>
     </>

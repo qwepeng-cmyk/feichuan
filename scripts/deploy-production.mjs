@@ -215,17 +215,6 @@ process.once('SIGTERM', () => {
   process.exit(143);
 });
 
-function rsyncProductBrochures() {
-  run('rsync', [
-    '-az',
-    '--checksum',
-    '-e',
-    rsyncRemoteShell(),
-    'private/product-brochures/',
-    `${remote}:${deployPath}/private/product-brochures/`,
-  ]);
-}
-
 function rsyncUpload(local, remotePath) {
   run('rsync', [
     '-azP',
@@ -551,7 +540,6 @@ step('Sync public assets');
 rsyncPublic();
 
 step('Sync gated product brochures');
-rsyncProductBrochures();
 
 step('Check public assets');
 run('node', ['scripts/check-public-sync.mjs']);

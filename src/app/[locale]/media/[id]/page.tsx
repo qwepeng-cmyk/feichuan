@@ -14,7 +14,7 @@ import { articleJsonLd, pageUrl, stripHtml } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { isCuasMediaHandle } from '@/lib/cuasIndexability';
+import { isdefenseMediaHandle } from '@/lib/indexability';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
@@ -31,8 +31,7 @@ export async function generateMetadata({ params }: { params: { id: string; local
     const newsTitle = getLocalizedMediaTitle(news, params.locale);
     const localizedContent = news[`content_${params.locale}`];
     const localizedSummary = news[`summary_${params.locale}`];
-    const newsContent = localizedContent
-        || (params.locale === 'en' ? news.content_en || news.content : localizedSummary ? `<p>${localizedSummary}</p>` : '');
+    const newsContent = localizedContent || (localizedSummary ? `<p>${localizedSummary}</p>` : '');
 
     return buildSeoMetadata({
         locale: params.locale,
@@ -40,7 +39,7 @@ export async function generateMetadata({ params }: { params: { id: string; local
         fallbackTitle: newsTitle,
         fallbackDescription: stripHtml(newsContent).slice(0, 240),
         image: news.image,
-        indexable: isCuasMediaHandle(params.id),
+        indexable: isdefenseMediaHandle(params.id),
     });
 }
 
@@ -57,8 +56,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
     const newsDate = getLocalizedMediaDate(news.date, locale);
     const localizedContent = news[`content_${locale}`];
     const localizedSummary = news[`summary_${locale}`];
-    const newsContent = localizedContent
-        || (locale === 'en' ? news.content_en || news.content : localizedSummary ? `<p>${localizedSummary}</p>` : '');
+    const newsContent = localizedContent || (localizedSummary ? `<p>${localizedSummary}</p>` : '');
     const jsonLd = articleJsonLd({
         locale,
         path: `/media/${id}`,
@@ -76,7 +74,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 
     return (
         <>
-            {isCuasMediaHandle(id) && <JsonLd data={jsonLd} />}
+            {isdefenseMediaHandle(id) && <JsonLd data={jsonLd} />}
 
             <div className="pc_only">
                 <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
@@ -93,8 +91,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                             <header style={{ textAlign: 'center', marginBottom: '48px' }}>
                                 <h1 style={{ fontSize: '4.6rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '22px', letterSpacing: 0 }}>{newsTitle}</h1>
                                 <div style={{ fontSize: '1.55rem', color: '#666', fontWeight: 500, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px 14px' }}>
-                                    <span>{locale === 'es' ? 'Publicado el' : locale === 'ru' ? 'Опубликовано' : locale === 'ar' ? 'نُشر في' : 'Published'} <time dateTime={news.date}>{newsDate}</time></span>
-                                    {locale === 'en' && <span aria-label="Reviewed by N-TET C-UAS Engineering Team">Reviewed by N-TET C-UAS Engineering Team</span>}
+                                    <span>Опубликовано <time dateTime={news.date}>{newsDate}</time></span>
                                 </div>
                             </header>
 

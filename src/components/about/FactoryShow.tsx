@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import styles from './FactoryShow.module.css';
-import { cuasText } from '@/lib/cuasLocaleCopy';
+import { defenseText } from '@/lib/localeCopy';
 
 const factoryImages = [
     {
-        src: '/about/factory-show/uav-drone-companies-china.webp',
+        src: '/about/factory-show/aerial-platform-companies-china.webp',
         alt: 'OEM equipment preparation workspace',
     },
     {
-        src: '/about/factory-show/uav-drone-solutions-china.webp',
+        src: '/about/factory-show/aerial-platform-solutions-china.webp',
         alt: 'Equipment testing resources for delivery verification',
     },
     {
@@ -16,16 +16,16 @@ const factoryImages = [
         alt: 'System assembly resources supporting project delivery',
     },
     {
-        src: '/about/factory-show/uav-detection-company-china.webp',
-        alt: 'C-UAS component and equipment preparation area',
+        src: '/about/factory-show/aerial-detection-company-china.webp',
+        alt: 'Low-Altitude Defense component and equipment preparation area',
     },
     {
-        src: '/about/factory-show/counter-uas-solutions-china.webp',
-        alt: 'C-UAS equipment prepared for configuration checks',
+        src: '/about/factory-show/low-altitude-defense-solutions-china.webp',
+        alt: 'Low-Altitude Defense equipment prepared for configuration checks',
     },
 ];
 
-export default function FactoryShow({ dict, locale = 'en' }: { dict?: any; locale?: string }) {
+export default function FactoryShow({ dict, locale = 'ru' }: { dict?: any; locale?: string }) {
     const title = dict?.about?.factoryShowTitle || 'Equipment Preparation & Testing';
 
     return (
@@ -40,7 +40,7 @@ export default function FactoryShow({ dict, locale = 'en' }: { dict?: any; local
                         <figure className={styles.card} key={image.src}>
                             <Image
                                 src={image.src}
-                                alt={cuasText(locale, image.alt)}
+                                alt={defenseText(locale, image.alt)}
                                 fill
                                 sizes="(max-width: 991px) 50vw, 33vw"
                                 style={{ objectFit: 'cover' }}

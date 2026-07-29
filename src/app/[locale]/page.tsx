@@ -8,8 +8,8 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/',
-        fallbackTitle: 'Professional C-UAS Equipment Manufacturer & System Supplier',
-        fallbackDescription: 'Industrial UAV platforms, C-UAS systems, early-warning equipment, and security screening systems for infrastructure and public-site operators.',
+        fallbackTitle: 'Professional Low-Altitude Defense Equipment Manufacturer & System Supplier',
+        fallbackDescription: 'Industrial Aerial Platform platforms, Low-Altitude Defense systems, early-warning equipment, and security screening systems for infrastructure and public-site operators.',
     });
 }
 

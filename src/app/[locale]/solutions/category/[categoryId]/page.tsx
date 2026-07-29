@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
 import CategoryLandingClient from './CategoryLandingClient';
@@ -13,38 +14,22 @@ import { localizedField } from '@/lib/localization';
 
 interface SolutionJson {
   product_name: string;
-  product_name_en: string;
   product_name_ru: string;
-  product_name_es?: string;
-  product_name_ar?: string;
   summary: string;
-  summary_en: string;
   summary_ru: string;
-  summary_es?: string;
-  summary_ar?: string;
   key_parameter_1: string;
-  key_parameter_1_en: string;
   key_parameter_1_ru: string;
   key_parameter_2: string;
-  key_parameter_2_en: string;
   key_parameter_2_ru: string;
   main_image: string;
   handle: string;
-  detail_html_en?: string;
   detail_html_ru?: string;
-  detail_html_es?: string;
-  detail_html_ar?: string;
-  parameters_en?: Record<string, string>;
   parameters_ru?: Record<string, string>;
-  parameters_es?: Record<string, string>;
-  parameters_ar?: Record<string, string>;
 }
 
 const VALID_CATEGORIES = [
-  '01_BorderPatrol',
   '02_InfrastructureProtection',
   '03_KeyAreaSecurity',
-  '04_EmergencyRescue',
 ];
 
 export function generateStaticParams() {
@@ -53,6 +38,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { categoryId: string; locale: Locale } }): Metadata {
   const landingData = categoryLandingData[params.categoryId];
+  if (!landingData) return {};
   const title = localizedField(landingData as any, 'name', params.locale) || params.categoryId.replace(/^\d+_/, '').replace(/([a-z])([A-Z])/g, '$1 $2');
 
   return buildSeoMetadata({
@@ -66,7 +52,7 @@ export function generateMetadata({ params }: { params: { categoryId: string; loc
 
 async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId: string; locale: Locale; dict: any }) {
   // Read all JSON files from the corresponding data directory
-  const dataDir = path.join(process.cwd(), '网站资料', '08方案概括', categoryId);
+  const dataDir = path.join(process.cwd(), 'src', 'data', 'solutionCategories', categoryId);
   let subSolutions: SolutionJson[] = [];
 
   try {
@@ -86,10 +72,6 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
     if (!localized) return solution;
     return {
       ...solution,
-      product_name_ar: localized.product_name_ar || solution.product_name_ar,
-      summary_ar: localized.summary_ar || solution.summary_ar,
-      product_name_es: localized.product_name_es || solution.product_name_es,
-      summary_es: localized.summary_es || solution.summary_es,
       product_name_ru: localized.product_name_ru || solution.product_name_ru,
       summary_ru: localized.summary_ru || solution.summary_ru,
     };
@@ -116,6 +98,7 @@ async function CategoryLandingWrapper({ categoryId, locale, dict }: { categoryId
 
 export default async function CategoryLandingPage({ params }: { params: { categoryId: string; locale: Locale } }) {
   const { categoryId, locale } = params;
+  if (!VALID_CATEGORIES.includes(categoryId)) notFound();
   const dict = await getDictionary(locale);
 
   return (
