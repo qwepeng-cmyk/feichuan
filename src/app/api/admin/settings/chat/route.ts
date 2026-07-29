@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getChatSettings, updateChatSettings } from '@/lib/siteSettings';
+import { getChatSettings, isBusinessChatProvider, updateChatSettings } from '@/lib/siteSettings';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,9 +14,15 @@ export async function GET() {
 export async function PUT(request: Request) {
   try {
     const body = await request.json();
+    if (!isBusinessChatProvider(body.businessChatProvider)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid business chat provider' },
+        { status: 400 }
+      );
+    }
 
     updateChatSettings({
-      tawkEnabled: Boolean(body.tawkEnabled),
+      businessChatProvider: body.businessChatProvider,
       messageBoxEnabled: Boolean(body.messageBoxEnabled),
       messageBoxDelayMinutes: Number(body.messageBoxDelayMinutes),
     });

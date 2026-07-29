@@ -11,6 +11,10 @@ const TawkBusinessChat = dynamic(() => import('./TawkBusinessChat'), {
   ssr: false,
 });
 
+const ZoosnetBusinessChat = dynamic(() => import('./ZoosnetBusinessChat'), {
+  ssr: false,
+});
+
 export default function DeferredContactTools() {
   const visitStartedAt = useRef(Date.now());
   const [shouldLoad, setShouldLoad] = useState(false);
@@ -51,6 +55,7 @@ export default function DeferredContactTools() {
   return (
     <>
       <TawkBusinessChat />
+      <ZoosnetBusinessChat />
       <FloatingMessageBox visitStartedAtMs={visitStartedAt.current} />
     </>
   );

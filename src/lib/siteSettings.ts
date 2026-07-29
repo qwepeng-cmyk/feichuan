@@ -7,8 +7,11 @@ export interface TrackingSettings {
   gtmEnabled: boolean;
 }
 
+export const BUSINESS_CHAT_PROVIDERS = ['none', 'tawk', 'zoosnet'] as const;
+export type BusinessChatProvider = (typeof BUSINESS_CHAT_PROVIDERS)[number];
+
 export interface ChatSettings {
-  tawkEnabled: boolean;
+  businessChatProvider: BusinessChatProvider;
   messageBoxEnabled: boolean;
   messageBoxDelayMinutes: number;
 }
@@ -21,7 +24,7 @@ const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
 };
 
 const DEFAULT_CHAT_SETTINGS: ChatSettings = {
-  tawkEnabled: true,
+  businessChatProvider: 'tawk',
   messageBoxEnabled: false,
   messageBoxDelayMinutes: 3,
 };
@@ -39,6 +42,10 @@ function parseInteger(value: unknown, fallback: number, min: number, max: number
   const parsed = typeof value === 'number' ? value : Number.parseInt(String(value), 10);
   if (!Number.isFinite(parsed)) return fallback;
   return Math.min(max, Math.max(min, Math.round(parsed)));
+}
+
+export function isBusinessChatProvider(value: unknown): value is BusinessChatProvider {
+  return BUSINESS_CHAT_PROVIDERS.includes(value as BusinessChatProvider);
 }
 
 export function getTrackingSettings(): TrackingSettings {
@@ -82,8 +89,19 @@ export function getChatSettings(): ChatSettings {
 
   const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 
+  const legacyProvider: BusinessChatProvider = parseBoolean(values['chat.tawkEnabled'], false)
+    ? 'tawk'
+    : parseBoolean(values['chat.zoosnetEnabled'], false)
+      ? 'zoosnet'
+      : 'none';
+  const savedProvider = values['chat.businessChatProvider'];
+
   return {
-    tawkEnabled: parseBoolean(values['chat.tawkEnabled'], DEFAULT_CHAT_SETTINGS.tawkEnabled),
+    businessChatProvider: isBusinessChatProvider(savedProvider)
+      ? savedProvider
+      : (values['chat.tawkEnabled'] || values['chat.zoosnetEnabled'])
+        ? legacyProvider
+        : DEFAULT_CHAT_SETTINGS.businessChatProvider,
     messageBoxEnabled: parseBoolean(values['chat.messageBoxEnabled'], DEFAULT_CHAT_SETTINGS.messageBoxEnabled),
     messageBoxDelayMinutes: parseInteger(
       values['chat.messageBoxDelayMinutes'],
@@ -104,7 +122,9 @@ export function updateChatSettings(settings: ChatSettings) {
   `);
 
   const transaction = db.transaction(() => {
-    update.run('chat.tawkEnabled', String(settings.tawkEnabled));
+    update.run('chat.businessChatProvider', settings.businessChatProvider);
+    update.run('chat.tawkEnabled', String(settings.businessChatProvider === 'tawk'));
+    update.run('chat.zoosnetEnabled', String(settings.businessChatProvider === 'zoosnet'));
     update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
     update.run(
       'chat.messageBoxDelayMinutes',

@@ -63,7 +63,7 @@ const policies: Record<Locale, PrivacyPolicyContent> = {
         id: 'cookies',
         title: '4. Cookies, analytics, and third-party services',
         paragraphs: [
-          'Depending on the website settings in use, Google Analytics and Google Tag Manager may place cookies or use similar identifiers to measure visits and interactions. When online business chat is enabled, Tawk.to may process technical details and chat activity. WhatsApp processes information when you choose to contact us through its service.',
+          'Depending on the website settings in use, Google Analytics and Google Tag Manager may place cookies or use similar identifiers to measure visits and interactions. When online business chat is enabled, the selected provider (Tawk.to or Zoosnet) may process technical details and chat activity. WhatsApp processes information when you choose to contact us through its service.',
           'The website also uses limited browser session storage to avoid repeatedly showing the same automatic message prompt during one browsing session. Third-party services handle information under their own privacy terms and may process it in other countries or regions.',
         ],
       },
@@ -155,7 +155,7 @@ const policies: Record<Locale, PrivacyPolicyContent> = {
         id: 'cookies',
         title: '4. Файлы cookie, аналитика и сторонние сервисы',
         paragraphs: [
-          'В зависимости от действующих настроек сайта Google Analytics и Google Tag Manager могут использовать cookie или аналогичные идентификаторы для измерения посещений и действий. Когда онлайн-чат включен, Tawk.to может обрабатывать технические данные и активность в чате. При обращении через WhatsApp данные обрабатываются этим сервисом.',
+          'В зависимости от действующих настроек сайта Google Analytics и Google Tag Manager могут использовать cookie или аналогичные идентификаторы для измерения посещений и действий. Когда онлайн-чат включен, выбранный провайдер (Tawk.to или Zoosnet) может обрабатывать технические данные и активность в чате. При обращении через WhatsApp данные обрабатываются этим сервисом.',
           'Сайт также использует ограниченное хранилище сеанса браузера, чтобы не показывать одно и то же автоматическое сообщение повторно в течение одного сеанса. Сторонние сервисы обрабатывают данные по собственным правилам конфиденциальности, в том числе в других странах и регионах.',
         ],
       },
@@ -247,7 +247,7 @@ const policies: Record<Locale, PrivacyPolicyContent> = {
         id: 'cookies',
         title: '4. Cookies, analítica y servicios de terceros',
         paragraphs: [
-          'Según la configuración activa del sitio, Google Analytics y Google Tag Manager pueden utilizar cookies o identificadores similares para medir visitas e interacciones. Cuando el chat comercial está habilitado, Tawk.to puede procesar datos técnicos y la actividad del chat. WhatsApp procesa información cuando decide contactarnos mediante su servicio.',
+          'Según la configuración activa del sitio, Google Analytics y Google Tag Manager pueden utilizar cookies o identificadores similares para medir visitas e interacciones. Cuando el chat comercial está habilitado, el proveedor seleccionado (Tawk.to o Zoosnet) puede procesar datos técnicos y la actividad del chat. WhatsApp procesa información cuando decide contactarnos mediante su servicio.',
           'El sitio también utiliza almacenamiento de sesión limitado en el navegador para no mostrar repetidamente el mismo mensaje automático durante una sesión. Los terceros tratan la información conforme a sus propias políticas y pueden procesarla en otros países o regiones.',
         ],
       },
@@ -339,7 +339,7 @@ const policies: Record<Locale, PrivacyPolicyContent> = {
         id: 'cookies',
         title: '4. ملفات تعريف الارتباط والتحليلات وخدمات الأطراف الثالثة',
         paragraphs: [
-          'وفقاً لإعدادات الموقع المفعلة، قد تستخدم Google Analytics وGoogle Tag Manager ملفات تعريف الارتباط أو معرفات مماثلة لقياس الزيارات والتفاعلات. وعند تفعيل محادثة الأعمال، قد تعالج Tawk.to البيانات التقنية ونشاط المحادثة. كما تعالج WhatsApp المعلومات عند اختيار التواصل معنا من خلال خدمتها.',
+          'وفقاً لإعدادات الموقع المفعلة، قد تستخدم Google Analytics وGoogle Tag Manager ملفات تعريف الارتباط أو معرفات مماثلة لقياس الزيارات والتفاعلات. وعند تفعيل محادثة الأعمال، قد يعالج المزود المحدد (Tawk.to أو Zoosnet) البيانات التقنية ونشاط المحادثة. كما تعالج WhatsApp المعلومات عند اختيار التواصل معنا من خلال خدمتها.',
           'يستخدم الموقع أيضاً مساحة محدودة من تخزين جلسة المتصفح لتجنب عرض الرسالة التلقائية نفسها عدة مرات خلال الجلسة الواحدة. تعالج الأطراف الثالثة المعلومات وفق سياسات الخصوصية الخاصة بها، وقد تتم المعالجة في دول أو مناطق أخرى.',
         ],
       },

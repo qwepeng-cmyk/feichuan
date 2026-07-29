@@ -24,7 +24,7 @@ type EmailForm = {
 };
 
 type ChatForm = {
-    tawkEnabled: boolean;
+    businessChatProvider: 'none' | 'tawk' | 'zoosnet';
     messageBoxEnabled: boolean;
     messageBoxDelayMinutes: number;
 };
@@ -92,7 +92,7 @@ const emptyEmail: EmailForm = {
 };
 
 const emptyChat: ChatForm = {
-    tawkEnabled: true,
+    businessChatProvider: 'tawk',
     messageBoxEnabled: false,
     messageBoxDelayMinutes: 3,
 };
@@ -329,14 +329,54 @@ export default function AdminSettingsPage() {
                     {chatError && <div style={{ marginBottom: '18px', color: '#be123c', fontSize: '1.3rem', fontWeight: 700 }}>{chatError}</div>}
 
                     <div style={{ display: 'grid', gap: '18px' }}>
-                        <label style={checkboxLabel}>
-                            <input
-                                type="checkbox"
-                                checked={chatForm.tawkEnabled}
-                                onChange={(e) => setChatForm((prev) => ({ ...prev, tawkEnabled: e.target.checked }))}
-                            />
-                            Enable Tawk business chat
-                        </label>
+                        <div>
+                            <span style={label}>Active business chat provider</span>
+                            <div
+                                role="radiogroup"
+                                aria-label="Active business chat provider"
+                                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '12px' }}
+                            >
+                                {[
+                                    { value: 'tawk', title: 'Tawk.to', description: 'Global live-chat widget' },
+                                    { value: 'zoosnet', title: '商务通 / Zoosnet', description: 'Original business-chat service' },
+                                    { value: 'none', title: 'Disabled', description: 'Do not load either provider' },
+                                ].map((option) => {
+                                    const selected = chatForm.businessChatProvider === option.value;
+                                    return (
+                                        <label
+                                            key={option.value}
+                                            style={{
+                                                position: 'relative',
+                                                display: 'grid',
+                                                gap: '5px',
+                                                padding: '16px 18px 16px 44px',
+                                                borderRadius: '10px',
+                                                border: selected ? '2px solid #315ba4' : '1px solid #dbe3ee',
+                                                background: selected ? '#eef4ff' : '#fff',
+                                                boxShadow: selected ? '0 10px 24px rgba(49, 91, 164, 0.12)' : 'none',
+                                                cursor: 'pointer',
+                                                transition: 'border-color 180ms ease, background 180ms ease, box-shadow 180ms ease',
+                                            }}
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="businessChatProvider"
+                                                value={option.value}
+                                                checked={selected}
+                                                onChange={() => setChatForm((prev) => ({
+                                                    ...prev,
+                                                    businessChatProvider: option.value as ChatForm['businessChatProvider'],
+                                                }))}
+                                                style={{ position: 'absolute', left: '17px', top: '19px', accentColor: '#315ba4' }}
+                                            />
+                                            <strong style={{ color: '#1e293b', fontSize: '1.3rem' }}>{option.title}</strong>
+                                            <span style={{ color: '#64748b', fontSize: '1.12rem', lineHeight: 1.45 }}>{option.description}</span>
+                                        </label>
+                                    );
+                                })}
+                            </div>
+                            <div style={helper}>Only one provider can be active. Saving this selection disables the other provider.</div>
+                        </div>
 
                         <label style={checkboxLabel}>
                             <input
@@ -369,7 +409,7 @@ export default function AdminSettingsPage() {
                         </label>
 
                         <div style={{ padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
-                            Tawk and the floating message box can be controlled separately. The timer starts when the visitor enters the site and continues across page navigation.
+                            The selected business-chat provider and the floating message box are controlled separately. The timer starts when the visitor enters the site and continues across page navigation.
                         </div>
                     </div>
 
