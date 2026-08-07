@@ -186,5 +186,6 @@ for (const locale of LOCALES) {
   lines.push(`- ${locale}: ${home}`);
 }
 
-writeTextFile(join(process.cwd(), 'public', 'llms.txt'), lines.join('\n'));
-console.log(`Generated public/llms.txt with ${allPublicRows.length} passive monitoring records.`);
+const template = lines.join('\n').replaceAll(SITE_URL, '{{SITE_URL}}');
+writeTextFile(join(process.cwd(), 'src', 'content', 'llms.txt'), template);
+console.log(`Generated src/content/llms.txt with ${allPublicRows.length} passive monitoring records.`);

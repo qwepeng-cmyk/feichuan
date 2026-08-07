@@ -1,10 +1,10 @@
 // Edited for Yandex.Direct compliance
 import type { Metadata } from 'next';
 import { i18n, type Locale } from '@/i18n/config';
+import { SITE_URL } from '@/config/site';
 import { buildKeywordIntro, getSeoKeywordBackedEntry } from '@/lib/seoKeywordTargets';
 import { sanitizePublicCopy } from '@/lib/publicCopy';
 
-const SITE_URL = 'https://n-tet.com';
 const SITE_NAME = 'N-TET';
 
 export interface SeoEntry {

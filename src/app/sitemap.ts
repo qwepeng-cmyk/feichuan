@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/config/site';
 import { supabase } from '@/lib/supabase';
 import { i18n, type Locale } from '@/i18n/config';
 import {
@@ -15,7 +16,6 @@ import {
   isPassiveDetectionProductHandle,
 } from '@/lib/publicCatalogPolicy';
 
-const SITE_URL = 'https://n-tet.com';
 const STATIC_PATHS = ['/', '/products', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
 const INTENT_PATHS = [
   '/solutions/multi-sensor-detection',

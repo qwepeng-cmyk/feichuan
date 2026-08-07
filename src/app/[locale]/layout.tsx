@@ -14,6 +14,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { siteGraphSchema } from "@/lib/structuredData";
 import { getAllProducts } from "@/lib/products";
 import { getVisibleProductCategoryIds } from "@/lib/productCategoryVisibility";
+import { SITE_URL } from "@/config/site";
 
 function isValidLocale(locale: string): locale is Locale {
   return i18n.locales.includes(locale as Locale);
@@ -47,7 +48,6 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     notFound();
   }
 
-  const baseUrl = 'https://n-tet.com';
   const dict = await getDictionary(locale);
   const homeTitle = dict.home.hero.title.replace(/<br\s*\/?\s*>/gi, ' ');
   const homeDescription = dict.home.hero.subtitle;
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   return {
     title: `${homeTitle} | N-TET`,
     description: homeDescription,
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(SITE_URL),
     icons: {
       icon: [
         { url: '/favicon.ico?v=20260630-ntet-logo', sizes: 'any' },

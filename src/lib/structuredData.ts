@@ -1,6 +1,6 @@
 import { i18n, type Locale } from '@/i18n/config';
+import { SITE_URL } from '@/config/site';
 
-const SITE_URL = 'https://n-tet.com';
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 

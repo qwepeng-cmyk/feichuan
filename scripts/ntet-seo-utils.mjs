@@ -27,7 +27,11 @@ try {
   Database = NodeSqliteReadonlyDatabase;
 }
 
-export const SITE_URL = (process.env.SITE_URL || 'https://n-tet.com').replace(/\/+$/, '');
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  'https://n-tet.com'
+).replace(/\/+$/, '');
 export const LOCALES = ['ru'];
 
 export const CONTENT_TYPES = {
