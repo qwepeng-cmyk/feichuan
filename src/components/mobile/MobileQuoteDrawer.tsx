@@ -53,9 +53,9 @@ export default function MobileQuoteDrawer({ dict, open, onClose }: MobileQuoteDr
         <div className={styles.handle} aria-hidden="true" />
         <header className={styles.header}>
           <div>
-            <p className={styles.eyebrow}>N-TET · platform DEFENSE</p>
+            <p className={styles.eyebrow}>N-TET · ЗАЩИТА ОБЪЕКТОВ</p>
             <h2 id="mobile-quote-title" className={styles.title}>
-              {dict?.inquiry?.title || 'Get Expert Platform Defense Advice'}
+              {dict?.inquiry?.title || 'Получить консультацию специалиста'}
             </h2>
           </div>
           <button type="button" className={styles.close} onClick={onClose} aria-label={ux.closeQuote}>

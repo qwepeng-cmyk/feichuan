@@ -128,7 +128,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
     if (!enabled || !isDesktop) return;
 
     const measurePanelHeight = () => {
-      const topButton = document.querySelector<HTMLElement>('[aria-label="Quick contact"] [aria-label="Back to top"]');
+      const topButton = document.querySelector<HTMLElement>('[data-floating-action="back-to-top"]');
       if (!topButton) return;
 
       const topButtonTop = topButton.getBoundingClientRect().top;
@@ -160,7 +160,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
     const hasUsableCountryCode = /^\+\d{1,4}$/.test(countryCode);
 
     if (!hasInternationalPrefix && !hasUsableCountryCode) {
-      setErrorMessage('Please add a country code, or enter the full number with +.');
+      setErrorMessage('Укажите код страны или введите полный номер со знаком +.');
       setStatus('error');
       setIsSending(false);
       return;
@@ -208,7 +208,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
       router.push(localePath(localeFromPathname(pathname), '/thank-you'));
     } catch (error) {
       console.error('Floating message submit failed:', error);
-      setErrorMessage('Could not submit. Please try again or contact us by WhatsApp.');
+      setErrorMessage('Не удалось отправить сообщение. Повторите попытку или свяжитесь с нами через WhatsApp.');
       setStatus('error');
     } finally {
       if (!submissionSucceeded) {
@@ -225,28 +225,28 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
     : undefined;
 
   return (
-    <aside className={styles.shell} style={shellStyle} aria-label="Floating message box">
+    <aside className={styles.shell} style={shellStyle} aria-label="Форма быстрого сообщения">
       {minimized ? (
         <button type="button" className={styles.minimized} onClick={() => setMinimized(false)}>
           <MessageSquareText size={20} />
-          <span>Leave a Message</span>
+          <span>Оставить сообщение</span>
         </button>
       ) : (
-        <div className={styles.panel} role="dialog" aria-label="Leave a message">
+        <div className={styles.panel} role="dialog" aria-label="Оставить сообщение">
           <div className={styles.header}>
               <div>
-                <p className={styles.eyebrow}>Quick Message</p>
-              <h2 className={styles.title}>Get Expert Platform Defense Advice</h2>
-              <p className={styles.headerText}>Tell us your site type, project stage, or equipment needs. We can send suitable options, specs, or a quick quotation.</p>
+                <p className={styles.eyebrow}>Быстрый запрос</p>
+              <h2 className={styles.title}>Получить консультацию специалиста</h2>
+              <p className={styles.headerText}>Укажите тип объекта, этап проекта или требования к оборудованию. Мы предложим подходящие варианты, характеристики или предварительный расчёт.</p>
             </div>
-            <button type="button" className={styles.iconButton} onClick={() => setMinimized(true)} aria-label="Minimize message box">
+            <button type="button" className={styles.iconButton} onClick={() => setMinimized(true)} aria-label="Свернуть форму сообщения">
               <Minus size={18} />
             </button>
           </div>
 
           <form className={styles.form} onSubmit={submitMessage}>
             <label className={styles.field}>
-              <span className={styles.label}>Name *</span>
+              <span className={styles.label}>Имя *</span>
               <input
                 className={styles.input}
                 value={formData.name}
@@ -257,7 +257,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
             </label>
 
             <label className={styles.field}>
-              <span className={styles.label}>Email *</span>
+              <span className={styles.label}>Электронная почта *</span>
               <input
                 className={styles.input}
                 type="email"
@@ -270,7 +270,7 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
             </label>
 
             <label className={styles.field}>
-              <span className={styles.label}>WhatsApp / Phone *</span>
+              <span className={styles.label}>WhatsApp / телефон *</span>
               <div className={styles.phoneRow}>
                 <input
                   className={`${styles.input} ${styles.countryCodeInput}`}
@@ -282,8 +282,8 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
                   }}
                   inputMode="tel"
                   autoComplete="tel-country-code"
-                  placeholder="e.g. +1"
-                  aria-label="Country code"
+                  placeholder="например, +7"
+                  aria-label="Код страны"
                 />
                 <input
                   className={styles.input}
@@ -291,30 +291,30 @@ export default function FloatingMessageBox({ visitStartedAtMs }: { visitStartedA
                   value={formData.phone}
                   onChange={(event) => setFormData((prev) => ({ ...prev, phone: event.target.value }))}
                   autoComplete="tel"
-                  placeholder="WhatsApp number, or full number with +"
+                  placeholder="Номер WhatsApp или полный номер со знаком +"
                   required
                 />
               </div>
             </label>
 
             <label className={styles.field}>
-              <span className={styles.label}>Message *</span>
+              <span className={styles.label}>Сообщение *</span>
               <textarea
                 className={styles.textarea}
                 value={formData.message}
                 onChange={(event) => setFormData((prev) => ({ ...prev, message: event.target.value.slice(0, 700) }))}
-                placeholder="Example: airport perimeter, prison, border site, event security, or request brochure / specs / quotation."
+                placeholder="Например: тип объекта, зона покрытия, интересующее оборудование, запрос брошюры, характеристик или расчёта."
                 required
               />
             </label>
 
-            {status === 'success' && <p className={styles.success}>Message received. Our team will get back to you soon.</p>}
+            {status === 'success' && <p className={styles.success}>Сообщение получено. Наша команда скоро свяжется с вами.</p>}
             {status === 'error' && <p className={styles.error}>{errorMessage}</p>}
-            <p className={styles.note}>A short message is enough. Our team can follow up by email or WhatsApp.</p>
+            <p className={styles.note}>Достаточно краткого сообщения. Мы ответим по электронной почте или в WhatsApp.</p>
 
             <button type="submit" className={styles.submitButton} disabled={isSending}>
               <Send size={16} />
-              {isSending ? 'Sending...' : 'Send Message'}
+              {isSending ? 'Отправка...' : 'Отправить сообщение'}
             </button>
           </form>
         </div>

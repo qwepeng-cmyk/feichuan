@@ -14,9 +14,13 @@ function loadEnvFile(file) {
 }
 
 loadEnvFile(join(process.cwd(), '.env.deploy.local'));
+loadEnvFile(join(process.cwd(), '.env.local'));
 
 const token = process.env.CLOUDFLARE_API_TOKEN;
-const zoneName = process.env.ZONE_NAME || 'n-tet.com';
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://n-tet.com';
+const publicHostname = new URL(configuredSiteUrl).hostname;
+const zoneName = process.env.ZONE_NAME || publicHostname.replace(/^www\./, '');
+const publicHosts = Array.from(new Set([zoneName, publicHostname]));
 const checkOnly = process.argv.includes('--check');
 const ruleRef = 'ntet_public_html_cache_v1';
 const ruleDescription = 'N-TET public HTML edge cache (exclude Next.js RSC requests)';
@@ -45,9 +49,9 @@ async function cf(path, init = {}, { allowNotFound = false } = {}) {
 }
 
 const publicSections = ['products', 'accessories', 'solutions', 'cases', 'media', 'about', 'contact'];
-const locales = ['', '/ru', '/es', '/ar'];
+const locales = ['', '/ru'];
 const pathExpressions = [
-  'http.request.uri.path in {"/" "/ru" "/es" "/ar"}',
+  'http.request.uri.path in {"/" "/ru"}',
   ...locales.flatMap((locale) => publicSections.map((section) => {
     const base = `${locale}/${section}`;
     return `(http.request.uri.path eq "${base}" or starts_with(http.request.uri.path, "${base}/"))`;
@@ -55,7 +59,7 @@ const pathExpressions = [
 ];
 
 const expression = [
-  `http.host eq "${zoneName}"`,
+  `http.host in {${publicHosts.map((host) => `"${host}"`).join(' ')}}`,
   'http.request.method in {"GET" "HEAD"}',
   'not any(http.request.headers["rsc"][*] eq "1")',
   'not any(http.request.headers["next-router-prefetch"][*] eq "1")',
@@ -72,7 +76,7 @@ const desiredRule = {
     cache: true,
     edge_ttl: {
       mode: 'override_origin',
-      default: 3600,
+      default: 86400,
     },
     browser_ttl: {
       mode: 'respect_origin',
@@ -123,5 +127,6 @@ if (checkOnly) {
   console.log(`Added the public HTML cache rule for ${zoneName}.`);
 }
 
-console.log('Covered routes: home, products, accessories, solutions, cases, media, about, and contact (including ru/es/ar prefixes).');
-console.log('Excluded: API/admin/thank-you routes, non-GET requests, and Next.js RSC/prefetch requests. Edge TTL: 3600 seconds.');
+console.log(`Covered hosts: ${publicHosts.join(', ')}.`);
+console.log('Covered routes: home, products, accessories, solutions, cases, media, about, and contact (including the internal ru prefix).');
+console.log('Excluded: API/admin/thank-you routes, non-GET requests, and Next.js RSC/prefetch requests. Edge TTL: 86400 seconds.');

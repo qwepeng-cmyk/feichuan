@@ -105,7 +105,7 @@ const groups: ProductGroup[] = [
   {
     id: 'fixed-site-defense-systems',
     title: 'Fixed-Site Low-Altitude Defense Systems',
-    description: 'Fixed passive RF, radar, EO tracking and Remote ID equipment for continuous low-altitude monitoring.',
+    description: 'Стационарные пассивные RF-системы, радары, оптико-электронное сопровождение и оборудование Remote ID для непрерывного мониторинга малых высот.',
     handles: fixedSiteHandles,
     icon: <FixedSiteIcon />,
   },
@@ -124,7 +124,7 @@ const groups: ProductGroup[] = [
   {
     id: 'electro-optical-products',
     title: 'EO/IR Tracking & Verification',
-    description: 'EO/IR PTZ, thermal imaging, long-range optical and radar-vision products for visual confirmation and perimeter awareness.',
+    description: 'Поворотные EO/IR-системы, тепловизоры, дальнобойная оптика и радарно-оптические комплексы для визуального подтверждения и контроля периметра.',
     icon: <OpticalIcon />,
   },
 ];

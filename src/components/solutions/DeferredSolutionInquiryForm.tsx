@@ -6,7 +6,7 @@ import styles from './IntentLandingPage.module.css';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: false,
-  loading: () => <div className={styles.inquiryLoading}>Loading inquiry form…</div>,
+  loading: () => <div className={styles.inquiryLoading}>Загрузка формы запроса…</div>,
 });
 
 export default function DeferredSolutionInquiryForm({ dict }: { dict: any }) {

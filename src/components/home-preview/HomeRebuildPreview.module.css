@@ -1028,6 +1028,42 @@
   font-weight: 700;
 }
 
+.caseFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+}
+
+.caseAllLink {
+  min-height: 50px;
+  padding: 0 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #18283a;
+  background: #18283a;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caseAllLink:hover {
+  border-color: var(--preview-orange);
+  background: var(--preview-orange);
+  transform: translateY(-2px);
+}
+
+.caseAllLink svg {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caseAllLink:hover svg {
+  transform: translateX(4px);
+}
+
 .purchaseCta {
   position: relative;
   width: min(1520px, calc(100% - 80px));

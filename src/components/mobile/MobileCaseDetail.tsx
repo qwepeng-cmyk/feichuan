@@ -144,7 +144,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                 <div className={styles.title}>{title}</div>
 
                 <CaseEquipmentList
-                    heading={dict.cases?.equipmentUsed || 'Equipment Used'}
+                    heading={dict.cases?.equipmentUsed || 'Использованное оборудование'}
                     items={equipmentItems}
                     compact
                 />
@@ -154,7 +154,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                     <div className={styles.infoContent}>
                         <div className={styles.keyParams}>
                             <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '8px' }}>
-                                {dict.cases?.projectOverview || 'Project Overview'}
+                                {dict.cases?.projectOverview || 'Обзор проекта'}
                             </div>
                             {caseSnapshot.map((item, idx) => (
                                 <div key={idx} className={styles.paramItem}>

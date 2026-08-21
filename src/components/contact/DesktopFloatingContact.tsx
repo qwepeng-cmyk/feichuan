@@ -175,6 +175,7 @@ export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: str
         <button
           type="button"
           className={`${styles.actionButton} ${styles.top}`}
+          data-floating-action="back-to-top"
           onClick={scrollToTop}
           aria-label={copy.topLabel}
         >

@@ -1,3 +1,38 @@
+const RUSSIAN_EDITORIAL_REPLACEMENTS: Array<[RegExp, string]> = [
+  [
+    /Система навигационного спуфинга воздушная платформа/gi,
+    'Система анализа аномалий навигационного сигнала',
+  ],
+  [
+    /Система навигационного спуфинга БПЛА/gi,
+    'Система анализа аномалий навигационного сигнала',
+  ],
+  [
+    /Стационарная система активной радиочастотной защиты \(спуфинговая\)/gi,
+    'Стационарная система анализа навигационного сигнала',
+  ],
+  [
+    /Портативная система активной радиочастотной защиты \(спуфинговая\)/gi,
+    'Портативная система анализа навигационного сигнала',
+  ],
+  [
+    /с подавление радиосигнала и системами спуфинга/gi,
+    'с RF-мониторингом и системами анализа аномалий навигационного сигнала',
+  ],
+  [
+    /с джаммерами и системами спуфинга/gi,
+    'с RF-мониторингом и системами анализа аномалий навигационного сигнала',
+  ],
+  [
+    /для средств согласованного реагирования и навигационного спуфинга/gi,
+    'для средств согласованного реагирования и анализа аномалий навигационного сигнала',
+  ],
+  [
+    /наркотиков,\s*оружия и мобильных телефонов/gi,
+    'наркотиков, запрещённых предметов и мобильных телефонов',
+  ],
+];
+
 const SAFE_UTF8_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\bdrone(?:s)?\b/gi, '\u043d\u0438\u0437\u043a\u043e\u0432\u044b\u0441\u043e\u0442\u043d\u0430\u044f \u0446\u0435\u043b\u044c'],
   [/\buav(?:s)?\b/gi, '\u0432\u043e\u0437\u0434\u0443\u0448\u043d\u0430\u044f \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430'],
@@ -89,13 +124,19 @@ const QUALIFIED_CLAIM_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\binstantaneous neutralization\b/gi, 'operator-coordinated response'],
   [/\btotal privacy\b/gi, 'site-specific privacy risk reduction'],
   [/\bzero-intrusion\b/gi, 'reduced-incursion'],
-  [/\b24\/7 all-weather\b/gi, 'continuous monitoring within documented environmental limits'],
-  [/\b24\/7\b/gi, 'continuous operation within documented power, network and environmental limits'],
-  [/\ball-weather operation\b/gi, 'operation within documented environmental limits'],
+  [/\b24\/7 all-weather\b/gi, 'непрерывный мониторинг в пределах документированных условий эксплуатации'],
+  [/\b24\/7\b/gi, 'непрерывная работа в пределах документированных условий по питанию, сети и окружающей среде'],
+  [/\ball-weather operation\b/gi, 'работа в пределах документированных условий окружающей среды'],
   [/\bguarantees?\b/gi, 'supports'],
   [/абсолютн[а-яё-]*\s+(?:защит[а-яё-]*|гаранти[а-яё-]*|эффективност[а-яё-]*)/gi, 'результат в пределах документированных условий испытаний'],
   [/круглосуточн[а-яё-]*\s+всепогодн[а-яё-]*/gi, 'непрерывный мониторинг в пределах документированных условий эксплуатации'],
   [/гарантиру[а-яё-]*/gi, 'поддерживает'],
+];
+
+const RUSSIAN_QUALIFIED_CLAIM_REPLACEMENTS: Array<[RegExp, string]> = [
+  [/\b24\/7\s+all-weather\b/gi, 'непрерывный мониторинг в пределах документированных условий эксплуатации'],
+  [/\b24\/7\b/gi, 'непрерывная работа в пределах документированных условий по питанию, сети и окружающей среде'],
+  [/\ball-weather operation\b/gi, 'работа в пределах документированных условий окружающей среды'],
 ];
 
 function normalizeRussianPlatformGrammar(value: string) {
@@ -184,6 +225,14 @@ export function sanitizePublicCopy<T>(value: T): T {
   if (typeof value !== 'string' || !value) return value;
 
   let sanitized: string = value;
+  for (const [pattern, replacement] of RUSSIAN_EDITORIAL_REPLACEMENTS) {
+    sanitized = sanitized.replace(pattern, replacement);
+  }
+  if (/[А-Яа-яЁё]/.test(sanitized)) {
+    for (const [pattern, replacement] of RUSSIAN_QUALIFIED_CLAIM_REPLACEMENTS) {
+      sanitized = sanitized.replace(pattern, replacement);
+    }
+  }
   for (const [pattern, replacement] of SAFE_UTF8_REPLACEMENTS) {
     sanitized = sanitized.replace(pattern, replacement);
   }

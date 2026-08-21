@@ -743,6 +743,13 @@ function inferOverviewHeading(primary: string, pageKind?: string, locale = 'ru')
     if (/product|accessory/i.test(pageKind || '')) return `المواصفات الفنية لـ ${primary}`;
     return `نظرة عامة على ${primary}`;
   }
+  if (locale === 'ru') {
+    if (/case/i.test(pageKind || '')) return `Обзор проекта: ${primary}`;
+    if (/media/i.test(pageKind || '')) return `Материалы по теме: ${primary}`;
+    if (/solution/i.test(pageKind || '')) return `Применение решения: ${primary}`;
+    if (/product|accessory/i.test(pageKind || '')) return `Технические характеристики: ${primary}`;
+    return `Обзор: ${primary}`;
+  }
   if (/case/i.test(pageKind || '')) return `${primary} Project Overview`;
   if (/media/i.test(pageKind || '')) return `${primary} Insights`;
   if (/solution/i.test(pageKind || '')) return `${primary} Operations`;

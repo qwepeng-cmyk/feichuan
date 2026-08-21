@@ -2,6 +2,39 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { i18n } from './i18n/config';
 
+function firstForwardedValue(value: string | null) {
+    return value?.split(',')[0]?.trim() || '';
+}
+
+function publicRequestOrigin(request: NextRequest) {
+    const forwardedHost = firstForwardedValue(request.headers.get('x-forwarded-host'));
+    const requestHost = firstForwardedValue(request.headers.get('host'));
+    const forwardedProto = firstForwardedValue(request.headers.get('x-forwarded-proto'));
+    const protocol = forwardedProto === 'http' || forwardedProto === 'https'
+        ? forwardedProto
+        : 'https';
+
+    for (const candidate of [
+        process.env.NEXT_PUBLIC_SITE_URL || '',
+        forwardedHost ? `${protocol}://${forwardedHost}` : '',
+        requestHost ? `${protocol}://${requestHost}` : '',
+        request.nextUrl.origin,
+    ]) {
+        if (!candidate) continue;
+
+        try {
+            const url = new URL(candidate);
+            if (!isLocalHostname(url.hostname)) {
+                return url.origin;
+            }
+        } catch {
+            // Ignore malformed proxy headers and continue to the configured origin.
+        }
+    }
+
+    return request.nextUrl.origin;
+}
+
 function publicPathSegments(pathname: string) {
     return pathname.split('/').filter(Boolean).filter((part, index) => {
         return !(index === 0 && i18n.locales.includes(part as any));
@@ -16,6 +49,15 @@ function isProtectedFrontendPreview(pathname: string) {
 const WITHDRAWN_PUBLIC_ROUTES = new Set([
     'products/low-altitude-airspace-monitoring',
     'solutions/low-altitude-airspace-monitoring',
+]);
+
+const DIRECT_RU_PUBLIC_ROUTES = new Set([
+    '/solutions/layered-site-protection',
+    '/solutions/low-altitude-radar-monitoring',
+    '/solutions/multi-sensor-detection',
+    '/solutions/perimeter-defense-system',
+    '/solutions/portable-detection-system',
+    '/solutions/rf-target-positioning',
 ]);
 
 function isWithdrawnPublicRoute(pathname: string) {
@@ -83,6 +125,7 @@ function normalizedBrandPath(pathname: string) {
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
+    const publicOrigin = publicRequestOrigin(request);
     const isInternalDefaultLocaleRewrite =
         request.nextUrl.searchParams.get('ntetDefaultLocale') === '1';
 
@@ -91,7 +134,7 @@ export function middleware(request: NextRequest) {
         const secret = process.env.ADMIN_SECRET || 'default_secret';
 
         if (!isLocalHostname(request.nextUrl.hostname) && (!token || token !== secret)) {
-            const loginUrl = new URL('/admin/login', request.url);
+            const loginUrl = new URL('/admin/login', publicOrigin);
             return NextResponse.redirect(loginUrl);
         }
     }
@@ -143,17 +186,24 @@ export function middleware(request: NextRequest) {
 
     const brandPath = normalizedBrandPath(pathname);
     if (brandPath) {
-        return NextResponse.redirect(new URL(brandPath, request.url), { status: 301 });
+        return NextResponse.redirect(new URL(brandPath, publicOrigin), { status: 301 });
     }
 
     const solutionPath = legacySolutionPath(pathname);
     if (solutionPath) {
-        return NextResponse.redirect(new URL(solutionPath, request.url), { status: 301 });
+        return NextResponse.redirect(new URL(solutionPath, publicOrigin), { status: 301 });
     }
 
     const productPath = legacyProductPath(pathname);
     if (productPath) {
-        return NextResponse.redirect(new URL(productPath, request.url), { status: 301 });
+        return NextResponse.redirect(new URL(productPath, publicOrigin), { status: 301 });
+    }
+
+    // These Russian advertising landing pages have direct App Router entries.
+    // Serving them without a locale rewrite keeps internal proxy URLs out of
+    // the public response and removes an unnecessary middleware round trip.
+    if (DIRECT_RU_PUBLIC_ROUTES.has(pathname)) {
+        return NextResponse.next();
     }
 
     // --- i18n Locale Routing ---
@@ -164,7 +214,7 @@ export function middleware(request: NextRequest) {
         const newPathname = pathname === `/${defaultLocale}` 
             ? '/' 
             : pathname.replace(`/${defaultLocale}/`, '/');
-        return NextResponse.redirect(new URL(newPathname, request.url), { status: 301 });
+        return NextResponse.redirect(new URL(newPathname, publicOrigin), { status: 301 });
     }
 
     if (isInternalDefaultLocaleRewrite) {

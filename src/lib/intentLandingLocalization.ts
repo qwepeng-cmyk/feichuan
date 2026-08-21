@@ -22,6 +22,74 @@ const russianStrings: Record<string, string> = {
   ...ru06,
   ...ru07,
   ...ru08,
+  'MULTI-SENSOR TARGET DETECTION': 'МУЛЬТИСЕНСОРНОЕ ОБНАРУЖЕНИЕ ЦЕЛЕЙ',
+  'Target Detector: Multi-Sensor Detection & Identification':
+    'Детектор целей: мультисенсорное обнаружение и идентификация',
+  'Compare passive RF sensing, low-altitude target detection radar, Remote ID receivers and EO/IR tracking systems to build a practical target detector layer.':
+    'Сравните пассивные RF-сенсоры, радары обнаружения целей на малых высотах, приёмники Remote ID и системы EO/IR-сопровождения, чтобы сформировать практический уровень обнаружения целей.',
+  'Multi-sensor target detector configuration with RF and radar monitoring':
+    'Мультисенсорная конфигурация обнаружения целей с RF- и радарным мониторингом',
+  'Passive RF sensing & direction finding': 'Пассивный RF-мониторинг и пеленгация',
+  'Target detection radar': 'Радар обнаружения целей',
+  'Remote ID and EO/IR confirmation': 'Подтверждение с помощью Remote ID и EO/IR',
+  'What makes a reliable target detector layer?': 'Что обеспечивает надёжный уровень обнаружения целей?',
+  'No single sensor provides complete coverage under all conditions. Passive RF sensing identifies radio-control and video-downlink emissions, protocol clues and direction of arrival without active transmission. Target detection radar adds range, bearing, altitude, speed and continuous tracks, making it effective against silent or autonomous targets. Remote ID receivers extract cooperative identity and position broadcasts where supported by the target. EO/IR tracking systems provide visible and thermal imagery to confirm target presence and classification before an operator takes action. Selection depends on line of sight, terrain, buildings, local RF noise, weather, mounting options and required response speed. In an integrated Low-Altitude Defense workflow, observations from these four sensor layers are correlated on the command platform to present a single, reviewable track.':
+    'Ни один датчик не обеспечивает полного покрытия во всех условиях. Пассивные RF-сенсоры без собственного излучения распознают сигналы управления и видеоканалов, признаки протоколов и направление прихода сигнала. Радар добавляет дальность, азимут, высоту, скорость и непрерывную траекторию, включая цели без активного радиоканала. Приёмники Remote ID получают кооперативные идентификационные и позиционные данные, если цель поддерживает такую передачу. EO/IR-системы дают изображение в видимом и тепловом диапазонах для подтверждения наличия и типа цели до действий оператора. Выбор зависит от прямой видимости, рельефа, застройки, местного RF-шума, погоды, вариантов монтажа и требуемой скорости реагирования. В интегрированном процессе мониторинга данные четырёх сенсорных уровней сопоставляются на командной платформе и формируют единую проверяемую траекторию.',
+  'Airport perimeter awareness': 'Контроль периметра аэропорта',
+  'Combine passive RF, low-altitude radar and Remote ID monitoring around approach corridors.':
+    'Объедините пассивный RF-мониторинг, радар малых высот и Remote ID для контроля коридоров захода.',
+  'Energy & industrial facilities': 'Энергетические и промышленные объекты',
+  'Detect and trace target activity around production zones, storage tanks and logistics areas.':
+    'Обнаруживайте и отслеживайте активность целей вокруг производственных зон, резервуаров и логистических площадок.',
+  'Key venue & event security': 'Безопасность важных объектов и мероприятий',
+  'Deploy temporary RF and EO/IR monitoring positions with field-team handoff procedures.':
+    'Развёртывайте временные позиции RF- и EO/IR-мониторинга с регламентом передачи данных полевой группе.',
+  'Government & institutional sites': 'Государственные и ведомственные объекты',
+  'Verify target signals, track history and visual evidence before escalating to response teams.':
+    'Проверяйте сигналы цели, историю траектории и визуальные данные до передачи информации группе реагирования.',
+  'Four target detector sensor options': 'Четыре сенсорных уровня обнаружения целей',
+  'Select the sensor combination that fits the protected area, operating environment and team workflow.':
+    'Выберите сочетание датчиков с учётом охраняемой территории, условий эксплуатации и рабочего процесса команды.',
+  'Stationary RF Identification System': 'Стационарная система RF-идентификации',
+  'A fixed passive RF detector for continuous spectrum monitoring, signal identification and direction-finding support.':
+    'Стационарный пассивный RF-детектор для непрерывного контроля спектра, идентификации сигналов и пеленгации.',
+  'Stationary RF target identification system for fixed-site installation':
+    'Стационарная система RF-идентификации целей для постоянной установки',
+  '300 MHz-6 GHz frequency coverage': 'Частотный диапазон 300 МГц–6 ГГц',
+  '360° horizontal direction finding': 'Горизонтальная пеленгация 360°',
+  'Ethernet command linkage': 'Подключение к командной системе по Ethernet',
+  'Low-Altitude Early-Warning Radar (Ku-Band)': 'Радар раннего предупреждения малых высот (Ku-диапазон)',
+  'A 3D pulse-Doppler radar for wide-area search, continuous target tracking and cueing of optical or countermeasure systems.':
+    'Трёхкоординатный импульсно-доплеровский радар для поиска в широкой зоне, непрерывного сопровождения целей и наведения оптических систем или средств реагирования.',
+  'Ku-band low-altitude target detection radar': 'Радар Ku-диапазона для обнаружения целей на малых высотах',
+  '360° search coverage': 'Круговой обзор 360°',
+  'Multi-target track output': 'Выдача траекторий нескольких целей',
+  'Composite Electro-Optical Tracking System': 'Комплексная оптико-электронная система сопровождения',
+  'A dual-sensor optical unit combining visible HD and thermal cameras for visual confirmation and track verification.':
+    'Двухканальный оптический модуль с HD-камерой видимого диапазона и тепловизором для визуального подтверждения и проверки траектории.',
+  'Electro-optical and thermal tracking system for target confirmation':
+    'Оптико-электронная и тепловизионная система сопровождения для подтверждения цели',
+  'Visible and thermal channels': 'Видимый и тепловизионный каналы',
+  'Precision pan-tilt control': 'Точное поворотно-наклонное управление',
+  'Radar-linkage support': 'Поддержка наведения по данным радара',
+  'Which detection layer answers which question?': 'Какие данные предоставляет каждый уровень обнаружения?',
+  'RF sensing': 'RF-сенсоры',
+  'Best use': 'Оптимальное применение',
+  'Typical deployment': 'Типовое развёртывание',
+  'Detection, identification, tracking and response': 'Обнаружение, идентификация, сопровождение и реагирование',
+  'Detection': 'Обнаружение',
+  'Identification': 'Идентификация',
+  'Confirmation': 'Подтверждение',
+  'Command & Response': 'Управление и реагирование',
+  'Two solution scenarios': 'Два сценария применения',
+  'Airport Airspace Monitoring': 'Мониторинг воздушного пространства аэропорта',
+  'Energy & Industrial Perimeter': 'Периметр энергетического или промышленного объекта',
+  'Target detector planning FAQ': 'Частые вопросы о планировании системы обнаружения целей',
+  'Is a target detector one device?': 'Детектор целей — это одно устройство?',
+  'Can one sensor guarantee complete coverage?': 'Может ли один датчик обеспечить полное покрытие?',
+  'Does the workflow stop after an alert is recorded?': 'Завершается ли процесс после регистрации тревоги?',
+  'What information is needed for a site proposal?': 'Какая информация нужна для подготовки предложения по объекту?',
+  'Request Site Plan': 'Запросить план для объекта',
   'PERIMETER DEFENSE & PROTECTION': 'МОНИТОРИНГ ПЕРИМЕТРА',
   'Perimeter Defense: Integrated Low-Altitude Site Protection':
     'Интегрированный мониторинг периметра на малых высотах',
@@ -33,6 +101,8 @@ const russianStrings: Record<string, string> = {
     'Платформа сопоставляет траекторию с RF-данными, Remote ID, перечнем разрешённых полётов и картографической обстановкой.',
   'A cooperative identity layer for compatible Remote ID broadcasts and permitted-flight review.':
     'Уровень кооперативной идентификации для приёма совместимых сигналов Remote ID и проверки разрешённых полётов.',
+  'Remote ID recognition system for cooperative target identification':
+    'Система распознавания Remote ID для кооперативной идентификации целей',
   'Fixed RF, radar and EO/IR': 'Стационарные RF-сенсоры, радар и EO/IR',
   'Add movement evidence when a recognizable RF or Remote ID source is unavailable.':
     'Добавляет данные о движении, когда распознаваемый RF-сигнал или Remote ID недоступен.',
@@ -111,6 +181,9 @@ const russianStrings: Record<string, string> = {
   'Compare Directional RF Suppressor and Omni-directional RF Suppressor options for fixed-site Low-Altitude Defense integration, linked control and coordinated response.':
     'Сравните направленные и всенаправленные системы RF-подавления для интеграции в стационарный комплекс Low-Altitude Defense, связанного управления и согласованного реагирования.',
   'Target Detection Radar': 'Радарное обнаружение целей',
+  'TARGET DETECTION RADAR': 'РАДАР ОБНАРУЖЕНИЯ ЦЕЛЕЙ',
+  'Target Detection Radar for Low-Altitude Site Monitoring':
+    'Радар обнаружения целей для мониторинга объекта на малых высотах',
   'Portable Target Detection': 'Переносные системы обнаружения целей',
   'Target Detector': 'Детектор целей',
   'Perimeter Defense': 'Многоуровневая защита от целей',

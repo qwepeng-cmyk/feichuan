@@ -3,7 +3,7 @@ import type { Locale } from '@/i18n/config';
 export const CONTACT_WHATSAPP_NUMBER = '8615903019526';
 export const CONTACT_WHATSAPP_DISPLAY = '+86 159 0301 9526';
 export const CONTACT_WHATSAPP_MESSAGE =
-  "Hi, I'm interested in N-TET Low-Altitude Defense equipment. Please share product information and help me review a suitable configuration.";
+  'Здравствуйте! Меня интересует оборудование N-TET для мониторинга малых высот. Пожалуйста, отправьте информацию о продукции и помогите подобрать подходящую конфигурацию.';
 export const CONTACT_WHATSAPP_URL = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(CONTACT_WHATSAPP_MESSAGE)}`;
 export const CONTACT_VK_URL = 'https://vk.ru/id948875824';
 export const CONTACT_VK_DISPLAY = 'vk.ru/id948875824';
@@ -31,7 +31,7 @@ export const CONTACT_CHANNELS: Record<ContactChannelId, ContactChannel> = {
     url: CONTACT_WHATSAPP_URL,
     accent: '#25D366',
     accentHover: '#11A20B',
-    openLabel: 'Open WhatsApp contact',
+    openLabel: 'Открыть WhatsApp',
     usesLeadCapture: true,
   },
   vk: {

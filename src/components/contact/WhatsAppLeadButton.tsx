@@ -12,6 +12,7 @@ import {
 } from '@/lib/contactSettings';
 import { getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
 import { getPhoneCountry } from '@/lib/phoneCountryCodes';
+import { localeFromPathname } from '@/lib/localization';
 import styles from './WhatsAppLeadButton.module.css';
 
 declare global {
@@ -79,7 +80,7 @@ const modalCopy = {
     phonePlaceholder: 'например, 050 123 4567',
     saving: 'Сохранение...',
     submit: 'Открыть WhatsApp',
-    note: 'Сообщение WhatsApp уже подготовлено, но посетителю все равно нужно нажать Send.',
+    note: 'Сообщение WhatsApp уже подготовлено, но посетителю всё равно нужно нажать «Отправить».',
     close: 'Закрыть форму WhatsApp',
     nameError: 'Введите имя перед открытием WhatsApp.',
     phoneError: 'Введите номер WhatsApp, чтобы продолжить.',
@@ -127,7 +128,7 @@ const optionalMessageCopy = {
   ru: {
     label: 'Сообщение (необязательно)',
     placeholder: 'Кратко опишите ваш запрос',
-    whatsappPrefix: 'Message',
+    whatsappPrefix: 'Сообщение',
   },
   es: {
     label: 'Mensaje (opcional)',
@@ -150,27 +151,15 @@ const saveErrorCopy = {
 
 function getCopy(pathname: string, channel: ContactChannelId) {
   if (channel === 'vk') return vkModalCopy;
-  const segment = pathname.split('/').filter(Boolean)[0];
-  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
-    return modalCopy[segment];
-  }
-  return modalCopy.en;
+  return modalCopy[localeFromPathname(pathname)];
 }
 
 function getOptionalMessageCopy(pathname: string) {
-  const segment = pathname.split('/').filter(Boolean)[0];
-  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
-    return optionalMessageCopy[segment];
-  }
-  return optionalMessageCopy.en;
+  return optionalMessageCopy[localeFromPathname(pathname)];
 }
 
 function getSaveErrorCopy(pathname: string) {
-  const segment = pathname.split('/').filter(Boolean)[0];
-  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
-    return saveErrorCopy[segment];
-  }
-  return saveErrorCopy.en;
+  return saveErrorCopy[localeFromPathname(pathname)];
 }
 
 export default function WhatsAppLeadButton({
@@ -269,9 +258,9 @@ export default function WhatsAppLeadButton({
   const openContactChannel = (leadMessage = '', reservedWindow?: Window | null) => {
     const cleanMessage = leadMessage.trim();
     const contextLines = [
-      productName ? `Equipment: ${productName}` : '',
-      productHandle ? `Reference: ${productHandle}` : '',
-      `Page: ${pathname}`,
+      productName ? `Оборудование: ${productName}` : '',
+      productHandle ? `Артикул: ${productHandle}` : '',
+      `Страница: ${pathname}`,
       cleanMessage ? `${messageCopy.whatsappPrefix}: ${cleanMessage}` : '',
     ].filter(Boolean);
     const message = `${CONTACT_WHATSAPP_MESSAGE}\n\n${contextLines.join('\n')}`;

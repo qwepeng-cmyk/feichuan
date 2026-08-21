@@ -1,3 +1,5 @@
+import { localeFromPathname } from '@/lib/localization';
+
 export type InquiryFormUxCopy = {
   optional: string;
   contactRequirement: string;
@@ -191,8 +193,7 @@ const inquiryFormUxCopy: Record<string, InquiryFormUxCopy> = {
 };
 
 export function getInquiryFormUxCopy(pathname: string): InquiryFormUxCopy {
-  const locale = pathname.split('/').filter(Boolean)[0];
-  return inquiryFormUxCopy[locale] || inquiryFormUxCopy.en;
+  return inquiryFormUxCopy[localeFromPathname(pathname)];
 }
 
 export function getContactMethod(email: string, phone: string) {

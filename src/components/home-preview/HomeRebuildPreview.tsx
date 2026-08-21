@@ -283,12 +283,12 @@ const projectCards = [
   {
     title: "Power Plant Protection",
     image: "/cases/pakistan-power-plant-airspace-monitoring/main-home.webp",
-    href: "/cases/pakistan-power-plant-airspace-monitoring",
+    href: "/cases/pakistan-power-plant-low-altitude-monitoring",
   },
   {
     title: "Refinery Airspace Security",
     image: "/cases/brazil-refinery-airspace-monitoring/main-home.webp",
-    href: "/cases/brazil-refinery-airspace-monitoring",
+    href: "/cases/brazil-refinery-low-altitude-monitoring",
   },
   {
     title: "Major Event Security",
@@ -298,7 +298,7 @@ const projectCards = [
   {
     title: "Industrial Site Protection",
     image: "/cases/nigeria-factory-airspace-monitoring/main-home.webp",
-    href: "/cases/nigeria-factory-airspace-monitoring",
+    href: "/cases/nigeria-factory-low-altitude-monitoring",
   },
   {
     title: "Water Facility Security",
@@ -652,7 +652,7 @@ export default function HomeRebuildPreview({
         <div className={styles.productCollection} id="selected-equipment" role="tabpanel">
           <div className={styles.productCollectionHeader}>
             <div>
-              <p>{selectedCategory.number} / Selected Equipment Type</p>
+              <p>{selectedCategory.number} / ВЫБРАННЫЙ ТИП ОБОРУДОВАНИЯ</p>
               <h3>{selectedCategory.title}</h3>
             </div>
             <div className={styles.collectionGuide}>
@@ -863,6 +863,16 @@ export default function HomeRebuildPreview({
               </div>
             </Link>
           ))}
+        </div>
+        <div className={styles.caseFooter}>
+          <Link
+            className={styles.caseAllLink}
+            href={localePath(locale, "/cases")}
+            prefetch={false}
+          >
+            {dict.home.buttons.viewAllCases}
+            <ArrowRight size={17} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 

@@ -48,7 +48,7 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
           <>
             <button 
               type="button"
-              aria-label="Previous image"
+              aria-label="Предыдущее изображение"
               onClick={handlePrev} 
               className="gallery-nav-btn prev"
               style={{
@@ -77,7 +77,7 @@ export default function UniversalGallery({ images, fit = 'cover', alt = 'N-TET i
             </button>
             <button 
               type="button"
-              aria-label="Next image"
+              aria-label="Следующее изображение"
               onClick={handleNext} 
               className="gallery-nav-btn next"
               style={{

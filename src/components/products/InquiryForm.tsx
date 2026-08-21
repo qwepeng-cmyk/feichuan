@@ -26,15 +26,16 @@ export default function InquiryForm({ dict }: { dict?: any }) {
         message: `${formId}-message`,
     };
     const d = dict?.inquiry || {
-        title: 'Get Expert Platform Defense Advice',
-        subtitle: 'Tell us the equipment, application or site you are reviewing. Our team can provide product information, technical documents, pricing and configuration support.',
-        name: 'Name',
-        company: 'Company Name',
+        title: 'Получить консультацию специалиста',
+        subtitle: 'Расскажите об интересующем оборудовании, сценарии применения или объекте. Мы предоставим информацию о продукции, техническую документацию, цены и рекомендации по конфигурации.',
+        name: 'Имя',
+        company: 'Компания',
         email: 'E-mail',
-        phone: 'Phone / WhatsApp',
-        phonePlaceholder: 'Include country code, e.g. +1 555 123 4567',
-        submit: 'REQUEST EXPERT ADVICE',
-        submitting: 'SUBMITTING...',
+        phone: 'Телефон / WhatsApp',
+        phonePlaceholder: 'Укажите код страны, например +7 999 123-45-67',
+        submit: 'ОТПРАВИТЬ ЗАПРОС',
+        submitting: 'ОТПРАВКА...',
+        failed: 'Не удалось отправить запрос. Повторите попытку или свяжитесь с нами напрямую.',
     };
 
     const [step, setStep] = useState<FormStep>(1);
@@ -141,11 +142,11 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                 router.push(localePath(localeFromPathname(pathname), '/thank-you'));
             } else {
                 console.error('Inquiry submit failed:', result);
-                alert(d.failed || 'Error sending inquiry. Please try again or contact us directly.');
+                alert(d.failed || 'Не удалось отправить запрос. Повторите попытку или свяжитесь с нами напрямую.');
             }
         } catch (error) {
             console.error('Inquiry error:', error);
-            alert(d.failed || 'Something went wrong. Please try again.');
+            alert(d.failed || 'Произошла ошибка. Повторите попытку.');
         } finally {
             if (!submissionSucceeded) {
                 submissionInFlightRef.current = false;
@@ -331,7 +332,7 @@ export default function InquiryForm({ dict }: { dict?: any }) {
                                         setFormData({ ...formData, phone: event.target.value });
                                         setContactError('');
                                     }}
-                                    placeholder={d.phonePlaceholder || 'Include country code, e.g. +1 555 123 4567'}
+                                    placeholder={d.phonePlaceholder || 'Укажите код страны, например +7 999 123-45-67'}
                                     onInvalid={(event) => {
                                         event.currentTarget.setCustomValidity('Введите номер телефона или WhatsApp с кодом страны.');
                                     }}

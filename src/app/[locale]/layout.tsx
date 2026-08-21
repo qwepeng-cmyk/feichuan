@@ -100,7 +100,7 @@ export default async function LocaleLayout({
   const tracking = await loadTrackingSettings();
   const gaMeasurementId = tracking?.gaEnabled ? cleanTrackingId(tracking.gaMeasurementId) : '';
   const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
-  const yandexMetrikaId = locale === 'ru' ? 111151292 : null;
+  const yandexMetrikaId = locale === 'ru' ? 111375688 : null;
 
   return (
     <html lang="ru" dir="ltr" data-locale="ru" suppressHydrationWarning>
