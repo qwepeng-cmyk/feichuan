@@ -56,6 +56,9 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     title: `${homeTitle} | N-TET`,
     description: homeDescription,
     metadataBase: new URL(SITE_URL),
+    verification: {
+      yandex: '3525b0a915ebe37e',
+    },
     icons: {
       icon: [
         { url: '/favicon.ico?v=20260630-ntet-logo', sizes: 'any' },
