@@ -22,7 +22,7 @@ function escapeHtml(value: unknown) {
     .replace(/'/g, '&#39;');
 }
 
-function isEmailReady(settings = getEmailSettings()) {
+function isEmailReady(settings: Awaited<ReturnType<typeof getEmailSettings>>) {
   return Boolean(
     settings.enabled &&
     settings.smtpHost &&
@@ -34,7 +34,7 @@ function isEmailReady(settings = getEmailSettings()) {
 }
 
 export async function sendInquiryNotification(inquiry: InquiryPayload) {
-  const settings = getEmailSettings();
+  const settings = await getEmailSettings();
 
   if (!isEmailReady(settings)) {
     return { skipped: true };
@@ -58,7 +58,7 @@ export async function sendInquiryNotification(inquiry: InquiryPayload) {
   await transporter.sendMail({
     from,
     to: settings.receiverEmail,
-    replyTo: inquiry.email,
+    ...(inquiry.email ? { replyTo: inquiry.email } : {}),
     subject: `New N-TET inquiry from ${subjectName}${subjectCompany}`,
     text: [
       'New website inquiry',

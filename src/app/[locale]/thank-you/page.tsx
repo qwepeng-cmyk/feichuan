@@ -3,23 +3,22 @@ import { Metadata } from 'next';
 import { CheckCircle, Mail, ShieldCheck } from 'lucide-react';
 import { Locale } from '@/i18n/config';
 import { localePath } from '@/lib/localePath';
-import LeadConversionTracker from '@/components/tracking/LeadConversionTracker';
 
 const copy = {
     en: {
         title: 'Thank You',
-        badge: 'N-TET Inquiry Desk',
-        heading: 'Your inquiry has been received.',
-        intro: 'Our team will review your project details and contact you as soon as possible.',
+        badge: 'N-TET Low-Altitude Defense Sales & Project Desk',
+        heading: 'Your Low-Altitude Defense inquiry has been received.',
+        intro: 'Our team will review the equipment, application and project details you provided before following up through your selected contact method.',
         steps: [
             'Inquiry saved in the N-TET admin system',
-            'Project requirements queued for follow-up',
-            'A specialist will respond through your selected contact method',
+            'Equipment and system requirements queued for review',
+            'A Low-Altitude Defense product specialist will follow up through your selected contact method',
         ],
         primary: 'Back to Home',
         secondary: 'View Products',
         noteTitle: 'Need to add more details?',
-        note: 'You can submit another message from any product, solution, case, media, or contact page.',
+        note: 'You can submit another message from any Low-Altitude Defense product, solution, case, media or contact page.',
     },
     ru: {
         title: 'Спасибо',
@@ -86,7 +85,6 @@ export default function ThankYouPage({ params }: { params: { locale: Locale } })
 
     return (
         <main style={{ background: '#f4f7fb' }}>
-            <LeadConversionTracker />
             <section
                 style={{
                     minHeight: 'calc(100vh - 180px)',

@@ -1,0 +1,69 @@
+{
+  "cache_type": "performance-audit-summary",
+  "analyzed_at": "2026-07-14T15:06:17+08:00",
+  "domain": "n-tet.com",
+  "url": "https://n-tet.com/solutions/low-altitude-airspace-monitoring",
+  "scope": "local-production-build",
+  "status": "local_complete_manual_upload_pending",
+  "lighthouse_score": null,
+  "core_web_vitals": {
+    "lcp": null,
+    "inp": null,
+    "cls": null,
+    "status": "not_measured"
+  },
+  "build": {
+    "exit_code": 0,
+    "static_pages_generated": 870,
+    "route_first_load_js": "99.9 kB"
+  },
+  "page": {
+    "html_bytes": 199029,
+    "initial_script_count": 14,
+    "initial_h1_count": 1,
+    "initial_form_count": 0,
+    "page_css_bytes": 43549,
+    "mobile_horizontal_overflow_430px": false
+  },
+  "improvements": {
+    "html_baseline_bytes": 291746,
+    "html_reduction_bytes": 92717,
+    "html_reduction_percent": 31.8,
+    "first_round_first_load_js": "105 kB",
+    "final_first_load_js": "99.9 kB",
+    "first_round_page_css_bytes": 63644,
+    "final_page_css_bytes": 43549
+  },
+  "deferred_chunks": {
+    "whatsapp_lead_modal_bytes": 12366,
+    "floating_message_box_bytes": 7827,
+    "zoosnet_loader_bytes": 2029
+  },
+  "local_ttfb": {
+    "median_ms": 17.0,
+    "samples_ms": [42.7, 17.6, 17.0, 16.2, 16.0],
+    "note": "Local warm production preview only; not comparable to public TTFB."
+  },
+  "gates": {
+    "typescript": "pass",
+    "next_build": "pass",
+    "seo_warnings": 0,
+    "schema_public_candidates": 184,
+    "target_keyword_audit": "strong_100",
+    "target_public_risk": "pass",
+    "unrelated_existing_public_risk_issues": 3,
+    "unrelated_existing_internal_link_issues": 3,
+    "unrelated_existing_eeat_warnings": 1
+  },
+  "pending_manual_steps": [
+    "Upload the local .next artifact using the established deployment workflow.",
+    "Configure and verify Cloudflare HTML edge caching for the target localized routes if desired.",
+    "Re-measure public TTFB and verify CF-Cache-Status HIT and Age.",
+    "Verify production WhatsApp, inquiry, GA4 and Google Ads conversion behavior."
+  ],
+  "limitations": [
+    "No fresh CrUX or Lighthouse data was available.",
+    "LCP, INP and CLS were not inferred.",
+    "No production deployment or Cloudflare change was made."
+  ]
+}

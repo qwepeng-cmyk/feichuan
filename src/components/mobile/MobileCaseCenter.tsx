@@ -6,9 +6,15 @@ import MobileInquiryForm from './MobileInquiryForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { localePath } from '@/lib/localePath';
-import { caseCenterSolutionGroups, getCaseSolutionGroupId } from '@/lib/caseSolutionGroups';
+import {
+    caseCenterSolutionGroups,
+    englishdefenseCaseCenterSolutionGroups,
+    getCaseSolutionGroupId,
+    getEnglishdefenseCaseSolutionGroupId,
+} from '@/lib/caseSolutionGroups';
 import { orderCasesForCasesPage } from '@/lib/caseDisplayOrder';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { localizedefenseTree } from '@/lib/localeCopy';
 
 interface CaseItem {
     handle: string;
@@ -33,10 +39,12 @@ export default function MobileCaseCenter({
     const [selectedRegionId, setSelectedRegionId] = useState('all');
     const [regionOpen, setRegionOpen] = useState(false);
     const [solutionOpen, setSolutionOpen] = useState(false);
+    const isdefensePage = ['en', 'ru', 'es', 'ar'].includes(locale);
+    const solutionGroups = isdefensePage ? englishdefenseCaseCenterSolutionGroups : caseCenterSolutionGroups;
 
     const SOLUTION_CATEGORIES = [
         { id: 'all', name: dict.cases.filters.allSolutions || 'All Solutions' },
-        ...caseCenterSolutionGroups.map((group) => ({
+        ...solutionGroups.map((group) => ({
             id: group.id,
             name: dict?.solutionCenterGroups?.[group.labelKey] || group.fallbackLabel
         }))
@@ -57,7 +65,10 @@ export default function MobileCaseCenter({
 
     const filteredCases = useMemo(() => {
         return orderedCases.filter(item => {
-            const matchesSolution = selectedSolution === 'all' || getCaseSolutionGroupId(item) === selectedSolution;
+            const itemSolutionId = isdefensePage
+                ? getEnglishdefenseCaseSolutionGroupId(item)
+                : getCaseSolutionGroupId(item);
+            const matchesSolution = selectedSolution === 'all' || itemSolutionId === selectedSolution;
             
             let matchesRegion = true;
             if (selectedRegionId === 'all') {
@@ -72,9 +83,9 @@ export default function MobileCaseCenter({
             
             return matchesSolution && matchesRegion;
         });
-    }, [orderedCases, selectedSolution, selectedRegionId]);
+    }, [isdefensePage, orderedCases, selectedSolution, selectedRegionId]);
 
-    return (
+    return localizedefenseTree(locale, (
         <div className={styles.wrapper}>
             {(regionOpen || solutionOpen) && (
                 <div className={styles.backdrop} onClick={() => {
@@ -154,16 +165,22 @@ export default function MobileCaseCenter({
                 </div>
             </section>
 
+            {dict.cases.confidentialityNote && (
+                <div className={styles.confidentialityNote}>
+                    {dict.cases.confidentialityNote}
+                </div>
+            )}
+
             <div id="case-grid-top" className={styles.listContainer}>
                 {filteredCases.length > 0 ? (
                     <>
                         <div className={styles.grid}>
-                            {filteredCases.map((item, idx) => {
+                            {filteredCases.map((item) => {
                                 const caseTitle = item[`title_${locale}`] || item.title_en;
                                 return (
                                     <Link prefetch={false} href={localePath(locale, `/cases/${item.handle}`)} key={item.handle} className={styles.card}>
                                         <div className={styles.imageBox} style={{ position: 'relative', width: '100%', paddingTop: '75%', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
-                                            <Image src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" priority={idx < 4} />
+                                            <Image src={withStaticAssetVersion(item.main_image || '/images/solutions/placeholder.jpg')} alt={caseTitle} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 50vw" />
                                         </div>
                                         <div className={styles.cardContent}>
                                             <h3>{caseTitle}</h3>
@@ -183,5 +200,5 @@ export default function MobileCaseCenter({
 
             <MobileInquiryForm dict={dict} />
         </div>
-    );
+    ));
 }

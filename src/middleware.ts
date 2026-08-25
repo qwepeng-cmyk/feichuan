@@ -2,28 +2,38 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { i18n } from './i18n/config';
 
-const restrictedPublicHandles = new Set([
-    'directional-rf-jammer',
-    'omni-directional-rf-jammer',
-    'portable-anti-drone-jammer-shield',
-    'portable-anti-drone-jammer-shield-pro',
-    'portable-integrated-detection-jamming-c-uas-basic',
-    'portable-integrated-detection-jamming-pro-c-uas',
-    'uav-navigation-spoofing-system',
-    'handheld-integrated-sdr-c-uas',
-    'handheld-integrated-sdr-low-altitude-monitoring',
-    'handheld-integrated-multi-band-event-logging-directional-antenna-unit',
-    'handheld-integrated-multi-band-jammer-gun',
-    'power-generation-facility-anti-uav',
-    'airport-anti-uav',
-    'pakistan-power-plant-anti-uav',
-    'brazil-refinery-anti-uav',
-    'nigeria-factory-anti-uav',
-    'multi-sensor-cuas-architecture-2026',
-    'cuas-critical-infrastructure-deployment-2026',
-    'n-tet-pv-storage-diesel-microgrid-solution',
-    'yuchai-pv-storage-diesel-microgrid-solution',
-]);
+function firstForwardedValue(value: string | null) {
+    return value?.split(',')[0]?.trim() || '';
+}
+
+function publicRequestOrigin(request: NextRequest) {
+    const forwardedHost = firstForwardedValue(request.headers.get('x-forwarded-host'));
+    const requestHost = firstForwardedValue(request.headers.get('host'));
+    const forwardedProto = firstForwardedValue(request.headers.get('x-forwarded-proto'));
+    const protocol = forwardedProto === 'http' || forwardedProto === 'https'
+        ? forwardedProto
+        : 'https';
+
+    for (const candidate of [
+        process.env.NEXT_PUBLIC_SITE_URL || '',
+        forwardedHost ? `${protocol}://${forwardedHost}` : '',
+        requestHost ? `${protocol}://${requestHost}` : '',
+        request.nextUrl.origin,
+    ]) {
+        if (!candidate) continue;
+
+        try {
+            const url = new URL(candidate);
+            if (!isLocalHostname(url.hostname)) {
+                return url.origin;
+            }
+        } catch {
+            // Ignore malformed proxy headers and continue to the configured origin.
+        }
+    }
+
+    return request.nextUrl.origin;
+}
 
 function publicPathSegments(pathname: string) {
     return pathname.split('/').filter(Boolean).filter((part, index) => {
@@ -31,16 +41,66 @@ function publicPathSegments(pathname: string) {
     });
 }
 
-function isRestrictedPublicPath(pathname: string) {
+function isProtectedFrontendPreview(pathname: string) {
     const segments = publicPathSegments(pathname);
-    const section = segments[0];
-    const handle = segments[1];
+    return segments[0] === 'preview-products';
+}
 
-    return Boolean(
-        handle &&
-        ['products', 'solutions', 'cases', 'media'].includes(section) &&
-        restrictedPublicHandles.has(handle)
-    );
+const WITHDRAWN_PUBLIC_ROUTES = new Set([
+    'products/low-altitude-airspace-monitoring',
+    'solutions/low-altitude-airspace-monitoring',
+]);
+
+const DIRECT_RU_PUBLIC_ROUTES = new Set([
+    '/solutions/layered-site-protection',
+    '/solutions/low-altitude-radar-monitoring',
+    '/solutions/multi-sensor-detection',
+    '/solutions/perimeter-defense-system',
+    '/solutions/portable-detection-system',
+    '/solutions/rf-target-positioning',
+]);
+
+function isWithdrawnPublicRoute(pathname: string) {
+    return WITHDRAWN_PUBLIC_ROUTES.has(publicPathSegments(pathname).join('/'));
+}
+
+function isLocalHostname(hostname: string) {
+    const cleanHostname = hostname.replace(/^\[/, '').replace(/\]$/, '').split(':')[0];
+    const parts = cleanHostname.split('.').map((part) => Number(part));
+    const isPrivateIpv4 =
+        parts[0] === 10 ||
+        (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) ||
+        (parts[0] === 192 && parts[1] === 168);
+
+    return cleanHostname === 'localhost' ||
+        cleanHostname === '127.0.0.1' ||
+        cleanHostname === '0.0.0.0' ||
+        cleanHostname === '::1' ||
+        isPrivateIpv4;
+}
+
+const LEGACY_SOLUTION_REDIRECTS: Record<string, string> = {};
+
+const LEGACY_PRODUCT_REDIRECTS: Record<string, string> = {
+  'uav-remote-id-monitoring-system': '/products/aerial-remote-id-monitoring-system',
+};
+
+function legacyProductPath(pathname: string) {
+    const segments = publicPathSegments(pathname);
+    if (segments[0] === 'products' && segments[1] && LEGACY_PRODUCT_REDIRECTS[segments[1]]) {
+        return LEGACY_PRODUCT_REDIRECTS[segments[1]];
+    }
+
+    return '';
+}
+
+function legacySolutionPath(pathname: string) {
+    const segments = publicPathSegments(pathname);
+    if (segments[0] === 'solutions' && segments[1] && LEGACY_SOLUTION_REDIRECTS[segments[1]]) {
+        return LEGACY_SOLUTION_REDIRECTS[segments[1]];
+    }
+
+    return '';
 }
 
 function normalizedBrandPath(pathname: string) {
@@ -65,8 +125,19 @@ function normalizedBrandPath(pathname: string) {
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
+    const publicOrigin = publicRequestOrigin(request);
     const isInternalDefaultLocaleRewrite =
         request.nextUrl.searchParams.get('ntetDefaultLocale') === '1';
+
+    if (isProtectedFrontendPreview(pathname)) {
+        const token = request.cookies.get('admin_token')?.value;
+        const secret = process.env.ADMIN_SECRET || 'default_secret';
+
+        if (!isLocalHostname(request.nextUrl.hostname) && (!token || token !== secret)) {
+            const loginUrl = new URL('/admin/login', publicOrigin);
+            return NextResponse.redirect(loginUrl);
+        }
+    }
 
     // --- Admin Authentication Protection ---
     // Protect all /admin/* routes EXCEPT /admin/login
@@ -103,20 +174,36 @@ export function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    const brandPath = normalizedBrandPath(pathname);
-    if (brandPath) {
-        return NextResponse.redirect(new URL(brandPath, request.url), { status: 301 });
-    }
-
-    if (isRestrictedPublicPath(pathname)) {
-        return new NextResponse('Gone', {
-            status: 410,
+    if (isWithdrawnPublicRoute(pathname)) {
+        return new NextResponse(null, {
+            status: 404,
             headers: {
-                'content-type': 'text/plain; charset=utf-8',
-                'x-robots-tag': 'noindex, nofollow',
-                'cache-control': 'public, max-age=3600',
+                'Cache-Control': 'public, max-age=0, must-revalidate',
+                'X-Robots-Tag': 'noindex, nofollow',
             },
         });
+    }
+
+    const brandPath = normalizedBrandPath(pathname);
+    if (brandPath) {
+        return NextResponse.redirect(new URL(brandPath, publicOrigin), { status: 301 });
+    }
+
+    const solutionPath = legacySolutionPath(pathname);
+    if (solutionPath) {
+        return NextResponse.redirect(new URL(solutionPath, publicOrigin), { status: 301 });
+    }
+
+    const productPath = legacyProductPath(pathname);
+    if (productPath) {
+        return NextResponse.redirect(new URL(productPath, publicOrigin), { status: 301 });
+    }
+
+    // These Russian advertising landing pages have direct App Router entries.
+    // Serving them without a locale rewrite keeps internal proxy URLs out of
+    // the public response and removes an unnecessary middleware round trip.
+    if (DIRECT_RU_PUBLIC_ROUTES.has(pathname)) {
+        return NextResponse.next();
     }
 
     // --- i18n Locale Routing ---
@@ -127,7 +214,7 @@ export function middleware(request: NextRequest) {
         const newPathname = pathname === `/${defaultLocale}` 
             ? '/' 
             : pathname.replace(`/${defaultLocale}/`, '/');
-        return NextResponse.redirect(new URL(newPathname, request.url), { status: 301 });
+        return NextResponse.redirect(new URL(newPathname, publicOrigin), { status: 301 });
     }
 
     if (isInternalDefaultLocaleRewrite) {

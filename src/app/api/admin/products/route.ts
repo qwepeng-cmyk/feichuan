@@ -2,25 +2,16 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import { createHandle } from '@/lib/admin-utils';
-import { getComplianceLayer, getComplianceTier, getPublicProductCategory } from '@/lib/complianceTaxonomy';
+import { getPublicProductCategory } from '@/lib/productCategory';
 
 export async function GET() {
     try {
-        const rows = db.prepare('SELECT handle, product_name_en, category_primary, main_image, COALESCE(is_published, 1) AS is_published FROM products ORDER BY id DESC').all() as any[];
-        const data = rows.map((product) => {
-            const complianceTier = getComplianceTier('product', product.handle);
-            const complianceLayer = getComplianceLayer(complianceTier);
-            return {
-                ...product,
-                public_category: getPublicProductCategory(product.category_primary),
-                compliance_tier: complianceTier,
-                compliance_layer: complianceLayer.layer,
-                compliance_layer_label: complianceLayer.label,
-                compliance_layer_note: complianceLayer.note,
-                is_ad_safe: complianceTier === 'normal',
-                is_public_visible: product.is_published !== 0 && complianceTier !== 'restricted',
-            };
-        });
+        const rows = await db.prepare('SELECT handle, product_name_en, category_primary, main_image, COALESCE(is_published, 1) AS is_published FROM products ORDER BY id DESC').all() as any[];
+        const data = rows.map((product) => ({
+            ...product,
+            public_category: getPublicProductCategory(product.category_primary),
+            is_public_visible: product.is_published !== 0,
+        }));
 
         return NextResponse.json({ success: true, data });
     } catch (e) {
@@ -35,13 +26,33 @@ export async function POST(request: Request) {
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
         const rawData = { ...body, is_published: isPublished };
         
-        db.prepare(`
-            INSERT OR REPLACE INTO products (
+        await db.prepare(`
+            INSERT INTO products (
                 handle, product_name_en, product_name_ru, category_primary, summary_en, summary_ru,
                 key_application_en, key_application_ru, key_parameter_1_en, key_parameter_1_ru, 
                 key_parameter_2_en, key_parameter_2_ru, parameters_en, parameters_ru, 
                 detail_html_en, detail_html_ru, main_image, is_published, raw_json, updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(handle) DO UPDATE SET
+                product_name_en = excluded.product_name_en,
+                product_name_ru = excluded.product_name_ru,
+                category_primary = excluded.category_primary,
+                summary_en = excluded.summary_en,
+                summary_ru = excluded.summary_ru,
+                key_application_en = excluded.key_application_en,
+                key_application_ru = excluded.key_application_ru,
+                key_parameter_1_en = excluded.key_parameter_1_en,
+                key_parameter_1_ru = excluded.key_parameter_1_ru,
+                key_parameter_2_en = excluded.key_parameter_2_en,
+                key_parameter_2_ru = excluded.key_parameter_2_ru,
+                parameters_en = excluded.parameters_en,
+                parameters_ru = excluded.parameters_ru,
+                detail_html_en = excluded.detail_html_en,
+                detail_html_ru = excluded.detail_html_ru,
+                main_image = excluded.main_image,
+                is_published = excluded.is_published,
+                raw_json = excluded.raw_json,
+                updated_at = CURRENT_TIMESTAMP
         `).run(
             handle, 
             body.product_name_en,

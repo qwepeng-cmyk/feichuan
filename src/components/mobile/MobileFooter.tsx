@@ -3,21 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { solutions as homeSolutions } from '@/constants/homeData';
-import { localizedField } from '@/lib/localization';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { hasVisibleProductCategory, type ProductCategoryId } from '@/lib/productCategoryVisibility';
-
-type FooterLink = {
-    href: string;
-    label: string;
-    categoryId?: ProductCategoryId;
-};
-
-function productCategoryLink(categoryId: ProductCategoryId, href: string, label: string): FooterLink {
-    return { categoryId, href, label };
-}
+import { getFooterProductLinks, getFooterSolutionLinks } from '@/lib/footerLinks';
+import { localizedefenseTree } from '@/lib/localeCopy';
+import { localePath } from '@/lib/localePath';
 
 export default function MobileFooter({
     locale,
@@ -28,39 +19,14 @@ export default function MobileFooter({
     dict: any;
     visibleProductCategoryIds?: ProductCategoryId[];
 }) {
-    const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
-    const prioritySolutionLinks: FooterLink[] = [
-        { href: '/solutions', label: dict.solutions?.pageTitle || dict.nav.solutions },
-        { href: '/solutions/low-altitude-airspace-monitoring', label: 'Low-Altitude Airspace Monitoring' },
-        { href: '/solutions/category/01_BorderPatrol', label: dict.solutionCategories?.borderPatrol || 'Border Patrol UAV Solutions' },
-        { href: '/solutions/category/02_InfrastructureProtection', label: dict.solutionCategories?.infrastructureProtection || 'Critical Infrastructure Protection' },
-        { href: '/solutions/category/03_KeyAreaSecurity', label: dict.solutionCategories?.keyAreaSecurity || 'Key Area Security' },
-        { href: '/solutions/category/04_EmergencyRescue', label: dict.solutionCategories?.emergencyRescue || 'Emergency & Disaster Rescue' },
-    ];
-    const homepageSolutionLinks: FooterLink[] = homeSolutions.slice(0, 6).map((solution) => ({
-        href: solution.link,
-        label: localizedField(solution, 'title', locale),
-    }));
-    const solutionLinks = [...prioritySolutionLinks, ...homepageSolutionLinks].filter((item, index, items) =>
-        items.findIndex((candidate) => candidate.href === item.href) === index
-    );
-    const productLinkCandidates: FooterLink[] = [
-        { href: '/products', label: dict.products?.pageTitle || dict.nav.products },
-        productCategoryLink('uav-drone-systems', '/products#uav-drone-systems', dict.megaMenu.uavSystems),
-        productCategoryLink('drone-detection', '/products#drone-detection', dict.megaMenu.droneDetection),
-        productCategoryLink('perimeter-intelligence', '/products#perimeter-intelligence', dict.products?.categories?.surveillance || dict.megaMenu.perimeterSurveillance),
-        productCategoryLink('industrial-engine-microgrid', '/products#industrial-engine-microgrid', dict.products?.categories?.industrialEngineMicrogrid || 'Industrial Engines'),
-        productCategoryLink('security-screening', '/products#security-screening', dict.megaMenu.securityScreening),
-        productCategoryLink('engineering-materials', '/products#engineering-materials', dict.megaMenu.engineeringMaterials),
-        productCategoryLink('field-hospitals', '/products#field-hospitals', dict.megaMenu.fieldHospitals),
-        { href: '/accessories', label: dict.accessories?.title || dict.nav.accessories || 'Drone Accessories' },
-    ];
-    const productLinks = productLinkCandidates.filter((item) =>
+    const l = (path: string) => localePath(locale, path);
+    const solutionLinks = getFooterSolutionLinks(locale, dict);
+    const productLinks = getFooterProductLinks(locale, dict).filter((item) =>
         item.categoryId ? hasVisibleProductCategory(visibleProductCategoryIds, item.categoryId) : true
     );
 
-    return (
-        <footer style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
+    return localizedefenseTree(locale, (
+        <footer className="mobile-footer" style={{ background: '#000f24', color: '#fff', padding: '50px 20px 120px' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <Image src="/logo1-small.webp" alt="Logo" width={140} height={48} style={{ height: '48px', width: 'auto', filter: 'brightness(0) invert(1)', marginBottom: '30px' }} />
                 
@@ -91,7 +57,7 @@ export default function MobileFooter({
                 {/* About us */}
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.aboutUs}</h4>
-                    <p style={{ color: '#888', fontSize: '16px', lineHeight: '1.6' }}>
+                    <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', lineHeight: '1.6' }}>
                         {dict.footer.tagline}
                     </p>
                 </div>
@@ -101,7 +67,14 @@ export default function MobileFooter({
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.solutions}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {solutionLinks.map((item) => (
-                            <Link key={item.href} prefetch={false} href={l(item.href)} style={{ color: '#888', fontSize: '16px', lineHeight: 1.45 }}>
+                            <Link
+                                key={item.href}
+                                prefetch={false}
+                                href={l(item.href)}
+                                target={item.newTab ? '_blank' : undefined}
+                                rel={item.newTab ? 'noopener noreferrer' : undefined}
+                                style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', lineHeight: 1.45 }}
+                            >
                                 {item.label}
                             </Link>
                         ))}
@@ -113,39 +86,41 @@ export default function MobileFooter({
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '15px' }}>{dict.nav.products}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {productLinks.map((item) => (
-                            <Link key={item.href} prefetch={false} href={l(item.href)} style={{ color: '#888', fontSize: '16px', lineHeight: 1.45 }}>
+                            <Link key={item.href} prefetch={false} href={l(item.href)} style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', lineHeight: 1.45 }}>
                                 {item.label}
                             </Link>
                         ))}
                     </div>
                 </div>
 
-
                 {/* Contact us */}
                 <div>
                     <h4 style={{ color: '#fff', fontSize: '22px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '20px' }}>{dict.nav.contact}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                         <div>
-                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>
-                            <WhatsAppLeadButton sourceLabel="mobile_footer_whatsapp" style={{ color: '#888', fontSize: '16px', textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</WhatsAppLeadButton>
+                            <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.whatsapp}</div>
+                            <PrimaryContactButton sourceLabel="mobile_footer_whatsapp" style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</PrimaryContactButton>
                         </div>
                         <div>
-                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.email}</div>
-                            <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#888', fontSize: '16px', textDecoration: 'none' }}>{CONTACT_EMAIL}</a>
+                            <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.email}</div>
+                            <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px', textDecoration: 'none' }}>{CONTACT_EMAIL}</a>
                         </div>
                         <div>
-                            <div style={{ color: '#666', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.salesHotline}</div>
-                            <div style={{ color: '#888', fontSize: '16px' }}>+86 010 8362 2127</div>
+                            <div style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '6px', fontSize: '13px', textTransform: 'uppercase' }}>{dict.contact.salesHotline}</div>
+                            <div style={{ color: 'rgba(255,255,255,0.68)', fontSize: '16px' }}>+86 010 8362 2127</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div style={{ marginTop: '60px', textAlign: 'center', color: '#444', fontSize: '12px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
+            <div className="mobile-footer-legal">
                 <p>{dict.footer.copyright}</p>
+                <Link prefetch={false} href={l('/privacy-policy')} className="footer-privacy-link">
+                    {dict.footer.privacyPolicy}
+                </Link>
             </div>
         </footer>
-    );
+    ));
 }
 
 

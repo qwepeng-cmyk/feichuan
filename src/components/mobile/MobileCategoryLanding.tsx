@@ -11,15 +11,9 @@ import { localizedField } from '@/lib/localization';
 
 interface SubSolution {
     product_name: string;
-    product_name_en: string;
     product_name_ru: string;
-    product_name_es?: string;
-    product_name_ar?: string;
     summary: string;
-    summary_en: string;
     summary_ru: string;
-    summary_es?: string;
-    summary_ar?: string;
     main_image: string;
     handle: string;
 }

@@ -8,7 +8,7 @@ import OptimizedRichText from '@/components/common/OptimizedRichText';
 import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
@@ -68,15 +68,15 @@ export default function CatalogDetailContent({
   handle,
   locale,
   dict,
-  basePath,
   catalogLabel,
+  indexable = true,
 }: {
   product: any;
   handle: string;
   locale: Locale;
   dict: any;
-  basePath: '/products' | '/accessories';
   catalogLabel: string;
+  indexable?: boolean;
 }) {
   const name = product[`product_name_${locale}`] || product.product_name_en || product.name;
   const summary = product[`summary_${locale}`] || product.summary_en;
@@ -85,32 +85,21 @@ export default function CatalogDetailContent({
   const keyParam2 = product[`key_parameter_2_${locale}`] || product.key_parameter_2_en;
   const detailHtml = product[`detail_html_${locale}`] || product.detail_html_en;
   const parameters = readJsonLike(product[`parameters_${locale}`] || product.parameters_en);
+  const basePath = '/products' as const;
   const seoTarget = getSeoKeywordTarget({
     route: `${basePath}/${handle}`,
     title: name,
     category: product.category_primary || product.category,
-    pageKind: basePath === '/accessories' ? 'accessory_detail' : 'product_detail',
+    pageKind: 'product_detail',
     fallbackKeywords: [name, product.category_primary || product.category].filter(Boolean),
     locale,
   });
   const displayName = seoTarget.h1 || name;
   const specsHeading = seoTarget.overviewHeading || dict.products.technicalSpecs;
   const keywordIntro = buildKeywordIntro(seoTarget, name, locale);
-  const overviewTitle =
-    locale === 'ar' ? 'نظرة عامة على المنتج' :
-    locale === 'es' ? 'Resumen del producto' :
-    locale === 'ru' ? 'Обзор продукта' :
-    'Product Overview';
-  const applicationLabel =
-    locale === 'ar' ? 'التطبيق' :
-    locale === 'es' ? 'Aplicación' :
-    locale === 'ru' ? 'Применение' :
-    'Application';
-  const keyParameterLabel =
-    locale === 'ar' ? 'المؤشر الرئيسي' :
-    locale === 'es' ? 'Parámetro clave' :
-    locale === 'ru' ? 'Ключевой параметр' :
-    'Key Parameter';
+  const overviewTitle = 'Обзор продукта';
+  const applicationLabel = 'Применение';
+  const keyParameterLabel = 'Ключевой параметр';
   const productOverview = [
     parseOverviewLine(keyParam1, keyParameterLabel),
     parseOverviewLine(keyParam2, keyParameterLabel),
@@ -125,7 +114,6 @@ export default function CatalogDetailContent({
     description: summary,
     image: product.main_image,
     category: product.category_primary || product.category,
-    basePath,
     breadcrumbs: [
       { name: dict.nav.home, url: pageUrl(locale, '/') },
       { name: catalogLabel, url: pageUrl(locale, basePath) },
@@ -142,7 +130,7 @@ export default function CatalogDetailContent({
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      {indexable && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
@@ -161,12 +149,12 @@ export default function CatalogDetailContent({
                   <div className="gallery-main-area">
                     <UniversalGallery images={galleryImages.length ? galleryImages : ['/logo1-small.webp']} fit="contain" alt={displayName} aspectRatio="1.618 / 1" />
                   </div>
-                  <div className="product-info">
+                  <div className="product-info" style={{ gap: 0 }}>
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {displayName}
                     </h1>
                     {productOverview.length > 0 && (
-                      <div className="product-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
+                      <div className="product-snapshot" style={{ marginBottom: 0, borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
                         <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
                           {overviewTitle}
                         </div>
@@ -178,13 +166,13 @@ export default function CatalogDetailContent({
                         ))}
                       </div>
                     )}
-                    <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
-                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
+                    <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '28px' }}>
+                      <a href="#inquiry" className="btn-cta" style={{ background: '#b45309', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <WhatsAppLeadButton sourceLabel="product_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <PrimaryContactButton sourceLabel="product_detail_whatsapp" className="btn-cta" style={{ background: 'var(--contact-channel-accent)', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
-                      </WhatsAppLeadButton>
+                      </PrimaryContactButton>
                     </div>
                   </div>
                 </div>
@@ -235,7 +223,12 @@ export default function CatalogDetailContent({
       </div>
 
       <div className="mobile_only">
-        <MobileProductDetail product={product} locale={locale} dict={dict} basePath={basePath} catalogLabel={catalogLabel} />
+        <MobileProductDetail
+          product={product}
+          locale={locale}
+          dict={dict}
+          catalogLabel={catalogLabel}
+        />
       </div>
     </>
   );

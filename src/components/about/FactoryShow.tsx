@@ -1,43 +1,32 @@
 import Image from 'next/image';
 import styles from './FactoryShow.module.css';
+import { defenseText } from '@/lib/localeCopy';
 
 const factoryImages = [
     {
-        src: '/about/factory-show/uav-propeller-production.webp',
-        alt: 'UAV propeller production line',
+        src: '/about/factory-show/aerial-platform-companies-china.webp',
+        alt: 'OEM equipment preparation workspace',
     },
     {
-        src: '/about/factory-show/uav-motor-assembly.webp',
-        alt: 'UAV motor assembly workshop',
-    },
-    {
-        src: '/about/factory-show/uav-drone-companies-china.webp',
-        alt: 'UAV production workshop',
-    },
-    {
-        src: '/about/factory-show/uav-drone-solutions-china.webp',
-        alt: 'UAV system testing line',
+        src: '/about/factory-show/aerial-platform-solutions-china.webp',
+        alt: 'Equipment testing resources for delivery verification',
     },
     {
         src: '/about/factory-show/unmanned-aerial-solutions-china.webp',
-        alt: 'Unmanned aerial system assembly area',
+        alt: 'System assembly resources supporting project delivery',
     },
     {
-        src: '/about/factory-show/uav-detection-company-china.webp',
-        alt: 'C-UAS equipment production area',
+        src: '/about/factory-show/aerial-detection-company-china.webp',
+        alt: 'Low-Altitude Defense component and equipment preparation area',
     },
     {
-        src: '/about/factory-show/counter-uas-solutions-china.webp',
-        alt: 'C-UAS solution assembly station',
-    },
-    {
-        src: '/about/factory-show/uav-solution-china.webp',
-        alt: 'Anti-drone equipment testing workshop',
+        src: '/about/factory-show/low-altitude-defense-solutions-china.webp',
+        alt: 'Low-Altitude Defense equipment prepared for configuration checks',
     },
 ];
 
-export default function FactoryShow({ dict }: { dict?: any }) {
-    const title = dict?.about?.factoryShowTitle || 'Factory Show';
+export default function FactoryShow({ dict, locale = 'ru' }: { dict?: any; locale?: string }) {
+    const title = dict?.about?.factoryShowTitle || 'Equipment Preparation & Testing';
 
     return (
         <section className={styles.factoryShow} aria-labelledby="factory-show-title">
@@ -51,9 +40,9 @@ export default function FactoryShow({ dict }: { dict?: any }) {
                         <figure className={styles.card} key={image.src}>
                             <Image
                                 src={image.src}
-                                alt={image.alt}
+                                alt={defenseText(locale, image.alt)}
                                 fill
-                                sizes="(max-width: 991px) 50vw, 25vw"
+                                sizes="(max-width: 991px) 50vw, 33vw"
                                 style={{ objectFit: 'cover' }}
                             />
                         </figure>

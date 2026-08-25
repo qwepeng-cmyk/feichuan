@@ -1,10 +1,30 @@
 import type { MetadataRoute } from 'next';
-import db from '@/lib/db';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { SITE_URL } from '@/config/site';
+import { supabase } from '@/lib/supabase';
 import { i18n, type Locale } from '@/i18n/config';
+import {
+  defense_CATALOG_SOLUTION_HANDLES,
+  isIndexableCaseHandle,
+  isIndexableMediaHandle,
+  isIndexableProductCategory,
+  isIndexableSolutionHandle,
+} from '@/lib/indexability';
+import {
+  isHiddenPublicMediaHandle,
+  isHiddenPublicProductHandle,
+  isHiddenPublicSolutionHandle,
+  isPassiveDetectionProductHandle,
+} from '@/lib/publicCatalogPolicy';
 
-const SITE_URL = 'https://n-tet.com';
-const STATIC_PATHS = ['/', '/products', '/accessories', '/solutions', '/cases', '/media', '/about', '/contact'];
+const STATIC_PATHS = ['/', '/products', '/solutions', '/cases', '/media', '/about', '/contact', '/privacy-policy'];
+const INTENT_PATHS = [
+  '/solutions/multi-sensor-detection',
+  '/solutions/low-altitude-radar-monitoring',
+  '/solutions/portable-detection-system',
+  '/solutions/perimeter-defense-system',
+  '/solutions/rf-target-positioning',
+  '/solutions/layered-site-protection',
+];
 
 type ContentType = 'product' | 'solution' | 'case' | 'media';
 
@@ -17,83 +37,71 @@ const CONTENT_CONFIG: Record<ContentType, { table: string; route: string; handle
 
 function urlFor(locale: Locale, path: string) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return `${SITE_URL}${locale === 'en' ? '' : `/${locale}`}${normalizedPath}`;
+  return `${SITE_URL}${normalizedPath}`;
 }
 
-function sitemapEntry(locale: Locale, path: string, priority: number): MetadataRoute.Sitemap[number] {
+function sitemapEntry(locale: Locale, path: string): MetadataRoute.Sitemap[number] {
   return {
     url: urlFor(locale, path),
-    lastModified: new Date(),
-    changeFrequency: path === '/' ? 'weekly' : 'monthly',
-    priority,
   };
 }
 
-function publishedHandles(type: ContentType) {
+async function publishedHandles(type: ContentType) {
   const config = CONTENT_CONFIG[type];
-  const productCategoryFilter = type === 'product' ? "AND category_primary <> 'uav-accessories'" : '';
-  const rows = db
-    .prepare(
-      `SELECT ${config.handleColumn} AS handle
-       FROM ${config.table}
-       WHERE COALESCE(is_published, 1) = 1
-       ${productCategoryFilter}
-       ORDER BY ${config.handleColumn} COLLATE NOCASE`
-    )
-    .all() as Array<{ handle?: string | null }>;
+  const categoryColumn =
+    type === 'product' ? 'category_primary' :
+    type === 'solution' ? 'category_id' :
+    type === 'case' ? 'solution_category_id' :
+    'category';
+  const { data, error } = await supabase
+    .from(config.table)
+    .select(`${config.handleColumn}, ${categoryColumn}`)
+    .eq('is_published', 1)
+    .order(config.handleColumn, { ascending: true });
+  if (error) throw error;
+  const rows = ((data || []) as unknown as Array<Record<string, unknown>>).map((row) => ({
+    handle: row[config.handleColumn] as string | null | undefined,
+    category: row[categoryColumn] as string | null | undefined,
+  }));
 
   return rows
-    .map((row) => row.handle)
-    .filter((handle): handle is string => Boolean(handle && isPublicComplianceContent(type, handle)));
+    .filter((row) => {
+      if (!row.handle) return false;
+      if (type === 'product') {
+        return !isHiddenPublicProductHandle(row.handle) &&
+          isPassiveDetectionProductHandle(row.handle) &&
+          isIndexableProductCategory(row.category);
+      }
+      if (type === 'solution') {
+        return !isHiddenPublicSolutionHandle(row.handle) && isIndexableSolutionHandle(row.handle);
+      }
+      if (type === 'case') return isIndexableCaseHandle(row.handle);
+      if (type === 'media') return !isHiddenPublicMediaHandle(row.handle) && isIndexableMediaHandle(row.handle);
+      return isIndexableMediaHandle(row.handle);
+    })
+    .map((row) => row.handle as string);
 }
 
-function accessoryHandles() {
-  const rows = db
-    .prepare(
-      `SELECT handle
-       FROM products
-       WHERE COALESCE(is_published, 1) = 1
-         AND category_primary = 'uav-accessories'
-       ORDER BY handle COLLATE NOCASE`
-    )
-    .all() as Array<{ handle?: string | null }>;
-
-  return rows.map((row) => row.handle).filter((handle): handle is string => Boolean(handle));
-}
-
-function solutionCategories() {
-  const rows = db
-    .prepare(
-      `SELECT DISTINCT category_id
-       FROM solutions
-       WHERE COALESCE(is_published, 1) = 1
-       ORDER BY category_id COLLATE NOCASE`
-    )
-    .all() as Array<{ category_id?: string | null }>;
-
-  return rows.map((row) => row.category_id).filter((categoryId): categoryId is string => Boolean(categoryId));
-}
-
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of i18n.locales) {
     for (const path of STATIC_PATHS) {
-      entries.push(sitemapEntry(locale, path, path === '/' ? 1 : 0.8));
+      entries.push(sitemapEntry(locale, path));
     }
 
-    for (const categoryId of solutionCategories()) {
-      entries.push(sitemapEntry(locale, `/solutions/category/${categoryId}`, 0.65));
+    for (const path of INTENT_PATHS) {
+      entries.push(sitemapEntry(locale, path));
     }
 
     for (const [type, config] of Object.entries(CONTENT_CONFIG) as Array<[ContentType, (typeof CONTENT_CONFIG)[ContentType]]>) {
-      for (const handle of publishedHandles(type)) {
-        entries.push(sitemapEntry(locale, `/${config.route}/${handle}`, 0.7));
+      const published = await publishedHandles(type);
+      const handles = type === 'solution'
+        ? Array.from(new Set([...published, ...defense_CATALOG_SOLUTION_HANDLES]))
+        : published;
+      for (const handle of handles) {
+        entries.push(sitemapEntry(locale, `/${config.route}/${handle}`));
       }
-    }
-
-    for (const handle of accessoryHandles()) {
-      entries.push(sitemapEntry(locale, `/accessories/${handle}`, 0.7));
     }
   }
 

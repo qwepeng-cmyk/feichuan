@@ -2,24 +2,14 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import { createHandle } from '@/lib/admin-utils';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 
 export async function GET() {
     try {
-        const rows = db.prepare('SELECT handle, title_en, region_en, main_image, COALESCE(is_published, 1) AS is_published FROM cases ORDER BY id DESC').all() as any[];
-        const data = rows.map((caseItem) => {
-            const complianceTier = getComplianceTier('case', caseItem.handle);
-            const complianceLayer = getComplianceLayer(complianceTier);
-            return {
-                ...caseItem,
-                compliance_tier: complianceTier,
-                compliance_layer: complianceLayer.layer,
-                compliance_layer_label: complianceLayer.label,
-                compliance_layer_note: complianceLayer.note,
-                is_ad_safe: complianceTier === 'normal',
-                is_public_visible: caseItem.is_published !== 0 && complianceTier !== 'restricted',
-            };
-        });
+        const rows = await db.prepare('SELECT handle, title_en, region_en, main_image, COALESCE(is_published, 1) AS is_published FROM cases ORDER BY id DESC').all() as any[];
+        const data = rows.map((caseItem) => ({
+            ...caseItem,
+            is_public_visible: caseItem.is_published !== 0,
+        }));
 
         return NextResponse.json({ success: true, data });
     } catch (e) {
@@ -34,7 +24,7 @@ export async function POST(request: Request) {
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
         const rawData = { ...body, is_published: isPublished };
         
-        db.prepare(`
+        await db.prepare(`
             INSERT INTO cases (
                 handle, title_en, title_ru, region_en, region_ru, country_en, country_ru,
                 solution_category_id, main_image, case_images, description_en, description_ru,

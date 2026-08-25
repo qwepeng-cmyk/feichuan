@@ -119,12 +119,12 @@ function suggestedH2(row, primary) {
 }
 
 function nextAction(row, source) {
-  if (source === 'google_ads_planned_cluster') return '鎸夊箍鍛婂叧閿瘝瑙勫垝鏀?title銆乨escription銆丠1銆丠2銆侀娈?;
-  if (source === 'google_ads_keyword_library_unplanned') return '琛ュ叆鍏抽敭璇嶈鍒掕〃锛屽啀鍐冲畾鏄惁鏀归〉闈?;
-  if (row.page_type.includes('product') || row.page_type.includes('accessory')) return '鎸変骇鍝佸悕绉板拰鍝佺被璇嶅仛闀垮熬 SEO锛屼笉寮哄埗鎺ュ箍鍛婅瘝';
-  if (row.page_type.includes('case')) return '鎸夋渚嬪満鏅瘝鍋?E-E-A-T 鏀拺椤碉紝涓嶅己鍒舵帴骞垮憡璇?;
-  if (row.page_type.includes('media')) return '鎸夋枃绔犱富棰樿瘝鍋氳祫璁?SEO锛屼笉寮哄埗鎺ュ箍鍛婅瘝';
-  return '浜哄伐纭鏄惁闇€瑕佹柊澧炲叧閿瘝搴撴槧灏?;
+  if (source === 'google_ads_planned_cluster') return '按广告关键词规划优化 title、description、H1、H2 和首段';
+  if (source === 'google_ads_keyword_library_unplanned') return '补入关键词规划表，再决定页面优化方案';
+  if (row.page_type.includes('product') || row.page_type.includes('accessory')) return '按产品名称和品类词优化长尾 SEO 与广告相关性';
+  if (row.page_type.includes('case')) return '按案例场景词增强 E-E-A-T、SEO 与广告相关性';
+  if (row.page_type.includes('media')) return '按文章主题词优化资讯 SEO 与 GEO 覆盖';
+  return '人工确认是否需要新增关键词库映射';
 }
 
 if (!fs.existsSync(MATRIX_FILE)) {
@@ -140,7 +140,6 @@ const targets = matrix.map((row) => {
     route: row.route,
     locale: row.locale,
     page_type: row.page_type,
-    compliance_tier: row.compliance_tier,
     audit_status: row.audit_status,
     audit_score: row.audit_score,
     target_source: source,

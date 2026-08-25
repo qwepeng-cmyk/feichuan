@@ -1,10 +1,7 @@
-import db from './db';
+import { supabase } from './supabase';
 import { unstable_cache } from 'next/cache';
-import {
-    getComplianceTier,
-    isPublicComplianceContent,
-    sanitizeRecordForTier,
-} from './complianceTaxonomy';
+import { sanitizePublicRecord } from './publicCopy';
+import { isHiddenPublicSolutionHandle } from './publicCatalogPolicy';
 
 export interface Solution {
     id: string;
@@ -36,43 +33,38 @@ export interface Solution {
 
 export const getAllSolutions = unstable_cache(
     async (): Promise<Solution[]> => {
-        const rows = db.prepare(`
-            SELECT
-                handle,
-                category_id,
-                category_name,
-                product_name_en,
-                product_name_ru,
-                product_name_es,
-                product_name_ar,
-                summary_en,
-                summary_ru,
-                summary_es,
-                summary_ar,
-                main_image
-            FROM solutions
-            WHERE COALESCE(is_published, 1) = 1
-        `).all() as any[];
+        const { data, error } = await supabase
+            .from('solutions')
+            .select('handle, category_id, category_name, product_name_en, product_name_ru, summary_en, summary_ru, main_image')
+            .eq('is_published', 1);
+        if (error) throw error;
+        const rows = (data || []) as any[];
         
         return rows
-            .filter(row => isPublicComplianceContent('solution', row.handle))
-            .map(row => sanitizeRecordForTier({
+            .filter((row) => !isHiddenPublicSolutionHandle(row.handle))
+            .map(row => sanitizePublicRecord({
                 ...row,
                 id: row.handle,
                 title_en: row.product_name_en,
                 category_id: row.category_id,
                 category_name: row.category_name,
-            } as Solution, getComplianceTier('solution', row.handle)));
+            } as Solution));
     },
-    ['all-solutions-uav-refresh-20260702-oil-visuals-v1'],
+    ['all-solutions-yandex-copy-20260728-v2'],
     { revalidate: 3600, tags: ['solutions'] }
 );
 
 export const getSolutionById = unstable_cache(
     async (id: string): Promise<Solution | null> => {
-        const row = db.prepare('SELECT * FROM solutions WHERE handle = ? AND COALESCE(is_published, 1) = 1').get(id) as any;
+        const { data: row, error } = await supabase
+            .from('solutions')
+            .select('*')
+            .eq('handle', id)
+            .eq('is_published', 1)
+            .maybeSingle();
+        if (error) throw error;
         if (!row) return null;
-        if (!isPublicComplianceContent('solution', id)) return null;
+        if (isHiddenPublicSolutionHandle(id)) return null;
 
         let data: any = {};
         try {
@@ -88,17 +80,24 @@ export const getSolutionById = unstable_cache(
             category_name: row.category_name,
         } as Solution;
 
-        return sanitizeRecordForTier(solution, getComplianceTier('solution', id));
+        return sanitizePublicRecord(solution);
     },
-    ['solution-detail-uav-refresh-20260702-oil-visuals-v1'],
+    ['solution-detail-yandex-copy-20260728-v2'],
     { revalidate: 3600, tags: ['solutions'] }
 );
 
 export const getAllSolutionHandles = unstable_cache(
     async (): Promise<string[]> => {
-        const rows = db.prepare('SELECT handle FROM solutions WHERE COALESCE(is_published, 1) = 1').all() as any[];
-        return rows.map(r => r.handle).filter(handle => isPublicComplianceContent('solution', handle));
+        const { data, error } = await supabase
+            .from('solutions')
+            .select('handle')
+            .eq('is_published', 1);
+        if (error) throw error;
+        const rows = (data || []) as any[];
+        return rows
+            .map(r => r.handle)
+            .filter((handle) => !isHiddenPublicSolutionHandle(handle));
     },
-    ['solution-handles-uav-refresh-20260702-oil-visuals-v1'],
+    ['solution-handles-yandex-copy-20260728-v2'],
     { revalidate: 3600, tags: ['solutions'] }
 );

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Shield, Zap, Eye, Settings } from 'lucide-react';
+import DefenseAboutPage from '@/components/about/DefenseAboutPage';
 import FactoryShow from '@/components/about/FactoryShow';
 import MobileAboutUs from '@/components/mobile/MobileAboutUs';
 import { getDictionary } from '@/i18n/getDictionary';
@@ -15,9 +16,9 @@ export function generateMetadata({ params }: { params: { locale: Locale } }): Me
     return buildSeoMetadata({
         locale: params.locale,
         path: '/about',
-        fallbackTitle: 'About N-TET | Industrial UAV & C-UAS Integrator',
-        fallbackDescription: 'Learn how N-TET supplies industrial UAV platforms, C-UAS systems, low-altitude security equipment, security screening, and project delivery for critical-site operators.',
-        image: '/about/about_banner.jpg',
+        fallbackTitle: 'About N-TET | Low-Altitude Defense Equipment Manufacturer & System Supplier',
+        fallbackDescription: 'N-TET is a Beijing-based Low-Altitude Defense equipment manufacturer and system supplier supporting integration, testing, documentation and international delivery.',
+        image: '/solutions/defense-applications/banner/about_banner.webp',
     });
 }
 
@@ -54,7 +55,7 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                             overflow: 'hidden',
                             borderBottom: '1px solid #e1e8f0'
                         }}>
-                            <Image src="/about/about_banner.jpg" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
+                            <Image src="/solutions/defense-applications/banner/about_banner.webp" fill style={{ objectFit: 'cover' }} priority alt={bannerTitle} />
                             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.3)', zIndex: 1 }}></div>
                             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                                 <div style={{ maxWidth: '800px' }}>
@@ -136,9 +137,9 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
                                                 <Shield size={32} />
                                             </div>
                                             <div>
-                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>{dict.about.uavReliability}</h4>
+                                                <h4 style={{ fontSize: '2.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>{dict.about.aerialReliability}</h4>
                                                 <p style={{ fontSize: '1.6rem', color: '#475569', lineHeight: 1.6 }}>
-                                                    {dict.about.uavReliabilityDesc}
+                                                    {dict.about.aerialReliabilityDesc}
                                                 </p>
                                             </div>
                                         </div>
@@ -184,6 +185,10 @@ async function AboutContent({ locale, dict }: { locale: Locale; dict: any }) {
 export default async function AboutPage({ params }: { params: { locale: Locale } }) {
     const { locale } = params;
     const dict = await getDictionary(locale);
+
+    if (['en', 'ru', 'es', 'ar'].includes(locale)) {
+        return <DefenseAboutPage locale={locale} dict={dict} />;
+    }
 
     return (
         <>

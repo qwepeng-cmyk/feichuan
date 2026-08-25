@@ -1,12 +1,12 @@
-import db from './db';
+import { supabase } from './supabase';
 import { unstable_cache } from 'next/cache';
-import {
-  getComplianceTier,
-  getPublicProductCategory,
-  isPublicComplianceContent,
-  sanitizeRecordForTier,
-} from './complianceTaxonomy';
+import { getPublicProductCategory } from './productCategory';
 import { localizedField } from './localization';
+import { sanitizePublicRecord } from './publicCopy';
+import {
+  isHiddenPublicProductHandle,
+  isPassiveDetectionProductHandle,
+} from './publicCatalogPolicy';
 
 export interface ProductMetadata {
   name: string;
@@ -19,28 +19,17 @@ export interface ProductMetadata {
   catalogOrder?: number;
 }
 
-const HIDDEN_PRODUCT_HANDLES = new Set([
-  'medium-long-range-uav-inspection-system',
-  'handheld-integrated-multi-band-event-logging-directional-antenna-unit',
-  'handheld-integrated-sdr-low-altitude-monitoring',
+const LEGACY_HIDDEN_PRODUCT_HANDLES = new Set([
+  'medium-long-range-aerial-platform-inspection-system',
 ]);
 
-const ACCESSORY_CATEGORY = 'uav-accessories';
-
-const FALLBACK_FLIGHT_PLATFORMS: Record<string, string> = {
-  'multi-rotor-3kg-payload-uav': 'Multi-Rotor UAVs',
-  'multi-rotor-8kg-payload-uav': 'Multi-Rotor UAVs',
-  'multi-rotor-20kg-payload-uav': 'Multi-Rotor UAVs',
-  'multi-rotor-50kg-payload-uav': 'Multi-Rotor UAVs',
-  'vtol-14kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
-  'vtol-26kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
-  'vtol-40kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
-  'vtol-64kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
-  'vtol-135kg-mtow-uav': 'VTOL Fixed-Wing UAVs',
-  'fc-yjtx-01-emergency-communication-drone': 'Tethered UAVs',
-  'fc-yjzm-01-emergency-lighting-drone': 'Tethered UAVs',
-  'fc-yjxf-01-aerial-firefighting-drone': 'Tethered UAVs',
-};
+function isHiddenProductHandle(handle?: string | null) {
+  return Boolean(handle && (
+    LEGACY_HIDDEN_PRODUCT_HANDLES.has(handle) ||
+    isHiddenPublicProductHandle(handle) ||
+    !isPassiveDetectionProductHandle(handle)
+  ));
+}
 
 function parseProductRawJson(rawJson?: string | null) {
   if (!rawJson) return {};
@@ -73,30 +62,21 @@ function pruneProductDetailPayload<T extends Record<string, any>>(product: T) {
 }
 
 export const getAllProducts = unstable_cache(
-  async (locale: string = 'en') => {
+  async (locale: string = 'ru') => {
     const categories: Record<string, ProductMetadata[]> = {
-      'uav-drone-systems': [],
-      'drone-detection': [],
+      'detection-monitoring': [],
       'perimeter-intelligence': [],
-      'industrial-engine-microgrid': [],
-      'security-screening': [],
-      'engineering-materials': [],
-      'field-hospitals': []
     };
 
-    const rows = db.prepare(`
-      SELECT handle, product_name_en, product_name_ru, product_name_es, product_name_ar, main_image, category_primary, raw_json
-      FROM products
-      WHERE COALESCE(is_published, 1) = 1
-        AND category_primary <> ?
-    `).all(ACCESSORY_CATEGORY) as any[];
+    const { data, error } = await supabase
+      .from('products')
+      .select('handle, product_name_en, product_name_ru, main_image, category_primary, raw_json')
+      .eq('is_published', 1);
+    if (error) throw error;
+    const rows = (data || []) as any[];
 
     for (const row of rows) {
-      if (HIDDEN_PRODUCT_HANDLES.has(row.handle)) {
-        continue;
-      }
-
-      if (!isPublicComplianceContent('product', row.handle)) {
+      if (isHiddenProductHandle(row.handle)) {
         continue;
       }
 
@@ -104,18 +84,17 @@ export const getAllProducts = unstable_cache(
 
       if (categories[publicCategory]) {
         const raw = parseProductRawJson(row.raw_json) as Record<string, unknown>;
-        const tier = getComplianceTier('product', row.handle);
-        const product = sanitizeRecordForTier({
+        const product = {
           name: localizedField(row, 'product_name', locale),
           handle: row.handle,
           image: row.main_image,
           category: publicCategory,
-          flightPlatform: cleanCatalogGroup(raw.category_by_flight_platform as string | undefined) || FALLBACK_FLIGHT_PLATFORMS[row.handle] || '',
+          flightPlatform: cleanCatalogGroup(raw.category_by_flight_platform as string | undefined),
           missionApplication: cleanCatalogGroup(raw.category_by_mission_application as string | undefined),
           catalogOrder: readCatalogOrder(raw.catalog_order)
-        }, tier);
+        };
 
-        categories[publicCategory].push(product);
+        categories[publicCategory].push(sanitizePublicRecord(product));
       }
     }
 
@@ -125,27 +104,37 @@ export const getAllProducts = unstable_cache(
 
     return categories;
   },
-  ['all-products-uav-refresh-20260701-cuas-public-copy-pl280h-main-image-v3'],
+  ['all-products-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['products'] }
 );
 
 export const getAllProductHandles = unstable_cache(
   async () => {
-    const rows = db.prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1 AND category_primary <> ?').all(ACCESSORY_CATEGORY) as any[];
+    const { data, error } = await supabase
+      .from('products')
+      .select('handle')
+      .eq('is_published', 1);
+    if (error) throw error;
+    const rows = (data || []) as any[];
     return rows
       .map(r => r.handle)
-      .filter(handle => !HIDDEN_PRODUCT_HANDLES.has(handle) && isPublicComplianceContent('product', handle));
+      .filter(handle => !isHiddenProductHandle(handle));
   },
-  ['product-handles-uav-refresh-20260701-cuas-public-copy-pl280h-main-image-v3'],
+  ['product-handles-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['products'] }
 );
 
 export const getProductByHandle = unstable_cache(
   async (handle: string) => {
-    const row = db.prepare('SELECT * FROM products WHERE handle = ? AND COALESCE(is_published, 1) = 1 AND category_primary <> ?').get(handle, ACCESSORY_CATEGORY) as any;
+    const { data: row, error } = await supabase
+      .from('products')
+      .select('*')
+      .eq('handle', handle)
+      .eq('is_published', 1)
+      .maybeSingle();
+    if (error) throw error;
     if (!row) return null;
-    if (HIDDEN_PRODUCT_HANDLES.has(handle)) return null;
-    if (!isPublicComplianceContent('product', handle)) return null;
+    if (isHiddenProductHandle(handle)) return null;
     
     try {
       const base = JSON.parse(row.raw_json);
@@ -153,11 +142,11 @@ export const getProductByHandle = unstable_cache(
         ...base,
         ...row 
       };
-      return sanitizeRecordForTier(pruneProductDetailPayload(product), getComplianceTier('product', handle));
+      return sanitizePublicRecord(pruneProductDetailPayload(product));
     } catch (e) {
-      return sanitizeRecordForTier(pruneProductDetailPayload(row), getComplianceTier('product', handle));
+      return sanitizePublicRecord(pruneProductDetailPayload(row));
     }
   },
-  ['product-detail-uav-refresh-20260701-cuas-public-copy-pl280h-main-image-v3'],
+  ['product-detail-yandex-copy-20260729-v3'],
   { revalidate: 3600, tags: ['products'] }
 );

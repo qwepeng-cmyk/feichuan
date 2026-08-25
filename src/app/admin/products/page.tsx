@@ -4,12 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Edit, Eye, EyeOff, Plus, ToggleLeft, ToggleRight, Trash2 } from 'lucide-react';
 
-const layerStyles: Record<string, { background: string; color: string; border: string }> = {
-    A: { background: '#f0fdf4', color: '#15803d', border: '#bbf7d0' },
-    B: { background: '#eff6ff', color: '#1d4ed8', border: '#bfdbfe' },
-    C: { background: '#fff1f2', color: '#be123c', border: '#fecdd3' },
-};
-
 export default function ProductsPage() {
     const [products, setProducts] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
@@ -77,7 +71,6 @@ export default function ProductsPage() {
                                 <th style={{ padding: '13px 22px', color: '#8896a6', fontWeight: 500, fontSize: '1.3rem', letterSpacing: '0.3px' }}>Image</th>
                                 <th style={{ padding: '13px 22px', color: '#8896a6', fontWeight: 500, fontSize: '1.3rem', letterSpacing: '0.3px' }}>Product</th>
                                 <th style={{ padding: '13px 22px', color: '#8896a6', fontWeight: 500, fontSize: '1.3rem', letterSpacing: '0.3px' }}>Category</th>
-                                <th style={{ padding: '13px 22px', color: '#8896a6', fontWeight: 500, fontSize: '1.3rem', letterSpacing: '0.3px' }}>Compliance Layer</th>
                                 <th style={{ padding: '13px 22px', color: '#8896a6', fontWeight: 500, fontSize: '1.3rem', letterSpacing: '0.3px' }}>Status</th>
                                 <th style={{ padding: '13px 22px', color: '#8896a6', fontWeight: 500, fontSize: '1.3rem', letterSpacing: '0.3px', textAlign: 'right' }}>Actions</th>
                             </tr>
@@ -86,8 +79,6 @@ export default function ProductsPage() {
                             {products.map((product) => {
                                 const published = product.is_published !== 0 && product.is_published !== false;
                                 const publicVisible = product.is_public_visible !== false;
-                                const restricted = product.compliance_tier === 'restricted';
-                                const layerStyle = layerStyles[product.compliance_layer] || layerStyles.A;
 
                                 return (
                                     <tr
@@ -117,25 +108,6 @@ export default function ProductsPage() {
                                         </td>
                                         <td style={{ padding: '14px 22px' }}>
                                             <span
-                                                title={product.compliance_layer_note}
-                                                style={{
-                                                    display: 'inline-flex',
-                                                    alignItems: 'center',
-                                                    padding: '6px 11px',
-                                                    borderRadius: '999px',
-                                                    border: `1px solid ${layerStyle.border}`,
-                                                    backgroundColor: layerStyle.background,
-                                                    color: layerStyle.color,
-                                                    fontSize: '1.2rem',
-                                                    fontWeight: 700,
-                                                    whiteSpace: 'nowrap',
-                                                }}
-                                            >
-                                                {product.compliance_layer_label}
-                                            </span>
-                                        </td>
-                                        <td style={{ padding: '14px 22px' }}>
-                                            <span
                                                 aria-label={publicVisible ? 'Product is visible publicly' : 'Product is hidden publicly'}
                                                 style={{
                                                     display: 'inline-flex',
@@ -151,7 +123,7 @@ export default function ProductsPage() {
                                                 }}
                                             >
                                                 {publicVisible ? <Eye size={15} /> : <EyeOff size={15} />}
-                                                {!published ? 'Offline' : restricted ? 'C layer hidden' : product.is_ad_safe ? 'Ad safe' : 'SEO only'}
+                                                {published ? 'Published' : 'Offline'}
                                             </span>
                                         </td>
                                         <td style={{ padding: '14px 22px', textAlign: 'right' }}>

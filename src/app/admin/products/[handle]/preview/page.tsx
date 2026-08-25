@@ -2,18 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db from '@/lib/db';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
+import DirectedEnergySystem from '@/components/products/DirectedEnergySystem';
 
-export default function AdminProductPreview({ params }: { params: { handle: string } }) {
-  const product = db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
+export default async function AdminProductPreview({ params }: { params: { handle: string } }) {
+  const product = await db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
   if (!product) notFound();
 
-  const tier = getComplianceTier('product', product.handle);
-  const layer = getComplianceLayer(tier);
+  if (product.handle === 'directed-energy-system') {
+    return <DirectedEnergySystem mode="preview" locale="en" />;
+  }
+
   const parameters = parseJson(product.parameters_en, {});
 
   return (
-    <PreviewShell title={product.product_name_en} editHref={`/admin/products/${product.handle}`} layer={layer.label}>
+    <PreviewShell title={product.product_name_en} editHref={`/admin/products/${product.handle}`} layer="Preview">
       <PreviewImage src={product.main_image} alt={product.product_name_en} />
       <PreviewSection title="Summary">{product.summary_en || '-'}</PreviewSection>
       <PreviewSection title="Key Application">{product.key_application_en || '-'}</PreviewSection>

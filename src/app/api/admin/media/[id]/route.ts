@@ -1,19 +1,10 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
-import fs from 'fs';
-import path from 'path';
-
-function syncMediaToJson() {
-    const rows = db.prepare('SELECT raw_json FROM media WHERE COALESCE(is_published, 1) = 1 ORDER BY date DESC, created_at DESC').all() as any[];
-    const jsonData = rows.map(r => JSON.parse(r.raw_json));
-    const filePath = path.join(process.cwd(), 'public/media/news_data.json');
-    fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 4));
-}
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
     try {
-        const row = db.prepare('SELECT * FROM media WHERE id = ?').get(params.id) as any;
+        const row = await db.prepare('SELECT * FROM media WHERE id = ?').get(params.id) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
         
         return NextResponse.json({
@@ -44,7 +35,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         body.is_published = isPublished;
         const raw_json = JSON.stringify(body);
         
-        db.prepare(`
+        await db.prepare(`
             UPDATE media
             SET title = ?, title_ru = ?, image = ?, category = ?, date = ?,
                 content = ?, content_ru = ?, is_published = ?, raw_json = ?,
@@ -63,7 +54,6 @@ export async function PUT(request: Request, { params }: { params: { id: string }
             params.id
         );
         
-        syncMediaToJson();
         revalidateTag('media');
         return NextResponse.json({ success: true });
     } catch (e) {
@@ -75,7 +65,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     try {
         const body = await request.json();
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
-        const row = db.prepare('SELECT raw_json FROM media WHERE id = ?').get(params.id) as any;
+        const row = await db.prepare('SELECT raw_json FROM media WHERE id = ?').get(params.id) as any;
 
         if (!row) {
             return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
@@ -89,13 +79,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         }
         rawData.is_published = isPublished;
 
-        db.prepare(`
+        await db.prepare(`
             UPDATE media
             SET is_published = ?, raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE id = ?
         `).run(isPublished, JSON.stringify(rawData), params.id);
 
-        syncMediaToJson();
         revalidateTag('media');
         return NextResponse.json({ success: true, is_published: isPublished });
     } catch (e) {
@@ -105,8 +94,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
     try {
-        db.prepare('DELETE FROM media WHERE id = ?').run(params.id);
-        syncMediaToJson();
+        await db.prepare('DELETE FROM media WHERE id = ?').run(params.id);
         revalidateTag('media');
         return NextResponse.json({ success: true });
     } catch (e) {

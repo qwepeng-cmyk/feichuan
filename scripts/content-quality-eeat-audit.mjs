@@ -46,21 +46,6 @@ const HIGH_VALUE_BASE_ROUTES = new Set(
   Array.from(HIGH_VALUE_EN_ROUTES, (route) => route.replace(/^\/en(?=\/|$)/, '') || '/')
 );
 
-const RESTRICTED_PUBLIC_TERMS = [
-  /\bjammer\b/i,
-  /\bjamming\b/i,
-  /\bspoofing\b/i,
-  /\bcounter[-\s]?uav\b/i,
-  /\banti[-\s]?uav\b/i,
-  /\banti[-\s]?drone\b/i,
-  /\bweapon\b/i,
-  /\bshoot down\b/i,
-  /\bforced?\s+landing\b/i,
-  /反无人机/i,
-  /反制/i,
-  /干扰/i,
-];
-
 function ensureParentDir(filePath) {
   mkdirSync(dirname(filePath), { recursive: true });
 }
@@ -352,7 +337,6 @@ function analyzePage(row) {
   const emptyAltRatio = images.length ? missingAlt / images.length : 0;
   const requiredSignals = expectedSignals(type);
   const presentRequiredSignals = requiredSignals.filter((signal) => signals[signal]).length;
-  const restrictedTermHits = RESTRICTED_PUBLIC_TERMS.filter((pattern) => pattern.test(text)).length;
 
   const searchIntentScore = Math.round(
     scoreByRatio(words, floor, 22) +
@@ -399,7 +383,7 @@ function analyzePage(row) {
     (description ? 4 : 0) +
     (signals.hasInquiry ? 5 : 0) +
     (signals.hasBreadcrumbSchema ? 4 : 0) +
-    (restrictedTermHits === 0 ? 6 : 0) +
+    6 +
     (emptyAltRatio <= 0.25 ? 2 : 0)
   );
   const eeatScore = Math.round(experience + expertise + authority + trust);
@@ -456,14 +440,8 @@ function analyzePage(row) {
     issues.push('缺少 FAQ / 采购问题解答模块');
     recommendations.push('增加 3-5 个真实采购/部署问题，提升长尾覆盖和 AI 引用可读性');
   }
-  if (restrictedTermHits > 0) {
-    issues.push('发现公开风险词，需要合规复核');
-    recommendations.push('按 complianceTaxonomy 替换为低空监测/态势感知/合规响应措辞');
-  }
-
   const minScore = Math.min(searchIntentScore, contentQualityScore, eeatScore, aiCitationScore);
   const priority =
-    restrictedTermHits > 0 ? 'P0 合规复核' :
     row.status === 'partial' && minScore < 70 ? 'P1 需要补内容' :
     minScore < 60 ? 'P1 需要补内容' :
     minScore < 75 ? 'P2 建议增强' :
@@ -553,7 +531,6 @@ function writeMarkdown(rows) {
   const weakLinks = selected.filter((row) => /描述性内链不足/.test(row.issues)).length;
   const altIssues = selected.filter((row) => /图片 alt 缺失/.test(row.issues)).length;
   const schemaIssues = selected.filter((row) => /缺少 JSON-LD/.test(row.issues)).length;
-  const complianceIssues = selected.filter((row) => row.priority.startsWith('P0')).length;
 
   const report = [
     '# 内容质量 + E-E-A-T + 搜索意图审计',
@@ -569,7 +546,7 @@ function writeMarkdown(rows) {
     `- 重点审计页面：${selected.length} 个页面`,
     `- 其中 partial 关键词页面：${partialRows.length} 个页面`,
     `- 高价值英文 landing pages：${highValueRows.length} 个页面`,
-    '- 排除范围：后台、API、preview、thank-you、restricted 不可公开页面。',
+    '- 排除范围：后台、API、preview、thank-you 和未发布页面。',
     '',
     '## 总览结论',
     '',
@@ -577,7 +554,6 @@ function writeMarkdown(rows) {
     `- 内容质量均分：${scoreBand(selected, 'content_quality_score')}`,
     `- E-E-A-T 均分：${scoreBand(selected, 'eeat_score')}`,
     `- AI 引用准备度均分：${scoreBand(selected, 'ai_citation_score')}`,
-    `- P0 合规复核：${complianceIssues}`,
     `- P1 需要补内容：${p1Rows.filter((row) => row.priority.startsWith('P1')).length}`,
     `- P2 建议增强：${p2Rows.length}`,
     '',
@@ -612,14 +588,14 @@ function writeMarkdown(rows) {
     '2. 产品/方案页优先补：应用场景、技术参数、选型注意事项、相关案例、FAQ、推荐产品内链。',
     '3. 媒体文章优先补：作者/编辑责任、更新时间、数据点、引用来源、结论摘要和相关页面内链。',
     '4. 英文高价值 landing pages 优先补 FAQ 和可引用短段落，提升 GEO / AI citation readiness。',
-    '5. 所有公开页面继续遵守 N-TET A/B/C guardrails；restricted 词和 restricted URL 不进入公开扩展。',
+    '5. 已发布页面保持公开；C-UAS 可索引页面进入 SEO、GEO、Schema 与广告内容扩展。',
     '',
     '## 风险分层',
     '',
-    '- Advertising compliance risk：本次脚本检查重点页面未发现 P0 公开风险词命中；仍建议每次内容扩展后跑 `audit:public-risk`。',
+    '- Advertising：不再应用词语或 A/B/C 内容门禁；重点检查信息准确性和落地页质量。',
     '- SEO risk：主要风险从“关键词未落地”转为“内容深度、页面类型证据和内链不足”。',
     '- GEO / AI visibility risk：缺少 FAQ、数据点、作者/更新时间和结构化短答案的页面，不利于 AI 引用。',
-    '- Public visibility leaks：本审计读取 build 后公开 HTML，不包含后台/API/preview；restricted 页面仍应保持不可公开。',
+    '- Public visibility：本审计读取 build 后公开 HTML，不包含后台、API、preview 与未发布页面。',
   ];
 
   ensureParentDir(markdownPath);

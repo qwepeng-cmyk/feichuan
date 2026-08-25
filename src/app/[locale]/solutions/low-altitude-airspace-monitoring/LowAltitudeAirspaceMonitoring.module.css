@@ -10,21 +10,8 @@
   color: var(--landing-ink);
 }
 
-.desktopPage {
+.responsivePage {
   padding-top: 112px;
-}
-
-.mobilePage {
-  padding-top: 108px;
-  padding-bottom: 86px;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-.mobilePage > section {
-  width: 100vw;
-  max-width: 100vw;
-  box-sizing: border-box;
 }
 
 .heroSection {
@@ -34,10 +21,22 @@
   grid-template-columns: minmax(760px, 0.6fr) minmax(0, 0.4fr);
   align-items: stretch;
   padding: 0;
-  background:
-    linear-gradient(90deg, rgba(5, 18, 39, 0.58) 0%, rgba(5, 18, 39, 0.38) 36%, rgba(5, 18, 39, 0.12) 62%, rgba(5, 18, 39, 0) 84%),
-    url('/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp') center center / cover no-repeat;
+  background: #06162f;
   overflow: hidden;
+}
+
+.heroBackdrop {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroShade {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 18, 39, 0.72) 0%, rgba(5, 18, 39, 0.5) 36%, rgba(5, 18, 39, 0.18) 62%, rgba(5, 18, 39, 0) 84%);
+  pointer-events: none;
 }
 
 .heroCopy {
@@ -47,8 +46,7 @@
   padding: 96px 0 52px max(20px, calc((100vw - 1240px) / 2 + 20px));
 }
 
-.heroCopy h1,
-.mobileHero h1 {
+.heroCopy h1 {
   margin: 0 0 20px;
   color: #fff;
   font-size: clamp(38px, 2.25vw, 44px);
@@ -58,10 +56,6 @@
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
-}
-
-.nowrap {
-  white-space: nowrap;
 }
 
 .heroEyebrow {
@@ -94,32 +88,6 @@
   text-shadow: 0 2px 12px rgba(0, 18, 47, 0.62);
 }
 
-.heroPoints {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 16px;
-  max-width: 690px;
-  margin: 20px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.heroPoints li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  color: #13243c;
-  font-size: 14px;
-  line-height: 1.35;
-  font-weight: 800;
-}
-
-.heroPoints svg {
-  flex: 0 0 auto;
-  margin-top: 1px;
-  color: var(--landing-blue);
-}
-
 .heroActions {
   display: flex;
   flex-wrap: wrap;
@@ -145,8 +113,8 @@
 
 .primaryCta {
   color: #fff;
-  background: var(--landing-orange);
-  box-shadow: 0 16px 28px rgba(255, 122, 0, 0.25);
+  background: #b45309;
+  box-shadow: 0 16px 28px rgba(180, 83, 9, 0.28);
 }
 
 .secondaryCta {
@@ -157,9 +125,9 @@
 
 .whatsappCta {
   color: #fff;
-  border-color: #25D366;
-  background: #25D366;
-  box-shadow: 0 16px 28px rgba(37, 211, 102, 0.2);
+  border-color: var(--contact-channel-accent);
+  background: var(--contact-channel-accent);
+  box-shadow: 0 16px 28px color-mix(in srgb, var(--contact-channel-accent) 24%, transparent);
 }
 
 .heroActions .primaryCta {
@@ -175,179 +143,10 @@
   transform: translateY(-3px);
 }
 
-.heroVisual {
-  position: relative;
-  z-index: 1;
-  min-height: 636px;
-}
-
-.heroDevicePanel {
-  position: absolute;
-  left: -230px;
-  bottom: 54px;
-  width: 560px;
-  height: 178px;
-  z-index: 2;
-  pointer-events: none;
-  display: none;
-}
-
-.deviceImage {
-  position: absolute;
-  height: auto;
-  object-fit: contain;
-  background: transparent;
-  filter: drop-shadow(0 20px 18px rgba(0, 0, 0, 0.24));
-}
-
-.deviceRf {
-  left: 52px;
-  bottom: 0;
-  width: 230px;
-}
-
-.deviceRadar {
-  right: 54px;
-  bottom: 10px;
-  width: 230px;
-}
-
-.equipmentSection,
 .packageSection,
 .inquirySection,
 .problemSection {
   padding: 64px max(20px, calc((100vw - 1240px) / 2 + 20px));
-}
-
-.equipmentSection {
-  background: #f5f8fc;
-  padding-top: 58px;
-  padding-bottom: 68px;
-}
-
-.equipmentGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.equipmentCard {
-  min-height: 314px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: inherit;
-  text-decoration: none;
-  background: #fff;
-  border: 1px solid #d8e1ef;
-  border-radius: 6px;
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.equipmentCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 36px rgba(18, 50, 92, 0.12);
-}
-
-.equipmentImageWrap {
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: #f8fbff;
-  border-bottom: 1px solid #e4ebf5;
-  overflow: hidden;
-}
-
-.equipmentImage {
-  width: 100%;
-  height: 118px;
-  object-fit: contain;
-  transform-origin: center;
-}
-
-.equipmentImageRf {
-  max-width: 148px;
-  max-height: 126px;
-  transform: scale(1.22);
-}
-
-.equipmentImageRadar {
-  max-width: 176px;
-  max-height: 118px;
-  transform: scale(1.08);
-}
-
-.equipmentImageOptical {
-  max-width: 154px;
-  max-height: 130px;
-  transform: scale(1.16);
-}
-
-.equipmentImagePortable {
-  max-width: 138px;
-  max-height: 120px;
-  transform: scale(1.46);
-}
-
-.equipmentImageHandheld {
-  max-width: 126px;
-  max-height: 118px;
-  transform: scale(1.68);
-}
-
-.equipmentImageDirectional {
-  max-width: 126px;
-  max-height: 118px;
-  transform: scale(1.62);
-}
-
-.equipmentBody {
-  padding: 18px 17px 20px;
-}
-
-.equipmentBody span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--landing-blue);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.equipmentBody h3 {
-  margin: 0;
-  color: #111827;
-  font-size: 17px;
-  line-height: 1.28;
-  font-weight: 900;
-}
-
-.equipmentBody ul {
-  display: grid;
-  gap: 8px;
-  margin: 16px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.equipmentBody li {
-  color: #3e4d61;
-  font-size: 12.5px;
-  line-height: 1.35;
-  font-weight: 800;
-}
-
-.equipmentBody li::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  background: var(--landing-orange);
-  vertical-align: 2px;
 }
 
 .sectionHeader {
@@ -1457,159 +1256,6 @@
   font-weight: 600;
 }
 
-.deploymentSection {
-  padding: 58px max(24px, calc((100vw - 1240px) / 2 + 24px)) 64px;
-  background: #071a35;
-  border-top: 1px solid rgba(79, 222, 255, 0.14);
-  overflow: hidden;
-}
-
-.deploymentHeader {
-  max-width: 860px;
-  margin: 0 auto 32px;
-  text-align: center;
-}
-
-.deploymentHeader .sectionEyebrow {
-  color: #9fc0f4;
-}
-
-.deploymentHeader h2 {
-  margin: 0;
-  color: #63f7ff;
-  font-size: clamp(30px, 2.7vw, 44px);
-  line-height: 1.08;
-  font-weight: 900;
-}
-
-.deploymentHeader p {
-  max-width: 790px;
-  margin: 14px auto 0;
-  color: #d5e4f6;
-  font-size: 16px;
-  line-height: 1.58;
-}
-
-.deploymentGrid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr 1fr;
-  gap: 18px;
-  align-items: stretch;
-}
-
-.deploymentCard {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  background: rgba(9, 34, 70, 0.95);
-  border: 1px solid rgba(76, 147, 224, 0.38);
-}
-
-.deploymentTitleBar {
-  min-height: 98px;
-  padding: 20px 22px 18px;
-  background: #163d9c;
-  text-align: center;
-}
-
-.deploymentTitleBar h3 {
-  margin: 0;
-  color: #fff;
-  font-size: 21px;
-  line-height: 1.2;
-  font-weight: 900;
-}
-
-.deploymentTitleBar p {
-  margin: 8px 0 0;
-  color: #d9e8ff;
-  font-size: 13px;
-  line-height: 1.35;
-  font-weight: 800;
-}
-
-.deploymentImageWrap {
-  min-height: 210px;
-  display: grid;
-  place-items: center;
-  padding: 28px 24px 18px;
-}
-
-.deploymentImageLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 330px;
-  aspect-ratio: 1.618 / 1;
-  padding: 14px;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(184, 229, 255, 0.28) 0, rgba(66, 130, 192, 0.22) 36%, rgba(5, 19, 41, 0.96) 78%),
-    linear-gradient(145deg, #0d284f 0%, #071830 100%);
-  border: 1px solid rgba(101, 247, 255, 0.28);
-  border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-  isolation: isolate;
-  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), filter 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.deploymentImageLink:hover,
-.deploymentImageLink:focus-visible {
-  transform: translateY(-5px);
-  filter: drop-shadow(0 14px 20px rgba(75, 207, 255, 0.26));
-  outline: none;
-}
-
-.deploymentImageStatic {
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border: 1px solid rgba(101, 247, 255, 0.28);
-  border-radius: 4px;
-  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
-}
-
-.deploymentImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(1.14) contrast(1.08) drop-shadow(0 12px 16px rgba(0, 0, 0, 0.36));
-  mix-blend-mode: normal;
-}
-
-.deploymentVehicleImage {
-  display: block;
-  object-fit: cover;
-  filter: none;
-}
-
-.deploymentSteps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-top: auto;
-  padding: 0 20px 24px;
-}
-
-.deploymentSteps span {
-  min-width: 88px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 0 12px;
-  color: #fff;
-  background: #05a7df;
-  border-radius: 3px;
-  font-size: 14px;
-  line-height: 1.15;
-  font-weight: 900;
-  text-align: center;
-}
-
 .packageSection {
   position: relative;
   padding-top: 74px;
@@ -1794,355 +1440,191 @@
   font-size: 34px !important;
 }
 
-.mobileHero {
-  position: relative;
-  min-height: 552px;
-  box-sizing: border-box;
-  padding: 76px 16px 18px;
-  background:
-    linear-gradient(90deg, rgba(5, 18, 39, 0.62) 0%, rgba(5, 18, 39, 0.42) 54%, rgba(5, 18, 39, 0.14) 82%, rgba(5, 18, 39, 0.04) 100%),
-    url('/solutions/low-altitude-airspace-monitoring/ntet-radar-back-side-facing-viewer-front-to-drone.webp') 34% center / cover no-repeat;
-  overflow: hidden;
+.inquiryHost {
+  min-height: 590px;
 }
 
-.mobileHero h1 {
-  font-size: 36px;
-  line-height: 1.08;
+.inquiryPlaceholder,
+.inquiryLoading {
+  min-height: 590px;
+  border: 1px solid #d8e1ef;
+  background: linear-gradient(145deg, #f8fbff, #fff);
 }
 
-.mobileHero .nowrap {
-  display: block;
-  white-space: nowrap;
-}
-
-.mobileTitleLine {
-  display: block;
-}
-
-.mobileHero p {
-  max-width: 640px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 15px;
-  line-height: 1.48;
-}
-
-.mobileHero .heroPoints {
-  grid-template-columns: 1fr;
-  gap: 8px;
-  max-width: none;
-  margin-top: 16px;
-}
-
-.mobileHero .heroPoints li {
-  font-size: 13px;
-}
-
-.mobileHero .heroVisual {
-  min-height: 126px;
-  margin-top: 6px;
-}
-
-.mobileHero .heroDevicePanel {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 126px;
-}
-
-.mobileHero .deviceRf {
-  left: 8%;
-  bottom: 8px;
-  width: 146px;
-}
-
-.mobileHero .deviceRadar {
-  right: 7%;
-  bottom: 14px;
-  width: 146px;
-}
-
-.mobileActions {
+.inquiryPlaceholder {
   display: grid;
-  gap: 10px;
-  margin-top: 0;
+  align-content: center;
+  gap: 18px;
+  padding: 44px;
 }
 
-.mobileActions .primaryCta,
-.mobileActions .secondaryCta {
-  width: 100%;
-  min-height: 46px;
-  padding: 0 14px;
-  white-space: normal;
-  text-align: center;
+.inquiryPlaceholder span {
+  display: block;
+  height: 46px;
+  background: #edf3fa;
 }
 
-.mobileBlock {
-  padding: 36px 16px;
-  border-top: 1px solid #edf1f7;
+.inquiryPlaceholder span:first-child {
+  width: 42%;
+  height: 30px;
 }
 
-.mobileBlock:nth-of-type(even) {
-  background: #f7fbff;
-}
-
-.mobileOperationsBlock {
-  position: relative;
-  padding-top: 42px;
-  padding-bottom: 42px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(238, 244, 251, 0) 24%),
-    linear-gradient(145deg, #eef4fb 0%, #f7fbff 66%, #fff 100%) !important;
-  border-top: 1px solid #d5e2f2;
-}
-
-.mobileOperationsBlock::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 16px;
-  right: 16px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--landing-blue), rgba(0, 71, 173, 0.1));
-}
-
-.mobileSectionTitle {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.mobileSectionTitle h2 {
-  margin: 0;
-  color: var(--landing-blue);
-  font-size: 25px;
-  line-height: 1.18;
-  font-weight: 900;
-}
-
-.mobileSectionTitle span {
-  display: none;
-}
-
-.mobileEquipmentGrid {
+.inquiryLoading {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.mobileEquipmentCard {
-  min-height: 212px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 14px 10px 16px;
-  color: inherit;
-  text-decoration: none;
-  text-align: center;
-  background: #fff;
-  border: 1px solid #dfe8f5;
-  border-radius: 6px;
-}
-
-.mobileEquipmentImage {
-  width: 100%;
-  height: 126px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.mobileEquipmentImage.equipmentImageRf {
-  max-width: 166px;
-  max-height: 122px;
-  transform: scale(1.14);
-}
-
-.mobileEquipmentImage.equipmentImageRadar {
-  max-width: 184px;
-  max-height: 120px;
-  transform: scale(1.04);
-}
-
-.mobileEquipmentImage.equipmentImageOptical {
-  max-width: 164px;
-  max-height: 124px;
-  transform: scale(1.1);
-}
-
-.mobileEquipmentImage.equipmentImagePortable {
-  max-width: 152px;
-  max-height: 122px;
-  transform: scale(1.28);
-}
-
-.mobileEquipmentImage.equipmentImageHandheld {
-  max-width: 136px;
-  max-height: 122px;
-  transform: scale(1.36);
-}
-
-.mobileEquipmentImage.equipmentImageDirectional {
-  max-width: 136px;
-  max-height: 122px;
-  transform: scale(1.34);
-}
-
-.mobileEquipmentCard h3 {
-  margin: 0;
-  color: #111827;
-  font-size: 13px;
-  line-height: 1.28;
-  font-weight: 900;
-}
-
-.mobileEquipmentCard p {
-  margin: 7px 0 0;
-  color: var(--landing-blue);
-  font-size: 11px;
-  line-height: 1.25;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.mobilePackageCard p {
-  margin: 0;
+  place-items: center;
   color: var(--landing-muted);
   font-size: 14px;
-  line-height: 1.55;
-}
-
-.mobilePackages {
-  display: grid;
-  gap: 14px;
-}
-
-.mobilePackageCard {
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #dfe8f5;
-  border-radius: 8px;
-}
-
-.mobilePackageImage {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 420 / 205;
-  display: block;
-  object-fit: cover;
-  border-bottom: 1px solid #dfe8f5;
-}
-
-.mobilePackageCard h3 {
-  margin: 16px 18px 8px;
-  color: #111827;
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.mobilePackageCard p {
-  margin: 0 18px;
-}
-
-.mobilePackageCard ul {
-  display: grid;
-  gap: 8px;
-  margin: 14px 18px 18px;
-  padding: 0;
-  list-style: none;
-}
-
-.mobilePackageCard li {
-  color: #253852;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.mobilePackageCard li::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-right: 8px;
-  background: var(--landing-blue);
-  border-radius: 50%;
-  vertical-align: 2px;
-}
-
-.mobileCaseSectionTitle {
-  margin: 26px 0 14px;
-  padding-top: 20px;
-  border-top: 1px solid #d8e4f3;
-  text-align: center;
-}
-
-.mobileCaseSectionTitle h3 {
-  margin: 0;
-  color: var(--landing-blue);
-  font-size: 19px;
-  line-height: 1.25;
-  font-weight: 900;
-}
-
-.mobileCaseReferences {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-  margin-top: 24px;
-}
-
-.mobileCaseCard {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: inherit;
-  text-decoration: none;
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-}
-
-.mobileCaseImageBox {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  width: 100%;
-  overflow: hidden;
-  background: #f5f5f5;
-}
-
-.mobileCaseImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.mobileCaseBody {
-  min-width: 0;
-  padding: 12px;
-  text-align: center;
-}
-
-.mobileCaseCard h3 {
-  margin: 0;
-  height: 36px;
-  overflow: hidden;
-  color: #333;
-  font-size: 13px;
-  line-height: 1.4;
-  font-weight: 800;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.mobileInquirySection {
-  padding: 34px 12px 42px;
-  background: #fff;
 }
 
 @media (max-width: 991px) {
+  .responsivePage {
+    max-width: 100vw;
+    padding-top: 108px;
+    padding-bottom: 86px;
+    overflow-x: hidden;
+  }
+
+  .responsivePage > section {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .responsivePage :global(.product-breadcrumb-nav) {
+    height: auto;
+    min-height: 38px;
+  }
+
+  .responsivePage :global(.product-breadcrumb-nav > .container) {
+    padding: 0 15px;
+  }
+
+  .responsivePage :global(.breadcrumb-path) {
+    min-height: 38px;
+    gap: 6px;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .heroSection {
+    min-height: 552px;
+    display: block;
+  }
+
+  .heroBackdrop {
+    object-position: 34% center;
+  }
+
+  .heroShade {
+    background: linear-gradient(90deg, rgba(5, 18, 39, 0.76) 0%, rgba(5, 18, 39, 0.56) 58%, rgba(5, 18, 39, 0.2) 100%);
+  }
+
+  .heroCopy {
+    max-width: 100%;
+    padding: 70px 16px 34px;
+  }
+
+  .heroCopy h1 {
+    max-width: 640px;
+    font-size: clamp(31px, 8vw, 38px);
+  }
+
+  .heroCopy p {
+    max-width: 620px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .heroEyebrow {
+    font-size: 11px;
+  }
+
+  .heroActions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+    max-width: 520px;
+  }
+
+  .heroActions .primaryCta,
+  .heroActions .secondaryCta {
+    min-width: 0;
+    padding: 0 12px;
+  }
+
+  .packageSection {
+    padding: 42px 16px 52px;
+  }
+
+  .packageSection .sectionHeader {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .packageGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .packageCard h3 {
+    margin: 22px 18px 8px;
+    font-size: 21px;
+  }
+
+  .packageMeta,
+  .packageCard ul {
+    min-height: 0;
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+
+  .learnMore {
+    margin: 0 18px;
+  }
+
+  .caseSectionHeader {
+    margin-top: 38px;
+  }
+
+  .caseReferenceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .caseReferenceImageBox {
+    height: 138px;
+  }
+
+  .caseReferenceBody {
+    padding: 14px 10px;
+  }
+
+  .caseReferenceBody h4 {
+    font-size: 14px;
+  }
+
+  .inquirySection {
+    padding: 34px 12px 42px;
+  }
+
+  .inquirySection :global(.inquiry-container) {
+    padding: 34px 20px 40px !important;
+  }
+
+  .inquirySection :global(.section-title) {
+    font-size: 28px !important;
+  }
+
+  .inquiryHost,
+  .inquiryPlaceholder,
+  .inquiryLoading {
+    min-height: 680px;
+  }
+
+  .inquiryPlaceholder {
+    padding: 24px;
+  }
+
   .sectionEyebrow {
     margin-bottom: 12px;
     font-size: 14px;
@@ -2151,6 +1633,9 @@
   .problemSection {
     scroll-margin-top: 116px;
     padding: 34px 16px 42px;
+    background:
+      linear-gradient(180deg, rgba(5, 19, 38, 0.88) 0%, rgba(5, 19, 38, 0.94) 100%),
+      url('/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero-mobile.webp') center center / cover no-repeat;
   }
 
   .problemIntro {
@@ -2265,19 +1750,16 @@
     text-align: left;
   }
 
-  .compositionSection,
-  .deploymentSection {
+  .compositionSection {
     padding: 36px 16px 42px;
   }
 
-  .compositionHeader,
-  .deploymentHeader {
+  .compositionHeader {
     margin-bottom: 22px;
     text-align: left;
   }
 
-  .compositionHeader h2,
-  .deploymentHeader h2 {
+  .compositionHeader h2 {
     font-size: 28px;
   }
 
@@ -2286,13 +1768,11 @@
     margin-right: 0;
   }
 
-  .compositionHeader p,
-  .deploymentHeader p {
+  .compositionHeader p {
     font-size: 14px;
   }
 
-  .compositionFlow,
-  .deploymentGrid {
+  .compositionFlow {
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
@@ -2337,8 +1817,7 @@
     margin-bottom: 14px;
   }
 
-  .compositionCard h3,
-  .deploymentTitleBar h3 {
+  .compositionCard h3 {
     font-size: 19px;
   }
 
@@ -2525,69 +2004,20 @@
     font-size: 34px;
   }
 
-  .deploymentTitleBar {
-    min-height: auto;
-    padding: 18px 16px;
-  }
-
-  .deploymentImageWrap {
-    min-height: 150px;
-    padding: 20px 18px 12px;
-  }
-
-  .deploymentImage {
-    height: 100%;
-  }
-
-  .deploymentSteps {
-    justify-content: flex-start;
-    padding: 0 16px 20px;
-  }
-
-  .deploymentSteps span {
-    min-width: 0;
-    min-height: 34px;
-    font-size: 12px;
-  }
-
   .sectionHeader p {
     margin-top: 22px;
     font-size: 14px;
   }
 
-  .mobilePage :global(.product-breadcrumb-nav) {
-    height: auto;
-    min-height: 38px;
-  }
-
-  .mobilePage :global(.product-breadcrumb-nav > .container) {
-    padding: 0 15px;
-  }
-
-  .mobilePage :global(.breadcrumb-path) {
-    min-height: 38px;
-    gap: 6px;
-    overflow-x: auto;
-    white-space: nowrap;
-    font-size: 13px;
-  }
-
-  .mobilePage :global(.breadcrumb-path::-webkit-scrollbar) {
-    display: none;
-  }
-
-  .equipmentGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 420px) {
-  .mobileHero h1 {
-    font-size: 31px;
+  .heroActions {
+    grid-template-columns: 1fr;
   }
 
-  .mobileSectionTitle h2 {
-    font-size: 22px;
+  .caseReferenceGrid {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -2595,23 +2025,6 @@
 @media (max-width: 1180px) and (min-width: 992px) {
   .heroCopy {
     padding: 96px 0 52px max(20px, calc((100vw - 1140px) / 2 + 20px));
-  }
-
-  .heroDevicePanel {
-    left: -210px;
-    bottom: 52px;
-    width: 520px;
-    height: 158px;
-  }
-
-  .deviceRf {
-    left: 44px;
-    width: 214px;
-  }
-
-  .deviceRadar {
-    right: 44px;
-    width: 214px;
   }
 
 }

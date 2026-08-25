@@ -2,24 +2,14 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import db from '@/lib/db';
 import { createHandle } from '@/lib/admin-utils';
-import { getComplianceLayer, getComplianceTier } from '@/lib/complianceTaxonomy';
 
 export async function GET() {
     try {
-        const rows = db.prepare('SELECT handle, category_name, product_name_en, main_image, COALESCE(is_published, 1) AS is_published FROM solutions ORDER BY id DESC').all() as any[];
-        const data = rows.map((solution) => {
-            const complianceTier = getComplianceTier('solution', solution.handle);
-            const complianceLayer = getComplianceLayer(complianceTier);
-            return {
-                ...solution,
-                compliance_tier: complianceTier,
-                compliance_layer: complianceLayer.layer,
-                compliance_layer_label: complianceLayer.label,
-                compliance_layer_note: complianceLayer.note,
-                is_ad_safe: complianceTier === 'normal',
-                is_public_visible: solution.is_published !== 0 && complianceTier !== 'restricted',
-            };
-        });
+        const rows = await db.prepare('SELECT handle, category_name, product_name_en, main_image, COALESCE(is_published, 1) AS is_published FROM solutions ORDER BY id DESC').all() as any[];
+        const data = rows.map((solution) => ({
+            ...solution,
+            is_public_visible: solution.is_published !== 0,
+        }));
 
         return NextResponse.json({ success: true, data });
     } catch (e) {
@@ -34,7 +24,7 @@ export async function POST(request: Request) {
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
         const rawData = { ...body, is_published: isPublished };
         
-        db.prepare(`
+        await db.prepare(`
             INSERT INTO solutions (
                 handle, category_id, category_name, product_name_en, product_name_ru, 
                 summary_en, summary_ru, key_application_en, key_application_ru,

@@ -7,15 +7,17 @@ import styles from './MobileCaseDetail.module.css';
 import MobileInquiryForm from './MobileInquiryForm';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import CaseEquipmentList from '@/components/cases/CaseEquipmentList';
 
 interface CaseProps {
     caseData: any;
     recommendedProducts: any[];
     locale: string;
     dict: any;
+    equipmentItems: string[];
 }
 
-export default function MobileCaseDetail({ caseData, recommendedProducts, locale, dict }: CaseProps) {
+export default function MobileCaseDetail({ caseData, recommendedProducts, locale, dict, equipmentItems }: CaseProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
 
@@ -141,12 +143,18 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                 {/* Title */}
                 <div className={styles.title}>{title}</div>
 
+                <CaseEquipmentList
+                    heading={dict.cases?.equipmentUsed || 'Использованное оборудование'}
+                    items={equipmentItems}
+                    compact
+                />
+
                 {/* Info Content - Project Overview */}
                 {caseSnapshot.length > 0 && (
                     <div className={styles.infoContent}>
                         <div className={styles.keyParams}>
                             <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#315ba4', marginBottom: '8px' }}>
-                                {dict.cases?.projectOverview || 'Project Overview'}
+                                {dict.cases?.projectOverview || 'Обзор проекта'}
                             </div>
                             {caseSnapshot.map((item, idx) => (
                                 <div key={idx} className={styles.paramItem}>
@@ -183,7 +191,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
                         className={`${styles.navItem} ${activeTab === 'products' ? styles.active : ''}`}
                         onClick={() => scrollToSection('products-title')}
                     >
-                        {dict.products.relatedEquipment || 'Equipment'}
+                        {dict.cases?.recommendedEquipment || dict.products.relatedEquipment || 'Recommended Equipment'}
                     </button>
                     <button 
                         className={`${styles.navItem} ${activeTab === 'inquiry' ? styles.active : ''}`}
@@ -207,7 +215,7 @@ export default function MobileCaseDetail({ caseData, recommendedProducts, locale
             {/* 5. Related Equipment */}
             {recommendedProducts && recommendedProducts.length > 0 && (
                 <section className={styles.section} style={{ background: '#f8faff', paddingBottom: '30px' }}>
-                    <h2 id="products-title" className={styles.sectionTitleCenter}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
+                    <h2 id="products-title" className={styles.sectionTitleCenter}>{dict.cases?.recommendedEquipment || dict.products.relatedEquipment || 'Recommended Equipment'}</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
                         {recommendedProducts.map((prod, idx) => (
                             <Link href={localePath(locale, `/products/${prod.handle}`)} key={idx} style={{ textDecoration: 'none', background: '#fff', border: '1px solid #f0f0f0', display: 'flex', flexDirection: 'column' }}>

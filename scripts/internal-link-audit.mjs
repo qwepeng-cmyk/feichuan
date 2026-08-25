@@ -1,5 +1,6 @@
 import { join } from 'node:path';
-import { getAllPublishedContent, getComplianceTier, openDb, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { openDb, todayStamp, writeTextFile } from './ntet-seo-utils.mjs';
+import { cuasIndexabilityPolicy, isCuasIndexableRow } from './cuas-indexability.mjs';
 
 function parseHandles(value) {
   if (!value) return [];
@@ -17,33 +18,31 @@ function parseHandles(value) {
 
 const db = openDb();
 const products = new Map(
-  getAllPublishedContent(db)
-    .filter((row) => row.type === 'product')
+  db
+    .prepare('SELECT handle FROM products WHERE COALESCE(is_published, 1) = 1')
+    .all()
     .map((row) => [row.handle, row])
 );
 
 const cases = db
   .prepare('SELECT handle, recommended_product_handles FROM cases WHERE COALESCE(is_published, 1) = 1 ORDER BY handle')
-  .all();
+  .all()
+  .filter((row) => isCuasIndexableRow({ type: 'case', handle: row.handle, category: '' }));
 const solutions = db
   .prepare('SELECT handle, recommended_products FROM solutions WHERE COALESCE(is_published, 1) = 1 ORDER BY handle')
-  .all();
+  .all()
+  .filter((row) =>
+    isCuasIndexableRow({ type: 'solution', handle: row.handle, category: '' }) &&
+    !cuasIndexabilityPolicy.catalogSolutions.some((solution) => solution.handle === row.handle)
+  );
 
 const issues = [];
 for (const item of [...cases, ...solutions]) {
-  const sourceType = Object.hasOwn(item, 'recommended_product_handles') ? 'case' : 'solution';
-  const sourceTier = getComplianceTier(db, sourceType, item.handle);
-  if (sourceTier === 'restricted') {
-    continue;
-  }
-
   const field = item.recommended_product_handles ?? item.recommended_products;
   for (const handle of parseHandles(field)) {
     const product = products.get(handle);
     if (!product) {
       issues.push(`${item.handle} links to missing product: ${handle}`);
-    } else if (product.tier === 'restricted') {
-      issues.push(`${item.handle} links to restricted C-tier product: ${handle}`);
     }
   }
 }
@@ -55,7 +54,7 @@ const report = [
   '',
   '## 发现',
   '',
-  ...(issues.length ? issues.map((item) => `- ${item}`) : ['- 未发现缺失链接或指向 restricted 产品的推荐产品链接。']),
+  ...(issues.length ? issues.map((item) => `- ${item}`) : ['- 未发现缺失的推荐产品链接。']),
 ];
 
 const reportPath = join(process.cwd(), 'docs', 'seo', `internal-link-audit-${todayStamp()}.md`);

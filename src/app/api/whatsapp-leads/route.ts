@@ -22,11 +22,14 @@ export async function POST(request: Request) {
     const leadMessage = cleanShortMessage(body.message);
     const sourceLabel = cleanText(body.sourceLabel) || 'whatsapp_cta';
     const pagePath = cleanText(body.pagePath);
+    const productName = cleanText(body.productName);
+    const productHandle = cleanText(body.productHandle);
+    const ctaLocation = cleanText(body.ctaLocation);
     const referer = request.headers.get('referer') || pagePath || 'Direct';
 
-    if (!name || !phone) {
+    if (!phone) {
       return NextResponse.json(
-        { success: false, error: 'Name and WhatsApp phone are required' },
+        { success: false, error: 'WhatsApp phone is required' },
         { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
       );
     }
@@ -46,6 +49,9 @@ export async function POST(request: Request) {
       '',
       `Source CTA: ${sourceLabel}`,
       `Page path: ${pagePath || referer}`,
+      productName ? `Product/configuration: ${productName}` : '',
+      productHandle ? `Product handle: ${productHandle}` : '',
+      ctaLocation ? `CTA location: ${ctaLocation}` : '',
       `Visitor WhatsApp/phone: ${displayPhone || 'Not provided'}`,
       leadMessage ? `Visitor message: ${leadMessage}` : '',
     ].filter(Boolean).join('\n');
@@ -57,8 +63,8 @@ export async function POST(request: Request) {
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
-    const result = insert.run(
-      name,
+    const result = await insert.run(
+      name || 'WhatsApp visitor',
       '',
       storedEmail,
       'WhatsApp Pre-chat',
@@ -73,7 +79,7 @@ export async function POST(request: Request) {
 
     try {
       await sendInquiryNotification({
-        name,
+        name: name || 'WhatsApp visitor',
         company: '',
         email: storedEmail,
         contactMethod: 'WhatsApp Pre-chat',

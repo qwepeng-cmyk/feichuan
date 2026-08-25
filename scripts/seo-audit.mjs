@@ -3,16 +3,15 @@ import { join } from 'node:path';
 import {
   CONTENT_TYPES,
   SITE_URL,
-  getAllPublishedContent,
+  getAllCuasIndexableContent,
   openDb,
-  publicUrl,
   readTextFileIfExists,
   todayStamp,
   writeTextFile,
 } from './ntet-seo-utils.mjs';
 
 const db = openDb();
-const rows = getAllPublishedContent(db);
+const rows = getAllCuasIndexableContent(db);
 const llmsPath = join(process.cwd(), 'public', 'llms.txt');
 const robotsPath = join(process.cwd(), 'public', 'robots.txt');
 const llms = readTextFileIfExists(llmsPath);
@@ -21,37 +20,20 @@ const failures = [];
 const warnings = [];
 const llmsUrls = Array.from(llms.matchAll(/https?:\/\/[^\s)]+/g)).map((match) => match[0]);
 
-if (!existsSync(llmsPath)) {
-  failures.push('public/llms.txt is missing. Run `npm run generate:llms`.');
+if (!existsSync(llmsPath)) failures.push('public/llms.txt is missing. Run `npm run generate:llms`.');
+if (!robots.includes('Sitemap:')) warnings.push('public/robots.txt does not declare a Sitemap URL.');
+if (llmsUrls.some((url) => /\/admin\b|\/api\b|preview\b/i.test(url))) {
+  failures.push('public/llms.txt contains admin, API, or preview paths.');
+}
+if (llmsUrls.some((url) => /\/accessories(?:\/|$)/i.test(url))) {
+  failures.push('public/llms.txt contains non-C-UAS accessory paths.');
 }
 
-if (!robots.includes('Sitemap:')) {
-  warnings.push('public/robots.txt does not declare a Sitemap URL.');
-}
-
-if (llmsUrls.some((url) => /\/admin\b|preview\b/i.test(url))) {
-  failures.push('public/llms.txt contains admin or preview paths.');
-}
-
-for (const row of rows.filter((item) => item.tier === 'restricted')) {
-  const url = publicUrl('en', row.route, row.handle);
-  if (llmsUrls.includes(url)) {
-    failures.push(`Restricted C-tier URL leaked into llms.txt: ${url}`);
-  }
-}
-
-const byTypeAndTier = {};
-for (const type of Object.keys(CONTENT_TYPES)) {
-  byTypeAndTier[type] = { normal: 0, neutral_seo: 0, restricted: 0 };
-}
+const publishedByType = Object.fromEntries(Object.keys(CONTENT_TYPES).map((type) => [type, 0]));
 for (const row of rows) {
-  byTypeAndTier[row.type][row.tier] += 1;
-  if (row.tier !== 'restricted' && !row.title) {
-    warnings.push(`${row.type}/${row.handle} is public but has no English title.`);
-  }
-  if (row.tier !== 'restricted' && !row.summary) {
-    warnings.push(`${row.type}/${row.handle} is public but has no summary/description.`);
-  }
+  publishedByType[row.type] += 1;
+  if (!row.title) warnings.push(`${row.type}/${row.handle} is published but has no Russian title.`);
+  if (!row.summary) warnings.push(`${row.type}/${row.handle} is published but has no summary/description.`);
 }
 
 const report = [
@@ -60,20 +42,19 @@ const report = [
   `生成日期：${todayStamp()}`,
   `站点：${SITE_URL}`,
   '',
-  '## 合规分布',
+  '## C-UAS 可索引内容',
   '',
-  '| Type | A normal | B neutral SEO | C restricted |',
-  '| --- | ---: | ---: | ---: |',
-  ...Object.entries(byTypeAndTier).map(
-    ([type, counts]) => `| ${type} | ${counts.normal} | ${counts.neutral_seo} | ${counts.restricted} |`
-  ),
+  '| Type | Indexable |',
+  '| --- | ---: |',
+  ...Object.entries(publishedByType).map(([type, count]) => `| ${type} | ${count} |`),
+  '',
+  '公开可访问状态仍由 is_published 控制；SEO/GEO 发现范围使用明确的 C-UAS 分类与页面名单，不应用 A/B/C 或敏感词门禁。',
   '',
   '## 检查项',
   '',
   `- \`llms.txt\` 存在：${existsSync(llmsPath) ? 'yes' : 'no'}`,
   `- \`robots.txt\` 存在：${existsSync(robotsPath) ? 'yes' : 'no'}`,
-  `- \`llms.txt\` 中 restricted URL：${failures.some((item) => item.includes('Restricted C-tier')) ? 'found' : 'none'}`,
-  `- \`llms.txt\` 中 admin/preview URL：${llmsUrls.some((url) => /\/admin\b|preview\b/i.test(url)) ? 'found' : 'none'}`,
+  `- \`llms.txt\` 中 admin/API/preview URL：${llmsUrls.some((url) => /\/admin\b|\/api\b|preview\b/i.test(url)) ? 'found' : 'none'}`,
   '',
   '## 失败项',
   '',
@@ -82,11 +63,6 @@ const report = [
   '## 警告项',
   '',
   ...(warnings.length ? warnings.map((item) => `- ${item}`) : ['- 无']),
-  '',
-  '## 下一步',
-  '',
-  '- 可继续使用已安装的 `seo` / `seo-geo` skills 做页面级分析，但必须保留本项目审计脚本作为 N-TET 合规门禁。',
-  '- 不要把 C 层记录加入 sitemap、`llms.txt`、Schema 或公开广告路径。',
 ];
 
 const reportPath = join(process.cwd(), 'docs', 'seo', `seo-audit-${todayStamp()}.md`);

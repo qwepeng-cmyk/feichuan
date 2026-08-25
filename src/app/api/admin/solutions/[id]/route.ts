@@ -4,7 +4,7 @@ import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
     try {
-        const row = db.prepare('SELECT * FROM solutions WHERE handle = ?').get(params.id) as any;
+        const row = await db.prepare('SELECT * FROM solutions WHERE handle = ?').get(params.id) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
         
         let recommendedProducts: any = row.recommended_products;
@@ -43,7 +43,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
         const raw_json = JSON.stringify({ ...body, is_published: isPublished });
         
-        db.prepare(`
+        await db.prepare(`
             UPDATE solutions 
             SET product_name_en = ?, product_name_ru = ?, category_id = ?, category_name = ?, main_image = ?, 
                 summary_en = ?, summary_ru = ?, key_application_en = ?, key_application_ru = ?,
@@ -84,7 +84,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     try {
         const body = await request.json();
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
-        const row = db.prepare('SELECT raw_json FROM solutions WHERE handle = ?').get(params.id) as any;
+        const row = await db.prepare('SELECT raw_json FROM solutions WHERE handle = ?').get(params.id) as any;
 
         if (!row) {
             return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
@@ -98,7 +98,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         }
         rawData.is_published = isPublished;
 
-        db.prepare(`
+        await db.prepare(`
             UPDATE solutions
             SET is_published = ?, raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE handle = ?
@@ -113,7 +113,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
     try {
-        db.prepare('DELETE FROM solutions WHERE handle = ?').run(params.id);
+        await db.prepare('DELETE FROM solutions WHERE handle = ?').run(params.id);
         revalidateTag('solutions');
         return NextResponse.json({ success: true });
     } catch (e) {

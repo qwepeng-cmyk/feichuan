@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ExternalLink, Settings, ShieldCheck, Activity } from 'lucide-react';
+import { LayoutDashboard, Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ExternalLink, Settings, Activity } from 'lucide-react';
 import styles from '@/app/admin/admin.module.css';
 
 export default function AdminSidebar() {
@@ -16,7 +16,6 @@ export default function AdminSidebar() {
         { name: '案例管理', path: '/admin/cases', icon: <FolderOpen size={20} /> },
         { name: '新闻管理', path: '/admin/media', icon: <Newspaper size={20} /> },
         { name: '询价列表', path: '/admin/inquiries', icon: <MessageSquare size={20} /> },
-        { name: '广告合规', path: '/admin/compliance', icon: <ShieldCheck size={20} /> },
         { name: 'SEO 监控', path: '/admin/seo-monitoring', icon: <Activity size={20} /> },
         { name: '网站设置', path: '/admin/settings', icon: <Settings size={20} /> },
     ];

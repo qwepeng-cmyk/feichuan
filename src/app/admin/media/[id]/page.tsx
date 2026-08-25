@@ -5,7 +5,11 @@ import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, ChevronDown, ChevronUp, Image as ImageIcon, ToggleLeft, ToggleRight } from 'lucide-react';
 import RichTextEditor from '@/components/admin/RichTextEditor';
 
-const MEDIA_CATS = ['Company News', 'Industry Analysis', 'Product Update', 'Event'];
+const MEDIA_CATS = [
+    { value: 'corporate', label: 'Inside N-TET' },
+    { value: 'industry', label: 'Buyer & Industry Guide' },
+    { value: 'product', label: 'Equipment & Technology' },
+];
 
 const s: Record<string, React.CSSProperties> = {
     card: { backgroundColor: '#fff', padding: '28px', borderRadius: '12px', boxShadow: '0 1px 8px rgba(0,0,0,0.04)', border: '1px solid #e8ecf1', marginBottom: '20px' },
@@ -78,7 +82,7 @@ export default function MediaEditPage({ params }: { params: { id: string } }) {
                     <div><label style={s.label}>Category</label>
                         <select style={{ ...s.input, appearance: 'auto' as const }} value={f.category || ''} onChange={e => upd('category', e.target.value)}>
                             <option value="">-- Select --</option>
-                            {MEDIA_CATS.map(c => <option key={c} value={c}>{c}</option>)}
+                            {MEDIA_CATS.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
                         </select>
                     </div>
                 </div>

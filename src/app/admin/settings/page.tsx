@@ -12,6 +12,7 @@ type TrackingForm = {
 
 type EmailForm = {
     enabled: boolean;
+    brochureNotificationsEnabled: boolean;
     smtpHost: string;
     smtpPort: number;
     smtpSecure: boolean;
@@ -25,6 +26,7 @@ type EmailForm = {
 type ChatForm = {
     zoosnetEnabled: boolean;
     messageBoxEnabled: boolean;
+    messageBoxDelayMinutes: number;
 };
 
 const card: React.CSSProperties = {
@@ -78,6 +80,7 @@ const emptyTracking: TrackingForm = {
 
 const emptyEmail: EmailForm = {
     enabled: false,
+    brochureNotificationsEnabled: false,
     smtpHost: '',
     smtpPort: 587,
     smtpSecure: false,
@@ -91,6 +94,7 @@ const emptyEmail: EmailForm = {
 const emptyChat: ChatForm = {
     zoosnetEnabled: true,
     messageBoxEnabled: false,
+    messageBoxDelayMinutes: 3,
 };
 
 export default function AdminSettingsPage() {
@@ -343,8 +347,29 @@ export default function AdminSettingsPage() {
                             Enable floating message box
                         </label>
 
+                        <label style={{ maxWidth: '360px', opacity: chatForm.messageBoxEnabled ? 1 : 0.58 }}>
+                            <span style={label}>Auto-open delay (minutes)</span>
+                            <input
+                                type="number"
+                                min={1}
+                                max={60}
+                                step={1}
+                                style={input}
+                                value={chatForm.messageBoxDelayMinutes}
+                                disabled={!chatForm.messageBoxEnabled}
+                                onChange={(e) => setChatForm((prev) => ({
+                                    ...prev,
+                                    messageBoxDelayMinutes: Number(e.target.value),
+                                }))}
+                                aria-describedby="message-box-delay-help"
+                            />
+                            <div id="message-box-delay-help" style={helper}>
+                                The message box opens 1–60 minutes after the visitor arrives, then remains available during the browser session.
+                            </div>
+                        </label>
+
                         <div style={{ padding: '14px 16px', borderRadius: '8px', background: '#f8fafc', color: '#64748b', fontSize: '1.25rem', lineHeight: 1.7 }}>
-                            Zoosnet and the floating message box can be controlled separately. Use the message box when live chat is offline or disabled.
+                            Zoosnet and the floating message box can be controlled separately. The timer starts when the visitor enters the site and continues across page navigation.
                         </div>
                     </div>
 
@@ -381,14 +406,30 @@ export default function AdminSettingsPage() {
                     {emailError && <div style={{ marginBottom: '18px', color: '#be123c', fontSize: '1.3rem', fontWeight: 700 }}>{emailError}</div>}
 
                     <div style={{ display: 'grid', gap: '22px' }}>
-                        <label style={checkboxLabel}>
-                            <input
-                                type="checkbox"
-                                checked={emailForm.enabled}
-                                onChange={(e) => setEmailForm((prev) => ({ ...prev, enabled: e.target.checked }))}
-                            />
-                            Send an email when a public inquiry is submitted
-                        </label>
+                        <div style={{ display: 'grid', gap: '14px', padding: '18px', border: '1px solid #dce6f3', borderRadius: '10px', background: 'linear-gradient(135deg, #f8fbff 0%, #f2f6fb 100%)' }}>
+                            <label style={checkboxLabel}>
+                                <input
+                                    type="checkbox"
+                                    checked={emailForm.enabled}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, enabled: e.target.checked }))}
+                                />
+                                Send an email when a public inquiry is submitted
+                            </label>
+
+                            <label style={{ ...checkboxLabel, paddingLeft: '24px' }}>
+                                <input
+                                    type="checkbox"
+                                    checked={emailForm.brochureNotificationsEnabled}
+                                    disabled={!emailForm.enabled}
+                                    onChange={(e) => setEmailForm((prev) => ({ ...prev, brochureNotificationsEnabled: e.target.checked }))}
+                                />
+                                Send an email when a product brochure is downloaded
+                            </label>
+
+                            <div style={{ ...helper, marginTop: 0, paddingLeft: '24px' }}>
+                                Brochure downloads are saved in the inquiry list. Enable this option to also notify the Receiver Email below. Repeat downloads from the same email and product within 24 hours do not send another notification.
+                            </div>
+                        </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '16px' }}>
                             <label>

@@ -24,5 +24,6 @@ export function getLocalizedMediaDate(date: string, locale: string) {
 }
 
 export function getLocalizedMediaTitle(news: any, locale: string) {
-  return news?.[`title_${locale}`] || news?.title_en || news?.title || '';
+  return sanitizePublicCopy(news?.[`title_${locale}`] || news?.title_en || news?.title || '');
 }
+import { sanitizePublicCopy } from '@/lib/publicCopy';

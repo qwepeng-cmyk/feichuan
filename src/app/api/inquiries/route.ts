@@ -5,9 +5,38 @@ import { sendInquiryNotification } from '@/lib/inquiryEmail';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function cleanText(value: unknown) {
+    return String(value ?? '').trim();
+}
+
 export async function POST(request: Request) {
     try {
         const body = await request.json();
+        const name = cleanText(body.name);
+        const company = cleanText(body.company);
+        const email = cleanText(body.email);
+        const phone = cleanText(body.phone);
+        const message = cleanText(body.message);
+        const contactMethod = cleanText(body.contactMethod);
+        const countryCode = cleanText(body.countryCode)
+            || cleanText(request.headers.get('cf-ipcountry'))
+            || cleanText(request.headers.get('x-vercel-ip-country'));
+
+        if (!email || !phone) {
+            return NextResponse.json(
+                { success: false, error: 'Email and Phone / WhatsApp are required' },
+                { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
+            );
+        }
+        if (!EMAIL_PATTERN.test(email)) {
+            return NextResponse.json(
+                { success: false, error: 'A valid email address is required' },
+                { status: 400, headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
+            );
+        }
+
         const referer = request.headers.get('referer') || 'Direct';
         const sourcePage = typeof body.sourcePage === 'string' && body.sourcePage.trim()
             ? body.sourcePage.trim()
@@ -21,19 +50,19 @@ export async function POST(request: Request) {
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `);
 
-        const result = insert.run(
-            body.name,
-            body.company || '',
-            body.email,
-            body.contactMethod || '',
-            body.countryCode || '',
-            body.phone || '',
+        const result = await insert.run(
+            name,
+            company,
+            email,
+            contactMethod,
+            countryCode,
+            phone,
             JSON.stringify(demands),
-            body.message || '',
+            message,
             sourcePage
         );
         const inquiryId = Number(result.lastInsertRowid);
-        const savedInquiry = db.prepare(`
+        const savedInquiry = await db.prepare(`
             SELECT id, name, email, created_at
             FROM inquiries
             WHERE id = ?
@@ -45,14 +74,14 @@ export async function POST(request: Request) {
 
         try {
             await sendInquiryNotification({
-                name: body.name,
-                company: body.company || '',
-                email: body.email,
-                contactMethod: body.contactMethod || '',
-                countryCode: body.countryCode || '',
-                phone: body.phone || '',
+                name,
+                company,
+                email,
+                contactMethod,
+                countryCode,
+                phone,
                 demands,
-                message: body.message || '',
+                message,
                 sourcePage,
             });
         } catch (emailError) {

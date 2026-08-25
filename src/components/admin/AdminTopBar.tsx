@@ -17,7 +17,6 @@ export default function AdminTopBar() {
         if (pathname.includes('/cases')) return '案例管理 (Cases)';
         if (pathname.includes('/media')) return '新闻管理 (Media)';
         if (pathname.includes('/inquiries')) return '询价列表 (Inquiries)';
-        if (pathname.includes('/compliance')) return '广告合规 (Compliance)';
         if (pathname.includes('/seo-monitoring')) return 'SEO 监控 (SEO Monitoring)';
         if (pathname.includes('/settings')) return '网站设置 (Settings)';
         return '管理后台';

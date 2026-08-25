@@ -17,9 +17,11 @@ import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { articleJsonLd, pageUrl } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
+import CaseEquipmentList from '@/components/cases/CaseEquipmentList';
+import { isdefenseCaseHandle, isdefenseProductCategory } from '@/lib/indexability';
+import { sanitizePublicCopy, sanitizePublicRecord } from '@/lib/publicCopy';
 
 const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
   ssr: true,
@@ -29,14 +31,12 @@ const InquiryForm = dynamic(() => import('@/components/products/InquiryForm'), {
 export async function generateStaticParams() {
   const handles = await getAllCaseHandles();
   return handles
-    .filter((handle) => isPublicComplianceContent('case', handle))
     .map((handle) => ({
       handle,
     }));
 }
 
 export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
-  if (!isPublicComplianceContent('case', params.handle)) return {};
   const caseData = await getCaseByHandle(params.handle);
   if (!caseData) return {};
 
@@ -49,12 +49,13 @@ export async function generateMetadata({ params }: { params: { handle: string; l
     fallbackTitle: title,
     fallbackDescription: description,
     image: caseData.main_image,
+    indexable: isdefenseCaseHandle(params.handle),
   });
 }
 
 function parseList(value: unknown): string[] {
   if (!value) return [];
-  if (Array.isArray(value)) return value.filter(Boolean).map(String);
+  if (Array.isArray(value)) return value.filter(Boolean).map((item) => sanitizePublicCopy(String(item)));
 
   if (typeof value === 'string') {
     const trimmed = value.trim();
@@ -62,14 +63,16 @@ function parseList(value: unknown): string[] {
 
     try {
       const parsed = JSON.parse(trimmed);
-      if (Array.isArray(parsed)) return parsed.filter(Boolean).map(String);
+      if (Array.isArray(parsed)) {
+        return parsed.filter(Boolean).map((item) => sanitizePublicCopy(String(item)));
+      }
     } catch (e) {
       // Some admin fields have historically been saved as plain strings.
     }
 
     return trimmed
       .split(/[\n,]/)
-      .map((item) => item.trim())
+      .map((item) => sanitizePublicCopy(item.trim()))
       .filter(Boolean);
   }
 
@@ -80,8 +83,17 @@ function uniqueItems(items: string[]) {
   return Array.from(new Set(items.filter(Boolean)));
 }
 
+function firstNonEmptyList(...values: unknown[]): string[] {
+  for (const value of values) {
+    const items = uniqueItems(parseList(value));
+    if (items.length > 0) return items;
+  }
+
+  return [];
+}
+
 function localizeSnapshotLabel(label: string, dict: any) {
-  return dict?.cases?.snapshotLabels?.[label] || label;
+  return sanitizePublicCopy(dict?.cases?.snapshotLabels?.[label] || label);
 }
 
 function parseSnapshot(value: unknown, dict: any): { label: string; value: string }[] {
@@ -104,7 +116,7 @@ function parseSnapshot(value: unknown, dict: any): { label: string; value: strin
       if (!item || typeof item !== 'object') return null;
       const record = item as { label?: unknown; value?: unknown };
       const label = typeof record.label === 'string' ? record.label.trim() : '';
-      const itemValue = typeof record.value === 'string' ? record.value.trim() : '';
+      const itemValue = typeof record.value === 'string' ? sanitizePublicCopy(record.value.trim()) : '';
       return label && itemValue ? { label: localizeSnapshotLabel(label, dict), value: itemValue } : null;
     })
     .filter((item): item is { label: string; value: string } => Boolean(item));
@@ -113,18 +125,16 @@ function parseSnapshot(value: unknown, dict: any): { label: string; value: strin
 // 1. Data Fetching Component (Streaming)
 async function CaseDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
-  if (!isPublicComplianceContent('case', handle)) {
+
+  const rawCaseData = await getCaseByHandle(handle);
+
+  if (!rawCaseData) {
     notFound();
   }
+  const caseData = sanitizePublicRecord(rawCaseData);
 
-  const caseData = await getCaseByHandle(handle);
-
-  if (!caseData) {
-    notFound();
-  }
-
-  const title = caseData[`title_${locale}`] || caseData.title_en || caseData.title;
-  const description = caseData[`description_${locale}`] || caseData.description_en || caseData.description;
+  const title = sanitizePublicCopy(caseData[`title_${locale}`] || caseData.title_en || caseData.title);
+  const description = sanitizePublicCopy(caseData[`description_${locale}`] || caseData.description_en || caseData.description);
   const seoTarget = getSeoKeywordTarget({
     route: `/cases/${handle}`,
     title,
@@ -148,6 +158,11 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
     ],
   });
   const caseSnapshot = parseSnapshot(caseData[`case_snapshot_${locale}`] || caseData.case_snapshot_en, dict);
+  const equipmentItems = firstNonEmptyList(
+    caseData[`devices_${locale}`],
+    caseData.devices_en,
+    caseData.devices
+  );
   const recommendedProductHandles = uniqueItems([
     ...parseList(caseData.recommended_product_handles),
     ...parseList(caseData.recommendedProductHandles),
@@ -156,7 +171,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
   const recommendedProducts: any[] = [];
   for (const productHandle of recommendedProductHandles) {
     const product = await getProductByHandle(productHandle);
-    if (product) {
+    if (product && isdefenseProductCategory(product.category_primary || product.category)) {
       recommendedProducts.push({
         ...product,
         name: product[`product_name_${locale}`] || product.product_name_en || product.name,
@@ -190,7 +205,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      {isdefenseCaseHandle(handle) && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <div className="product-detail-page" style={{ paddingTop: '112px' }}>
@@ -213,6 +228,10 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                     <h1 style={{ fontSize: '4.8rem', fontWeight: '900', marginBottom: '20px', lineHeight: '1.1', color: '#333' }}>
                       {title}
                     </h1>
+                    <CaseEquipmentList
+                      heading={dict.cases?.equipmentUsed || 'Equipment Used'}
+                      items={equipmentItems}
+                    />
                     {caseSnapshot.length > 0 && (
                       <div className="case-snapshot" style={{ marginBottom: '40px', borderTop: '1px solid #e5ebf3', borderBottom: '1px solid #e5ebf3', padding: '22px 0' }}>
                         <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#315ba4', marginBottom: '15px' }}>
@@ -227,12 +246,12 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
                       </div>
                     )}
                     <div className="cta-group" style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
-                      <a href="#inquiry" className="btn-cta" style={{ background: '#ff9800', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
+                      <a href="#inquiry" className="btn-cta" style={{ background: '#b45309', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.getQuotation}
                       </a>
-                      <WhatsAppLeadButton sourceLabel="case_detail_whatsapp" className="btn-cta" style={{ background: '#25D366', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
+                      <PrimaryContactButton sourceLabel="case_detail_whatsapp" className="btn-cta" style={{ background: 'var(--contact-channel-accent)', color: '#fff', borderRadius: '4px', fontSize: '2rem', flex: 1, height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', fontWeight: '700', textDecoration: 'none' }}>
                         {dict.products.whatsapp}
-                      </WhatsAppLeadButton>
+                      </PrimaryContactButton>
                     </div>
                   </div>
                 </div>
@@ -255,7 +274,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
             {recommendedProducts.length > 0 && (
               <section id="products" className="detail-section" style={{ padding: '100px 0', backgroundColor: '#f4f7fa' }}>
                 <div className="container">
-                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>{dict.products.relatedEquipment || 'Related Equipment'}</h2>
+                  <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '50px' }}>{dict.cases?.recommendedEquipment || dict.products.relatedEquipment || 'Recommended Equipment'}</h2>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '30px' }}>
                     {recommendedProducts.map((product, idx) => (
                       <ProductGridCard key={idx} product={product} locale={locale} />
@@ -280,6 +299,7 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
           recommendedProducts={recommendedProducts}
           locale={locale}
           dict={dict}
+          equipmentItems={equipmentItems}
         />
       </div>
 
@@ -291,9 +311,6 @@ async function CaseDetailContent({ handle, locale }: { handle: string; locale: L
 // 2. Entry Page Component (Instant Navigation)
 export default async function CaseDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
-  if (!isPublicComplianceContent('case', handle)) {
-    notFound();
-  }
 
   const caseData = await getCaseByHandle(handle);
   if (!caseData) {

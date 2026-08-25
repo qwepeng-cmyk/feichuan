@@ -131,14 +131,6 @@ function pageType(route) {
   return 'other';
 }
 
-function pageTier(route, plannedTier) {
-  if (plannedTier) return plannedTier;
-  const base = stripLocale(route).replace(/^\/+/, '');
-  if (/directional-rf-jammer|omni-directional-rf-jammer|spoofing|anti-uav|cuas|jammer|jamming/i.test(base)) return 'restricted';
-  if (/chemical-plant-protection|hydroelectric-dam-protection|oil-production-base-protection|airport-security-protection|judicial-sector-security|sports-event-security|stationary-rf-detection-system|portable-rf-detection-case|composite-electro-optical-tracking-system|uav-remote-id-monitoring-system|low-altitude-detection-radar/i.test(base)) return 'neutral_seo';
-  return 'normal';
-}
-
 function loadClusterSummary() {
   const rows = parseCsv(readText(INPUTS.adsCluster));
   const summary = new Map();
@@ -235,8 +227,7 @@ function mappingStatus({ planned, inheritedPlanned, libraryMatch, locale }) {
   return 'not_mapped_to_ads_keyword_library';
 }
 
-function actionFor({ status, auditStatus, pageKind, tier, planned, inheritedPlanned, libraryMatch }) {
-  if (tier === 'restricted') return 'Keep unavailable publicly; exclude from ads, Schema, sitemap, and llms.txt.';
+function actionFor({ status, auditStatus, pageKind, planned, inheritedPlanned, libraryMatch }) {
   if (planned.length || inheritedPlanned.length) {
     if (auditStatus === 'strong') return 'Keep mapping; continue E-E-A-T and internal-link strengthening.';
     return 'Optimize title, description, H1, H2, intro paragraph, and body sections around the planned primary keyword.';
@@ -273,7 +264,6 @@ function buildMatrix() {
       .map((cluster) => clusterSummary.get(cluster)?.rows || planClusters.find((item) => item.cluster === cluster)?.keywordRows || '')
       .filter(Boolean);
     const kind = pageType(route);
-    const tier = pageTier(route, planClusters[0]?.pageTier);
     const status = mappingStatus({ planned, inheritedPlanned, libraryMatch, locale });
 
     return {
@@ -281,7 +271,6 @@ function buildMatrix() {
       locale,
       canonical_english_route: canonicalRoute,
       page_type: kind,
-      compliance_tier: tier,
       audit_status: row.status,
       audit_score: row.score,
       primary_keyword: row.primary_keyword,
@@ -306,7 +295,6 @@ function buildMatrix() {
         status,
         auditStatus: row.status,
         pageKind: kind,
-        tier,
         planned,
         inheritedPlanned,
         libraryMatch,
@@ -412,8 +400,8 @@ ${renderRows(unmapped, 40)}
 3. Put the primary keyword in title, description, H1, and the intro paragraph.
 4. Put supporting keywords in H2, scenario paragraphs, FAQ, and related links.
 5. Localized pages should inherit the English mapping first, then use localized keyword wording.
-6. neutral_seo pages are informational SEO/GEO pages, not default ad landing pages.
-7. After changes, run npm run build and npm run audit:keywords; run public-risk audit when public compliance may change.
+6. Published pages remain publicly accessible; C-UAS indexable pages may be used for SEO, GEO, Schema, sitemap, llms.txt, and advertising.
+7. After changes, run npm run build and npm run audit:keywords.
 `;
 
   fs.writeFileSync(OUTPUTS.md, body, 'utf8');

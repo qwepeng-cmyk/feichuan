@@ -13,7 +13,6 @@ interface ProductProps {
     product: any;
     locale: string;
     dict: any;
-    basePath?: '/products' | '/accessories';
     catalogLabel?: string;
 }
 
@@ -202,7 +201,8 @@ function renderMobileSpecRows(parameters: any): React.ReactNode {
     });
 }
 
-export default function MobileProductDetail({ product, locale, dict, basePath = '/products', catalogLabel }: ProductProps) {
+export default function MobileProductDetail({ product, locale, dict, catalogLabel }: ProductProps) {
+    const basePath = '/products';
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
 

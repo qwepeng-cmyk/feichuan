@@ -9,8 +9,8 @@
 .banner {
     height: 120px;
     width: 100%;
-    background-image: url('/cases/case_banner_center_collage_v2.webp?v=20260601');
-    background-size: auto 100%;
+    background-image: url('/solutions/cuas-applications/banner/case_center_banner.webp');
+    background-size: cover;
     background-position: center;
     position: relative;
     display: flex;
@@ -46,6 +46,16 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.confidentialityNote {
+    margin: 16px 15px 0;
+    padding: 12px 14px;
+    color: #526173;
+    background: #f6f8fb;
+    border-left: 4px solid #315ba4;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 .filterGroup {

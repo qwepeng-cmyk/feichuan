@@ -4,9 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileStickyBar from "@/components/mobile/MobileStickyBar";
 import DesktopFloatingContact from "@/components/contact/DesktopFloatingContact";
-import FloatingMessageBox from "@/components/contact/FloatingMessageBox";
-import ZoosnetBusinessChat from "@/components/contact/ZoosnetBusinessChat";
-import LocaleDocumentState from "@/components/LocaleDocumentState";
+import DeferredContactTools from "@/components/contact/DeferredContactTools";
 import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -16,6 +14,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { siteGraphSchema } from "@/lib/structuredData";
 import { getAllProducts } from "@/lib/products";
 import { getVisibleProductCategoryIds } from "@/lib/productCategoryVisibility";
+import { SITE_URL } from "@/config/site";
 
 function isValidLocale(locale: string): locale is Locale {
   return i18n.locales.includes(locale as Locale);
@@ -31,6 +30,7 @@ const fallbackTracking = {
   gtmContainerId: 'GTM-PJN9QQWN',
   gtmEnabled: true,
 };
+const googleAdsTagId = 'AW-18157207807';
 
 async function loadTrackingSettings() {
   try {
@@ -48,7 +48,6 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     notFound();
   }
 
-  const baseUrl = 'https://n-tet.com';
   const dict = await getDictionary(locale);
   const homeTitle = dict.home.hero.title.replace(/<br\s*\/?\s*>/gi, ' ');
   const homeDescription = dict.home.hero.subtitle;
@@ -56,7 +55,10 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
   return {
     title: `${homeTitle} | N-TET`,
     description: homeDescription,
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(SITE_URL),
+    verification: {
+      yandex: '3525b0a915ebe37e',
+    },
     icons: {
       icon: [
         { url: '/favicon.ico?v=20260630-ntet-logo', sizes: 'any' },
@@ -66,12 +68,9 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
       apple: '/apple-touch-icon.png?v=20260630-ntet-logo',
     },
     alternates: {
-      canonical: locale === i18n.defaultLocale ? '/' : `/${locale}`,
+      canonical: '/',
       languages: {
-        'en': '/',
-        'ru': '/ru',
-        'es': '/es',
-        'ar': '/ar',
+        'ru': '/',
         'x-default': '/',
       },
     },
@@ -95,7 +94,6 @@ export default async function LocaleLayout({
   params: { locale: Locale };
 }) {
   const locale = params.locale;
-  const isRtl = locale === 'ar';
   if (!isValidLocale(locale)) {
     notFound();
   }
@@ -105,9 +103,10 @@ export default async function LocaleLayout({
   const tracking = await loadTrackingSettings();
   const gaMeasurementId = tracking?.gaEnabled ? cleanTrackingId(tracking.gaMeasurementId) : '';
   const gtmContainerId = tracking?.gtmEnabled ? cleanTrackingId(tracking.gtmContainerId) : '';
+  const yandexMetrikaId = locale === 'ru' ? 111375688 : null;
 
   return (
-    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-locale={locale} suppressHydrationWarning>
+    <html lang="ru" dir="ltr" data-locale="ru" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <NextTopLoader
           color="#315ba4"
@@ -120,8 +119,6 @@ export default async function LocaleLayout({
           speed={200}
           shadow="0 0 10px #315ba4,0 0 5px #315ba4"
         />
-        <LocaleDocumentState locale={locale} />
-
         {gtmContainerId && (
           <Script
             id="google-tag-manager"
@@ -150,13 +147,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaMeasurementId}');`,
+gtag('config', '${gaMeasurementId}');
+gtag('config', '${googleAdsTagId}');`,
               }}
             />
           </>
         )}
-        <ZoosnetBusinessChat />
+        {yandexMetrikaId && (
+          <Script
+            id="yandex-metrika"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${yandexMetrikaId}', 'ym');
 
+ym(${yandexMetrikaId}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});`,
+            }}
+          />
+        )}
         {gtmContainerId && (
           <noscript>
             <iframe
@@ -167,13 +179,29 @@ gtag('config', '${gaMeasurementId}');`,
             />
           </noscript>
         )}
+        {yandexMetrikaId && (
+          <noscript>
+            <div>
+              <img
+                src={`https://mc.yandex.ru/watch/${yandexMetrikaId}`}
+                style={{ position: 'absolute', left: '-9999px' }}
+                alt=""
+              />
+            </div>
+          </noscript>
+        )}
 
-        <Header locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
+        <Header
+          locale={locale}
+          dict={dict}
+          visibleProductCategoryIds={visibleProductCategoryIds}
+          showLaserPreview={process.env.LOCAL_LASER_PREVIEW === '1'}
+        />
         <JsonLd data={siteGraphSchema(locale)} />
         {children}
         <Footer locale={locale} dict={dict} visibleProductCategoryIds={visibleProductCategoryIds} />
-        <DesktopFloatingContact />
-        <FloatingMessageBox />
+        <DesktopFloatingContact locale={locale} />
+        <DeferredContactTools />
 
         {/* MOBILE STICKY BAR */}
         <div className="mobile_only">

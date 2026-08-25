@@ -84,167 +84,167 @@ function normalizeObjectItems(value: unknown): Array<{ name?: string; title?: st
     return Array.isArray(value) ? value.filter((item) => item && typeof item === 'object') as Array<{ name?: string; title?: string; description?: string; role?: string; status?: string; handle?: string; image?: string }> : [];
 }
 
-const uavSolutionScenes = {
-    powerLine: '/solutions/uav-detail/power-line-inspection.webp',
-    highRiseFirefighting: '/solutions/uav-detail/high-rise-firefighting.webp',
-    waterConservancy: '/solutions/uav-detail/water-conservancy-monitoring.webp',
-    nightLighting: '/solutions/uav-detail/night-emergency-lighting.webp',
-    searchRescue: '/solutions/uav-detail/disaster-search-rescue.webp',
-    emergencyCommunication: '/solutions/uav-detail/emergency-communication.webp',
-    smartSubstation: '/solutions/uav-detail/smart-substation-inspection.webp',
-    smartSubstationDrone: '/solutions/uav-detail/smart-substation-automatic-inspection-drone.webp',
-    smartSubstationPlatform: '/solutions/uav-detail/smart-substation-ai-control-platform.webp',
-    smartSubstationInstrument: '/solutions/uav-detail/smart-substation-instrument-reading.webp',
-    smartSubstationWireThermal: '/solutions/uav-detail/smart-substation-wire-thermal-anomaly.webp',
-    smartSubstationSwitchThermal: '/solutions/uav-detail/smart-substation-switch-thermal-monitoring.webp',
-    maritimePatrol: '/solutions/uav-detail/maritime-patrol.webp',
-    tetheredMonitoring: '/solutions/uav-detail/tethered-monitoring.webp',
-    powerLineDocPayload: '/solutions/power-line-uav-intelligent-inspection-solution/power-grid-inspection-01.webp',
-    powerLineDocCorridor: '/solutions/power-line-uav-intelligent-inspection-solution/power-grid-inspection-02.webp',
-    powerLineDocPointCloud: '/solutions/power-line-uav-intelligent-inspection-solution/power-grid-inspection-03.webp',
-    powerLineDocLidar: '/solutions/power-line-uav-intelligent-inspection-solution/power-grid-inspection-04.webp',
-    powerLineDocTowerDrone: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-02.webp',
-    powerLineDocTowerFlight: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-03.webp',
-    powerLineDocThermal: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-04.webp',
-    powerLineDocHardware: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-05.webp',
-    powerLineDocWire: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-06.webp',
-    powerLineDocInsulator: '/solutions/power-line-uav-intelligent-inspection-solution/tower-inspection-07.webp',
-    firefightingPainPoint: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/high-rise-fire-drill.webp',
-    firefightingSpray: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/high-rise-water-spray.webp',
-    firefightingForest: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/forest-fire-support.webp',
-    firefightingBuilding: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/building-fire-rescue.webp',
-    firefightingWindow: '/solutions/urban-high-rise-firefighting-emergency-uav-solution/high-rise-window-breaking.webp',
+const aerialSolutionScenes = {
+    powerLine: '/solutions/aerial-detail/power-line-inspection.webp',
+    highRiseFirefighting: '/solutions/aerial-detail/high-rise-firefighting.webp',
+    waterConservancy: '/solutions/aerial-detail/water-conservancy-monitoring.webp',
+    nightLighting: '/solutions/aerial-detail/night-emergency-lighting.webp',
+    searchRescue: '/solutions/aerial-detail/disaster-search-rescue.webp',
+    emergencyCommunication: '/solutions/aerial-detail/emergency-communication.webp',
+    smartSubstation: '/solutions/aerial-detail/smart-substation-inspection.webp',
+    smartSubstationplatform: '/solutions/aerial-detail/smart-substation-automatic-inspection-platform.webp',
+    smartSubstationPlatform: '/solutions/aerial-detail/smart-substation-ai-control-platform.webp',
+    smartSubstationInstrument: '/solutions/aerial-detail/smart-substation-instrument-reading.webp',
+    smartSubstationWireThermal: '/solutions/aerial-detail/smart-substation-wire-thermal-anomaly.webp',
+    smartSubstationSwitchThermal: '/solutions/aerial-detail/smart-substation-switch-thermal-monitoring.webp',
+    maritimePatrol: '/solutions/aerial-detail/maritime-patrol.webp',
+    tetheredMonitoring: '/solutions/aerial-detail/tethered-monitoring.webp',
+    powerLineDocPayload: '/solutions/power-line-aerial-intelligent-inspection-solution/power-grid-inspection-01.webp',
+    powerLineDocCorridor: '/solutions/power-line-aerial-intelligent-inspection-solution/power-grid-inspection-02.webp',
+    powerLineDocPointCloud: '/solutions/power-line-aerial-intelligent-inspection-solution/power-grid-inspection-03.webp',
+    powerLineDocLidar: '/solutions/power-line-aerial-intelligent-inspection-solution/power-grid-inspection-04.webp',
+    powerLineDocTowerplatform: '/solutions/power-line-aerial-intelligent-inspection-solution/tower-inspection-02.webp',
+    powerLineDocTowerFlight: '/solutions/power-line-aerial-intelligent-inspection-solution/tower-inspection-03.webp',
+    powerLineDocThermal: '/solutions/power-line-aerial-intelligent-inspection-solution/tower-inspection-04.webp',
+    powerLineDocHardware: '/solutions/power-line-aerial-intelligent-inspection-solution/tower-inspection-05.webp',
+    powerLineDocWire: '/solutions/power-line-aerial-intelligent-inspection-solution/tower-inspection-06.webp',
+    powerLineDocInsulator: '/solutions/power-line-aerial-intelligent-inspection-solution/tower-inspection-07.webp',
+    firefightingPainPoint: '/solutions/urban-high-rise-firefighting-emergency-aerial-solution/high-rise-fire-drill.webp',
+    firefightingSpray: '/solutions/urban-high-rise-firefighting-emergency-aerial-solution/high-rise-water-spray.webp',
+    firefightingForest: '/solutions/urban-high-rise-firefighting-emergency-aerial-solution/forest-fire-support.webp',
+    firefightingBuilding: '/solutions/urban-high-rise-firefighting-emergency-aerial-solution/building-fire-rescue.webp',
+    firefightingWindow: '/solutions/urban-high-rise-firefighting-emergency-aerial-solution/high-rise-window-breaking.webp',
 };
 
 const waterSolutionImages = [
-    uavSolutionScenes.waterConservancy,
-    uavSolutionScenes.searchRescue,
-    uavSolutionScenes.emergencyCommunication,
+    aerialSolutionScenes.waterConservancy,
+    aerialSolutionScenes.searchRescue,
+    aerialSolutionScenes.emergencyCommunication,
 ];
 
 const solutionVisualSets: Array<{ match: string; images: string[] }> = [
     {
         match: 'urban-high-rise-firefighting',
         images: [
-            uavSolutionScenes.firefightingPainPoint,
-            uavSolutionScenes.firefightingSpray,
-            uavSolutionScenes.firefightingForest,
-            uavSolutionScenes.firefightingBuilding,
-            uavSolutionScenes.firefightingWindow,
+            aerialSolutionScenes.firefightingPainPoint,
+            aerialSolutionScenes.firefightingSpray,
+            aerialSolutionScenes.firefightingForest,
+            aerialSolutionScenes.firefightingBuilding,
+            aerialSolutionScenes.firefightingWindow,
         ],
     },
     {
         match: 'high-rise-firefighting',
         images: [
-            uavSolutionScenes.firefightingPainPoint,
-            uavSolutionScenes.firefightingSpray,
-            uavSolutionScenes.firefightingForest,
-            uavSolutionScenes.firefightingBuilding,
-            uavSolutionScenes.firefightingWindow,
+            aerialSolutionScenes.firefightingPainPoint,
+            aerialSolutionScenes.firefightingSpray,
+            aerialSolutionScenes.firefightingForest,
+            aerialSolutionScenes.firefightingBuilding,
+            aerialSolutionScenes.firefightingWindow,
         ],
     },
     {
         match: 'night-emergency-lighting',
         images: [
-            uavSolutionScenes.nightLighting,
-            uavSolutionScenes.emergencyCommunication,
-            uavSolutionScenes.tetheredMonitoring,
+            aerialSolutionScenes.nightLighting,
+            aerialSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.tetheredMonitoring,
         ],
     },
     {
         match: 'tethered-lighting',
         images: [
-            uavSolutionScenes.nightLighting,
-            uavSolutionScenes.tetheredMonitoring,
-            uavSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.nightLighting,
+            aerialSolutionScenes.tetheredMonitoring,
+            aerialSolutionScenes.emergencyCommunication,
         ],
     },
     {
         match: 'post-disaster-emergency-communication',
         images: [
-            uavSolutionScenes.emergencyCommunication,
-            uavSolutionScenes.searchRescue,
-            uavSolutionScenes.nightLighting,
+            aerialSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.searchRescue,
+            aerialSolutionScenes.nightLighting,
         ],
     },
     {
         match: 'emergency-communication',
         images: [
-            uavSolutionScenes.emergencyCommunication,
-            uavSolutionScenes.tetheredMonitoring,
-            uavSolutionScenes.searchRescue,
+            aerialSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.tetheredMonitoring,
+            aerialSolutionScenes.searchRescue,
         ],
     },
     {
         match: 'disaster-site-search-rescue',
         images: [
-            uavSolutionScenes.searchRescue,
-            uavSolutionScenes.nightLighting,
-            uavSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.searchRescue,
+            aerialSolutionScenes.nightLighting,
+            aerialSolutionScenes.emergencyCommunication,
         ],
     },
     {
         match: 'emergency-search-rescue',
         images: [
-            uavSolutionScenes.searchRescue,
-            uavSolutionScenes.nightLighting,
-            uavSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.searchRescue,
+            aerialSolutionScenes.nightLighting,
+            aerialSolutionScenes.emergencyCommunication,
         ],
     },
     {
-        match: 'power-line-uav',
+        match: 'power-line-aerial',
         images: [
-            uavSolutionScenes.powerLineDocPayload,
-            uavSolutionScenes.powerLineDocCorridor,
-            uavSolutionScenes.powerLineDocTowerFlight,
-            uavSolutionScenes.powerLineDocThermal,
-            uavSolutionScenes.powerLineDocPointCloud,
-            uavSolutionScenes.powerLineDocInsulator,
+            aerialSolutionScenes.powerLineDocPayload,
+            aerialSolutionScenes.powerLineDocCorridor,
+            aerialSolutionScenes.powerLineDocTowerFlight,
+            aerialSolutionScenes.powerLineDocThermal,
+            aerialSolutionScenes.powerLineDocPointCloud,
+            aerialSolutionScenes.powerLineDocInsulator,
         ],
     },
     {
         match: 'power-tower-inspection',
         images: [
-            uavSolutionScenes.powerLineDocTowerDrone,
-            uavSolutionScenes.powerLineDocTowerFlight,
-            uavSolutionScenes.powerLineDocThermal,
-            uavSolutionScenes.powerLineDocHardware,
-            uavSolutionScenes.powerLineDocWire,
-            uavSolutionScenes.powerLineDocInsulator,
+            aerialSolutionScenes.powerLineDocTowerplatform,
+            aerialSolutionScenes.powerLineDocTowerFlight,
+            aerialSolutionScenes.powerLineDocThermal,
+            aerialSolutionScenes.powerLineDocHardware,
+            aerialSolutionScenes.powerLineDocWire,
+            aerialSolutionScenes.powerLineDocInsulator,
         ],
     },
     {
         match: 'smart-substation',
         images: [
-            uavSolutionScenes.smartSubstationPlatform,
-            uavSolutionScenes.smartSubstationInstrument,
-            uavSolutionScenes.smartSubstationWireThermal,
-            uavSolutionScenes.smartSubstationSwitchThermal,
+            aerialSolutionScenes.smartSubstationPlatform,
+            aerialSolutionScenes.smartSubstationInstrument,
+            aerialSolutionScenes.smartSubstationWireThermal,
+            aerialSolutionScenes.smartSubstationSwitchThermal,
         ],
     },
     {
-        match: 'uav-maritime-patrol',
+        match: 'aerial-maritime-patrol',
         images: [
-            uavSolutionScenes.maritimePatrol,
-            uavSolutionScenes.emergencyCommunication,
-            uavSolutionScenes.searchRescue,
+            aerialSolutionScenes.maritimePatrol,
+            aerialSolutionScenes.emergencyCommunication,
+            aerialSolutionScenes.searchRescue,
         ],
     },
     {
         match: 'oil-production-base-protection',
         images: [
             '/cases/pakistan-power-plant-airspace-monitoring/main-home.webp',
-            '/products/02-drone-detection/stationary-rf-detection-system.webp',
-            '/products/02-drone-detection/electro-optical-tracking-system.webp',
-            '/products/02-drone-detection/low-altitude-detection-radar.webp',
-            '/products/uav-systems/UAV-Remote-ID-Monitoring-System.webp',
+            '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
+            '/products/02-detection-monitoring/electro-optical-tracking-system.webp',
+            '/products/02-detection-monitoring/low-altitude-detection-radar.webp',
+            '/products/aerial-systems/aerial-Remote-ID-Monitoring-System.webp',
         ],
     },
     {
         match: 'airport-security-protection',
         images: [
             '/cases/airport-security-application/main-home.webp',
-            '/products/02-drone-detection/stationary-rf-detection-system.webp',
+            '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
             '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
             '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
             '/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp',
@@ -254,7 +254,7 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
         match: 'judicial-sector-security',
         images: [
             '/solutions/solutions/Judicial Sector Security.webp',
-            '/products/02-drone-detection/stationary-rf-detection-system.webp',
+            '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
             '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
             '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
             '/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp',
@@ -264,7 +264,7 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
         match: 'sports-event-security',
         images: [
             '/cases/asian-games-security/main.webp',
-            '/products/02-drone-detection/stationary-rf-detection-system.webp',
+            '/products/02-detection-monitoring/stationary-rf-detection-system.webp',
             '/products/security/FC-H-Smart-Phone-Detection-Gate.webp',
             '/products/security/FC6550D-Dual-View-X-Ray-Scanner.webp',
             '/products/security/FC1800T-Desktop-Explosives-Narcotics-Detector.webp',
@@ -274,9 +274,9 @@ const solutionVisualSets: Array<{ match: string; images: string[] }> = [
 
 function getSolutionVisuals(handle: string, mainImage?: string) {
     const defaultSolutionImages = [
-        uavSolutionScenes.tetheredMonitoring,
-        uavSolutionScenes.powerLine,
-        uavSolutionScenes.searchRescue,
+        aerialSolutionScenes.tetheredMonitoring,
+        aerialSolutionScenes.powerLine,
+        aerialSolutionScenes.searchRescue,
     ];
     const matchedSet = solutionVisualSets.find((item) => handle.includes(item.match));
     const sceneImages = handle.includes('water-conservancy') ? waterSolutionImages : matchedSet?.images || defaultSolutionImages;
@@ -298,7 +298,7 @@ function getSolutionLabels(locale: string) {
         return {
             solutionDetails: 'Detalles de la soluci贸n',
             industryPainPoints: 'Necesidades de la industria',
-            upgradeTitle: 'C贸mo los UAV mejoran la operaci贸n',
+            upgradeTitle: 'C贸mo los Aerial Platform mejoran la operaci贸n',
             solutionModules: 'M贸dulos de la soluci贸n',
             relatedCases: 'Casos relacionados',
         };
@@ -317,7 +317,7 @@ function getSolutionLabels(locale: string) {
     return {
         solutionDetails: 'Solution Details',
         industryPainPoints: 'Industry Pain Points',
-        upgradeTitle: 'How UAVs Upgrade Operations',
+        upgradeTitle: 'How Aerial Platforms Upgrade Operations',
         solutionModules: 'Solution Modules',
         relatedCases: 'Related Cases',
     };
@@ -452,7 +452,7 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
     const detailSections = rawJson.detail_sections && typeof rawJson.detail_sections === 'object' ? rawJson.detail_sections : {};
     const sectionData = { ...detailSections, ...(parameters || {}) };
     const painPoints = normalizeTextItems(sectionData.industry_pain_points);
-    const upgradeItems = normalizeTextItems(sectionData.uav_industry_upgrade);
+    const upgradeItems = normalizeTextItems(sectionData.aerial_industry_upgrade);
     const modules = normalizeObjectItems(sectionData.solution_modules);
     const visuals = getSolutionVisuals(solution.handle || '', solution.main_image);
     const painPointsImage = typeof sectionData.industry_pain_points_image === 'string'
@@ -461,7 +461,11 @@ export default function MobileSolutionDetail({ solution, recommendedProducts, re
     const hasStructuredSolutionContent = painPoints.length > 0 || upgradeItems.length > 0 || modules.length > 0;
     const contentLabels = {
         ...solutionLabels,
+        industryPainPoints: typeof sectionData.industry_pain_points_title === 'string'
+            ? sectionData.industry_pain_points_title
+            : seoTarget.overviewHeading || solutionLabels.industryPainPoints,
         upgradeTitle: typeof sectionData.operation_upgrade_title === 'string' ? sectionData.operation_upgrade_title : solutionLabels.upgradeTitle,
+        solutionModules: typeof sectionData.solution_modules_title === 'string' ? sectionData.solution_modules_title : solutionLabels.solutionModules,
     };
 
     let gallery = [];

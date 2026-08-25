@@ -6,13 +6,14 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     const canLoadZoosnet = process.env.NEXT_PUBLIC_DISABLE_ZOOSNET !== 'true';
-    const settings = getChatSettings();
+    const settings = await getChatSettings();
 
     return NextResponse.json({
       success: true,
       data: {
         zoosnetEnabled: canLoadZoosnet && settings.zoosnetEnabled,
         messageBoxEnabled: settings.messageBoxEnabled,
+        messageBoxDelayMinutes: settings.messageBoxDelayMinutes,
       },
     });
   } catch {

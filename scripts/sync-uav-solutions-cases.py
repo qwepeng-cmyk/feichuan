@@ -216,7 +216,8 @@ CASE_HANDLES = [
     "lidar-tree-obstruction-uav-inspection",
     "southern-grid-wildfire-uav-inspection",
     "wildfire-emergency-transmission-line-uav-patrol",
-    "zhaoqing-long-distance-power-line-uav-inspection",
+    # The Zhaoqing record was removed from publication because the underlying
+    # project belongs to Feima Robotics rather than N-TET.
 ]
 
 SOLUTION_DETAIL_IMAGE_MAP = {

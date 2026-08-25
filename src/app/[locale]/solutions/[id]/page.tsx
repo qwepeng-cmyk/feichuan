@@ -13,20 +13,28 @@ import RelatedPublicLinks from '@/components/seo/RelatedPublicLinks';
 import { pageUrl, serviceJsonLd } from '@/lib/structuredData';
 import { solutionCenterImageByHandle } from '@/lib/solutionCenterGroups';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { englishdefenseSolutionHandles, getdefenseSolution } from '@/lib/solutionCatalog';
+import { getdefenseIndustryPageData } from '@/lib/industryPageData';
+import IndustryDefensePage from '@/components/solutions/IndustryDefensePage';
+import { isdefenseProductCategory, isdefenseSolutionHandle } from '@/lib/indexability';
+import PerformanceConditionsNote from '@/components/common/PerformanceConditionsNote';
+
+async function getLocalizedSolution(id: string, locale: Locale) {
+  const catalogSolution = getdefenseSolution(id, locale);
+  if (catalogSolution) return catalogSolution;
+  return getSolutionById(id);
+}
 
 export async function generateStaticParams() {
   const handles = await getAllSolutionHandles();
-  return handles
-    .filter((id) => isPublicComplianceContent('solution', id))
+  return Array.from(new Set([...handles, ...englishdefenseSolutionHandles]))
     .map((id) => ({
       id,
     }));
 }
 
 export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
-  if (!isPublicComplianceContent('solution', params.id)) return {};
-  const solution = await getSolutionById(params.id);
+  const solution = await getLocalizedSolution(params.id, params.locale);
   if (!solution) return {};
 
   const title = solution[`product_name_${params.locale}`] || solution.product_name_en || solution.title_en;
@@ -39,17 +47,15 @@ export async function generateMetadata({ params }: { params: { id: string; local
     fallbackTitle: title,
     fallbackDescription: description,
     image: mainImage,
+    indexable: isdefenseSolutionHandle(params.id),
   });
 }
 
 // 1. Data Fetching Component (Streaming)
 async function SolutionDetailContent({ id, locale }: { id: string; locale: Locale }) {
   const dict = await getDictionary(locale);
-  if (!isPublicComplianceContent('solution', id)) {
-    notFound();
-  }
 
-  const solution = await getSolutionById(id);
+  const solution = await getLocalizedSolution(id, locale);
   if (!solution) {
     notFound();
   }
@@ -87,7 +93,9 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
       recommendedHandles = [];
   }
 
-  const recommendedProducts = allProducts.filter(p => recommendedHandles.includes(p.handle));
+  const recommendedProducts = allProducts.filter((product) =>
+    recommendedHandles.includes(product.handle) && isdefenseProductCategory(product.category)
+  );
 
   let recommendedCaseHandles: string[] = [];
   try {
@@ -120,9 +128,25 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
     { href: '/contact', label: dict.nav.contact, description: 'Project inquiry and quotation' },
   ];
 
+  const industryPageData = getdefenseIndustryPageData(id, locale);
+  if (industryPageData) {
+    return (
+      <>
+        {isdefenseSolutionHandle(id) && <JsonLd data={jsonLd} />}
+        <IndustryDefensePage
+          solution={solution}
+          pageData={industryPageData}
+          locale={locale}
+          dict={dict}
+        />
+        <PerformanceConditionsNote locale={locale} />
+      </>
+    );
+  }
+
   return (
     <>
-      <JsonLd data={jsonLd} />
+      {isdefenseSolutionHandle(id) && <JsonLd data={jsonLd} />}
 
       <div className="pc_only">
         <SolutionDetailClient
@@ -144,6 +168,7 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
         />
       </div>
 
+      <PerformanceConditionsNote locale={locale} />
       <RelatedPublicLinks locale={locale} links={relatedLinks} />
     </>
   );
@@ -152,11 +177,8 @@ async function SolutionDetailContent({ id, locale }: { id: string; locale: Local
 // 2. Entry Page Component (Instant Navigation)
 export default async function SolutionDetailPage({ params }: { params: { id: string; locale: Locale } }) {
   const { id, locale } = params;
-  if (!isPublicComplianceContent('solution', id)) {
-    notFound();
-  }
 
-  const solution = await getSolutionById(id);
+  const solution = await getLocalizedSolution(id, locale);
   if (!solution) {
     notFound();
   }

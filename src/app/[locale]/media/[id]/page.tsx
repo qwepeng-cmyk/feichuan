@@ -14,24 +14,24 @@ import { articleJsonLd, pageUrl, stripHtml } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { isdefenseMediaHandle } from '@/lib/indexability';
 
 export async function generateStaticParams() {
     const ids = await getAllMediaIds();
     return ids
-        .filter((id) => isPublicComplianceContent('media', id))
         .map((id) => ({
             id,
         }));
 }
 
 export async function generateMetadata({ params }: { params: { id: string; locale: Locale } }): Promise<Metadata> {
-    if (!isPublicComplianceContent('media', params.id)) return {};
     const news = await getMediaById(params.id);
     if (!news) return {};
 
     const newsTitle = getLocalizedMediaTitle(news, params.locale);
-    const newsContent = news[`content_${params.locale}`] || news.content_en || news.content;
+    const localizedContent = news[`content_${params.locale}`];
+    const localizedSummary = news[`summary_${params.locale}`];
+    const newsContent = localizedContent || (localizedSummary ? `<p>${localizedSummary}</p>` : '');
 
     return buildSeoMetadata({
         locale: params.locale,
@@ -39,15 +39,13 @@ export async function generateMetadata({ params }: { params: { id: string; local
         fallbackTitle: newsTitle,
         fallbackDescription: stripHtml(newsContent).slice(0, 240),
         image: news.image,
+        indexable: isdefenseMediaHandle(params.id),
     });
 }
 
 // 1. Data Fetching Component (Streaming)
 async function NewsDetailContent({ id, locale }: { id: string, locale: Locale }) {
     const dict = await getDictionary(locale);
-    if (!isPublicComplianceContent('media', id)) {
-        notFound();
-    }
 
     const news = await getMediaById(id);
     if (!news) {
@@ -56,7 +54,9 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 
     const newsTitle = getLocalizedMediaTitle(news, locale);
     const newsDate = getLocalizedMediaDate(news.date, locale);
-    const newsContent = news[`content_${locale}`] || news.content_en || news.content;
+    const localizedContent = news[`content_${locale}`];
+    const localizedSummary = news[`summary_${locale}`];
+    const newsContent = localizedContent || (localizedSummary ? `<p>${localizedSummary}</p>` : '');
     const jsonLd = articleJsonLd({
         locale,
         path: `/media/${id}`,
@@ -74,7 +74,7 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 
     return (
         <>
-            <JsonLd data={jsonLd} />
+            {isdefenseMediaHandle(id) && <JsonLd data={jsonLd} />}
 
             <div className="pc_only">
                 <div className="news-detail-page" style={{ paddingTop: '112px', backgroundColor: '#fff' }}>
@@ -90,8 +90,8 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
                         <div className="container" style={{ maxWidth: '1100px' }}>
                             <header style={{ textAlign: 'center', marginBottom: '48px' }}>
                                 <h1 style={{ fontSize: '4.6rem', fontWeight: 900, color: '#333', lineHeight: '1.2', marginBottom: '22px', letterSpacing: 0 }}>{newsTitle}</h1>
-                                <div style={{ fontSize: '1.7rem', color: '#666', fontWeight: 500 }}>
-                                    <time dateTime={news.date}>{newsDate}</time>
+                                <div style={{ fontSize: '1.55rem', color: '#666', fontWeight: 500, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px 14px' }}>
+                                    <span>Опубликовано <time dateTime={news.date}>{newsDate}</time></span>
                                 </div>
                             </header>
 
@@ -123,9 +123,6 @@ async function NewsDetailContent({ id, locale }: { id: string, locale: Locale })
 // 2. Entry Page Component (Instant Navigation)
 export default async function NewsDetailPage({ params }: { params: { id: string, locale: Locale } }) {
     const { id, locale } = params;
-    if (!isPublicComplianceContent('media', id)) {
-        notFound();
-    }
 
     const news = await getMediaById(id);
     if (!news) {

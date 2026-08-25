@@ -90,6 +90,12 @@
   font-weight: 750;
 }
 
+.label small {
+  color: #77869a;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 .input {
   width: 100%;
   min-height: 46px;
@@ -117,7 +123,7 @@
 
 .phoneRow {
   display: grid;
-  grid-template-columns: minmax(108px, 0.32fr) 1fr;
+  grid-template-columns: minmax(112px, 0.34fr) 1fr;
   gap: 10px;
 }
 
@@ -154,7 +160,7 @@
   min-height: 48px;
   border: 0;
   border-radius: 6px;
-  background: #25D366;
+  background: var(--contact-channel-accent, #25D366);
   color: #fff;
   font-size: 1.45rem;
   font-weight: 800;
@@ -165,11 +171,12 @@
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.24);
+  background: var(--contact-channel-accent-hover, #11A20B);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--contact-channel-accent, #25D366) 24%, transparent);
 }
 
 .submitButton:disabled {
-  background: #9adfb4;
+  background: #9aa8ba;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -179,6 +186,23 @@
   color: #7a8797;
   font-size: 1.15rem;
   line-height: 1.45;
+}
+
+.privacyNote {
+  position: relative;
+  margin: -2px 0 0;
+  padding-left: 22px;
+  color: #637287;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.privacyNote::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #23824e;
+  font-weight: 900;
 }
 
 @media (max-width: 640px) {

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import { sanitizePublicRichText } from '@/lib/publicCopy';
 
 interface OptimizedRichTextProps {
   html: string;
@@ -16,7 +17,7 @@ interface OptimizedRichTextProps {
 export default function OptimizedRichText({ html, className }: OptimizedRichTextProps) {
   if (!html) return null;
 
-  const optimizedHtml = html
+  const optimizedHtml = sanitizePublicRichText(html)
     .replace(/(<figcaption[^>]*>\s*)(?:Figure|Fig\.?|Рисунок|图)\s*\d+\s*[:：.\-–]?\s*/gi, '$1')
     .replace(/(<p[^>]*class=["'][^"']*figure-caption[^"']*["'][^>]*>\s*)(?:Figure|Fig\.?|Рисунок|图)\s*\d+\s*[:：.\-–]?\s*/gi, '$1')
     .replace(/<img([^>]+)src=["']([^"']+)["']([^>]*)\/?>/g, (match, before, src, after) => {

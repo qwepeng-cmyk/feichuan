@@ -1,0 +1,425 @@
+<p><em>Editor’s note: This is an English translation of the Chinese article <a href="https://mp.weixin.qq.com/s/zIYfMf7k0Nl_G5Aj_fCgBg" rel="noopener noreferrer" target="_blank">“海外低空安全现状与发展趋势 上篇”</a>, published by 海外低空安全 (Overseas Low-Altitude Security). The source identifies the compiler as “五虎” (Wuhu) and dates this white-paper version July 7, 2026. Technical claims, figures, assessments, and source notes below reflect the original article. Wording has been translated for clarity without changing the substance.</em></p>
+
+<p><strong>Part I · Threats</strong></p>
+<p><strong>Drones and Counter-UAS on Overseas Battlefields</strong></p>
+<p>Core question: The Russia–Ukraine war is the world’s largest operational laboratory for counter-UAS. Over the past two years, the contest between drones and counter-drone technology has undergone its harshest test there—from the explosive growth of FPV drones to the breakthrough of fibre-optic guidance, and from autonomous AI swarms to acoustic detection networks. Based on operational records from 2022 through June 2026, this chapter reviews the practical lessons emerging across the global counter-UAS field.</p>
+
+<h2>Chapter 1. The Russia–Ukraine Battlefield: The Real Counter-UAS Test Ground</h2>
+
+<h3>1.1 The Starting Point of the Threat: FPV Changed the Rules of the Battlefield</h3>
+
+<p>After the war began in 2022, Russia and Ukraine quickly entered a war of drone attrition.</p>
+
+<h4>The Mathematics of Cost Inversion</h4>
+
+<p>A commercial FPV racing drone modified to carry an RPG-7 warhead costs about RMB 3,000, or approximately US$400. It can destroy an M1 Abrams tank worth several million dollars. This extreme cost ratio—1:200 or more—fundamentally changes the economics of attack and defence. Operational data for the US Coyote interceptor illustrates the same problem: each interceptor costs about US$100,000, while its targets cost between US$2,000 and US$50,000. The head of the US Joint Counter-small Unmanned Aircraft Systems Office (JCO) publicly acknowledged an unfavourable exchange ratio of 5:1 to 50:1. In other words, a defender may spend five to fifty times the cost of a low-cost target to bring it down.</p>
+
+<p>By March 2026, Russian monthly drone production reportedly exceeded 6,500 units, including FPV, reconnaissance, and medium-range strike drones. In June of the same year, UK Security Minister Dan Jarvis—described in the source article as the UK Defence Secretary—confirmed at a London summit that Ukraine required 200,000 drones per month and that the UK and its allies had delivered more than 120,000. This is not ordinary front-line expenditure; it is industrial-scale supply.</p>
+
+<p><strong>Sources:</strong> UK Ministry of Defence news release, June 30, 2026; CALL 26-1148, company-level sUAS integration report, 2026.</p>
+
+<h4>From FPV to Fibre-Optic Guidance</h4>
+
+<p>During 2024–2025, Russian forces deployed fibre-optic-guided FPV drones at scale. Unlike conventional FPV aircraft, a fibre-optic drone maintains a physical connection with its control terminal through an extremely thin fibre cable. It does not depend on a radio channel, making conventional RF jamming and GPS spoofing completely ineffective against it. Its arrival marked the end of the assumption that “severing remote control solves the problem.”</p>
+
+<p>CALL 25-1046, from the US Center for Army Lessons Learned, gives an even more severe assessment: the fibre cannot be detected electromagnetically and the real-time video feed cannot be jammed, leaving existing C-UAS systems “almost completely ineffective.” The drone’s weaknesses are limited manoeuvrability if the cable breaks and an inability to make large changes in altitude during flight. For a weapon used to suppress a fixed target, the article argues, these are not fatal shortcomings.</p>
+
+<p><strong>Source:</strong> CALL 25-1046, <em>Fiber-Optic Drones</em>, 2025.</p>
+
+<h4>AI Swarms Move from Concept to the Battlefield</h4>
+
+<p>In June 2026, the US 4th Infantry Division conducted an operational demonstration of SwarmOS autonomous-swarm software during Exercise IvyMass. Using one interface, a single soldier simultaneously directed several reconnaissance drones and a reusable micro-bomber, which coordinated autonomously in a communications-denied environment. This was a public test, but the article argues that the same technical direction has already been validated on the Russia–Ukraine battlefield.</p>
+
+<p>The arrival of AI swarms means that future counter-UAS forces will face not simply “hundreds of drones,” but “hundreds of autonomous AI nodes.” Each node can continue operating independently after its link is broken. The assumptions underpinning counter-UAS effectiveness are being rewritten.</p>
+
+<h3>1.2 Weaknesses Exposed in Operational Counter-UAS</h3>
+
+<h4>Detection: Even the World’s Most Advanced Militaries “Cannot See”</h4>
+
+<p>On the Russia–Ukraine battlefield, small drones—especially FPV aircraft—have weak thermal signatures, low flight profiles, and small radar cross-sections. Conventional air-defence radar therefore detects them at substantially reduced range. Acoustic sensing has demonstrated a distinctive operational value.</p>
+
+<p>Ukraine has deployed thousands of acoustic sensor nodes supported by AI algorithms, which in specific scenarios can identify drones faster than conventional radar. CALL 26-1115 records what the original article describes as the most complete operational acoustic-detection dataset available: thousands of passive acoustic sensors form a network; each node runs an edge-AI algorithm that identifies drone types from propeller and engine sound signatures; and multiple nodes use an open messaging protocol for triangulation. CALL concludes that similar systems should be deployed on NATO’s eastern flank and in the INDOPACOM theatre. These are not laboratory findings, but conclusions drawn after large-scale deployment in Ukraine.</p>
+
+<p><strong>Source:</strong> CALL 26-1115, <em>Listening to the Sky: Acoustic Drone Detection in Ukraine</em>, 2026.</p>
+
+<h4>Interception: The Exchange-Ratio Problem and Its Proposed Solutions</h4>
+
+<p>Behind 170 operational kills by Coyote interceptors lies a cost inversion of 5:1 to 50:1. This has driven global research into lower-cost interception:</p>
+<ul>
+  <li><strong>UK Skyhammer interceptor drone:</strong> 700 km/h, range over 30 km, reported interception effectiveness of 70%; the first batch was delivered to the UK Ministry of Defence in May 2026.</li>
+  <li><strong>US Merops:</strong> approximately US$15,000 each; 13,000 units reportedly deployed.</li>
+  <li><strong>Israel’s Iron Beam laser:</strong> approximately US$3.50 per interception; the article reports its first operational drone kill in October 2024.</li>
+</ul>
+
+
+<p>All of these approaches confront the same question: What happens before costs fall far enough?</p>
+
+<h3>1.3 Lessons for Training: People Are Scarcer Than Equipment</h3>
+
+<h4>The World’s Most Urgent Shortfall</h4>
+
+<p>In December 2025, the US Secretary of the Army defined training ranges as “critical C-UAS infrastructure.” This was not rhetorical. Equipment can be purchased quickly, but people who can operate, assess, and decide must be developed systematically. Several signals point in the same direction:</p>
+<ul>
+  <li>The US Safer Skies Act embedded counter-UAS training funding in federal appropriations.</li>
+  <li>JIATF-401, which replaced JCO, established a test and training range within 30 days of its creation.</li>
+  <li>The US National Advanced Drone Warfare Center (NADWC) requires a 60-mile beyond-visual-line-of-sight training corridor.</li>
+  <li>The first US qualification programme for AI counter-UAS operators has been formalised as a course.</li>
+</ul>
+
+<p>The bottleneck in counter-UAS combat power is training rather than equipment, but the historical deficit is deep. In fiscal year 2017, the opposing force at the Joint Multinational Readiness Center used sUAS to simulate attacks against rotational units. The results were striking: most units ignored or failed to report drones overhead, giving the opposing force an unobstructed intelligence-collection opportunity.</p>
+
+<p>Nearly a decade later, CALL’s National Training Center assessment says the same problem remains unresolved. Rotational units’ awareness of small-drone threats is “seriously inadequate,” with common errors including ignoring drones overhead and mistaking hostile aircraft for friendly ones. NTC’s TSM 800 training system can assemble a 150-drone swarm for force-on-force training, but few units can use it effectively. The Secretary of the Army’s December 2025 designation of training sites as “critical C-UAS infrastructure” underscores that they had not previously been treated that way.</p>
+
+<p><strong>Sources:</strong> CALL, <em>Counter-UAS Training and Implementation at NTC</em>, 2025; <em>OPFOR vs RTU sUAS at JMRC</em>, 2017.</p>
+
+<h4>Reference Point: The Scale of UK Investment</h4>
+
+<p>UK spending offers a direct reference point. Total autonomous-systems investment during the current Parliament has reached £4 billion, comprising £2 billion in new funding and £2 billion already committed. Since July 2024, £450 million in unmanned-systems procurement has been executed, including £300 million for research and development. The UK Defence Innovation organisation maintains an annual budget of at least £400 million, including a recent £142 million counter-UAS and drone programme. These are not one-off allocations, but evidence of a long-term, continuing UK commitment to the field.</p>
+
+<p><strong>Source:</strong> UK Ministry of Defence news release on the opening of DroneTEX/USC.</p>
+
+<h3>1.4 Spillover: The Boundary of the Russia–Ukraine Battlefield Is Disappearing</h3>
+
+<p>CALL 26-1120, a report on counter-UAS in Eastern Europe, documents a distinctive feature of the war: drones frequently spill into neighbouring airspace. Combat drones have repeatedly entered Romania, Poland, and Moldova, compressing interception decisions to seconds. Traditional air-defence approval—reporting up the chain and centralising the decision—cannot operate within that window.</p>
+
+<p>The direct result appears in the central conclusion of NATO eastern-flank Exercise Fire Shield ’25: counter-UAS command authority must be delegated down to the tactical edge. Eastern Europe shows that counter-UAS is not simply “a war at the front.” It also occurs hundreds of kilometres behind it.</p>
+
+<p><strong>Source:</strong> CALL 26-1120, <em>Eyes on the Horizon: Honing Counter-Drone Skills in Eastern Europe</em>, 2026.</p>
+
+<h3>Chapter 1 Conclusion: Three Certain Lessons from the Russia–Ukraine Battlefield</h3>
+
+<p>The Russia–Ukraine battlefield is the world’s harshest laboratory for counter-UAS. Four years of operations—from FPV attrition and fibre-optic guidance to AI swarms and acoustic detection networks—produce three clear conclusions:</p>
+<ol>
+  <li><strong>The counter-UAS bottleneck is training, not equipment.</strong> Equipment can be bought; operators who can use it and make sound decisions require systematic development.</li>
+  <li><strong>Economics determine whether the system can be sustained.</strong> When an interceptor costs fifty times more than its target, the model cannot be maintained.</li>
+  <li><strong>AI is rewriting counter-UAS assumptions.</strong> Autonomous swarms and fibre-optic guidance invalidate the premises of traditional electronic warfare one by one. Counter-UAS must be redesigned around an “AI against AI” logic.</li>
+</ol>
+
+<h2>Chapter 2. The Middle East: A Night-Time Nightmare for Industrial Facilities and Merchant Shipping</h2>
+
+<p><strong>Core question:</strong> The Middle East is the first large-scale, sustained, industrial counter-UAS battlefield. Counter-UAS technology there is not protecting only front-line forces, but oil fields, ports, merchant ships, and civilian infrastructure.</p>
+
+<h3>2.1 Iran’s Asymmetric Method: sUAS Replace Ballistic Missiles</h3>
+
+<p>The April 2026 ceasefire following what the source calls “Operation Epic Fury / Roaring Lion” (OEF/ORL) provides its most complete evidence. Once ballistic-missile interception matured, low-cost drones—sUAS and sUMS—quickly became Iran’s preferred means of maintaining high-frequency daily attacks. The article identifies three characteristics:</p>
+<ul>
+  <li>Economic rather than military targets were prioritised: vessels in the Arabian Gulf, shipping in the Strait of Hormuz, and Qatari liquefied-natural-gas facilities.</li>
+  <li>Neutral countries were struck more often than the United States or Israel directly, with civilian casualties in Gulf states exceeding those in Israel.</li>
+  <li>Iranian sUMS—one-way attack unmanned surface vessels—reportedly sank several merchant ships.</li>
+</ul>
+
+<p>Iraq’s “Islamic Resistance” adopted a similar low-technology drone approach. An sUAS operator needed only a window or a fifth-floor rooftop to launch—no runway, airport, or ground crew.</p>
+
+<h3>2.2 Protecting Merchant Ships: The First Civilian Counter-UAS Battlefield</h3>
+
+<p>Protection of shipping in the Strait of Hormuz became one of the most urgent civilian applications for counter-UAS. Merchant-ship radar was not designed for small drones, while traditional onboard security—visual watch and water cannon—could not answer the continuing threat from one-way attack unmanned boats. Gulf states contracted directly with Ukraine to deploy Ukrainian counter-small-drone technology and tactics. Operational experience accumulated by Ukraine over the previous two years was undergoing its largest civilian conversion in the Middle East.</p>
+
+<h3>2.3 Israel’s Iron Beam: The Operational Beginning of Laser Counter-UAS</h3>
+
+<p>In October 2024, Israel’s Iron Beam laser air-defence system reportedly brought down a Hezbollah drone in combat for the first time. The source gives the following figures:</p>
+<ul>
+  <li>Cost per interception: approximately US$3.50, compared with roughly US$50,000 for a Tamir interceptor.</li>
+  <li>Laser power: 100–150 kW solid-state laser.</li>
+  <li>Deployment: trailer-mounted and complementary to Iron Dome.</li>
+</ul>
+
+<p>The article describes this as the world’s first recorded operational counter-UAS use of a high-power laser. Israel’s “layered interception + low-cost laser” model—Iron Dome → Iron Beam → David’s Sling → Arrow—has become an important reference for national counter-UAS system design.</p>
+
+<h3>2.4 The Middle East Warning: Walls Cannot Stop Low-Altitude Threats</h3>
+
+<p>Manufacturing sites and Middle Eastern oil fields face a similar problem: open space, persistent asymmetric threats, and a security requirement that cannot simply be militarised. The Middle East experience raises a fundamental question: when industrial-facility safety depends not on the height of the perimeter wall but on low-altitude defence, who carries the final responsibility?</p>
+
+<h3>Chapter 2 Conclusion: Global Counter-UAS Investment Is Accelerating</h3>
+
+<p>Before moving to Part II, the source pauses to examine the pace of the global response. In June 2026, the UK Ministry of Defence signed a new £36 million contract for Thales Belfast to produce several hundred Lightweight Multirole Missiles (LMM). This was the fifth procurement batch, and LMM reportedly had more than 100 operational drone kills in the Middle East.</p>
+
+<p>In the same month, the UK, France, Germany, Italy, and Poland launched the Low-cost Effectors and Autonomous Platforms (LEAP) programme. Its first project is intended to deliver a new low-cost surface-to-air missile in 2027 against drones and missiles. Meanwhile, UK defence spending is set to rise to 2.6% of GDP from 2027, while the current fiscal year includes more than £400 million for precision and hypersonic weapons.</p>
+
+<p>These are not isolated purchases, but signals of accelerating global counter-UAS development. Three points matter: interceptor demand is shifting from “should we buy?” to “do we have enough inventory?”; alliance-based joint development is replacing single-country programmes; and 2027 is a defined milestone, leaving little time to prepare deployments.</p>
+
+<p><strong>Sources:</strong> UK Ministry of Defence LMM contract news release, June 1, 2026; UK E5 LEAP programme news release, February 20, 2026.</p>
+
+<h2>Chapter 3. Asia-Pacific: The Low-Altitude Security Undercurrent in Great-Power Competition</h2>
+
+<p><strong>Core question:</strong> Asia-Pacific is one of the world’s most concentrated arenas for drone competition and one of the fastest-evolving regions for counter-UAS. Cross-border incidents on the Korean Peninsula, systematic capability development in Japan and Australia, the beginning of Indian counter-UAS procurement, and implementation of the “Hellscape” concept around Taiwan reveal three characteristics under great-power competition: event-driven action, accelerated systems development, and industrial linkage.</p>
+
+<h3>3.1 Korean Peninsula: A Border-Crossing Incident Triggers Counter-UAS Development</h3>
+
+<p>On December 26, 2022, five North Korean drones crossed the Military Demarcation Line into South Korean airspace. One entered the P-73 no-fly zone within 2.3 miles, or 3.7 km, of the presidential office in Yongsan, Seoul. South Korea dispatched fighter aircraft and attack helicopters and fired about 100 warning rounds, but failed to bring down any of the drones. It was the first North Korean drone incursion since 2017.</p>
+
+<p><strong>Source:</strong> <em>The War Zone</em>, January 5, 2023.</p>
+
+<p>The incident directly accelerated South Korea’s entire counter-UAS programme. Rather than relying on the long budget-approval process used by many countries, South Korea adopted rapid demonstration acquisition (신속시범획득사업). Since 2023, the Defense Acquisition Program Administration (DAPA) has advanced a sequence of capabilities:</p>
+<ul>
+  <li><strong>December 2023:</strong> launch of the “23-2 multi-layer composite protection system” (다계층 복합방호체계), a three-layer architecture aligned with the US JCO concept of layered defence: detection through radar, EO, and acoustics → interference through RF and electronic warfare → hard kill through kinetic or laser systems.</li>
+  <li><strong>April 2025:</strong> development begins on an intelligent jammer for the K2 tank.</li>
+  <li><strong>July 2025:</strong> the Defense Rapid Acquisition Technology Research Institute (신속원) publishes 25 priority projects. The Army’s first requirement is a “personal counter-drone protection system” (대드론 개인방호체계), with a budget ceiling of KRW 50 billion and a development cycle of no more than two years.</li>
+  <li><strong>April 2026:</strong> DAPA Notice 2026-43 solicits domestic demonstrations in four areas—individual and vehicle-mounted jammers, portable jammers, drone-detection equipment, and hard-kill equipment—for demonstration at the Seungjin training ground on June 1–2, 2026.</li>
+</ul>
+
+<p><strong>Sources:</strong> ROK DAPA, December 28, 2023; April 15, 2025; July 16, 2025; Notice 2026-43, April 2, 2026.</p>
+
+<p>South Korea’s approach is characterised by soft kill first, rapid iteration, and progressive delegation down the force—from position-level base radar and jammers, to vehicle-level tank jammers, and finally individual protection for each soldier. Rapid demonstration acquisition is being used to close the gap exposed by the 2022 incursion.</p>
+
+<h3>3.2 Japan: Loitering-Munition Selection and Overseas Expansion by a C-UAS Company</h3>
+
+<h4>Drone40 Selection: Three Signals</h4>
+
+<p>In March 2026, Japan’s Ministry of Defense selected the Drone40 loitering munition from Australia’s DefendTex, with delivery by Marubeni Aerospace continuing through 2027. Drone40 is described as having a 400 g take-off weight, 13 cm length, one-hour endurance, and 35 km range. It can be hand-launched or fired from a 40 mm grenade launcher, using autonomous GPS navigation and an encrypted data link.</p>
+
+<p><strong>Source:</strong> <em>Janes</em>, June 26, 2026.</p>
+
+<p>The unselected systems on the test list are equally significant. Medium-range trials included DefendTex Drone81, Uvision Hero 120, WB Electronics Warmate 3, and Helsing HX-2 Karma. Long-range trials included Elbit Systems SkyStriker, Anduril Altius-600M, and WB Electronics Warmate 5. The list shows that Japan is systematically testing loitering munitions from multiple countries, rather than making an ad hoc purchase for a single requirement.</p>
+
+<p>The selection carries three implications: priority for defence of Japan’s remote south-western islands; a deepening Australia–Japan defence relationship through selection of an Australian rather than US or Israeli product; and the opening of a broader loitering-munition programme in which medium- and long-range selections are likely to follow.</p>
+
+<h4>Terra Drone: A Japanese C-UAS Company Enters NATO’s Eastern Flank</h4>
+
+<p>On June 15, 2026, Tokyo-based Terra Drone Corporation established Terra Defense Europe in Estonia and acquired 50% stakes in two Ukrainian drone companies. Its central product, the Terra A2 electric fixed-wing interceptor, is positioned as a core component of a layered-defence framework.</p>
+
+<p>The expansion followed Japan’s April 2025 relaxation of defence-export rules, which removed longstanding restrictions on overseas transfer of lethal equipment. Terra Drone was among the first companies to benefit.</p>
+
+<p>This “Japan–Ukraine–Estonia triangle” is significant because a Japanese C-UAS solution enters NATO’s front line in Estonia and the Baltic region, uses Ukrainian operational feedback for product iteration, and deploys into Europe through Estonia. The chain—Asia-Pacific design → European operations → NATO deployment—shows the counter-UAS industry moving beyond traditional defence boundaries.</p>
+
+<p><strong>Sources:</strong> <em>Janes</em> and Terra Drone Corporation announcement, June 16, 2026.</p>
+
+<h3>3.3 Australia: A AUD 1.3 Billion Counter-UAS Systems Programme</h3>
+
+<p>In June 2026, Australia’s Department of Defence awarded UK-based OpenWorks Engineering a contract to supply Vision Guard C-UAS sensors for Project Land 156, whose total budget is AUD 1.3 billion, approximately US$911.5 million. Leidos serves as system integrator.</p>
+
+<p>Vision Guard combines AI and data fusion for long-range detection, tracking, and identification of small UAVs; continuous panoramic surveillance; and low-light operation. It fits in a military backpack and can reportedly be deployed within two minutes. The system is already operated by the US military and an undisclosed European military. In mid-2025, the UK and US completed rapid testing of portable C-UAS under Project Vanaheim.</p>
+
+<p><strong>Source:</strong> <em>Janes</em> / OpenWorks Engineering, June 19, 2026.</p>
+
+<p>Relative to the size of the national economy, the article says Australia’s US$911.5 million budget for one counter-UAS programme is second in Asia-Pacific only to US Pacific-force expenditure. In February 2026, the UK was invited to observe tests of Australia’s MQ-28A Ghost Bat autonomous aircraft at Woomera. The two countries agreed to strengthen cooperation on directed-energy weapons and explore deployment of Australian AESA radar technology in the UK.</p>
+
+<p><strong>Source:</strong> UK Ministry of Defence and Australian Department of Defence, February 23, 2026.</p>
+
+<p>Australia’s role as an Asia-Pacific test range is expanding. UK weapons can be tested in the Australian interior, creating a trans-Pacific test network linking Europe and Asia-Pacific.</p>
+
+<h3>3.4 India: An LMM Order Opens a New Counter-UAS Market</h3>
+
+<p>In October 2025, the HMS <em>Prince of Wales</em> carrier strike group, CSG25, exercised with the Indian Navy’s INS <em>Vikrant</em> in the Indian Ocean. During the same period, the UK announced a £350 million order for Lightweight Multirole Missiles. The Indian Army became a new LMM user, supporting more than 700 additional jobs on the Belfast production line.</p>
+
+<p>Thales-manufactured LMM now has three parallel operational and export tracks: Ukraine, through a £600 million air-defence package including LMM, RAVEN, and Octopus; the Middle East, with more than 100 reported operational kills; and India, through a £350 million Army counter-UAS order.</p>
+
+<p>India also evaluated Israeli, Russian, and US systems. The article argues that the UK prevailed through a combination of carrier diplomacy and operational validation. Combat data has become a central lever in counter-UAS exports.</p>
+
+<p><strong>Source:</strong> UK Ministry of Defence, October 16, 2025.</p>
+
+<h3>3.5 Taiwan: Integrated Procurement of Drones and Counter-UAS</h3>
+
+<p>In January 2026, Taiwan’s Ministry of National Defense briefed the Legislative Yuan on a special defence budget of NT$1.25 trillion, approximately US$36 billion. Procurement covers more than 200,000 drones, over 1,000 unmanned surface vessels, and counter-UAS systems “across all categories.” Foreign purchases include 1,554 ALTIUS-700M aircraft and 478 ALTIUS-600 ISR drones.</p>
+
+<p>The budget has three pillars: high-volume expendable drones for persistent sensing and rapid strike; distributed autonomous surface systems, with more than 1,000 unmanned boats extending the warning depth; and layered counter-UAS protection for fixed and mobile assets.</p>
+
+<p><strong>Source:</strong> <em>Inside Unmanned Systems</em>, June 2, 2026.</p>
+
+<p>The important signal is that drones and counter-UAS sit within the same procurement framework rather than separate budget channels. The source describes Taiwan’s parallel “high-volume + counter-UAS” approach as forward-looking internationally.</p>
+
+<p>In June 2024, the US Defense Security Cooperation Agency approved the sale to Taiwan of 720 Switchblade 300 systems for US$60.2 million and 291 ALTIUS 600M-V systems for US$300 million—more than 1,000 loitering munitions in total. This aligns with the US “Hellscape” concept, an unmanned strike network of aerial, surface, and underwater systems around Taiwan. The article says these loitering munitions have dual counter-UAS and anti-landing missions.</p>
+
+<p><strong>Source:</strong> <em>The War Zone</em>, June 19, 2024.</p>
+
+<p>Earlier, in August 2022, Taiwan announced deployment of a domestically developed “drone-on-drone” defence system at 45 air-force, naval, and missile bases. The transition from point deployments at 45 bases to a system-wide US$36 billion procurement took less than four years.</p>
+
+<p><strong>Source:</strong> <em>The War Zone</em>, August 26, 2022.</p>
+
+<h3>3.6 US Forces in Asia-Pacific: Drone Saturation as a Core Operational Concept</h3>
+
+<p>On June 19, 2026, US Army Pacific formally established the 7th Infantry Division Multi-Domain Command–Pacific (7th ID MDC-PAC), combining the 7th Infantry Division, including two Stryker brigades, with the 1st Multi-Domain Task Force.</p>
+
+<p>Major General Harrington’s operational concept was direct: use an adaptive agentic command-and-control system to connect sensor drones and long-range one-way attack drones in a network and “overwhelm enemy systems with numbers.” The model is described as “soldier-on-the-loop, not in-the-loop,” with humans monitoring from outside the immediate decision cycle.</p>
+
+<p>Another lesson drawn from Ukraine is to use decoy drones to exhaust enemy ammunition stocks and electronic-warfare drones to isolate targets so that other drones become more effective.</p>
+
+<p>USARPAC commander General Clark added that the Pacific theatre spans roughly 2,000 nautical miles by 2,000 nautical miles, about the area of Western Europe. Arctic tundra in Alaska, jungle in Southeast Asia, and desert in Australia require entirely different drone types and methods of employment. Major General Bartholomees, commander of the 25th Infantry Division, acknowledged at AUSA 2025 that “we have already fallen behind in long-range sensing and long-range strike.”</p>
+
+<p>The new command also forces counter-UAS evolution. When an adversary can conduct AI-driven mass drone saturation attacks, friendly counter-UAS must provide comparable interception density and decision speed.</p>
+
+<p><strong>Sources:</strong> <em>The War Zone</em>, June 19, 2026; <em>The War Zone</em>, citing AUSA 2025.</p>
+
+<h3>3.7 Key Assessments of the Asia-Pacific Counter-UAS Competition</h3>
+
+<p><strong>From event-driven to system-driven.</strong> The Korean Peninsula illustrates event-driven development: the 2022 incursion triggered rapid procurement. Japan, Australia, and Taiwan illustrate system-driven development embedded proactively in national defence planning. Event-driven responses are rapidly becoming system programmes.</p>
+
+<p><strong>Layered defence becomes a regional consensus.</strong> South Korea’s “multi-layer composite protection,” Australia’s “layered distributed C-UAS,” Taiwan’s “layered counter-UAS,” and Japan’s Terra A2 framework all converge on layered defence, aligned with the US JCO and NATO LCI-X concepts.</p>
+
+<p><strong>Industrial integration crosses defence boundaries.</strong> Terra Drone’s Japan–Ukraine–Estonia triangle, LMM’s expansion across three theatres, and Australia’s selection of UK sensors show traditional north–south defence flows being replaced by multilateral, cross-connected industrial networks.</p>
+
+<p><strong>Taiwan’s “high-volume” logic.</strong> Procurement on the scale of 200,000 drones means a counter-UAS system must process enormous target volumes, making the exchange ratio more sensitive than in other theatres. A US$100,000 interceptor against a US$2,000 FPV cannot be sustained at a scale of 200,000 aircraft.</p>
+
+<p><strong>Core conclusion.</strong> Asia-Pacific counter-UAS development is no longer a shadow of the war in Europe. It has independent drivers, including renewed US focus on the region; independent procurement routes, such as rapid demonstration and integrated procurement; and independent industrial networks, including the Japan–Ukraine–Estonia triangle and AUKUS counter-UAS cooperation. On the low-altitude security front of great-power competition, Asia-Pacific is no longer an observer.</p>
+
+<p><strong>Source index:</strong></p>
+<ul>
+  <li><em>The War Zone</em>, “North Korean Drone Entered No-Fly Zone Over President’s Office In Seoul,” January 5, 2023.</li>
+  <li>ROK DAPA notices dated December 28, 2023; April 15, 2025; July 16, 2025; and April 2, 2026, including Notice 2026-43.</li>
+  <li>ROK DAPA Rapid Acquisition Institute news release, July 16, 2025.</li>
+  <li><em>Janes</em>, “Japan selects Drone40 loitering munition,” June 26, 2026.</li>
+  <li><em>Janes</em>, “Japan’s Terra Drone establishes defence base in Estonia,” June 16, 2026.</li>
+</ul>
+
+<h2>Chapter 4. Africa: An Underestimated Low-Altitude Battlespace</h2>
+
+<p><strong>Core question.</strong> Africa is the most overlooked theatre in the global counter-UAS field, yet it is becoming the continent where armed drones are proliferating fastest and where demand for counter-UAS capabilities is most urgent. From the counterterrorism front in the Sahel to the Red Sea shipping corridor, drones are redefining Africa’s low-altitude security environment.</p>
+
+<h3>4.1 The Sahel: The Drone Transformation of Counterterrorism</h3>
+
+<h4>4.1.1 From Manned Reconnaissance to Unmanned Strike</h4>
+
+<p>The Sahel is one of Africa’s most drone-intensive regions. Since 2014, France has maintained MQ-9 Reaper deployments there for intelligence, surveillance, and reconnaissance (ISR) and ground-strike missions. Operating from Air Base 101 at Niamey, Niger, these aircraft covered the tri-border area shared by Mali, Burkina Faso, and Niger, where extremist armed groups in the Sahel have been most active.</p>
+
+<p>The source article places coups in Mali, Burkina Faso, and Niger in the 2023–2024 period and states that the new military governments expelled French forces. It also dates France’s complete military withdrawal from Niger to the end of 2024, after which it says the centre of gravity of France’s African MQ-9 deployment shifted toward Chad and Côte d’Ivoire. This chronology is reproduced from the source and requires independent verification. In the source’s assessment, the withdrawal changed the region’s drone-force balance: France’s counterterrorism “eyes” were removed, and Mali’s military government turned to other suppliers.</p>
+
+<p><strong>Sources:</strong> French Ministry for the Armed Forces public reporting on Sahel operations, 2024; French Ministry withdrawal statement, December 2024; and aggregated AFP reporting on the post-Niger adjustment of MQ-9 deployments toward Chad and Côte d’Ivoire.</p>
+
+<h4>4.1.2 The Proliferation of Bayraktar TB2 in Africa</h4>
+
+<p>Turkey’s Bayraktar TB2 armed UAV has been one of the largest variables in Africa’s military-equipment landscape over the past five years. According to the source article, TB2 aircraft have seen operational deployment or confirmed procurement in at least six African countries:</p>
+
+<table>
+  <thead>
+    <tr><th>Country</th><th>Status</th><th>Primary use</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Mali</td><td>Deployed since 2023</td><td>Counterterrorism strikes and border patrol</td></tr>
+    <tr><td>Burkina Faso</td><td>Deployed since 2023</td><td>Counterterrorism strikes</td></tr>
+    <tr><td>Niger</td><td>Procured / delivery in progress</td><td>Border surveillance and counterterrorism</td></tr>
+    <tr><td>Ethiopia</td><td>Used in combat during the 2021 civil war</td><td>Ground strike and reconnaissance</td></tr>
+    <tr><td>Algeria</td><td>Procured</td><td>Border surveillance</td></tr>
+    <tr><td>Morocco</td><td>Procured</td><td>Western Sahara surveillance</td></tr>
+  </tbody>
+</table>
+
+<p>After the French withdrawal, Mali’s military government quickly expanded its use of the Bayraktar TB2 in counterterrorism operations. Its relatively low system cost—approximately US$5 million including a ground station and training—endurance of more than 24 hours, and medium- to high-altitude operating capability made it a preferred choice among Sahel military governments. In 2024 and 2025, Mali’s military repeatedly reported using TB2 aircraft for precision strikes against extremist armed-group positions.</p>
+
+<p>Combat operations in Africa have also exposed limitations. In inland regions without complete satellite-communications coverage, satellite-relay operations are constrained. Extreme heat and airborne dust reduce the effective operating time of electro-optical sensors. The maintenance chain extends more than 4,000 kilometres back to Turkey, making spare-parts supply and repair response persistent challenges.</p>
+
+<p><strong>Sources:</strong> Baykar official export information, 2024; Stockholm International Peace Research Institute (SIPRI) Arms Transfers Database, 2025; and Oryx conflict-equipment tracking for Mali, 2024–2025.</p>
+
+<h4>4.1.3 The Sahel’s Counter-UAS Gap</h4>
+
+<p>The Sahel’s counter-UAS problem differs markedly from those in other theatres. The question is not how to counter drones, but the absence of a capability to do so. Most Sahel armed forces lack even basic electronic-warfare capacity. Commercial UAV reconnaissance by extremist groups is rarely disrupted, while modified FPV attack drones began appearing in the theatre in 2024 and 2025.</p>
+
+<p>The source contrasts this pattern with the Russia–Ukraine war: in the Sahel, it says, drone attacks increasingly run from armed groups toward government forces rather than in the opposite direction. Mali’s military government publicly called for counter-UAS systems and training cooperation in 2024, but international sanctions and diplomatic isolation have complicated procurement. The article says entities associated with the Wagner Group, or Africa Corps, are beginning to fill part of that gap as Russian counter-UAS equipment and training increase in the region.</p>
+
+<p><strong>Sources:</strong> ACLED special reporting on non-state armed-group UAV capabilities in the Sahel, 2024–2025; Rueben Dass, “African Non-State Actors Put Drones on the Attack,” <em>Lawfare</em>, October 19, 2025. The source article says northern Mali’s Azawad Liberation Front carried out at least 12 armed-drone attacks against Malian government and Russian forces from July 2024 onward, including the use of fibre-optic-guided drones.</p>
+
+<h3>4.2 The Red Sea: A Live Test of Merchant-Ship Protection</h3>
+
+<h4>4.2.1 Houthi Drones Rewrite the Rules of Shipping</h4>
+
+<p>After the Gaza conflict began in October 2023, Yemen’s Houthi movement launched large-scale drone and missile attacks against merchant shipping in the Red Sea. The article describes this as a watershed in counter-UAS history: the first time a non-state armed group used drones systematically to obstruct a major artery of global shipping.</p>
+
+<p><strong>Diverse aircraft types.</strong> The Houthi inventory cited by the article spans multiple levels: Samad-series medium-range cruise UAVs with stated ranges of 1,500–2,000 kilometres; Shahed-136 one-way attack aircraft described as Iranian-origin licensed-production versions; and large numbers of modified commercial drones. Their cost ranges from several thousand to tens of thousands of US dollars, yet each can threaten a merchant vessel worth hundreds of millions.</p>
+
+<p><strong>Sources:</strong> <em>Janes Defence</em>, “Houthi UAV Capabilities Assessment,” 2024; US Central Command Red Sea intercept statements, January 2024; and USCENTCOM Public Affairs Red Sea intercept updates from January 2024 through December 2025.</p>
+
+<p><strong>Unprecedented frequency and persistence.</strong> From November 2023 until the April 2026 ceasefire, vessels on the Red Sea route faced a near-daily threat of drone attack. At the peak, the source reports 5–7 attack incidents in one day. Compared with the article’s earlier example of a 700-aircraft daily peak during conflict involving Iran, the defining feature in the Red Sea was not simply volume but sustained attrition: the threat returned day after day rather than ending after one high-intensity event.</p>
+
+<p><strong>Source:</strong> ACLED Red Sea Maritime Incident Tracker, 2024.</p>
+
+<p><strong>Selective targeting, system-wide deterrence.</strong> The Houthis primarily targeted merchant vessels connected with Israel, the United States, and the United Kingdom, but the deterrent effect extended to all shipping in the Red Sea. Many carriers diverted around the Cape of Good Hope, with freight costs rising by more than 200%. Suez Canal revenue fell by more than 40% in 2024. The article argues that a modified drone costing less than US$50,000 produced tens of billions of dollars in worldwide shipping impact.</p>
+
+<p><strong>Sources:</strong> Suez Canal Authority Annual Report 2024, attributing a revenue decline of approximately 40% to the Red Sea situation; Freightos Baltic Index reporting on the effect of the Red Sea crisis on container rates, 2024–2025.</p>
+
+<h4>4.2.2 Operation Prosperity Guardian and Operational Counter-UAS Deployment</h4>
+
+<p>In response to the sustained Houthi drone threat, the United States launched Operation Prosperity Guardian in December 2023. Together with the European Union’s Operation ASPIDES and UK participation, it formed a multinational escort force in the Red Sea. The source describes it as the world’s largest operational counter-UAS deployment in support of civilian shipping.</p>
+
+<p><strong>Shipborne systems under operational test.</strong> The Red Sea presented an unusual environment in which US and UK destroyers and French frigates were committed against both aerial drones and uncrewed surface vessels. Principal counter-UAS measures included:</p>
+
+<ul>
+  <li><strong>Standard Missile family:</strong> SM-2 and ESSM interceptors for medium- and longer-range air defence, at very high engagement cost; the source estimates one SM-2 at approximately US$2 million.</li>
+  <li><strong>Shipborne laser systems:</strong> some vessels reportedly carried laser counter-UAS systems, although public data on operational effectiveness remained limited.</li>
+  <li><strong>Phalanx CIWS in an adapted counter-UAS mode:</strong> radar-guided 20 mm close-in weapon systems for terminal drone interception.</li>
+</ul>
+
+<p><strong>Sources:</strong> USCENTCOM public statements on counter-UAS operations in the Red Sea, 2024–2025; European External Action Service, EUNAVFOR ASPIDES mission mandate, February 2024.</p>
+
+<p>The campaign exposed a central problem: using missiles against drones creates an economic “black hole,” revealing a structural flaw in the global counter-UAS system. A US$2 million interceptor against a US$20,000 Houthi drone produces a 100:1 cost ratio. Because the Red Sea involved months of repeated high-frequency engagements, US and UK forces faced rapid depletion of missile inventories. In 2024, US Department of Defense officials publicly acknowledged this cost asymmetry and accelerated procurement of lower-cost counter-UAS options.</p>
+
+<p><strong>The rise of merchant-vessel self-protection.</strong> The crisis created an emerging market for counter-UAS equipment aboard commercial ships. From 2024 onward, the article says many vessels began adding RF jammers mounted on either side of the bridge to cover approximately one to two kilometres around the ship, water-cannon systems with automatic tracking, and radar upgrades that added small-drone warning modes. Insurers began incorporating counter-UAS equipment into shipping-risk calculations. Merchant ships without such equipment faced reported insurance-premium surcharges of 200–300%.</p>
+
+<p><strong>Sources:</strong> International Chamber of Shipping guidance on counter-UAS measures for commercial vessels, 2024; Lloyd’s Market Intelligence reporting on Red Sea war-risk premiums, 2024–2025.</p>
+
+<h4>4.2.3 The Red Sea After the April 2026 Ceasefire</h4>
+
+<p>In April 2026, regional diplomatic mediation produced a ceasefire agreement involving the Houthis, Saudi Arabia, and Oman, and drone attacks in the Red Sea temporarily stopped. The article identifies four structural changes that remained:</p>
+
+<ul>
+  <li>For the first time, the global shipping industry placed drone threats at the centre of routine risk management.</li>
+  <li>Counter-UAS equipment aboard commercial vessels moved from an optional feature toward an industry norm.</li>
+  <li>Houthi drone capacity was not dismantled; the ceasefire paused its use while production lines continued operating.</li>
+  <li>Djibouti, in the Horn of Africa, became a hub for multinational counter-UAS training and equipment transit.</li>
+</ul>
+
+<p><strong>Sources:</strong> United Nations Security Council records and <em>Al Jazeera</em> reporting, April 2026.</p>
+
+<h3>4.3 The Horn of Africa: Proliferation of Armed Drones</h3>
+
+<h4>4.3.1 Ethiopia’s Civil War: An African Case Study in Drone Warfare</h4>
+
+<p>The 2020–2022 Tigray war in Ethiopia demonstrated a new role for drones in African civil conflict. Both the federal government and the Tigray People’s Liberation Front (TPLF) used UAVs. Government forces conducted precision strikes with armed drones procured abroad. The source says the exact models and origins were not disclosed, although most reporting pointed to Turkish suppliers and “Country X.” The TPLF did not possess equivalent aerial capability but used commercial drones on a limited basis for battlefield reconnaissance and artillery adjustment.</p>
+
+<p>The article draws one central lesson: drones fundamentally changed the offensive–defensive balance in a civil war. The side with drones gained an overwhelming advantage in situational awareness and precision strike, including the ability to track dispersed guerrilla forces in mountainous terrain. After the 2022 ceasefire, Ethiopia expanded its drone capability further and became one of East Africa’s strongest UAV operators.</p>
+
+<p><strong>Sources:</strong> Oryx Africa equipment tracking for the Ethiopian war, 2022–2023; Reuters investigations, 2022; SIPRI Arms Transfers Database, updated March 9, 2026; European Council on Foreign Relations, <em>Deadly Skies</em>, February 2025.</p>
+
+<h4>4.3.2 Terrorist Drone Experimentation: From Interest to Practice</h4>
+
+<p>Al-Shabaab is one of Africa’s most active terrorist organisations. Evidence gathered from 2023 through 2025 increasingly indicated that the group was experimenting with drone technology:</p>
+
+<ul>
+  <li><strong>Commercial-drone modification:</strong> acquisition of commercial multirotors, including DJI models, and experiments with adaptations for dropping payloads.</li>
+  <li><strong>Limited recorded use:</strong> confirmed use in 2024 for reconnaissance around African Union Transition Mission in Somalia (ATMIS) bases.</li>
+  <li><strong>Capability constraints:</strong> short control range, no precision release capability, and little resilience against electronic disruption.</li>
+</ul>
+
+<p>The source nevertheless argues that scale is a matter of time. Terrorist groups in the Sahel and Somalia are teaching themselves to use UAVs through open-source FPV modification tutorials and 3D-printable payload-release designs. For African security forces, the operative question is therefore not whether Al-Shabaab will use drones for attack, but when it may acquire the capacity to do so at scale.</p>
+
+<p><strong>Sources:</strong> United Nations Somalia Panel of Experts reports, 2024–2025; International Crisis Group Africa reporting on drone proliferation in the Horn of Africa, 2024.</p>
+
+<h4>4.3.3 Djibouti and Kenya: A New Front Line for Counter-UAS Training</h4>
+
+<p>Counter-UAS training cooperation in Africa is accelerating in Djibouti and Kenya. Djibouti hosts military installations from multiple countries, including Camp Lemonnier for the United States, a French base, and a Japan Self-Defense Forces base. During the Red Sea crisis, the country became a transit hub for counter-UAS equipment.</p>
+
+<p>Kenya expanded cooperation with Western countries in 2024 and 2025. Joint programmes with the United States provided the Kenya Defence Forces and police with training in basic detection and electronic-disruption skills. The frequency of counter-UAS patrols along the Kenya–Somalia border also increased to prevent Al-Shabaab from using drones to support reconnaissance and infiltration.</p>
+
+<p>East Africa shares many of the Sahel’s obstacles: insufficient training capacity, systems that are too expensive, and long maintenance chains. The article describes the human-capability bottleneck—equipment may be purchasable, but trained operators are scarce—as more pronounced in Africa than in most other regions.</p>
+
+<p><strong>Sources:</strong> US Africa Command Public Affairs reporting on counter-UAS training in East Africa, 2024–2025; <em>Africa Defense Journal</em>; and US AFRICOM joint press releases, 2024–2025.</p>
+
+<h3>4.4 NATO Counter-UAS Activity in Africa</h3>
+
+<h4>4.4.1 A Counter-UAS Training Network in North and East Africa</h4>
+
+<p>NATO’s counter-UAS activity in Africa focuses primarily on training and capacity-building rather than direct operations. Although the European Union Training Mission in Somalia (EUTM Somalia) is primarily responsible for training the Somali National Army, its curriculum after 2024 added urban counter-UAS awareness and basic recognition of improvised drones. The change followed encounters by Somali Army patrols in Mogadishu with suspected Al-Shabaab drone reconnaissance. Somalia’s government said publicly in 2025 that the group’s drone threat was growing.</p>
+
+<p>NATO’s Defence and Related Security Capacity Building Initiative covers North African and neighbouring partner countries including Tunisia, Jordan, and Mauritania. The framework includes counter-UAS capability modules addressing radar recognition, RF detection, and electronic-disruption fundamentals.</p>
+
+<p><strong>Sources:</strong> EUTM Somalia quarterly mission updates for Q2–Q4 2024; NATO Defence Capacity Building package documentation covering a C-UAS module, 2024.</p>
+
+<h4>4.4.2 European Counter-UAS Trials in Africa</h4>
+
+<p>French trials in the extreme environment of the Sahara merit particular attention. In 2024, France’s defence-procurement agency, DGA, tested drone detection and countermeasure technology in the desert, measuring how sandstorms and temperatures above 50°C degraded radar and electro-optical sensors.</p>
+
+<p>This is an underexamined counter-UAS problem. Most equipment is designed around temperate ideal conditions; in the Sahara, the source observes, retaining even half of the stated detection range may be considered a good result. The UK’s DroneTEX facility, discussed in Chapter 9 of the original series, can theoretically simulate multiple climates but currently focuses mainly on temperate and European testing needs. Counter-UAS validation for Africa’s extreme environments remains a gap. Systems proven in the Sahara may ultimately be deployed to the continent’s most active drone-conflict zones.</p>
+
+<p><strong>Sources:</strong> French DGA Test Directorate reporting on a Saharan C-UAS technology demonstration, 2024; <em>Air &amp; Cosmos</em>, 2024; DroneTEX official information on environmental testing capabilities; UK Ministry of Defence Drone Conference, 2025.</p>
+
+<h3>4.5 A Three-Year Outlook for Low-Altitude Security in Africa</h3>
+
+<p>The article identifies three potential turning points for Africa’s drone and counter-UAS environment over the next three years.</p>
+
+<p><strong>First: counter-UAS capacity-building in the Sahel.</strong> As modified FPV systems proliferate among extremist armed groups, the question for Sahel government forces will shift from whether they have a counter-UAS capability to whether they have enough of it. If Russian or Africa Corps equipment and training reach scale, the Sahel may become a new operational counter-UAS theatre.</p>
+
+<p><strong>Second: a renewed Red Sea variable.</strong> The April 2026 ceasefire is not necessarily a final settlement, and Houthi drone-production lines have not closed. If conflict resumes, merchant shipping could face more mature drone attacks than it did from 2023 to 2026 because three years of operational data can be used to refine tactics.</p>
+
+<p><strong>Third: the beginnings of indigenous African capacity.</strong> South Africa and Kenya have started limited domestic counter-UAS research and development, but neither its scale nor technical maturity has reached industrial levels. Over the next three years, the interaction between external assistance—from the United States, Europe, Turkey, and Russia—and Africa’s own capabilities will shape the continent’s low-altitude security trajectory.</p>
+
+<p><strong>Core assessment.</strong> Africa’s low-altitude security problem will not resolve itself. It will move from being ignored to being impossible to ignore. When that happens, every part of the global counter-UAS supply chain—from training and equipment to operational concepts—will face a continent-scale stress test.</p>
+
+<hr>
+<p><em>Translation note: This English version follows the structure and substantive claims of the source article. Dates, costs, performance figures, attribution, and forward-looking assessments are reproduced from that source and have not been independently verified by N-TET.</em></p>

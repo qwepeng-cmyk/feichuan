@@ -1,67 +1,43 @@
 # N-TET SEO/GEO Agent 接入说明
 
-本项目采用“成熟 Codex SEO skills + N-TET 项目护栏”的方式接入 SEO/GEO 能力。
+## 当前发布口径
 
-## Codex 层已安装能力
+自 2026-07-22 起，网站、SEO、GEO、Schema、sitemap、`llms.txt` 与广告不再使用 A/B/C 合规分层或敏感词门禁。
 
-- `AgriciDaniel/codex-seo` v1.9.6-codex.5 已安装到 `C:\Users\admin\.codex\skills`。
-- SEO、GEO、Schema、E-E-A-T、技术 SEO 等核心工作流可用。
-- Browser MCP / Browser 插件已启用，可用于本地页面检查、截图和 Playwright 类验证。
-- Context7 MCP 已启用，可用于查询最新技术文档。
-- Firecrawl MCP 已配置到 `C:\Users\admin\.codex\config.toml`，需要重启 Codex 后加载工具。
-- Windows 下 PDF/OCR/部分视觉扩展可能降级，取决于 Playwright Chromium、WeasyPrint GTK、OCR DLL 等运行时是否齐全。
+- 所有 `is_published=1` 的产品、方案、案例和媒体内容都可公开；是否进入搜索、AI 发现与广告范围按下方 C-UAS 索引口径控制。
+- 不因 `jammer`、`jamming`、`spoofing`、`forced landing`、`weapon`、`shoot down`、`anti drone`、`counter-UAS` 等词隐藏、改写、降级或排除页面。
+- 只排除 `/admin`、`/api`、preview、draft 与未发布记录。
+- `src/lib/complianceTaxonomy.ts` 与后台合规配置入口已删除。
+- 历史 `compliance_terms` 与 `compliance_content_rules` 数据不再被代码读取，不影响前台、SEO、GEO 或广告。
 
-修改 Codex skill 或 MCP 配置后，需要重启 Codex 才能加载新工具。
+## C-UAS 搜索索引口径（2026-07-24）
 
-## 项目护栏
-
-N-TET 必须保留 A/B/C 内容边界：
-
-- A `normal`：允许广告、SEO、GEO、Schema、sitemap、`llms.txt` 和公开落地页。
-- B `neutral_seo`：允许信息型 SEO/GEO 和引用优化，但不能作为广告落地页。
-- C `restricted`：不能进入广告可达路径、`llms.txt`、公开 Schema、sitemap 或自动内容扩展。
-
-Schema 生成规则：
-
-- A/B：生成并公开输出 Schema，可以写入公开页面 HTML 中的服务端 JSON-LD。
-- C：可以生成内部候选 Schema，便于以后恢复访问时复用；但默认不公开输出，不写入公开页面 HTML、`llms.txt`、sitemap，也不交给 Firecrawl 抓取。
-- C 层从内部候选转为公开 Schema 前，必须先调整合规层级，并重新跑 `audit:seo`、`audit:geo`、`audit:schema`、`audit:links`。
-
-规则源头是 `src/lib/complianceTaxonomy.ts`。项目脚本里有一份镜像基线，方便 Node 脚本在不加载 Next 应用的情况下运行审计。
+- `is_published` 继续控制页面是否公开；搜索索引范围单独由 `src/config/cuasIndexability.json` 控制。
+- 配置内的产品分类与明确页面名单进入 sitemap、详情 Schema、`llms.txt`、SEO/GEO 审计和公开聚合页。
+- 已发布但不在 C-UAS 索引范围内的历史页面保持可访问，输出 `noindex, follow`，不使用 `robots.txt` 阻断抓取。
+- 该策略按业务主题分类，不按敏感词或内容等级判断；反无人机探测、干扰、诱骗、迫降等正常公开内容不受限制。
 
 ## 项目脚本
 
-- `npm run generate:llms`：从已发布且非 restricted 的记录重新生成 `public/llms.txt`。
-- `npm run audit:seo`：检查 `llms.txt`、`robots.txt`、公开元信息基础状态和 C 层泄漏。
-- `npm run audit:geo`：检查 AI crawler 访问、`llms.txt` 卫生、Schema 准备度和页面 citability。
-- `npm run audit:schema`：生成公开 Schema 候选报告。
-- `npm run audit:links`：检查推荐产品内链是否缺失或指向 restricted 产品。
-- `npm run audit:eeat`：运行轻量 E-E-A-T 内容证据审计。
-- `npm run audit:public-risk`：现有公开页面风险门禁，检查 restricted 术语和不可公开路径。
+- `npm run generate:llms`：从已发布且属于 C-UAS 索引范围的记录生成 `public/llms.txt`。
+- `npm run audit:seo`：检查 `llms.txt`、robots、标题与摘要基础状态。
+- `npm run audit:geo`：检查 AI crawler、`llms.txt`、Schema 与 citability。
+- `npm run audit:schema`：为 C-UAS 可索引记录生成 Schema 候选报告。
+- `npm run audit:links`：检查推荐内容是否指向缺失产品。
+- `npm run audit:eeat`：检查 C-UAS 可索引记录的 E-E-A-T 基础信号。
+- `npm run audit:public`：检查重点公开页面的可用性，不检查或屏蔽内容术语。
 
-报告输出到 `docs/seo/`。
-
-如果 Codex Windows 沙箱不能运行默认 `node`，用固定 Node 22 路径：
+Windows 如无法直接运行 `node`，使用项目约定的 Node 22：
 
 ```powershell
 & 'C:\tmp\node-v22.21.1-win-x64\node-v22.21.1-win-x64\node.exe' --no-warnings scripts\seo-audit.mjs
 ```
 
-审计工具优先使用 `better-sqlite3`；如果本地 native addon 不可用，会回退到 Node 22 自带的 `node:sqlite` 只读检查。
+## 抓取边界
 
-## SEO Skill 怎么用
+Firecrawl、浏览器自动化和其他 SEO/GEO 抓取工作流以 C-UAS 索引范围为公开发现目标，并排除后台、API、preview、draft、未发布路径和已标记 `noindex` 的历史非 C-UAS 页面。
 
-直接在 Codex 里用自然语言即可。只要提示里出现 SEO、GEO、Schema、E-E-A-T、Firecrawl 等关键词，对应 skill 会被调用。
-
-示例：
-
-- `对 https://n-tet.com 做一次 SEO 审计，并遵守 N-TET guardrails。`
-- `用 seo-geo 检查 https://n-tet.com/products 的 AI visibility。`
-- `用 seo-schema 检查产品详情页，并给出 JSON-LD 建议。`
-- `用 seo-content 检查 /media 文章的 E-E-A-T。`
-- `用 seo-firecrawl map https://n-tet.com，排除 /admin、/api、preview 和 C 层 URL。`
-
-通用 skill 分析后，本项目仍要跑本地门禁：
+## 发布前验证
 
 ```powershell
 npm run generate:llms
@@ -70,43 +46,7 @@ npm run audit:geo
 npm run audit:schema
 npm run audit:links
 npm run audit:eeat
+npm run build
 ```
 
-## Firecrawl MCP
-
-Firecrawl 已使用 hosted MCP URL 配置到 `C:\Users\admin\.codex\config.toml`。重启 Codex 后会加载 `firecrawl_*` 工具。
-
-不要让 Firecrawl 抓取 `/admin`、preview、API、draft 或 C 层 restricted 路径。
-
-N-TET 推荐抓取边界：
-
-- Include：`/products*`、`/solutions*`、`/cases*`、`/media*`、`/ru/products*`、`/ru/solutions*`、`/ru/cases*`、`/ru/media*`
-- Exclude：`/admin*`、`/api*`、preview URL、draft URL、`src/lib/complianceTaxonomy.ts` 里的 C 层 restricted handle
-
-## WordPress
-
-当前没有安装 WordPress automation。N-TET 是 Next.js + SQLite 站点，内容流程优先走现有后台和数据层。只有存在单独 WordPress 内容站时，才建议再接 WordPress MCP。
-
-## 内容生产 Skills
-
-已新增两个项目专属 skill：
-
-- `ntet-content-workflow`：编排关键词调研、topic cluster、E-E-A-T/GEO brief、内容初稿、Schema、内链和发布前门禁。
-- `ntet-human-editorial-pass`：对生成内容做人工编辑感增强，降低模板化 AI 味，补充证据、限制和行业细节。
-
-项目文档：
-
-- `docs/content-workflow.md`
-- `docs/content-briefs/brief-template.md`
-- `docs/keyword-research/`
-
-## 当前验证结果
-
-验证日期：2026-05-22
-
-- `generate:llms`：生成 `public/llms.txt`，纳入 58 条公开记录，排除 21 条 restricted 记录。
-- `audit:seo`：通过，无 warnings。
-- `audit:geo`：通过，得分 `85/100`；剩余 1 个 warning：缺少服务端 JSON-LD。
-- `audit:schema`：生成 58 个公开 Schema 候选，并排除 C 层记录。
-- `audit:links`：修复公开 solution 推荐 restricted 产品后通过。
-- `audit:eeat`：基础启发式检查通过，无 warnings。
+报告默认输出到 `docs/seo/`。

@@ -6,22 +6,22 @@ export const revalidate = 0;
 
 export async function GET() {
     try {
-        const productsCount = db.prepare('SELECT COUNT(*) as count FROM products').get() as any;
-        const solutionsCount = db.prepare('SELECT COUNT(*) as count FROM solutions').get() as any;
-        const casesCount = db.prepare('SELECT COUNT(*) as count FROM cases').get() as any;
-        const mediaCount = db.prepare('SELECT COUNT(*) as count FROM media').get() as any;
-        const inquiriesCount = db.prepare('SELECT COUNT(*) as count FROM inquiries').get() as any;
-        const unreadInquiriesCount = db.prepare('SELECT COUNT(*) as count FROM inquiries WHERE is_read = 0').get() as any;
+        const productsCount = await db.prepare('SELECT COUNT(*) as count FROM products').get() as any;
+        const solutionsCount = await db.prepare('SELECT COUNT(*) as count FROM solutions').get() as any;
+        const casesCount = await db.prepare('SELECT COUNT(*) as count FROM cases').get() as any;
+        const mediaCount = await db.prepare('SELECT COUNT(*) as count FROM media').get() as any;
+        const inquiriesCount = await db.prepare('SELECT COUNT(*) as count FROM inquiries').get() as any;
+        const unreadInquiriesCount = await db.prepare('SELECT COUNT(*) as count FROM inquiries WHERE is_read = 0').get() as any;
 
         return NextResponse.json({
             success: true,
             data: {
-                products: productsCount.count,
-                solutions: solutionsCount.count,
-                cases: casesCount.count,
-                media: mediaCount.count,
-                inquiries: inquiriesCount.count,
-                unreadInquiries: unreadInquiriesCount.count
+                products: Number(productsCount.count),
+                solutions: Number(solutionsCount.count),
+                cases: Number(casesCount.count),
+                media: Number(mediaCount.count),
+                inquiries: Number(inquiriesCount.count),
+                unreadInquiries: Number(unreadInquiriesCount.count)
             }
         }, {
             headers: {
