@@ -48,7 +48,7 @@
 ## Publication Notes
 
 - Publication state rationale: User requested translation and website publication.
-- Source treatment: The editor’s note names and links the original publisher and date.
+- Source treatment: The public article omits the original byline, publication date, and source link at the publisher's request. Source evidence remains recorded in this internal brief only.
 - Images: Original article illustrations and promotional images are omitted. The page reuses the existing N-TET Media Center banner as its required cover image.
 - Internal or confidential sources excluded: Yes.
 - Publication gates: `generate:llms`, `audit:seo`, `audit:geo`, `audit:schema`, `audit:links`, `audit:eeat`, `audit:public`, and `build`.
