@@ -9,6 +9,7 @@ import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDispla
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
 const EN_CUAS_MEDIA_IDS = [
+    'one-low-altitude-security-solution-every-scenario-2026',
     'ntet-uav-engineering-cuas-perspective-2026',
     'cuas-event-logging-data-retention-2026',
     'ntet-multi-sensor-configuration-method-2025',
