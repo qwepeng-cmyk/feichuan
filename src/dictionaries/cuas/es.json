@@ -1,5 +1,15 @@
 {
   "strings": {
+    "RF DETECTION": "DETECCIÓN RF",
+    "RF JAMMING": "INTERFERENCIA RF",
+    "DETECTION + JAMMING": "DETECCIÓN + INTERFERENCIA",
+    "NAVIGATION SPOOFING": "SUPLANTACIÓN DE NAVEGACIÓN",
+    "Portable RF Drone Detector": "Detector portátil de drones por RF",
+    "Portable Anti-Drone Jammer Shield": "Escudo portátil de interferencia antidrones",
+    "Portable Integrated Detection & Jamming System": "Sistema portátil integrado de detección e interferencia",
+    "Portable Navigation Spoofing System": "Sistema portátil de suplantación de señales de navegación",
+    "Portable drone detection, RF jamming and navigation spoofing equipment for patrol teams, temporary sites and event security.": "Equipos portátiles de detección de drones, interferencia RF y suplantación de señales de navegación para patrullas, instalaciones temporales y seguridad de eventos.",
+    "Request a Quote": "Solicitar presupuesto",
     "use client": "usar cliente",
     "Portable C-UAS Devices": "Dispositivos C-UAS portátiles",
     "Portable C-UAS": "C-UAS portátiles",

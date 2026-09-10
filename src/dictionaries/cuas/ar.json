@@ -1,5 +1,15 @@
 {
   "strings": {
+    "RF DETECTION": "الكشف بالترددات الراديوية",
+    "RF JAMMING": "التشويش الراديوي",
+    "DETECTION + JAMMING": "الكشف + التشويش",
+    "NAVIGATION SPOOFING": "خداع إشارات الملاحة",
+    "Portable RF Drone Detector": "كاشف محمول للطائرات المسيّرة بالترددات الراديوية",
+    "Portable Anti-Drone Jammer Shield": "درع تشويش محمول مضاد للطائرات المسيّرة",
+    "Portable Integrated Detection & Jamming System": "نظام محمول متكامل للكشف والتشويش",
+    "Portable Navigation Spoofing System": "نظام محمول لخداع إشارات الملاحة",
+    "Portable drone detection, RF jamming and navigation spoofing equipment for patrol teams, temporary sites and event security.": "معدات محمولة لكشف الطائرات المسيّرة والتشويش الراديوي وخداع إشارات الملاحة، لفرق الدوريات والمواقع المؤقتة وتأمين الفعاليات.",
+    "Request a Quote": "اطلب عرض سعر",
     "use client": "استخدام العميل",
     "Portable C-UAS Devices": "أجهزة C-UAS المحمولة",
     "Portable C-UAS": "الطائرات بدون طيار C المحمولة",

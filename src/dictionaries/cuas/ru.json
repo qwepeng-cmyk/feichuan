@@ -1,5 +1,15 @@
 {
   "strings": {
+    "RF DETECTION": "РАДИОЧАСТОТНОЕ ОБНАРУЖЕНИЕ",
+    "RF JAMMING": "РАДИОЧАСТОТНОЕ ПОДАВЛЕНИЕ",
+    "DETECTION + JAMMING": "ОБНАРУЖЕНИЕ + ПОДАВЛЕНИЕ",
+    "NAVIGATION SPOOFING": "НАВИГАЦИОННЫЙ СПУФИНГ",
+    "Portable RF Drone Detector": "Переносной радиочастотный детектор БПЛА",
+    "Portable Anti-Drone Jammer Shield": "Переносной щит подавления БПЛА",
+    "Portable Integrated Detection & Jamming System": "Переносная комплексная система обнаружения и подавления БПЛА",
+    "Portable Navigation Spoofing System": "Переносная система навигационного спуфинга",
+    "Portable drone detection, RF jamming and navigation spoofing equipment for patrol teams, temporary sites and event security.": "Переносное оборудование для обнаружения БПЛА, радиочастотного подавления и навигационного спуфинга для патрульных групп, временных объектов и охраны мероприятий.",
+    "Request a Quote": "Запросить коммерческое предложение",
     "use client": "использовать клиент",
     "Portable C-UAS Devices": "Портативные устройства C-UAS",
     "Portable C-UAS": "Портативный C-UAS",

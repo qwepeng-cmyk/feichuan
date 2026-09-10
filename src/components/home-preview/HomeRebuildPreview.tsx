@@ -28,36 +28,36 @@ const productCategories = [
     subtitle: "Rapid deployment",
     image: "/products/02-drone-detection/portable-rf-detection-case.webp",
     description:
-      "Hand-carried RF detection and counter-drone equipment for patrol teams, temporary sites and event security.",
+      "Portable drone detection, RF jamming and navigation spoofing equipment for patrol teams, temporary sites and event security.",
     capabilities: ["RF detection and identification", "Portable jamming options"],
     href: "/products/portable-rf-detection-case",
     products: [
       {
-        model: "PL280P",
-        name: "Portable RF Detection Case",
+        label: "RF DETECTION",
+        name: "Portable RF Drone Detector",
         image: "/products/02-drone-detection/portable-rf-detection-case.webp",
         href: "/products/portable-rf-detection-case",
         scale: 2.05,
       },
       {
-        model: "RF FIELD",
-        name: "Portable RF Field Unit",
+        label: "RF JAMMING",
+        name: "Portable Anti-Drone Jammer Shield",
         image: "/products/rf-systems/portable-rf-field-unit.webp",
-        href: "/products",
+        href: "/products/portable-low-altitude-monitoring-event-logging-shield",
         scale: 1.65,
       },
       {
-        model: "RF FIELD PRO",
-        name: "Portable RF Analysis Unit",
+        label: "DETECTION + JAMMING",
+        name: "Portable Integrated Detection & Jamming System",
         image: "/products/rf-systems/portable-integrated-rf-analysis-pro.webp",
-        href: "/products",
+        href: "/products/portable-integrated-detection-event-logging-pro-low-altitude-monitoring",
         scale: 2.05,
       },
       {
-        model: "NAV FIELD",
-        name: "Portable Navigation Signal Analyzer",
-        image: "/products/rf-systems/portable-navigation-signal-analysis-unit-alt.webp",
-        href: "/products",
+        label: "NAVIGATION SPOOFING",
+        name: "Portable Navigation Spoofing System",
+        image: "/products/rf-systems/portable-navigation-signal-analysis-unit.webp",
+        href: "/products/portable-active-rf-defense-system",
         scale: 2.2,
       },
     ],
@@ -75,28 +75,28 @@ const productCategories = [
     href: "/products/stationary-rf-detection-system",
     products: [
       {
-        model: "RF GUARD",
+        label: "RF GUARD",
         name: "Stationary RF Detection System",
         image: "/products/02-drone-detection/stationary-rf-detection-system.webp",
         href: "/products/stationary-rf-detection-system",
         scale: 1.8,
       },
       {
-        model: "KU RADAR",
+        label: "KU RADAR",
         name: "Low-Altitude Detection Radar",
         image: "/products/02-drone-detection/low-altitude-detection-radar.webp",
         href: "/products/low-altitude-detection-radar-ku-band",
         scale: 1.65,
       },
       {
-        model: "EO TRACK",
+        label: "EO TRACK",
         name: "Electro-Optical Tracking System",
         image: "/products/02-drone-detection/electro-optical-tracking-system.webp",
         href: "/products/composite-electro-optical-tracking-system",
         scale: 1.65,
       },
       {
-        model: "RF ARRAY",
+        label: "RF ARRAY",
         name: "Stationary RF Analysis Unit",
         image: "/products/rf-systems/stationary-rf-analysis-unit.webp",
         href: "/products",
@@ -117,7 +117,7 @@ const productCategories = [
     href: "/solutions/low-altitude-airspace-monitoring",
     products: [
       {
-        model: "MOBILE C-UAS",
+        label: "MOBILE C-UAS",
         name: "Vehicle-Mounted Counter-Drone System",
         image: "/solutions/low-altitude-airspace-monitoring/vehicle-mobile-cuas.webp",
         href: "/solutions/low-altitude-airspace-monitoring",
@@ -125,14 +125,14 @@ const productCategories = [
         scale: 1,
       },
       {
-        model: "VEHICLE RF",
+        label: "VEHICLE RF",
         name: "Vehicle-Mounted RF Analysis Unit",
         image: "/products/rf-systems/vehicle-mounted-rf-analysis-unit.webp",
         href: "/products",
         scale: 1.75,
       },
       {
-        model: "MOBILE NAV",
+        label: "MOBILE NAV",
         name: "Vehicle Navigation Signal Analysis System",
         image: "/products/rf-systems/navigation-signal-analysis-system-alt.webp",
         href: "/products",
@@ -153,7 +153,7 @@ const productCategories = [
     href: "/solutions/low-altitude-airspace-monitoring",
     products: [
       {
-        model: "C2 PLATFORM",
+        label: "C2 PLATFORM",
         name: "Low-Altitude Command Platform",
         image: "/solutions/low-altitude-airspace-monitoring/ppt-platform-interface.webp",
         href: "/solutions/low-altitude-airspace-monitoring",
@@ -161,7 +161,7 @@ const productCategories = [
         scale: 1,
       },
       {
-        model: "COMMAND CENTER",
+        label: "COMMAND CENTER",
         name: "Airspace Monitoring Command Center",
         image: "/products/02-drone-detection/low-altitude-monitoring-command-center-hero.webp",
         href: "/solutions/low-altitude-airspace-monitoring",
@@ -169,7 +169,7 @@ const productCategories = [
         scale: 1,
       },
       {
-        model: "AIRSPACE GRID",
+        label: "AIRSPACE GRID",
         name: "Multi-Sensor Fusion Interface",
         image: "/solutions/low-altitude-airspace-monitoring/low-altitude-grid-hero.webp",
         href: "/solutions/low-altitude-airspace-monitoring",
@@ -624,7 +624,7 @@ export default function HomeRebuildPreview({
                 sourceLabel="home_rebuild_category_whatsapp"
                 className={styles.collectionCta}
               >
-                Get Category Pricing <ArrowUpRight size={16} />
+                Request a Quote <ArrowUpRight size={16} />
               </PrimaryContactButton>
             </div>
           </div>
@@ -682,7 +682,7 @@ export default function HomeRebuildPreview({
                   <PrimaryContactButton
                     sourceLabel="home_rebuild_feature_product_whatsapp"
                     productName={featuredProduct.name}
-                    productHandle={featuredProduct.model}
+                    productHandle={featuredProduct.href.split("/").pop()}
                     ctaLocation="home_rebuild_feature_product"
                     className={styles.productFeaturePrimary}
                   >
@@ -698,7 +698,7 @@ export default function HomeRebuildPreview({
               }`}
             >
               {selectedCategory.products.map((product) => (
-                <article className={styles.productItem} key={product.model}>
+                <article className={styles.productItem} key={product.label}>
                   <Link
                     className={styles.productImageStage}
                     href={localePath(locale, product.href)}
@@ -718,7 +718,7 @@ export default function HomeRebuildPreview({
                       }
                       sizes="(max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
                     />
-                    <span>{product.model}</span>
+                    <span>{product.label}</span>
                   </Link>
                   <div className={styles.productMeta}>
                     <h4>{product.name}</h4>

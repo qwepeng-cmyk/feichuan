@@ -436,6 +436,8 @@
   position: absolute;
   top: 17px;
   left: 20px;
+  right: 20px;
+  overflow-wrap: anywhere;
   z-index: 1;
   color: var(--preview-orange);
   font-size: 1.05rem;
