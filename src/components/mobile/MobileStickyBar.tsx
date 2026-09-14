@@ -1,69 +1,86 @@
-import React from 'react';
-import Link from 'next/link';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+'use client';
 
-export default function MobileStickyBar({ locale, dict }: { locale: string; dict: any }) {
-    const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+import React, { useCallback, useState } from 'react';
+import { FileText, MessageCircle } from 'lucide-react';
+import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
+import MobileQuoteDrawer from './MobileQuoteDrawer';
 
-    return (
-        <div style={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            width: 'auto',
-            maxWidth: '100vw',
-            boxSizing: 'border-box',
-            height: '70px',
-            background: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            padding: '0 15px',
-            gap: '12px',
-            boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
-            zIndex: 3000
-        }}>
-            {/* Get Solution */}
-            <Link href={l("/contact")} style={{
-                flex: '1 1 0',
-                minWidth: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                background: '#4a79d1',
-                color: '#fff',
-                height: '46px',
-                borderRadius: '4px',
-                fontSize: '14px',
-                fontWeight: 700,
-                textDecoration: 'none',
-                lineHeight: 1.2,
-                textAlign: 'center'
-            }}>
-                <span style={{ fontSize: '18px' }}>📝</span> {dict.products.getSolution}
-            </Link>
+export default function MobileStickyBar({ dict }: { locale: string; dict: any }) {
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const closeQuote = useCallback(() => setQuoteOpen(false), []);
 
-            {/* WhatsApp / Chat */}
-            <WhatsAppLeadButton sourceLabel="mobile_sticky_whatsapp" style={{
-                flex: '1 1 0',
-                minWidth: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                background: '#25D366',
-                color: '#fff',
-                height: '46px',
-                borderRadius: '4px',
-                fontSize: '14px',
-                fontWeight: 700,
-                textDecoration: 'none',
-                lineHeight: 1.2,
-                textAlign: 'center'
-            }}>
-                <span style={{ fontSize: '18px' }}>💬</span> {dict.products.whatsapp}
-            </WhatsAppLeadButton>
-        </div>
-    );
+  const buttonStyle: React.CSSProperties = {
+    flex: '1 1 0',
+    minWidth: 0,
+    position: 'relative',
+    boxSizing: 'border-box',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '52px',
+    padding: '0 7px 0 29px',
+    borderRadius: '4px',
+    color: '#fff',
+    fontSize: '11.5px',
+    fontWeight: 700,
+    textDecoration: 'none',
+    lineHeight: 1.2,
+    textAlign: 'center',
+    border: 'none',
+    overflow: 'hidden',
+  };
+
+  const iconStyle: React.CSSProperties = {
+    position: 'absolute',
+    left: '9px',
+    top: '50%',
+    flexShrink: 0,
+    transform: 'translateY(-50%)',
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    minWidth: 0,
+    lineHeight: 1.15,
+    overflowWrap: 'break-word',
+  };
+
+  return (
+    <div style={{
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: 'auto',
+      maxWidth: '100vw',
+      boxSizing: 'border-box',
+      height: '78px',
+      background: '#fff',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0 15px',
+      gap: '12px',
+      boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
+      zIndex: 3000,
+    }}>
+      <button
+        type="button"
+        onClick={() => setQuoteOpen(true)}
+        style={{ ...buttonStyle, background: '#4a79d1', cursor: 'pointer', fontSize: '11.5px' }}
+      >
+        <FileText size={15} style={iconStyle} aria-hidden="true" />
+        <span style={labelStyle}>{dict.inquiry?.title || 'Получить консультацию специалиста'}</span>
+      </button>
+
+      <PrimaryContactButton
+        sourceLabel="mobile_sticky_whatsapp"
+        style={{ ...buttonStyle, background: 'var(--contact-channel-accent)' }}
+      >
+        <MessageCircle size={15} style={iconStyle} aria-hidden="true" />
+        <span style={labelStyle}>{dict.products.whatsapp}</span>
+      </PrimaryContactButton>
+
+      <MobileQuoteDrawer dict={dict} open={quoteOpen} onClose={closeQuote} />
+    </div>
+  );
 }

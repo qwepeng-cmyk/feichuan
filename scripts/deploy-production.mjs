@@ -1,7 +1,8 @@
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 
 const sourceRoot = process.cwd();
 const legacyBuildRoot = '/Users/mattchyi/Documents/Project/fc';
@@ -34,7 +35,12 @@ const buildRoot = process.env.DEPLOY_BUILD_ROOT || (sourceRoot.startsWith('/mnt/
 const localTar = process.env.DEPLOY_TAR || join(sourceRoot, 'scratch', 'next-deploy.tar.gz');
 const zoneName = process.env.ZONE_NAME || 'n-tet.com';
 const skipCloudflarePurge = process.env.SKIP_CF_PURGE === '1';
-const deployRsyncBwlimit = process.env.DEPLOY_RSYNC_BWLIMIT || '500';
+const deployRsyncBwlimit = process.env.DEPLOY_RSYNC_BWLIMIT || '0';
+const deployMtu = process.env.DEPLOY_MTU || '1280';
+const deployNetworkInterface = process.env.DEPLOY_NETWORK_INTERFACE || '';
+const deployUploadMode = process.env.DEPLOY_UPLOAD_MODE || 'delta';
+const deployRsyncAttempts = Number(process.env.DEPLOY_RSYNC_ATTEMPTS || '20');
+const skipBuild = process.env.DEPLOY_SKIP_BUILD === '1';
 const sshOptions = [
   '-F',
   '/dev/null',
@@ -48,6 +54,8 @@ const sshOptions = [
   'ServerAliveCountMax=3',
   '-o',
   'TCPKeepAlive=yes',
+  '-o',
+  'IPQoS=none',
 ];
 
 function step(title) {
@@ -118,6 +126,95 @@ function rsyncPublic() {
   ]);
 }
 
+function isWslRuntime() {
+  if (process.env.WSL_DISTRO_NAME || process.env.WSL_INTEROP) return true;
+  try {
+    return /microsoft/i.test(readFileSync('/proc/version', 'utf8'));
+  } catch {
+    return false;
+  }
+}
+
+function mtuCommand(args) {
+  if (typeof process.getuid === 'function' && process.getuid() !== 0) {
+    return run('sudo', ['-n', 'ip', ...args]);
+  }
+  return run('ip', args);
+}
+
+let mtuRestoreState = null;
+
+function configureDeploymentMtu() {
+  if (!isWslRuntime()) {
+    console.log('MTU adjustment skipped outside WSL.');
+    return;
+  }
+
+  if (deployMtu === '0' || /^off$/i.test(deployMtu)) {
+    console.log('MTU adjustment disabled by DEPLOY_MTU.');
+    return;
+  }
+
+  const requestedMtu = Number(deployMtu);
+  if (!Number.isInteger(requestedMtu) || requestedMtu < 576 || requestedMtu > 9000) {
+    throw new Error(`Invalid DEPLOY_MTU=${deployMtu}. Use an integer from 576 to 9000, or 0 to disable.`);
+  }
+
+  const route = output('ip', ['route', 'get', deployHost]);
+  const routeInterface = route.match(/\bdev\s+(\S+)/)?.[1];
+  const networkInterface = deployNetworkInterface || routeInterface;
+  if (!networkInterface) {
+    throw new Error(`Could not detect the WSL network interface used for ${deployHost}. Set DEPLOY_NETWORK_INTERFACE.`);
+  }
+
+  const link = output('ip', ['-o', 'link', 'show', 'dev', networkInterface]);
+  const originalMtu = Number(link.match(/\bmtu\s+(\d+)/)?.[1]);
+  if (!Number.isInteger(originalMtu)) {
+    throw new Error(`Could not read MTU for WSL interface ${networkInterface}.`);
+  }
+
+  const targetMtu = Math.min(originalMtu, requestedMtu);
+  if (targetMtu === originalMtu) {
+    console.log(`WSL upload MTU already ${originalMtu} on ${networkInterface}.`);
+    return;
+  }
+
+  step('Configure WSL upload MTU');
+  try {
+    mtuCommand(['link', 'set', 'dev', networkInterface, 'mtu', String(targetMtu)]);
+  } catch {
+    throw new Error(
+      `Could not set WSL interface ${networkInterface} MTU to ${targetMtu}. ` +
+      'Run the deploy from a root WSL shell or configure passwordless sudo for the ip command.'
+    );
+  }
+
+  mtuRestoreState = { networkInterface, originalMtu };
+  console.log(`WSL upload MTU: ${originalMtu} -> ${targetMtu} on ${networkInterface}.`);
+}
+
+function restoreDeploymentMtu() {
+  if (!mtuRestoreState) return;
+  const { networkInterface, originalMtu } = mtuRestoreState;
+  mtuRestoreState = null;
+  try {
+    mtuCommand(['link', 'set', 'dev', networkInterface, 'mtu', String(originalMtu)]);
+    console.log(`Restored WSL MTU to ${originalMtu} on ${networkInterface}.`);
+  } catch (error) {
+    console.warn(`Could not restore WSL MTU on ${networkInterface}: ${error instanceof Error ? error.message : error}`);
+  }
+}
+
+process.once('exit', restoreDeploymentMtu);
+process.once('SIGINT', () => {
+  restoreDeploymentMtu();
+  process.exit(130);
+});
+process.once('SIGTERM', () => {
+  restoreDeploymentMtu();
+  process.exit(143);
+});
+
 function rsyncUpload(local, remotePath) {
   run('rsync', [
     '-azP',
@@ -129,6 +226,87 @@ function rsyncUpload(local, remotePath) {
     local,
     `${remote}:${remotePath}`,
   ]);
+}
+
+function syncBuildDelta() {
+  if (!Number.isInteger(deployRsyncAttempts) || deployRsyncAttempts < 1) {
+    throw new Error(`Invalid DEPLOY_RSYNC_ATTEMPTS=${process.env.DEPLOY_RSYNC_ATTEMPTS || ''}. Use a positive integer.`);
+  }
+
+  const stageName = '.next.deploy-stage';
+  const previousName = '.next.deploy-previous';
+  const localNext = `${join(buildRoot, '.next')}/`;
+  const remoteStage = `${remote}:${deployPath}/${stageName}/`;
+  const localBuildId = readFileSync(join(buildRoot, '.next', 'BUILD_ID'), 'utf8').trim();
+
+  let stagedBuildId = '';
+  try {
+    stagedBuildId = ssh(
+      `cat ${shellQuote(`${deployPath}/${stageName}/BUILD_ID`)} 2>/dev/null || true`,
+      { capture: true }
+    );
+  } catch {
+    stagedBuildId = '';
+  }
+
+  if (stagedBuildId === localBuildId) {
+    step('Resume incremental build stage');
+    ssh(`rm -rf -- ${shellQuote(`${deployPath}/${stageName}/cache`)}`);
+  } else {
+    step('Prepare incremental build stage');
+    ssh(
+      `cd ${shellQuote(deployPath)} && test -d .next && ` +
+      `rm -rf -- ${shellQuote(stageName)} && cp -al .next ${shellQuote(stageName)} && ` +
+      `rm -rf -- ${shellQuote(`${stageName}/cache`)}`
+    );
+  }
+
+  step('Upload changed .next files');
+  let uploaded = false;
+  for (let attempt = 1; attempt <= deployRsyncAttempts; attempt += 1) {
+    try {
+      run('rsync', [
+        '-az',
+        '--checksum',
+        '--delete',
+        '--exclude=cache/',
+        '--partial',
+        '--partial-dir=.rsync-partial',
+        '--timeout=60',
+        '--info=progress2',
+        `--bwlimit=${deployRsyncBwlimit}`,
+        '-e',
+        rsyncRemoteShell(),
+        localNext,
+        remoteStage,
+      ]);
+      uploaded = true;
+      break;
+    } catch (error) {
+      if (attempt === deployRsyncAttempts) throw error;
+      console.warn(`Incremental upload interrupted; retrying (${attempt + 1}/${deployRsyncAttempts})...`);
+      run('sleep', ['2']);
+    }
+  }
+  if (!uploaded) throw new Error('Incremental build upload did not complete.');
+
+  const remoteBuildId = ssh(
+    `cat ${shellQuote(`${deployPath}/${stageName}/BUILD_ID`)}`,
+    { capture: true }
+  );
+  if (remoteBuildId !== localBuildId) {
+    throw new Error(`Staged BUILD_ID mismatch. local=${localBuildId} remote=${remoteBuildId}`);
+  }
+
+  step('Switch build and restart PM2');
+  ssh(
+    `${remoteSymlinkCommand()} && cd ${shellQuote(deployPath)} && ` +
+    `rm -rf -- ${shellQuote(previousName)} && mv .next ${shellQuote(previousName)} && ` +
+    `mv ${shellQuote(stageName)} .next && ` +
+    `(pm2 restart n-tet || (` +
+    `rm -rf -- .next && mv ${shellQuote(previousName)} .next && pm2 restart n-tet && exit 1))`
+  );
+  console.log(`Incremental build deployed with BUILD_ID: ${localBuildId}`);
 }
 
 function prepareBuildRoot() {
@@ -183,8 +361,8 @@ function remoteDeployTar(hash) {
 function mergeRemoteInquiriesIntoLocal(localDb, remoteDb) {
   if (!existsSync(remoteDb)) return { remoteCount: 0, localCountBefore: 0, inserted: 0, localCountAfter: 0 };
 
-  const local = new Database(localDb);
-  const remoteDatabase = new Database(remoteDb, { readonly: true });
+  const local = new DatabaseSync(localDb);
+  const remoteDatabase = new DatabaseSync(remoteDb, { readOnly: true });
   try {
     const tableExists = (database, name) => database
       .prepare("select name from sqlite_master where type='table' and name=?")
@@ -209,9 +387,18 @@ function mergeRemoteInquiriesIntoLocal(localDb, remoteDb) {
 
     if (missingRows.length) {
       const names = columns.map((name) => `"${name.replace(/"/g, '""')}"`).join(', ');
-      const params = columns.map((name) => `@${name}`).join(', ');
+      const params = columns.map(() => '?').join(', ');
       const insert = local.prepare(`insert into inquiries (${names}) values (${params})`);
-      local.transaction((rows) => rows.forEach((row) => insert.run(row)))(missingRows);
+      local.exec('begin immediate');
+      try {
+        for (const row of missingRows) {
+          insert.run(...columns.map((column) => row[column]));
+        }
+        local.exec('commit');
+      } catch (error) {
+        local.exec('rollback');
+        throw error;
+      }
     }
 
     const localCountAfter = local.prepare('select count(*) as c from inquiries').get().c;
@@ -224,6 +411,32 @@ function mergeRemoteInquiriesIntoLocal(localDb, remoteDb) {
 
 function shellQuote(value) {
   return `'${String(value).replace(/'/g, `'\\''`)}'`;
+}
+
+function localInquiryFingerprint(databasePath) {
+  const database = new DatabaseSync(databasePath, { readOnly: true });
+  try {
+    const table = database
+      .prepare("select name from sqlite_master where type='table' and name='inquiries'")
+      .get();
+    if (!table) return '';
+    const rows = database.prepare('select * from inquiries order by id').all();
+    return createHash('sha256').update(JSON.stringify(rows)).digest('hex');
+  } finally {
+    database.close();
+  }
+}
+
+function remoteInquiryFingerprint() {
+  const script = [
+    "const D=require('better-sqlite3')",
+    "const c=require('node:crypto')",
+    "const d=new D('data/ntet.db',{readonly:true})",
+    "const rows=d.prepare('select * from inquiries order by id').all()",
+    "process.stdout.write(c.createHash('sha256').update(JSON.stringify(rows)).digest('hex'))",
+    'd.close()',
+  ].join(';');
+  return ssh(`cd ${shellQuote(deployPath)} && node -e ${shellQuote(script)}`, { capture: true });
 }
 
 function remoteSymlinkCommand() {
@@ -241,20 +454,7 @@ function syncDatabaseIfChanged() {
     return;
   }
 
-  mkdirSync(join(sourceRoot, 'scratch'), { recursive: true });
-  const remoteDbSnapshot = join(sourceRoot, 'scratch', 'remote-ntet-before-deploy.db');
-  try {
-    scpFromRemote(`${deployPath}/data/ntet.db`, remoteDbSnapshot);
-    const mergeResult = mergeRemoteInquiriesIntoLocal(localDb, remoteDbSnapshot);
-    console.log(
-      `Inquiry DB guard: remote=${mergeResult.remoteCount} localBefore=${mergeResult.localCountBefore} ` +
-      `merged=${mergeResult.inserted} localAfter=${mergeResult.localCountAfter}`
-    );
-  } catch (error) {
-    throw new Error(`Could not merge remote inquiries before DB sync: ${error instanceof Error ? error.message : error}`);
-  }
-
-  const localHash = sha256(localDb);
+  let localHash = sha256(localDb);
   let remoteHash = '';
   try {
     remoteHash = remoteSha256(`${deployPath}/data/ntet.db`);
@@ -267,8 +467,39 @@ function syncDatabaseIfChanged() {
     return;
   }
 
+  mkdirSync(join(sourceRoot, 'scratch'), { recursive: true });
+  const remoteDbSnapshot = join(sourceRoot, 'scratch', 'remote-ntet-before-deploy.db');
+  let inquiriesMatch = false;
+  try {
+    inquiriesMatch = localInquiryFingerprint(localDb) === remoteInquiryFingerprint();
+  } catch {
+    inquiriesMatch = false;
+  }
+
+  if (inquiriesMatch) {
+    console.log('Inquiry DB guard: local and remote inquiry fingerprints match; skipped database download.');
+  } else {
+    try {
+      scpFromRemote(`${deployPath}/data/ntet.db`, remoteDbSnapshot);
+      const mergeResult = mergeRemoteInquiriesIntoLocal(localDb, remoteDbSnapshot);
+      console.log(
+        `Inquiry DB guard: remote=${mergeResult.remoteCount} localBefore=${mergeResult.localCountBefore} ` +
+        `merged=${mergeResult.inserted} localAfter=${mergeResult.localCountAfter}`
+      );
+    } catch (error) {
+      throw new Error(`Could not merge remote inquiries before DB sync: ${error instanceof Error ? error.message : error}`);
+    }
+  }
+
+  localHash = sha256(localDb);
+
+  if (localHash === remoteHash) {
+    console.log(`Database already in sync: ${localHash}`);
+    return;
+  }
+
   step('Sync database');
-  scp(localDb, '/tmp/ntet.db.deploy');
+  rsyncUpload(localDb, '/tmp/ntet.db.deploy');
   ssh(`cd ${deployPath} && mkdir -p data && if [ -f data/ntet.db ]; then cp data/ntet.db data/ntet.db.bak.deploy-$(date +%Y%m%d%H%M%S); fi && mv /tmp/ntet.db.deploy data/ntet.db`);
   const uploadedHash = remoteSha256(`${deployPath}/data/ntet.db`);
   if (uploadedHash !== localHash) {
@@ -303,8 +534,12 @@ async function verifyLiveUrls() {
   }
 }
 
+configureDeploymentMtu();
+
 step('Sync public assets');
 rsyncPublic();
+
+step('Sync gated product brochures');
 
 step('Check public assets');
 run('node', ['scripts/check-public-sync.mjs']);
@@ -313,28 +548,43 @@ step('Check and sync database');
 syncDatabaseIfChanged();
 
 step('Build locally');
-prepareBuildRoot();
-run('npm', ['run', 'build'], { cwd: buildRoot });
-
-step('Package .next');
-mkdirSync(dirname(localTar), { recursive: true });
-run('tar', ['-czf', localTar, '.next'], { cwd: buildRoot });
-const localTarHash = sha256(localTar);
-console.log(`Local tar sha256: ${localTarHash}`);
-const remoteTar = remoteDeployTar(localTarHash);
-
-step('Upload .next package');
-console.log(`Remote package path: ${remoteTar}`);
-console.log(`Using rsync bandwidth limit: ${deployRsyncBwlimit} KB/s. Set DEPLOY_RSYNC_BWLIMIT to override.`);
-rsyncUpload(localTar, remoteTar);
-const remoteTarHash = remoteSha256(remoteTar);
-if (remoteTarHash !== localTarHash) {
-  throw new Error(`Deploy tar hash mismatch. local=${localTarHash} remote=${remoteTarHash}`);
+if (skipBuild) {
+  if (!existsSync(join(buildRoot, '.next', 'BUILD_ID'))) {
+    throw new Error(`DEPLOY_SKIP_BUILD=1 but no completed build exists at ${join(buildRoot, '.next')}.`);
+  }
+  console.log(`Reusing completed build: ${readFileSync(join(buildRoot, '.next', 'BUILD_ID'), 'utf8').trim()}`);
+} else {
+  prepareBuildRoot();
+  run('npm', ['run', 'build'], { cwd: buildRoot });
 }
-console.log(`Remote tar sha256: ${remoteTarHash}`);
 
-step('Extract and restart PM2');
-ssh(`${remoteSymlinkCommand()} && cd ${shellQuote(deployPath)} && tar -xzf ${shellQuote(remoteTar)} && pm2 restart n-tet`);
+console.log(`Using deployment upload mode: ${deployUploadMode}`);
+console.log(`Using rsync bandwidth limit: ${deployRsyncBwlimit} KB/s. Set DEPLOY_RSYNC_BWLIMIT to override.`);
+
+if (deployUploadMode === 'delta') {
+  syncBuildDelta();
+} else if (deployUploadMode === 'archive') {
+  step('Package .next');
+  mkdirSync(dirname(localTar), { recursive: true });
+  run('tar', ['-czf', localTar, '.next'], { cwd: buildRoot });
+  const localTarHash = sha256(localTar);
+  console.log(`Local tar sha256: ${localTarHash}`);
+  const remoteTar = remoteDeployTar(localTarHash);
+
+  step('Upload .next package');
+  console.log(`Remote package path: ${remoteTar}`);
+  rsyncUpload(localTar, remoteTar);
+  const remoteTarHash = remoteSha256(remoteTar);
+  if (remoteTarHash !== localTarHash) {
+    throw new Error(`Deploy tar hash mismatch. local=${localTarHash} remote=${remoteTarHash}`);
+  }
+  console.log(`Remote tar sha256: ${remoteTarHash}`);
+
+  step('Extract and restart PM2');
+  ssh(`${remoteSymlinkCommand()} && cd ${shellQuote(deployPath)} && tar -xzf ${shellQuote(remoteTar)} && pm2 restart n-tet`);
+} else {
+  throw new Error(`Invalid DEPLOY_UPLOAD_MODE=${deployUploadMode}. Use delta or archive.`);
+}
 
 if (skipCloudflarePurge) {
   console.log('Skipped Cloudflare purge because SKIP_CF_PURGE=1.');
@@ -349,4 +599,5 @@ if (skipCloudflarePurge) {
 step('Verify live site');
 await verifyLiveUrls();
 
+restoreDeploymentMtu();
 console.log('\nProduction deploy completed.');

@@ -8,6 +8,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = ROOT / "data" / "ntet.db"
 EN_DICT = ROOT / "src" / "dictionaries" / "en.json"
 ES_DICT = ROOT / "src" / "dictionaries" / "es.json"
+CASE_CORRECTIONS_PATH = ROOT / "data" / "content" / "case-editorial-corrections.json"
+CASE_CORRECTIONS = (
+    json.loads(CASE_CORRECTIONS_PATH.read_text(encoding="utf-8"))
+    if CASE_CORRECTIONS_PATH.exists()
+    else {}
+)
 
 
 EXACT = {
@@ -503,8 +509,8 @@ def sync_db():
             "product_name_es": name,
             "summary_es": sentence_es(row["summary_en"], name),
             "key_application_es": key_application_es(row["key_application_en"]),
-            "key_parameter_1_es": key_parameter_es(row["key_parameter_1_ru"] or row["key_application_en"]),
-            "key_parameter_2_es": key_parameter_es(row["key_parameter_2_ru"] or row["summary_en"]),
+            "key_parameter_1_es": key_parameter_es(raw.get("key_parameter_1_en") or row["key_application_en"]),
+            "key_parameter_2_es": key_parameter_es(raw.get("key_parameter_2_en") or row["summary_en"]),
             "parameters_es": parameters_es(row["parameters_en"]),
             "detail_html_es": detail_html_es(name, row["summary_en"]),
         })
@@ -519,17 +525,19 @@ def sync_db():
         )
 
     for row in conn.execute("SELECT rowid AS _rowid, * FROM cases").fetchall():
-        title = title_es(row["title_en"])
+        override = CASE_CORRECTIONS.get(row["handle"], {})
+        title = override.get("title_es") or title_es(row["title_en"])
         raw = sync_raw(json.loads(row["raw_json"] or "{}"), "case")
-        devices = parameters_es(row["devices_en"])
+        devices = override.get("devices_es") or parameters_es(row["devices_en"])
         params = parameters_es(row["parameters_en"])
         raw.update({
             "title_es": title,
-            "description_es": sentence_es(row["description_en"], title),
+            "description_es": override.get("description_es") or sentence_es(row["description_en"], title),
             "devices_es": devices,
             "parameters_es": params,
             "region_es": title_es(row["region_en"]),
             "country_es": title_es(row["country_en"]),
+            "case_snapshot_es": override.get("case_snapshot_es") or raw.get("case_snapshot_es", []),
         })
         conn.execute(
             """UPDATE cases SET title_es=?, description_es=?, devices_es=?, parameters_es=?, region_es=?, country_es=?,

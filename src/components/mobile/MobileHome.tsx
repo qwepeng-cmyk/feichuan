@@ -255,7 +255,7 @@ export default function MobileHome({
 
             {/* 3. Product Center */}
             <section style={{ padding: '40px 15px', background: '#f2f6ff' }}>
-                <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.products}</h2>
+                <h2 style={{ fontSize: '24px', marginBottom: '25px', color: '#315ba4', fontWeight: 800 }}>{dict.home.sections.products}</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
                     {products.slice(0, 6).map((item, idx) => {
                         const productTitle = localizedField(item, 'main', locale);

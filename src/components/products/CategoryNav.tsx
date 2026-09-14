@@ -94,7 +94,8 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
         }}>
             <div className="container">
                 <ul style={{ 
-                    display: 'flex', 
+                    display: categories.length > 6 ? 'grid' : 'flex',
+                    gridTemplateColumns: categories.length > 6 ? 'repeat(5, minmax(0, 1fr))' : undefined,
                     justifyContent: 'space-between', 
                     listStyle: 'none', 
                     padding: 0,
@@ -126,16 +127,17 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
                                 alignItems: 'center', 
                                 gap: '8px', 
                                 cursor: 'pointer',
-                                padding: '20px 10px',
+                                padding: categories.length > 6 ? '12px 10px' : '20px 10px',
                                 color: activeTab === cat.id ? '#315ba4' : '#666',
                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                 flex: 1,
+                                minWidth: 0,
                                 textAlign: 'center',
                                 background: activeTab === cat.id ? '#fff' : 'transparent',
                                 borderBottom: activeTab === cat.id ? '3px solid #315ba4' : '3px solid transparent'
                             }}
                         >
-                            <div className="nav-icon-container" style={{ height: '54px', minWidth: '54px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 0.3s ease' }}>
+                            <div className="nav-icon-container" style={{ height: categories.length > 6 ? '44px' : '54px', minWidth: categories.length > 6 ? '44px' : '54px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'transform 0.3s ease' }}>
                                 {React.isValidElement(cat.icon) ? React.cloneElement(cat.icon as React.ReactElement, {
                                     style: { height: '100%', width: 'auto', display: 'block' }
                                 }) : cat.icon}
@@ -147,7 +149,8 @@ export default function CategoryNav({ categories }: { categories: Category[] }) 
                                 letterSpacing: '0.03em',
                                 lineHeight: 1.2,
                                 marginTop: '5px',
-                                transition: 'color 0.3s'
+                                transition: 'color 0.3s',
+                                overflowWrap: 'anywhere'
                             }}>{cat.name}</span>
                         </li>
                     ))}

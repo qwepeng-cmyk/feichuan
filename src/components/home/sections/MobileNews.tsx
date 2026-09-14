@@ -14,7 +14,7 @@ interface MobileNewsProps {
 export default function MobileNews({ locale, dict, latestNews }: MobileNewsProps) {
     return (
         <section style={{ padding: '40px 0', background: '#f8f9fa', minHeight: '350px' }}>
-            <h2 style={{ fontSize: '24px', padding: '0 20px', marginBottom: '20px', color: '#003f98', fontWeight: 800 }}>{dict.home.sections.news}</h2>
+            <h2 style={{ fontSize: '24px', padding: '0 20px', marginBottom: '20px', color: '#315ba4', fontWeight: 800 }}>{dict.home.sections.news}</h2>
             <div style={{ 
                 display: 'flex', 
                 overflowX: 'auto', 

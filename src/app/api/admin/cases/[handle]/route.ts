@@ -4,7 +4,7 @@ import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { handle: string } }) {
     try {
-        const row = db.prepare('SELECT * FROM cases WHERE handle = ?').get(params.handle) as any;
+        const row = await db.prepare('SELECT * FROM cases WHERE handle = ?').get(params.handle) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
         
         let caseImages: any = row.case_images;
@@ -50,7 +50,7 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
         const raw_json = JSON.stringify({ ...body, is_published: isPublished });
         
-        db.prepare(`
+        await db.prepare(`
             UPDATE cases 
             SET title_en = ?, title_ru = ?, region_en = ?, region_ru = ?, country_en = ?, country_ru = ?, 
                 solution_category_id = ?, main_image = ?, case_images = ?,
@@ -91,7 +91,7 @@ export async function PATCH(request: Request, { params }: { params: { handle: st
     try {
         const body = await request.json();
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
-        const row = db.prepare('SELECT raw_json FROM cases WHERE handle = ?').get(params.handle) as any;
+        const row = await db.prepare('SELECT raw_json FROM cases WHERE handle = ?').get(params.handle) as any;
 
         if (!row) {
             return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
@@ -105,7 +105,7 @@ export async function PATCH(request: Request, { params }: { params: { handle: st
         }
         rawData.is_published = isPublished;
 
-        db.prepare(`
+        await db.prepare(`
             UPDATE cases
             SET is_published = ?, raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE handle = ?
@@ -120,7 +120,7 @@ export async function PATCH(request: Request, { params }: { params: { handle: st
 
 export async function DELETE(request: Request, { params }: { params: { handle: string } }) {
     try {
-        db.prepare('DELETE FROM cases WHERE handle = ?').run(params.handle);
+        await db.prepare('DELETE FROM cases WHERE handle = ?').run(params.handle);
         revalidateTag('cases');
         return NextResponse.json({ success: true });
     } catch (e) {

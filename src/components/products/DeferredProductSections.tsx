@@ -6,9 +6,6 @@ import { useEffect, useState } from 'react';
 import { fetchProductsForClient } from '@/lib/clientProducts';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import AccessoryCategoryCards from '@/components/products/AccessoryCategoryCards';
-
-const ACCESSORIES_CATEGORY_ID = 'drone-accessories';
 
 interface CategoryMeta {
     id: string;
@@ -22,7 +19,7 @@ interface Product {
 }
 
 function shouldBlendImageBackground(image?: string) {
-    return Boolean(image?.includes('/products/uav-systems/'));
+    return Boolean(image?.includes('/products/aerial-systems/'));
 }
 
 function ProductCard({ product, locale }: { product: Product; locale: string }) {
@@ -142,21 +139,17 @@ export default function DeferredProductSections({
                             <div style={{ width: '60px', height: '4px', background: '#315ba4', margin: '20px auto' }}></div>
                         </div>
 
-                        {category.id === ACCESSORIES_CATEGORY_ID ? (
-                            <AccessoryCategoryCards locale={locale} dict={dict} showTitle={false} />
-                        ) : (
-                            <div className="product-grid" style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, 1fr)',
-                                gap: '30px'
-                            }}>
-                                {categoriesData
-                                    ? categoriesData[category.id]?.map((product) => (
-                                        <ProductCard key={product.handle} product={product} locale={locale} />
-                                    ))
-                                    : [1, 2, 3].map((item) => <ProductSkeleton key={item} />)}
-                            </div>
-                        )}
+                        <div className="product-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: '30px'
+                        }}>
+                            {categoriesData
+                                ? categoriesData[category.id]?.map((product) => (
+                                    <ProductCard key={product.handle} product={product} locale={locale} />
+                                ))
+                                : [1, 2, 3].map((item) => <ProductSkeleton key={item} />)}
+                        </div>
                     </div>
                 </section>
             ))}

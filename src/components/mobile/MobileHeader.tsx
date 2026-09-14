@@ -6,22 +6,12 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './MobileHeader.module.css';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
-import { languageLabels } from '@/lib/localization';
-import { i18n } from '@/i18n/config';
+import { defenseText } from '@/lib/localeCopy';
+import { localePath } from '@/lib/localePath';
 
 export default function MobileHeader({ locale, dict }: { locale: string; dict: any }) {
-    const l = (path: string) => locale === 'en' ? path : `/${locale}${path === '/' ? '' : path}`;
+    const l = (path: string) => localePath(locale, path);
     const pathname = usePathname();
-    const pathSegments = pathname.split('/').filter(Boolean);
-    const currentPathWithoutLocale = i18n.locales.includes(pathSegments[0] as any)
-        ? `/${pathSegments.slice(1).join('/')}`.replace(/\/$/, '') || '/'
-        : pathname || '/';
-    const languageLinks = i18n.locales.map((itemLocale) => ({
-        locale: itemLocale,
-        href: itemLocale === i18n.defaultLocale
-            ? (currentPathWithoutLocale === '/' ? '/' : currentPathWithoutLocale)
-            : (currentPathWithoutLocale === '/' ? `/${itemLocale}` : `/${itemLocale}${currentPathWithoutLocale}`),
-    }));
     const [menuOpen, setMenuOpen] = useState(false);
     const logoSrc = withStaticAssetVersion('/logo-header.webp');
 
@@ -45,12 +35,12 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 1: Top bar */}
             <div className={styles.topRow}>
                 <Link prefetch={false} href={l("/")} className={styles.logo}>
-                    <Image src={logoSrc} alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto' }} />
+                    <Image src={logoSrc} alt="N-TET" width={107} height={64} priority style={{ height: '42px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
                 </Link>
                 <button
                     className={styles.burger}
                     onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-label={defenseText(locale, menuOpen ? 'Close navigation menu' : 'Open navigation menu')}
                     aria-expanded={menuOpen}
                 >
                     <div className={`${styles.burgerBar} ${menuOpen ? styles.open : ''}`}></div>
@@ -62,7 +52,7 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
             {/* Row 2: Sub-navigation tabs */}
             <div className={styles.subNav}>
                 <Link prefetch={false} href={l("/")} className={`${styles.navLink} ${pathname === l("/") ? styles.active : ''}`}>{dict?.mobileNav?.home || 'HOME'}</Link>
-                <Link prefetch={false} href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) || pathname.startsWith(l('/accessories')) ? styles.active : ''}`}>{dict?.mobileNav?.product || 'PRODUCTS'}</Link>
+                <Link prefetch={false} href={l("/products")} className={`${styles.navLink} ${pathname.startsWith(l('/products')) ? styles.active : ''}`}>{dict?.mobileNav?.product || 'PRODUCTS'}</Link>
                 <Link prefetch={false} href={l("/solutions")} className={`${styles.navLink} ${pathname.startsWith(l('/solutions')) ? styles.active : ''}`}>{dict?.mobileNav?.solutions || 'SOLUTIONS'}</Link>
                 <Link prefetch={false} href={l("/cases")} className={`${styles.navLink} ${pathname.startsWith(l('/cases')) ? styles.active : ''}`}>{dict?.mobileNav?.cases || 'CASES'}</Link>
             </div>
@@ -87,18 +77,6 @@ export default function MobileHeader({ locale, dict }: { locale: string; dict: a
                                 </svg>
                             </Link>
                         ))}
-                        <div className={styles.drawerLanguageGroup}>
-                            {languageLinks.map((item) => (
-                                <Link
-                                    key={item.locale}
-                                    prefetch={false}
-                                    href={item.href}
-                                    className={`${styles.drawerLanguageLink} ${locale === item.locale ? styles.activeLanguage : ''}`}
-                                >
-                                    {languageLabels[item.locale]}
-                                </Link>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </div>

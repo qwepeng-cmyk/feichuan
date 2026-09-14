@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, ShieldCheck, Activity } from 'lucide-react';
+import { Package, LayoutGrid, FolderOpen, Newspaper, MessageSquare, Activity } from 'lucide-react';
 
 type AdminStats = {
     products: number;
@@ -44,7 +44,6 @@ export default function AdminDashboard() {
         { title: '解决方案', value: stats?.solutions || 0, icon: <LayoutGrid size={22} color="#ef4444" />, link: '/admin/solutions', bg: '#fef2f2' },
         { title: '全球案例', value: stats?.cases || 0, icon: <FolderOpen size={22} color="#10b981" />, link: '/admin/cases', bg: '#ecfdf5' },
         { title: '新闻资讯', value: stats?.media || 0, icon: <Newspaper size={22} color="#f59e0b" />, link: '/admin/media', bg: '#fffbeb' },
-        { title: '广告合规', value: 'Rules', icon: <ShieldCheck size={22} color="#0f766e" />, link: '/admin/compliance', bg: '#f0fdfa' },
         { title: 'SEO 监控', value: 'Audit', icon: <Activity size={22} color="#2563eb" />, link: '/admin/seo-monitoring', bg: '#eff6ff' },
         {
             title: '客户询价',
@@ -123,7 +122,7 @@ export default function AdminDashboard() {
                 <ul style={{ lineHeight: 2, color: '#5a6b7f', fontSize: '1.35rem', paddingLeft: '18px' }}>
                     <li><strong style={{ color: '#334155' }}>产品管理：</strong>管理全站产品，可修改中英文参数表、图片和所属分类。</li>
                     <li><strong style={{ color: '#334155' }}>客户询价：</strong>实时接收来自前台的询价表单，建议定期查看未读消息。</li>
-                    <li><strong style={{ color: '#334155' }}>SEO 监控：</strong>查看本地 SEO/GEO 快照、A/B/C 合规分层、llms.txt、Schema 和构建抽样。</li>
+                    <li><strong style={{ color: '#334155' }}>SEO 监控：</strong>查看本地 SEO/GEO 快照、llms.txt、Schema 和构建抽样。</li>
                     <li><strong style={{ color: '#334155' }}>新闻资讯：</strong>发布公司动态与行业资讯，保存后会同步到前台页面。</li>
                 </ul>
             </div>

@@ -1,11 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { CONTACT_WHATSAPP_MESSAGE, CONTACT_WHATSAPP_NUMBER, CONTACT_WHATSAPP_URL } from '@/lib/contactSettings';
-import { trackGoogleAdsFormConversion } from '@/components/tracking/googleAdsConversion';
+import {
+  CONTACT_CHANNELS,
+  CONTACT_WHATSAPP_MESSAGE,
+  CONTACT_WHATSAPP_NUMBER,
+  type ContactChannelId,
+} from '@/lib/contactSettings';
+import { getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
+import { getPhoneCountry } from '@/lib/phoneCountryCodes';
+import { localeFromPathname } from '@/lib/localization';
 import styles from './WhatsAppLeadButton.module.css';
 
 declare global {
@@ -14,82 +21,101 @@ declare global {
   }
 }
 
-interface WhatsAppLeadButtonProps {
+export interface WhatsAppLeadButtonProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   sourceLabel?: string;
   ariaLabel?: string;
+  productName?: string;
+  productHandle?: string;
+  ctaLocation?: string;
+  initiallyOpen?: boolean;
+  renderTrigger?: boolean;
+  channel?: ContactChannelId;
 }
+
+const vkModalCopy = {
+  eyebrow: 'Консультация во ВКонтакте',
+  title: 'Оставьте контактные данные',
+  helper: 'Оставьте номер телефона. Мы сохраним ваш запрос и откроем страницу менеджера N-TET во ВКонтакте.',
+  nameLabel: 'Имя *',
+  phoneLabel: 'Телефон *',
+  countryCodeAria: 'Код страны',
+  countryCodePlaceholder: 'например, +7',
+  phonePlaceholder: 'Номер телефона',
+  saving: 'Сохранение...',
+  submit: 'Открыть ВКонтакте',
+  note: 'После сохранения откроется страница менеджера N-TET во ВКонтакте.',
+  close: 'Закрыть форму связи',
+  nameError: 'Введите имя перед продолжением.',
+  phoneError: 'Введите номер телефона, чтобы продолжить.',
+};
 
 const modalCopy = {
   en: {
-    eyebrow: 'WhatsApp Consultation',
-    title: 'Confirm your contact details',
-    helper: "Enter your WhatsApp number first. We'll open WhatsApp with a ready-to-send message.",
+    eyebrow: 'Low-Altitude Defense Product Consultation',
+    title: 'Leave your WhatsApp number so our technical specialist can send you the product datasheet & pricing.',
+    helper: 'Enter the country code with or without +, then type your number in any familiar format. We will format it automatically.',
     nameLabel: 'Name *',
     phoneLabel: 'WhatsApp / Phone *',
     countryCodeAria: 'Country code',
-    countryCodePlaceholder: 'e.g. +1',
-    phonePlaceholder: 'WhatsApp number, or full number with +',
+    countryCodePlaceholder: 'Country code',
+    phonePlaceholder: 'e.g. 050 123 4567',
     saving: 'Saving...',
     submit: 'Open WhatsApp',
     note: 'The message is pre-filled; you still need to press Send in WhatsApp.',
     close: 'Close WhatsApp contact form',
     nameError: 'Please enter your name before opening WhatsApp.',
     phoneError: 'Please enter your WhatsApp number before continuing.',
-    countryCodeError: 'Please enter a country code, or enter the full number with +.',
   },
   ru: {
     eyebrow: 'Консультация в WhatsApp',
-    title: 'Подтвердите контактные данные',
-    helper: 'Оставьте номер WhatsApp. Затем мы откроем WhatsApp с готовым сообщением.',
+    title: 'Оставьте номер WhatsApp, чтобы наш технический специалист отправил спецификацию и цены.',
+    helper: 'Введите код страны с символом + или без него, затем номер в привычном формате. Мы отформатируем его автоматически.',
     nameLabel: 'Имя *',
     phoneLabel: 'WhatsApp / телефон *',
     countryCodeAria: 'Код страны',
-    countryCodePlaceholder: 'например +1',
-    phonePlaceholder: 'Номер WhatsApp или полный номер с +',
+    countryCodePlaceholder: 'Код страны',
+    phonePlaceholder: 'например, 050 123 4567',
     saving: 'Сохранение...',
     submit: 'Открыть WhatsApp',
-    note: 'Сообщение WhatsApp уже подготовлено, но посетителю все равно нужно нажать Send.',
+    note: 'Сообщение WhatsApp уже подготовлено, но посетителю всё равно нужно нажать «Отправить».',
     close: 'Закрыть форму WhatsApp',
     nameError: 'Введите имя перед открытием WhatsApp.',
     phoneError: 'Введите номер WhatsApp, чтобы продолжить.',
-    countryCodeError: 'Введите код страны или полный номер с +.',
   },
   es: {
     eyebrow: 'Consulta por WhatsApp',
-    title: 'Confirme sus datos de contacto',
-    helper: 'Deje primero su numero de WhatsApp. Luego abriremos WhatsApp con un mensaje listo para enviar.',
+    title: 'Deje su numero de WhatsApp para que nuestro especialista tecnico le envie la ficha del producto y los precios.',
+    helper: 'Introduzca el codigo de pais con o sin + y el numero en su formato habitual. Lo formatearemos automaticamente.',
     nameLabel: 'Nombre *',
     phoneLabel: 'WhatsApp / telefono *',
     countryCodeAria: 'Codigo de pais',
-    countryCodePlaceholder: 'ej. +1',
-    phonePlaceholder: 'Numero de WhatsApp o numero completo con +',
+    countryCodePlaceholder: 'Codigo de pais',
+    phonePlaceholder: 'p. ej. 050 123 4567',
     saving: 'Guardando...',
     submit: 'Abrir WhatsApp',
     note: 'El mensaje de WhatsApp ya esta preparado, pero el visitante aun debe pulsar Enviar.',
     close: 'Cerrar formulario de WhatsApp',
     nameError: 'Ingrese su nombre antes de abrir WhatsApp.',
     phoneError: 'Ingrese su numero de WhatsApp para continuar.',
-    countryCodeError: 'Ingrese un codigo de pais o el numero completo con +.',
   },
   ar: {
     eyebrow: 'استشارة عبر WhatsApp',
-    title: 'أكد بيانات التواصل',
-    helper: 'اترك رقم WhatsApp اولا. بعد ذلك سنفتح WhatsApp برسالة جاهزة للارسال.',
+    title: 'اترك رقم WhatsApp ليرسل لك متخصصنا الفني مواصفات المنتج والأسعار.',
+    helper: 'أدخل رمز الدولة مع علامة + أو بدونها، ثم الرقم بالتنسيق المعتاد. سننسقه تلقائيا.',
     nameLabel: 'الاسم *',
     phoneLabel: 'WhatsApp / الهاتف *',
     countryCodeAria: 'رمز الدولة',
-    countryCodePlaceholder: 'مثال +1',
-    phonePlaceholder: 'رقم WhatsApp او الرقم الكامل مع +',
+    countryCodePlaceholder: 'رمز الدولة',
+    phonePlaceholder: 'مثال 050 123 4567',
     saving: 'جار الحفظ...',
     submit: 'فتح WhatsApp',
     note: 'رسالة WhatsApp جاهزة مسبقا، لكن على الزائر الضغط على Send.',
     close: 'اغلاق نموذج WhatsApp',
     nameError: 'يرجى ادخال الاسم قبل فتح WhatsApp.',
     phoneError: 'يرجى ادخال رقم WhatsApp للمتابعة.',
-    countryCodeError: 'يرجى ادخال رمز الدولة او الرقم الكامل مع +.',
   },
 };
 
@@ -102,7 +128,7 @@ const optionalMessageCopy = {
   ru: {
     label: 'Сообщение (необязательно)',
     placeholder: 'Кратко опишите ваш запрос',
-    whatsappPrefix: 'Message',
+    whatsappPrefix: 'Сообщение',
   },
   es: {
     label: 'Mensaje (opcional)',
@@ -116,20 +142,24 @@ const optionalMessageCopy = {
   },
 };
 
-function getCopy(pathname: string) {
-  const segment = pathname.split('/').filter(Boolean)[0];
-  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
-    return modalCopy[segment];
-  }
-  return modalCopy.en;
+const saveErrorCopy = {
+  en: 'We could not save your contact details. Please check your connection and try again.',
+  ru: 'Не удалось сохранить контактные данные. Проверьте соединение и повторите попытку.',
+  es: 'No pudimos guardar sus datos. Revise la conexion e intentelo de nuevo.',
+  ar: 'تعذر حفظ بيانات الاتصال. تحقق من الاتصال وحاول مرة أخرى.',
+};
+
+function getCopy(pathname: string, channel: ContactChannelId) {
+  if (channel === 'vk') return vkModalCopy;
+  return modalCopy[localeFromPathname(pathname)];
 }
 
 function getOptionalMessageCopy(pathname: string) {
-  const segment = pathname.split('/').filter(Boolean)[0];
-  if (segment === 'ru' || segment === 'es' || segment === 'ar') {
-    return optionalMessageCopy[segment];
-  }
-  return optionalMessageCopy.en;
+  return optionalMessageCopy[localeFromPathname(pathname)];
+}
+
+function getSaveErrorCopy(pathname: string) {
+  return saveErrorCopy[localeFromPathname(pathname)];
 }
 
 export default function WhatsAppLeadButton({
@@ -138,19 +168,64 @@ export default function WhatsAppLeadButton({
   style,
   sourceLabel = 'whatsapp_cta',
   ariaLabel,
+  productName,
+  productHandle,
+  ctaLocation,
+  initiallyOpen = false,
+  renderTrigger = true,
+  channel = 'whatsapp',
 }: WhatsAppLeadButtonProps) {
   const pathname = usePathname();
-  const copy = getCopy(pathname);
+  const submissionInFlightRef = useRef(false);
+  const channelConfig = CONTACT_CHANNELS[channel];
+  const copy = getCopy(pathname, channel);
+  const ux = getInquiryFormUxCopy(pathname);
   const messageCopy = getOptionalMessageCopy(pathname);
-  const [isOpen, setIsOpen] = useState(false);
+  const saveError = getSaveErrorCopy(pathname);
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
+    countryIso: '',
     countryCode: '',
     phone: '',
     message: '',
   });
+  const countryManuallySelectedRef = useRef(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const controller = new AbortController();
+    fetch('/api/contact-country', {
+      cache: 'no-store',
+      signal: controller.signal,
+    })
+      .then((response) => response.ok ? response.json() : null)
+      .then((result) => {
+        if (
+          !countryManuallySelectedRef.current
+          && typeof result?.countryIso === 'string'
+          && getPhoneCountry(result.countryIso)
+        ) {
+          setFormData((previous) => ({
+            ...previous,
+            countryIso: result.countryIso,
+            countryCode: result.dialCode || previous.countryCode,
+          }));
+        }
+      })
+      .catch((lookupError) => {
+        if ((lookupError as Error)?.name !== 'AbortError') {
+          console.debug('Country-code lookup unavailable; using locale default.');
+        }
+      });
+
+    return () => controller.abort();
+  }, [isOpen]);
+
+  const eventPrefix = channel === 'whatsapp' ? 'ntet_whatsapp_lead' : 'ntet_vk_lead';
 
   const track = (event: string, payload: Record<string, unknown> = {}) => {
     if (typeof window === 'undefined') return;
@@ -159,6 +234,7 @@ export default function WhatsAppLeadButton({
       event,
       event_category: 'lead',
       event_label: sourceLabel,
+      contact_channel: channel,
       page_path: pathname,
       ...payload,
     });
@@ -168,7 +244,10 @@ export default function WhatsAppLeadButton({
     event.preventDefault();
     setError('');
     setIsOpen(true);
-    track('ntet_whatsapp_lead_open');
+    track(`${eventPrefix}_open`, {
+      product_handle: productHandle,
+      cta_location: ctaLocation,
+    });
   };
 
   const closeModal = () => {
@@ -176,12 +255,23 @@ export default function WhatsAppLeadButton({
     setIsOpen(false);
   };
 
-  const openWhatsApp = (leadMessage = '') => {
+  const openContactChannel = (leadMessage = '', reservedWindow?: Window | null) => {
     const cleanMessage = leadMessage.trim();
-    const message = cleanMessage
-      ? `${CONTACT_WHATSAPP_MESSAGE}\n\n${messageCopy.whatsappPrefix}: ${cleanMessage}`
-      : CONTACT_WHATSAPP_MESSAGE;
-    const url = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const contextLines = [
+      productName ? `Оборудование: ${productName}` : '',
+      productHandle ? `Артикул: ${productHandle}` : '',
+      `Страница: ${pathname}`,
+      cleanMessage ? `${messageCopy.whatsappPrefix}: ${cleanMessage}` : '',
+    ].filter(Boolean);
+    const message = `${CONTACT_WHATSAPP_MESSAGE}\n\n${contextLines.join('\n')}`;
+    const url = channel === 'whatsapp'
+      ? `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+      : channelConfig.url;
+    if (reservedWindow && !reservedWindow.closed) {
+      reservedWindow.location.href = url;
+      return;
+    }
+
     const opened = window.open(url, '_blank');
     if (opened) {
       opened.opener = null;
@@ -196,83 +286,94 @@ export default function WhatsAppLeadButton({
 
     const name = formData.name.trim();
     const phone = formData.phone.trim();
-    const countryCode = formData.countryCode.trim();
     const leadMessage = formData.message.trim();
-    const hasInternationalPrefix = /^\+/.test(phone);
-    const hasUsableCountryCode = /^\+\d{1,4}$/.test(countryCode);
 
-    if (!name) {
-      setError(copy.nameError);
-      return;
-    }
-
-    if (!phone) {
+    if (!phone || !/\d/.test(phone)) {
       setError(copy.phoneError);
       return;
     }
+    if (submissionInFlightRef.current) return;
 
-    if (!hasInternationalPrefix && !hasUsableCountryCode) {
-      setError(copy.countryCodeError);
-      return;
+    submissionInFlightRef.current = true;
+    setIsSending(true);
+    const reservedWindow = window.open('', '_blank');
+    if (reservedWindow) {
+      reservedWindow.opener = null;
     }
 
-    setIsSending(true);
-    setIsOpen(false);
-    openWhatsApp(leadMessage);
-
-    fetch('/api/whatsapp-leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      keepalive: true,
-      body: JSON.stringify({
-        ...formData,
-        sourceLabel,
-        pagePath: pathname,
-      }),
-    })
-      .then(async (response) => {
-        const result = await response.json().catch(() => null);
-        if (!response.ok || result?.success !== true) {
-          throw new Error(result?.error || 'Failed to save WhatsApp lead');
-        }
-        track('ntet_whatsapp_lead_submit', { inquiry_id: result.inquiryId });
-        trackGoogleAdsFormConversion({
-          conversion_source: sourceLabel,
-          form_name: 'whatsapp_pre_chat',
-          inquiry_id: result.inquiryId,
-          page_path: pathname,
-        });
-      })
-      .catch((err) => {
-        console.error('WhatsApp lead capture failed:', err);
-        track('ntet_whatsapp_lead_error');
-      })
-      .finally(() => {
-        setIsSending(false);
+    try {
+      const response = await fetch('/api/contact-leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          ...formData,
+          phone,
+          countryCode: formData.countryCode,
+          channel,
+          sourceLabel,
+          pagePath: pathname,
+          productName,
+          productHandle,
+          ctaLocation,
+        }),
       });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || result?.success !== true || !result?.inquiryId) {
+        throw new Error(result?.error || `Failed to save ${channel} lead`);
+      }
+
+      track(`${eventPrefix}_submit`, {
+        inquiry_id: result.inquiryId,
+        product_handle: productHandle,
+        cta_location: ctaLocation,
+      });
+      setIsOpen(false);
+      openContactChannel(leadMessage, reservedWindow);
+    } catch (err) {
+      if (reservedWindow && !reservedWindow.closed) {
+        reservedWindow.close();
+      }
+      console.error(`${channelConfig.label} lead capture failed:`, err);
+      setError(saveError);
+      track(`${eventPrefix}_error`);
+    } finally {
+      submissionInFlightRef.current = false;
+      setIsSending(false);
+    }
   };
 
   return (
     <>
-      <a
-        href={CONTACT_WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-        style={style}
-        aria-label={ariaLabel}
-        onClick={openModal}
-      >
-        {children}
-      </a>
+      {renderTrigger && (
+        <a
+          href={channelConfig.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={className}
+          style={style}
+          aria-label={ariaLabel}
+          onClick={openModal}
+        >
+          {children}
+        </a>
+      )}
 
       {isOpen && createPortal(
-        <div className={styles.modalBackdrop} role="presentation">
-          <div className={styles.modalPanel} role="dialog" aria-modal="true" aria-labelledby="whatsapp-lead-title">
+        <div
+          className={styles.modalBackdrop}
+          role="presentation"
+          style={{
+            '--contact-channel-accent': channelConfig.accent,
+            '--contact-channel-accent-hover': channelConfig.accentHover,
+          } as React.CSSProperties}
+        >
+          <div className={styles.modalPanel} role="dialog" aria-modal="true" aria-labelledby="contact-lead-title">
             <div className={styles.modalHeader}>
               <div>
                 <p className={styles.eyebrow}>{copy.eyebrow}</p>
-                <h2 id="whatsapp-lead-title" className={styles.title}>{copy.title}</h2>
+                <h2 id="contact-lead-title" className={styles.title}>{copy.title}</h2>
               </div>
               <button type="button" className={styles.closeButton} onClick={closeModal} aria-label={copy.close}>
                 <X size={18} />
@@ -283,13 +384,12 @@ export default function WhatsAppLeadButton({
               <p className={styles.helper}>{copy.helper}</p>
 
               <label className={styles.field}>
-                <span className={styles.label}>{copy.nameLabel}</span>
+                <span className={styles.label}>{copy.nameLabel.replace(/\s*\*$/, '')} <small>({ux.optional})</small></span>
                 <input
                   className={styles.input}
                   value={formData.name}
                   onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))}
                   autoComplete="name"
-                  required
                 />
               </label>
 
@@ -301,9 +401,11 @@ export default function WhatsAppLeadButton({
                       className={`${styles.input} ${styles.countryCodeInput}`}
                       value={formData.countryCode}
                       onChange={(event) => {
-                        const rawValue = event.target.value.replace(/[^\d+]/g, '');
-                        const normalizedValue = rawValue.startsWith('+') ? rawValue : `+${rawValue.replace(/\+/g, '')}`;
-                        setFormData((prev) => ({ ...prev, countryCode: normalizedValue.slice(0, 5) }));
+                        countryManuallySelectedRef.current = true;
+                        const input = event.target.value;
+                        const digits = input.replace(/\D/g, '').replace(/^00/, '').slice(0, 4);
+                        const value = input.trimStart().startsWith('+') && digits ? `+${digits}` : digits;
+                        setFormData((prev) => ({ ...prev, countryCode: value }));
                       }}
                       inputMode="tel"
                       autoComplete="tel-country-code"
@@ -333,7 +435,7 @@ export default function WhatsAppLeadButton({
                 />
               </label>
 
-              {error && <p className={styles.error}>{error}</p>}
+              {error && <p className={styles.error} role="alert">{error}</p>}
 
               <div className={styles.actions}>
                 <button type="submit" className={styles.submitButton} disabled={isSending}>
@@ -342,6 +444,7 @@ export default function WhatsAppLeadButton({
                 </button>
                 <span className={styles.note}>{copy.note}</span>
               </div>
+              <p className={styles.privacyNote}>{ux.privacyNote}</p>
             </form>
           </div>
         </div>,

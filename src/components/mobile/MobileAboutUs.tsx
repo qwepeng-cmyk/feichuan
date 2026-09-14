@@ -13,19 +13,19 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
         pageTitle: "Company Profile",
         bannerTitle: "ABOUT US",
         companyProfile: "Company Profile",
-        companyDesc1: "N-TET focuses on UAV applications and low-altitude security. As a professional low-altitude security and UAV systems integrator, we provide comprehensive, intelligent industry solutions for customers worldwide. We combine RF sensing, visual multi-source perception, and AI intelligent algorithms across two core tracks: UAV industry operations and the prevention and management of unauthorized low-altitude targets. Backed by mature deployment experience across our full product portfolio, we support urban security, infrastructure protection, energy mapping, emergency rescue, and other scenarios with one-stop service from solution design and equipment delivery to onsite deployment, long-term operation and maintenance, and training.",
+        companyDesc1: "N-TET focuses on Aerial Platform applications and low-altitude security. As a professional low-altitude security and Aerial Platform systems integrator, we provide comprehensive, intelligent industry solutions for customers worldwide. We combine RF sensing, visual multi-source perception, and AI intelligent algorithms across two core tracks: Aerial Platform industry operations and the prevention and management of unauthorized low-altitude targets. Backed by mature deployment experience across our full product portfolio, we support urban security, infrastructure protection, energy mapping, emergency rescue, and other scenarios with one-stop service from solution design and equipment delivery to onsite deployment, long-term operation and maintenance, and training.",
         rdTeam: "R&D Team",
         rdRatio: "R&D Team Ratio",
         rdExperience: "The core R&D team is led by 10+ senior industry experts, with an average of over 15 years of experience.",
         rdSystem: "R&D System",
         rdSystemDesc: "A reliability design system built based on intelligent industrial standards.",
         coreCapabilities: "Core Capabilities",
-        uavReliability: "Full-Scenario Coverage",
-        uavReliabilityDesc: "Defining a new level for industry applications. We work to make UAVs a core productivity tool across energy inspection, emergency rescue, smart city governance, and customized all-weather low-altitude operations.",
+        aerialReliability: "Full-Scenario Coverage",
+        aerialReliabilityDesc: "Defining a new level for industry applications. We work to make Aerial Platforms a core productivity tool across energy inspection, emergency rescue, smart city governance, and customized all-weather low-altitude operations.",
         intelligentAlgo: "Full-Dimensional Airspace Protection",
-        intelligentAlgoDesc: "Reshaping low-altitude airspace management standards. For different site-security needs, we address unauthorized UAV activity, disorderly low-altitude flights, privacy exposure, and safety risks through integrated R&D, solution customization, deployment, and operation support.",
-        aiRecognition: "Dual UAV & C-UAS R&D Insight",
-        aiRecognitionDesc: "Because we understand UAV development, we understand protection better. With both UAV engineering and C-UAS capabilities, we use aircraft-design insight to strengthen low-altitude defense thinking and stay one step ahead of emerging site-security risks."
+        intelligentAlgoDesc: "Reshaping low-altitude airspace management standards. For different site-security needs, we address unauthorized Aerial Platform activity, disorderly low-altitude flights, privacy exposure, and safety risks through integrated R&D, solution customization, deployment, and operation support.",
+        aiRecognition: "Dual Aerial Platform & Low-Altitude Defense R&D Insight",
+        aiRecognitionDesc: "Because we understand Aerial Platform development, we understand protection better. With both Aerial Platform engineering and Low-Altitude Defense capabilities, we use aircraft-design insight to strengthen low-altitude defense thinking and stay one step ahead of emerging site-security risks."
     };
 
     return (
@@ -86,9 +86,9 @@ export default function MobileAboutUs({ dict }: { dict?: any }) {
                             <Shield size={28} />
                         </div>
                         <div className={styles.capText}>
-                            <h4>{d.uavReliability}</h4>
+                            <h4>{d.aerialReliability}</h4>
                             <p>
-                                {d.uavReliabilityDesc}
+                                {d.aerialReliabilityDesc}
                             </p>
                         </div>
                     </div>

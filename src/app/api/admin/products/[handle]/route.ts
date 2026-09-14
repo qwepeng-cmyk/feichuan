@@ -4,7 +4,7 @@ import db from '@/lib/db';
 
 export async function GET(request: Request, { params }: { params: { handle: string } }) {
     try {
-        const row = db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
+        const row = await db.prepare('SELECT * FROM products WHERE handle = ?').get(params.handle) as any;
         if (!row) return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
 
         return NextResponse.json({
@@ -41,7 +41,7 @@ export async function PUT(request: Request, { params }: { params: { handle: stri
         const raw_json = JSON.stringify({ ...body, is_published: isPublished });
         
         // Update both the specific columns and the raw JSON
-        db.prepare(`
+        await db.prepare(`
             UPDATE products 
             SET product_name_en = ?, product_name_ru = ?, category_primary = ?, main_image = ?, 
                 summary_en = ?, summary_ru = ?, key_application_en = ?, key_application_ru = ?,
@@ -82,7 +82,7 @@ export async function PATCH(request: Request, { params }: { params: { handle: st
     try {
         const body = await request.json();
         const isPublished = body.is_published === false || body.is_published === 0 ? 0 : 1;
-        const row = db.prepare('SELECT raw_json FROM products WHERE handle = ?').get(params.handle) as any;
+        const row = await db.prepare('SELECT raw_json FROM products WHERE handle = ?').get(params.handle) as any;
 
         if (!row) {
             return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
@@ -96,7 +96,7 @@ export async function PATCH(request: Request, { params }: { params: { handle: st
         }
         rawData.is_published = isPublished;
 
-        db.prepare(`
+        await db.prepare(`
             UPDATE products
             SET is_published = ?, raw_json = ?, updated_at = CURRENT_TIMESTAMP
             WHERE handle = ?
@@ -111,7 +111,7 @@ export async function PATCH(request: Request, { params }: { params: { handle: st
 
 export async function DELETE(request: Request, { params }: { params: { handle: string } }) {
     try {
-        db.prepare('DELETE FROM products WHERE handle = ?').run(params.handle);
+        await db.prepare('DELETE FROM products WHERE handle = ?').run(params.handle);
         revalidateTag('products');
         return NextResponse.json({ success: true });
     } catch (e) {

@@ -79,13 +79,12 @@ function parseRobots(text) {
 function countByTypeAndTier(rows) {
   const counts = {};
   for (const type of Object.keys(CONTENT_TYPES)) {
-    counts[type] = { normal: 0, neutral_seo: 0, restricted: 0, public: 0, total: 0 };
+    counts[type] = { public: 0, total: 0 };
   }
 
   for (const row of rows) {
     counts[row.type].total += 1;
-    counts[row.type][row.tier] += 1;
-    if (row.tier !== 'restricted') counts[row.type].public += 1;
+    counts[row.type].public += 1;
   }
 
   return counts;
@@ -144,9 +143,7 @@ function diffCounts(current, previous) {
 
   return {
     publicRecords: current.content.publicRecords - previous.content.publicRecords,
-    restrictedRecords: current.content.restrictedRecords - previous.content.restrictedRecords,
     llmsUrls: current.llms.urlCount - previous.llms.urlCount,
-    llmsRestrictedLeaks: current.llms.restrictedLeaks.length - previous.llms.restrictedLeaks.length,
     schemaCoveredRecords: current.schema.coveredPublicRecords - previous.schema.coveredPublicRecords,
     schemaMissingRecords: current.schema.missingPublicRecords - previous.schema.missingPublicRecords,
   };
@@ -170,21 +167,19 @@ function makeReport(snapshot, previous, diff) {
     '| 指标 | 当前 | 较上次 |',
     '|---|---:|---:|',
     `| 公开内容记录 | ${snapshot.content.publicRecords} | ${formatDelta(diff?.publicRecords)} |`,
-    `| C 层 restricted 记录 | ${snapshot.content.restrictedRecords} | ${formatDelta(diff?.restrictedRecords)} |`,
     `| llms.txt URL 数 | ${snapshot.llms.urlCount} | ${formatDelta(diff?.llmsUrls)} |`,
-    `| llms.txt C 层泄漏 | ${snapshot.llms.restrictedLeaks.length} | ${formatDelta(diff?.llmsRestrictedLeaks)} |`,
     `| Schema 覆盖公开记录 | ${snapshot.schema.coveredPublicRecords} | ${formatDelta(diff?.schemaCoveredRecords)} |`,
     `| Schema 缺失公开记录 | ${snapshot.schema.missingPublicRecords} | ${formatDelta(diff?.schemaMissingRecords)} |`,
     '',
     previous ? `上次快照：${previous.date}` : '上次快照：无，这是第一次生成。',
     '',
-    '## A/B/C 内容分布',
+    '## 已发布内容分布',
     '',
-    '| Type | A normal | B neutral SEO | C restricted | Public A/B | Total |',
-    '|---|---:|---:|---:|---:|---:|',
+    '| Type | Published |',
+    '|---|---:|',
     ...Object.entries(snapshot.content.byTypeAndTier).map(
       ([type, counts]) =>
-        `| ${type} | ${counts.normal} | ${counts.neutral_seo} | ${counts.restricted} | ${counts.public} | ${counts.total} |`
+        `| ${type} | ${counts.total} |`
     ),
     '',
     '## llms.txt',
@@ -192,11 +187,7 @@ function makeReport(snapshot, previous, diff) {
     `- 文件存在：${snapshot.llms.exists ? 'yes' : 'no'}`,
     `- URL 数：${snapshot.llms.urlCount}`,
     `- admin/preview/API URL：${snapshot.llms.privatePathLeaks.length ? 'found' : 'none'}`,
-    `- C 层 restricted URL：${snapshot.llms.restrictedLeaks.length ? 'found' : 'none'}`,
     '',
-    ...(snapshot.llms.restrictedLeaks.length
-      ? ['### C 层泄漏 URL', '', ...snapshot.llms.restrictedLeaks.map((url) => `- ${url}`), '']
-      : []),
     '## robots.txt',
     '',
     `- 文件存在：${snapshot.robots.exists ? 'yes' : 'no'}`,
@@ -246,8 +237,7 @@ function makeReport(snapshot, previous, diff) {
 
 const db = openDb();
 const rows = getAllPublishedContent(db);
-const publicRows = rows.filter((row) => row.tier !== 'restricted');
-const restrictedRows = rows.filter((row) => row.tier === 'restricted');
+const publicRows = rows;
 
 const llmsPath = join(process.cwd(), 'public', 'llms.txt');
 const robotsPath = join(process.cwd(), 'public', 'robots.txt');
@@ -258,9 +248,7 @@ const robots = readTextFileIfExists(robotsPath);
 const llmsUrls = extractUrls(llms);
 const robotsInfo = parseRobots(robots);
 
-const restrictedUrls = restrictedRows.flatMap((row) => [publicUrl('en', row.route, row.handle), publicUrl('ru', row.route, row.handle)]);
 const publicUrlSet = new Set(publicRows.map((row) => publicUrl('en', row.route, row.handle)));
-const restrictedLeaks = llmsUrls.filter((url) => restrictedUrls.includes(url));
 const privatePathLeaks = llmsUrls.filter((url) => /\/admin\b|\/api\b|preview\b/i.test(url));
 
 const sourceChecks = Object.fromEntries(
@@ -284,7 +272,6 @@ if (!robotsInfo.hasSitemap) risks.push('robots.txt 没有 Sitemap 声明。');
 if (!robotsInfo.disallowsAdmin) risks.push('robots.txt 没有禁止 /admin。');
 if (!robotsInfo.disallowsApi) risks.push('robots.txt 没有禁止 /api。');
 if (!robotsInfo.disallowsPreview) risks.push('robots.txt 没有禁止 /*/preview。');
-if (restrictedLeaks.length) risks.push(`llms.txt 包含 ${restrictedLeaks.length} 个 C 层 restricted URL。`);
 if (privatePathLeaks.length) risks.push(`llms.txt 包含 ${privatePathLeaks.length} 个 admin/API/preview URL。`);
 if (schemaMissingPublicRecords) risks.push(`${schemaMissingPublicRecords} 条公开记录没有源码级 Schema 覆盖。`);
 const hasLocalSitemap = existsSync(sitemapPath) || existsSync(nextSitemapPath);
@@ -300,7 +287,6 @@ const snapshot = {
   content: {
     totalPublishedRecords: rows.length,
     publicRecords: publicRows.length,
-    restrictedRecords: restrictedRows.length,
     byTypeAndTier: countByTypeAndTier(rows),
   },
   llms: {
@@ -308,7 +294,6 @@ const snapshot = {
     path: relative(process.cwd(), llmsPath),
     urlCount: llmsUrls.length,
     privatePathLeaks,
-    restrictedLeaks,
   },
   robots: {
     exists: existsSync(robotsPath),
@@ -345,7 +330,7 @@ writeTextFile(reportPath, makeReport(snapshot, previous, diff));
 console.log(`Wrote ${relative(process.cwd(), jsonPath)}`);
 console.log(`Wrote ${relative(process.cwd(), reportPath)}`);
 
-if (risks.some((risk) => /restricted URL|admin\/API\/preview/.test(risk))) {
+if (risks.some((risk) => /admin\/API\/preview/.test(risk))) {
   console.error('SEO monitoring found public visibility leakage.');
   process.exit(1);
 }

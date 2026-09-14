@@ -15,4 +15,4 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /*/preview
 
-Sitemap: https://n-tet.com/sitemap.xml
+Sitemap: https://www.skysafetech.ru/sitemap.xml

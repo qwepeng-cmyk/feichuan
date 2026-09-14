@@ -1,6 +1,9 @@
 import nodemailer from 'nodemailer';
 import { getEmailSettings } from './emailSettings';
 
+// Identify this deployment independently of visitor-supplied page/referrer data.
+const INQUIRY_SOURCE_SITE = 'skysafetech.ru';
+
 export interface InquiryPayload {
   name: string;
   company?: string;
@@ -22,7 +25,7 @@ function escapeHtml(value: unknown) {
     .replace(/'/g, '&#39;');
 }
 
-function isEmailReady(settings = getEmailSettings()) {
+function isEmailReady(settings: Awaited<ReturnType<typeof getEmailSettings>>) {
   return Boolean(
     settings.enabled &&
     settings.smtpHost &&
@@ -34,7 +37,11 @@ function isEmailReady(settings = getEmailSettings()) {
 }
 
 export async function sendInquiryNotification(inquiry: InquiryPayload) {
-  const settings = getEmailSettings();
+  if (process.env.DISABLE_INQUIRY_EMAIL === '1') {
+    return { skipped: true, disabled: true };
+  }
+
+  const settings = await getEmailSettings();
 
   if (!isEmailReady(settings)) {
     return { skipped: true };
@@ -58,11 +65,13 @@ export async function sendInquiryNotification(inquiry: InquiryPayload) {
   await transporter.sendMail({
     from,
     to: settings.receiverEmail,
-    replyTo: inquiry.email,
-    subject: `New N-TET inquiry from ${subjectName}${subjectCompany}`,
+    ...(inquiry.email ? { replyTo: inquiry.email } : {}),
+    headers: { 'X-Inquiry-Source-Site': INQUIRY_SOURCE_SITE },
+    subject: `[${INQUIRY_SOURCE_SITE}] New N-TET inquiry from ${subjectName}${subjectCompany}`,
     text: [
       'New website inquiry',
       '',
+      `Source Website (source_site): ${INQUIRY_SOURCE_SITE}`,
       `Name: ${inquiry.name || ''}`,
       `Company: ${inquiry.company || ''}`,
       `Email: ${inquiry.email || ''}`,
@@ -78,6 +87,7 @@ export async function sendInquiryNotification(inquiry: InquiryPayload) {
       <div style="font-family:Arial,sans-serif;color:#1f2937;line-height:1.6">
         <h2 style="margin:0 0 16px;color:#315ba4">New N-TET Website Inquiry</h2>
         <table cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:720px">
+          <tr><td style="font-weight:700;background:#f3f6fb">Source Website (source_site)</td><td>${escapeHtml(INQUIRY_SOURCE_SITE)}</td></tr>
           <tr><td style="font-weight:700;background:#f3f6fb;width:160px">Name</td><td>${escapeHtml(inquiry.name)}</td></tr>
           <tr><td style="font-weight:700;background:#f3f6fb">Company</td><td>${escapeHtml(inquiry.company)}</td></tr>
           <tr><td style="font-weight:700;background:#f3f6fb">Email</td><td>${escapeHtml(inquiry.email)}</td></tr>

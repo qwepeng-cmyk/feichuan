@@ -7,25 +7,25 @@ import { getDictionary } from '@/i18n/getDictionary';
 import { Locale } from '@/i18n/config';
 import CatalogDetailContent from '@/components/products/CatalogDetailContent';
 import { buildSeoMetadata, getProductSeo } from '@/lib/seoMetadata';
-import { isPublicComplianceContent } from '@/lib/complianceTaxonomy';
+import { isdefenseProductCategory } from '@/lib/indexability';
+import PerformanceConditionsNote from '@/components/common/PerformanceConditionsNote';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const handles = await getAllProductHandles();
   return handles
-    .filter((handle) => isPublicComplianceContent('product', handle))
     .map((handle) => ({ handle }));
 }
 
 export async function generateMetadata({ params }: { params: { handle: string; locale: Locale } }): Promise<Metadata> {
-  if (!isPublicComplianceContent('product', params.handle)) return {};
   const product = await getProductByHandle(params.handle);
   if (!product) return {};
 
   const name = product[`product_name_${params.locale}`] || product.product_name_en || product.name;
   const description = product[`summary_${params.locale}`] || product.summary_en || undefined;
   const productSeo = getProductSeo(params.handle, name, product.category_primary || product.category, params.locale);
+  const indexable = isdefenseProductCategory(product.category_primary || product.category);
 
   return buildSeoMetadata({
     locale: params.locale,
@@ -34,14 +34,12 @@ export async function generateMetadata({ params }: { params: { handle: string; l
     fallbackDescription: productSeo.description || description,
     fallbackKeywords: productSeo.keywords,
     image: product.main_image,
+    indexable,
   });
 }
 
 async function ProductDetailContent({ handle, locale }: { handle: string; locale: Locale }) {
   const dict = await getDictionary(locale);
-  if (!isPublicComplianceContent('product', handle)) {
-    notFound();
-  }
 
   const product = await getProductByHandle(handle);
 
@@ -55,17 +53,14 @@ async function ProductDetailContent({ handle, locale }: { handle: string; locale
       handle={handle}
       locale={locale}
       dict={dict}
-      basePath="/products"
       catalogLabel={dict.nav.products}
+      indexable={isdefenseProductCategory(product.category_primary || product.category)}
     />
   );
 }
 
 export default async function ProductDetailPage({ params }: { params: { handle: string; locale: Locale } }) {
   const { handle, locale } = params;
-  if (!isPublicComplianceContent('product', handle)) {
-    notFound();
-  }
 
   const product = await getProductByHandle(handle);
   if (!product) {
@@ -100,6 +95,7 @@ export default async function ProductDetailPage({ params }: { params: { handle: 
       }>
         <ProductDetailContent handle={handle} locale={locale} />
       </Suspense>
+      <PerformanceConditionsNote locale={locale} />
     </>
   );
 }

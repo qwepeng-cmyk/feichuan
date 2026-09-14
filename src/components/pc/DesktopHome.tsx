@@ -376,7 +376,7 @@ export default function DesktopHome({
                     transform: translateY(-50%);
                     border: 1px solid rgba(49, 91, 164, 0.18);
                     background: rgba(255, 255, 255, 0.78);
-                    color: #003f98;
+                    color: #315ba4;
                     font-size: 32px;
                     font-weight: 700;
                     cursor: pointer;

@@ -8,6 +8,32 @@ import { localePath } from '@/lib/localePath';
 import { getLocalizedMediaDate, getLocalizedMediaTitle } from '@/lib/mediaDisplay';
 import { getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 
+const EN_defense_MEDIA_IDS = [
+    'ntet-aerial-engineering-defense-perspective-2026',
+    'defense-event-logging-data-retention-2026',
+    'ntet-multi-sensor-configuration-method-2025',
+    'detection-monitoring-range-site-coverage-2025',
+    'ntet-defense-technical-documentation-2025',
+    'weather-terrain-urban-clutter-detection-monitoring-2025',
+    'ntet-equipment-bench-checks-2025',
+    'defense-site-survey-critical-infrastructure-2025',
+    'ntet-portable-fixed-vehicle-defense-review-2025',
+    'remote-id-rf-detection-complementary-2025',
+    'project-inquiry-review-low-altitude-monitoring-2026',
+    'site-photo-review-before-system-layout-2026',
+    'radar-rf-optical-nuisance-alert-reduction-2026',
+    'critical-infrastructure-monitoring-record-chain-2026',
+    'low-altitude-economy-2026-outlook',
+    'low-altitude-economy-operations-owner-2026',
+    'eo-ir-payload-selection-field-note-2026',
+    'ntet-defense-assumptions-open-questions-2024',
+    'defense-alert-quality-operator-context-2024',
+    'ntet-defense-interface-review-2024',
+    'defense-concept-of-operations-before-procurement-2024',
+    'ntet-requirements-to-defense-configuration-2024',
+    'defense-detection-technology-comparison-2024',
+];
+
 function stripMediaHtml(html = '') {
     return html
         .replace(/<[^>]*>/g, ' ')
@@ -53,7 +79,12 @@ export default function MediaClient({
         'industry': dict.media.categories.industry
     };
 
-    const filteredNews = newsData.filter(n => activeCategory === 'all' || n.category === activeCategory);
+    const displayNewsData = React.useMemo(() => {
+        const visibleIds = new Set(EN_defense_MEDIA_IDS);
+        return newsData.filter((item) => visibleIds.has(item.id));
+    }, [newsData, locale]);
+
+    const filteredNews = displayNewsData.filter(n => activeCategory === 'all' || n.category === activeCategory);
     
     React.useEffect(() => {
         setCurrentPage(1);
@@ -86,7 +117,7 @@ export default function MediaClient({
                         borderBottom: '1px solid #e1e8f0'
                     }}>
                         <Image
-                            src="/media/news-center-expo-banner.webp"
+                            src="/solutions/defense-applications/banner/media_center_banner.webp"
                             fill
                             style={{ objectFit: 'cover', objectPosition: 'center' }}
                             priority
@@ -280,7 +311,7 @@ export default function MediaClient({
             </div>
 
             <div className="mobile_only">
-                <MobileMediaCenter newsData={newsData} locale={locale} dict={dict} />
+                <MobileMediaCenter newsData={displayNewsData} locale={locale} dict={dict} />
             </div>
 
             <style jsx>{`

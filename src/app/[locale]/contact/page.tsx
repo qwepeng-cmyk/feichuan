@@ -9,15 +9,15 @@ import { localePath } from '@/lib/localePath';
 import { buildSeoMetadata } from '@/lib/seoMetadata';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
 import { CONTACT_EMAIL, CONTACT_WHATSAPP_DISPLAY } from '@/lib/contactSettings';
-import WhatsAppLeadButton from '@/components/contact/WhatsAppLeadButton';
+import PrimaryContactButton, { PrimaryContactIcon } from '@/components/contact/PrimaryContactButton';
 
 export function generateMetadata({ params }: { params: { locale: Locale } }): Metadata {
     return buildSeoMetadata({
         locale: params.locale,
         path: '/contact',
-        fallbackTitle: 'Contact N-TET | Industrial UAV & C-UAS Systems',
-        fallbackDescription: 'Contact N-TET for UAV platform selection, C-UAS systems, emergency response UAV projects, early-warning equipment, and security screening systems.',
-        image: '/about/contact_banner.png',
+        fallbackTitle: 'Request Low-Altitude Defense Equipment Pricing & System Proposal | N-TET',
+        fallbackDescription: 'Request Low-Altitude Defense equipment pricing, product documents or a system configuration review for portable, fixed-site and vehicle-mounted projects.',
+        image: '/index/about_bg.webp',
     });
 }
 
@@ -48,7 +48,7 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                         <section className="contact-banner" style={{ 
                             height: '35vh', 
                             minHeight: '280px', 
-                            background: "url('/about/contact_banner.png') center center / cover no-repeat", 
+                            background: "url('/index/about_bg.webp') center center / cover no-repeat",
                             position: 'relative', 
                             overflow: 'hidden',
                             display: 'flex',
@@ -102,11 +102,11 @@ async function ContactContent({ locale, dict }: { locale: Locale; dict: any }) {
                                             
                                             <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
                                                 <div style={{ width: '40px', color: '#25D366' }}>
-                                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.32 0-4.518.892-6.193 2.512-3.14 3.036-3.414 7.918-0.65 11.272l-1.01 3.518 3.65-0.941c1.332.71 2.825 1.082 4.343 1.083l0.005 0.001c4.545 0 8.245-3.627 8.247-8.087 0-2.161-0.854-4.191-2.406-5.717-1.551-1.527-3.615-2.369-5.811-2.371zM16.516 16.485c-0.247 0.686-1.443 1.253-1.99 1.341-0.547.087-1.253.134-3.193-0.627-2.396-0.939-3.943-3.328-4.06-3.483-0.12-0.155-0.976-1.275-0.976-2.433 0-1.159.605-1.728.823-1.954.218-0.226.478-0.283.637-0.283s.318.001.457.006c.142.005.333-0.053.523.402.193.466.66 1.58.717 1.693.056.113.1.245.021.396s-0.113.264-0.226.396c-0.113.132-0.239.294-0.342.396-0.113.113-0.231.237-0.1.458.132.221.584.949 1.257 1.536.866.755 1.597 0.991 1.82 1.093s.345.075.474-0.075c0.129-0.15 0.553-0.641.701-0.858.148-0.217.294-0.183.497-0.108.201.075 1.275.591 1.493.697s.361.16.415.253c.053.093.053.539-0.194 1.225z"/></svg>
+                                                    <PrimaryContactIcon size={40} />
                                                 </div>
                                                 <div>
                                                     <h4 style={{ fontSize: '1.6rem', color: '#666', marginBottom: '5px' }}>{dict.contact.whatsapp}</h4>
-                                                    <WhatsAppLeadButton sourceLabel="contact_page_whatsapp" style={{ fontSize: '2rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</WhatsAppLeadButton>
+                                                    <PrimaryContactButton sourceLabel="contact_page_whatsapp" style={{ fontSize: '2rem', fontWeight: 700, color: '#315ba4', textDecoration: 'none' }}>{CONTACT_WHATSAPP_DISPLAY}</PrimaryContactButton>
                                                 </div>
                                             </div>
 

@@ -1,369 +1,368 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { localePath } from '@/lib/localePath';
 import { localeFromPathname } from '@/lib/localization';
+import { getContactMethod, getInquiryFormUxCopy } from '@/lib/inquiryFormUx';
+import { trackPersistedInquiryConversion } from '@/components/tracking/googleAdsConversion';
+import uxStyles from './InquiryForm.module.css';
+
+type FormStep = 1 | 2;
 
 export default function InquiryForm({ dict }: { dict?: any }) {
     const router = useRouter();
     const pathname = usePathname();
+    const ux = getInquiryFormUxCopy(pathname);
+    const formId = useId();
+    const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+    const submissionInFlightRef = useRef(false);
+    const fieldIds = {
+        application: `${formId}-application`,
+        name: `${formId}-name`,
+        company: `${formId}-company`,
+        email: `${formId}-email`,
+        phone: `${formId}-phone`,
+        message: `${formId}-message`,
+    };
     const d = dict?.inquiry || {
-        title: "Get Product Information & Pricing",
-        subtitle: "Tell us what you are looking for. Our team can send product information, technical specs, brochures, or quotation details.",
-        name: "Name",
-        company: "Company Name",
-        email: "E-mail",
-        contactMethod: "Contact Method",
-        countryCode: "Country Code",
-        phone: "Phone Number",
-        inquiryType: "What do you need?",
-        messageLabel: "Message",
-        messagePlaceholder: "Tell us the product type, application, quantity, or information you need. Example: brochure, specs, quotation, or help choosing the right equipment.",
-        submit: "SUBMIT INQUIRY",
-        types: [
-            "Product Information",
-            "Technical Specs",
-            "Product Brochure",
-            "Pricing / Quotation",
-            "Engineer Support",
-            "Distributor / Partnership"
-        ],
-        selectCode: "Select Code...",
-        contactMethods: {
-            whatsapp: "WhatsApp",
-            phone: "Phone",
-            wechat: "WeChat"
-        },
-        regions: {
-            asia: "Asia & Middle East",
-            europe: "Europe & CIS",
-            southAmerica: "South America",
-            africa: "Africa",
-            northAmerica: "North America & Oceania",
-            other: "Other (Please add in message)"
-        },
-        countries: {
-            china: "China",
-            uae: "UAE",
-            saudiArabia: "Saudi Arabia",
-            iran: "Iran",
-            turkey: "Turkey",
-            qatar: "Qatar",
-            oman: "Oman",
-            kuwait: "Kuwait",
-            iraq: "Iraq",
-            india: "India",
-            japan: "Japan",
-            southKorea: "South Korea",
-            singapore: "Singapore",
-            malaysia: "Malaysia",
-            uzbekistan: "Uzbekistan",
-            russiaKazakhstan: "Russia / Kazakhstan",
-            belarus: "Belarus",
-            uk: "United Kingdom",
-            germany: "Germany",
-            france: "France",
-            italy: "Italy",
-            spain: "Spain",
-            brazil: "Brazil",
-            argentina: "Argentina",
-            colombia: "Colombia",
-            chile: "Chile",
-            peru: "Peru",
-            ecuador: "Ecuador",
-            venezuela: "Venezuela",
-            egypt: "Egypt",
-            algeria: "Algeria",
-            morocco: "Morocco",
-            nigeria: "Nigeria",
-            southAfrica: "South Africa",
-            kenya: "Kenya",
-            ethiopia: "Ethiopia",
-            usaCanada: "USA / Canada",
-            mexico: "Mexico",
-            australia: "Australia",
-            newZealand: "New Zealand"
-        }
+        title: 'Получить консультацию специалиста',
+        subtitle: 'Расскажите об интересующем оборудовании, сценарии применения или объекте. Мы предоставим информацию о продукции, техническую документацию, цены и рекомендации по конфигурации.',
+        name: 'Имя',
+        company: 'Компания',
+        email: 'E-mail',
+        phone: 'Телефон / WhatsApp',
+        phonePlaceholder: 'Укажите код страны, например +7 999 123-45-67',
+        submit: 'ОТПРАВИТЬ ЗАПРОС',
+        submitting: 'ОТПРАВКА...',
+        failed: 'Не удалось отправить запрос. Повторите попытку или свяжитесь с нами напрямую.',
     };
 
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [step, setStep] = useState<FormStep>(1);
     const [isSending, setIsSending] = useState(false);
+    const [contactError, setContactError] = useState('');
+    const [stepError, setStepError] = useState('');
     const [formData, setFormData] = useState({
+        applicationScenario: '',
+        deploymentType: '',
         name: '',
         company: '',
         email: '',
-        contactMethod: 'WhatsApp',
         countryCode: '',
         phone: '',
-        demands: [] as string[],
         message: '',
     });
 
-    const toggleDemand = (opt: string) => {
-        setFormData(prev => ({
-            ...prev,
-            demands: prev.demands.includes(opt)
-                ? prev.demands.filter(d => d !== opt)
-                : [...prev.demands, opt]
-        }));
+    const isOtherScenario = formData.applicationScenario === 'Other';
+
+    const focusStepHeading = () => {
+        window.requestAnimationFrame(() => stepHeadingRef.current?.focus());
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const advanceToContact = () => {
+        if (!formData.applicationScenario) {
+            setStepError(ux.applicationRequiredError);
+            return;
+        }
+        if (!formData.deploymentType) {
+            setStepError(ux.deploymentRequiredError);
+            return;
+        }
+        if (isOtherScenario && !formData.message.trim()) {
+            setStepError(ux.otherDetailsRequiredError);
+            return;
+        }
+
+        setStepError('');
+        setStep(2);
+        focusStepHeading();
+    };
+
+    const returnToRequirements = () => {
+        setContactError('');
+        setStep(1);
+        focusStepHeading();
+    };
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        if (step === 1) {
+            advanceToContact();
+            return;
+        }
+
+        const name = formData.name.trim();
+        const email = formData.email.trim();
+        const phone = formData.phone.trim();
+
+        if (!name || !email || !phone) {
+            setContactError(ux.contactRequiredError);
+            return;
+        }
+        if (submissionInFlightRef.current) return;
+
+        setContactError('');
+        submissionInFlightRef.current = true;
         setIsSending(true);
+        let submissionSucceeded = false;
 
         try {
             const response = await fetch('/api/inquiries', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    company: formData.company.trim(),
+                    email,
+                    phone,
+                    countryCode: formData.countryCode,
+                    contactMethod: getContactMethod(email, phone),
+                    demands: [
+                        `Application: ${formData.applicationScenario}`,
+                        `Deployment: ${formData.deploymentType}`,
+                    ],
+                    message: formData.message.trim(),
+                    sourcePage: pathname,
+                }),
             });
 
             const result = await response.json().catch(() => null);
 
-            if (response.ok && result?.success === true && result?.inquiryId) {
-                router.push(localePath(localeFromPathname(pathname), '/thank-you'));
-                // Reset form
-                setFormData({
-                    name: '',
-                    company: '',
-                    email: '',
-                    contactMethod: 'WhatsApp',
-                    countryCode: '',
-                    phone: '',
-                    demands: [],
-                    message: '',
+            const inquiryId = Number(result?.inquiryId);
+
+            if (response.ok && result?.success === true && Number.isSafeInteger(inquiryId) && inquiryId > 0) {
+                submissionSucceeded = true;
+                trackPersistedInquiryConversion({
+                    inquiryId,
+                    conversionSource: 'desktop_inquiry_form',
+                    formName: 'public_inquiry',
+                    pagePath: pathname,
                 });
+                router.push(localePath(localeFromPathname(pathname), '/thank-you'));
             } else {
                 console.error('Inquiry submit failed:', result);
-                alert('Error sending inquiry. Please try again or contact us directly.');
+                alert(d.failed || 'Не удалось отправить запрос. Повторите попытку или свяжитесь с нами напрямую.');
             }
         } catch (error) {
             console.error('Inquiry error:', error);
-            alert('Something went wrong. Please try again.');
+            alert(d.failed || 'Произошла ошибка. Повторите попытку.');
         } finally {
-            setIsSending(false);
+            if (!submissionSucceeded) {
+                submissionInFlightRef.current = false;
+                setIsSending(false);
+            }
         }
     };
-
-    if (isSubmitted) {
-        return (
-            <div className="inquiry-container" style={{ borderRadius: '0', boxShadow: 'none', border: '1px solid #eee', padding: '80px 40px', textAlign: 'center' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', backgroundColor: '#4CAF50', color: '#fff', fontSize: '4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 30px' }}>
-                    ✓
-                </div>
-                <h2 style={{ fontSize: '3.2rem', fontWeight: 800, color: '#333', marginBottom: '15px' }}>
-                    {d.submitted?.title || "SUBMITTED SUCCESSFULLY!"}
-                </h2>
-                <p style={{ fontSize: '1.8rem', color: '#666', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.6' }}>
-                    {d.submitted?.subtitle || "Thank you for your inquiry. Our team will review your requirements and get back to you within 24 hours."}
-                </p>
-                <button 
-                    onClick={() => setIsSubmitted(false)}
-                    style={{ 
-                        padding: '12px 30px', 
-                        backgroundColor: 'transparent', 
-                        border: '1px solid #315ba4', 
-                        color: '#315ba4', 
-                        fontSize: '1.5rem', 
-                        fontWeight: 700, 
-                        cursor: 'pointer',
-                        transition: 'all 0.3s'
-                    }}
-                >
-                    {d.submitted?.backButton || "Send Another Message"}
-                </button>
-            </div>
-        );
-    }
 
     return (
         <div className="inquiry-container" style={{ borderRadius: '0', boxShadow: 'none', border: '1px solid #eee' }}>
             <h2 className="section-title" style={{ marginBottom: '10px' }}>{d.title}</h2>
-            <p style={{ textAlign: 'center', color: '#666', fontSize: '1.6rem', maxWidth: '800px', margin: '0 auto 40px', lineHeight: '1.6' }}>
+            <p style={{ textAlign: 'center', color: '#666', fontSize: '1.6rem', maxWidth: '800px', margin: '0 auto 34px', lineHeight: '1.6' }}>
                 {d.subtitle}
             </p>
 
-            <form onSubmit={handleSubmit} style={{ textAlign: 'left' }}>
-                <div className="form-grid">
-                    <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.name}</label>
-                        <input
-                            type="text"
-                            required
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            value={formData.name}
-                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        />
+            <form onSubmit={handleSubmit} autoComplete="on" style={{ textAlign: 'left' }}>
+                <div className={uxStyles.stepHeader}>
+                    <div className={uxStyles.stepMeta}>{ux.stepLabel(step)}</div>
+                    <div
+                        className={uxStyles.progressTrack}
+                        role="progressbar"
+                        aria-label={ux.stepLabel(step)}
+                        aria-valuemin={1}
+                        aria-valuemax={2}
+                        aria-valuenow={step}
+                    >
+                        <span className={uxStyles.progressFill} style={{ width: step === 1 ? '50%' : '100%' }} />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label">{d.company}</label>
-                        <input
-                            type="text"
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            value={formData.company}
-                            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        />
-                    </div>
+                    <h3 ref={stepHeadingRef} className={uxStyles.stepTitle} tabIndex={-1}>
+                        {step === 1 ? ux.requirementsTitle : ux.contactTitle}
+                    </h3>
                 </div>
 
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.email}</label>
-                    <input
-                        type="email"
-                        required
-                        className="form-input"
-                        style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.5fr', gap: '20px', marginBottom: '30px' }}>
-                    <div className="form-group">
-                        <label className="form-label">{d.contactMethod}</label>
-                        <select
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}
-                            value={formData.contactMethod}
-                            onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
-                        >
-                            <option value="WhatsApp">{d.contactMethods.whatsapp}</option>
-                            <option value="Phone">{d.contactMethods.phone}</option>
-                            <option value="WeChat">{d.contactMethods.wechat}</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.countryCode}</label>
-                        <select
-                            required
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '54px' }}
-                            value={formData.countryCode}
-                            onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-                        >
-                            <option value="">{d.selectCode}</option>
-                            
-                            <optgroup label={d.regions.asia}>
-                                <option value="+86">{d.countries.china} (+86)</option>
-                                <option value="+971">{d.countries.uae} (+971)</option>
-                                <option value="+966">{d.countries.saudiArabia} (+966)</option>
-                                <option value="+98">{d.countries.iran} (+98)</option>
-                                <option value="+90">{d.countries.turkey} (+90)</option>
-                                <option value="+974">{d.countries.qatar} (+974)</option>
-                                <option value="+968">{d.countries.oman} (+968)</option>
-                                <option value="+965">{d.countries.kuwait} (+965)</option>
-                                <option value="+964">{d.countries.iraq} (+964)</option>
-                                <option value="+91">{d.countries.india} (+91)</option>
-                                <option value="+81">{d.countries.japan} (+81)</option>
-                                <option value="+82">{d.countries.southKorea} (+82)</option>
-                                <option value="+65">{d.countries.singapore} (+65)</option>
-                                <option value="+60">{d.countries.malaysia} (+60)</option>
-                                <option value="+998">{d.countries.uzbekistan} (+998)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.europe}>
-                                <option value="+7">{d.countries.russiaKazakhstan} (+7)</option>
-                                <option value="+375">{d.countries.belarus} (+375)</option>
-                                <option value="+44">{d.countries.uk} (+44)</option>
-                                <option value="+49">{d.countries.germany} (+49)</option>
-                                <option value="+33">{d.countries.france} (+33)</option>
-                                <option value="+39">{d.countries.italy} (+39)</option>
-                                <option value="+34">{d.countries.spain} (+34)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.southAmerica}>
-                                <option value="+55">{d.countries.brazil} (+55)</option>
-                                <option value="+54">{d.countries.argentina} (+54)</option>
-                                <option value="+57">{d.countries.colombia} (+57)</option>
-                                <option value="+56">{d.countries.chile} (+56)</option>
-                                <option value="+51">{d.countries.peru} (+51)</option>
-                                <option value="+593">{d.countries.ecuador} (+593)</option>
-                                <option value="+58">{d.countries.venezuela} (+58)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.africa}>
-                                <option value="+20">{d.countries.egypt} (+20)</option>
-                                <option value="+213">{d.countries.algeria} (+213)</option>
-                                <option value="+212">{d.countries.morocco} (+212)</option>
-                                <option value="+234">{d.countries.nigeria} (+234)</option>
-                                <option value="+27">{d.countries.southAfrica} (+27)</option>
-                                <option value="+254">{d.countries.kenya} (+254)</option>
-                                <option value="+251">{d.countries.ethiopia} (+251)</option>
-                            </optgroup>
-
-                            <optgroup label={d.regions.northAmerica}>
-                                <option value="+1">{d.countries.usaCanada} (+1)</option>
-                                <option value="+52">{d.countries.mexico} (+52)</option>
-                                <option value="+61">{d.countries.australia} (+61)</option>
-                                <option value="+64">{d.countries.newZealand} (+64)</option>
-                            </optgroup>
-
-                            <option value="other">{d.regions.other}</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.phone}</label>
-                        <input
-                            type="text"
-                            required
-                            className="form-input"
-                            style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
-                            value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        />
-                    </div>
-                </div>
-
-                <div className="form-group" style={{ marginBottom: '30px' }}>
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.inquiryType}</label>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
-                        {d.types.map((opt: string) => (
-                            <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '1.5rem', color: '#444' }}>
-                                <input
-                                    type="checkbox"
-                                    checked={formData.demands.includes(opt)}
-                                    onChange={() => toggleDemand(opt)}
-                                    style={{ width: '18px', height: '18px', accentColor: 'var(--accent)' }}
-                                />
-                                {opt}
+                {step === 1 ? (
+                    <div className={uxStyles.stepPanel}>
+                        <div className="form-group">
+                            <label className="form-label" htmlFor={fieldIds.application}>
+                                <span className={uxStyles.requiredMark}>*</span>{ux.applicationLabel}
                             </label>
-                        ))}
+                            <select
+                                id={fieldIds.application}
+                                name="applicationScenario"
+                                className={`form-input ${uxStyles.selectInput}`}
+                                required
+                                value={formData.applicationScenario}
+                                onChange={(event) => {
+                                    setFormData({ ...formData, applicationScenario: event.target.value });
+                                    setStepError('');
+                                }}
+                            >
+                                <option value="" disabled>{ux.applicationPlaceholder}</option>
+                                {ux.applicationOptions.map((option) => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <fieldset className={uxStyles.deploymentFieldset}>
+                            <legend className="form-label">
+                                <span className={uxStyles.requiredMark}>*</span>{ux.deploymentLabel}
+                            </legend>
+                            <div className={uxStyles.deploymentGrid}>
+                                {ux.deploymentOptions.map((option) => (
+                                    <button
+                                        key={option.value}
+                                        type="button"
+                                        className={`${uxStyles.deploymentOption} ${formData.deploymentType === option.value ? uxStyles.deploymentOptionActive : ''}`}
+                                        aria-pressed={formData.deploymentType === option.value}
+                                        onClick={() => {
+                                            setFormData({ ...formData, deploymentType: option.value });
+                                            setStepError('');
+                                        }}
+                                    >
+                                        {option.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </fieldset>
+
+                        <div className="form-group">
+                            <label className="form-label" htmlFor={fieldIds.message}>
+                                {isOtherScenario && <span className={uxStyles.requiredMark}>*</span>}
+                                {ux.detailsLabel}{!isOtherScenario && <> <small className={uxStyles.optional}>({ux.optional})</small></>}
+                            </label>
+                            <textarea
+                                id={fieldIds.message}
+                                name="message"
+                                className="form-input form-textarea"
+                                style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '132px' }}
+                                required={isOtherScenario}
+                                placeholder={ux.detailsPlaceholder}
+                                value={formData.message}
+                                onChange={(event) => {
+                                    setFormData({ ...formData, message: event.target.value });
+                                    if (event.target.value.trim()) setStepError('');
+                                }}
+                            />
+                            <p className={uxStyles.fieldHint}>{ux.detailsHint}</p>
+                        </div>
+
+                        {stepError && <p className={uxStyles.stepError} role="alert">{stepError}</p>}
+
+                        <button type="submit" className={`btn-submit ${uxStyles.primaryAction}`}>
+                            {ux.continueLabel}
+                        </button>
                     </div>
-                </div>
+                ) : (
+                    <div className={uxStyles.stepPanel}>
+                        <div className="form-grid">
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.name}>
+                                    <span className={uxStyles.requiredMark}>*</span>{d.name}
+                                </label>
+                                <input
+                                    id={fieldIds.name}
+                                    name="name"
+                                    type="text"
+                                    required
+                                    autoComplete="name"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.name}
+                                    onChange={(event) => setFormData({ ...formData, name: event.target.value })}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.company}>
+                                    {d.company} <small className={uxStyles.optional}>({ux.optional})</small>
+                                </label>
+                                <input
+                                    id={fieldIds.company}
+                                    name="organization"
+                                    type="text"
+                                    autoComplete="organization"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.company}
+                                    onChange={(event) => setFormData({ ...formData, company: event.target.value })}
+                                />
+                            </div>
+                        </div>
 
-                <div className="form-group">
-                    <label className="form-label"><span style={{ color: 'red' }}>*</span> {d.messageLabel}</label>
-                    <textarea
-                        required
-                        className="form-input form-textarea"
-                        style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd', height: '120px' }}
-                        placeholder={d.messagePlaceholder}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    />
-                </div>
+                        <div className="form-grid">
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.email}>
+                                    <span className={uxStyles.requiredMark}>*</span>{d.email}
+                                </label>
+                                <input
+                                    id={fieldIds.email}
+                                    name="email"
+                                    type="email"
+                                    required
+                                    autoComplete="email"
+                                    inputMode="email"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.email}
+                                    onChange={(event) => {
+                                        setFormData({ ...formData, email: event.target.value });
+                                        setContactError('');
+                                    }}
+                                    onInvalid={(event) => {
+                                        event.currentTarget.setCustomValidity('Введите корректный адрес электронной почты.');
+                                    }}
+                                    onInput={(event) => event.currentTarget.setCustomValidity('')}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="form-label" htmlFor={fieldIds.phone}>
+                                    <span className={uxStyles.requiredMark}>*</span>{d.phone}
+                                </label>
+                                <input
+                                    id={fieldIds.phone}
+                                    name="tel"
+                                    type="tel"
+                                    required
+                                    autoComplete="tel"
+                                    inputMode="tel"
+                                    className="form-input"
+                                    style={{ borderRadius: '0', background: '#fff', border: '1px solid #ddd' }}
+                                    value={formData.phone}
+                                    onChange={(event) => {
+                                        setFormData({ ...formData, phone: event.target.value });
+                                        setContactError('');
+                                    }}
+                                    placeholder={d.phonePlaceholder || 'Укажите код страны, например +7 999 123-45-67'}
+                                    onInvalid={(event) => {
+                                        event.currentTarget.setCustomValidity('Введите номер телефона или WhatsApp с кодом страны.');
+                                    }}
+                                    onInput={(event) => event.currentTarget.setCustomValidity('')}
+                                />
+                                <p className={uxStyles.fieldHint}>{ux.phoneHint}</p>
+                            </div>
+                        </div>
 
-                <button 
-                    type="submit" 
-                    disabled={isSending}
-                    className="btn-submit" 
-                    style={{ 
-                        borderRadius: '0', 
-                        background: isSending ? '#999' : 'var(--accent)', 
-                        textTransform: 'uppercase',
-                        cursor: isSending ? 'not-allowed' : 'pointer'
-                    }}
-                >
-                    {isSending ? d.submitting : d.submit}
-                </button>
+                        <p className={uxStyles.contactRequirement}>
+                            <span className={uxStyles.requiredMark}>*</span>{ux.contactRequirement}
+                        </p>
+                        {contactError && <p className={uxStyles.contactError} role="alert">{contactError}</p>}
+
+                        <div className={uxStyles.stepActions}>
+                            <button type="button" className={uxStyles.backAction} onClick={returnToRequirements}>
+                                {ux.backLabel}
+                            </button>
+                            <button
+                                type="submit"
+                                disabled={isSending}
+                                className={`btn-submit ${uxStyles.submitAction}`}
+                            >
+                                {isSending ? d.submitting : d.submit}
+                            </button>
+                        </div>
+                        <p className={uxStyles.privacyNote}>{ux.privacyNote}</p>
+                    </div>
+                )}
             </form>
         </div>
     );
 }
-

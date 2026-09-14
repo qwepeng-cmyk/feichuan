@@ -6,7 +6,7 @@ export const revalidate = 0;
 
 export async function GET() {
     try {
-        const rows = db.prepare('SELECT id, name, company, email, created_at, is_read FROM inquiries ORDER BY created_at DESC').all();
+        const rows = await db.prepare('SELECT id, name, company, email, created_at, is_read FROM inquiries ORDER BY created_at DESC').all();
         return NextResponse.json(
             { success: true, data: rows },
             {

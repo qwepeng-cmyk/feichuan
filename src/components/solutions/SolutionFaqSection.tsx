@@ -100,7 +100,7 @@ function faqCopy(locale: string, subject: string, target?: Pick<SeoKeywordTarget
       },
       {
         q: 'How should this solution be matched with related equipment?',
-        a: `Selection usually compares ${supporting}, control stations, sensors, data links, power support, and service accessories so field operation stays stable from setup to result review.`,
+        a: `Selection usually compares ${supporting}, control stations, sensors, data links, power support, and service modules so field operation stays stable from setup to result review.`,
       },
       {
         q: 'What should teams confirm before deployment?',

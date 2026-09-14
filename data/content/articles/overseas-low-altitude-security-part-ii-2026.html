@@ -1,0 +1,402 @@
+<p><em>Editor’s note: This is an English translation of the Chinese article <a href="https://mp.weixin.qq.com/s/N7lQgFgs_NWPew5XK20_Rg" rel="noopener noreferrer" target="_blank">“海外低空安全现状与发展趋势·中篇”</a>, published by 海外低空安全 (Overseas Low-Altitude Security) on July 15, 2026. The technical claims, figures, assessments, and source notes below reflect the original article. Wording has been translated for clarity without changing the substance.</em></p>
+
+<p><strong>Part II · Technology</strong></p>
+<p><strong>The technical boundaries of counter-UAS systems</strong></p>
+<p>Core question: What can today’s counter-UAS technologies do, and what can they not do? What are the operationally effective scenarios and known blind spots of each technical approach?</p>
+
+<h2>Chapter 5. Detection Systems: The Operational Performance of Radar, EO/IR, and RF</h2>
+
+<p>The first hurdle in counter-UAS is not “what to use to engage it,” but “knowing what is in the air.” Detection may not be the most exciting part of a technical paper, but in operations it is the starting point of the entire chain. Radar, electro-optical sensing, radio-frequency sensing, and acoustics each have their strengths—and each has its blind spots.</p>
+<p>This chapter does not list equipment specifications. Instead, it addresses a practical question: Do these detection methods actually work in real battlefields and urban environments?</p>
+
+<h3>5.1 Radar: Long Reach, Limited Clarity on Small Objects</h3>
+
+<p>Radar is the backbone of the detection system. Long-range early-warning radar (S/Ku band) can detect drone targets at 30–50 km, medium-range radar (X band) covers 10–30 km, and short-range radar (Ka/W band) focuses on detailed detection within 5 km. But a drone is not a fighter aircraft: its radar cross-section (RCS) is generally 0.001–0.1 m², only one-thousandth to one-hundredth that of an F-35.</p>
+
+<p><strong>The micro-Doppler effect—the biggest breakthrough in counter-UAS radar.</strong> Conventional radar relies on RCS to detect a target. A drone’s RCS is so small that it can be indistinguishable from birds and airborne clutter. Micro-Doppler is valuable because the signatures produced by rotating propellers are entirely different from those produced by flapping wings. Machine-learning models (CNN + RNN) can distinguish “DJI Mavic vs. pigeon” within one to two seconds at greater than 90% accuracy. Over the past five years, this technology has moved from the laboratory into operational use, but it remains an expensive “massive-data + high-compute” technology.</p>
+
+<p><strong>Radar’s three main blind spots:</strong></p>
+<ol>
+  <li><strong>Slow-moving or hovering targets.</strong> Conventional radar Doppler filters normally remove extremely slow targets as ground clutter. To the radar, a drone hovering at an altitude of 50 m is “stationary” and is filtered out. The latest moving-target-indication (MTI) systems require a specially designed low-speed filter mode, but this increases the false-alarm rate.</li>
+  <li><strong>Multipath effects in urban canyons.</strong> In a city, radar beams reflect repeatedly between buildings, so a single target may appear on the display as three to five false tracks. An FPV racing drone flying two metres above the ground at 20 km/h can disappear completely into ground clutter—not because the radar has stopped working, but because “the signal is submerged in the background.”</li>
+  <li><strong>Low reflectivity of carbon-fibre airframes.</strong> Consumer drones make extensive use of carbon fibre (RCS &lt; 0.01 m²), which can create a “stealth” effect against X-band and higher-frequency radar. Both sides in the Russia–Ukraine war have widely used modified consumer FPV drones; in operations, effective radar detection range has reportedly been only 30%–50% of the stated figure.</li>
+</ol>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 5 (limitations of Doppler filters); <em>Inside Unmanned Systems</em>, “Rethinking CUAS Radar Design for Small Drone Threats,” February 11, 2026; CALL 25-1046 (operational radar performance in the Russia–Ukraine war).</p>
+
+<h3>5.2 Electro-Optical/Infrared (EO/IR): Clear Identification, Limited Range</h3>
+
+<p>After radar finds a target, EO/IR provides the “look” used to confirm its identity. Long-wave infrared (LWIR, 8–14 μm) can passively detect heat emitted by a drone’s motors and battery. Mid-wave infrared (MWIR, 3–5 μm) is more sensitive but costs roughly twice as much. Visible-light EO requires sufficient illumination. Multispectral systems combining all three are becoming the mainstream configuration.</p>
+
+<p><strong>The engineering limit of using AI to extend detection range.</strong> A key finding is that algorithm performance is fundamentally constrained by sensor-data quality. AI can improve the detection workflow, but it cannot eliminate the underlying physics governing imaging systems: atmospheric absorption (LWIR transmission falls from 90% to below 30% in heavy rain), solar reflection (sunlight interferes with LWIR during the day), and non-uniformity correction (thermal imagers require periodic shutter-based correction, creating a tactical “blind” interval of one to three seconds).</p>
+
+<p>Physical limits for AI detection: at more than 50 × 50 pixels, model identification is possible (M30 vs. Mavic 3); at 20 × 50 pixels, classification is possible (multirotor vs. fixed-wing); at 10 × 10 to 20 × 20 pixels, detection and tracking are possible (AI accuracy &gt;90%); below 10 × 10 pixels, only detection is possible because shape and texture are lost and bird-versus-drone discrimination becomes difficult; below 3 × 3 pixels, only coarse motion detection remains and AI is largely ineffective; below 1 × 1 pixel (sub-pixel) lies the detection limit.</p>
+
+<p><strong>The ISP pipeline—an underestimated layer.</strong> With the same optical lens and sensor, optimising the image-signal-processing (ISP) pipeline can change detection range by 30%–50%. Noise reduction (each additional 1 dB of noise reduction is approximately equivalent to an increase in detection range), non-uniformity correction (removing fixed-pattern noise), contrast optimisation, and digital detail enhancement (preserving sharp edges for AI feature extraction) are low-level engineering improvements whose importance has long been underestimated in industry discussions.</p>
+
+<p><strong>Sources:</strong> <em>Inside Unmanned Systems</em>, “The Edge of Visibility—EO/IR System Design Realities for Modern C-UAS,” March 12, 2026; JAPCC, Chapter 5; FLIR Boson/Neutrino product lines; Aaronia AARTOS fusion architecture.</p>
+<p><em>Note: No public quantitative data on the specific scale of overseas EO/IR deployments was available for this section. Its sources are mainly analyses of technical principles and publicly available vendor material.</em></p>
+
+<h3>5.3 RF Reconnaissance and Passive Detection: Listening for Signals, but Vulnerable to Silence</h3>
+
+<p>RF reconnaissance transmits nothing. It only “listens” to the link signal between the drone and its controller. As long as a drone remains in communication with its controller during flight, it is effectively “broadcasting its own position.”</p>
+
+<p><strong>The only means of locating the pilot at the signal layer.</strong> Radar and EO/IR can detect only the airframe. Passive RF detection is the only method that can trace the controller’s location from the signal itself. In law-enforcement scenarios, “catching the pilot” is often more important than “engaging the drone.” Location methods progress from coarse to precise: RSSI (coarse signal-strength estimate, &gt;100 m) → AOA (angle of arrival, antenna-array phase difference of ±1°–5°, triangulation with two stations) → TDOA (time difference of arrival, three-station location accuracy of ±10–50 m).</p>
+
+<p><strong>The largest blind spot: silent or autonomous flight.</strong> Passive RF detection depends on the drone actively transmitting a signal. When a drone uses autonomous navigation—visual SLAM + RTK positioning + a pre-programmed route—and neither depends on a controller nor transmits video, RF reconnaissance fails completely. This is the underlying principle of the most dangerous swarm tactic: “electromagnetically silent penetration.”</p>
+
+<p>Other limitations include an inability to detect millimetre-wave or terahertz communications when the receiver’s frequency coverage is limited to 6 GHz or below; high false-positive rates amid dense urban Wi-Fi, Bluetooth, 4G, and 5G activity; frequency hopping across more than 100 channels, which requires simultaneous wideband reception; and complete signal blockage by buildings or mountains (the original article gives an approximate minimum line-of-sight distance of 5–7 km).</p>
+
+<p><strong>Product landscape.</strong> The AARTOS series (Germany) includes the ultra-mobile X2, with 3–8 km coverage, and the X9 for high-density RF environments, with 5–15 km coverage. Sentrycs (Israel, acquired by Ondas in 2025) provides passive RF detection, identification, tracking, and takeover; deployment by one person in five minutes; an Intel + Docker software-defined architecture; and a “Horizon Engine” that continuously analyses the RF spectrum with AI and automatically identifies new drone protocols. It has reportedly been operationally validated in 25 countries. Its principal advantage is that it neither jams nor spoofs, reducing the regulatory barrier to deployment.</p>
+
+<p><strong>Sources:</strong> <em>Inside Unmanned Systems</em>, “Aaronia Showcases C-UAS &amp; EW Tech at Milipol Paris 2025,” November 25, 2025; <em>Inside Unmanned Systems</em>, “Ondas to Acquire Sentrycs,” November 5, 2025; JAPCC, Chapter 5.</p>
+<p><em>Note: Some references in this section to Russian counter-UAS manuals come from secondary Russian-language sources. No independently verified public English or Chinese version was found.</em></p>
+
+<h3>5.4 Acoustic Detection: Not Ready Yet</h3>
+
+<p>Acoustic detection has a unique theoretical value: it is unaffected by radar stealth, GPS spoofing, or RF silence. If a drone is flying, its motors and propellers produce sound. In practice, however, the signal-to-noise ratio deteriorates rapidly beyond 50 m; urban background noise from traffic, air-conditioning, and crowds completely masks a drone’s acoustic signature; and separating sound sources becomes difficult when several drones fly at the same time.</p>
+
+<p>Acoustics currently serve as “auxiliary confirmation” rather than the backbone of a counter-UAS detection system. They can corroborate other methods, but a single acoustic station cannot independently carry the detection mission.</p>
+
+<p><strong>Sources:</strong> CALL 26-1115 (operational assessment of acoustic detection); JAPCC, Chapter 5.</p>
+
+<h2>Chapter 6. Soft Kill and Hard Kill: From Navigation Spoofing to Physical Interception</h2>
+
+<p>Once a target has been detected, the next question is “what do we do?” A common view in the counter-UAS community is that more than 80% of missions should first be addressed with electronic means. But electronic methods are not universal: autonomous swarms are resistant to them, and electromagnetic energy cannot be transmitted indiscriminately in dense urban areas.</p>
+<p>This chapter examines the main countermeasure methods in turn: what each one can do, what it cannot do, and when it should be used.</p>
+
+<h3>6.1 Navigation Spoofing: The Most “Elegant” Counter-UAS Method</h3>
+
+<p>Near the ground, GNSS signal power is about −130 dBm (on the order of 10⁻¹⁶ W), 20–30 dB below ambient thermal noise. A signal generator costing only a few hundred yuan and transmitting at milliwatt-level power can create a “false GPS signal” near the ground that is more than 100 times stronger than the real satellite signal. A drone’s GNSS receiver follows a “strongest signal first” priority rule, so the false signal naturally takes control. This is the underlying physics of navigation spoofing.</p>
+
+<p><strong>The fundamental difference between spoofing and jamming.</strong> Jamming transmits noise that overwhelms the GNSS band. Once GPS fails, the drone switches to a failsafe mode—hovering or returning home—and the pilot immediately knows the signal has been lost. Spoofing transmits a stronger false satellite signal, alters the reported position, and causes the drone to fly according to new coordinates while the pilot remains unaware of the attack: no warning, no abnormal indication.</p>
+
+<p>“Push” spoofing directly replays a recorded false GPS signal. It is simple, but can easily cause the receiver to lose lock. “Pull” spoofing first synchronises with real GPS, then gradually increases signal strength and shifts the position, creating a smooth transition that the drone does not detect. <strong>“Pull” spoofing is the method most commonly used in operations.</strong></p>
+
+<p><strong>“Virtual no-fly-zone” defence is the most mature tactical use of navigation spoofing.</strong> A device deployed around a protected site generates “virtual GNSS coordinates” several kilometres away from the true position. After entering the area, the drone’s own GNSS shows that it has entered a no-fly zone—for example, the no-fly zone around a capital-city airport—and automatically triggers return-to-home or landing. Parameters given in the original article are a spoofing radius of 500 m–5 km and an effect within 5–30 seconds.</p>
+
+<p><strong>A trapping case from the Russia–Ukraine battlefield—a textbook operational application.</strong> The original article states that Russian forces deployed large-scale false GPS signals “behind” known drone operating areas, causing Ukrainian FPV and reconnaissance drones to misjudge the return direction and fly toward Russian positions rather than Ukrainian positions. When the battery ran low, automatic return-to-home reportedly brought them down in Russian positions. Tactical points given in the article are: the effect is best triggered below 20% battery; a 5–15 km displacement is large enough to change the landing point without triggering an abnormality warning; and reported success rates are above 70% against non-professional pilots and below 40% against professional pilots.</p>
+
+<p><strong>Core limitation—visual SLAM is the “natural enemy” of navigation spoofing.</strong> If a drone uses cameras to “see” its route—visual SLAM + IMU + a pre-set route—and does not depend on GNSS at all, navigation spoofing is completely ineffective. In addition, the P(Y) code (military GPS) and BeiDou B2a (encrypted) cannot be spoofed, according to the original article. Signal leakage may affect legitimate nearby GNSS users, including aircraft navigation, phone positioning, and financial timing. Professional pilots may detect spoofing characteristics with a GNSS signal monitor and switch to pure inertial navigation.</p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 6; Russian counter-UAS manual (Russian, 2023), chapter on GPS trapping tactics; a Chinese monograph on new-domain and new-quality operational theory, chapter on navigation confrontation.</p>
+<p><em>Note: Some references in this section are based on secondary Russian-language material and a Chinese academic monograph, without cross-verification from public English-language sources.</em></p>
+
+<h3>6.2 Electronic Jamming: The Oldest and Most “Primitive” Method</h3>
+
+<p>Electronic jamming has existed since the birth of radio. Omnidirectional jamming—360° coverage over 1–5 km with indiscriminate electromagnetic pollution—and directional jamming—a narrow 10°–30° beam over 3–20 km, with areas outside the beam remaining safe—represent two approaches with very different regulatory costs.</p>
+
+<p><strong>The central problem with omnidirectional jamming has never been the technology; it is electromagnetic pollution.</strong> Every wireless device using the same or adjacent bands within 5 km of the jammer may be affected: Wi-Fi interruption, Bluetooth disconnection, degraded mobile service, loss of GPS positioning, and radio failure. Near an airport, harmonics and spurious emissions may affect aeronautical navigation bands even when the primary frequencies do not overlap.</p>
+
+<p><strong>Effectiveness declines against encrypted and frequency-hopping signals:</strong> fixed-frequency analogue &gt;95% → frequency hopping (FHSS, such as DJI LightBridge) 60%–80% → frequency-hopping spread spectrum + encryption (DJI O3/O4) 30%–50% → military frequency hopping + encryption + spread spectrum &lt;10%. The counter-strategies listed are full-band suppression, which is feasible but requires high power and multi-stage amplifiers; protocol tracking, which is difficult because DJI has modified its protocols repeatedly; spectrum interception; and swept-frequency jamming.</p>
+
+<p><strong>Handheld counter-UAS guns—the most easily overestimated equipment.</strong> A claim of being “effective against all drones” generally means effective only against fixed-frequency or fixed-band systems. A claimed “effective range of 5 km” is achievable only with ideal line of sight in open terrain. Claimed “automatic model identification” usually still requires the operator to identify the target visually. Claimed “one-button shoot-down” actually means severing the link, after which the drone’s behaviour is unpredictable: it may crash, return home, or hover. <strong>In urban environments, effective jamming range is usually only 30%–50% of the stated figure.</strong></p>
+
+<p><strong>Regulatory red lines are hard constraints.</strong> Radio regulations in most countries require authorisation to use a frequency, prohibit power above the approved maximum, and forbid unauthorised installation or use of wireless signal-blocking or interference equipment. The original article lists the following urban restrictions: absolutely prohibited near airports; absolutely prohibited in hospital emergency areas; prohibited in crowds at large events, where mobile-service failure could cause panic; advance notice required in commercial districts; and caution required in residential areas.</p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 6; Russian counter-UAS manual (Russian, 2023), electronic-warfare chapter; DroneShield DroneGun Tactical; Dedrone RPS-60.</p>
+<p><em>Note: This section removed references to Chinese domestic regulations and replaced them with general language. A future version should compare the details of radio regulations across countries.</em></p>
+
+<h3>6.3 High-Energy Lasers and High-Power Microwave: The Economic Breakthrough of Directed Energy</h3>
+
+<p>Conventional air defence faces a fatal economic contradiction when confronting low-cost drones. An FPV racing drone costs US$500–2,000, while an AIM-9X missile costs US$400,000. The attacker exchanges US$500 for the defender’s US$400,000—an unsustainable equation. Directed-energy technology changes that logic.</p>
+
+<p><strong>Laser—the precise, point-target effector.</strong> The engagement chain has three steps: spot lock, in which the laser must remain on the same point for several seconds without jitter; thermal accumulation, in which the target surface absorbs energy and heats, ablates, and melts; and structural failure, such as skin burn-through, battery ignition, or control-surface failure. A 20–30 kW system can bring down a small drone at 1–3 km within two to three seconds, which the original article describes as typical of current production systems. Systems above 100 kW are feasible, but size and cost limit them to shipborne or fixed installations.</p>
+
+<p>Laser limitations are physical: range falls by half or more in rain; atmospheric turbulence causes spot jitter; ablation time varies with material, such as metal versus plastic skin; and repeated firing causes overheating that requires cooling. Thermal management is the central engineering challenge in large laser systems.</p>
+
+<p><strong>HPM—the area-effect tool for clearing a zone.</strong> High-power microwave (HPM) works very differently from a laser. Electromagnetic energy enters drone electronics through the antenna—front-door coupling that directly burns out the RF front end—or through cables and gaps—back-door coupling that breaks down chips. Low power produces soft kill through communication interruption; high power produces hard kill through circuit damage.</p>
+
+<p>The fundamental distinction is that <strong>a laser is a point effect—precise but slow, engaging one target at a time—while HPM is an area effect, with one pulse covering tens to hundreds of square metres.</strong> The original article concludes that a combined laser + HPM deployment is optimal for counter-UAS: HPM clears the initial group and the laser engages survivors. Its examples are a 50-drone FPV swarm attacking an arsenal at night → combined deployment; a single reconnaissance drone in a city centre → laser, because HPM may damage civilian electronics; and a 30-drone swarm at a border post → HPM, where low population density favours an area effect.</p>
+
+<p><strong>HPM’s limitation—indiscriminate effects.</strong> Nearby phones and automotive electronics may also be damaged, sharply limiting usability in dense urban areas. The original article says that US Super Bowl security selected laser rather than HPM because HPM in a city centre could damage tens of thousands of phones.</p>
+
+<p><strong>The economics are the strongest argument.</strong> Against 500 incoming FPV drones, the article estimates US$8 million for a missile solution, US$1 million for Phalanx, and less than US$5,000 for laser. The counter-UAS value of directed energy lies not simply in technical sophistication, but in affordability per engagement.</p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 6; <em>The War Zone</em>, “This Is The LOCUST Laser...El Paso” (original operational case); a Chinese monograph on new-domain and new-quality operational theory, chapter on directed-energy weapons; Epirus Leonidas.</p>
+<p><em>Note: This section uses the analytical framework of a Chinese academic monograph on new-domain and new-quality operations. Public data on overseas operational deployment of directed-energy systems still comes mainly from disclosed US military tests and Israel’s Iron Beam. No public record yet documents actual HPM engagements against large swarms.</em></p>
+
+<h3>6.4 Net Capture and Physical Interception: The Last Line of Defence</h3>
+
+<p>When electronic methods fail—because of autonomous flight, zero RF emissions, or unbreakable encryption—or should not be used near places such as airports and hospitals, physical interception is the remaining option. It is not the primary method but the fallback: the original article argues that electronic means should be tried first in more than 80% of counter-UAS missions.</p>
+
+<p><strong>Net capture—the only method that preserves the evidence intact.</strong> A larger drone or launcher fires a net that wraps around and captures the target. Effective range is 10–50 m and reported success rate is 30%–70%. Its unique advantage is preserving the drone intact as evidence, making it irreplaceable in law-enforcement investigations. Limitations include extremely short range, near-impossibility against high-speed FPV targets, reduced flight performance for a net-carrying drone, and secondary hazards in urban environments.</p>
+
+<p><strong>FPV intercepting FPV—a trend change on the Russia–Ukraine battlefield.</strong> What was experimental in 2023 became a routine tactic in 2025–2026. Both sides now mass-produce dedicated interceptor drones costing less than US$500 each, with reported success rates of 60%–80% that depend heavily on operator skill. Aerial drone-to-drone combat has become routine on the front, changing the logic of counter-UAS equipment: it is no longer solely a contest between ground systems; counter-UAS itself is becoming a form of “attritional aerial combat.”</p>
+
+<p><strong>Counter-drone ammunition—the most direct solution.</strong> The progression given is 12-gauge shotgun rounds at 30–50 m → low-velocity 40 mm airburst at 50–200 m → sniper rifles at 100–300 m. US-made DroneMunition is described as a dedicated 12-gauge round containing entangling fibres and impact projectiles. SkyNet is described as a low-velocity 40 mm airburst screen. Limitations include very low hit probability against high-speed targets, lethal debris risk, and bullet over-penetration.</p>
+
+<p><strong>Physical disruption of optical links—rotating barbed-wire barriers, a new direction in 2025–2026.</strong> Rotating barbed wire deployed on the Ukrainian front presents a new physical-layer response to fibre-optic FPV drones. It uses no detection, jamming, or electromagnetic transmission; it physically severs a 0.25 mm G.657.A2 single-mode fibre. The described structure consists of 100–150 m of straightened barbed wire suspended on wooden posts every 20–30 m, with a battery and timer at one end and a twisting tension mechanism at the other. It rotates for one minute and stops for one minute, with one battery lasting about 12 hours. The four-step link-break sequence is contact → entanglement → fibre breakage → loss of control and crash.</p>
+
+<p><strong>The key difference from other physical interception methods:</strong> it does not try to hit the aircraft or fill the air with projectiles. It waits for the fibre from an FPV drone to catch itself on the rotating barrier. The attacker uses fibre to become immune to RF interference; the defender uses a battery, wooden posts, and barbed wire to restore an asymmetric advantage at the physical layer. The limitations are clear: coverage is limited to 150 m per section; the pilot can fly around it; severing the fibre does not eliminate all damage because momentum may still carry the drone into a target; and the barrier itself reveals the defender’s operating area. Militarnyi’s assessment is quoted as: “It cannot provide a complete seal along the entire front line, but it can reduce attacks on rear supply routes and troop rotations.”</p>
+
+<p><strong>Cost-effectiveness ranking for physical interception:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Method</th><th>Cost per use</th><th>Effective range</th><th>Success rate</th><th>Targets covered per use</th><th>Suitable scenario</th><th>Overall rating</th></tr></thead>
+  <tbody>
+    <tr><td>Rotating barbed-wire barrier (material cost)</td><td><strong>US$100–200</strong></td><td>150 m/section</td><td>40%–60% (depends on deployment quality)</td><td>Multiple, passively</td><td>Fibre-optic FPV corridors / supply routes</td><td>★★★★</td></tr>
+    <tr><td>FPV interceptor drone</td><td><strong>US$300–500 each</strong></td><td>1–3 km</td><td>60%–80%</td><td>1 per sortie; reusable sorties possible</td><td>Low and medium altitude / open areas</td><td>★★★★</td></tr>
+    <tr><td>Net capture (launcher)</td><td><strong>US$200–500 per shot</strong></td><td>10–50 m</td><td>30%–70%</td><td>1 per use</td><td>Law-enforcement evidence / cities</td><td>★★★</td></tr>
+    <tr><td>AHEAD airburst (30 mm)</td><td><strong>US$500–2,000 per round</strong></td><td>1–3 km</td><td>60%–85%</td><td>1–3 per use (airburst coverage)</td><td>Open areas / defence of key sites</td><td>★★★</td></tr>
+    <tr><td>Dedicated counter-UAS ammunition (40 mm / 12 gauge)</td><td><strong>US$50–300 per round</strong></td><td>30–200 m</td><td>30%–50%</td><td>1 per use</td><td>Terminal close defence</td><td>★★★</td></tr>
+    <tr><td>Iron Beam / HPM (electricity per use)</td><td><strong>US$3–50 per use</strong></td><td>0.5–10 km</td><td>70%–90%</td><td>1–50, depending on system</td><td>All-weather / weather-limited, depending on method</td><td>★★★★→★★★★★</td></tr>
+    <tr><td>Iron Dome Tamir (comparison only)</td><td>US$40,000–50,000 per round</td><td>4–70 km</td><td>85%–95%</td><td>1 per use</td><td><strong>Not physical interception; cost shown only for comparison</strong></td><td>—</td></tr>
+    <tr><td>Shotgun / rifle</td><td><strong>US$5–50 per round</strong></td><td>10–100 m</td><td>&lt;30%</td><td>1 per use</td><td>Emergency / no equipment available</td><td>★★</td></tr>
+    <tr><td>Specialised vehicle-mounted rope net</td><td><strong>US$5,000–50,000 per set</strong></td><td>5–50 m</td><td>60%–85%</td><td>1 per use</td><td>VIP / fixed-point protection</td><td>★★</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 6; DroneMunition; Rheinmetall AHEAD product material; Fortem TrueView; <em>The War Zone</em> reporting on Iron Beam; Militarnyi; public vendor specifications. Net-capture and FPV-interception data come mainly from Russia–Ukraine battlefield OSINT. Rotating-barrier data comes from exclusive Militarnyi reporting and Ramzai battlefield video.</p>
+
+<p><strong>Interpretation.</strong> The conventionally “cheapest” method—a shotgun round at US$5–50—has the lowest cost-effectiveness because a success rate below 30% means the true interception cost may be more than three times the nominal cost: bringing down one drone may require three to ten shots. Rotating barriers and FPV interceptor drones cost more per use but have substantially higher success rates, producing better overall cost-effectiveness. Iron Beam and HPM have an absolute advantage in per-use cost and coverage, but weather and range limitations prevent them from fully replacing physical interception. <strong>The best configuration is layered: low-cost laser/HPM as the first layer against 80% of threats, and physical interception as the second layer against the remaining 20%.</strong></p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 6, kinetic-interception section; Russian counter-UAS manual, chapter on physical countermeasures; OSINT on drone-to-drone combat in the Russia–Ukraine war; DroneMunition; Fortem TrueView; Militarnyi, “Russians Discover Ukrainian Solution to Fiber-Optic Drones,” September 30, 2025; original Ramzai Telegram video.</p>
+<p><em>Note: Public overseas data on net capture and FPV interception is limited. This field relies mainly on vendor-reported specifications and Russia–Ukraine battlefield OSINT. Rotating-barrier data comes from exclusive Militarnyi reporting and Ramzai video and has not been independently verified by a third party.</em></p>
+
+<h3>6.4.1 Fibre-Optic Guidance: A Generational Threat to Counter-UAS Systems</h3>
+
+<p>Before 2024, a core counter-UAS assumption was that “a drone must transmit a radio signal in order to fly.” RF detection and RF jamming were the two pillars of counter-UAS. Fibre-optic guidance broke that assumption: <strong>an FPV drone that emits no radio signal, has a 40 km range, and costs US$500 reduces the entire RF counter-UAS system to zero.</strong></p>
+
+<p>This is not an incremental evolution; it is a generational break, like the digital camera replacing film or the smartphone replacing the feature phone. The old rules no longer apply.</p>
+
+<p><strong>Timeline on the attack and defence sides:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Time</th><th>Attacker: shift to fibre</th><th>Defender: evolution of responses</th></tr></thead>
+  <tbody>
+    <tr><td>2023</td><td>Radio-controlled FPV (2.4/5.8 GHz)</td><td>RF jamming remains effective ✓</td></tr>
+    <tr><td>2024</td><td>Russia first introduces fibre-optic guidance to FPV drones, using an ultra-thin fibre spool with roughly 10 km range</td><td>RF counter-UAS systems become completely ineffective ✕ <strong>← inflection point</strong></td></tr>
+    <tr><td>September 2025</td><td>Molniya-2 enters mass production with a 40 km fibre spool</td><td>Engineered rotating-barrier solution appears</td></tr>
+    <tr><td>2025→2026</td><td>Darts prototype (50 km) + Birds of Magyar (Ukrainian detector)</td><td>Laser fibre-detection technology from DeepStrikeTech is under test</td></tr>
+    <tr><td>2026</td><td>Mass deployment of Molniya-2 and all-weather fibre-optic FPV attacks described as “Maps are killed”</td><td>Israel’s Iron Beam records operational interceptions at US$3.50 per shot; not designed specifically for fibre-optic drones, but demonstrating laser feasibility</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Core assessment.</strong> Top-level counter-UAS design must treat the “post-RF era” as a baseline assumption. The spectrum covered in counter-UAS equipment testing and validation can no longer be limited to RF bands; it must include physical countermeasures. This affects not only equipment selection, but also training systems, procurement strategies, and the design of test facilities.</p>
+
+<p><strong>Direct implications for test-site construction:</strong></p>
+<ul>
+  <li>RF testing is no longer enough. Test facilities must add countermeasure scenarios for fibre-optic guidance.</li>
+  <li>Testing physical-interception solutions is a largely open field. No mature global experience yet exists for setting test standards for rotating barriers, lasers, capture nets, and other physical methods.</li>
+  <li>Cost-effectiveness assessment must include a “post-RF era” cost model, not just performance specifications.</li>
+</ul>
+
+<h3>Chapter 6 Summary: How to Select a Countermeasure</h3>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Method</th><th>Best scenario</th><th>Weakest scenario</th><th>Unit cost</th><th>Regulatory risk</th></tr></thead>
+  <tbody>
+    <tr><td>Navigation spoofing</td><td>Consumer drones; non-professional pilots</td><td>Autonomous visual-SLAM flight; military GPS</td><td>Low</td><td>Medium</td></tr>
+    <tr><td>Electronic jamming</td><td>Fixed-frequency / frequency-hopping drones; open environments</td><td>Encrypted + frequency-hopping + spread-spectrum systems; urban areas</td><td>Low</td><td>High</td></tr>
+    <tr><td>High-energy laser</td><td>One or a few point targets; open environment</td><td>Saturation swarm attack; rain</td><td>~US$10 per shot</td><td>Low</td></tr>
+    <tr><td>HPM</td><td>Clearing swarms in sparsely populated areas</td><td>Urban core; hospitals / airports</td><td>~US$100 per pulse</td><td>High</td></tr>
+    <tr><td>Net capture / physical</td><td>Evidence preservation; sensitive areas</td><td>High-speed FPV; large scale</td><td>~US$200–500 per use</td><td>Low</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Central logic.</strong> From navigation spoofing to electronic jamming to directed energy and physical interception, the chain moves from “soft” to “hard” and from “low cost” to “high cost.” No single method can handle every threat. A real counter-UAS design does not simply maximise the specification of one technology; it equips each link in the chain with the method best suited to the most likely threat scenario.</p>
+
+<h2>Chapter 7. AI Against AI: The Next Inflection Point for Counter-UAS</h2>
+
+<p>The detection and engagement methods discussed in the previous two chapters share one premise: a drone can be remotely controlled, spoofed, and jammed. AI is changing that premise.</p>
+<p>This chapter addresses a central question: When a drone has onboard AI and can search, identify, decide, and attack autonomously, does the traditional counter-UAS logic still work?</p>
+
+<h3>7.1 AI Fundamentally Changes Counter-UAS</h3>
+
+<p>AI is entering counter-UAS on three battlefields: perception, where AI identifies the target; decision-making, where AI assists or replaces human decisions; and countermeasures, where AI automatically selects an engagement method. These do not happen in sequence. They are unfolding simultaneously and redefining every layer of counter-UAS.</p>
+
+<p><strong>AI perception—from “seeing” to “understanding.”</strong> Conventional sensors depend on an operator looking at a screen to identify a target. Adding AI changes two things: identification time contracts from seconds to milliseconds, and identification expands from “seeing the target” to “understanding what the target is doing.” A trained CNN model can reportedly identify a specific drone model—M30 vs. Mavic 3 vs. FPV—from radar returns within 18 milliseconds while predicting whether its flight intent is reconnaissance or attack.</p>
+
+<p>AI perception still has the physical limits described in Section 5.2: too few pixels make identification impossible; an unseen model requires retraining; and accuracy falls against an urban background.</p>
+
+<p><strong>AI decision-making—the calm actor in a flood of information.</strong> Without AI, five drones appear at once: the operator spends two seconds watching the display, assesses the first drone, hesitates over the second through fifth, and loses the engagement window. With AI, a complete ranking and recommended response appear in 0.1 seconds for operator confirmation. Against a 100-drone swarm, the unaided operator is overloaded; with AI, the system automatically groups targets, assigns priorities, and processes them in parallel.</p>
+
+<p>The value of AI decision support is most visible in swarm scenarios. The original article cites cognitive-science research indicating that human operators achieve about 70% decision accuracy when five targets appear simultaneously, compared with more than 95% when assisted by AI.</p>
+
+<p><strong>AI countermeasures—the learning flywheel.</strong> A newly modified drone appears → the existing AI model fails to recognise it or performs poorly → analysts review and label new data → the model receives incremental training → the updated model is deployed to the counter-UAS system → the next encounter with the same class is handled effectively. <strong>The key is that a counter-UAS system must “get smarter with every engagement,” rather than remain forever at its factory software version.</strong></p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 4 (AI perception and decision-performance data); DARPA OFFSET AI module report; papers on YOLOv8/Detectron2 drone detection.</p>
+
+<h3>7.2 FPV: The “Nightmare” for Counter-UAS</h3>
+
+<p><strong>The 2026 baseline: more than seven million units per year.</strong> This is not a forecast, but an annual plan already announced by Ukraine’s Ministry of Defence. Production went from 800,000 units in 2023 → 2.2 million in 2024 → 4 million in 2025 → a planned 7 million in 2026, while actual capacity reportedly already exceeds 8 million per year. FPV output is doubling every 12 months [sources: <em>Euromaidan Press</em>, January 26, 2026; dedicated FPV report by Ukraine’s National Security and Defence Council, February 2026]. Behind this capacity is a complete industrial ecosystem of 450 manufacturers, 160 dedicated FPV plants, and 40–50 leading suppliers [source: interview with Zelenskyy, 2026]. During the same period, annual US military-drone output was only 100,000 [source: <em>Bloomberg</em>, citing <em>Euromaidan Press</em>, January 26, 2026]. At the strategic level, the global “balance of production capacity” for drones is shifting toward an asymmetric-warfare model.</p>
+
+<p>Even before widespread AI adoption, FPV racing drones created the greatest difficulty for conventional counter-UAS. FPV is not an ordinary drone; it challenges all four assumptions underpinning the traditional system:</p>
+<ul>
+  <li>“Drones fly slowly, so the interception window is long” → FPV at 160 km/h compresses the window from 15 seconds to under four seconds.</li>
+  <li>“Drones hover or fly slowly, so radar can lock them easily” → FPV flies fast and low and may be filtered out with radar clutter.</li>
+  <li>“Drone control signals follow detectable patterns” → FPV frequencies can be changed among 2.4 GHz, 5.8 GHz, and 900 MHz, while control protocols can be encrypted.</li>
+  <li>“Drones can be GPS-spoofed” → many FPV drones do not depend on GPS; control remains with the pilot rather than the navigation system.</li>
+</ul>
+
+<p><strong>FPV’s tactical flexibility is difficult to counter.</strong> Start with a basic US$500 FPV racing drone, then add a 3D-printed release rack, a small grenade, encrypted frequency-hopping video transmission, and a front camera tilted more than 30° for dive aiming. The modified result is a US$800–1,500 “tactical attack aircraft.” FPV drones have evolved into six roles in the Russia–Ukraine war: precision strike, munition drop, reconnaissance and targeting support, swarm saturation, decoy operations intended to exhaust defensive resources, and communications relay.</p>
+
+<p><strong>Four bottlenecks in countering FPV:</strong> (1) difficult detection—a carbon-fibre, low-altitude, high-speed small target has an extremely weak return mixed with ground clutter; (2) little identification time—from detection to target arrival is under 10 seconds in a city and under 20 seconds in open terrain; (3) high hard-kill cost—a laser shot at roughly US$10 versus an FPV drone at roughly US$800 looks favourable, but a ten-drone attack arrives together while the laser engages one at a time; and (4) jamming may fail—encrypted bands, frequency hopping, and GPS-independent hovering may mean the jammer disrupts only the video link while the pilot continues flying blind.</p>
+
+<p><strong>Key countermeasure concept—locate the pilot instead of chasing the drone.</strong> The FPV operator is the most vulnerable link in the system. Operating near the front, within 1 km, produces low latency and precise control, but exposes the operator to counter-UAS teams and artillery. Rather than chase the FPV drone, defenders can use RF direction finding, reverse analysis of the flight path, and visual search to locate the operator.</p>
+
+<p><strong>Assessment of six FPV countermeasure directions:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Direction</th><th>Principle</th><th>Effective scenario</th><th>Weakness / limitation</th><th>Maturity</th><th>Overall rating</th></tr></thead>
+  <tbody>
+    <tr><td>Directional RF jamming</td><td>Narrow beam suppresses the FPV band</td><td>Fixed-band FPV in open terrain</td><td>Uncertain effect against frequency hopping / encryption; severe urban multipath</td><td>Mature</td><td>★★★</td></tr>
+    <tr><td>Omnidirectional RF suppression</td><td>360° coverage across all bands</td><td>Simultaneous disruption of multiple targets in the field</td><td>Severely affects friendly communications; electromagnetic pollution; very high regulatory risk</td><td>Mature</td><td>★★★★</td></tr>
+    <tr><td>Laser hard kill</td><td>High-energy laser damages FPV electronics or structure</td><td>Precise engagement of one target in clear weather</td><td>Struggles against swarms because each target takes several seconds; ineffective in rain</td><td>Production</td><td>★★★</td></tr>
+    <tr><td>AI-enabled automated engagement system</td><td>AI identification + automatic tracking + high-speed engagement chain</td><td>High-speed FPV interception and multi-target ranking</td><td>Depends on sensor quality and model accuracy; vulnerable to adversarial examples</td><td>Test → production</td><td>★★★★</td></tr>
+    <tr><td>FPV hunter (FPV vs. FPV)</td><td>Dedicated interceptor FPV engages in aerial combat</td><td>Low- and medium-speed FPV in open terrain</td><td>Operator-dependent; difficult against high-speed FPV; 60%–80% reported success</td><td>Operational</td><td>★★★</td></tr>
+    <tr><td><strong>Physical disruption of optical links (rotating barrier)</strong></td><td>Rotating barbed wire severs the cable of a fibre-optic FPV drone</td><td>Fibre-optic FPV corridors, supply routes, and chokepoints</td><td>Section-level coverage of 150 m; pilots can bypass it; route must be anticipated</td><td>Front-line operational use</td><td>★★★★</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Key assessment.</strong> No single direction can handle all FPV threats. Methods should be combined according to threat characteristics. For radio-controlled FPV drones, the article prioritises AI-enabled automated engagement systems plus directional jamming. For fibre-optic FPV drones, it describes the rotating barrier as the only currently available physical-layer response.</p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 2; Russia–Ukraine battlefield FPV OSINT compilation; USMC FPV threat-assessment report; AGI analysis of FPV threat evolution.</p>
+<p><em>Note: FPV market and interception-rate data comes mainly from Russia–Ukraine battlefield OSINT. Public statistics for the civilian market are lacking.</em></p>
+
+<h3>7.3 Swarms: The Ultimate Stress Test from “One-to-One” to “One-to-Many”</h3>
+
+<p><strong>The cost-exchange ratio has moved from a “problem” to a state of “collapse.”</strong> If Ukraine can produce seven million FPV drones per year at a factory price of US$300–500 each, while one Iron Dome Tamir interceptor costs US$40,000–50,000, the budget for one interceptor can buy 80–167 FPV drones. Iron Beam at US$3 per shot changes the economic model on paper, but weather, range, and target-hardening constraints prevent continuous all-weather coverage. When a single swarm attack can use 50–100 expendable US$500 drones, conventional air defence must either accept an uneconomic interception or accept penetration [sources: CNAS 2025 counter-swarm report; Center for Eastern Studies estimate, January 2026].</p>
+
+<p>FPV is a challenge at a single “point.” A swarm is a challenge to the entire “system.”</p>
+
+<p>Technical characteristics of a swarm: numerical advantage with 10–100+ coordinated aircraft → autonomous coordination, with drones sharing situational awareness instead of each requiring a human pilot → distribution, with no single point of failure and the loss of one aircraft not affecting the whole → adaptation, with formation and route adjusted to battlefield feedback → synchronisation, with multiple aircraft completing the attack in the same time window to saturate defences.</p>
+
+<p><strong>Three levels of swarm:</strong> L1 manual swarm—multiple aircraft reach the same target according to pre-set programs; low technical difficulty and already used operationally by both the Houthis and in the Russia–Ukraine war → L2 semi-autonomous swarm—shared position and target data with automatic task allocation; medium difficulty and under test → L3 fully autonomous swarm—AI makes its own decisions through reconnaissance → grouping → attack → assessment; high difficulty and at demonstration stage.</p>
+
+<p><strong>Among five classic tactics, the most dangerous is “electromagnetically silent penetration.”</strong> The swarm remains under complete radio silence after take-off: it transmits no control signal and exchanges no data, flying only by pre-set GPS waypoints. At the target area, its sensors activate to confirm the target, communications are decrypted instantly, and the aircraft synchronise their attack within a short window. They then return to silence. <strong>RF detection fails completely; while it emits nothing, the swarm is indistinguishable from empty air to an RF sensor.</strong></p>
+
+<p><strong>Three failure points a swarm creates in a counter-UAS system:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Failure point</th><th>Mechanism</th><th>Consequence</th></tr></thead>
+  <tbody>
+    <tr><td>Sensor-channel saturation</td><td>Tracking 1–2 targets vs. 30–50 appearing simultaneously</td><td>Tracker reaches capacity → many targets cannot be locked</td></tr>
+    <tr><td>Effector-channel saturation</td><td>1–2 hard-kill / jamming channels vs. more targets than channels</td><td>Some targets pass without any countermeasure</td></tr>
+    <tr><td>Decision-channel saturation</td><td>Operator handles 1–2 threats vs. simultaneous decisions on many targets</td><td>Cognitive overload → operator cannot set priorities</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Failure curve of conventional counter-UAS against a swarm.</strong> A degree of effectiveness can be maintained against five to eight drones, but the interception rate falls rapidly above ten, according to US military test data cited by the article. <strong>This is not merely a quantitative change; it is qualitative.</strong> Attack patterns become unpredictable; each countermeasure round must address ten aircraft, causing cost to surge; and every swarm target is expendable, invalidating the traditional priority of engaging the highest-value target.</p>
+
+<p><strong>Assessment of six counter-swarm approaches:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Approach</th><th>Effect</th><th>Coverage per use</th><th>Effective range</th><th>Core limitation</th><th>Maturity</th><th>Overall rating</th></tr></thead>
+  <tbody>
+    <tr><td>HPM</td><td>Area effect: electromagnetic pulse damages electronics</td><td>10–50 aircraft</td><td>~500–1,000 m</td><td>Indiscriminate damage to nearby electronics; miniaturisation remains difficult</td><td>Production</td><td>★★★★</td></tr>
+    <tr><td>Sequential high-power laser engagement</td><td>Point effect: burns through aircraft one by one</td><td>1 per engagement</td><td>1–3 km</td><td>Several seconds per aircraft; cannot keep up above ten; ineffective in rain</td><td>Production</td><td>★★★</td></tr>
+    <tr><td>Omnidirectional RF suppression</td><td>Area coverage: electromagnetic disruption of communication / navigation</td><td>All directions</td><td>1–5 km</td><td>Severely affects friendly communications and electronics; ineffective against autonomous swarms</td><td>Mature</td><td>★★★</td></tr>
+    <tr><td>Autonomous AI hunter drone</td><td>Point effect: AI search + interception</td><td>1 interceptor per target</td><td>Within line of sight</td><td>Immature; too few interceptors once swarm scale creates a qualitative change</td><td>Test</td><td>★★★</td></tr>
+    <tr><td>Cyberattack / GPS spoofing</td><td>Soft kill: false-data injection / navigation takeover</td><td>Depends on spoofing power</td><td>500 m–5 km</td><td>Ineffective against radio-silent or visual-SLAM autonomous swarms</td><td>Test</td><td>★★★</td></tr>
+    <tr><td>Physical interception net</td><td>Mechanical interception with balloon or launched net</td><td>Extremely limited</td><td>10–50 m</td><td>Swarms can bypass it; minimal coverage per use; high cost</td><td>Mature</td><td>★★</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Core counter-swarm principles:</strong> (1) disrupt the swarm before it reaches the “saturation-attack point,” because breaking its formation or communications en route is simpler than terminal interception; (2) attack the swarm’s “brain” rather than every “brain cell,” using jamming, spoofing, or false-data injection against internal swarm communications; (3) reverse the numerical disadvantage with low-cost interceptors or jammers that cover an attack sector rather than requiring precise one-for-one engagements; and (4) treat counter-swarm as a “system-design problem,” not an “equipment problem,” redesigning the full chain of sensors → decisions → weapons → communications → training.</p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 3; US Department of Defense report on drone-swarm strategy; DARPA OFFSET programme; publicly available Chinese research papers on military drone swarms.</p>
+<p><em>Note: No actual large-scale swarm engagement has been disclosed publicly. HPM counter-swarm test data comes mainly from US military laboratory reports.</em></p>
+
+<h3>7.4 The World’s First Fully Autonomous AI Kill: A Watershed</h3>
+
+<p>In June 2026, <em>New Scientist</em> exclusively disclosed what the original article describes as a pivotal event: <strong>the Ukrainian military reportedly conducted the world’s first operational test in which fully autonomous AI drones killed human targets in 2024.</strong></p>
+
+<p>Ten AI “Terminator” quadcopters reportedly flew 3–5 km to the front after take-off, where onboard AI took complete control: autonomous search → identification → lock-on → kill, with no human intervention at any stage. There was no live video feed, and operators could not see the imagery, send commands, or abort the attack. The article attributes the account to Oleksandr Kokhanovskyi, described as a Ukrainian drone manufacturer or technology supplier, speaking to <em>New Scientist</em> on June 10, 2026.</p>
+
+<p><strong>What this means: “human in the loop” has been completely broken.</strong> For the first time, AI held the “authority to fire.” A counter-UAS system no longer faces only a “remotely controlled drone,” but an “autonomous AI drone.” Conventional electronic-warfare disruption may fail against a fully autonomous AI system because severing communications does not interrupt its decision chain. <strong>The central counter-UAS challenge escalates from “can the system identify the target?” to “can it prevail in AI-versus-AI confrontation?”</strong></p>
+
+<p>This is not a future problem, the article argues, but an event that has already occurred. Every counter-UAS system must now consider how to oppose autonomous AI drones. The adversary’s AI does not depend on remote control, GPS, or video transmission. Every decision occurs on the onboard chip, beyond the reach of ground-based control takeover.</p>
+
+<h3>7.5 Intelligent Countermeasure Decision Engine: The “Brain” of Counter-UAS</h3>
+
+<p>If the sensors are the system’s “eyes” and the jammer its “fist,” the decision engine is its “brain.” No matter how clearly the sensors see or how powerful the jammer is, a slow or incorrect decision nullifies everything.</p>
+
+<p><strong>The information-flood problem.</strong> In one minute, a medium-sized counter-UAS system may receive 60–120 radar tracks, numerous EO/IR video frames, more than ten RF signals, acoustic signals, and multiple legitimate flight plans from an airspace-management system. Five sensors each produce dozens of data points per second, all watched by one operator: information overload. <strong>The decision engine solves the problem of fusing, ranking, recommending, and outputting all of that data.</strong></p>
+
+<p><strong>Four-layer architecture:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Layer</th><th>Function</th><th>Timing requirement</th></tr></thead>
+  <tbody>
+    <tr><td>L1 Data-ingestion layer</td><td>Receive raw sensor data → standardise → align timestamps</td><td>Real time (&lt;10 ms)</td></tr>
+    <tr><td>L2 Threat-assessment layer</td><td>Target classification + behaviour analysis + threat modelling → threat score for each target</td><td>Sub-second (&lt;100 ms)</td></tr>
+    <tr><td>L3 Decision-recommendation layer</td><td>Rule base + AI model → recommended course of action</td><td>Seconds (&lt;2 s)</td></tr>
+    <tr><td>L4 Execution-control layer</td><td>Issue commands to countermeasure equipment + monitor effects</td><td>Real time (&lt;50 ms)</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Threat-assessment model—weighted scoring formula:</strong></p>
+<p>Threat score = W1 × target-type score + W2 × distance score + W3 × speed score + W4 × heading score + W5 × behavioural-anomaly score + W6 × environmental-sensitivity score</p>
+
+<p><strong>Factor weights and scoring rules:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Factor</th><th>Weight</th><th>1 point: low</th><th>5 points: medium</th><th>10 points: high</th></tr></thead>
+  <tbody>
+    <tr><td>Target type (W1)</td><td>0.25</td><td>Legally registered aircraft on a known route</td><td>Unknown identity but no attack configuration, such as DJI Mavic</td><td>Modified payload carrier / FPV / swarm lead aircraft</td></tr>
+    <tr><td>Distance (W2)</td><td>0.20</td><td>&gt;10 km</td><td>3–10 km</td><td>&lt;3 km and approaching the protected-area boundary</td></tr>
+    <tr><td>Speed (W3)</td><td>0.15</td><td>&lt;5 m/s, hovering or slow flight</td><td>5–15 m/s, cruise speed</td><td>&gt;15 m/s, FPV attack speed</td></tr>
+    <tr><td>Heading (W4)</td><td>0.15</td><td>Moving away from protected area</td><td>Tangential course</td><td>Directly toward protected area / critical facility</td></tr>
+    <tr><td>Behavioural anomaly (W5)</td><td>0.15</td><td>Stable, straight flight</td><td>Minor route deviation / abnormal altitude</td><td>Loitering reconnaissance / sudden acceleration / dive / electromagnetic silence</td></tr>
+    <tr><td>Environmental sensitivity (W6)</td><td>0.10</td><td>Open, unpopulated area</td><td>Residential / ordinary commercial area</td><td>Airport / nuclear plant / large event / government facility</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Scoring example—a DJI Mavic flying directly toward an airport runway:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Factor</th><th>Observed value</th><th>Score</th><th>Weighted score</th></tr></thead>
+  <tbody>
+    <tr><td>Target type</td><td>Unregistered DJI Mavic</td><td>3</td><td>3 × 0.25 = 0.75</td></tr>
+    <tr><td>Distance</td><td>2 km from runway</td><td>8</td><td>8 × 0.20 = 1.60</td></tr>
+    <tr><td>Speed</td><td>10 m/s, cruise</td><td>5</td><td>5 × 0.15 = 0.75</td></tr>
+    <tr><td>Heading</td><td>Directly toward Runway 05L</td><td>10</td><td>10 × 0.15 = 1.50</td></tr>
+    <tr><td>Behavioural anomaly</td><td>Descending; suspected reconnaissance</td><td>3</td><td>3 × 0.15 = 0.45</td></tr>
+    <tr><td>Environmental sensitivity</td><td>Hub airport</td><td>10</td><td>10 × 0.10 = 1.00</td></tr>
+    <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>6.05 → high threat</strong></td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Score interpretation:</strong> above 5 → high threat, immediate response required; 3–5 → medium threat, human confirmation or escalated monitoring required; below 3 → low threat, continue monitoring and mark for verification.</p>
+
+<p><strong>Three human–machine interaction modes:</strong></p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Mode</th><th>Decision-maker</th><th>Executor</th><th>Suitable scenario</th><th>Legal prerequisite</th></tr></thead>
+  <tbody>
+    <tr><td>Manual</td><td>Human operator</td><td>Human operator</td><td>Complex scene / unknown target / first engagement</td><td>Fully compliant</td></tr>
+    <tr><td>Semi-automatic</td><td>AI recommendation + human confirmation</td><td>AI</td><td>Routine patrol / conventional threat / medium density</td><td>Operator retains veto over AI recommendation</td></tr>
+    <tr><td>Fully automatic</td><td>AI decision + execution</td><td>AI</td><td>Dense swarm / emergency / time window too short for human reaction</td><td>Explicit legal authority + human emergency-stop mechanism</td></tr>
+  </tbody>
+</table></div>
+
+<p><strong>Five mandatory prerequisites before authorising fully automatic mode:</strong> (1) legal authority—clear regulation or an approved plan permits fully automatic countermeasures; (2) scenario limitation—the trigger is confined to a defined situation, such as a confirmed swarm attack within &lt;x metres of the protected target; (3) locked rules—fully automatic mode is restricted to electronic jamming and cannot use hard kill, under a whitelist constraint; (4) human interruption—the AI stops immediately whenever the operator presses the stop button; and (5) audit trail—every decision and action is recorded in full. <em>The source contains the placeholder “&lt;x metres” and does not supply a number.</em></p>
+
+<p><strong>Key performance data:</strong> AI automatic threat-ranking accuracy &gt;95% in test data; end-to-end latency from detection to recommendation &lt;2 s in vendor data; processing capacity in swarm scenarios &gt;100 targets/s in DARPA OFFSET; and a 3–5× improvement in operator decision speed in semi-automatic mode, according to JAPCC.</p>
+
+<p><strong>Sources:</strong> JAPCC, Chapter 4; DARPA OFFSET AI module report; technical material on Israeli AI counter-UAS systems; US military C-RAM decision-support cases; counter-UAS command-and-control system architecture documents.</p>
+<p><em>Note: Deployment cases for counter-UAS command-and-control systems come mainly from public US and NATO material.</em></p>
+
+<h3>7.6 AI Counter-UAS: Three Major Obstacles and the End-State Assessment</h3>
+
+<p>AI is not a silver bullet. Its weaknesses become clearer under closer examination.</p>
+
+<p><strong>First obstacle: false alarms.</strong> AI can only reduce false alarms from “extremely high” to “acceptable,” not to zero. Examples include bird flocks classified as drones, balloons and windborne objects classified as drones, missed detections in extreme weather, and low-flying helicopters or light aircraft classified as drones in airport environments. The original text says multimodal fusion can keep the false-alarm rate within a range ending at 5%, but the lower bound is missing from the source. It describes this as JAPCC best practice.</p>
+
+<p><strong>Second obstacle: adversarial attack.</strong> Examples include visual adversarial patterns that prevent AI recognition; RF camouflage that moves a control signal into bands not normally used by drones; radar-stealth design; and deceptive signals that imitate a drone and cause the counter-UAS system to track a false target. This is not science fiction: adversarial examples in image recognition have been shown to evade YOLOv8 detection consistently and reduce accuracy below 30%.</p>
+
+<p><strong>Third obstacle: data freshness.</strong> New models always appear before they enter the database. Counter-UAS AI is therefore always fighting with an “information delay.”</p>
+
+<p><strong>End-state assessment—AI vs. AI is not a compute race, but a data-operations contest.</strong> Whoever has the more complete and current dataset of drone signatures wins. The decisive capability of a counter-UAS system does not lie in laser power or radar range, but in having “more data, faster iteration, and a stronger closed loop.” Every engagement expands the dataset; every false alarm is an opportunity to correct the model. The system must “get smarter with every engagement,” rather than remain forever at its factory version.</p>
+
+<h2>Part II Summary: The Central Contradiction in Counter-UAS</h2>
+
+<p>From detection through engagement to AI, the three chapters in Part II define the technical boundaries of counter-UAS. There is one central contradiction: <strong>the attacker’s technology-iteration cycle is getting shorter while the defender’s equipment-deployment cycle is getting longer.</strong></p>
+
+<p>FPV took less than 18 months to evolve from a consumer toy into a battlefield weapon. Swarms moved from laboratory concept to tactical application in three years. Autonomous AI killing moved from idea to operational use in only one year. Yet selecting, tendering, deploying, and training on a counter-UAS system commonly takes more than two years.</p>
+
+<p>This requires a fundamental change in counter-UAS design logic. Organisations can no longer expect to “buy one system and use it for ten years.” They need continuously updatable infrastructure in which sensors, AI models, decision engines, and countermeasure equipment are decoupled and can be upgraded independently. This is why software-defined systems, open architecture, and continuous data-based learning recur throughout the white-paper series. They are not mere technical preferences; they are directions imposed by operational pressure.</p>
+
+<p><em>Translation source: 海外低空安全 (Overseas Low-Altitude Security), “Overseas Low-Altitude Security: Current State and Development Trends · Part II,” July 15, 2026. Translation prepared for publication by N-TET.</em></p>

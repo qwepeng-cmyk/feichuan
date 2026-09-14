@@ -1,119 +1,76 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { createRequire } from 'node:module';
+import { isCuasIndexableRow } from './cuas-indexability.mjs';
+
+const publicCatalogPolicy = JSON.parse(
+  readFileSync(join(process.cwd(), 'src', 'config', 'publicCatalogPolicy.json'), 'utf8'),
+);
+const hiddenProductHandles = new Set(publicCatalogPolicy.hiddenProductHandles || []);
+const hiddenSolutionHandles = new Set(publicCatalogPolicy.hiddenSolutionHandles || []);
+const hiddenMediaHandles = new Set(publicCatalogPolicy.hiddenMediaHandles || []);
+const passiveDetectionProductHandles = new Set(publicCatalogPolicy.passiveDetectionProductHandles || []);
 
 const require = createRequire(import.meta.url);
 let Database = null;
+const { DatabaseSync } = require('node:sqlite');
+
+class NodeSqliteReadonlyDatabase extends DatabaseSync {
+  constructor(dbPath) {
+    super(dbPath, { readOnly: true });
+  }
+}
 
 try {
   Database = require('better-sqlite3');
 } catch {
-  const { DatabaseSync } = require('node:sqlite');
-  Database = class NodeSqliteReadonlyDatabase extends DatabaseSync {
-    constructor(dbPath) {
-      super(dbPath, { readOnly: true });
-    }
-  };
+  Database = NodeSqliteReadonlyDatabase;
 }
 
-export const SITE_URL = (process.env.SITE_URL || 'https://n-tet.com').replace(/\/+$/, '');
-export const LOCALES = ['en', 'ru', 'es', 'ar'];
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  'https://n-tet.com'
+).replace(/\/+$/, '');
+export const LOCALES = ['ru'];
 
 export const CONTENT_TYPES = {
   product: {
     table: 'products',
     route: 'products',
     handleColumn: 'handle',
-    titleColumn: 'product_name_en',
-    summaryColumn: 'summary_en',
+    titleColumn: 'product_name_ru',
+    summaryColumn: 'summary_ru',
+    categoryColumn: 'category_primary',
   },
   solution: {
     table: 'solutions',
     route: 'solutions',
     handleColumn: 'handle',
-    titleColumn: 'product_name_en',
-    summaryColumn: 'summary_en',
+    titleColumn: 'product_name_ru',
+    summaryColumn: 'summary_ru',
+    categoryColumn: 'category_id',
   },
   case: {
     table: 'cases',
     route: 'cases',
     handleColumn: 'handle',
-    titleColumn: 'title_en',
-    summaryColumn: 'description_en',
+    titleColumn: 'title_ru',
+    summaryColumn: 'description_ru',
+    categoryColumn: 'solution_category_id',
   },
   media: {
     table: 'media',
     route: 'media',
     handleColumn: 'id',
-    titleColumn: 'title',
-    summaryColumn: 'content',
-  },
-};
-
-const BASELINE_TIERS = {
-  product: {
-    'stationary-rf-detection-system': 'neutral_seo',
-    'directional-rf-event-logging': 'neutral_seo',
-    'portable-rf-detection-case': 'neutral_seo',
-    'omni-directional-rf-event-logging': 'neutral_seo',
-    'portable-low-altitude-monitoring-event-logging-shield': 'neutral_seo',
-    'portable-low-altitude-monitoring-event-logging-shield-pro': 'neutral_seo',
-    'portable-integrated-detection-event-logging-c-uas-basic': 'neutral_seo',
-    'portable-integrated-detection-event-logging-c-uas-pro': 'neutral_seo',
-    'portable-integrated-detection-event-logging-low-altitude-monitoring-basic': 'neutral_seo',
-    'portable-integrated-detection-event-logging-pro-low-altitude-monitoring': 'neutral_seo',
-    'stationary-active-rf-defense-system': 'neutral_seo',
-    'uav-navigation-airspace-data-verification-system': 'neutral_seo',
-    'portable-active-rf-defense-system': 'neutral_seo',
-    'composite-electro-optical-tracking-system': 'neutral_seo',
-    'uav-remote-id-monitoring-system': 'neutral_seo',
-    'handheld-rf-detection-system-mini': 'neutral_seo',
-    'low-altitude-detection-radar-ku-band': 'neutral_seo',
-    'low-altitude-3d-pulse-doppler-radar': 'neutral_seo',
-    'directional-rf-jammer': 'restricted',
-    'omni-directional-rf-jammer': 'restricted',
-    'portable-anti-drone-jammer-shield': 'restricted',
-    'portable-anti-drone-jammer-shield-pro': 'restricted',
-    'portable-integrated-detection-jamming-c-uas-basic': 'restricted',
-    'portable-integrated-detection-jamming-pro-c-uas': 'restricted',
-    'uav-navigation-spoofing-system': 'restricted',
-    'handheld-integrated-sdr-c-uas': 'restricted',
-    'handheld-integrated-sdr-low-altitude-monitoring': 'restricted',
-    'handheld-integrated-multi-band-event-logging-directional-antenna-unit': 'restricted',
-    'handheld-integrated-multi-band-jammer-gun': 'restricted',
-  },
-  solution: {
-    'chemical-plant-protection': 'neutral_seo',
-    'hydroelectric-dam-protection': 'neutral_seo',
-    'oil-production-base-protection': 'neutral_seo',
-    'power-generation-facility-anti-uav': 'restricted',
-    'airport-security-protection': 'neutral_seo',
-    'judicial-sector-security': 'neutral_seo',
-    'sports-event-security': 'neutral_seo',
-    'airport-anti-uav': 'restricted',
-  },
-  case: {
-    'airport-security-application': 'neutral_seo',
-    'asian-games-security': 'neutral_seo',
-    'water-conservancy-security': 'neutral_seo',
-    'pakistan-power-plant-anti-uav': 'restricted',
-    'brazil-refinery-anti-uav': 'restricted',
-    'nigeria-factory-anti-uav': 'restricted',
-  },
-  media: {
-    'multi-sensor-cuas-architecture-2026': 'restricted',
-    'cuas-critical-infrastructure-deployment-2026': 'restricted',
-    'industrial-uav-redundancy-2026': 'neutral_seo',
-    'low-altitude-economy-2026-outlook': 'neutral_seo',
-    'tethered-uav-persistent-surveillance-2026': 'neutral_seo',
-    'border-surveillance-uav-network-2026': 'neutral_seo',
+    titleColumn: 'title_ru',
+    summaryColumn: 'content_ru',
+    categoryColumn: 'category',
   },
 };
 
 export function getDbPath() {
-  if (process.env.DATABASE_URL) {
-    return resolve(process.cwd(), process.env.DATABASE_URL);
-  }
+  if (process.env.DATABASE_URL) return resolve(process.cwd(), process.env.DATABASE_URL);
 
   const primary = join(process.cwd(), 'data', 'ntet.db');
   if (existsSync(primary)) return primary;
@@ -126,34 +83,20 @@ export function getDbPath() {
 
 export function openDb() {
   const dbPath = getDbPath();
-  if (!existsSync(dbPath)) {
-    throw new Error(`Database not found: ${dbPath}`);
-  }
-  return new Database(dbPath, { readonly: true });
-}
-
-export function getComplianceTier(db, type, handle) {
-  if (!handle) return 'normal';
-
+  if (!existsSync(dbPath)) throw new Error(`Database not found: ${dbPath}`);
   try {
-    const rule = db
-      .prepare('SELECT tier FROM compliance_content_rules WHERE content_type = ? AND handle = ?')
-      .get(type, handle);
-    if (rule?.tier && ['normal', 'neutral_seo', 'restricted'].includes(rule.tier)) {
-      return rule.tier;
-    }
+    return new Database(dbPath, { readonly: true });
   } catch {
-    // Older database snapshots may not have compliance_content_rules yet.
+    return new NodeSqliteReadonlyDatabase(dbPath);
   }
-
-  return BASELINE_TIERS[type]?.[handle] || 'normal';
 }
 
 export function getPublishedContent(db, type) {
   const config = CONTENT_TYPES[type];
   const rows = db
     .prepare(
-      `SELECT ${config.handleColumn} AS handle, ${config.titleColumn} AS title, ${config.summaryColumn} AS summary, is_published
+      `SELECT ${config.handleColumn} AS handle, ${config.titleColumn} AS title, ${config.summaryColumn} AS summary,
+              ${config.categoryColumn} AS category, is_published
        FROM ${config.table}
        WHERE COALESCE(is_published, 1) = 1
        ORDER BY title COLLATE NOCASE`
@@ -163,7 +106,6 @@ export function getPublishedContent(db, type) {
   return rows.map((row) => ({
     ...row,
     type,
-    tier: getComplianceTier(db, type, row.handle),
     route: config.route,
   }));
 }
@@ -172,9 +114,21 @@ export function getAllPublishedContent(db) {
   return Object.keys(CONTENT_TYPES).flatMap((type) => getPublishedContent(db, type));
 }
 
+export function getAllCuasIndexableContent(db) {
+  return getAllPublishedContent(db)
+    .filter(isCuasIndexableRow)
+    .filter((row) => {
+      if (row.type === 'product') {
+        return passiveDetectionProductHandles.has(row.handle) && !hiddenProductHandles.has(row.handle);
+      }
+      if (row.type === 'solution') return !hiddenSolutionHandles.has(row.handle);
+      if (row.type === 'media') return !hiddenMediaHandles.has(row.handle);
+      return true;
+    });
+}
+
 export function publicUrl(locale, route, handle) {
-  const prefix = locale === 'en' ? '' : `/${locale}`;
-  return `${SITE_URL}${prefix}/${route}/${handle}`;
+  return `${SITE_URL}/${route}/${handle}`;
 }
 
 export function stripHtml(value = '') {

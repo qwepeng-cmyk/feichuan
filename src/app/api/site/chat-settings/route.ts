@@ -5,14 +5,24 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
+    const canLoadTawk = process.env.NEXT_PUBLIC_DISABLE_TAWK !== 'true';
     const canLoadZoosnet = process.env.NEXT_PUBLIC_DISABLE_ZOOSNET !== 'true';
-    const settings = getChatSettings();
+    const settings = await getChatSettings();
+    const activeProvider =
+      settings.businessChatProvider === 'tawk' && canLoadTawk
+        ? 'tawk'
+        : settings.businessChatProvider === 'zoosnet' && canLoadZoosnet
+          ? 'zoosnet'
+          : 'none';
 
     return NextResponse.json({
       success: true,
       data: {
-        zoosnetEnabled: canLoadZoosnet && settings.zoosnetEnabled,
+        businessChatProvider: activeProvider,
+        tawkEnabled: activeProvider === 'tawk',
+        zoosnetEnabled: activeProvider === 'zoosnet',
         messageBoxEnabled: settings.messageBoxEnabled,
+        messageBoxDelayMinutes: settings.messageBoxDelayMinutes,
       },
     });
   } catch {

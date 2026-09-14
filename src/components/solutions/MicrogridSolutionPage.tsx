@@ -180,9 +180,9 @@ export default function MicrogridSolutionPage({ solution, locale, dict }: Microg
         }
 
         .mg-btn-primary {
-          background: #ff9800;
+          background: #b45309;
           color: #fff;
-          box-shadow: 0 10px 24px rgba(255, 152, 0, 0.2);
+          box-shadow: 0 10px 24px rgba(180, 83, 9, 0.24);
         }
 
         .mg-btn-secondary {

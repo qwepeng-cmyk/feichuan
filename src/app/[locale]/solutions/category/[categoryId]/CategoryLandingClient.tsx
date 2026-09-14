@@ -14,20 +14,12 @@ import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets'
 
 interface SubSolution {
   product_name: string;
-  product_name_en: string;
   product_name_ru: string;
-  product_name_es?: string;
-  product_name_ar?: string;
   summary: string;
-  summary_en: string;
   summary_ru: string;
-  summary_es?: string;
-  summary_ar?: string;
   key_parameter_1: string;
-  key_parameter_1_en: string;
   key_parameter_1_ru: string;
   key_parameter_2: string;
-  key_parameter_2_en: string;
   key_parameter_2_ru: string;
   main_image: string;
   handle: string;
