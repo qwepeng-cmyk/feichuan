@@ -94,7 +94,11 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(
-      { success: true, inquiryId },
+      {
+        success: true,
+        inquiryId,
+        notificationDisabled: process.env.DISABLE_INQUIRY_EMAIL === '1',
+      },
       { headers: { 'Cache-Control': 'no-store, no-cache, must-revalidate' } }
     );
   } catch (error) {

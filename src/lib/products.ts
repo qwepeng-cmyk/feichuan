@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import db from './db';
 import { unstable_cache } from 'next/cache';
 import { getPublicProductCategory } from './productCategory';
 import { localizedField } from './localization';
@@ -68,12 +68,11 @@ export const getAllProducts = unstable_cache(
       'perimeter-intelligence': [],
     };
 
-    const { data, error } = await supabase
-      .from('products')
-      .select('handle, product_name_en, product_name_ru, main_image, category_primary, raw_json')
-      .eq('is_published', 1);
-    if (error) throw error;
-    const rows = (data || []) as any[];
+    const rows = db.prepare(`
+      SELECT handle, product_name_en, product_name_ru, main_image, category_primary, raw_json
+      FROM products
+      WHERE COALESCE(is_published, 1) = 1
+    `).all() as any[];
 
     for (const row of rows) {
       if (isHiddenProductHandle(row.handle)) {
@@ -110,12 +109,11 @@ export const getAllProducts = unstable_cache(
 
 export const getAllProductHandles = unstable_cache(
   async () => {
-    const { data, error } = await supabase
-      .from('products')
-      .select('handle')
-      .eq('is_published', 1);
-    if (error) throw error;
-    const rows = (data || []) as any[];
+    const rows = db.prepare(`
+      SELECT handle
+      FROM products
+      WHERE COALESCE(is_published, 1) = 1
+    `).all() as any[];
     return rows
       .map(r => r.handle)
       .filter(handle => !isHiddenProductHandle(handle));
@@ -126,13 +124,11 @@ export const getAllProductHandles = unstable_cache(
 
 export const getProductByHandle = unstable_cache(
   async (handle: string) => {
-    const { data: row, error } = await supabase
-      .from('products')
-      .select('*')
-      .eq('handle', handle)
-      .eq('is_published', 1)
-      .maybeSingle();
-    if (error) throw error;
+    const row = db.prepare(`
+      SELECT *
+      FROM products
+      WHERE handle = ? AND COALESCE(is_published, 1) = 1
+    `).get(handle) as any;
     if (!row) return null;
     if (isHiddenProductHandle(handle)) return null;
     

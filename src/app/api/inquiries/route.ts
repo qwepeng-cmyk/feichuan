@@ -94,6 +94,7 @@ export async function POST(request: Request) {
                 message: 'Inquiry submitted successfully',
                 inquiryId: savedInquiry.id,
                 savedAt: savedInquiry.created_at,
+                notificationDisabled: process.env.DISABLE_INQUIRY_EMAIL === '1',
             },
             {
                 headers: {

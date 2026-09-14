@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/config/site';
-import { supabase } from '@/lib/supabase';
+import db from '@/lib/db';
 import { i18n, type Locale } from '@/i18n/config';
 import {
   defense_CATALOG_SOLUTION_HANDLES,
@@ -53,16 +53,12 @@ async function publishedHandles(type: ContentType) {
     type === 'solution' ? 'category_id' :
     type === 'case' ? 'solution_category_id' :
     'category';
-  const { data, error } = await supabase
-    .from(config.table)
-    .select(`${config.handleColumn}, ${categoryColumn}`)
-    .eq('is_published', 1)
-    .order(config.handleColumn, { ascending: true });
-  if (error) throw error;
-  const rows = ((data || []) as unknown as Array<Record<string, unknown>>).map((row) => ({
-    handle: row[config.handleColumn] as string | null | undefined,
-    category: row[categoryColumn] as string | null | undefined,
-  }));
+  const rows = db.prepare(`
+    SELECT ${config.handleColumn} AS handle, ${categoryColumn} AS category
+    FROM ${config.table}
+    WHERE COALESCE(is_published, 1) = 1
+    ORDER BY ${config.handleColumn} COLLATE NOCASE
+  `).all() as Array<{ handle?: string | null; category?: string | null }>;
 
   return rows
     .filter((row) => {

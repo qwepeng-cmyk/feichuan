@@ -15,6 +15,7 @@ const nextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   experimental: {
     cpus: 1,
+    serverComponentsExternalPackages: ['better-sqlite3'],
   },
   images: {
     unoptimized: true,

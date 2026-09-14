@@ -9,6 +9,8 @@ import JsonLd from '@/components/seo/JsonLd';
 import { pageUrl, productJsonLd } from '@/lib/structuredData';
 import { localePath } from '@/lib/localePath';
 import PrimaryContactButton from '@/components/contact/PrimaryContactButton';
+import ProductBrochureDownload from '@/components/products/ProductBrochureDownload';
+import { getProductBrochure } from '@/lib/productBrochures';
 import type { Locale } from '@/i18n/config';
 import SpecificationTable from './SpecificationTable';
 import { buildKeywordIntro, getSeoKeywordTarget } from '@/lib/seoKeywordTargets';
@@ -107,6 +109,7 @@ export default function CatalogDetailContent({
   ].filter((item): item is { label: string; value: string } => Boolean(item))
     .filter((item) => !isCategoryOverviewItem(item));
   const galleryImages = readGalleryImages(product);
+  const brochure = getProductBrochure(handle);
   const jsonLd = productJsonLd({
     locale,
     handle,
@@ -174,6 +177,15 @@ export default function CatalogDetailContent({
                         {dict.products.whatsapp}
                       </PrimaryContactButton>
                     </div>
+                    {brochure && (
+                      <div style={{ marginTop: '18px' }}>
+                        <ProductBrochureDownload
+                          productHandle={handle}
+                          productName={displayName}
+                          pageCount={brochure.pageCount}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -228,6 +240,8 @@ export default function CatalogDetailContent({
           locale={locale}
           dict={dict}
           catalogLabel={catalogLabel}
+          productHandle={handle}
+          brochurePageCount={brochure?.pageCount}
         />
       </div>
     </>

@@ -2,12 +2,22 @@
 
 ## 项目信息
 
-- **域名**: https://n-tet.com/（Cloudflare CDN → 源站 43.129.170.171）
-- **服务器**: 4GB 内存，root@43.129.170.171，项目路径 `/www/wwwroot/n-tet.com`
-- **进程管理**: PM2，应用名 `n-tet`，监听 3000 端口
-- **栈**: Next.js 14.1.0 App Router + 俄语单语（仅 `ru`，default `ru`）+ better-sqlite3
-- **目标部署平台**: Vercel + Supabase Free + Cloudflare R2 Free
-- **本地路径**: `/Users/mattchyi/Documents/Project/fc/`，Node 22，Git 远端 main
+- **当前生产域名**: https://skysafetech.ru/（Cloudflare CDN → 香港源站 43.129.170.171；规范域名会跳转到 `https://www.skysafetech.ru/`）
+- **服务器**: 4GB 内存，root@43.129.170.171，当前项目路径 `/www/wwwroot/skysafetech.ru/current`
+- **进程管理**: PM2，应用名 `skysafetech-ru`，Nginx 上游监听 3002 端口
+- **栈**: Next.js 14.1.0 App Router + 俄语单语（仅 `ru`，default `ru`）+ 香港服务器共享 `better-sqlite3`
+- **未来目标部署平台（尚未切换）**: Vercel + Supabase Free + Cloudflare R2 Free
+- **本地工作区（当前 Windows 机器）**: `D:\fc-cuas-ru`；Linux/WSL 环境如另有 checkout，以当次实际路径为准
+
+## 当前生产环境（权威，以此为准）
+
+- **截至 2026-08-26，本仓库对应的生产网站是香港服务器 `43.129.170.171` 上的 `skysafetech.ru`，不是 `n-tet.com`。**
+- 生产 Next.js 应用由香港服务器上的 PM2 管理，项目路径为 `/www/wwwroot/skysafetech.ru/current`，应用名 `skysafetech-ru`，Nginx 上游端口为 3002。
+- 同一服务器上的 `/www/wwwroot/n-tet.com`、PM2 应用 `n-tet` 和 3000 端口属于另一套独立网站；检查本项目时不得用 `n-tet.com` 的 PM2、日志或 SQLite 询盘库代替 `skysafetech.ru`。
+- **当前数据库（2026-08-26 已迁回）**：生产应用使用香港服务器共享 SQLite `/www/wwwroot/skysafetech.ru/shared/data/ntet.db`；`shared/.env.local` 通过 `DATABASE_PATH` 指向该文件，运行环境已移除 `SUPABASE_DATABASE_URL`。Supabase 仅保留为切换前的数据源和回滚备份，不是当前生产数据库。
+- 当前 release 为 `/www/wwwroot/skysafetech.ru/releases/release-20260914-182000`，`current` 软链接指向该 release。SQLite 回迁基线 release `sqlite-20260826-162716`、切换前 release `fa7d3e14dbe6cee89955e58e5f53373b6838a7ec`、环境备份和 Supabase→SQLite 最终快照均保留，可用于回滚。
+- 检查生产询盘、后台数据或提交链路时，必须以 `skysafetech.ru` 的实际应用、Nginx 日志和上述共享 SQLite 为准。轻量写入测试期间必须临时设置 `DISABLE_INQUIRY_EMAIL=1` 并重启 PM2，测试结束清理测试记录、移除该开关并再次重启；不得发送测试通知邮件。当前正常询盘邮件通知和资料下载邮件通知均已启用。
+- 下方“目标部署架构”仅是未来迁移目标。在迁移完成并由项目负责人明确确认前，不得把 Vercel、Supabase 或 R2 描述为当前生产环境。
 
 ## 俄语单语分支规范
 
@@ -16,42 +26,49 @@
 - 新增页面、Metadata、Schema、表单提示和导航默认使用俄语；不得为其他语种生成静态参数、hreflang、sitemap URL 或独立内容文件。
 - 数据模型暂时保留的历史多语言字段只用于迁移兼容，不得作为公开页面回退内容；后续迁移到 Supabase 时只迁移俄语站实际需要的字段。
 
-## 目标部署架构（重要）
+## 分析结果与翻译呈现规范
+
+- 向项目负责人提供俄语关键词、搜索查询、广告标题、广告描述、Wordstat/Yandex.Direct 结果或其他俄语素材时，必须同时给出中文和英文翻译，默认使用“俄语原文｜中文翻译｜英文翻译”的三列格式；除非项目负责人明确要求，否则不得只列俄语原文。
+- 翻译应保留技术含义、采购意图和广告语境；机器翻译或术语存在不确定性时必须明确标注，不得把不确定译文当作已确认事实。
+- 本规范只约束分析报告和对话交付格式，不改变俄语单语网站要求；不得因此在公开网站中新增中文、英文内容或语言切换器。
+
+## 未来目标部署架构（尚未启用）
 
 - **网站与 Next.js 应用**：部署到 **Vercel**。
 - **数据库**：使用 **Supabase Free Postgres**，承载产品、方案、案例、媒体、询盘、设置等结构化数据和后台写入。
 - **图片与公开静态媒体**：使用 **Cloudflare R2 Free**，不使用 Supabase Storage 承载网站图片；优先通过独立图片域名（如 `images.n-tet.com`）和 Cloudflare CDN 提供资源。
 - 迁移完成后，仓库 `public/` 仅保留构建和首屏真正必要的少量资源，不得继续提交大批产品图、案例图、视频或重复媒体文件。
 - 后续新增与改造默认以 Vercel Serverless/Edge 运行约束为准，不得依赖 PM2、常驻进程、可写本地持久磁盘或仅在单台服务器存在的绝对路径。
-- 新功能不得继续扩大 `better-sqlite3` 依赖；涉及现有 SQLite 数据与查询时，优先迁移到 Supabase Postgres。
+- 当前生产功能和数据读写必须兼容共享 `better-sqlite3`。未来迁移到 Supabase/Vercel 需要单独立项和明确授权，不得把未来架构描述成当前状态。
 - Supabase URL、Supabase 密钥、R2 Account ID、R2 Access Key、R2 Secret Key、R2 Bucket 和公开资源域名等配置统一通过 Vercel Environment Variables 管理，不得硬编码进源码或提交到 Git。
-- 下方 PM2、`.next` 上传和服务器软链接流程仅作为迁移完成前的旧源站部署说明；**Vercel + Supabase Free + Cloudflare R2 Free** 是新的目标架构。
+- 下方 PM2、`.next-hk`、release 软链接和共享 SQLite 流程是当前香港生产环境的实际部署说明；**Vercel + Supabase Free + Cloudflare R2 Free** 仅是未来目标架构。
 
-## 旧源站部署模式（迁移完成前保留）
+## 当前香港生产部署模式
 
 服务器内存只有 4GB，**不在服务器上跑 `npm run build`**（会 OOM）。流程：
 
-1. 本地 `npm run build` 产出 `.next/`
-2. `tar -czf /tmp/next-deploy.tar.gz .next/` 打包
-3. `scp` 到服务器 `/tmp/`
-4. 服务器解包覆盖 `.next/`，`pm2 restart n-tet`
+1. 本地 `npm run build`，部署构建目录在服务器命名为 `.next-hk/`
+2. 新建 `/www/wwwroot/skysafetech.ru/releases/<release-id>`，不得直接覆盖当前 release
+3. 上传构建包、`package.json`、`package-lock.json`、`next.config.js` 和所需私有资料，在新 release 执行 `npm ci --omit=dev --no-audit --no-fund`
+4. 先用备用端口验证新 release，再原子切换 `/www/wwwroot/skysafetech.ru/current` 并执行 `pm2 startOrRestart /www/wwwroot/skysafetech.ru/ecosystem.config.cjs --only skysafetech-ru --update-env`
+5. SQLite 永久数据只放在 `/www/wwwroot/skysafetech.ru/shared/data/ntet.db`，release 内不得放独立生产数据库
 
-## 服务器上必须存在的软链接
+## 服务器 release 软链接
 
-本地 build 烧入了绝对路径 `/Users/mattchyi/Documents/Project/fc/...` 到 `.next/` 内部。服务器上必须有这条软链才能找到 node_modules：
+生产入口必须是：
 
 ```bash
-ln -sfn /www/wwwroot/n-tet.com /Users/mattchyi/Documents/Project/fc
+ln -sfn /www/wwwroot/skysafetech.ru/releases/<release-id> /www/wwwroot/skysafetech.ru/current
 ```
 
-如果服务器系统重装/迁移，第一件事就是补回这条软链，否则 next-server 启动报 MODULE_NOT_FOUND。
+切换前先确认新 release 的 `.next-hk/BUILD_ID`、Linux `node_modules/better-sqlite3`、私有 PDF 和共享 SQLite 完整；不得修改同服务器的 `/www/wwwroot/n-tet.com`。
 
 ## node_modules 同步
 
 服务器 `node_modules` 必须跟当前 `package-lock.json` 对齐，否则 build 产物的 chunks 会调到不存在的导出（典型报错 `TypeError: t[e] is not a function`）。每次 `package-lock.json` 变化后：
 
 ```bash
-ssh root@43.129.170.171 "cd /www/wwwroot/n-tet.com && pm2 stop n-tet && rm -rf node_modules && npm ci --omit=dev --no-audit --no-fund && pm2 restart n-tet"
+ssh root@43.129.170.171 "cd /www/wwwroot/skysafetech.ru/current && npm ci --omit=dev --no-audit --no-fund && pm2 restart skysafetech-ru --update-env"
 ```
 
 ## 调试服务器时的坑
@@ -59,7 +76,7 @@ ssh root@43.129.170.171 "cd /www/wwwroot/n-tet.com && pm2 stop n-tet && rm -rf n
 服务器 shell 有 `http_proxy=socks5h://127.0.0.1:40000`（坏代理）。用 ssh 跑 `curl` 自检会被劫持成 30s 超时，假象是 next-server 挂了。**所有服务器内部自测必须**：
 
 ```bash
-curl --noproxy '*' http://127.0.0.1:3000/...
+curl --noproxy '*' http://127.0.0.1:3002/...
 # 或
 unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY
 ```

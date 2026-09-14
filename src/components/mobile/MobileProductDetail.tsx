@@ -8,12 +8,15 @@ import MobileInquiryForm from './MobileInquiryForm';
 import OptimizedRichText from '../common/OptimizedRichText';
 import { localePath } from '@/lib/localePath';
 import { withStaticAssetVersion } from '@/lib/assetVersion';
+import ProductBrochureDownload from '@/components/products/ProductBrochureDownload';
 
 interface ProductProps {
     product: any;
     locale: string;
     dict: any;
     catalogLabel?: string;
+    productHandle: string;
+    brochurePageCount?: number;
 }
 
 function formatSpecLine(value?: string | null, fallbackLabel?: string) {
@@ -201,7 +204,14 @@ function renderMobileSpecRows(parameters: any): React.ReactNode {
     });
 }
 
-export default function MobileProductDetail({ product, locale, dict, catalogLabel }: ProductProps) {
+export default function MobileProductDetail({
+    product,
+    locale,
+    dict,
+    catalogLabel,
+    productHandle,
+    brochurePageCount,
+}: ProductProps) {
     const basePath = '/products';
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('overview');
@@ -338,6 +348,15 @@ export default function MobileProductDetail({ product, locale, dict, catalogLabe
                 >
                     {dict.products.getQuotation}
                 </a>
+
+                {brochurePageCount && (
+                    <ProductBrochureDownload
+                        productHandle={productHandle}
+                        productName={name}
+                        pageCount={brochurePageCount}
+                        compact
+                    />
+                )}
 
                 {/* Summary */}
                 {summary && (

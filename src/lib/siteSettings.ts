@@ -1,5 +1,4 @@
 import db from './db';
-import { supabase } from './supabase';
 
 export interface TrackingSettings {
   gaMeasurementId: string;
@@ -8,8 +7,11 @@ export interface TrackingSettings {
   gtmEnabled: boolean;
 }
 
+export const BUSINESS_CHAT_PROVIDERS = ['none', 'tawk', 'zoosnet'] as const;
+export type BusinessChatProvider = (typeof BUSINESS_CHAT_PROVIDERS)[number];
+
 export interface ChatSettings {
-  zoosnetEnabled: boolean;
+  businessChatProvider: BusinessChatProvider;
   messageBoxEnabled: boolean;
   messageBoxDelayMinutes: number;
 }
@@ -22,7 +24,7 @@ const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
 };
 
 const DEFAULT_CHAT_SETTINGS: ChatSettings = {
-  zoosnetEnabled: true,
+  businessChatProvider: 'tawk',
   messageBoxEnabled: false,
   messageBoxDelayMinutes: 3,
 };
@@ -43,12 +45,9 @@ function parseInteger(value: unknown, fallback: number, min: number, max: number
 }
 
 export async function getTrackingSettings(): Promise<TrackingSettings> {
-  const { data, error } = await supabase
-    .from('site_settings')
-    .select('key, value')
-    .like('key', 'tracking.%');
-  if (error) throw error;
-  const rows = (data || []) as Array<{ key: string; value: string | null }>;
+  const rows = db.prepare(
+    "SELECT key, value FROM site_settings WHERE key LIKE 'tracking.%'"
+  ).all() as Array<{ key: string; value: string | null }>;
 
   const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 
@@ -61,7 +60,7 @@ export async function getTrackingSettings(): Promise<TrackingSettings> {
 }
 
 export async function updateTrackingSettings(settings: TrackingSettings) {
-  await db.transaction(async (transactionDb) => {
+  db.transaction((transactionDb) => {
     const update = transactionDb.prepare(`
       INSERT INTO site_settings (key, value, updated_at)
       VALUES (?, ?, CURRENT_TIMESTAMP)
@@ -69,25 +68,37 @@ export async function updateTrackingSettings(settings: TrackingSettings) {
         value = excluded.value,
         updated_at = CURRENT_TIMESTAMP
     `);
-    await update.run('tracking.gaMeasurementId', settings.gaMeasurementId.trim());
-    await update.run('tracking.gaEnabled', String(settings.gaEnabled));
-    await update.run('tracking.gtmContainerId', settings.gtmContainerId.trim());
-    await update.run('tracking.gtmEnabled', String(settings.gtmEnabled));
+    update.run('tracking.gaMeasurementId', settings.gaMeasurementId.trim());
+    update.run('tracking.gaEnabled', String(settings.gaEnabled));
+    update.run('tracking.gtmContainerId', settings.gtmContainerId.trim());
+    update.run('tracking.gtmEnabled', String(settings.gtmEnabled));
   });
 }
 
+export function isBusinessChatProvider(value: unknown): value is BusinessChatProvider {
+  return BUSINESS_CHAT_PROVIDERS.includes(value as BusinessChatProvider);
+}
+
 export async function getChatSettings(): Promise<ChatSettings> {
-  const { data, error } = await supabase
-    .from('site_settings')
-    .select('key, value')
-    .like('key', 'chat.%');
-  if (error) throw error;
-  const rows = (data || []) as Array<{ key: string; value: string | null }>;
+  const rows = db.prepare(
+    "SELECT key, value FROM site_settings WHERE key LIKE 'chat.%'"
+  ).all() as Array<{ key: string; value: string | null }>;
 
   const values = Object.fromEntries(rows.map((row) => [row.key, row.value || '']));
 
+  const legacyProvider: BusinessChatProvider = parseBoolean(values['chat.tawkEnabled'], false)
+    ? 'tawk'
+    : parseBoolean(values['chat.zoosnetEnabled'], false)
+      ? 'zoosnet'
+      : 'none';
+  const savedProvider = values['chat.businessChatProvider'];
+
   return {
-    zoosnetEnabled: parseBoolean(values['chat.zoosnetEnabled'], DEFAULT_CHAT_SETTINGS.zoosnetEnabled),
+    businessChatProvider: isBusinessChatProvider(savedProvider)
+      ? savedProvider
+      : (values['chat.tawkEnabled'] || values['chat.zoosnetEnabled'])
+        ? legacyProvider
+        : DEFAULT_CHAT_SETTINGS.businessChatProvider,
     messageBoxEnabled: parseBoolean(values['chat.messageBoxEnabled'], DEFAULT_CHAT_SETTINGS.messageBoxEnabled),
     messageBoxDelayMinutes: parseInteger(
       values['chat.messageBoxDelayMinutes'],
@@ -99,7 +110,7 @@ export async function getChatSettings(): Promise<ChatSettings> {
 }
 
 export async function updateChatSettings(settings: ChatSettings) {
-  await db.transaction(async (transactionDb) => {
+  db.transaction((transactionDb) => {
     const update = transactionDb.prepare(`
       INSERT INTO site_settings (key, value, updated_at)
       VALUES (?, ?, CURRENT_TIMESTAMP)
@@ -107,9 +118,11 @@ export async function updateChatSettings(settings: ChatSettings) {
         value = excluded.value,
         updated_at = CURRENT_TIMESTAMP
     `);
-    await update.run('chat.zoosnetEnabled', String(settings.zoosnetEnabled));
-    await update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
-    await update.run(
+    update.run('chat.businessChatProvider', settings.businessChatProvider);
+    update.run('chat.tawkEnabled', String(settings.businessChatProvider === 'tawk'));
+    update.run('chat.zoosnetEnabled', String(settings.businessChatProvider === 'zoosnet'));
+    update.run('chat.messageBoxEnabled', String(settings.messageBoxEnabled));
+    update.run(
       'chat.messageBoxDelayMinutes',
       String(parseInteger(
         settings.messageBoxDelayMinutes,

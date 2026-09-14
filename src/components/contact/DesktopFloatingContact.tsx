@@ -9,7 +9,11 @@ import { defenseText } from '@/lib/localeCopy';
 
 declare global {
   interface Window {
-    openZoosUrl?: (url?: string, data?: string) => void;
+    Tawk_API?: {
+      getStatus?: () => string;
+      maximize?: () => void;
+      showWidget?: () => void;
+    };
     LR_showminiDiv?: (islrminimin?: number, data?: string) => void;
     lrminiMax?: () => void;
     LR_HideInvite?: () => void;
@@ -29,8 +33,9 @@ const floatingCopy: Record<string, { quickContact: string; consult: string; open
 export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: string }) {
   const pathname = usePathname();
   const copy = floatingCopy[locale] || { quickContact: 'Quick contact', consult: 'Consult', openChat: 'Open business chat', leaveMessage: 'Leave Message', leaveMessageLabel: 'Leave a message', top: 'Top', topLabel: 'Back to top' };
-  const [isBusinessChatEnabled, setIsBusinessChatEnabled] = useState(false);
+  const [businessChatProvider, setBusinessChatProvider] = useState<'none' | 'tawk' | 'zoosnet'>('none');
   const [isBusinessChatOnline, setIsBusinessChatOnline] = useState(false);
+  const isBusinessChatEnabled = businessChatProvider !== 'none';
 
   useEffect(() => {
     let isMounted = true;
@@ -39,10 +44,13 @@ export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: str
       .then((res) => res.json())
       .then((json) => {
         if (!isMounted) return;
-        setIsBusinessChatEnabled(Boolean(json?.success && json?.data?.zoosnetEnabled));
+        const provider = json?.data?.businessChatProvider;
+        setBusinessChatProvider(
+          json?.success && ['none', 'tawk', 'zoosnet'].includes(provider) ? provider : 'none'
+        );
       })
       .catch(() => {
-        if (isMounted) setIsBusinessChatEnabled(false);
+        if (isMounted) setBusinessChatProvider('none');
       });
 
     return () => {
@@ -52,6 +60,16 @@ export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: str
 
   useEffect(() => {
     const updateOnlineState = () => {
+      if (businessChatProvider === 'tawk') {
+        setIsBusinessChatOnline(window.Tawk_API?.getStatus?.() === 'online');
+        return;
+      }
+
+      if (businessChatProvider !== 'zoosnet') {
+        setIsBusinessChatOnline(false);
+        return;
+      }
+
       const hasOnlineAgent = window.LiveReceptionCode_isonline === true;
       const hasRobotFallback = typeof window.LR_robot === 'string' && window.LR_robot.length > 0;
       setIsBusinessChatOnline(hasOnlineAgent || hasRobotFallback);
@@ -60,7 +78,7 @@ export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: str
     updateOnlineState();
     const timer = window.setInterval(updateOnlineState, 2000);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [businessChatProvider]);
 
   const contactPath = (() => {
     const localeSegment = pathname.split('/').filter(Boolean)[0];
@@ -94,10 +112,19 @@ export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: str
       event: 'ntet_business_chat_open',
       event_category: 'lead',
       event_label: 'desktop_floating_business_chat',
+      chat_provider: businessChatProvider,
       page_path: pathname,
     });
 
-    const hideInvitePanels = () => {
+    const openTawkChat = () => {
+      if (typeof window.Tawk_API?.maximize !== 'function') return false;
+
+      window.Tawk_API.showWidget?.();
+      window.Tawk_API.maximize();
+      return true;
+    };
+
+    const hideZoosnetInvitePanels = () => {
       window.LR_HideInvite?.();
       ['LRfloater0', 'LRfloater1', 'LRdiv0', 'LRdiv1'].forEach((id) => {
         const panel = document.getElementById(id);
@@ -107,31 +134,33 @@ export default function DesktopFloatingContact({ locale = 'ru' }: { locale?: str
       });
     };
 
-    const openMiniChat = () => {
+    const openZoosnetChat = () => {
       if (typeof window.LR_showminiDiv !== 'function') {
         return false;
       }
 
       window.clickopenmini = 1;
-      hideInvitePanels();
+      hideZoosnetInvitePanels();
       window.LR_showminiDiv(0);
       window.lrminiMax?.();
-      hideInvitePanels();
       window.setTimeout(() => window.lrminiMax?.(), 400);
-      window.setTimeout(hideInvitePanels, 500);
-      window.setTimeout(hideInvitePanels, 1200);
+      window.setTimeout(hideZoosnetInvitePanels, 500);
+      window.setTimeout(hideZoosnetInvitePanels, 1200);
       return true;
     };
 
-    if (openMiniChat()) return;
+    const openSelectedChat = () =>
+      businessChatProvider === 'tawk' ? openTawkChat() : openZoosnetChat();
+
+    if (openSelectedChat()) return;
 
     let attempts = 0;
     const retryTimer = window.setInterval(() => {
       attempts += 1;
-      if (openMiniChat() || attempts >= 8) {
+      if (openSelectedChat() || attempts >= 20) {
         window.clearInterval(retryTimer);
       }
-    }, 250);
+    }, 300);
   };
 
   const scrollToTop = () => {

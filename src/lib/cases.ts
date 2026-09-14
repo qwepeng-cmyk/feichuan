@@ -1,16 +1,16 @@
-import { supabase } from './supabase';
+import db from './db';
 import { unstable_cache } from 'next/cache';
 import { isdefenseCaseHandle } from './indexability';
 import { sanitizePublicRecord } from './publicCopy';
 
 export const getAllCases = unstable_cache(
   async () => {
-    const { data, error } = await supabase
-      .from('cases')
-      .select('handle, title_en, title_ru, main_image, region_en, country_en, region_ru, country_ru, solution_category_id')
-      .eq('is_published', 1);
-    if (error) throw error;
-    const rows = (data || []) as any[];
+    const rows = db.prepare(`
+      SELECT handle, title_en, title_ru, main_image, region_en, country_en,
+             region_ru, country_ru, solution_category_id
+      FROM cases
+      WHERE COALESCE(is_published, 1) = 1
+    `).all() as any[];
     return rows
       .filter((row) => isdefenseCaseHandle(row.handle))
       .map((row) => sanitizePublicRecord(row));
@@ -21,12 +21,11 @@ export const getAllCases = unstable_cache(
 
 export const getAllCaseHandles = unstable_cache(
   async () => {
-    const { data, error } = await supabase
-      .from('cases')
-      .select('handle')
-      .eq('is_published', 1);
-    if (error) throw error;
-    const rows = (data || []) as any[];
+    const rows = db.prepare(`
+      SELECT handle
+      FROM cases
+      WHERE COALESCE(is_published, 1) = 1
+    `).all() as any[];
     return rows.map(r => r.handle).filter(Boolean);
   },
   ['case-handles-yandex-copy-20260728-v2'],
@@ -35,13 +34,11 @@ export const getAllCaseHandles = unstable_cache(
 
 export const getCaseByHandle = unstable_cache(
   async (handle: string) => {
-    const { data: row, error } = await supabase
-      .from('cases')
-      .select('*')
-      .eq('handle', handle)
-      .eq('is_published', 1)
-      .maybeSingle();
-    if (error) throw error;
+    const row = db.prepare(`
+      SELECT *
+      FROM cases
+      WHERE handle = ? AND COALESCE(is_published, 1) = 1
+    `).get(handle) as any;
     if (!row) return null;
     try {
         const data = JSON.parse(row.raw_json);

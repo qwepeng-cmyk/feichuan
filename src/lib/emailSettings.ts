@@ -102,7 +102,7 @@ export async function updateEmailSettings(settings: Partial<EmailSettings> & { k
     receiverEmail: (settings.receiverEmail ?? '').trim(),
   };
 
-  await db.transaction(async (transactionDb) => {
+  db.transaction((transactionDb) => {
     const update = transactionDb.prepare(`
       INSERT INTO site_settings (key, value, updated_at)
       VALUES (?, ?, CURRENT_TIMESTAMP)
@@ -111,14 +111,14 @@ export async function updateEmailSettings(settings: Partial<EmailSettings> & { k
         updated_at = CURRENT_TIMESTAMP
     `);
 
-    await update.run('email.enabled', String(next.enabled));
-    await update.run('email.brochureNotificationsEnabled', String(next.brochureNotificationsEnabled));
-    await update.run('email.smtpHost', next.smtpHost);
-    await update.run('email.smtpPort', String(next.smtpPort));
-    await update.run('email.smtpSecure', String(next.smtpSecure));
-    await update.run('email.smtpUser', next.smtpUser);
-    await update.run('email.smtpPass', next.smtpPass);
-    await update.run('email.fromEmail', next.fromEmail);
-    await update.run('email.receiverEmail', next.receiverEmail);
+    update.run('email.enabled', String(next.enabled));
+    update.run('email.brochureNotificationsEnabled', String(next.brochureNotificationsEnabled));
+    update.run('email.smtpHost', next.smtpHost);
+    update.run('email.smtpPort', String(next.smtpPort));
+    update.run('email.smtpSecure', String(next.smtpSecure));
+    update.run('email.smtpUser', next.smtpUser);
+    update.run('email.smtpPass', next.smtpPass);
+    update.run('email.fromEmail', next.fromEmail);
+    update.run('email.receiverEmail', next.receiverEmail);
   });
 }

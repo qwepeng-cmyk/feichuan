@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import db from './db';
 import { unstable_cache } from 'next/cache';
 import { isdefenseMediaHandle } from './indexability';
 import { sanitizePublicRecord } from './publicCopy';
@@ -37,13 +37,12 @@ function normalizeMediaItem(item: any) {
 
 export const getAllMedia = unstable_cache(
   async function getAllMedia() {
-    const { data, error } = await supabase
-      .from('media')
-      .select('raw_json, is_published')
-      .eq('is_published', 1)
-      .order('date', { ascending: false });
-    if (error) throw error;
-    const rows = (data || []) as any[];
+    const rows = db.prepare(`
+      SELECT raw_json, is_published
+      FROM media
+      WHERE COALESCE(is_published, 1) = 1
+      ORDER BY date DESC
+    `).all() as any[];
     return rows.map(r => {
       try {
         return sanitizePublicRecord(normalizeMediaItem(JSON.parse(r.raw_json)));
@@ -64,12 +63,11 @@ export const getAllMedia = unstable_cache(
 
 export const getAllMediaIds = unstable_cache(
   async function getAllMediaIds() {
-    const { data, error } = await supabase
-      .from('media')
-      .select('id')
-      .eq('is_published', 1);
-    if (error) throw error;
-    const rows = (data || []) as any[];
+    const rows = db.prepare(`
+      SELECT id
+      FROM media
+      WHERE COALESCE(is_published, 1) = 1
+    `).all() as any[];
     return rows.map(r => r.id).filter(id => !isHiddenPublicMediaHandle(id));
   },
   ['media-ids-yandex-copy-20260729-v3'],
@@ -80,13 +78,11 @@ export const getMediaById = unstable_cache(
   async function getMediaById(id: string) {
     if (isHiddenPublicMediaHandle(id)) return null;
 
-    const { data: row, error } = await supabase
-      .from('media')
-      .select('raw_json')
-      .eq('id', id)
-      .eq('is_published', 1)
-      .maybeSingle();
-    if (error) throw error;
+    const row = db.prepare(`
+      SELECT raw_json
+      FROM media
+      WHERE id = ? AND COALESCE(is_published, 1) = 1
+    `).get(id) as any;
     if (!row) return null;
 
     try {
